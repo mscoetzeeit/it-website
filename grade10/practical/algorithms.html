@@ -184,65 +184,91 @@ END</code></pre>
     <h3>Flowchart Symbol Reference</h3>
 
     <!-- SVG: 4 flowchart symbols with legend -->
-    <div style="margin:1.25rem 0; overflow-x:auto">
-      <svg viewBox="0 0 760 220" width="100%" style="max-width:760px; display:block; margin:0 auto" aria-label="Flowchart symbols: oval, parallelogram, rectangle, diamond">
-        <!-- Background -->
-        <rect width="760" height="220" fill="#0d1117" rx="10"/>
-
-        <!-- Title -->
-        <text x="380" y="24" text-anchor="middle" fill="#e6edf3" font-size="13" font-family="sans-serif" font-weight="bold">Flowchart Symbols</text>
-
-        <!-- OVAL (Start/End) -->
-        <g transform="translate(50,50)">
-          <ellipse cx="70" cy="45" rx="65" ry="30" fill="#161b22" stroke="#4ade80" stroke-width="2"/>
-          <text x="70" y="49" text-anchor="middle" fill="#4ade80" font-size="13" font-family="sans-serif" font-weight="bold">Start / End</text>
-          <text x="70" y="100" text-anchor="middle" fill="#e6edf3" font-size="12" font-family="sans-serif">Oval</text>
-          <text x="70" y="118" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">Marks the beginning</text>
-          <text x="70" y="133" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">or end of a program</text>
-        </g>
-
-        <!-- PARALLELOGRAM (Input/Output) -->
-        <g transform="translate(220,50)">
-          <polygon points="15,15 135,15 120,75 0,75" fill="#161b22" stroke="#22d3ee" stroke-width="2"/>
-          <text x="68" y="51" text-anchor="middle" fill="#22d3ee" font-size="12" font-family="sans-serif" font-weight="bold">Input / Output</text>
-          <text x="68" y="100" text-anchor="middle" fill="#e6edf3" font-size="12" font-family="sans-serif">Parallelogram</text>
-          <text x="68" y="118" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">Read a value from user</text>
-          <text x="68" y="133" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">or display a result</text>
-        </g>
-
-        <!-- RECTANGLE (Process) -->
-        <g transform="translate(400,50)">
-          <rect x="5" y="15" width="125" height="60" rx="3" fill="#161b22" stroke="#a78bfa" stroke-width="2"/>
-          <text x="68" y="49" text-anchor="middle" fill="#a78bfa" font-size="13" font-family="sans-serif" font-weight="bold">Process</text>
-          <text x="68" y="65" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">e.g. total = a + b</text>
-          <text x="68" y="100" text-anchor="middle" fill="#e6edf3" font-size="12" font-family="sans-serif">Rectangle</text>
-          <text x="68" y="118" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">A calculation or</text>
-          <text x="68" y="133" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">assignment step</text>
-        </g>
-
-        <!-- DIAMOND (Decision) -->
-        <g transform="translate(570,40)">
-          <polygon points="75,5 145,50 75,95 5,50" fill="#161b22" stroke="#fb923c" stroke-width="2"/>
-          <text x="75" y="47" text-anchor="middle" fill="#fb923c" font-size="12" font-family="sans-serif" font-weight="bold">Decision</text>
-          <text x="75" y="63" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">Yes / No</text>
-          <text x="75" y="110" text-anchor="middle" fill="#e6edf3" font-size="12" font-family="sans-serif">Diamond</text>
-          <text x="75" y="128" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">A question with two</text>
-          <text x="75" y="143" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">possible paths (Yes/No)</text>
-        </g>
-
+    <!-- SVG: 4 flowchart symbols — 2x2 grid, mobile-friendly -->
+    <div style="margin:1.25rem 0">
+      <svg viewBox="0 0 360 420" width="360" style="max-width:100%;display:block;margin:0 auto" aria-label="Flowchart symbols: oval, parallelogram, rectangle, diamond">
+        <rect width="360" height="420" fill="#0d1117" rx="10"/>
+        <text x="180" y="28" text-anchor="middle" fill="#e6edf3" font-size="15" font-family="sans-serif" font-weight="bold">Flowchart Symbols</text>
+        <!-- OVAL -->
+        <rect x="10" y="42" width="160" height="150" rx="8" fill="#161b22" stroke="#4ade80" stroke-width="1.5"/>
+        <ellipse cx="90" cy="92" rx="62" ry="28" fill="#0d1117" stroke="#4ade80" stroke-width="2.5"/>
+        <text x="90" y="97" text-anchor="middle" fill="#4ade80" font-size="14" font-family="sans-serif" font-weight="bold">Start / End</text>
+        <text x="90" y="140" text-anchor="middle" fill="#e6edf3" font-size="13" font-family="sans-serif" font-weight="bold">Oval</text>
+        <text x="90" y="158" text-anchor="middle" fill="#8b949e" font-size="12" font-family="sans-serif">Marks the start</text>
+        <text x="90" y="175" text-anchor="middle" fill="#8b949e" font-size="12" font-family="sans-serif">or end of a program</text>
+        <!-- PARALLELOGRAM -->
+        <rect x="190" y="42" width="160" height="150" rx="8" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+        <polygon points="210,68 330,68 310,116 190,116" fill="#0d1117" stroke="#22d3ee" stroke-width="2.5"/>
+        <text x="263" y="93" text-anchor="middle" fill="#22d3ee" font-size="13" font-family="sans-serif" font-weight="bold">Input /</text>
+        <text x="263" y="110" text-anchor="middle" fill="#22d3ee" font-size="13" font-family="sans-serif" font-weight="bold">Output</text>
+        <text x="270" y="140" text-anchor="middle" fill="#e6edf3" font-size="13" font-family="sans-serif" font-weight="bold">Parallelogram</text>
+        <text x="270" y="158" text-anchor="middle" fill="#8b949e" font-size="12" font-family="sans-serif">Read input from user</text>
+        <text x="270" y="175" text-anchor="middle" fill="#8b949e" font-size="12" font-family="sans-serif">or display a result</text>
+        <!-- RECTANGLE -->
+        <rect x="10" y="206" width="160" height="150" rx="8" fill="#161b22" stroke="#a78bfa" stroke-width="1.5"/>
+        <rect x="28" y="228" width="124" height="52" rx="4" fill="#0d1117" stroke="#a78bfa" stroke-width="2.5"/>
+        <text x="90" y="258" text-anchor="middle" fill="#a78bfa" font-size="14" font-family="sans-serif" font-weight="bold">Process</text>
+        <text x="90" y="304" text-anchor="middle" fill="#e6edf3" font-size="13" font-family="sans-serif" font-weight="bold">Rectangle</text>
+        <text x="90" y="322" text-anchor="middle" fill="#8b949e" font-size="12" font-family="sans-serif">A calculation or</text>
+        <text x="90" y="339" text-anchor="middle" fill="#8b949e" font-size="12" font-family="sans-serif">assignment step</text>
+        <!-- DIAMOND -->
+        <rect x="190" y="206" width="160" height="150" rx="8" fill="#161b22" stroke="#fb923c" stroke-width="1.5"/>
+        <polygon points="270,222 330,258 270,294 210,258" fill="#0d1117" stroke="#fb923c" stroke-width="2.5"/>
+        <text x="270" y="254" text-anchor="middle" fill="#fb923c" font-size="13" font-family="sans-serif" font-weight="bold">Decision</text>
+        <text x="270" y="270" text-anchor="middle" fill="#fb923c" font-size="12" font-family="sans-serif">Yes / No</text>
+        <text x="270" y="304" text-anchor="middle" fill="#e6edf3" font-size="13" font-family="sans-serif" font-weight="bold">Diamond</text>
+        <text x="270" y="322" text-anchor="middle" fill="#8b949e" font-size="12" font-family="sans-serif">A question with two</text>
+        <text x="270" y="339" text-anchor="middle" fill="#8b949e" font-size="12" font-family="sans-serif">possible paths (Yes/No)</text>
         <!-- Arrow legend -->
-        <g transform="translate(50,175)">
-          <line x1="0" y1="10" x2="40" y2="10" stroke="#30363d" stroke-width="2"/>
-          <polygon points="40,6 50,10 40,14" fill="#30363d"/>
-          <text x="60" y="14" fill="#8b949e" font-size="11" font-family="sans-serif">Arrows show the direction of flow</text>
-        </g>
+        <line x1="20" y1="390" x2="60" y2="390" stroke="#8b949e" stroke-width="2"/>
+        <polygon points="58,386 70,390 58,394" fill="#8b949e"/>
+        <text x="78" y="395" fill="#8b949e" font-size="12" font-family="sans-serif">Arrows show direction of flow</text>
       </svg>
     </div>
-
-    <figure class="img-center">
-      <img src="../../images/flowchart-example.png" alt="Flowchart example: checking if a colour is blue" class="img-center">
-      <figcaption class="img-caption">Flowchart example: checking if a colour is blue</figcaption>
-    </figure>
+    <div style="margin:1.25rem 0;display:flex;justify-content:center">
+      <svg viewBox="0 0 300 560" width="300" style="max-width:100%;display:block" aria-label="Flowchart: is a colour blue?">
+        <rect width="300" height="560" fill="#0d1117" rx="10"/>
+        <!-- BEGIN -->
+        <ellipse cx="150" cy="42" rx="58" ry="24" fill="#161b22" stroke="#4ade80" stroke-width="2.5"/>
+        <text x="150" y="48" text-anchor="middle" fill="#4ade80" font-size="15" font-family="sans-serif" font-weight="bold">BEGIN</text>
+        <line x1="150" y1="66" x2="150" y2="92" stroke="#8b949e" stroke-width="2"/>
+        <polygon points="144,90 150,102 156,90" fill="#8b949e"/>
+        <!-- INPUT colour -->
+        <polygon points="34,102 266,102 248,148 52,148" fill="#161b22" stroke="#22d3ee" stroke-width="2.5"/>
+        <text x="150" y="130" text-anchor="middle" fill="#22d3ee" font-size="14" font-family="sans-serif" font-weight="bold">INPUT colour</text>
+        <line x1="150" y1="148" x2="150" y2="174" stroke="#8b949e" stroke-width="2"/>
+        <polygon points="144,172 150,184 156,172" fill="#8b949e"/>
+        <!-- DECISION -->
+        <polygon points="150,184 238,228 150,272 62,228" fill="#161b22" stroke="#fb923c" stroke-width="2.5"/>
+        <text x="150" y="223" text-anchor="middle" fill="#fb923c" font-size="13" font-family="sans-serif" font-weight="bold">Is colour</text>
+        <text x="150" y="240" text-anchor="middle" fill="#fb923c" font-size="13" font-family="sans-serif" font-weight="bold">blue?</text>
+        <!-- YES left -->
+        <text x="38" y="220" text-anchor="middle" fill="#4ade80" font-size="13" font-family="sans-serif" font-weight="bold">Yes</text>
+        <line x1="62" y1="228" x2="22" y2="228" stroke="#4ade80" stroke-width="2"/>
+        <line x1="22" y1="228" x2="22" y2="346" stroke="#4ade80" stroke-width="2"/>
+        <polygon points="16,344 22,356 28,344" fill="#4ade80"/>
+        <rect x="2" y="356" width="134" height="50" rx="4" fill="#161b22" stroke="#a78bfa" stroke-width="2.5"/>
+        <text x="69" y="378" text-anchor="middle" fill="#a78bfa" font-size="13" font-family="sans-serif" font-weight="bold">Show "colour</text>
+        <text x="69" y="395" text-anchor="middle" fill="#a78bfa" font-size="13" font-family="sans-serif" font-weight="bold">is blue"</text>
+        <line x1="69" y1="406" x2="69" y2="448" stroke="#8b949e" stroke-width="2"/>
+        <polygon points="63,446 69,458 75,446" fill="#8b949e"/>
+        <ellipse cx="69" cy="480" rx="52" ry="22" fill="#161b22" stroke="#4ade80" stroke-width="2.5"/>
+        <text x="69" y="486" text-anchor="middle" fill="#4ade80" font-size="14" font-family="sans-serif" font-weight="bold">END</text>
+        <!-- NO right -->
+        <text x="262" y="220" text-anchor="middle" fill="#f87171" font-size="13" font-family="sans-serif" font-weight="bold">No</text>
+        <line x1="238" y1="228" x2="278" y2="228" stroke="#f87171" stroke-width="2"/>
+        <line x1="278" y1="228" x2="278" y2="346" stroke="#f87171" stroke-width="2"/>
+        <polygon points="272,344 278,356 284,344" fill="#f87171"/>
+        <rect x="164" y="356" width="134" height="50" rx="4" fill="#161b22" stroke="#a78bfa" stroke-width="2.5"/>
+        <text x="231" y="378" text-anchor="middle" fill="#a78bfa" font-size="13" font-family="sans-serif" font-weight="bold">Show "colour</text>
+        <text x="231" y="395" text-anchor="middle" fill="#a78bfa" font-size="13" font-family="sans-serif" font-weight="bold">is NOT blue"</text>
+        <line x1="231" y1="406" x2="231" y2="448" stroke="#8b949e" stroke-width="2"/>
+        <polygon points="225,446 231,458 237,446" fill="#8b949e"/>
+        <ellipse cx="231" cy="480" rx="52" ry="22" fill="#161b22" stroke="#4ade80" stroke-width="2.5"/>
+        <text x="231" y="486" text-anchor="middle" fill="#4ade80" font-size="14" font-family="sans-serif" font-weight="bold">END</text>
+      </svg>
+    </div>
+    <p class="img-caption">Flowchart example: checking if a colour is blue</p>
 
     <h3>Worked Example: Is a Number Even or Odd?</h3>
     <p>This flowchart takes a number as input, checks if it divides evenly by 2, and displays "Even" or "Odd" before ending.</p>
