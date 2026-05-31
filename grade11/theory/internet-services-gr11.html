@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Internet Services (Gr 11) &#x00B7; Ms Coetzee IT</title><link rel="stylesheet" href="../../css/style.css"><style>:root{--grade-color:var(--gr11);}</style></head><body><div id="topnav"></div><div class="page-wrapper"><aside class="sidebar"><div class="sidebar-grade">Grade 11 Theory</div><a href="hardware-gr11.html">Motherboard &amp; Hardware</a><a href="processing.html">Processing Techniques</a><a href="databases.html">Database Management</a><a href="networks-gr11.html">Networks &amp; Protocols</a><a href="mobile-tech.html">Mobile Technology</a><a href="computer-management.html">Computer Management</a><a href="e-communications-gr11.html">E-Communications</a><a href="internet-gr11.html">Internet &amp; Multimedia</a><a href="internet-services-gr11.html">Internet Services</a><a href="social-gr11.html">Social Implications</a><div class="sidebar-grade" style="margin-top:1rem">Grade 11 Practical</div><a href="../practical/arrays.html">1D Arrays</a><a href="../practical/text-files.html">Text Files</a><a href="../practical/methods.html">Procedures &amp; Functions</a><a href="../practical/databases-delphi.html">Databases in Delphi</a></aside><main class="content"><div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">&#x203a;</span><span>Internet Services</span></div>
+<h1>Internet Services <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">Types of websites, supporting web technologies, security services, and internet-related careers.</p>
+<h2>Internet Services</h2>
+<p><strong>An internet service</strong> is any facility the internet provides that lets people find, share, communicate or transact online — from browsing websites to streaming video to online banking. The websites you visit are the most visible internet service, and they come in many types depending on their purpose.</p>
+<h2>Types of Websites</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Purpose</th><th>Examples</th></tr>
+  <tr><td><strong>E-commerce</strong></td><td>Sell goods or services online</td><td>Takealot, Amazon</td></tr>
+  <tr><td><strong>Informational</strong></td><td>Provide reference information</td><td>Wikipedia, government sites</td></tr>
+  <tr><td><strong>Educational</strong></td><td>Online courses and learning</td><td>Khan Academy, Siyavula</td></tr>
+  <tr><td><strong>Entertainment</strong></td><td>Videos, music, games</td><td>Netflix, YouTube, Spotify</td></tr>
+  <tr><td><strong>News</strong></td><td>Daily current events</td><td>News24, BBC</td></tr>
+  <tr><td><strong>Social networking</strong></td><td>User profiles, sharing, interaction</td><td>Facebook, Instagram, X</td></tr>
+  <tr><td><strong>Search engine</strong></td><td>Find information on the web</td><td>Google, Bing</td></tr>
+</table></div>
+<h2>Static vs Dynamic Websites</h2>
+<p>Not all websites are built the same way. A <strong>static website</strong> shows the same fixed pages to everyone, and only changes when the developer manually edits the HTML files. A <strong>dynamic website</strong> builds its pages on the spot, pulling fresh content out of a database every time you visit, so what you see can differ from what the next person sees.</p>
+<div class="callout"><div class="callout-title">A PRINTED POSTER vs A DIGITAL NOTICEBOARD</div><p>A <strong>static site</strong> is like a printed poster on a wall — it says exactly the same thing to everyone until someone takes it down and pins up a new one. A <strong>dynamic site</strong> is like a digital noticeboard wired to a computer — it can greet you by name, show your shopping cart, and update prices automatically because it fetches the latest information each time.</p></div>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Static</th><th>Dynamic</th></tr>
+  <tr><td><strong>Content</strong></td><td>Fixed HTML; only changes when developer edits</td><td>Generated from a database on demand</td></tr>
+  <tr><td><strong>Database</strong></td><td>No</td><td>Yes</td></tr>
+  <tr><td><strong>Speed</strong></td><td>Faster (no processing needed)</td><td>Slightly slower</td></tr>
+  <tr><td><strong>Security risk</strong></td><td>Lower</td><td>Higher (SQL injection, data breaches)</td></tr>
+  <tr><td><strong>Examples</strong></td><td>Simple portfolio, info page</td><td>Online shops, social media, news sites</td></tr>
+</table></div>
+<h2>HTTP vs HTTPS</h2>
+<p><strong>HTTP (HyperText Transfer Protocol)</strong> is the set of rules browsers and web servers use to send web pages to each other. <strong>HTTPS</strong> is the same protocol with an added layer of security (the "S" stands for Secure) that encrypts the data so nobody can read it while it travels across the internet.</p>
+<h3>Why Does the "S" Matter?</h3>
+<p>When you log in to your bank or type in your password, that information passes through many computers on its way across the internet. With plain HTTP, anyone who intercepts it can read it. HTTPS scrambles it into nonsense that only the destination can unlock.</p>
+<div class="callout warning"><div class="callout-title">A POSTCARD vs A LOCKED ENVELOPE</div><p>Sending data over <strong>HTTP</strong> is like writing your message on a <strong>postcard</strong> — every postal worker who handles it can read it along the way. Sending data over <strong>HTTPS</strong> is like sealing it inside a <strong>locked envelope</strong> that only the person you are writing to has the key to open. Always look for the padlock and "https://" before typing anything personal.</p></div>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>HTTP</th><th>HTTPS</th></tr>
+  <tr><td>Encryption</td><td>None — plain text</td><td>SSL/TLS — encrypted</td></tr>
+  <tr><td>Browser padlock</td><td>No</td><td>Yes</td></tr>
+  <tr><td>Use for</td><td>Non-sensitive public pages</td><td>Login, banking, any personal data</td></tr>
+</table></div>
+<h2>Security Services</h2>
+<h3>Multi-Factor Authentication (MFA)</h3>
+<p>Requires more than one proof of identity. Examples: password + SMS code; password + fingerprint.</p>
+<ul>
+  <li><strong>Advantages</strong>: much harder for attackers to access accounts</li>
+  <li><strong>Limitations</strong>: requires additional device; SMS can be intercepted</li>
+</ul>
+<h3>One-Time PIN (OTP)</h3>
+<p>A code sent to your device, valid for one login only. Prevents replay attacks even if code is intercepted later.</p>
+<h3>Security Token</h3>
+<p>A hardware device or app that generates a new code every 30–60 seconds. More secure than SMS-based OTPs.</p>
+<h2>Internet-Related Careers</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Career</th><th>Role</th></tr>
+  <tr><td><strong>Web Designer</strong></td><td>Designs visual layout and user experience of websites (colours, fonts, layout)</td></tr>
+  <tr><td><strong>Web Developer / Author</strong></td><td>Writes HTML, CSS and JavaScript to build and maintain websites</td></tr>
+  <tr><td><strong>Graphics &amp; Multimedia Designer</strong></td><td>Creates logos, icons, animations, videos and interactive media</td></tr>
+  <tr><td><strong>Database Administrator</strong></td><td>Manages website databases, security, backups and performance</td></tr>
+  <tr><td><strong>SEO Specialist</strong></td><td>Optimises websites to rank higher in search results</td></tr>
+  <tr><td><strong>Cybersecurity Analyst</strong></td><td>Monitors and protects systems from attacks</td></tr>
+</table></div>
+<div class="page-nav">
+  <a href="internet-gr11.html"><span class="page-nav-label">&#8592; Previous</span>Internet &amp; Multimedia</a>
+  <a class="next" href="social-gr11.html"><span class="page-nav-label">Next &#8594;</span>Social Implications</a>
+</div></main></div><script src="../../js/nav.js"></script><script src="../../js/main.js"></script></body></html>

@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Recursion (Delphi) &#x00B7; Ms Coetzee IT</title><link rel="stylesheet" href="../css/style.css"><style>:root{--grade-color:var(--gr12);}</style></head><body><div id="topnav"></div><div class="page-wrapper"><aside class="sidebar"><div class="sidebar-grade">Grade 12</div><a href="data-management.html">Data Collection</a><a href="relational-db.html">Relational DBs</a><a href="hardware-gr12.html">Hardware &amp; Performance</a><a href="cloud-vr-ar.html">Cloud, VR &amp; AR</a><a href="internet-tech.html">Internet Tech</a><a href="networks-gr12.html">Networks &amp; Remote Access</a><a href="communication-tech.html">Communication Tech</a><a href="cybercrime.html">Cybercrime &amp; Safeguards</a><a href="recursion.html">Recursion</a><a href="social-gr12.html">Social Implications</a></aside><main class="content"><div class="breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb-sep">&#x203a;</span><span>Recursion</span></div>
+<h1>Recursion in Delphi <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">Recursion is when a function or procedure calls itself repeatedly until a base condition is met. It is a powerful technique for problems that can be broken down into smaller versions of the same problem.</p>
+<h2>What is Recursion?</h2>
+<p><strong>Recursion</strong> is when a function calls itself to solve a smaller version of the same problem, again and again, until the problem becomes so small it can be answered directly.</p>
+<p><strong>Analogy:</strong> picture a set of Russian nesting dolls. You open the biggest doll and find a smaller doll inside, open that and find a smaller one still, and you keep going until you reach the tiny doll that does not open. Recursion works the same way — each call opens up a slightly smaller version of the problem, and the smallest doll (the one that does not open) is the point where you stop.</p>
+<p>A <strong>recursive</strong> routine is one that calls itself. Every recursive solution must have two parts:</p>
+<ul>
+  <li><strong>Base case</strong> — the condition that stops the recursion (essential — without it you get infinite recursion)</li>
+  <li><strong>Recursive case</strong> — the part where the function calls itself with a simpler input</li>
+</ul>
+<div class="callout warning"><div class="callout-title">Always have a base case</div><p>A recursive function without a base case will call itself forever, causing a stack overflow error and crashing the program.</p></div>
+<h2>Example 1 — Factorial</h2>
+<p>Factorial of n (written n!) = n × (n-1) × (n-2) × … × 1. Example: 5! = 5 × 4 × 3 × 2 × 1 = 120</p>
+<div class="code-block"><span class="code-label">Delphi — recursive factorial</span>
+<pre><code><span class="kw">function</span> <span class="fn">Factorial</span>(n: <span class="kw2">Integer</span>): <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  <span class="kw">if</span> n &lt;= <span class="num">1</span> <span class="kw">then</span>           <span class="cmt">// base case: factorial of 0 or 1 is 1</span>
+    Result := <span class="num">1</span>
+  <span class="kw">else</span>                      <span class="cmt">// recursive case</span>
+    Result := n * Factorial(n - <span class="num">1</span>);
+<span class="kw">end</span>;
+
+<span class="cmt">// Calling it:</span>
+lblResult.Caption := IntToStr(Factorial(<span class="num">5</span>));  <span class="cmt">// = 120</span></code></pre></div>
+<h3>Trace — how Factorial(4) executes</h3>
+<div class="code-block"><span class="code-label">Trace</span>
+<pre><code>Factorial(4)
+  = 4 * Factorial(3)
+      = 3 * Factorial(2)
+          = 2 * Factorial(1)
+              = 1        ← base case reached
+          = 2 * 1 = 2
+      = 3 * 2 = 6
+  = 4 * 6 = 24</code></pre></div>
+<h2>Example 2 — Sum of 1 to N</h2>
+<div class="code-block"><span class="code-label">Delphi — recursive sum</span>
+<pre><code><span class="kw">function</span> <span class="fn">SumToN</span>(n: <span class="kw2">Integer</span>): <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  <span class="kw">if</span> n &lt;= <span class="num">0</span> <span class="kw">then</span>
+    Result := <span class="num">0</span>           <span class="cmt">// base case</span>
+  <span class="kw">else</span>
+    Result := n + SumToN(n - <span class="num">1</span>);  <span class="cmt">// recursive case</span>
+<span class="kw">end</span>;
+
+<span class="cmt">// SumToN(4) = 4 + 3 + 2 + 1 + 0 = 10</span></code></pre></div>
+<h2>Example 3 — Power (x to the power of n)</h2>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">function</span> <span class="fn">PowerOf</span>(base, exp: <span class="kw2">Integer</span>): <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  <span class="kw">if</span> exp = <span class="num">0</span> <span class="kw">then</span>
+    Result := <span class="num">1</span>                            <span class="cmt">// base case: x^0 = 1</span>
+  <span class="kw">else</span>
+    Result := base * PowerOf(base, exp - <span class="num">1</span>); <span class="cmt">// recursive</span>
+<span class="kw">end</span>;
+
+<span class="cmt">// PowerOf(2, 4) = 2*2*2*2 = 16</span></code></pre></div>
+<h2>Example 4 — Fibonacci Sequence</h2>
+<p>Each number is the sum of the previous two: 0, 1, 1, 2, 3, 5, 8, 13…</p>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">function</span> <span class="fn">Fibonacci</span>(n: <span class="kw2">Integer</span>): <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  <span class="kw">if</span> n &lt;= <span class="num">1</span> <span class="kw">then</span>
+    Result := n                            <span class="cmt">// base cases: F(0)=0, F(1)=1</span>
+  <span class="kw">else</span>
+    Result := Fibonacci(n - <span class="num">1</span>) + Fibonacci(n - <span class="num">2</span>);
+<span class="kw">end</span>;</code></pre></div>
+<h2>Recursion vs Iteration</h2>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Recursion</th><th>Iteration (loop)</th></tr>
+  <tr><td><strong>How it works</strong></td><td>Function calls itself</td><td>Loop repeats a block</td></tr>
+  <tr><td><strong>Code clarity</strong></td><td>Often more elegant for naturally recursive problems</td><td>Usually easier to trace and debug</td></tr>
+  <tr><td><strong>Memory use</strong></td><td>Uses call stack (risk of stack overflow for large n)</td><td>Constant memory use</td></tr>
+  <tr><td><strong>Speed</strong></td><td>Can be slower due to function call overhead</td><td>Generally faster</td></tr>
+  <tr><td><strong>Best for</strong></td><td>Tree traversal, divide-and-conquer algorithms</td><td>Simple counting and totalling</td></tr>
+</table></div>
+<h2>Key Rules for Writing Recursive Functions</h2>
+<ol>
+  <li><strong>Always define a base case</strong> that returns a value without calling itself</li>
+  <li><strong>Each recursive call must move toward the base case</strong> (e.g. decrease n by 1)</li>
+  <li><strong>Test with small values first</strong> — trace through manually</li>
+  <li><strong>Use a function</strong> (not procedure) so it can return a value</li>
+</ol>
+<div class="page-nav">
+  <a href="cybercrime.html"><span class="page-nav-label">&#8592; Previous</span>Cybercrime &amp; Safeguards</a>
+  <a class="next" href="social-gr12.html"><span class="page-nav-label">Next &#8594;</span>Social Implications</a>
+</div></main></div><script src="../js/nav.js"></script><script src="../js/main.js"></script></body></html>

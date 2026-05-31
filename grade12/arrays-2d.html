@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2D Arrays &#x00B7; Ms Coetzee IT</title><link rel="stylesheet" href="../css/style.css"><style>:root{--grade-color:var(--gr11);}</style></head><body><div id="topnav"></div><div class="page-wrapper"><aside class="sidebar"><div class="sidebar-grade">Grade 11 Practical</div><a href="../grade11/practical/text-files.html">Text Files</a><a href="../grade11/practical/methods.html">Procedures &amp; Functions</a><a href="../grade11/practical/databases-delphi.html">Databases in Delphi</a><div class="sidebar-grade" style="margin-top:1rem">Grade 11 Theory</div><a href="../grade11/theory/hardware-gr11.html">Motherboard &amp; Hardware</a><a href="../grade11/theory/processing.html">Processing</a><a href="../grade11/theory/databases.html">Databases</a><a href="../grade11/theory/networks-gr11.html">Networks</a><a href="../grade11/theory/mobile-tech.html">Mobile Tech</a><a href="../grade11/theory/social-gr11.html">Social</a></aside><main class="content"><div class="breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb-sep">›</span><span>2D Arrays</span></div>
+<h1>2D Arrays <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">A two-dimensional array stores data in a grid of rows and columns — like a table or spreadsheet. Each element is accessed using two indices: [row, column].</p>
+<h2>What is a 2D Array?</h2>
+<p>A <strong>two-dimensional (2D) array</strong> is a single variable that stores many values arranged in a grid of rows and columns. Where an ordinary (one-dimensional) array is like a single shopping list running down the page, a 2D array is like a whole spreadsheet — a block of cells where every value sits at the crossing point of a row and a column.</p>
+<p><strong>Analogy:</strong> think of a spreadsheet such as Excel. To find a cell you give a column letter and a row number — for example C5. A 2D array works exactly the same way, except we use two numbers: the first for the row and the second for the column. So <code>myArray[2,3]</code> means "the value in row 2, column 3", just like clicking one cell in a grid.</p>
+<div class="callout"><div class="callout-title">PURPOSE</div><p>We use 2D arrays to store <strong>tables of data</strong> that naturally have rows and columns — for example a class register of marks where each row is a learner and each column is a subject, a seating plan, a noughts-and-crosses board, or temperatures recorded for each day across several weeks. One neat variable holds the whole table instead of dozens of separate variables.</p></div>
+<h2>Why Do We Use 2D Arrays?</h2>
+<ul>
+  <li><strong>Related data stays together</strong> – instead of <code>mark1</code>, <code>mark2</code>, <code>mark3</code> … you keep every mark in one organised grid.</li>
+  <li><strong>Rows and columns have meaning</strong> – a row can represent one learner and a column one subject, so the position itself tells you what the value is.</li>
+  <li><strong>Loops do the heavy lifting</strong> – because the data is regular, two nested loops can fill, display or total the entire table in a few lines.</li>
+</ul>
+<h2>Declaration</h2>
+<p>Before you can use a 2D array you must <strong>declare</strong> it, telling Delphi how many rows and columns it has and what type of data each cell holds. You give two ranges in the square brackets: the first range is the rows and the second is the columns.</p>
+<div class="code-block"><span class="code-label">Syntax</span>
+<pre><code><span class="kw">var</span>
+  arrName : <span class="kw">array</span> [rowStart..rowEnd, colStart..colEnd] <span class="kw">of</span> DataType;</code></pre></div>
+<div class="code-block"><span class="code-label">Delphi — 2x3 integer array</span>
+<pre><code><span class="kw">var</span>
+  myArray : <span class="kw">array</span> [<span class="num">1</span>..<span class="num">2</span>, <span class="num">1</span>..<span class="num">3</span>] <span class="kw">of</span> <span class="kw2">Integer</span>;</code></pre></div>
+<p>The example above creates a grid with 2 rows and 3 columns, giving 6 integer cells in total. <strong>Note:</strong> the ranges can start at any number, but in CAPS we almost always start at 1 so that "row 1" really is the first row.</p>
+<h2>Visualising a 2D Array</h2>
+<p>The table below shows how the index numbers map onto the grid. Read it like a spreadsheet: pick a row down the side and a column across the top, and the cell where they meet is the array element you are referring to.</p>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Col 1</th><th>Col 2</th><th>Col 3</th></tr>
+  <tr><td><strong>Row 1</strong></td><td>myArray[1,1]</td><td>myArray[1,2]</td><td>myArray[1,3]</td></tr>
+  <tr><td><strong>Row 2</strong></td><td>myArray[2,1]</td><td>myArray[2,2]</td><td>myArray[2,3]</td></tr>
+</table></div>
+<h2>Populating a 2D Array</h2>
+<p><strong>Populating</strong> means putting values into the cells. There are two common ways: assigning each cell one by one (fine for a few known values), or using nested loops to fill the whole grid quickly.</p>
+<h3>Fixed values</h3>
+<p>Here we set each cell directly by naming its row and column. This is clear but tedious — imagine doing it for a 30 × 6 register. Use it only when you have a handful of specific values to place.</p>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>myArray[<span class="num">1</span>,<span class="num">1</span>] := <span class="num">10</span>;  myArray[<span class="num">1</span>,<span class="num">2</span>] := <span class="num">20</span>;  myArray[<span class="num">1</span>,<span class="num">3</span>] := <span class="num">30</span>;
+myArray[<span class="num">2</span>,<span class="num">1</span>] := <span class="num">40</span>;  myArray[<span class="num">2</span>,<span class="num">2</span>] := <span class="num">50</span>;  myArray[<span class="num">2</span>,<span class="num">3</span>] := <span class="num">60</span>;</code></pre></div>
+<h3>Nested FOR loops (most common)</h3>
+<p>This is the technique you will use most often. The <strong>outer loop</strong> moves through the rows; for each row the <strong>inner loop</strong> moves through every column. The result is that the inner loop runs completely for each turn of the outer loop, so the code visits every cell, one full row at a time — exactly like reading a spreadsheet left-to-right, then dropping down to the next line.</p>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">var</span>
+  myArray : <span class="kw">array</span> [<span class="num">1</span>..<span class="num">3</span>, <span class="num">1</span>..<span class="num">4</span>] <span class="kw">of</span> <span class="kw2">Integer</span>;
+  r, c    : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  <span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> <span class="num">3</span> <span class="kw">do</span>
+    <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> <span class="num">4</span> <span class="kw">do</span>
+      myArray[r, c] := r * c;   <span class="cmt">// e.g. row 2, col 3 = 6</span>
+<span class="kw">end</span>;</code></pre></div>
+<h2>Displaying a 2D Array</h2>
+<p>To show the grid neatly we again use nested loops, but this time we build up one line of text per row. For each row we start with an empty string, add every column value to it (padding each so the columns line up), and only then add the finished line to the memo. <strong>Important Rule:</strong> the line is built inside the inner loop but written out in the outer loop — that is what keeps each row on its own line.</p>
+<div class="code-block"><span class="code-label">Delphi — display as table in memo</span>
+<pre><code><span class="kw">var</span>
+  sLine: <span class="kw2">string</span>;
+  r, c:  <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  memOut.Clear;
+  <span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> <span class="num">3</span> <span class="kw">do</span>
+  <span class="kw">begin</span>
+    sLine := <span class="str">''</span>;
+    <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> <span class="num">4</span> <span class="kw">do</span>
+      sLine := sLine + IntToStr(myArray[r,c]).PadLeft(<span class="num">5</span>);
+    memOut.Lines.Add(sLine);
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</code></pre></div>
+<h2>Calculations on 2D Arrays</h2>
+<p>A big reason for using a grid is to add things up. The trick is knowing which index to <strong>fix</strong> and which to <strong>vary</strong>. If you think of the class register again: a <strong>row total</strong> is one learner's marks added across all subjects, while a <strong>column total</strong> is one subject's marks added across all learners.</p>
+<h3>Row total</h3>
+<p>To total a single row we <strong>fix the row number</strong> (here row 1) and let the column index <code>c</code> change. The loop walks across that one row, adding each cell to a running total. This answers "what is everything in this row added together?" — for example one learner's total mark.</p>
+<div class="code-block"><span class="code-label">Delphi — total of row 1</span>
+<pre><code>iTotal := <span class="num">0</span>;
+<span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> <span class="num">4</span> <span class="kw">do</span>
+  iTotal := iTotal + myArray[<span class="num">1</span>, c];</code></pre></div>
+<h3>Column total</h3>
+<p>Now we do the opposite: we <strong>fix the column number</strong> (here column 2) and let the row index <code>r</code> change. The loop runs straight down that one column, adding each cell. This answers "what is everything in this column added together?" — for example the total of all learners' marks for one subject.</p>
+<div class="code-block"><span class="code-label">Delphi — total of column 2</span>
+<pre><code>iTotal := <span class="num">0</span>;
+<span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> <span class="num">3</span> <span class="kw">do</span>
+  iTotal := iTotal + myArray[r, <span class="num">2</span>];</code></pre></div>
+<h3>Grand total of all elements</h3>
+<p>To add up <strong>every</strong> cell in the whole grid we need nested loops again — the outer loop for rows, the inner loop for columns — so the running total picks up each cell exactly once. This is how you would work out the grand total of all marks for the entire class across all subjects.</p>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>iTotal := <span class="num">0</span>;
+<span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> <span class="num">3</span> <span class="kw">do</span>
+  <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> <span class="num">4</span> <span class="kw">do</span>
+    iTotal := iTotal + myArray[r, c];</code></pre></div>
+<div class="page-nav">
+  <a href="sql.html"><span class="page-nav-label">← Previous</span>SQL</a>
+  <a class="next" href="hardware-gr12.html"><span class="page-nav-label">Next →</span>Motherboard &amp; Hardware (Theory)</a>
+</div></main></div><script src="../js/nav.js"></script>
+<script src="../js/main.js"></script></body></html>

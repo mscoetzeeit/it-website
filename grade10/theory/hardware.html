@@ -1,0 +1,400 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hardware – IT CAPS</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr10); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 10 &middot; Practical</div>
+    <a href="../../grade10/practical/algorithms.html">Algorithms &amp; Problem Solving</a><a href="../../grade10/practical/delphi-intro.html">Introduction to Delphi</a><a href="../../grade10/practical/data-types.html">Data Types &amp; Variables</a><a href="../../grade10/practical/operators.html">Operators &amp; Functions</a><a href="../../grade10/practical/decisions.html">Decision Making</a><a href="../../grade10/practical/loops.html">Loops</a><a href="../../grade10/practical/strings.html">String Manipulation</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 10 &middot; Theory</div>
+    <a href="../../grade10/theory/digital-tech.html">Digital Technologies &amp; ICT</a><a href="../../grade10/theory/hardware.html">Hardware</a><a href="../../grade10/theory/software.html">Software &amp; Licensing</a><a href="../../grade10/theory/data-representation.html">Data Representation</a><a href="../../grade10/theory/networks.html">Networks</a><a href="../../grade10/theory/internet.html">Internet &amp; WWW</a><a href="../../grade10/theory/e-communication.html">E-Communication</a><a href="../../grade10/theory/management.html">Computer Management &amp; Security</a>
+  </aside>
+  <main class="content">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><a href="#">Grade 10 Theory</a><span class="breadcrumb-sep">›</span><span>Hardware</span></div>
+    <h1>Hardware <span class="grade-badge">Grade 10</span></h1>
+    <p class="page-intro">Hardware is every physical component of a computer — the parts you can actually touch. Software is the instructions that tell hardware what to do. Together they make a complete computing system.</p>
+
+    <!-- INPUT DEVICES GRID -->
+    <div class="hw-grid">
+      <div class="hw-card">
+        <img src="../../images/hw-keyboard.png" alt="Keyboard">
+        <div class="hw-card-name">Keyboard</div>
+        <div class="hw-card-desc">Most common input device for typing text and commands</div>
+      </div>
+      <div class="hw-card">
+        <img src="../../images/hw-mouse.png" alt="Mouse">
+        <div class="hw-card-name">Mouse</div>
+        <div class="hw-card-desc">Pointing device for navigating graphical interfaces</div>
+      </div>
+      <div class="hw-card">
+        <img src="../../images/hw-touchpad.png" alt="Touchpad">
+        <div class="hw-card-name">Touchpad</div>
+        <div class="hw-card-desc">Built-in pointer control surface on laptops</div>
+      </div>
+      <div class="hw-card">
+        <img src="../../images/hw-touchscreen.png" alt="Touchscreen">
+        <div class="hw-card-name">Touchscreen</div>
+        <div class="hw-card-desc">Detects finger or stylus touch directly on the display</div>
+      </div>
+    </div>
+
+    <!-- ANALOGY -->
+    <h2>Hardware vs Software — The Body Analogy</h2>
+    <div class="callout">
+      <div class="callout-title">ANALOGY</div>
+      <p>Think of your body: your <strong>brain, eyes, hands, heart</strong> are hardware — physical organs you can touch. The <strong>thoughts, decisions, and reflexes</strong> your brain generates are software — instructions that control what your body does. A computer works the same way: the physical parts are hardware, and the programs running on them are software.</p>
+    </div>
+
+    <!-- SYSTEM DIAGRAM SVG -->
+    <h2>The Computer System — Five Categories</h2>
+    <p>Every hardware component falls into one of five categories. Data flows through the system in a loop: <strong>Input → Processing → Output</strong>, while <strong>Memory</strong> holds data temporarily and <strong>Storage</strong> saves it permanently. <strong>Communication</strong> devices connect the computer to other devices.</p>
+
+    <div style="margin:1.25rem 0; overflow-x:auto">
+      <svg viewBox="0 0 720 230" width="100%" style="max-width:720px; display:block; margin:0 auto" aria-label="Computer system diagram showing input, processing, memory, storage and output categories">
+        <rect width="720" height="230" fill="#0d1117" rx="10"/>
+
+        <!-- INPUT box -->
+        <rect x="20" y="70" width="110" height="70" rx="6" fill="#161b22" stroke="#22d3ee" stroke-width="2"/>
+        <text x="75" y="101" text-anchor="middle" fill="#22d3ee" font-size="13" font-family="sans-serif" font-weight="bold">INPUT</text>
+        <text x="75" y="118" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">Keyboard, Mouse</text>
+        <text x="75" y="131" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">Scanner, Webcam</text>
+
+        <!-- Arrow INPUT -> PROCESSING -->
+        <line x1="130" y1="105" x2="195" y2="105" stroke="#30363d" stroke-width="2"/>
+        <polygon points="193,99 205,105 193,111" fill="#30363d"/>
+
+        <!-- PROCESSING box (CPU) -->
+        <rect x="205" y="55" width="130" height="100" rx="6" fill="#161b22" stroke="#a78bfa" stroke-width="2"/>
+        <text x="270" y="85" text-anchor="middle" fill="#a78bfa" font-size="13" font-family="sans-serif" font-weight="bold">PROCESSING</text>
+        <text x="270" y="102" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">CPU, GPU</text>
+        <text x="270" y="117" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">Executes instructions</text>
+        <text x="270" y="132" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">Performs calculations</text>
+
+        <!-- Arrow PROCESSING -> OUTPUT -->
+        <line x1="335" y1="105" x2="395" y2="105" stroke="#30363d" stroke-width="2"/>
+        <polygon points="393,99 405,105 393,111" fill="#30363d"/>
+
+        <!-- OUTPUT box -->
+        <rect x="405" y="70" width="110" height="70" rx="6" fill="#161b22" stroke="#4ade80" stroke-width="2"/>
+        <text x="460" y="101" text-anchor="middle" fill="#4ade80" font-size="13" font-family="sans-serif" font-weight="bold">OUTPUT</text>
+        <text x="460" y="118" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">Monitor, Printer</text>
+        <text x="460" y="131" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">Speakers, Projector</text>
+
+        <!-- MEMORY box (above CPU) -->
+        <rect x="215" y="10" width="110" height="38" rx="6" fill="#161b22" stroke="#fb923c" stroke-width="2"/>
+        <text x="270" y="30" text-anchor="middle" fill="#fb923c" font-size="12" font-family="sans-serif" font-weight="bold">MEMORY (RAM)</text>
+        <line x1="270" y1="48" x2="270" y2="55" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="4,2"/>
+
+        <!-- STORAGE box (below CPU) -->
+        <rect x="210" y="162" width="120" height="40" rx="6" fill="#161b22" stroke="#f472b6" stroke-width="2"/>
+        <text x="270" y="179" text-anchor="middle" fill="#f472b6" font-size="12" font-family="sans-serif" font-weight="bold">STORAGE</text>
+        <text x="270" y="194" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">HDD, SSD, USB</text>
+        <line x1="270" y1="162" x2="270" y2="155" stroke="#f472b6" stroke-width="1.5" stroke-dasharray="4,2"/>
+
+        <!-- COMMUNICATION box -->
+        <rect x="560" y="70" width="135" height="70" rx="6" fill="#161b22" stroke="#facc15" stroke-width="2"/>
+        <text x="628" y="97" text-anchor="middle" fill="#facc15" font-size="12" font-family="sans-serif" font-weight="bold">COMMUNICATION</text>
+        <text x="628" y="113" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">NIC, Modem</text>
+        <text x="628" y="126" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">Router, Wi-Fi card</text>
+        <line x1="560" y1="105" x2="515" y2="105" stroke="#facc15" stroke-width="1.5" stroke-dasharray="4,2"/>
+      </svg>
+    </div>
+
+    <!-- CATEGORIES TABLE -->
+    <h2>Hardware Categories</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Category</th><th>Description</th><th>Examples</th><th>You use this when…</th></tr>
+      <tr><td><strong>Input devices</strong></td><td>Allow you to add data to the computer</td><td>Keyboard, mouse, touchscreen, scanner, microphone, webcam</td><td>You type, click, scan a document, or record a video</td></tr>
+      <tr><td><strong>Output devices</strong></td><td>Present results to the user</td><td>Monitor, printer, speakers, projector</td><td>You read text on screen, print a document, hear sound</td></tr>
+      <tr><td><strong>Processing devices</strong></td><td>Execute instructions and perform calculations</td><td>CPU, GPU</td><td>Any program runs — it's always using the CPU</td></tr>
+      <tr><td><strong>Memory (RAM)</strong></td><td>Temporary storage for data being processed</td><td>RAM, cache</td><td>You open a program — it loads into RAM</td></tr>
+      <tr><td><strong>Storage devices</strong></td><td>Permanently save data for later use</td><td>HDD, SSD, USB flash drive, memory card, optical disc</td><td>You save a file — it goes to storage</td></tr>
+      <tr><td><strong>Communication devices</strong></td><td>Allow computers to connect to networks</td><td>NIC, modem, router, Wi-Fi card</td><td>You browse the internet or share a printer</td></tr>
+    </table></div>
+
+    <!-- INPUT DEVICES -->
+    <h2>Input Devices in Detail</h2>
+
+    <h3>Keyboard</h3>
+    <!-- SVG keyboard icon -->
+    <div style="margin:1.25rem 0; overflow-x:auto">
+      <svg viewBox="0 0 360 110" width="100%" style="max-width:360px; display:block" aria-label="Keyboard diagram">
+        <rect width="360" height="110" fill="#0d1117" rx="6"/>
+        <rect x="10" y="15" width="340" height="80" rx="8" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+        <!-- Key rows - row 1 -->
+        <g fill="#21262d" stroke="#30363d" stroke-width="1">
+          <rect x="20" y="22" width="22" height="16" rx="2"/><rect x="46" y="22" width="22" height="16" rx="2"/>
+          <rect x="72" y="22" width="22" height="16" rx="2"/><rect x="98" y="22" width="22" height="16" rx="2"/>
+          <rect x="124" y="22" width="22" height="16" rx="2"/><rect x="150" y="22" width="22" height="16" rx="2"/>
+          <rect x="176" y="22" width="22" height="16" rx="2"/><rect x="202" y="22" width="22" height="16" rx="2"/>
+          <rect x="228" y="22" width="22" height="16" rx="2"/><rect x="254" y="22" width="22" height="16" rx="2"/>
+          <rect x="280" y="22" width="22" height="16" rx="2"/><rect x="306" y="22" width="22" height="16" rx="2"/>
+        </g>
+        <!-- row 2 -->
+        <g fill="#21262d" stroke="#30363d" stroke-width="1">
+          <rect x="20" y="42" width="22" height="16" rx="2"/><rect x="46" y="42" width="22" height="16" rx="2"/>
+          <rect x="72" y="42" width="22" height="16" rx="2"/><rect x="98" y="42" width="22" height="16" rx="2"/>
+          <rect x="124" y="42" width="22" height="16" rx="2"/><rect x="150" y="42" width="22" height="16" rx="2"/>
+          <rect x="176" y="42" width="22" height="16" rx="2"/><rect x="202" y="42" width="22" height="16" rx="2"/>
+          <rect x="228" y="42" width="22" height="16" rx="2"/><rect x="254" y="42" width="22" height="16" rx="2"/>
+          <rect x="280" y="42" width="60" height="16" rx="2"/>
+        </g>
+        <!-- row 3 -->
+        <g fill="#21262d" stroke="#30363d" stroke-width="1">
+          <rect x="20" y="62" width="34" height="16" rx="2"/><rect x="58" y="62" width="22" height="16" rx="2"/>
+          <rect x="84" y="62" width="22" height="16" rx="2"/><rect x="110" y="62" width="22" height="16" rx="2"/>
+          <rect x="136" y="62" width="22" height="16" rx="2"/><rect x="162" y="62" width="22" height="16" rx="2"/>
+          <rect x="188" y="62" width="22" height="16" rx="2"/><rect x="214" y="62" width="22" height="16" rx="2"/>
+          <rect x="240" y="62" width="22" height="16" rx="2"/><rect x="266" y="62" width="22" height="16" rx="2"/>
+          <rect x="292" y="62" width="48" height="16" rx="2"/>
+        </g>
+        <!-- spacebar row -->
+        <g fill="#21262d" stroke="#30363d" stroke-width="1">
+          <rect x="20" y="82" width="40" height="16" rx="2"/>
+          <rect x="64" y="82" width="180" height="16" rx="2"/>
+          <rect x="248" y="82" width="40" height="16" rx="2"/>
+          <rect x="294" y="82" width="46" height="16" rx="2"/>
+        </g>
+        <text x="180" y="105" text-anchor="middle" fill="#22d3ee" font-size="11" font-family="sans-serif">Keyboard — most common input device</text>
+      </svg>
+    </div>
+    <ul>
+      <li>Used to type letters, numbers, symbols, and commands</li>
+      <li>Types: mechanical (tactile click), membrane (quiet, cheap), wireless, ergonomic</li>
+      <li>Special keys: F1–F12 (function keys), Ctrl, Alt, Shift (modifier keys), shortcuts like Ctrl+C (copy)</li>
+      <li><strong>You use this when:</strong> typing a document, entering a password, coding in Delphi</li>
+    </ul>
+
+    <h3>Mouse</h3>
+    <!-- SVG mouse icon -->
+    <div style="margin:1.25rem 0; overflow-x:auto">
+      <svg viewBox="0 0 200 140" width="100%" style="max-width:200px; display:block" aria-label="Mouse diagram">
+        <rect width="200" height="140" fill="#0d1117" rx="6"/>
+        <ellipse cx="100" cy="80" rx="45" ry="58" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+        <line x1="100" y1="30" x2="100" y2="95" stroke="#30363d" stroke-width="1.5"/>
+        <ellipse cx="100" cy="55" rx="10" ry="14" fill="#21262d" stroke="#4ade80" stroke-width="1.5"/>
+        <text x="100" y="55" text-anchor="middle" fill="#4ade80" font-size="9" font-family="sans-serif">scroll</text>
+        <text x="100" y="130" text-anchor="middle" fill="#22d3ee" font-size="11" font-family="sans-serif">Mouse</text>
+      </svg>
+    </div>
+    <ul>
+      <li>Pointing device for graphical interfaces (GUI)</li>
+      <li>Types: optical (uses LED light), laser (more precise), trackball, wireless</li>
+      <li>Actions: left-click (select), double-click (open), right-click (context menu), drag-and-drop, scroll wheel</li>
+      <li><strong>You use this when:</strong> navigating a desktop, clicking buttons, drawing in a graphics program</li>
+    </ul>
+
+    <h3>Other Input Devices</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Device</th><th>How it works</th><th>Common use</th></tr>
+      <tr><td>Touchscreen</td><td>Detects finger or stylus pressure on screen</td><td>Smartphones, tablets, POS tills at Pick n Pay</td></tr>
+      <tr><td>Scanner (flatbed)</td><td>Passes light over document, captures image</td><td>Scanning ID documents, photos</td></tr>
+      <tr><td>Barcode scanner</td><td>Reads black/white stripes with laser</td><td>Supermarket checkouts, library books</td></tr>
+      <tr><td>Webcam / camera</td><td>Captures video/still images</td><td>Google Meet, Teams calls, security cameras</td></tr>
+      <tr><td>Microphone</td><td>Converts sound waves into digital data</td><td>Voice commands, online calls, recordings</td></tr>
+      <tr><td>Stylus/graphics tablet</td><td>Pressure-sensitive pen on surface</td><td>Digital art, architect sketches</td></tr>
+    </table></div>
+
+    <!-- OUTPUT DEVICES -->
+    <h2>Output Devices</h2>
+    <h3>Monitors</h3>
+    <img src="../../images/hw-monitor.jpeg" alt="LCD/LED Monitor" class="img-float-right">
+    <p class="img-caption">LCD/LED Monitor</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Specification</th><th>Meaning</th><th>Example</th></tr>
+      <tr><td>Resolution</td><td>Number of pixels (dots) on screen. More = sharper image</td><td>1920×1080 (Full HD), 3840×2160 (4K)</td></tr>
+      <tr><td>Refresh rate (Hz)</td><td>How many times the screen redraws per second</td><td>60 Hz standard; 144 Hz for gaming</td></tr>
+      <tr><td>Screen size (inches)</td><td>Measured diagonally corner to corner</td><td>24" desktop, 15.6" laptop</td></tr>
+      <tr><td>LCD</td><td>Liquid Crystal Display — uses fluorescent backlight</td><td>Older monitors and TVs</td></tr>
+      <tr><td>LED</td><td>Improved LCD with LED backlight — brighter, thinner, more energy efficient</td><td>Most modern monitors</td></tr>
+      <tr><td>OLED</td><td>Each pixel emits its own light — perfect blacks, best contrast</td><td>Premium phones, TVs</td></tr>
+    </table></div>
+
+    <h3>Printers</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Type</th><th>How it works</th><th>Use case</th><th>Cost per page</th></tr>
+      <tr><td>Inkjet</td><td>Sprays microscopic ink droplets onto paper</td><td>Home or office colour printing, photos</td><td>Medium</td></tr>
+      <tr><td>Laser</td><td>Electrostatic drum attracts toner powder, fuses it with heat</td><td>Fast high-volume office printing</td><td>Low (bulk)</td></tr>
+      <tr><td>Ink-tank</td><td>Bulk refillable ink reservoir — no cartridges</td><td>Schools, high-volume printing (e.g. Epson EcoTank)</td><td>Very low</td></tr>
+      <tr><td>3D Printer</td><td>Layers material (plastic, resin) from a digital design</td><td>Prototypes, models, custom parts</td><td>Varies</td></tr>
+    </table></div>
+    <p><strong>DPI</strong> (dots per inch) = print quality (higher = sharper).<br>
+    <strong>PPM</strong> (pages per minute) = print speed.</p>
+
+    <!-- STORAGE -->
+    <h2>Storage Devices</h2>
+
+    <!-- Storage devices grid -->
+    <div class="hw-grid">
+      <div class="hw-card">
+        <img src="../../images/hw-hdd.png" alt="HDD">
+        <div class="hw-card-name">HDD</div>
+        <div class="hw-card-desc">Hard Disk Drive — magnetic spinning platters, large capacity</div>
+      </div>
+      <div class="hw-card">
+        <img src="../../images/hw-ssd.png" alt="SSD">
+        <div class="hw-card-name">SSD</div>
+        <div class="hw-card-desc">Solid State Drive — fast, silent, no moving parts</div>
+      </div>
+      <div class="hw-card">
+        <img src="../../images/hw-usb-flash.png" alt="USB Flash Drive">
+        <div class="hw-card-name">USB Flash Drive</div>
+        <div class="hw-card-desc">Portable flash memory in a pocket-sized stick</div>
+      </div>
+      <div class="hw-card">
+        <img src="../../images/hw-sd-card.png" alt="SD Card">
+        <div class="hw-card-name">SD Card</div>
+        <div class="hw-card-desc">Small flash memory card used in cameras and phones</div>
+      </div>
+      <div class="hw-card">
+        <img src="../../images/hw-dvd.png" alt="Optical Disc - CD/DVD">
+        <div class="hw-card-name">Optical Disc — CD/DVD</div>
+        <div class="hw-card-desc">Laser-read disc; mostly obsolete but still examined</div>
+      </div>
+    </div>
+
+    <div class="tbl-wrap"><table>
+      <tr><th>Device</th><th>Technology</th><th>Speed</th><th>Notes</th></tr>
+      <tr><td><strong>HDD</strong></td><td>Magnetic spinning platters — a read/write head moves over them like a vinyl record</td><td>Slow (~120 MB/s)</td><td>Cheap per GB, large capacities (1–20 TB), fragile (moving parts)</td></tr>
+      <tr><td><strong>SSD</strong></td><td>Flash memory chips — no moving parts, like a giant USB drive</td><td>Very fast (~500 MB/s+)</td><td>Durable, silent, faster boot times, more expensive per GB</td></tr>
+      <tr><td><strong>NVMe SSD</strong></td><td>SSD connected directly to CPU via PCIe slot</td><td>Extremely fast (~3500 MB/s)</td><td>Found in high-end laptops and desktops</td></tr>
+      <tr><td><strong>USB flash drive</strong></td><td>Flash memory in a portable stick</td><td>Moderate</td><td>Easy to carry, easy to lose; 8 GB–512 GB common</td></tr>
+      <tr><td><strong>Memory card</strong></td><td>Flash (SD, microSD)</td><td>Moderate–fast</td><td>Used in cameras, phones, drones</td></tr>
+      <tr><td><strong>Optical disc</strong></td><td>Laser reads/writes pits and lands on a spinning disc</td><td>Slow</td><td>CD (700 MB), DVD (4.7 GB), Blu-ray (25 GB) — mostly obsolete</td></tr>
+    </table></div>
+
+    <!-- HDD vs SSD comparison -->
+    <h3>HDD vs SSD — Detailed Comparison</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Feature</th><th>HDD</th><th>SSD</th></tr>
+      <tr><td>Speed</td><td>Slow (~80–160 MB/s read)</td><td>Fast (~400–3500 MB/s read)</td></tr>
+      <tr><td>Durability</td><td>Fragile — moving parts can break if dropped</td><td>Durable — no moving parts</td></tr>
+      <tr><td>Cost</td><td>Cheap (R500 for 1 TB)</td><td>More expensive (R800–R1200 for 1 TB)</td></tr>
+      <tr><td>Noise</td><td>Audible clicking/spinning sound</td><td>Completely silent</td></tr>
+      <tr><td>Power use</td><td>Uses more power — reduces laptop battery life</td><td>Uses less power — better for laptops</td></tr>
+      <tr><td>Boot time</td><td>~45–60 seconds</td><td>~8–15 seconds</td></tr>
+      <tr><td>Best use case</td><td>Bulk storage, backups, external drives</td><td>Operating system drive, main laptop drive</td></tr>
+    </table></div>
+
+    <!-- TYPES OF COMPUTERS GRID -->
+    <h2>Types of Computers</h2>
+    <div class="hw-grid">
+      <div class="hw-card">
+        <img src="../../images/hw-desktop.png" alt="Desktop Computer">
+        <div class="hw-card-name">Desktop</div>
+        <div class="hw-card-desc">Powerful, upgradeable, sits on a desk; separate tower and monitor</div>
+      </div>
+      <div class="hw-card">
+        <img src="../../images/hw-laptop.png" alt="Laptop">
+        <div class="hw-card-name">Laptop</div>
+        <div class="hw-card-desc">Portable all-in-one computer with built-in screen and battery</div>
+      </div>
+      <div class="hw-card">
+        <img src="../../images/hw-smartphone.png" alt="Smartphone">
+        <div class="hw-card-name">Smartphone</div>
+        <div class="hw-card-desc">Pocket-sized computer with touchscreen, camera, and mobile apps</div>
+      </div>
+      <div class="hw-card">
+        <img src="../../images/hw-tablet.png" alt="Tablet">
+        <div class="hw-card-name">Tablet</div>
+        <div class="hw-card-desc">Larger touchscreen device between a phone and laptop</div>
+      </div>
+      <div class="hw-card">
+        <img src="../../images/hw-server.png" alt="Server">
+        <div class="hw-card-name">Server</div>
+        <div class="hw-card-desc">High-performance computer that provides services to other computers on a network</div>
+      </div>
+    </div>
+
+    <!-- MEMORY HIERARCHY -->
+    <h2>Memory vs Storage</h2>
+    <div class="callout">
+      <div class="callout-title">DESK ANALOGY</div>
+      <p><strong>RAM</strong> = your desk workspace — only holds what you're actively working on right now. It's fast to access but clears when you switch off.<br>
+      <strong>Storage (HDD/SSD)</strong> = the filing cabinet — stores everything long-term, even when the power is off. Slower to access than RAM.</p>
+    </div>
+
+    <!-- Memory hierarchy pyramid SVG -->
+    <h3>Memory Hierarchy — Speed vs Capacity</h3>
+    <p>The higher up the pyramid, the faster and more expensive the memory — but there's less of it.</p>
+
+    <div style="margin:1.25rem 0; overflow-x:auto">
+      <svg viewBox="0 0 500 300" width="100%" style="max-width:500px; display:block; margin:0 auto" aria-label="Memory hierarchy pyramid: CPU cache at top, then RAM, then SSD/HDD at base">
+        <rect width="500" height="300" fill="#0d1117" rx="10"/>
+
+        <!-- Level 1: CPU Cache (top, smallest, fastest) -->
+        <polygon points="250,20 310,80 190,80" fill="#161b22" stroke="#4ade80" stroke-width="2"/>
+        <text x="250" y="58" text-anchor="middle" fill="#4ade80" font-size="11" font-family="sans-serif" font-weight="bold">CPU Cache</text>
+
+        <!-- Level 2: RAM -->
+        <polygon points="190,84 310,84 350,154 150,154" fill="#161b22" stroke="#22d3ee" stroke-width="2"/>
+        <text x="250" y="116" text-anchor="middle" fill="#22d3ee" font-size="12" font-family="sans-serif" font-weight="bold">RAM</text>
+        <text x="250" y="133" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">4 – 64 GB typical</text>
+
+        <!-- Level 3: SSD -->
+        <polygon points="150,158 350,158 390,228 110,228" fill="#161b22" stroke="#a78bfa" stroke-width="2"/>
+        <text x="250" y="188" text-anchor="middle" fill="#a78bfa" font-size="12" font-family="sans-serif" font-weight="bold">SSD / NVMe</text>
+        <text x="250" y="205" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">256 GB – 4 TB typical</text>
+
+        <!-- Level 4: HDD (base, largest, slowest) -->
+        <polygon points="110,232 390,232 430,280 70,280" fill="#161b22" stroke="#f472b6" stroke-width="2"/>
+        <text x="250" y="258" text-anchor="middle" fill="#f472b6" font-size="12" font-family="sans-serif" font-weight="bold">HDD / External storage</text>
+        <text x="250" y="274" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">1 TB – 20 TB typical</text>
+
+        <!-- Right labels -->
+        <text x="445" y="50" fill="#4ade80" font-size="10" font-family="sans-serif" font-weight="bold">Fastest</text>
+        <text x="445" y="65" fill="#8b949e" font-size="9" font-family="sans-serif">MB / ns</text>
+        <text x="445" y="270" fill="#f472b6" font-size="10" font-family="sans-serif" font-weight="bold">Slowest</text>
+        <text x="445" y="285" fill="#8b949e" font-size="9" font-family="sans-serif">TB / ms</text>
+
+        <!-- Vertical arrow on right -->
+        <line x1="438" y1="80" x2="438" y2="250" stroke="#30363d" stroke-width="1.5"/>
+        <polygon points="432,250 438,262 444,250" fill="#30363d"/>
+        <text x="455" y="170" fill="#8b949e" font-size="9" font-family="sans-serif" transform="rotate(90,455,170)">Size increases</text>
+      </svg>
+    </div>
+
+    <div class="tbl-wrap"><table>
+      <tr><th></th><th>CPU Cache</th><th>RAM</th><th>SSD</th><th>HDD</th></tr>
+      <tr><td><strong>Purpose</strong></td><td>Holds the CPU's most-used data</td><td>Active programs and open files</td><td>Installed programs, OS</td><td>Bulk file storage</td></tr>
+      <tr><td><strong>Volatile?</strong></td><td>Yes — clears on power off</td><td>Yes — clears on power off</td><td>No — data stays</td><td>No — data stays</td></tr>
+      <tr><td><strong>Speed</strong></td><td>Extremely fast (nanoseconds)</td><td>Very fast</td><td>Fast</td><td>Slow</td></tr>
+      <tr><td><strong>Typical size</strong></td><td>4–32 MB</td><td>4–64 GB</td><td>256 GB – 4 TB</td><td>500 GB – 20 TB</td></tr>
+    </table></div>
+
+    <!-- PROCESSING -->
+    <h2>Processing — CPU &amp; GPU</h2>
+    <ul>
+      <li><strong>CPU (Central Processing Unit)</strong> — the "brain" of the computer. Fetches instructions from memory, decodes them, and executes them. Measured by: clock speed (GHz — higher = faster), number of cores (more cores = more tasks at once), and cache size. Example: Intel Core i5, AMD Ryzen 5.</li>
+      <li><strong>GPU (Graphics Processing Unit)</strong> — specialist processor for parallel tasks like rendering graphics, gaming, and AI. Can be integrated (built into the CPU — uses less power) or dedicated (separate card with its own memory, like NVIDIA GeForce). Example: your phone camera uses a GPU to apply filters in real-time.</li>
+    </ul>
+
+    <!-- STORAGE UNITS -->
+    <h2>Storage Units</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Unit</th><th>Abbreviation</th><th>Size</th><th>Real-world example</th></tr>
+      <tr><td>Bit</td><td>b</td><td>Smallest unit — 0 or 1</td><td>A single on/off switch</td></tr>
+      <tr><td>Byte</td><td>B</td><td>8 bits</td><td>One character, e.g. the letter "A"</td></tr>
+      <tr><td>Kilobyte</td><td>KB</td><td>1 024 bytes</td><td>~One page of plain text</td></tr>
+      <tr><td>Megabyte</td><td>MB</td><td>1 024 KB</td><td>A small photo, a 3-minute MP3 song</td></tr>
+      <tr><td>Gigabyte</td><td>GB</td><td>1 024 MB</td><td>A 2-hour movie, a smartphone game</td></tr>
+      <tr><td>Terabyte</td><td>TB</td><td>1 024 GB</td><td>A large hard drive, server storage</td></tr>
+      <tr><td>Petabyte</td><td>PB</td><td>1 024 TB</td><td>Entire data centres, cloud storage</td></tr>
+    </table></div>
+
+    <div class="page-nav">
+      <a href="digital-tech.html"><span class="page-nav-label">← Previous</span>Digital Technologies &amp; ICT</a>
+      <a class="next" href="software.html"><span class="page-nav-label">Next →</span>Software &amp; Licensing</a>
+    </div>
+  </main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

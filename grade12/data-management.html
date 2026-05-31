@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Data Collection & Warehousing &#x00B7; Ms Coetzee IT</title><link rel="stylesheet" href="../css/style.css"><style>:root{--grade-color:var(--gr12);}</style></head><body><div id="topnav"></div><div class="page-wrapper"><aside class="sidebar"><div class="sidebar-grade">Grade 12 Practical</div><a href="sql.html">SQL</a><a href="sql-join.html">SQL — Joining Tables</a><a href="oop.html">OOP</a><a href="arrays-2d.html">2D Arrays</a><a href="recursion.html">Recursion</a><div class="sidebar-grade" style="margin-top:1rem">Grade 12 Theory</div><a href="data-management.html">Data Collection &amp; Warehousing</a><a href="relational-db.html">Relational DBs &amp; Normalisation</a><a href="hardware-gr12.html">Hardware &amp; Performance</a><a href="cloud-vr-ar.html">Cloud, VR &amp; AR</a><a href="internet-tech.html">Internet Technologies</a><a href="networks-gr12.html">Networks &amp; Remote Access</a><a href="communication-tech.html">Communication Technologies</a><a href="cybercrime.html">Cybercrime &amp; Safeguards</a><a href="social-gr12.html">Social Implications</a></aside><main class="content"><div class="breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Data Collection &amp; Warehousing</span></div>
+<h1>Data Collection &amp; Warehousing <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">Modern databases are fed by many automated data collection methods. Large organisations store historical data in warehouses for analysis and decision-making.</p>
+<h2>Methods of Data Collection</h2>
+<p><strong>Data collection</strong> is the process of gathering raw facts and figures from many different sources so that they can be stored, processed and turned into useful information. In the old days a person sat with a clipboard and wrote everything down by hand. Today most data is collected <strong>automatically</strong> — every time you swipe a card, drive under an e-toll gantry or tap a website, data is being captured about you without anyone writing a single thing.</p>
+<div class="callout"><div class="callout-title">WHY THIS MATTERS</div><p>A database is only as good as the data inside it. The more accurate, complete and up-to-date the collected data is, the better the decisions an organisation can make. Automated collection means more data, collected faster, with fewer human mistakes.</p></div>
+<p><strong>Example:</strong> When you scan your Pick n Pay Smart Shopper card at the till, the shop instantly records what you bought, when, where and for how much — that single swipe feeds a database that the shop later uses to send you targeted specials.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Method</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>Forms (manual)</strong></td><td>User types data directly into a form</td><td>School registration, job application</td></tr>
+  <tr><td><strong>Web forms</strong></td><td>Online interactive pages with GUI components (dropdowns, checkboxes)</td><td>Online survey, account sign-up</td></tr>
+  <tr><td><strong>RFID tags</strong></td><td>Wireless chips store ID data, read without contact</td><td>Library books, inventory, e-toll, access cards</td></tr>
+  <tr><td><strong>Digital sensors</strong></td><td>Gather environmental data automatically</td><td>Temperature sensors, motion detectors</td></tr>
+  <tr><td><strong>Cookies</strong></td><td>Small files stored by websites to record browsing behaviour and preferences</td><td>Login sessions, shopping carts, ad targeting</td></tr>
+  <tr><td><strong>Transaction tracking</strong></td><td>Records each purchase: date, time, location, product, amount</td><td>Credit card transactions, loyalty cards</td></tr>
+  <tr><td><strong>Mobile apps</strong></td><td>Collect app usage, location, device data</td><td>Uber location tracking, fitness app steps</td></tr>
+</table></div>
+<h2>Static vs Dynamic Location Data</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>Static</strong></td><td>Fixed, does not change once recorded</td><td>Address of a shop, GPS coordinates of a landmark</td></tr>
+  <tr><td><strong>Dynamic</strong></td><td>Changes as the object moves, updated continuously</td><td>Uber driver location, delivery truck tracking</td></tr>
+</table></div>
+<h2>Data Warehousing</h2>
+<p>A <strong>data warehouse</strong> is a large central storage system that collects and consolidates <strong>historical</strong> data from many separate source databases into one single place, so that it can be analysed for trends and decision-making.</p>
+<p>Think of it like this: a normal database is like the till at one Pick n Pay branch — it records today's sales as they happen. A data warehouse is like head office in Cape Town, where the sales from <em>every</em> branch in the country, going back many years, are all poured into one giant store. Head office does not use this to ring up a sale; they use it to spot the big picture — which products sell best in winter, which branches are growing, where to open the next store.</p>
+<div class="callout"><div class="callout-title">KEY CHARACTERISTICS</div><p><strong>Central</strong> – one single store that brings many sources together.<br><strong>Historical</strong> – it keeps years of old data, not just today's transactions.<br><strong>Read-mostly</strong> – data is loaded in and then read for reports; it is not constantly changed.<br><strong>Subject-oriented</strong> – organised around topics like "sales" or "customers" for easy analysis.</p></div>
+<p><strong>Note:</strong> Because a warehouse holds so much data from so many sources, the data must first be <em>cleaned</em> and put into a consistent format before it is loaded in — otherwise the same customer might appear three different ways and the analysis would be wrong.</p>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Database</th><th>Data Warehouse</th></tr>
+  <tr><td><strong>Purpose</strong></td><td>Day-to-day transactions</td><td>Historical analysis and reporting</td></tr>
+  <tr><td><strong>Data</strong></td><td>Current transactions only</td><td>Historical data from many sources</td></tr>
+  <tr><td><strong>Operations</strong></td><td>Read + write (INSERT, UPDATE, DELETE)</td><td>Mostly read (SELECT, reports)</td></tr>
+  <tr><td><strong>Used by</strong></td><td>Operational staff</td><td>Analysts, management, BI tools</td></tr>
+</table></div>
+<h2>Data Mining</h2>
+<p><strong>Data mining</strong> is the process of analysing very large datasets to discover hidden patterns, trends and useful relationships that a human could never spot by eye. The name is a good clue: just as a gold miner digs through tonnes of rock to find a few grams of gold, data mining digs through millions of records to find the valuable nuggets of knowledge buried inside.</p>
+<h3 id="why-mine">Why Do Companies Mine Data?</h3>
+<p>Companies collect enormous amounts of data, but raw data on its own is useless — it is just numbers and words. Data mining turns that raw data into <strong>insight</strong> they can act on. For example, Pick n Pay's Smart Shopper data might reveal that customers who buy nappies on a Friday evening also tend to buy snacks — so the shop places those products near each other and increases sales. Nobody told the computer to look for that link; the pattern was <em>mined</em> out of the data.</p>
+<h3>Process</h3>
+<ol>
+  <li><strong>Extract relevant data</strong> — use SQL to pull only the required subset</li>
+  <li><strong>Look for patterns</strong> — analyse for trends, correlations, anomalies</li>
+  <li><strong>Discover knowledge</strong> — turn patterns into actionable insights</li>
+</ol>
+<h3>Applications</h3>
+<ul>
+  <li><strong>Marketing</strong>: target campaigns based on customer age, interests, behaviour</li>
+  <li><strong>Healthcare</strong>: predict patient risk factors from historical data</li>
+  <li><strong>Government</strong>: determine social grant thresholds</li>
+  <li><strong>Social media</strong>: Facebook mines your likes to suggest friends and content</li>
+</ul>
+<h2>Caring for Data</h2>
+<p><strong>Caring for data</strong> means protecting the accuracy, security and availability of an organisation's data throughout its life. Data is one of the most valuable assets a company owns — often worth more than its buildings or equipment — because decisions, money and reputations all depend on it. Poor data leads to poor decisions, and lost data can shut a business down completely.</p>
+<div class="callout warning"><div class="callout-title">IMPORTANT RULE</div><p>"Garbage in, garbage out." If incorrect data goes into the system, only incorrect information can come out — no matter how clever your analysis is. This is why validation and verification at the point of capture are so important.</p></div>
+<p>Below are the main ways an organisation looks after its data. Notice how each one protects against a different danger — wrong data, lost data, or stolen data.</p>
+<ul>
+  <li><strong>Validation</strong> — ensure entered data meets rules (format, range, type)</li>
+  <li><strong>Verification</strong> — ensure data is correct and intentional (double entry, confirmation)</li>
+  <li><strong>Logging</strong> — audit trail recording who changed what and when</li>
+  <li><strong>Access control</strong> — passwords, user rights, encryption</li>
+  <li><strong>Parallel data sets</strong> — duplicate copies in separate locations for disaster recovery</li>
+</ul>
+<div class="page-nav">
+  <span></span>
+  <a class="next" href="relational-db.html"><span class="page-nav-label">Next →</span>Relational DBs &amp; Normalisation</a>
+</div></main></div><script src="../js/nav.js"></script>
+<script src="../js/main.js"></script></body></html>

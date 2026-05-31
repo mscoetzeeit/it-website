@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decision Making – IT CAPS</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr10); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 10 · Practical</div>
+    <a href="algorithms.html">Algorithms &amp; Problem Solving</a><a href="delphi-intro.html">Introduction to Delphi</a><a href="data-types.html">Data Types &amp; Variables</a><a href="operators.html">Operators &amp; Functions</a><a href="decisions.html">Decision Making (IF / CASE)</a><a href="loops.html">Loops</a><a href="strings.html">String Manipulation</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 10 · Theory</div>
+    <a href="../theory/digital-tech.html">Digital Technologies &amp; ICT</a><a href="../theory/hardware.html">Hardware</a><a href="../theory/software.html">Software &amp; Licensing</a><a href="../theory/data-representation.html">Data Representation</a><a href="../theory/networks.html">Networks</a><a href="../theory/internet.html">Internet &amp; WWW</a><a href="../theory/e-communication.html">E-Communication</a><a href="../theory/management.html">Computer Management &amp; Security</a>
+  </aside>
+  <main class="content">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><a href="#">Grade 10</a><span class="breadcrumb-sep">›</span><span>Decision Making</span></div>
+
+    <h1>Decision Making — IF &amp; CASE <span class="grade-badge">Grade 10</span></h1>
+    <p class="page-intro">Decision structures let your program choose different paths based on conditions. Delphi uses <code>if…then…else</code> and <code>case</code> for this.</p>
+
+    <h2>What is Decision Making?</h2>
+    <p><strong>Decision-making</strong> (also called <strong>conditional logic</strong>) is when a program tests whether something is true or false and then chooses what to do next based on the answer. A <strong>condition</strong> is any question that can only be answered with <em>true</em> or <em>false</em> — for example, "is the age 18 or more?".</p>
+    <p><strong>Everyday analogy:</strong> A robot (traffic light) at an intersection makes a decision for you. <em>If</em> the light is green you go; <em>else</em> you stop. Your program does the same thing — it looks at a condition and takes one path or another.</p>
+
+    <h2>Why Do Programs Need to Make Decisions?</h2>
+    <p>Without decisions, a program could only ever do the exact same thing every single time it runs. Decisions make a program <em>react</em> to its data and its user.</p>
+    <ul>
+      <li><strong>React to input</strong> – an age-check on a website: <em>if</em> you are old enough it lets you in, otherwise it blocks you.</li>
+      <li><strong>Validate data</strong> – <em>if</em> a mark is below 0 or above 100, warn the user it is invalid.</li>
+      <li><strong>Choose an outcome</strong> – <em>if</em> a learner scored 50 or more, display "Passed", otherwise display "Failed".</li>
+      <li><strong>Stay safe</strong> – <em>if</em> the password matches, grant access; otherwise deny it.</li>
+    </ul>
+
+    <h2>The IF Statement</h2>
+    <p>Evaluates a condition (true/false) and executes code accordingly.</p>
+    <p>The IF statement is the most common decision in programming. In plain words it says: "<em>If</em> this is true, <em>then</em> do that; otherwise (<em>else</em>) do something else." <strong>Everyday analogy:</strong> "If it is raining, take an umbrella, else wear a cap." The "if it is raining" part is the condition that is checked first.</p>
+
+    <h3>IF … THEN (one-way)</h3>
+    <div class="code-block"><span class="code-label">Syntax</span>
+<pre><code><span class="kw">if</span> condition <span class="kw">then</span>
+  statement;</code></pre></div>
+
+    <h3>IF … THEN … ELSE (two-way)</h3>
+    <div class="callout warning">
+      <div class="callout-title">No semicolon before ELSE</div>
+      <p>Never put a <code>;</code> on the line before <code>else</code> — it ends the <code>if</code> statement too early.</p>
+    </div>
+    <div class="code-block"><span class="code-label">Syntax</span>
+<pre><code><span class="kw">if</span> condition <span class="kw">then</span>
+  statement
+<span class="kw">else</span>
+  statement;</code></pre></div>
+
+    <h3>Multiple Statements — use BEGIN…END</h3>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">if</span> iAge >= <span class="num">18</span> <span class="kw">then</span>
+<span class="kw">begin</span>
+  lblResult.Caption := <span class="str">'Adult'</span>;
+  btnVote.Enabled   := <span class="kw">True</span>;
+<span class="kw">end</span>
+<span class="kw">else</span>
+<span class="kw">begin</span>
+  lblResult.Caption := <span class="str">'Minor'</span>;
+  btnVote.Enabled   := <span class="kw">False</span>;
+<span class="kw">end</span>;</code></pre></div>
+
+    <h3>Examples</h3>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">if</span> iNum1 > iNum2 <span class="kw">then</span>
+  ShowMessage(IntToStr(iNum1) + <span class="str">' is larger'</span>);
+
+<span class="kw">if</span> age >= <span class="num">18</span> <span class="kw">then</span>
+  ShowMessage(<span class="str">'Old enough to vote'</span>);
+
+<span class="kw">if</span> username &lt;> <span class="str">'admin'</span> <span class="kw">then</span>
+  ShowMessage(<span class="str">'Access denied'</span>)
+<span class="kw">else</span>
+  ShowMessage(<span class="str">'Welcome, administrator!'</span>);</code></pre></div>
+
+    <h2>Comparison Operators</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Operator</th><th>Meaning</th><th>Example</th></tr>
+      <tr><td><code>=</code></td><td>Equal to</td><td><code>iAge = 18</code></td></tr>
+      <tr><td><code>&lt;&gt;</code></td><td>Not equal to</td><td><code>sName &lt;&gt; 'Admin'</code></td></tr>
+      <tr><td><code>&gt;</code></td><td>Greater than</td><td><code>iScore &gt; 50</code></td></tr>
+      <tr><td><code>&lt;</code></td><td>Less than</td><td><code>iAge &lt; 18</code></td></tr>
+      <tr><td><code>&gt;=</code></td><td>Greater than or equal to</td><td><code>iMark &gt;= 30</code></td></tr>
+      <tr><td><code>&lt;=</code></td><td>Less than or equal to</td><td><code>rPrice &lt;= 100.0</code></td></tr>
+    </table></div>
+
+    <h2>Boolean Operators</h2>
+    <p>Combine multiple conditions in one statement.</p>
+    <p><strong>Boolean operators</strong> let you ask more than one question at the same time. <strong>Everyday analogy:</strong> to get into a club you might need to be 18 <em>AND</em> have an ID — <em>both</em> must be true. To qualify for a discount you might need to be a student <em>OR</em> a pensioner — <em>either one</em> is enough. <em>NOT</em> simply flips an answer around, like saying "if it is <em>not</em> a holiday, school is open".</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Operator</th><th>Rule</th><th>Example</th></tr>
+      <tr><td><code>AND</code></td><td>Both conditions must be true</td><td><code>(iAge &gt;= 18) AND (bHasID = True)</code></td></tr>
+      <tr><td><code>OR</code></td><td>At least one condition must be true</td><td><code>(sGender = 'M') OR (sGender = 'F')</code></td></tr>
+      <tr><td><code>NOT</code></td><td>Inverts the condition</td><td><code>NOT (iScore &gt; 50)</code></td></tr>
+    </table></div>
+
+    <div class="code-block"><span class="code-label">Delphi — AND and OR examples</span>
+<pre><code><span class="kw">if</span> (iAge >= <span class="num">18</span>) <span class="kw">AND</span> (bHasLicense = <span class="kw">True</span>) <span class="kw">then</span>
+  bCanDrive := <span class="kw">True</span>;
+
+<span class="kw">if</span> (iScore >= <span class="num">30</span>) <span class="kw">OR</span> (bHasSymbol = <span class="kw">True</span>) <span class="kw">then</span>
+  lblResult.Caption := <span class="str">'Passed'</span>;</code></pre></div>
+
+    <h2>Nested IF</h2>
+    <p>An IF inside another IF.</p>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">if</span> iAge >= <span class="num">18</span> <span class="kw">then</span>
+<span class="kw">begin</span>
+  <span class="kw">if</span> bHasLicense = <span class="kw">True</span> <span class="kw">then</span>
+    bDrive := <span class="kw">True</span>
+  <span class="kw">else</span>
+    bDrive := <span class="kw">False</span>;
+<span class="kw">end</span>
+<span class="kw">else</span>
+  bDrive := <span class="kw">False</span>;</code></pre></div>
+
+    <h2>Decision Components</h2>
+    <h3>RadioGroup</h3>
+    <p>Uses an <code>ItemIndex</code> property — first item is index <code>0</code>.</p>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">if</span> rgpGender.ItemIndex = <span class="num">0</span> <span class="kw">then</span>
+  sGender := <span class="str">'Male'</span>
+<span class="kw">else</span>
+  sGender := <span class="str">'Female'</span>;</code></pre></div>
+
+    <h3>CheckBox</h3>
+    <p>Uses the <code>Checked</code> property — <code>True</code> or <code>False</code>.</p>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">if</span> chkInsurance.Checked = <span class="kw">True</span> <span class="kw">then</span>
+  rCost := rCost + rInsuranceAmount;</code></pre></div>
+
+    <h2>The IN Operator</h2>
+    <p>Tests if a value is in a set. Cleaner than multiple OR conditions.</p>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="cmt">// Check for specific values</span>
+<span class="kw">if</span> iNumber <span class="kw">IN</span> [<span class="num">1</span>, <span class="num">3</span>, <span class="num">5</span>, <span class="num">7</span>] <span class="kw">then</span>
+  ShowMessage(<span class="str">'Odd single digit found'</span>);
+
+<span class="cmt">// Range using ..</span>
+<span class="kw">if</span> iMark <span class="kw">IN</span> [<span class="num">0</span>..<span class="num">49</span>] <span class="kw">then</span>
+  lblSymbol.Caption := <span class="str">'F'</span>;
+
+<span class="cmt">// Works with Char too</span>
+<span class="kw">if</span> cLetter <span class="kw">IN</span> [<span class="str">'A'</span>, <span class="str">'E'</span>, <span class="str">'I'</span>, <span class="str">'O'</span>, <span class="str">'U'</span>] <span class="kw">then</span>
+  ShowMessage(<span class="str">'Vowel'</span>);</code></pre></div>
+
+    <h2>The CASE Statement</h2>
+    <p>Cleaner alternative to multiple IF…ELSE when testing one variable against many values. Works with <strong>Integer</strong> and <strong>Char</strong> only.</p>
+    <p>Use CASE when one variable could take many possible values and each value leads to a different outcome — like turning a mark into a grade symbol. <strong>Everyday analogy:</strong> a vending machine. You press one button (the value), and depending on which button it was, a different snack drops out. Writing that as a long chain of IF…ELSE statements works, but CASE lays it out neatly so it is much easier to read.</p>
+    <div class="code-block"><span class="code-label">Syntax</span>
+<pre><code><span class="kw">case</span> expression <span class="kw">of</span>
+  value1: statement1;
+  value2: statement2;
+  value3: statement3;
+<span class="kw">else</span>
+  statementDefault;
+<span class="kw">end</span>;</code></pre></div>
+
+    <div class="callout"><div class="callout-title">Remember</div><p>CASE has no <code>begin</code>, but always has <code>end</code>. You can use ranges with <code>..</code></p></div>
+
+    <div class="code-block"><span class="code-label">Delphi — Grade symbol example</span>
+<pre><code><span class="kw">case</span> iMark <span class="kw">of</span>
+  <span class="num">80</span>..<span class="num">100</span>: lblSymbol.Caption := <span class="str">'7 — Outstanding'</span>;
+  <span class="num">70</span>..<span class="num">79</span>:  lblSymbol.Caption := <span class="str">'6 — Meritorious'</span>;
+  <span class="num">60</span>..<span class="num">69</span>:  lblSymbol.Caption := <span class="str">'5 — Substantial'</span>;
+  <span class="num">50</span>..<span class="num">59</span>:  lblSymbol.Caption := <span class="str">'4 — Adequate'</span>;
+  <span class="num">40</span>..<span class="num">49</span>:  lblSymbol.Caption := <span class="str">'3 — Moderate'</span>;
+  <span class="num">30</span>..<span class="num">39</span>:  lblSymbol.Caption := <span class="str">'2 — Elementary'</span>;
+<span class="kw">else</span>
+  lblSymbol.Caption := <span class="str">'1 — Not Achieved'</span>;
+<span class="kw">end</span>;</code></pre></div>
+
+    <h2>MessageDlg</h2>
+    <p>A pop-up dialog that asks the user a yes/no question and returns a result.</p>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">if</span> MessageDlg(<span class="str">'Are you sure?'</span>, mtConfirmation, mbYesNo, <span class="num">0</span>) = mrYes <span class="kw">then</span>
+  <span class="cmt">// execute if user clicked Yes</span>
+  ShowMessage(<span class="str">'Confirmed!'</span>);</code></pre></div>
+
+    <div class="tbl-wrap"><table>
+      <tr><th>Parameter</th><th>Options</th></tr>
+      <tr><td>Message type</td><td><code>mtConfirmation</code>, <code>mtInformation</code>, <code>mtWarning</code>, <code>mtError</code></td></tr>
+      <tr><td>Buttons</td><td><code>mbYesNo</code>, <code>mbOKCancel</code>, <code>mbYesNoCancel</code></td></tr>
+      <tr><td>Result</td><td><code>mrYes</code>, <code>mrNo</code>, <code>mrOK</code>, <code>mrCancel</code></td></tr>
+    </table></div>
+
+    <div class="page-nav">
+      <a href="operators.html"><span class="page-nav-label">← Previous</span>Operators &amp; Functions</a>
+      <a class="next" href="loops.html"><span class="page-nav-label">Next →</span>Loops</a>
+    </div>
+  </main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

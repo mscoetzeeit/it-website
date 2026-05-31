@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Types & Variables – IT CAPS</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr10); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 10 · Practical</div>
+    <a href="algorithms.html">Algorithms &amp; Problem Solving</a>
+    <a href="delphi-intro.html">Introduction to Delphi</a>
+    <a href="data-types.html">Data Types &amp; Variables</a>
+    <a href="operators.html">Operators &amp; Functions</a>
+    <a href="decisions.html">Decision Making (IF / CASE)</a>
+    <a href="loops.html">Loops</a>
+    <a href="strings.html">String Manipulation</a>
+    
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 10 · Theory</div>
+    <a href="../theory/digital-tech.html">Digital Technologies &amp; ICT</a>
+    <a href="../theory/hardware.html">Hardware</a>
+    <a href="../theory/software.html">Software &amp; Licensing</a>
+    <a href="../theory/data-representation.html">Data Representation</a>
+    <a href="../theory/networks.html">Networks</a>
+    <a href="../theory/internet.html">Internet &amp; WWW</a>
+    <a href="../theory/e-communication.html">E-Communication</a>
+    <a href="../theory/management.html">Computer Management &amp; Security</a>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb">
+      <a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span>
+      <a href="#">Grade 10</a><span class="breadcrumb-sep">›</span>
+      <span>Data Types &amp; Variables</span>
+    </div>
+
+    <h1>Data Types &amp; Variables <span class="grade-badge">Grade 10</span></h1>
+    <p class="page-intro">Every value in Delphi has a data type. Variables are the containers that hold these values while your program runs. Constants hold values that never change.</p>
+
+    <h2>Data Types</h2>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Data Type</th><th>What it stores</th><th>Examples</th><th>Quotes?</th></tr>
+        <tr><td><code>Integer</code></td><td>Whole numbers (positive &amp; negative, no decimals)</td><td><code>3</code>, <code>-15</code>, <code>1250</code></td><td>No</td></tr>
+        <tr><td><code>Real</code></td><td>Numbers with decimals (floating point)</td><td><code>3.14</code>, <code>-13.24</code>, <code>125.89</code></td><td>No</td></tr>
+        <tr><td><code>String</code></td><td>One or more characters — text</td><td><code>'Banana'</code>, <code>'23.45'</code>, <code>'@!jkl'</code></td><td>Single quotes <code>'…'</code></td></tr>
+        <tr><td><code>Char</code></td><td>A single character only</td><td><code>'S'</code>, <code>'!'</code>, <code>'a'</code></td><td>Single quotes <code>'…'</code></td></tr>
+        <tr><td><code>Boolean</code></td><td>Only <code>True</code> or <code>False</code></td><td><code>True</code>, <code>False</code></td><td>No</td></tr>
+      </table>
+    </div>
+
+    <h2>Variables</h2>
+    <p>A <strong>variable</strong> is a named storage location that holds a value during program execution. Think of it as a labelled box — you can put something in, use it, and swap it out.</p>
+    <p>Variables must be: <strong>Declared</strong> → <strong>Populated</strong> → <strong>Used</strong>.</p>
+
+    <h3>Naming Convention — Prefixes</h3>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Prefix</th><th>Data Type</th><th>Example</th></tr>
+        <tr><td><code>i</code></td><td>Integer</td><td><code>iAge</code></td></tr>
+        <tr><td><code>r</code></td><td>Real</td><td><code>rPrice</code></td></tr>
+        <tr><td><code>s</code></td><td>String</td><td><code>sName</code></td></tr>
+        <tr><td><code>c</code></td><td>Char</td><td><code>cGrade</code></td></tr>
+        <tr><td><code>b</code></td><td>Boolean</td><td><code>bFound</code></td></tr>
+      </table>
+    </div>
+
+    <h3>Declaring Variables</h3>
+    <p>Declared in the <code>var</code> section using: <code>variableName : DataType;</code></p>
+
+    <h4>Local Declaration (inside a procedure)</h4>
+    <div class="code-block">
+      <span class="code-label">Delphi — Local</span>
+      <pre><code><span class="kw">procedure</span> TForm1.<span class="fn">btnClickClick</span>(Sender: TObject);
+<span class="kw">var</span>
+  sName:   <span class="kw2">string</span>;
+  iNumber: <span class="kw2">integer</span>;
+<span class="kw">begin</span>
+  <span class="cmt">// code here</span>
+<span class="kw">end</span>;</code></pre>
+    </div>
+
+    <h4>Global Declaration (available to all procedures)</h4>
+    <div class="code-block">
+      <span class="code-label">Delphi — Global</span>
+      <pre><code><span class="kw">var</span>
+  Form1:   TForm1;
+  sName:   <span class="kw2">string</span>;   <span class="cmt">// declared here, below existing var block</span>
+  iNumber: <span class="kw2">integer</span>;</code></pre>
+    </div>
+
+    <h3>Populating (Assigning) Variables</h3>
+    <p>Use the assignment operator <code>:=</code> to put a value into a variable.</p>
+    <div class="code-block">
+      <span class="code-label">Delphi</span>
+      <pre><code>sName   := <span class="str">'Jannie'</span>;
+sName   := edtName.Text;        <span class="cmt">// from a text box</span>
+iNumber := <span class="num">15</span>;
+iNumber := sedNum.Value;         <span class="cmt">// from a spin edit</span>
+bFlag   := <span class="kw">True</span>;</code></pre>
+    </div>
+
+    <h3>Initialising Variables</h3>
+    <div class="callout tip">
+      <div class="callout-title">Always Initialise</div>
+      <p>Set a starting value before using a variable, especially counters and totals — otherwise Delphi may assign a random garbage value.</p>
+    </div>
+    <div class="code-block">
+      <span class="code-label">Delphi</span>
+      <pre><code>i        := <span class="num">0</span>;
+iTotal   := <span class="num">0</span>;
+sReverse := <span class="str">''</span>;
+cLetter  := <span class="str">''</span>;</code></pre>
+    </div>
+
+    <h3>Using Variables</h3>
+    <div class="code-block">
+      <span class="code-label">Delphi</span>
+      <pre><code>lblFullName.Caption := sName + <span class="str">' '</span> + sSurname;
+memOut.Lines.Add(sName + <span class="str">' '</span> + sSurname);
+iAnswer := iNum1 + iNum2;
+memOut.Lines.Add(IntToStr(iNum1) + <span class="str">' + '</span> + IntToStr(iNum2)
+               + <span class="str">' = '</span> + IntToStr(iAnswer));</code></pre>
+    </div>
+
+    <h2>Constants</h2>
+    <p>A <strong>constant</strong> holds a value that is known before the program runs and <em>cannot</em> change while it runs. Use <code>const</code> instead of <code>var</code>. No data type is needed, and use <code>=</code> not <code>:=</code>.</p>
+    <div class="code-block">
+      <span class="code-label">Delphi</span>
+      <pre><code><span class="kw">const</span>
+  VAT       = <span class="num">0.15</span>;
+  MAX_ITEMS = <span class="num">100</span>;
+
+<span class="cmt">// Using a constant — exactly like a variable</span>
+rVatAmount := rCostPrice * VAT;
+rTotal     := rCostPrice + rVatAmount;</code></pre>
+    </div>
+
+    <h2>Type Conversion</h2>
+    <p>Components like <code>TEdit</code> only hold strings. You must convert to the right type before using in calculations.</p>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Function</th><th>Converts</th><th>Example</th></tr>
+        <tr><td><code>StrToInt()</code></td><td>String → Integer</td><td><code>iAge := StrToInt(edtAge.Text);</code></td></tr>
+        <tr><td><code>StrToFloat()</code></td><td>String → Real</td><td><code>rPrice := StrToFloat(edtPrice.Text);</code></td></tr>
+        <tr><td><code>IntToStr()</code></td><td>Integer → String</td><td><code>lblOut.Caption := IntToStr(iTotal);</code></td></tr>
+        <tr><td><code>FloatToStr()</code></td><td>Real → String</td><td><code>lblOut.Caption := FloatToStr(rAverage);</code></td></tr>
+      </table>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">The <code>Val</code> procedure — converting safely</div>
+      <p><code>StrToInt</code> crashes (runtime error) if the text isn't a valid number. The <code>Val</code> procedure converts a string to a number <em>without</em> crashing: it gives back the converted value AND an error code that tells you whether the conversion worked (0 = success, otherwise the position of the first bad character).</p>
+      <div class="code-block"><span class="code-label">Delphi — Val(sourceString, numberResult, errorPosition)</span>
+<pre><code><span class="kw">var</span>
+  iValue, iCode : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  Val(edtAge.Text, iValue, iCode);
+  <span class="kw">if</span> iCode = <span class="num">0</span> <span class="kw">then</span>
+    ShowMessage(<span class="str">'Valid number: '</span> + IntToStr(iValue))
+  <span class="kw">else</span>
+    ShowMessage(<span class="str">'Not a valid number!'</span>);   <span class="cmt">// iCode = position of the bad character</span>
+<span class="kw">end</span>;</code></pre></div>
+    </div>
+
+    <h3>Formatting Real Numbers</h3>
+    <div class="code-block">
+      <span class="code-label">Delphi</span>
+      <pre><code><span class="cmt">// FloatToStrF(value, format, totalDigits, decimals)</span>
+lblPrice.Caption := FloatToStrF(rPrice, ffCurrency, <span class="num">4</span>, <span class="num">2</span>);  <span class="cmt">// → R24.50</span>
+lblPrice.Caption := FloatToStrF(rPrice, ffFixed,    <span class="num">4</span>, <span class="num">2</span>);  <span class="cmt">// → 24.50</span></code></pre>
+    </div>
+
+    <h2>Types of Errors</h2>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Error Type</th><th>When it occurs</th><th>Example</th></tr>
+        <tr><td><strong>Syntax Error</strong></td><td>Code is typed incorrectly — won't compile</td><td>Missing semicolon, missing <code>end</code></td></tr>
+        <tr><td><strong>Runtime Error</strong></td><td>Crashes while the program is running</td><td>Dividing by zero</td></tr>
+        <tr><td><strong>Logical Error</strong></td><td>Runs, but gives wrong answer</td><td>Calculating average before total, infinite loop</td></tr>
+      </table>
+    </div>
+
+    <div class="page-nav">
+      <a href="delphi-intro.html"><span class="page-nav-label">← Previous</span>Introduction to Delphi</a>
+      <a class="next" href="operators.html"><span class="page-nav-label">Next →</span>Operators &amp; Functions</a>
+    </div>
+  </main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

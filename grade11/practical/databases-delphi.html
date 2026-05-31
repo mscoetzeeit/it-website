@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Databases in Delphi (Grade 11) &#x00B7; Ms Coetzee IT</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root{--grade-color:var(--gr11);}</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+<aside class="sidebar">
+  <div class="sidebar-grade">Grade 11 Practical</div>
+  <a href="arrays.html">1D Arrays (T1)</a>
+  <a href="text-files.html">Text Files (T2)</a>
+  <a href="methods.html">Procedures &amp; Functions (T2)</a>
+  <a href="databases-delphi.html">Databases in Delphi (T3)</a>
+  <div class="sidebar-grade" style="margin-top:1rem">Grade 11 Theory</div>
+  <a href="../theory/hardware-gr11.html">Motherboard</a>
+  <a href="../theory/processing.html">Processing</a>
+  <a href="../theory/databases.html">Databases</a>
+  <a href="../theory/networks-gr11.html">Networks</a>
+  <a href="../theory/mobile-tech.html">Mobile Tech</a>
+  <a href="../theory/computer-management.html">Computer Management</a>
+  <a href="../theory/e-communications-gr11.html">E-Communications</a>
+  <a href="../theory/internet-gr11.html">Internet &amp; Multimedia</a>
+  <a href="../theory/internet-services-gr11.html">Internet Services</a>
+  <a href="../theory/social-gr11.html">Social Implications</a>
+</aside>
+<main class="content">
+  <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">&rsaquo;</span><span>Databases in Delphi</span></div>
+
+  <h1>Databases in Delphi <span class="grade-badge">Grade 11</span></h1>
+  <p class="page-intro">In Grade 11 you learn how to connect a Delphi program to a Microsoft Access database, display its data on screen, and add, edit or delete records using code — <strong>without SQL</strong> (SQL comes in Grade 12).</p>
+
+  <div class="callout warning">
+    <div class="callout-title">Grade 11 vs Grade 12</div>
+    <p>In <strong>Grade 11</strong> you use <code>TADOTable</code> and write code (loops, IF statements) to work with records.<br>
+    In <strong>Grade 12</strong> you switch to <code>TADOQuery</code> and use SQL statements to do the same things &mdash; faster and more powerful.</p>
+  </div>
+
+  <h2>The Big Picture &mdash; How the Pieces Connect</h2>
+  <p>Think of connecting to a database like setting up a water supply to a tap:</p>
+
+  <!-- FLOW DIAGRAM SVG -->
+  <div style="margin:1.5rem 0;overflow-x:auto">
+    <svg viewBox="0 0 640 130" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:640px">
+      <rect width="640" height="130" rx="8" fill="#161b22"/>
+
+      <!-- Box 1: .accdb file -->
+      <rect x="10" y="30" width="110" height="50" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1.5"/>
+      <text x="65" y="52" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24" font-family="sans-serif">Database</text>
+      <text x="65" y="68" text-anchor="middle" font-size="10" fill="#8b949e" font-family="sans-serif">(.accdb file)</text>
+      <!-- Arrow 1 -->
+      <line x1="120" y1="55" x2="145" y2="55" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrowV)"/>
+      <!-- Box 2: TADOConnection -->
+      <rect x="145" y="30" width="130" height="50" rx="6" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="210" y="50" text-anchor="middle" font-size="11" font-weight="600" fill="#a78bfa" font-family="Consolas,monospace">TADOConnection</text>
+      <text x="210" y="68" text-anchor="middle" font-size="9" fill="#8b949e" font-family="sans-serif">Opens the file</text>
+      <!-- Arrow 2 -->
+      <line x1="275" y1="55" x2="300" y2="55" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrowV)"/>
+      <!-- Box 3: TADOTable -->
+      <rect x="300" y="30" width="110" height="50" rx="6" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="355" y="50" text-anchor="middle" font-size="11" font-weight="600" fill="#a78bfa" font-family="Consolas,monospace">TADOTable</text>
+      <text x="355" y="68" text-anchor="middle" font-size="9" fill="#8b949e" font-family="sans-serif">One table</text>
+      <!-- Arrow 3 -->
+      <line x1="410" y1="55" x2="435" y2="55" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrowV)"/>
+      <!-- Box 4: TDataSource -->
+      <rect x="435" y="30" width="110" height="50" rx="6" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="490" y="50" text-anchor="middle" font-size="11" font-weight="600" fill="#a78bfa" font-family="Consolas,monospace">TDataSource</text>
+      <text x="490" y="68" text-anchor="middle" font-size="9" fill="#8b949e" font-family="sans-serif">The go-between</text>
+      <!-- Arrow 4 -->
+      <line x1="545" y1="55" x2="570" y2="55" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrowV)"/>
+      <!-- Box 5: DBGrid -->
+      <rect x="570" y="30" width="60" height="50" rx="6" fill="#21262d" stroke="#4ade80" stroke-width="1.5"/>
+      <text x="600" y="50" text-anchor="middle" font-size="10" font-weight="600" fill="#4ade80" font-family="Consolas,monospace">DBGrid</text>
+      <text x="600" y="65" text-anchor="middle" font-size="9" fill="#8b949e" font-family="sans-serif">Table</text>
+      <text x="600" y="76" text-anchor="middle" font-size="9" fill="#8b949e" font-family="sans-serif">on screen</text>
+
+      <!-- Label below -->
+      <text x="320" y="115" text-anchor="middle" font-size="10" fill="#8b949e" font-family="sans-serif">Data flows from the file on disk &rarr; all the way through to the grid your user sees</text>
+
+      <defs>
+        <marker id="arrowV" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#a78bfa"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+
+  <h2>Understanding Each Component</h2>
+
+  <h3>TADOConnection &mdash; The Door to the Database</h3>
+  <p>Imagine the database file (<code>.accdb</code>) is locked inside a room. The <code>TADOConnection</code> is the key that unlocks the door so Delphi can get in. You tell it <em>where</em> the file is on your computer.</p>
+  <div class="callout">
+    <div class="callout-title">Where it goes</div>
+    <p>Place <code>TADOConnection</code> on a <strong>Data Module</strong> (a special form-like container for database components). Go to <em>File &rarr; New &rarr; Data Module</em> to create one.</p>
+  </div>
+  <div class="code-block"><span class="code-label">Key properties to set in Object Inspector</span>
+<pre><code>ConnectionString  → Build... → Choose "Microsoft Jet 4.0 OLE DB Provider"
+                             → Browse to your .accdb file
+LoginPrompt       → False   (stops the "Enter password" popup appearing)</code></pre></div>
+
+  <h3>TADOTable &mdash; One Table from the Database</h3>
+  <p>A database can have many tables (Students, Subjects, Classes…). A <code>TADOTable</code> represents <em>one</em> of those tables. You need one <code>TADOTable</code> for each table you want to work with.</p>
+  <div class="code-block"><span class="code-label">Key properties</span>
+<pre><code>Connection  → select your ADOConnection (dm.conDB)
+TableName   → choose the table from the dropdown (e.g. "tblStudents")
+Active      → True   (this "opens" the table so data loads)</code></pre></div>
+
+  <h3>TDataSource &mdash; The Go-Between</h3>
+  <p>This is the part students find confusing. Why do we need it?</p>
+  <p>Think of it this way: your <code>TADOTable</code> is like a water tank (holds all the data). Your <code>DBGrid</code> is the tap (where the data comes out on screen). The <code>TDataSource</code> is the pipe connecting the tank to the tap. Without the pipe, no water flows.</p>
+  <p>You cannot connect a <code>DBGrid</code> directly to a <code>TADOTable</code>. Every visual display component (<code>DBGrid</code>, <code>DBEdit</code>, <code>DBLabel</code>) must connect through a <code>TDataSource</code>. These display components are called <strong>data-aware controls</strong> &mdash; controls that are aware of database data.</p>
+  <div class="code-block"><span class="code-label">Key property</span>
+<pre><code>DataSet → select your TADOTable (dm.tblStudents)</code></pre></div>
+
+  <h3>TDBGrid &mdash; The Table You See on Screen</h3>
+  <p>The <code>DBGrid</code> is a component you drop onto your <strong>main form</strong> (not the Data Module). It displays the database records as rows and columns &mdash; just like a spreadsheet. It updates automatically as you navigate through records.</p>
+  <div class="code-block"><span class="code-label">Key property</span>
+<pre><code>DataSource → select your TDataSource (dm.dsStudents)</code></pre></div>
+
+  <figure class="img-center">
+    <img src="../../images/database-connection-code.png" alt="Setting up the database connection in code" class="img-center">
+    <figcaption class="img-caption">Setting up the database connection in code</figcaption>
+  </figure>
+
+  <h2>Step-by-Step Setup</h2>
+  <ol>
+    <li><strong>Create a Data Module</strong>: File &rarr; New &rarr; Data Module. Save it as <code>DataModule_u.pas</code>.</li>
+    <li><strong>Drop TADOConnection</strong> onto the Data Module. Set up the connection string (browse to your .accdb file). Set <code>LoginPrompt = False</code>.</li>
+    <li><strong>Drop TADOTable</strong> onto the Data Module. Set <code>Connection</code> to the ADOConnection. Set <code>TableName</code>. Set <code>Active = True</code>.</li>
+    <li><strong>Drop TDataSource</strong> onto the Data Module. Set <code>DataSet</code> to the TADOTable.</li>
+    <li><strong>On your main form</strong>: add the Data Module name to the <code>uses</code> clause at the top of your unit.</li>
+    <li><strong>Drop TDBGrid</strong> onto your main form. Set its <code>DataSource</code> to the DataSource you created in the Data Module.</li>
+    <li>The grid should now show your database records!</li>
+  </ol>
+  <div class="callout tip">
+    <div class="callout-title">Naming convention</div>
+    <p>Name components so you know what they are at a glance:<br>
+    <code>conStudents</code> (TADOConnection) &bull; <code>tblStudents</code> (TADOTable) &bull; <code>dsStudents</code> (TDataSource) &bull; <code>dbgStudents</code> (TDBGrid)</p>
+  </div>
+
+  <h2>Accessing Field Values in Code</h2>
+  <p>Once connected, you can read the value of any field in the <em>current</em> record using this syntax:</p>
+  <div class="code-block"><span class="code-label">Syntax</span>
+<pre><code>variable := DataModuleName.TableName[<span class="str">'FieldName'</span>];</code></pre></div>
+  <div class="code-block"><span class="code-label">Delphi &mdash; examples</span>
+<pre><code>sName    := dm.tblStudents[<span class="str">'Name'</span>];        <span class="cmt">// reads the Name field</span>
+sSurname := dm.tblStudents[<span class="str">'Surname'</span>];    <span class="cmt">// reads the Surname field</span>
+iGrade   := dm.tblStudents[<span class="str">'Grade'</span>];      <span class="cmt">// reads the Grade field</span>
+
+<span class="cmt">// Display in a label</span>
+lblInfo.Caption := dm.tblStudents[<span class="str">'Name'</span>] + <span class="str">' '</span> + dm.tblStudents[<span class="str">'Surname'</span>];</code></pre></div>
+
+  <h2>Navigating Records</h2>
+  <p>Think of records as pages in a book. These methods let you turn pages:</p>
+  <div class="tbl-wrap"><table>
+    <tr><th>Method</th><th>What it does</th></tr>
+    <tr><td><code>tblStudents.First</code></td><td>Jump to the very first record</td></tr>
+    <tr><td><code>tblStudents.Last</code></td><td>Jump to the last record</td></tr>
+    <tr><td><code>tblStudents.Next</code></td><td>Move forward one record</td></tr>
+    <tr><td><code>tblStudents.Prior</code></td><td>Move back one record</td></tr>
+    <tr><td><code>tblStudents.Eof</code></td><td>Returns True when you have gone past the last record (End Of File). Use in a WHILE loop to process all records.</td></tr>
+  </table></div>
+  <div class="code-block"><span class="code-label">Delphi &mdash; loop through ALL records</span>
+<pre><code>dm.tblStudents.First;                        <span class="cmt">// start at record 1</span>
+<span class="kw">while not</span> dm.tblStudents.Eof <span class="kw">do</span>           <span class="cmt">// keep going until past last</span>
+<span class="kw">begin</span>
+  memOut.Lines.Add(dm.tblStudents[<span class="str">'Name'</span>]); <span class="cmt">// do something with this record</span>
+  dm.tblStudents.Next;                       <span class="cmt">// move to next record</span>
+<span class="kw">end</span>;</code></pre></div>
+  <div class="callout warning">
+    <div class="callout-title">Never forget .Next inside the loop!</div>
+    <p>If you forget <code>tblStudents.Next</code> inside the loop, the program will be stuck on the first record forever — an infinite loop that will crash Delphi.</p>
+  </div>
+
+  <h2>Searching for a Record</h2>
+  <p>To find a specific record, loop through all records and check each one:</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; find a student by surname</span>
+<pre><code>dm.tblStudents.First;
+<span class="kw">while not</span> dm.tblStudents.Eof <span class="kw">do</span>
+<span class="kw">begin</span>
+  <span class="kw">if</span> dm.tblStudents[<span class="str">'Surname'</span>] = edtSearch.Text <span class="kw">then</span>
+  <span class="kw">begin</span>
+    ShowMessage(<span class="str">'Found: '</span> + dm.tblStudents[<span class="str">'Name'</span>]);
+    Break;   <span class="cmt">// stop searching once found</span>
+  <span class="kw">end</span>;
+  dm.tblStudents.Next;
+<span class="kw">end</span>;</code></pre></div>
+
+  <h2>Inserting a New Record</h2>
+  <p>Adding a new record is a 3-step process: prepare &rarr; fill in values &rarr; save.</p>
+  <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>dm.tblStudents.Insert;                    <span class="cmt">// Step 1: prepare a blank new record</span>
+dm.tblStudents[<span class="str">'Name'</span>]    := edtName.Text;     <span class="cmt">// Step 2: fill in the fields</span>
+dm.tblStudents[<span class="str">'Surname'</span>] := edtSurname.Text;
+dm.tblStudents[<span class="str">'Grade'</span>]   := sedGrade.Value;
+dm.tblStudents.Post;                      <span class="cmt">// Step 3: save to the database</span></code></pre></div>
+
+  <h2>Editing an Existing Record</h2>
+  <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="cmt">// First navigate to the record you want to change, then:</span>
+dm.tblStudents.Edit;                      <span class="cmt">// Step 1: put the record into edit mode</span>
+dm.tblStudents[<span class="str">'Grade'</span>] := <span class="num">12</span>;            <span class="cmt">// Step 2: change the value</span>
+dm.tblStudents.Post;                      <span class="cmt">// Step 3: save the change</span></code></pre></div>
+
+  <h2>Deleting a Record</h2>
+  <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="cmt">// Navigate to the record first, then:</span>
+dm.tblStudents.Delete;   <span class="cmt">// removes the current record permanently</span></code></pre></div>
+  <div class="callout warning">
+    <div class="callout-title">Deletion is permanent</div>
+    <p>There is no undo. Always confirm with the user before deleting: <code>if MessageDlg('Delete this record?', mtConfirmation, mbYesNo, 0) = mrYes then dm.tblStudents.Delete;</code></p>
+  </div>
+
+  <h2>Sorting Records</h2>
+  <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>dm.tblStudents.Sort := <span class="str">'Surname ASC'</span>;         <span class="cmt">// A to Z by surname</span>
+dm.tblStudents.Sort := <span class="str">'Mark DESC'</span>;           <span class="cmt">// highest mark first</span>
+dm.tblStudents.Sort := <span class="str">'Grade ASC, Surname ASC'</span>; <span class="cmt">// by grade, then surname</span></code></pre></div>
+
+  <h2>Complete Example &mdash; Finding the Highest Mark</h2>
+  <div class="code-block"><span class="code-label">Delphi &mdash; find highest mark in tblStudents</span>
+<pre><code><span class="kw">var</span>
+  iHighest : <span class="kw2">Integer</span>;
+  sTopName : <span class="kw2">String</span>;
+<span class="kw">begin</span>
+  iHighest := <span class="num">0</span>;
+  sTopName := <span class="str">''</span>;
+  dm.tblStudents.First;
+  <span class="kw">while not</span> dm.tblStudents.Eof <span class="kw">do</span>
+  <span class="kw">begin</span>
+    <span class="kw">if</span> dm.tblStudents[<span class="str">'Mark'</span>] &gt; iHighest <span class="kw">then</span>
+    <span class="kw">begin</span>
+      iHighest := dm.tblStudents[<span class="str">'Mark'</span>];
+      sTopName := dm.tblStudents[<span class="str">'Name'</span>];
+    <span class="kw">end</span>;
+    dm.tblStudents.Next;
+  <span class="kw">end</span>;
+  lblResult.Caption := sTopName + <span class="str">' scored the highest: '</span> + IntToStr(iHighest);
+<span class="kw">end</span>;</code></pre></div>
+
+  <h2>Connecting a Database <em>Dynamically</em> (in Code)</h2>
+  <p>Everything above used components dropped onto a Data Module at <strong>design time</strong>. You can also build the whole connection <strong>at runtime with code</strong> &mdash; no components needed. This is called a <strong>dynamic connection</strong>, and it is useful when the database path is only known while the program runs (e.g. the user browses to the file).</p>
+  <div class="callout tip">
+    <div class="callout-title">Add these units to <code>uses</code></div>
+    <p>Dynamic database objects live in two units. Add <code>ADODB</code> and <code>DB</code> to the <code>uses</code> clause before you can create them in code.</p>
+  </div>
+  <p>Declare the three objects (usually under <code>public</code> in the Data Module, or in the form):</p>
+  <div class="code-block"><span class="code-label">Delphi — declaration</span>
+<pre><code><span class="kw">public</span>
+  conDB  : TADOConnection;
+  tblStudents : TADOTable;
+  dsStudents  : TDataSource;</code></pre></div>
+  <p>Create and wire them together &mdash; build the connection string, point the table at the connection, then link the DataSource:</p>
+  <div class="code-block"><span class="code-label">Delphi — create the connection in code</span>
+<pre><code><span class="kw">procedure</span> TdmData.<span class="fn">DataModuleCreate</span>(Sender: TObject);
+<span class="kw">begin</span>
+  <span class="cmt">// 1. Create the connection object</span>
+  conDB := TADOConnection.Create(Self);
+  conDB.LoginPrompt := <span class="kw">False</span>;        <span class="cmt">// don't ask for a password</span>
+  conDB.ConnectionString :=
+    <span class="str">'Provider=Microsoft.ACE.OLEDB.12.0;'</span> +
+    <span class="str">'Data Source='</span> + ExtractFilePath(Application.ExeName) + <span class="str">'Students.accdb;'</span>;
+  conDB.Connected := <span class="kw">True</span>;
+
+  <span class="cmt">// 2. Create the table and link it to the connection</span>
+  tblStudents := TADOTable.Create(Self);
+  tblStudents.Connection := conDB;
+  tblStudents.TableName  := <span class="str">'tblStudents'</span>;
+  tblStudents.Active      := <span class="kw">True</span>;
+
+  <span class="cmt">// 3. Create the DataSource and link it to the table</span>
+  dsStudents := TDataSource.Create(Self);
+  dsStudents.DataSet := tblStudents;
+<span class="kw">end</span>;</code></pre></div>
+  <p>Finally, link your on-screen <code>TDBGrid</code> to the DataSource. Do this in the main form's <code>OnShow</code> event:</p>
+  <div class="code-block"><span class="code-label">Delphi — link the grid (in FormShow)</span>
+<pre><code><span class="kw">procedure</span> TfrmMain.<span class="fn">FormShow</span>(Sender: TObject);
+<span class="kw">begin</span>
+  dbgStudents.DataSource := dmData.dsStudents;
+<span class="kw">end</span>;</code></pre></div>
+  <div class="callout warning">
+    <div class="callout-title">Why FormShow and not FormCreate?</div>
+    <p>The Data Module is usually created <strong>after</strong> the main form. If you try to link the grid in the main form's <code>OnCreate</code> event, the Data Module does not exist yet and you get an <strong>access violation</strong> error. Use <code>OnShow</code>, which fires later, once everything exists.</p>
+  </div>
+  <div class="callout tip">
+    <div class="callout-title">Older .mdb files</div>
+    <p>For older Access <code>.mdb</code> databases the provider is <code>Microsoft Jet 4.0 OLE DB Provider</code> (<code>Provider=Microsoft.Jet.OLEDB.4.0;</code>). Newer <code>.accdb</code> files use the ACE provider shown above.</p>
+  </div>
+
+  <div class="page-nav">
+    <a href="methods.html"><span class="page-nav-label">&larr; Previous</span>Procedures &amp; Functions</a>
+    <a class="next" href="../../grade12/sql.html"><span class="page-nav-label">Next (Grade 12) &rarr;</span>SQL</a>
+  </div>
+</main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

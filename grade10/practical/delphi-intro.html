@@ -1,0 +1,456 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Introduction to Delphi – IT CAPS</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr10); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 10 · Practical</div>
+    <a href="algorithms.html">Algorithms &amp; Problem Solving</a>
+    <a href="delphi-intro.html">Introduction to Delphi</a>
+    <a href="data-types.html">Data Types &amp; Variables</a>
+    <a href="operators.html">Operators &amp; Functions</a>
+    <a href="decisions.html">Decision Making (IF / CASE)</a>
+    <a href="loops.html">Loops</a>
+    <a href="strings.html">String Manipulation</a>
+    
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 10 · Theory</div>
+    <a href="../theory/digital-tech.html">Digital Technologies &amp; ICT</a>
+    <a href="../theory/hardware.html">Hardware</a>
+    <a href="../theory/software.html">Software &amp; Licensing</a>
+    <a href="../theory/data-representation.html">Data Representation</a>
+    <a href="../theory/networks.html">Networks</a>
+    <a href="../theory/internet.html">Internet &amp; WWW</a>
+    <a href="../theory/e-communication.html">E-Communication</a>
+    <a href="../theory/management.html">Computer Management &amp; Security</a>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb">
+      <a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span>
+      <a href="#">Grade 10</a><span class="breadcrumb-sep">›</span>
+      <span>Introduction to Delphi</span>
+    </div>
+
+    <h1>Introduction to Delphi <span class="grade-badge">Grade 10</span></h1>
+    <p class="page-intro">Delphi is a <strong>visual programming environment</strong> — you design the screen AND write the code. You drag components onto a form to build the interface, then write Pascal code to make it all work. This page covers the IDE layout, components, naming, events, and your first program.</p>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+      <h2>The Delphi IDE &mdash; What You See When You Open It</h2>
+  <p>When you open Delphi, this is what you will see. It might look overwhelming at first &mdash; but each area has one clear job:</p>
+  <div class="delphi-panel">
+    <img src="../../images/delphi-ide-design.png" alt="Delphi 11 IDE in Design View" style="width:100%;display:block">
+    <div class="dp-label">Delphi 11 &mdash; Design View (this is where you build the form your user will see)</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.25rem 0">
+    <div class="delphi-panel">
+      <img src="../../images/delphi-object-inspector.png" alt="Object Inspector" style="width:100%">
+      <div class="dp-label">Object Inspector &mdash; set properties like Name, Caption, Color</div>
+    </div>
+    <div class="delphi-panel">
+      <img src="../../images/delphi-palette.png" alt="Tool Palette" style="width:100%">
+      <div class="dp-label">Tool Palette &mdash; drag components from here onto the form</div>
+    </div>
+  </div>
+  <h2>Switching to Code View</h2>
+  <p>Press <kbd style="background:var(--surface2);border:1px solid var(--border);padding:.1rem .4rem;border-radius:4px;font-family:Courier New">F12</kbd> to toggle between the Design View (what you see above) and the Code View (where you type your Delphi code).</p>
+  <div class="delphi-panel">
+    <img src="../../images/delphi-code-view.png" alt="Delphi Code View" style="width:100%;display:block">
+    <div class="dp-label">Code View &mdash; this is the Delphi code structure that is automatically created for you</div>
+  </div>
+<h2>The Delphi IDE Layout</h2>
+    <p>The <strong>Integrated Development Environment (IDE)</strong> is where you write, design and run your programs. Think of it as your workshop — every tool you need is right there.</p>
+
+    <!-- IDE SVG Diagram -->
+    <div style="margin:1.25rem 0;overflow-x:auto">
+      <svg viewBox="0 0 780 460" width="780" height="460" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+        <!-- Outer shell -->
+        <rect x="0" y="0" width="780" height="460" rx="10" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+        <!-- Title bar -->
+        <rect x="0" y="0" width="780" height="30" rx="10" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+        <text x="390" y="19" text-anchor="middle" fill="#e6edf3" font-size="12" font-weight="600">Delphi IDE</text>
+        <!-- Menu bar -->
+        <rect x="8" y="38" width="764" height="26" rx="4" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+        <text x="20" y="55" fill="#22d3ee" font-size="10" font-weight="600">MENU BAR</text>
+        <text x="140" y="55" fill="#8b949e" font-size="10">File  Edit  View  Project  Run  Component  Tools  Help</text>
+
+        <!-- Structure Panel (top-left) -->
+        <rect x="8" y="72" width="140" height="170" rx="4" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+        <rect x="8" y="72" width="140" height="22" rx="4" fill="#22d3ee" opacity="0.18"/>
+        <text x="78" y="87" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">STRUCTURE PANEL</text>
+        <text x="16" y="106" fill="#8b949e" font-size="9">Form1</text>
+        <text x="24" y="120" fill="#8b949e" font-size="9">btnCalculate</text>
+        <text x="24" y="134" fill="#8b949e" font-size="9">lblResult</text>
+        <text x="24" y="148" fill="#8b949e" font-size="9">edtInput</text>
+        <text x="24" y="162" fill="#8b949e" font-size="9">memOutput</text>
+        <text x="16" y="176" fill="#8b949e" font-size="9">imgLogo</text>
+
+        <!-- Form / Design Area (center) -->
+        <rect x="156" y="72" width="462" height="240" rx="4" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
+        <rect x="156" y="72" width="462" height="22" rx="4" fill="#22d3ee" opacity="0.18"/>
+        <text x="387" y="87" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">FORM / DESIGN AREA</text>
+        <!-- Simulated form window -->
+        <rect x="180" y="102" width="320" height="190" rx="3" fill="#2d3748" stroke="#4a5568" stroke-width="1"/>
+        <rect x="180" y="102" width="320" height="20" rx="3" fill="#4a5568"/>
+        <text x="340" y="116" text-anchor="middle" fill="#e6edf3" font-size="9">Form1</text>
+        <!-- Simulated components on the form -->
+        <rect x="200" y="135" width="80" height="18" rx="2" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+        <text x="240" y="147" text-anchor="middle" fill="#8b949e" font-size="8">TLabel — lblTitle</text>
+        <rect x="200" y="162" width="160" height="18" rx="2" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+        <text x="280" y="174" text-anchor="middle" fill="#8b949e" font-size="8">TEdit — edtInput</text>
+        <rect x="200" y="190" width="80" height="20" rx="3" fill="#22d3ee" opacity="0.7"/>
+        <text x="240" y="204" text-anchor="middle" fill="#161b22" font-size="8" font-weight="700">TButton</text>
+        <rect x="200" y="220" width="240" height="50" rx="2" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+        <text x="320" y="248" text-anchor="middle" fill="#8b949e" font-size="8">TMemo — memOutput</text>
+        <!-- F12 label -->
+        <text x="387" y="305" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">Press F12 to toggle Code View</text>
+
+        <!-- Tool Palette (right) -->
+        <rect x="626" y="72" width="146" height="240" rx="4" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+        <rect x="626" y="72" width="146" height="22" rx="4" fill="#a78bfa" opacity="0.22"/>
+        <text x="699" y="87" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="700">TOOL PALETTE</text>
+        <text x="634" y="106" fill="#8b949e" font-size="9">Standard</text>
+        <rect x="634" y="110" width="130" height="14" rx="2" fill="#161b22"/>
+        <text x="634" y="122" fill="#e6edf3" font-size="8">  TLabel  TButton  TEdit</text>
+        <text x="634" y="136" fill="#8b949e" font-size="9">Additional</text>
+        <rect x="634" y="140" width="130" height="14" rx="2" fill="#161b22"/>
+        <text x="634" y="152" fill="#e6edf3" font-size="8">  TMemo  TImage  TPanel</text>
+        <text x="634" y="166" fill="#8b949e" font-size="9">Win32</text>
+        <rect x="634" y="170" width="130" height="14" rx="2" fill="#161b22"/>
+        <text x="634" y="182" fill="#e6edf3" font-size="8">  TDateTimePicker</text>
+        <text x="634" y="196" fill="#8b949e" font-size="9">Dialogs</text>
+        <rect x="634" y="200" width="130" height="14" rx="2" fill="#161b22"/>
+        <text x="634" y="212" fill="#e6edf3" font-size="8">  TOpenDialog</text>
+
+        <!-- Object Inspector (bottom-right) -->
+        <rect x="626" y="320" width="146" height="132" rx="4" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+        <rect x="626" y="320" width="146" height="22" rx="4" fill="#4ade80" opacity="0.18"/>
+        <text x="699" y="335" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="700">OBJECT INSPECTOR</text>
+        <text x="634" y="352" fill="#8b949e" font-size="8">btnCalculate : TButton</text>
+        <line x1="626" y1="357" x2="772" y2="357" stroke="#30363d" stroke-width="1"/>
+        <text x="634" y="370" fill="#e6edf3" font-size="8">Caption</text><text x="720" y="370" fill="#22d3ee" font-size="8">'Calculate'</text>
+        <text x="634" y="382" fill="#e6edf3" font-size="8">Name</text><text x="720" y="382" fill="#22d3ee" font-size="8">btnCalculate</text>
+        <text x="634" y="394" fill="#e6edf3" font-size="8">Enabled</text><text x="720" y="394" fill="#22d3ee" font-size="8">True</text>
+        <text x="634" y="406" fill="#e6edf3" font-size="8">Font.Size</text><text x="720" y="406" fill="#22d3ee" font-size="8">10</text>
+        <text x="634" y="418" fill="#8b949e" font-size="8">Properties | Events</text>
+
+        <!-- Code view (bottom area) -->
+        <rect x="8" y="320" width="610" height="132" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+        <rect x="8" y="320" width="610" height="22" rx="4" fill="#30363d"/>
+        <text x="200" y="335" text-anchor="middle" fill="#e6edf3" font-size="10" font-weight="700">CODE VIEW</text>
+        <text x="560" y="335" fill="#fbbf24" font-size="10" font-weight="700">F12</text>
+        <text x="18" y="355" fill="#8b949e" font-size="9">1</text><text x="30" y="355" fill="#a78bfa" font-size="9">procedure</text><text x="100" y="355" fill="#e6edf3" font-size="9"> TForm1.btnCalculateClick(Sender: TObject);</text>
+        <text x="18" y="368" fill="#8b949e" font-size="9">2</text><text x="30" y="368" fill="#a78bfa" font-size="9">begin</text>
+        <text x="18" y="381" fill="#8b949e" font-size="9">3</text><text x="42" y="381" fill="#22d3ee" font-size="9">  ShowMessage(</text><text x="154" y="381" fill="#4ade80" font-size="9">'Hello!'</text><text x="196" y="381" fill="#22d3ee" font-size="9">);</text>
+        <text x="18" y="394" fill="#8b949e" font-size="9">4</text><text x="30" y="394" fill="#a78bfa" font-size="9">end</text><text x="54" y="394" fill="#e6edf3" font-size="9">;</text>
+        <text x="18" y="430" fill="#8b949e" font-size="9" font-style="italic">← Write your code between begin and end</text>
+      </svg>
+    </div>
+
+    <h3>Key IDE Panels</h3>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Panel</th><th>Purpose</th></tr>
+        <tr><td><strong>Menu Bar</strong></td><td>Top menu — File, Edit, View, Project, Run, Tools etc.</td></tr>
+        <tr><td><strong>Tool Palette</strong></td><td>All Delphi components grouped by category. Click a component, then click on the form to place it.</td></tr>
+        <tr><td><strong>Object Inspector</strong></td><td>Sets the initial properties and events of a selected component.</td></tr>
+        <tr><td><strong>Structure Panel</strong></td><td>Quick reference showing all objects on the current form.</td></tr>
+        <tr><td><strong>Form / Design Area</strong></td><td>The visual canvas — drag and drop components here to build the UI.</td></tr>
+        <tr><td><strong>Code View</strong></td><td>Where you write Pascal code. Toggle with <kbd>F12</kbd>.</td></tr>
+      </table>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>Step-by-Step: Creating Your First Project</h2>
+    <ol>
+      <li><strong>File → New → Windows VCL Application</strong> — creates a blank Form (TForm).</li>
+      <li>Place components by clicking them in the Tool Palette, then clicking on the form.</li>
+      <li>Set properties in the Object Inspector (e.g. change a button's Caption).</li>
+      <li>Double-click a button to go to Code View and write the event handler.</li>
+      <li><strong>File → Save All</strong> (<kbd>Ctrl+Shift+S</kbd>) — save in a NEW dedicated folder.</li>
+      <li>Press <kbd>F9</kbd> to compile and run.</li>
+    </ol>
+
+    <div class="callout warning">
+      <div class="callout-title">Save in its own folder — always!</div>
+      <p>Each project <strong>must</strong> be saved in its own dedicated folder. Save the Unit file as <code>FileName_u.pas</code> and the Project file as <code>FileName_p.dproj</code>. Never mix two projects in one folder.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>Visual Component Reference</h2>
+    <p>Components are the building blocks placed on a form. Each is an <strong>object</strong> with properties and events. Here is what the most common ones look like:</p>
+
+    <div style="margin:1.25rem 0;overflow-x:auto">
+      <svg viewBox="0 0 760 260" width="760" height="260" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+        <rect width="760" height="260" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+        <!-- TForm -->
+        <rect x="16" y="20" width="100" height="70" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+        <rect x="16" y="20" width="100" height="16" rx="3" fill="#4a5568"/>
+        <text x="66" y="31" text-anchor="middle" fill="#e6edf3" font-size="8">Form1</text>
+        <text x="66" y="108" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">TForm</text>
+        <text x="66" y="120" text-anchor="middle" fill="#8b949e" font-size="8">The window itself</text>
+
+        <!-- TLabel -->
+        <rect x="136" y="35" width="90" height="22" rx="2" fill="none"/>
+        <text x="181" y="50" text-anchor="middle" fill="#e6edf3" font-size="11">Your Label Here</text>
+        <text x="181" y="108" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">TLabel</text>
+        <text x="181" y="120" text-anchor="middle" fill="#8b949e" font-size="8">Displays text</text>
+
+        <!-- TButton -->
+        <rect x="250" y="33" width="90" height="26" rx="4" fill="#22d3ee" opacity="0.75"/>
+        <text x="295" y="50" text-anchor="middle" fill="#161b22" font-size="10" font-weight="700">Click Me</text>
+        <text x="295" y="108" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">TButton</text>
+        <text x="295" y="120" text-anchor="middle" fill="#8b949e" font-size="8">Triggers code</text>
+
+        <!-- TEdit -->
+        <rect x="364" y="33" width="100" height="24" rx="2" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+        <text x="372" y="48" fill="#e6edf3" font-size="9">user types here</text>
+        <text x="414" y="108" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">TEdit</text>
+        <text x="414" y="120" text-anchor="middle" fill="#8b949e" font-size="8">Single-line input</text>
+
+        <!-- TMemo -->
+        <rect x="488" y="20" width="100" height="70" rx="2" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+        <text x="496" y="34" fill="#e6edf3" font-size="8">Line 1</text>
+        <text x="496" y="46" fill="#e6edf3" font-size="8">Line 2</text>
+        <text x="496" y="58" fill="#e6edf3" font-size="8">Line 3</text>
+        <rect x="579" y="20" width="9" height="70" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+        <text x="538" y="108" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">TMemo</text>
+        <text x="538" y="120" text-anchor="middle" fill="#8b949e" font-size="8">Multi-line text</text>
+
+        <!-- TImage -->
+        <rect x="612" y="20" width="100" height="70" rx="2" fill="#21262d" stroke="#30363d" stroke-width="1.5"/>
+        <rect x="628" y="30" width="68" height="50" rx="2" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+        <text x="662" y="58" text-anchor="middle" fill="#8b949e" font-size="9">[ image ]</text>
+        <text x="662" y="108" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">TImage</text>
+        <text x="662" y="120" text-anchor="middle" fill="#8b949e" font-size="8">Displays a picture</text>
+
+        <!-- Second row: TRadioGroup, TCheckBox, TPanel -->
+        <rect x="16" y="150" width="110" height="80" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+        <text x="71" y="165" text-anchor="middle" fill="#8b949e" font-size="8">RadioGroup</text>
+        <circle cx="32" cy="178" r="5" fill="none" stroke="#22d3ee" stroke-width="1.5"/>
+        <circle cx="32" cy="178" r="2.5" fill="#22d3ee"/>
+        <text x="42" y="181" fill="#e6edf3" font-size="8">Option A</text>
+        <circle cx="32" cy="193" r="5" fill="none" stroke="#30363d" stroke-width="1.5"/>
+        <text x="42" y="196" fill="#8b949e" font-size="8">Option B</text>
+        <circle cx="32" cy="208" r="5" fill="none" stroke="#30363d" stroke-width="1.5"/>
+        <text x="42" y="211" fill="#8b949e" font-size="8">Option C</text>
+        <text x="71" y="245" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">TRadioGroup</text>
+
+        <rect x="148" y="155" width="18" height="18" rx="2" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+        <text x="149" y="168" fill="#22d3ee" font-size="12" font-weight="700">&#10003;</text>
+        <text x="172" y="167" fill="#e6edf3" font-size="9">Accept terms</text>
+        <rect x="148" y="183" width="18" height="18" rx="2" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+        <text x="172" y="195" fill="#e6edf3" font-size="9">Subscribe</text>
+        <text x="196" y="245" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">TCheckBox</text>
+
+        <rect x="320" y="150" width="130" height="80" rx="3" fill="#21262d" stroke="#22d3ee" stroke-width="1" stroke-dasharray="4,2"/>
+        <text x="385" y="165" text-anchor="middle" fill="#8b949e" font-size="8">Panel1</text>
+        <text x="385" y="197" text-anchor="middle" fill="#e6edf3" font-size="9">Groups components</text>
+        <text x="385" y="245" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">TPanel</text>
+
+        <rect x="490" y="150" width="100" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+        <rect x="498" y="158" width="84" height="14" rx="2" fill="#0d1117"/>
+        <text x="540" y="169" text-anchor="middle" fill="#8b949e" font-size="8">scroll down ...</text>
+        <text x="540" y="245" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">TListBox</text>
+        <text x="540" y="255" text-anchor="middle" fill="#8b949e" font-size="8">List of items</text>
+      </svg>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>Naming Convention</h2>
+    <p>Every component gets a <strong>prefix</strong> that indicates its type, followed by a meaningful name. This makes code readable.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Prefix</th><th>Component Type</th><th>Example</th></tr>
+        <tr><td><code>btn</code></td><td>TButton</td><td><code>btnCalculate</code></td></tr>
+        <tr><td><code>lbl</code></td><td>TLabel</td><td><code>lblResult</code></td></tr>
+        <tr><td><code>edt</code></td><td>TEdit</td><td><code>edtName</code></td></tr>
+        <tr><td><code>mem</code></td><td>TMemo</td><td><code>memOutput</code></td></tr>
+        <tr><td><code>img</code></td><td>TImage</td><td><code>imgLogo</code></td></tr>
+        <tr><td><code>pnl</code></td><td>TPanel</td><td><code>pnlHeader</code></td></tr>
+        <tr><td><code>sed</code></td><td>TScrolledEdit</td><td><code>sedNotes</code></td></tr>
+        <tr><td><code>cbo</code></td><td>TComboBox</td><td><code>cboGrade</code></td></tr>
+        <tr><td><code>lst</code></td><td>TListBox</td><td><code>lstNames</code></td></tr>
+        <tr><td><code>rgp</code></td><td>TRadioGroup</td><td><code>rgpGender</code></td></tr>
+        <tr><td><code>chk</code></td><td>TCheckBox</td><td><code>chkAgree</code></td></tr>
+        <tr><td><code>tmr</code></td><td>TTimer</td><td><code>tmrClock</code></td></tr>
+      </table>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>Event-Driven Programming</h2>
+    <p>Delphi programs are <strong>event-driven</strong> — code only runs when something <strong>HAPPENS</strong> (an event), like pressing a button, typing in a box, or a timer ticking.</p>
+
+    <div class="callout">
+      <div class="callout-title">Vending Machine Analogy</div>
+      <p>Think of a vending machine. It just sits there doing nothing — until you <strong>push a button</strong>. That press is the <em>event</em>. The machine then dispenses the item — that is the <em>event handler</em> (your code). If no button is pressed, nothing happens. Delphi works exactly like this.</p>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Event</th><th>When it fires</th><th>Common use</th></tr>
+        <tr><td><code>OnClick</code></td><td>User clicks a button / component</td><td>Calculate, submit, navigate</td></tr>
+        <tr><td><code>OnChange</code></td><td>Text in an edit box changes</td><td>Live validation, update display</td></tr>
+        <tr><td><code>OnKeyPress</code></td><td>A key is pressed while component has focus</td><td>Accept only numbers</td></tr>
+        <tr><td><code>OnCreate</code></td><td>Form loads / opens</td><td>Initialise variables, load data</td></tr>
+        <tr><td><code>OnTimer</code></td><td>Timer interval elapses</td><td>Countdown, clock display</td></tr>
+      </table>
+    </div>
+
+    <h3>How to Create an Event Handler</h3>
+    <ol>
+      <li>In Design View, <strong>double-click</strong> a button to create its <code>OnClick</code> handler automatically.</li>
+      <li>For other events, go to the <strong>Events tab</strong> in the Object Inspector and double-click next to the event name.</li>
+      <li>Delphi creates a skeleton procedure. Write your code between <code>begin</code> and <code>end</code>.</li>
+      <li>Never change the procedure header — only add code inside.</li>
+    </ol>
+
+    <div class="code-block">
+      <span class="code-label">Delphi — Button Click Event</span>
+      <pre><code><span class="kw">procedure</span> TForm1.<span class="fn">btnCalculateClick</span>(Sender: TObject);
+<span class="kw">begin</span>
+  <span class="cmt">// Your code goes here</span>
+  ShowMessage(<span class="str">'Button clicked!'</span>);
+<span class="kw">end</span>;</code></pre>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>ShowMessage and InputBox</h2>
+    <p><code>ShowMessage</code> displays a pop-up with a message. <code>InputBox</code> pops up a window asking the user to type something. Both are modal — the program pauses until the user responds.</p>
+
+    <!-- ShowMessage / InputBox SVG -->
+    <div style="margin:1.25rem 0;overflow-x:auto">
+      <svg viewBox="0 0 700 220" width="700" height="220" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+        <rect width="700" height="220" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+
+        <!-- ShowMessage dialog -->
+        <rect x="30" y="30" width="270" height="110" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1.5"/>
+        <rect x="30" y="30" width="270" height="24" rx="6" fill="#4a5568"/>
+        <text x="110" y="46" fill="#e6edf3" font-size="10" font-weight="600">Information</text>
+        <text x="290" y="46" fill="#e6edf3" font-size="10">✕</text>
+        <!-- Message icon area -->
+        <circle cx="62" cy="86" r="14" fill="#22d3ee" opacity="0.2"/>
+        <text x="62" y="91" text-anchor="middle" fill="#22d3ee" font-size="16" font-weight="700">i</text>
+        <text x="120" y="84" fill="#e6edf3" font-size="11">Hello world!</text>
+        <!-- OK button -->
+        <rect x="125" y="110" width="50" height="20" rx="3" fill="#22d3ee" opacity="0.8"/>
+        <text x="150" y="124" text-anchor="middle" fill="#161b22" font-size="10" font-weight="700">OK</text>
+        <!-- Label -->
+        <text x="165" y="168" text-anchor="middle" fill="#22d3ee" font-size="11" font-weight="600">ShowMessage('Hello world!')</text>
+        <text x="165" y="185" text-anchor="middle" fill="#8b949e" font-size="9">One message, one OK button. No return value.</text>
+
+        <!-- InputBox dialog -->
+        <rect x="390" y="20" width="280" height="140" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1.5"/>
+        <rect x="390" y="20" width="280" height="24" rx="6" fill="#4a5568"/>
+        <text x="470" y="36" fill="#e6edf3" font-size="10" font-weight="600">Name</text>
+        <text x="655" y="36" fill="#e6edf3" font-size="10">✕</text>
+        <text x="406" y="62" fill="#8b949e" font-size="10">Enter your name:</text>
+        <rect x="406" y="70" width="248" height="24" rx="3" fill="#0d1117" stroke="#22d3ee" stroke-width="1.5"/>
+        <text x="414" y="86" fill="#e6edf3" font-size="10">Alice</text>
+        <rect x="440" y="106" width="60" height="22" rx="3" fill="#22d3ee" opacity="0.8"/>
+        <text x="470" y="121" text-anchor="middle" fill="#161b22" font-size="10" font-weight="700">OK</text>
+        <rect x="518" y="106" width="60" height="22" rx="3" fill="#30363d"/>
+        <text x="548" y="121" text-anchor="middle" fill="#e6edf3" font-size="10">Cancel</text>
+        <text x="530" y="178" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="600">InputBox('Name','Enter your name:','')</text>
+        <text x="530" y="193" text-anchor="middle" fill="#8b949e" font-size="9">Always returns a String — convert if needed</text>
+      </svg>
+    </div>
+
+    <div class="code-block">
+      <span class="code-label">Delphi — ShowMessage</span>
+      <pre><code>ShowMessage(<span class="str">'Hello world!'</span>);
+ShowMessage(<span class="str">'Result: '</span> + IntToStr(iAnswer));</code></pre>
+    </div>
+
+    <div class="code-block">
+      <span class="code-label">Delphi — InputBox (returns String, convert as needed)</span>
+      <pre><code><span class="cmt">// Returns a string</span>
+sName   := InputBox(<span class="str">'Name'</span>, <span class="str">'Enter your name:'</span>, <span class="str">''</span>);
+
+<span class="cmt">// Convert to integer</span>
+iNum    := StrToInt(InputBox(<span class="str">'Number'</span>, <span class="str">'Enter a number:'</span>, <span class="str">''</span>));
+
+<span class="cmt">// Convert to real</span>
+rAmount := StrToFloat(InputBox(<span class="str">'Amount'</span>, <span class="str">'Enter amount:'</span>, <span class="str">''</span>));
+
+<span class="cmt">// Get first character only</span>
+cClass  := InputBox(<span class="str">'Class'</span>, <span class="str">'Enter class:'</span>, <span class="str">''</span>)[<span class="num">1</span>];</code></pre>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>Components — Properties</h2>
+    <p>Properties control how a component looks and behaves. Set them in the Object Inspector or through code.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Property</th><th>Description</th><th>Example Value</th></tr>
+        <tr><td><code>Name</code></td><td>Unique identifier used in code</td><td><code>btnCalculate</code></td></tr>
+        <tr><td><code>Caption</code></td><td>Text shown on labels, buttons, forms</td><td><code>'Calculate'</code></td></tr>
+        <tr><td><code>Text</code></td><td>Text in a TEdit box</td><td><code>edtName.Text</code></td></tr>
+        <tr><td><code>Height</code></td><td>Component height in pixels</td><td><code>30</code></td></tr>
+        <tr><td><code>Width</code></td><td>Component width in pixels</td><td><code>150</code></td></tr>
+        <tr><td><code>Font.Size</code></td><td>Text size</td><td><code>14</code></td></tr>
+        <tr><td><code>Font.Color</code></td><td>Text colour (note: Color not Colour)</td><td><code>clRed</code></td></tr>
+        <tr><td><code>Visible</code></td><td>Whether component is shown</td><td><code>True</code> / <code>False</code></td></tr>
+      </table>
+    </div>
+
+    <h3>Setting Properties in Code</h3>
+    <p>Format: <code>ComponentName.Property := Value;</code></p>
+    <div class="code-block">
+      <span class="code-label">Delphi</span>
+      <pre><code>Form1.Height        := <span class="num">500</span>;
+Button1.Caption     := <span class="str">'Register'</span>;
+Label1.Font.Color   := clGreen;
+Shape1.Brush.Color  := clRed;
+Shape1.Top          := <span class="num">20</span>;
+Shape1.Left         := <span class="num">20</span>;</code></pre>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>Methods</h2>
+    <p>Methods are pre-written operations that perform tasks on components. Format: <code>ComponentName.Method;</code></p>
+
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Method</th><th>Effect</th></tr>
+        <tr><td><code>Button1.Hide;</code></td><td>Makes the button invisible</td></tr>
+        <tr><td><code>Button1.Show;</code></td><td>Makes the button visible again</td></tr>
+        <tr><td><code>Edit1.SetFocus;</code></td><td>Moves the cursor into the edit box</td></tr>
+        <tr><td><code>Memo1.Clear;</code></td><td>Clears all text in the memo</td></tr>
+        <tr><td><code>Form1.Close;</code></td><td>Closes the form / program</td></tr>
+        <tr><td><code>RichEdit1.Lines.Add('text');</code></td><td>Adds a new line to a RichEdit or Memo</td></tr>
+      </table>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>Syntax Rules</h2>
+    <div class="callout warning">
+      <div class="callout-title">Syntax Errors</div>
+      <p>Every statement ends with a <strong>semicolon</strong> <code>;</code>. Missing one causes a syntax error. There is <strong>never</strong> a semicolon before <code>else</code>. Begin/end pairs must always match.</p>
+    </div>
+
+    <div class="page-nav">
+      <a href="algorithms.html">
+        <span class="page-nav-label">← Previous</span>
+        Algorithms &amp; Problem Solving
+      </a>
+      <a class="next" href="data-types.html">
+        <span class="page-nav-label">Next →</span>
+        Data Types &amp; Variables
+      </a>
+    </div>
+  </main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

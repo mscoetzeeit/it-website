@@ -1,0 +1,534 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Object-Oriented Programming – IT CAPS</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>:root { --grade-color: var(--gr12); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 12 · Practical</div>
+    <a href="oop.html">OOP</a>
+    <a href="../grade11/practical/text-files.html">Text Files</a>
+    <a href="../grade11/practical/methods.html">Procedures &amp; Functions</a>
+    <a href="../grade11/practical/databases-delphi.html">Databases in Delphi</a>
+    <a href="sql.html">SQL</a>
+    <a href="arrays-2d.html">2D Arrays</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 12 · Theory</div>
+    <a href="hardware-gr12.html">Hardware</a>
+    <a href="networks-gr12.html">Networks</a>
+    <a href="social-gr12.html">Social Implications</a>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Object-Oriented Programming</span></div>
+
+    <h1>Object-Oriented Programming (OOP) <span class="grade-badge">Grade 12</span></h1>
+    <p class="page-intro">OOP lets you model real-world things as <strong>objects</strong> in code. Think of a <strong>class</strong> as a blueprint (like architectural plans for a house) and an <strong>object</strong> as the actual building made from that plan. One blueprint, many buildings — one class, many objects.</p>
+
+    <figure class="img-center">
+      <img src="../images/oop-class-code.png" alt="TCat class structure in Delphi's code view" class="img-center">
+      <figcaption class="img-caption">TCat class structure in Delphi's code view</figcaption>
+    </figure>
+
+    <!-- ═══════ CORE CONCEPTS ═══════ -->
+    <h2>Core OOP Concepts</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Term</th><th>Definition</th></tr>
+      <tr><td><strong>Class</strong></td><td>A blueprint or template that describes what an object looks like and can do</td></tr>
+      <tr><td><strong>Object</strong></td><td>A specific instance of a class (like one particular cat — Whiskers)</td></tr>
+      <tr><td><strong>Attribute</strong></td><td>A variable that stores data about the object (e.g. fName, fAge)</td></tr>
+      <tr><td><strong>Method</strong></td><td>A procedure or function that belongs to the class (e.g. GetName, SetAge)</td></tr>
+      <tr><td><strong>Constructor</strong></td><td>Special method <code>Create</code> that creates an instance and sets initial values</td></tr>
+      <tr><td><strong>Encapsulation</strong></td><td>Hiding private data inside a class; only accessible through public methods</td></tr>
+      <tr><td><strong>Inheritance</strong></td><td>A new class inherits all attributes and methods of an existing (parent) class</td></tr>
+      <tr><td><strong>Polymorphism</strong></td><td>The same method name behaves differently in different classes</td></tr>
+    </table></div>
+
+    <div class="callout">
+      <div class="callout-title">You already use OOP!</div>
+      <p>In Delphi, every component is an object. <code>TButton</code> is a class; <code>btnOK</code> is an object. <code>TForm</code> is a class; <code>Form1</code> is an object. OOP lets you create your own custom classes.</p>
+    </div>
+
+    <!-- ═══════ CLASS = BLUEPRINT ═══════ -->
+    <h2>One Class, Many Objects</h2>
+    <p>A class is defined once. You can create as many objects (instances) from it as you need — each with its own data.</p>
+
+    <div style="margin:1.25rem 0;overflow-x:auto">
+      <svg viewBox="0 0 720 180" width="720" height="180" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+        <rect width="720" height="180" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+
+        <!-- Blueprint box (Class) -->
+        <rect x="20" y="30" width="180" height="120" rx="6" fill="#21262d" stroke="#fbbf24" stroke-width="2" stroke-dasharray="6,3"/>
+        <rect x="20" y="30" width="180" height="26" rx="6" fill="#fbbf24" opacity="0.2"/>
+        <text x="110" y="47" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">TCat  (CLASS)</text>
+        <text x="30" y="68" fill="#8b949e" font-size="9">Blueprint / Template</text>
+        <text x="30" y="84" fill="#e6edf3" font-size="9">- fName : String</text>
+        <text x="30" y="98" fill="#e6edf3" font-size="9">- fAge  : Integer</text>
+        <text x="30" y="112" fill="#e6edf3" font-size="9">+ Create(sName, iAge)</text>
+        <text x="30" y="126" fill="#e6edf3" font-size="9">+ GetName : String</text>
+        <text x="30" y="140" fill="#e6edf3" font-size="9">+ ToString : String</text>
+
+        <!-- Arrow -->
+        <line x1="200" y1="90" x2="270" y2="56" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr2)"/>
+        <line x1="200" y1="90" x2="270" y2="90" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr2)"/>
+        <line x1="200" y1="90" x2="270" y2="124" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr2)"/>
+        <defs>
+          <marker id="arr2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#22d3ee"/>
+          </marker>
+        </defs>
+        <text x="232" y="85" fill="#22d3ee" font-size="9">Create</text>
+
+        <!-- Object 1 -->
+        <rect x="270" y="20" width="130" height="72" rx="5" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
+        <rect x="270" y="20" width="130" height="22" rx="5" fill="#22d3ee" opacity="0.2"/>
+        <text x="335" y="35" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">objCat1 (Object)</text>
+        <text x="280" y="52" fill="#e6edf3" font-size="9">fName = 'Whiskers'</text>
+        <text x="280" y="66" fill="#e6edf3" font-size="9">fAge  = 3</text>
+        <text x="280" y="80" fill="#8b949e" font-size="8">objCat1 := TCat.Create('Whiskers', 3);</text>
+
+        <!-- Object 2 -->
+        <rect x="420" y="20" width="130" height="72" rx="5" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
+        <rect x="420" y="20" width="130" height="22" rx="5" fill="#22d3ee" opacity="0.2"/>
+        <text x="485" y="35" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">objCat2 (Object)</text>
+        <text x="430" y="52" fill="#e6edf3" font-size="9">fName = 'Felix'</text>
+        <text x="430" y="66" fill="#e6edf3" font-size="9">fAge  = 5</text>
+        <text x="430" y="80" fill="#8b949e" font-size="8">objCat2 := TCat.Create('Felix', 5);</text>
+
+        <!-- Object 3 -->
+        <rect x="570" y="20" width="132" height="72" rx="5" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
+        <rect x="570" y="20" width="132" height="22" rx="5" fill="#22d3ee" opacity="0.2"/>
+        <text x="636" y="35" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">objCat3 (Object)</text>
+        <text x="580" y="52" fill="#e6edf3" font-size="9">fName = 'Shadow'</text>
+        <text x="580" y="66" fill="#e6edf3" font-size="9">fAge  = 1</text>
+        <text x="580" y="80" fill="#8b949e" font-size="8">objCat3 := TCat.Create('Shadow', 1);</text>
+
+        <text x="360" y="165" text-anchor="middle" fill="#8b949e" font-size="9">Same class TCat — three different objects with different data. The class defines the structure; objects hold the actual values.</text>
+      </svg>
+    </div>
+
+    <!-- ═══════ UML DIAGRAM ═══════ -->
+    <h2>UML Class Diagram</h2>
+    <p>Before coding a class, design it using a <strong>UML (Unified Modeling Language)</strong> diagram — a rectangle divided into 3 sections.</p>
+
+    <div style="margin:1.25rem 0;overflow-x:auto">
+      <svg viewBox="0 0 400 260" width="400" height="260" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+        <rect width="400" height="260" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+
+        <!-- UML box -->
+        <rect x="60" y="20" width="280" height="222" rx="4" fill="#21262d" stroke="#22d3ee" stroke-width="2"/>
+
+        <!-- Section 1: Class name -->
+        <rect x="60" y="20" width="280" height="40" rx="4" fill="#22d3ee" opacity="0.25"/>
+        <text x="200" y="45" text-anchor="middle" fill="#22d3ee" font-size="14" font-weight="700">TCat</text>
+
+        <!-- Divider 1 -->
+        <line x1="60" y1="60" x2="340" y2="60" stroke="#22d3ee" stroke-width="1.5"/>
+
+        <!-- Section 2: Private attributes -->
+        <text x="70" y="78" fill="#8b949e" font-size="9">Private attributes (data)</text>
+        <text x="70" y="96" fill="#e6edf3" font-size="11">- fName   : String</text>
+        <text x="70" y="114" fill="#e6edf3" font-size="11">- fAge    : Integer</text>
+        <text x="70" y="132" fill="#e6edf3" font-size="11">- fWeight : Real</text>
+
+        <!-- Divider 2 -->
+        <line x1="60" y1="142" x2="340" y2="142" stroke="#22d3ee" stroke-width="1.5"/>
+
+        <!-- Section 3: Public methods -->
+        <text x="70" y="158" fill="#8b949e" font-size="9">Public methods (behaviour)</text>
+        <text x="70" y="174" fill="#e6edf3" font-size="11">+ Create(sName: String; iAge: Integer)</text>
+        <text x="70" y="190" fill="#e6edf3" font-size="11">+ GetName   : String</text>
+        <text x="70" y="206" fill="#e6edf3" font-size="11">+ SetName(sName: String)</text>
+        <text x="70" y="222" fill="#e6edf3" font-size="11">+ ToString  : String</text>
+
+        <!-- Legend -->
+        <text x="200" y="252" text-anchor="middle" fill="#8b949e" font-size="9">  -  = private (hidden)    +  = public (accessible)</text>
+      </svg>
+    </div>
+
+    <!-- ═══════ ENCAPSULATION ═══════ -->
+    <h2>Encapsulation</h2>
+    <p>Keep attributes <code>private</code> — hidden from the outside world. Only expose them through controlled <code>public</code> methods (getters and setters). This protects data from accidental or invalid changes.</p>
+
+    <div style="margin:1.25rem 0;overflow-x:auto">
+      <svg viewBox="0 0 560 180" width="560" height="180" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+        <rect width="560" height="180" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+
+        <!-- Outer PUBLIC ring -->
+        <rect x="20" y="20" width="520" height="142" rx="40" fill="none" stroke="#4ade80" stroke-width="2" stroke-dasharray="6,3"/>
+        <text x="280" y="148" text-anchor="middle" fill="#4ade80" font-size="11" font-weight="700">PUBLIC — accessible from outside the class</text>
+
+        <!-- GetName/SetName labels on sides -->
+        <rect x="36" y="52" width="110" height="26" rx="4" fill="#21262d" stroke="#4ade80" stroke-width="1"/>
+        <text x="91" y="68" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="600">GetName : String</text>
+        <rect x="36" y="88" width="110" height="26" rx="4" fill="#21262d" stroke="#4ade80" stroke-width="1"/>
+        <text x="91" y="104" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="600">SetName(s: String)</text>
+
+        <rect x="414" y="52" width="110" height="26" rx="4" fill="#21262d" stroke="#4ade80" stroke-width="1"/>
+        <text x="469" y="68" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="600">GetAge : Integer</text>
+        <rect x="414" y="88" width="110" height="26" rx="4" fill="#21262d" stroke="#4ade80" stroke-width="1"/>
+        <text x="469" y="104" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="600">ToString : String</text>
+
+        <!-- Inner PRIVATE box -->
+        <rect x="170" y="34" width="220" height="98" rx="8" fill="#21262d" stroke="#fbbf24" stroke-width="2"/>
+        <text x="280" y="52" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">PRIVATE — hidden inside class</text>
+        <text x="280" y="72" text-anchor="middle" fill="#e6edf3" font-size="11">- fName   : String</text>
+        <text x="280" y="90" text-anchor="middle" fill="#e6edf3" font-size="11">- fAge    : Integer</text>
+        <text x="280" y="108" text-anchor="middle" fill="#e6edf3" font-size="11">- fWeight : Real</text>
+
+        <!-- Arrows -->
+        <line x1="146" y1="65" x2="170" y2="72" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr3)"/>
+        <line x1="146" y1="101" x2="170" y2="94" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr3)"/>
+        <defs>
+          <marker id="arr3" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+            <polygon points="0 0, 7 2.5, 0 5" fill="#22d3ee"/>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="code-block"><span class="code-label">Delphi — encapsulation</span>
+<pre><code><span class="kw">private</span>
+  fName: <span class="kw2">string</span>;         <span class="cmt">// hidden from outside — direct access blocked</span>
+<span class="kw">public</span>
+  <span class="kw">procedure</span> SetName(s: <span class="kw2">string</span>);  <span class="cmt">// controlled write access (can include validation)</span>
+  <span class="kw">function</span>  GetName: <span class="kw2">string</span>;     <span class="cmt">// controlled read access</span></code></pre></div>
+
+    <!-- ═══════ INHERITANCE ═══════ -->
+    <h2>Inheritance</h2>
+    <p>A child class inherits all attributes and methods from a parent class, and can add or override its own. This avoids repeating code.</p>
+
+    <div style="margin:1.25rem 0;overflow-x:auto">
+      <svg viewBox="0 0 560 220" width="560" height="220" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+        <rect width="560" height="220" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+
+        <!-- TAnimal at top -->
+        <rect x="180" y="16" width="200" height="60" rx="5" fill="#21262d" stroke="#fbbf24" stroke-width="2"/>
+        <rect x="180" y="16" width="200" height="22" rx="5" fill="#fbbf24" opacity="0.2"/>
+        <text x="280" y="31" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="700">TAnimal</text>
+        <text x="190" y="50" fill="#e6edf3" font-size="10">- fName : String</text>
+        <text x="190" y="64" fill="#e6edf3" font-size="10">+ Speak  (virtual)</text>
+
+        <!-- Arrow to TDog -->
+        <line x1="230" y1="76" x2="140" y2="148" stroke="#22d3ee" stroke-width="1.5"/>
+        <polygon points="140,148 148,136 132,136" fill="#22d3ee"/>
+        <!-- Arrow to TCat -->
+        <line x1="330" y1="76" x2="420" y2="148" stroke="#22d3ee" stroke-width="1.5"/>
+        <polygon points="420,148 408,136 432,136" fill="#22d3ee"/>
+        <!-- "inherits" labels -->
+        <text x="162" y="118" fill="#8b949e" font-size="9">is-a</text>
+        <text x="368" y="118" fill="#8b949e" font-size="9">is-a</text>
+
+        <!-- TDog -->
+        <rect x="46" y="148" width="190" height="56" rx="5" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
+        <rect x="46" y="148" width="190" height="22" rx="5" fill="#22d3ee" opacity="0.2"/>
+        <text x="141" y="163" text-anchor="middle" fill="#22d3ee" font-size="12" font-weight="700">TDog</text>
+        <text x="56" y="182" fill="#e6edf3" font-size="10">inherits fName from TAnimal</text>
+        <text x="56" y="196" fill="#e6edf3" font-size="10">+ Speak (override) → 'Woof!'</text>
+
+        <!-- TCat -->
+        <rect x="324" y="148" width="190" height="56" rx="5" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
+        <rect x="324" y="148" width="190" height="22" rx="5" fill="#22d3ee" opacity="0.2"/>
+        <text x="419" y="163" text-anchor="middle" fill="#22d3ee" font-size="12" font-weight="700">TCat</text>
+        <text x="334" y="182" fill="#e6edf3" font-size="10">inherits fName from TAnimal</text>
+        <text x="334" y="196" fill="#e6edf3" font-size="10">+ Speak (override) → 'Meow!'</text>
+      </svg>
+    </div>
+
+    <div class="code-block"><span class="code-label">Delphi — inheritance</span>
+<pre><code><span class="kw">type</span>
+  <span class="cls">TAnimal</span> = <span class="kw">class</span>
+    <span class="kw">procedure</span> Speak; <span class="kw">virtual</span>;  <span class="cmt">// can be overridden in child classes</span>
+  <span class="kw">end</span>;
+
+  <span class="cls">TDog</span> = <span class="kw">class</span>(<span class="cls">TAnimal</span>)       <span class="cmt">// inherits everything from TAnimal</span>
+    <span class="kw">procedure</span> Speak; <span class="kw">override</span>;  <span class="cmt">// replaces TAnimal.Speak</span>
+  <span class="kw">end</span>;
+
+  <span class="cls">TCat</span> = <span class="kw">class</span>(<span class="cls">TAnimal</span>)
+    <span class="kw">procedure</span> Speak; <span class="kw">override</span>;
+  <span class="kw">end</span>;</code></pre></div>
+
+    <!-- ═══════ POLYMORPHISM ═══════ -->
+    <h2>Polymorphism</h2>
+    <p>The same method name (<code>Speak</code>) behaves differently depending on the type of object. "Many forms" — <em>poly</em> = many, <em>morph</em> = form.</p>
+
+    <div class="tbl-wrap"><table>
+      <tr><th>Object</th><th>Method Called</th><th>Result</th></tr>
+      <tr><td><code>objAnimal.Speak</code></td><td>TAnimal.Speak</td><td><code>'Animal sound...'</code></td></tr>
+      <tr><td><code>objDog.Speak</code></td><td>TDog.Speak (overridden)</td><td><code>'Woof!'</code></td></tr>
+      <tr><td><code>objCat.Speak</code></td><td>TCat.Speak (overridden)</td><td><code>'Meow!'</code></td></tr>
+    </table></div>
+
+    <div class="code-block"><span class="code-label">Delphi — polymorphism</span>
+<pre><code><span class="kw">procedure</span> <span class="cls">TAnimal</span>.Speak;
+<span class="kw">begin</span>
+  ShowMessage(<span class="str">'Animal sound...'</span>);
+<span class="kw">end</span>;
+
+<span class="kw">procedure</span> <span class="cls">TDog</span>.Speak;
+<span class="kw">begin</span>
+  ShowMessage(<span class="str">'Woof!'</span>);
+<span class="kw">end</span>;
+
+<span class="kw">procedure</span> <span class="cls">TCat</span>.Speak;
+<span class="kw">begin</span>
+  ShowMessage(<span class="str">'Meow!'</span>);
+<span class="kw">end</span>;</code></pre></div>
+
+    <!-- ═══════ TYPES OF METHODS ═══════ -->
+    <h2>Types of Methods</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Method Type</th><th>Keyword</th><th>Description</th></tr>
+      <tr><td><strong>Constructor</strong></td><td><code>constructor</code></td><td>Creates the object and sets initial attribute values. Called on the class name: <code>TCat.Create(...)</code></td></tr>
+      <tr><td><strong>Accessor (getter)</strong></td><td><code>function</code></td><td>Returns the value of a private attribute. Read-only access.</td></tr>
+      <tr><td><strong>Mutator (setter)</strong></td><td><code>procedure</code></td><td>Updates the value of a private attribute. Can include validation.</td></tr>
+      <tr><td><strong>ToString</strong></td><td><code>function</code></td><td>Returns a string representation of the object's state — used for display.</td></tr>
+      <tr><td><strong>Auxiliary</strong></td><td><code>private</code></td><td>Internal helper methods used by other methods, not accessible from outside.</td></tr>
+    </table></div>
+
+    <!-- ═══════ HOW TO CREATE A CLASS ═══════ -->
+    <h2>How to Create a Class in Delphi</h2>
+    <ol>
+      <li>Go to <strong>File → New → Unit – Delphi</strong> to create a new blank unit.</li>
+      <li>Save it in the <strong>same folder</strong> as your project (e.g. <code>UCar.pas</code>).</li>
+      <li>Type the class structure in the <code>interface</code> section (see template below).</li>
+      <li>Press <kbd>Ctrl+Shift+C</kbd> — Delphi auto-generates the method bodies in the <code>implementation</code> section.</li>
+      <li>Fill in the code inside each method body.</li>
+      <li>In your main form unit, add the unit name to the <code>uses</code> clause (e.g. <code>uses ..., UCar;</code>).</li>
+    </ol>
+
+    <div class="callout warning">
+      <div class="callout-title">Ctrl+Shift+C is your best friend!</div>
+      <p>After writing the class declaration in the <code>interface</code> section, press <kbd>Ctrl+Shift+C</kbd> and Delphi automatically creates all the empty method implementations in the <code>implementation</code> section. You just fill in the code.</p>
+    </div>
+
+    <!-- ═══════ TCat CLASS ═══════ -->
+    <h2>Complete Class Example — TCat</h2>
+    <div class="code-block"><span class="code-label">Delphi — TCat unit (UCat.pas)</span>
+<pre><code><span class="kw">unit</span> UCat;
+
+<span class="kw">interface</span>
+
+<span class="kw">type</span>
+  <span class="cls">TCat</span> = <span class="kw">class</span>
+  <span class="kw">private</span>
+    fName   : <span class="kw2">string</span>;
+    fAge    : <span class="kw2">integer</span>;
+    fWeight : <span class="kw2">real</span>;
+  <span class="kw">public</span>
+    <span class="kw">constructor</span> Create(sName: <span class="kw2">string</span>; iAge: <span class="kw2">integer</span>; rWeight: <span class="kw2">real</span>);
+    <span class="kw">function</span>    GetName   : <span class="kw2">string</span>;
+    <span class="kw">function</span>    GetAge    : <span class="kw2">integer</span>;
+    <span class="kw">function</span>    GetWeight : <span class="kw2">real</span>;
+    <span class="kw">procedure</span>   SetName(sNew: <span class="kw2">string</span>);
+    <span class="kw">function</span>    ToString  : <span class="kw2">string</span>;
+  <span class="kw">end</span>;
+
+<span class="kw">implementation</span>
+
+<span class="kw">constructor</span> <span class="cls">TCat</span>.Create(sName: <span class="kw2">string</span>; iAge: <span class="kw2">integer</span>; rWeight: <span class="kw2">real</span>);
+<span class="kw">begin</span>
+  fName   := sName;
+  fAge    := iAge;
+  fWeight := rWeight;
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TCat</span>.GetName : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  Result := fName;
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TCat</span>.GetAge : <span class="kw2">integer</span>;
+<span class="kw">begin</span>
+  Result := fAge;
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TCat</span>.GetWeight : <span class="kw2">real</span>;
+<span class="kw">begin</span>
+  Result := fWeight;
+<span class="kw">end</span>;
+
+<span class="kw">procedure</span> <span class="cls">TCat</span>.SetName(sNew: <span class="kw2">string</span>);
+<span class="kw">begin</span>
+  fName := sNew;
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TCat</span>.ToString : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  Result := fName + <span class="str">', Age: '</span> + IntToStr(fAge)
+          + <span class="str">', Weight: '</span> + FloatToStr(fWeight) + <span class="str">'kg'</span>;
+<span class="kw">end</span>;
+
+<span class="kw">end</span>.</code></pre></div>
+
+    <!-- ═══════ TCar CLASS ═══════ -->
+    <h2>Practice Example — TCar Class</h2>
+    <p>This is the kind of class you will write in a Grade 12 exam. Study the pattern carefully — constructor, accessors, mutator, ToString.</p>
+
+    <div class="code-block"><span class="code-label">Delphi — UCar.pas (complete working class)</span>
+<pre><code><span class="kw">unit</span> UCar;
+
+<span class="kw">interface</span>
+
+<span class="kw">type</span>
+  <span class="cls">TCar</span> = <span class="kw">class</span>
+  <span class="kw">private</span>
+    fMake  : <span class="kw2">string</span>;    <span class="cmt">// e.g. 'Toyota'</span>
+    fYear  : <span class="kw2">integer</span>;   <span class="cmt">// e.g. 2022</span>
+  <span class="kw">public</span>
+    <span class="kw">constructor</span> Create(sMake: <span class="kw2">string</span>; iYear: <span class="kw2">integer</span>);
+    <span class="kw">function</span>    GetMake  : <span class="kw2">string</span>;
+    <span class="kw">function</span>    GetYear  : <span class="kw2">integer</span>;
+    <span class="kw">procedure</span>   SetMake(sNewMake: <span class="kw2">string</span>);
+    <span class="kw">function</span>    ToString : <span class="kw2">string</span>;
+  <span class="kw">end</span>;
+
+<span class="kw">implementation</span>
+
+<span class="kw">constructor</span> <span class="cls">TCar</span>.Create(sMake: <span class="kw2">string</span>; iYear: <span class="kw2">integer</span>);
+<span class="kw">begin</span>
+  fMake := sMake;
+  fYear := iYear;
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TCar</span>.GetMake : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  Result := fMake;
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TCar</span>.GetYear : <span class="kw2">integer</span>;
+<span class="kw">begin</span>
+  Result := fYear;
+<span class="kw">end</span>;
+
+<span class="kw">procedure</span> <span class="cls">TCar</span>.SetMake(sNewMake: <span class="kw2">string</span>);
+<span class="kw">begin</span>
+  fMake := sNewMake;    <span class="cmt">// could add validation here (e.g. check not empty)</span>
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TCar</span>.ToString : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  Result := fMake + <span class="str">' ('</span> + IntToStr(fYear) + <span class="str">')'</span>;
+  <span class="cmt">// Output example: 'Toyota (2022)'</span>
+<span class="kw">end</span>;
+
+<span class="kw">end</span>.</code></pre></div>
+
+    <h3>Using TCar in the Main Form</h3>
+    <div class="code-block"><span class="code-label">Delphi — main form unit</span>
+<pre><code><span class="cmt">// 1. Add UCar to uses clause of the main form</span>
+<span class="kw">uses</span>
+  ..., UCar;
+
+<span class="cmt">// 2. Declare object variable (global or local)</span>
+<span class="kw">var</span>
+  objCar : <span class="cls">TCar</span>;
+
+<span class="cmt">// 3. Create the object — in a button click or FormCreate</span>
+objCar := <span class="cls">TCar</span>.Create(<span class="str">'Toyota'</span>, <span class="num">2022</span>);
+
+<span class="cmt">// 4. Read values using accessors</span>
+lblMake.Caption := objCar.GetMake;                 <span class="cmt">// 'Toyota'</span>
+lblYear.Caption := IntToStr(objCar.GetYear);       <span class="cmt">// '2022'</span>
+memOut.Lines.Add(objCar.ToString);                 <span class="cmt">// 'Toyota (2022)'</span>
+
+<span class="cmt">// 5. Update a value using mutator</span>
+objCar.SetMake(<span class="str">'Honda'</span>);
+lblMake.Caption := objCar.GetMake;                 <span class="cmt">// 'Honda'</span></code></pre></div>
+
+    <figure class="img-center">
+      <img src="../images/oop-object-create.png" alt="Creating an object from the TCat class" class="img-center">
+      <figcaption class="img-caption">Creating an object from the TCat class</figcaption>
+    </figure>
+
+    <div class="callout warning">
+      <div class="callout-title">Always create before use!</div>
+      <p>Always call <code>Create</code> before using any other method. The object does not exist until it is created. Also make sure the class unit name is in the <code>uses</code> clause of your main form.</p>
+    </div>
+
+    <!-- ═══════ USING TCat IN FORM ═══════ -->
+    <h2>Using a Class in the Main Form</h2>
+    <div class="code-block"><span class="code-label">Delphi — main form (TCat example)</span>
+<pre><code><span class="kw">uses</span>
+  ..., UCat;
+
+<span class="kw">var</span>
+  objCat : <span class="cls">TCat</span>;
+
+<span class="cmt">// Create the object</span>
+objCat := <span class="cls">TCat</span>.Create(<span class="str">'Whiskers'</span>, <span class="num">3</span>, <span class="num">4.2</span>);
+
+<span class="cmt">// Use its accessors</span>
+lblName.Caption := objCat.GetName;           <span class="cmt">// 'Whiskers'</span>
+lblAge.Caption  := IntToStr(objCat.GetAge);  <span class="cmt">// '3'</span>
+memOut.Lines.Add(objCat.ToString);           <span class="cmt">// 'Whiskers, Age: 3, Weight: 4.2kg'</span>
+
+<span class="cmt">// Update via mutator</span>
+objCat.SetName(<span class="str">'Felix'</span>);
+lblName.Caption := objCat.GetName;           <span class="cmt">// 'Felix'</span></code></pre></div>
+
+    <!-- ═══════ DYNAMIC COMPONENTS ═══════ -->
+    <h2>Dynamic Components — Creating Controls at Runtime</h2>
+    <p>You already know that every Delphi control is an <strong>object of a class</strong> (a button is a <code>TButton</code>, a label is a <code>TLabel</code>). Because they are classes, you can <strong>create them in code while the program is running</strong> using the same <code>Create</code> constructor you use for your own classes &mdash; instead of dragging them onto the form at design time.</p>
+    <p>This is called creating a <strong>dynamic component</strong>. It is useful when you don't know in advance how many controls you need (e.g. one button per record loaded from a file).</p>
+
+    <h3>The Four Steps</h3>
+    <ol>
+      <li><strong>Create</strong> the object from its class, passing the <em>owner</em> (usually the form).</li>
+      <li><strong>Set the Parent</strong> so Delphi knows <em>where</em> to draw it (which form/panel).</li>
+      <li><strong>Set properties</strong> like position, size and caption.</li>
+      <li><strong>Assign an event handler</strong> so it actually does something when clicked.</li>
+    </ol>
+
+    <div class="code-block"><span class="code-label">Delphi — create a button at runtime</span>
+<pre><code><span class="kw">var</span>
+  btnDynamic : <span class="cls">TButton</span>;
+<span class="kw">begin</span>
+  <span class="cmt">// 1. Create the object (Form1 is the owner – frees it automatically)</span>
+  btnDynamic := <span class="cls">TButton</span>.Create(Form1);
+
+  <span class="cmt">// 2. Set the Parent so it appears on the form</span>
+  btnDynamic.Parent := Form1;
+
+  <span class="cmt">// 3. Set properties</span>
+  btnDynamic.Left    := <span class="num">50</span>;
+  btnDynamic.Top     := <span class="num">50</span>;
+  btnDynamic.Width   := <span class="num">100</span>;
+  btnDynamic.Height  := <span class="num">30</span>;
+  btnDynamic.Caption := <span class="str">'Click Me'</span>;
+
+  <span class="cmt">// 4. Assign an event handler (a procedure you wrote)</span>
+  btnDynamic.OnClick := btnDynamicClick;
+<span class="kw">end</span>;
+
+<span class="cmt">// The handler the button will run when clicked</span>
+<span class="kw">procedure</span> TForm1.<span class="fn">btnDynamicClick</span>(Sender: TObject);
+<span class="kw">begin</span>
+  ShowMessage(<span class="str">'Dynamic button clicked!'</span>);
+<span class="kw">end</span>;</code></pre></div>
+
+    <div class="callout tip">
+      <div class="callout-title">Owner vs Parent — what's the difference?</div>
+      <p><strong>Owner</strong> (the argument to <code>Create</code>) is responsible for <em>freeing</em> the component from memory when the form closes. <strong>Parent</strong> decides <em>where on screen</em> the component is drawn. They are usually the same form, but not always (e.g. Owner = Form, Parent = a Panel on that form).</p>
+    </div>
+    <div class="callout warning">
+      <div class="callout-title">Avoid memory leaks</div>
+      <p>If you create a component with <code>Create(nil)</code> (no owner), <strong>you</strong> must free it yourself with <code>btnDynamic.Free;</code> when you are done, otherwise it stays in memory. Passing the form as the owner lets Delphi clean up for you automatically.</p>
+    </div>
+
+    <div class="page-nav">
+      <a href="../grade11/practical/methods.html"><span class="page-nav-label">← Previous</span>Procedures &amp; Functions</a>
+      <a class="next" href="../grade11/practical/databases-delphi.html"><span class="page-nav-label">Next →</span>Databases in Delphi</a>
+    </div>
+  </main>
+</div>
+<script src="../js/nav.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

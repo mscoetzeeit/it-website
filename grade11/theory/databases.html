@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Database Management &#x00B7; Ms Coetzee IT</title><link rel="stylesheet" href="../../css/style.css"><style>:root{--grade-color:var(--gr11);}</style></head><body><div id="topnav"></div><div class="page-wrapper"><aside class="sidebar"><div class="sidebar-grade">Grade 11 Theory</div><a href="hardware-gr11.html">Motherboard &amp; Hardware</a><a href="processing.html">Processing Techniques</a><a href="databases.html">Database Management</a><a href="networks-gr11.html">Networks &amp; Protocols</a><a href="mobile-tech.html">Mobile Technology</a><a href="computer-management.html">Computer Management</a><a href="e-communications-gr11.html">E-Communications</a><a href="internet-gr11.html">Internet &amp; Multimedia</a><a href="internet-services-gr11.html">Internet Services</a><a href="social-gr11.html">Social Implications</a><div class="sidebar-grade" style="margin-top:1rem">Grade 11 Practical</div><a href="../practical/arrays.html">1D Arrays</a><a href="../practical/text-files.html">Text Files</a><a href="../practical/methods.html">Procedures &amp; Functions</a><a href="../practical/databases-delphi.html">Databases in Delphi</a></aside>
+
+<main class="content">
+<div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Database Management</span></div>
+
+<h1>Database Management <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">A database is like a <strong>highly organised digital filing cabinet</strong> — instead of papers stuffed into folders, your data is stored in neat tables with rows and columns, so you can find, sort and filter it in seconds. A <strong>DBMS</strong> (Database Management System) is the software that manages it all.</p>
+
+<!-- ═══════ KEY TERMS ═══════ -->
+<h2>Key Terms</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Term</th><th>Definition</th></tr>
+  <tr><td><strong>Database</strong></td><td>An organised collection of data stored in tables</td></tr>
+  <tr><td><strong>Table</strong></td><td>Rows and columns storing one type of entity (e.g. Students)</td></tr>
+  <tr><td><strong>Record</strong></td><td>One complete row — all data about one item</td></tr>
+  <tr><td><strong>Field</strong></td><td>One column — a specific attribute (e.g. Surname, Age)</td></tr>
+  <tr><td><strong>Primary key</strong></td><td>Unique field that identifies each record (e.g. StudentID)</td></tr>
+  <tr><td><strong>Foreign key</strong></td><td>A field that links to the primary key of another table</td></tr>
+  <tr><td><strong>DBMS</strong></td><td>Database Management System — software to create, manage and query databases</td></tr>
+</table></div>
+
+<!-- ═══════ DATABASE TABLE SVG ═══════ -->
+<h2>What a Database Table Looks Like</h2>
+<p>A table in a database looks exactly like a spreadsheet grid. The table has a name, column headers (fields), and rows of data (records).</p>
+
+<div style="margin:1.25rem 0;overflow-x:auto">
+  <svg viewBox="0 0 720 250" width="720" height="250" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+    <rect width="720" height="250" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+
+    <!-- Table name banner -->
+    <rect x="16" y="12" width="688" height="30" rx="5" fill="#a78bfa" opacity="0.2" stroke="#a78bfa" stroke-width="1"/>
+    <text x="360" y="31" text-anchor="middle" fill="#a78bfa" font-size="13" font-weight="700">tblStudents</text>
+
+    <!-- Header row -->
+    <rect x="16" y="50" width="688" height="28" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+    <!-- PK icon for StudentID -->
+    <text x="78"  y="68" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">StudentID  PK</text>
+    <text x="258" y="68" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="700">Name</text>
+    <text x="430" y="68" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="700">Grade</text>
+    <text x="600" y="68" text-anchor="middle" fill="#a78bfa" font-size="11" font-weight="700">ClassID  FK</text>
+    <!-- Column dividers -->
+    <line x1="160" y1="50" x2="160" y2="230" stroke="#30363d" stroke-width="1"/>
+    <line x1="350" y1="50" x2="350" y2="230" stroke="#30363d" stroke-width="1"/>
+    <line x1="510" y1="50" x2="510" y2="230" stroke="#30363d" stroke-width="1"/>
+
+    <!-- Row 1 -->
+    <rect x="16" y="78" width="688" height="36" rx="0" fill="#161b22"/>
+    <text x="78"  y="100" text-anchor="middle" fill="#22d3ee" font-size="11">1001</text>
+    <text x="258" y="100" text-anchor="middle" fill="#e6edf3" font-size="11">Alice Nkosi</text>
+    <text x="430" y="100" text-anchor="middle" fill="#e6edf3" font-size="11">11</text>
+    <text x="600" y="100" text-anchor="middle" fill="#a78bfa" font-size="11">C-01</text>
+
+    <!-- Row 2 -->
+    <rect x="16" y="114" width="688" height="36" rx="0" fill="#21262d"/>
+    <text x="78"  y="136" text-anchor="middle" fill="#22d3ee" font-size="11">1002</text>
+    <text x="258" y="136" text-anchor="middle" fill="#e6edf3" font-size="11">Bob Dlamini</text>
+    <text x="430" y="136" text-anchor="middle" fill="#e6edf3" font-size="11">11</text>
+    <text x="600" y="136" text-anchor="middle" fill="#a78bfa" font-size="11">C-02</text>
+
+    <!-- Row 3 -->
+    <rect x="16" y="150" width="688" height="36" rx="0" fill="#161b22"/>
+    <text x="78"  y="172" text-anchor="middle" fill="#22d3ee" font-size="11">1003</text>
+    <text x="258" y="172" text-anchor="middle" fill="#e6edf3" font-size="11">Callie van Wyk</text>
+    <text x="430" y="172" text-anchor="middle" fill="#e6edf3" font-size="11">10</text>
+    <text x="600" y="172" text-anchor="middle" fill="#a78bfa" font-size="11">C-01</text>
+
+    <!-- Bottom border -->
+    <line x1="16" y1="186" x2="704" y2="186" stroke="#30363d" stroke-width="1"/>
+
+    <!-- Legend -->
+    <rect x="16" y="200" width="14" height="14" rx="2" fill="#fbbf24" opacity="0.6"/>
+    <text x="36" y="212" fill="#fbbf24" font-size="9">Primary Key (PK) — unique, cannot repeat</text>
+    <rect x="290" y="200" width="14" height="14" rx="2" fill="#a78bfa" opacity="0.6"/>
+    <text x="310" y="212" fill="#a78bfa" font-size="9">Foreign Key (FK) — links to another table</text>
+    <text x="360" y="235" text-anchor="middle" fill="#8b949e" font-size="9">Each ROW = one record (one student).   Each COLUMN = one field (one attribute).</text>
+  </svg>
+</div>
+
+<!-- ═══════ PRIMARY KEY vs FOREIGN KEY ═══════ -->
+<h2>Primary Key vs Foreign Key</h2>
+<p>Keys are what make databases powerful — they link tables together so you do not repeat data.</p>
+
+<div style="margin:1.25rem 0;overflow-x:auto">
+  <svg viewBox="0 0 720 200" width="720" height="200" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+    <rect width="720" height="200" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+
+    <!-- tblStudents -->
+    <rect x="16" y="16" width="280" height="168" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+    <rect x="16" y="16" width="280" height="24" rx="6" fill="#a78bfa" opacity="0.2" stroke="#a78bfa" stroke-width="1"/>
+    <text x="156" y="32" text-anchor="middle" fill="#a78bfa" font-size="11" font-weight="700">tblStudents</text>
+    <!-- Fields -->
+    <rect x="26" y="48" width="260" height="24" rx="3" fill="#fbbf24" opacity="0.15" stroke="#fbbf24" stroke-width="1"/>
+    <text x="36" y="64" fill="#fbbf24" font-size="10" font-weight="700">StudentID  (PK) — unique</text>
+    <text x="36" y="88" fill="#e6edf3" font-size="10">Name</text>
+    <text x="36" y="108" fill="#e6edf3" font-size="10">Grade</text>
+    <rect x="26" y="118" width="260" height="22" rx="3" fill="#a78bfa" opacity="0.15" stroke="#a78bfa" stroke-width="1"/>
+    <text x="36" y="133" fill="#a78bfa" font-size="10" font-weight="700">ClassID  (FK) → tblClasses.ClassID</text>
+    <text x="36" y="160" fill="#8b949e" font-size="9">ClassID links THIS record to a class</text>
+
+    <!-- Arrow in middle -->
+    <line x1="296" y1="100" x2="424" y2="100" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <defs>
+      <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#22d3ee"/>
+      </marker>
+    </defs>
+    <text x="358" y="92" text-anchor="middle" fill="#22d3ee" font-size="9">FK links</text>
+    <text x="358" y="104" text-anchor="middle" fill="#22d3ee" font-size="9">to PK</text>
+
+    <!-- tblClasses -->
+    <rect x="424" y="16" width="280" height="168" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+    <rect x="424" y="16" width="280" height="24" rx="6" fill="#22d3ee" opacity="0.15" stroke="#22d3ee" stroke-width="1"/>
+    <text x="564" y="32" text-anchor="middle" fill="#22d3ee" font-size="11" font-weight="700">tblClasses</text>
+    <rect x="434" y="48" width="260" height="24" rx="3" fill="#fbbf24" opacity="0.15" stroke="#fbbf24" stroke-width="1"/>
+    <text x="444" y="64" fill="#fbbf24" font-size="10" font-weight="700">ClassID  (PK) — e.g. C-01</text>
+    <text x="444" y="88" fill="#e6edf3" font-size="10">ClassName</text>
+    <text x="444" y="108" fill="#e6edf3" font-size="10">TeacherName</text>
+    <text x="444" y="128" fill="#e6edf3" font-size="10">RoomNumber</text>
+    <text x="444" y="160" fill="#8b949e" font-size="9">One class can have many students</text>
+  </svg>
+</div>
+
+<div class="tbl-wrap"><table>
+  <tr><th>Key Type</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>Primary Key (PK)</strong></td><td>Uniquely identifies each record. Cannot be NULL. Cannot repeat.</td><td>StudentID = 1001</td></tr>
+  <tr><td><strong>Foreign Key (FK)</strong></td><td>A field in one table that refers to the PK of another table.</td><td>ClassID in tblStudents → ClassID in tblClasses</td></tr>
+  <tr><td><strong>Composite Key</strong></td><td>Two or more fields combined to form a unique identifier.</td><td>StudentID + SubjectCode</td></tr>
+</table></div>
+
+<!-- ═══════ ERD SVG ═══════ -->
+<h2>Entity Relationship Diagram (ERD)</h2>
+<p>An ERD shows the tables in a database and how they are related. The line between tables shows the type of relationship (one-to-many, etc.).</p>
+
+<div style="margin:1.25rem 0;overflow-x:auto">
+  <svg viewBox="0 0 720 200" width="720" height="200" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+    <rect width="720" height="200" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+
+    <!-- tblClasses entity box -->
+    <rect x="30" y="40" width="220" height="120" rx="6" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
+    <rect x="30" y="40" width="220" height="26" rx="6" fill="#22d3ee" opacity="0.2"/>
+    <text x="140" y="57" text-anchor="middle" fill="#22d3ee" font-size="11" font-weight="700">tblClasses</text>
+    <text x="40" y="78" fill="#fbbf24" font-size="10">ClassID (PK)</text>
+    <text x="40" y="96" fill="#8b949e" font-size="10">ClassName</text>
+    <text x="40" y="114" fill="#8b949e" font-size="10">TeacherName</text>
+    <text x="40" y="132" fill="#8b949e" font-size="10">RoomNumber</text>
+
+    <!-- Relationship line — one-to-many -->
+    <!-- Straight line -->
+    <line x1="250" y1="100" x2="470" y2="100" stroke="#4ade80" stroke-width="2"/>
+    <!-- "1" side marker at Classes -->
+    <line x1="250" y1="88" x2="250" y2="112" stroke="#4ade80" stroke-width="2"/>
+    <!-- "many" crow's foot at Students -->
+    <line x1="470" y1="100" x2="456" y2="88" stroke="#4ade80" stroke-width="2"/>
+    <line x1="470" y1="100" x2="456" y2="112" stroke="#4ade80" stroke-width="2"/>
+    <line x1="470" y1="100" x2="456" y2="100" stroke="#4ade80" stroke-width="2"/>
+    <text x="360" y="88" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="700">1 : MANY</text>
+    <text x="265" y="88" fill="#4ade80" font-size="9">1</text>
+    <text x="455" y="86" fill="#4ade80" font-size="9">M</text>
+    <text x="360" y="118" text-anchor="middle" fill="#8b949e" font-size="9">One class can have many students</text>
+
+    <!-- tblStudents entity box -->
+    <rect x="470" y="40" width="220" height="130" rx="6" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/>
+    <rect x="470" y="40" width="220" height="26" rx="6" fill="#a78bfa" opacity="0.2"/>
+    <text x="580" y="57" text-anchor="middle" fill="#a78bfa" font-size="11" font-weight="700">tblStudents</text>
+    <text x="480" y="78" fill="#fbbf24" font-size="10">StudentID (PK)</text>
+    <text x="480" y="96" fill="#8b949e" font-size="10">Name</text>
+    <text x="480" y="114" fill="#8b949e" font-size="10">Grade</text>
+    <text x="480" y="132" fill="#a78bfa" font-size="10">ClassID (FK)</text>
+    <text x="480" y="150" fill="#8b949e" font-size="10">Email</text>
+  </svg>
+</div>
+
+<!-- ═══════ DATA TYPES ═══════ -->
+<h2>Database Field Data Types</h2>
+<p>Each field in a table has a data type that controls what kind of data can be stored.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Data Type</th><th>Also Called</th><th>Description</th><th>SA School Example</th></tr>
+  <tr><td><strong>Text / Short Text</strong></td><td>VARCHAR, String</td><td>Letters, numbers, symbols — max 255 chars</td><td>Student name, school name</td></tr>
+  <tr><td><strong>Number</strong></td><td>Integer, Long Integer</td><td>Whole numbers or decimals (for calculations)</td><td>Mark out of 100, age</td></tr>
+  <tr><td><strong>Date/Time</strong></td><td>DateTime</td><td>Dates and/or times stored as numeric values internally</td><td>Date of birth, test date</td></tr>
+  <tr><td><strong>Yes/No</strong></td><td>Boolean</td><td>Only two values: True/False, Yes/No, 1/0</td><td>Has paid school fees, is a prefect</td></tr>
+  <tr><td><strong>AutoNumber</strong></td><td>Identity, Auto-increment</td><td>Automatically assigns the next unique integer — ideal for PK</td><td>StudentID, RecordID</td></tr>
+  <tr><td><strong>Currency</strong></td><td>Money, Decimal</td><td>Monetary values with fixed decimal precision</td><td>Fee amount, textbook cost</td></tr>
+  <tr><td><strong>Memo / Long Text</strong></td><td>Text (large)</td><td>Longer text — more than 255 characters</td><td>Teacher comments, notes</td></tr>
+  <tr><td><strong>OLE Object</strong></td><td>Blob</td><td>Stores files — images, documents, audio</td><td>Student photo, report PDF</td></tr>
+</table></div>
+
+<!-- ═══════ DBMS COMPARISON ═══════ -->
+<h2>Common DBMS Software</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>DBMS</th><th>Type</th><th>Cost</th><th>Use Case</th></tr>
+  <tr><td><strong>Microsoft Access</strong></td><td>Desktop</td><td>Paid (MS Office)</td><td>Small databases, school/office, learning, Grade 11–12 IT practicals</td></tr>
+  <tr><td><strong>MySQL</strong></td><td>Open-source server</td><td>Free</td><td>Web applications, websites (used with PHP)</td></tr>
+  <tr><td><strong>Oracle</strong></td><td>Enterprise server</td><td>Very expensive</td><td>Banks, airlines, hospitals — mission-critical systems</td></tr>
+  <tr><td><strong>PostgreSQL</strong></td><td>Open-source server</td><td>Free</td><td>Advanced queries, large datasets, analytics</td></tr>
+  <tr><td><strong>Microsoft SQL Server</strong></td><td>Enterprise server</td><td>Paid</td><td>Large corporate databases, Windows environments</td></tr>
+</table></div>
+
+<!-- ═══════ TABLE RELATIONSHIPS ═══════ -->
+<h2>Table Relationships</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Relationship</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>One-to-One</strong></td><td>One record in Table A links to exactly one record in Table B</td><td>Student ↔ Locker (each student has one locker)</td></tr>
+  <tr><td><strong>One-to-Many</strong></td><td>One record in Table A links to many records in Table B</td><td>Class → Students (one class has many students)</td></tr>
+  <tr><td><strong>Many-to-Many</strong></td><td>Many records in A link to many records in B (needs a linking table)</td><td>Students ↔ Subjects (students take many subjects; subjects have many students)</td></tr>
+</table></div>
+
+<!-- ═══════ DATA QUALITY ═══════ -->
+<h2>Data Quality Characteristics</h2>
+<p>Data quality means the data is <strong>fit for purpose</strong>. Poor quality data leads to wrong decisions.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Characteristic</th><th>Meaning</th><th>SA School Example</th></tr>
+  <tr><td><strong>Accuracy</strong></td><td>Data is correct and free from errors</td><td>A learner's mark recorded as 78, not 87 (transposition error)</td></tr>
+  <tr><td><strong>Correctness</strong></td><td>Data conforms to defined rules and constraints</td><td>Grade field only contains values 8–12</td></tr>
+  <tr><td><strong>Currency</strong></td><td>Data is up to date — not outdated</td><td>A learner's address updated after they move house</td></tr>
+  <tr><td><strong>Completeness</strong></td><td>All required data is present — no blank fields where required</td><td>Every learner record has a valid ID number and grade</td></tr>
+  <tr><td><strong>Relevance</strong></td><td>Only data that is needed is stored</td><td>A school database does not need to store a learner's favourite colour</td></tr>
+</table></div>
+
+<!-- ═══════ DATA INTEGRITY ═══════ -->
+<h2>Data Integrity</h2>
+<p><strong>Data integrity</strong> ensures data is accurate, consistent and reliable over its entire lifetime.</p>
+<ul>
+  <li><strong>Physical integrity</strong> — protection from hardware failure using RAID, backups, and UPS.</li>
+  <li><strong>Logical integrity</strong> — data follows rules: input validation, referential integrity, access control.</li>
+  <li><strong>Referential integrity</strong> — a FK value must exist as a PK in the related table (no orphan records).</li>
+</ul>
+
+<!-- ═══════ VALIDATION ═══════ -->
+<h2>Validation Types</h2>
+<p>Validation checks that data entered is <strong>reasonable and in the correct format</strong> — it does not check if data is true, just if it is acceptable.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Check</th><th>Description</th><th>SA School Example</th></tr>
+  <tr><td><strong>Format check</strong></td><td>Data matches required pattern or structure</td><td>Email must contain @ and a dot — <code>alice@school.co.za</code></td></tr>
+  <tr><td><strong>Range check</strong></td><td>Value falls within acceptable minimum and maximum</td><td>Test mark must be between 0 and 100</td></tr>
+  <tr><td><strong>Type check</strong></td><td>Data entered is the correct data type</td><td>Age field must be a number, not text</td></tr>
+  <tr><td><strong>Presence check</strong></td><td>The field must not be blank (required)</td><td>Surname cannot be empty — every learner must have a surname</td></tr>
+  <tr><td><strong>Check digit</strong></td><td>A calculated digit is appended and re-calculated to verify correctness</td><td>SA ID number: last digit is a check digit</td></tr>
+  <tr><td><strong>Lookup check</strong></td><td>Value must match an item in a predefined list</td><td>Province field: only one of the 9 SA province names allowed</td></tr>
+  <tr><td><strong>Consistency check</strong></td><td>Two or more fields must be logically consistent</td><td>If Grade = 10, Year must be after 2005 (15-year-old)</td></tr>
+</table></div>
+
+<!-- ═══════ DATABASE TYPES ═══════ -->
+<h2>Database Types by Usage</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>Desktop / Personal</strong></td><td>Single user, stored locally on one computer</td><td>MS Access for a school IT project</td></tr>
+  <tr><td><strong>Server / Centralised</strong></td><td>Multi-user, stored on a server, accessed over a network</td><td>School administration system accessed by teachers and admin</td></tr>
+  <tr><td><strong>Distributed</strong></td><td>Spread across multiple locations/servers, synchronised</td><td>A national learner database accessed from all provinces</td></tr>
+</table></div>
+
+<!-- ═══════ DATABASE CAREERS ═══════ -->
+<h2>Database Careers</h2>
+<ul>
+  <li><strong>DBA (Database Administrator)</strong> — maintains security, backups, performance tuning</li>
+  <li><strong>Database Programmer / Developer</strong> — writes queries, stored procedures, applications</li>
+  <li><strong>Database Analyst</strong> — designs structure, models relationships, plans migrations</li>
+  <li><strong>Data Scientist</strong> — analyses large datasets to find patterns and insights</li>
+  <li><strong>Project Manager</strong> — manages database projects, budgets and teams</li>
+</ul>
+
+<div class="page-nav">
+  <a href="processing.html"><span class="page-nav-label">← Previous</span>Processing Techniques</a>
+  <a class="next" href="networks-gr11.html"><span class="page-nav-label">Next →</span>Networks &amp; Protocols</a>
+</div>
+</main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body></html>

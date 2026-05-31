@@ -1,0 +1,504 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>1D Arrays (Grade 11) &#x00B7; Ms Coetzee IT</title><link rel="stylesheet" href="../../css/style.css"><style>:root{--grade-color:var(--gr11);}</style></head><body><div id="topnav"></div><div class="page-wrapper"><aside class="sidebar"><div class="sidebar-grade">Grade 11 Practical</div><a href="arrays.html">1D Arrays (T1)</a><a href="text-files.html">Text Files (T2)</a><a href="methods.html">Procedures &amp; Functions (T2)</a><a href="databases-delphi.html">Databases in Delphi (T3)</a><div class="sidebar-grade" style="margin-top:1rem">Grade 11 Theory</div><a href="../theory/hardware-gr11.html">Motherboard</a><a href="../theory/processing.html">Processing</a><a href="../theory/databases.html">Databases</a><a href="../theory/networks-gr11.html">Networks</a><a href="../theory/mobile-tech.html">Mobile Tech</a><a href="../theory/computer-management.html">Computer Management</a><a href="../theory/e-communications-gr11.html">E-Communications</a><a href="../theory/internet-gr11.html">Internet &amp; Multimedia</a><a href="../theory/internet-services-gr11.html">Internet Services</a><a href="../theory/social-gr11.html">Social</a></aside>
+
+<main class="content">
+<div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">&#x203a;</span><span>1D Arrays</span></div>
+
+<h1>1D Arrays <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">Imagine you need to store 30 student marks. Without arrays you would need 30 separate variables — <code>iMark1</code>, <code>iMark2</code>, … <code>iMark30</code>. With an array, <strong>one name stores them all</strong>: <code>arrMarks[1..30]</code>. Arrays are a Grade 11 Term 1 topic.</p>
+
+<!-- ═══════ WHY ARRAYS ═══════ -->
+<h2>Why Use Arrays?</h2>
+
+<div style="margin:1.25rem 0;overflow-x:auto">
+  <svg viewBox="0 0 720 210" width="720" height="210" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+    <rect width="720" height="210" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <!-- Without arrays -->
+    <rect x="12" y="12" width="320" height="186" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+    <text x="172" y="32" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="700">Without Arrays</text>
+    <text x="22" y="52" fill="#8b949e" font-size="9">var</text>
+    <text x="28" y="65" fill="#e6edf3" font-size="9">iMark1, iMark2, iMark3, iMark4,</text>
+    <text x="28" y="78" fill="#e6edf3" font-size="9">iMark5, iMark6, iMark7, iMark8,</text>
+    <text x="28" y="91" fill="#e6edf3" font-size="9">iMark9, iMark10, iMark11, iMark12,</text>
+    <text x="28" y="104" fill="#e6edf3" font-size="9">iMark13, iMark14, iMark15, iMark16,</text>
+    <text x="28" y="117" fill="#e6edf3" font-size="9">iMark17, iMark18, iMark19, iMark20,</text>
+    <text x="28" y="130" fill="#e6edf3" font-size="9">iMark21, iMark22, iMark23, iMark24,</text>
+    <text x="28" y="143" fill="#e6edf3" font-size="9">iMark25, iMark26, iMark27, iMark28,</text>
+    <text x="28" y="156" fill="#e6edf3" font-size="9">iMark29, iMark30 : Integer;</text>
+    <text x="172" y="186" text-anchor="middle" fill="#fbbf24" font-size="9">30 separate variables — hard to loop over!</text>
+    <!-- With arrays -->
+    <rect x="348" y="12" width="360" height="186" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+    <text x="528" y="32" text-anchor="middle" fill="#4ade80" font-size="12" font-weight="700">With Arrays</text>
+    <text x="358" y="52" fill="#8b949e" font-size="9">var</text>
+    <text x="365" y="68" fill="#a78bfa" font-size="11">arrMarks : array[1..30] of Integer;</text>
+    <text x="358" y="95" fill="#8b949e" font-size="9">// Loop through all 30 with 3 lines:</text>
+    <text x="358" y="112" fill="#a78bfa" font-size="10">for i := 1 to 30 do</text>
+    <text x="365" y="128" fill="#e6edf3" font-size="10">  iTotal := iTotal + arrMarks[i];</text>
+    <text x="528" y="186" text-anchor="middle" fill="#4ade80" font-size="9">One name, 30 values, loops work perfectly!</text>
+  </svg>
+</div>
+
+<!-- ═══════ 1D ARRAY SVG ═══════ -->
+<h2>What is a 1D Array?</h2>
+<p>A <strong>one-dimensional array</strong> holds an ordered list of values. Think of it like a train — each carriage (box) holds one value and has a number (index). The index tells you where to find the value.</p>
+
+<div style="margin:1.25rem 0;overflow-x:auto">
+  <svg viewBox="0 0 740 160" width="740" height="160" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+    <rect width="740" height="160" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="370" y="22" text-anchor="middle" fill="#a78bfa" font-size="12" font-weight="700">arrNames : array[1..7] of String</text>
+    <!-- Index labels -->
+    <text x="56"  y="48" text-anchor="middle" fill="#8b949e" font-size="10">Index [1]</text>
+    <text x="162" y="48" text-anchor="middle" fill="#8b949e" font-size="10">Index [2]</text>
+    <text x="268" y="48" text-anchor="middle" fill="#8b949e" font-size="10">Index [3]</text>
+    <text x="374" y="48" text-anchor="middle" fill="#8b949e" font-size="10">Index [4]</text>
+    <text x="480" y="48" text-anchor="middle" fill="#8b949e" font-size="10">Index [5]</text>
+    <text x="586" y="48" text-anchor="middle" fill="#8b949e" font-size="10">Index [6]</text>
+    <text x="692" y="48" text-anchor="middle" fill="#8b949e" font-size="10">Index [7]</text>
+    <!-- Boxes -->
+    <rect x="10"  y="56" width="92" height="50" rx="4" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/>
+    <rect x="116" y="56" width="92" height="50" rx="4" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/>
+    <rect x="222" y="56" width="92" height="50" rx="4" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/>
+    <rect x="328" y="56" width="92" height="50" rx="4" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/>
+    <rect x="434" y="56" width="92" height="50" rx="4" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/>
+    <rect x="540" y="56" width="92" height="50" rx="4" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/>
+    <rect x="646" y="56" width="92" height="50" rx="4" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/>
+    <!-- Values -->
+    <text x="56"  y="86" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="600">'Alice'</text>
+    <text x="162" y="86" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="600">'Bob'</text>
+    <text x="268" y="86" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="600">'Callie'</text>
+    <text x="374" y="86" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="600">'David'</text>
+    <text x="480" y="86" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="600">'Eve'</text>
+    <text x="586" y="86" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="600">'Farai'</text>
+    <text x="692" y="86" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="600">'Gio'</text>
+    <!-- Connector dots -->
+    <circle cx="102" cy="81" r="3" fill="#30363d"/>
+    <circle cx="116" cy="81" r="3" fill="#30363d"/>
+    <circle cx="208" cy="81" r="3" fill="#30363d"/>
+    <circle cx="222" cy="81" r="3" fill="#30363d"/>
+    <circle cx="314" cy="81" r="3" fill="#30363d"/>
+    <circle cx="328" cy="81" r="3" fill="#30363d"/>
+    <circle cx="420" cy="81" r="3" fill="#30363d"/>
+    <circle cx="434" cy="81" r="3" fill="#30363d"/>
+    <circle cx="526" cy="81" r="3" fill="#30363d"/>
+    <circle cx="540" cy="81" r="3" fill="#30363d"/>
+    <circle cx="632" cy="81" r="3" fill="#30363d"/>
+    <circle cx="646" cy="81" r="3" fill="#30363d"/>
+    <!-- Access example -->
+    <text x="370" y="135" text-anchor="middle" fill="#4ade80" font-size="10">arrNames[3] = 'Callie'   ·   arrNames[1] = 'Alice'   ·   To access last: arrNames[7]</text>
+  </svg>
+</div>
+
+<!-- ═══════ DECLARING ═══════ -->
+<h2>Declaring an Array</h2>
+<div class="code-block"><span class="code-label">Syntax</span>
+<pre><code>arrName : <span class="kw">array</span> [lowerIndex..upperIndex] <span class="kw">of</span> DataType;</code></pre></div>
+<div class="code-block"><span class="code-label">Examples</span>
+<pre><code><span class="kw">var</span>
+  arrNames  : <span class="kw">array</span> [<span class="num">1</span>..<span class="num">30</span>] <span class="kw">of</span> <span class="kw2">String</span>;
+  arrMarks  : <span class="kw">array</span> [<span class="num">1</span>..<span class="num">30</span>] <span class="kw">of</span> <span class="kw2">Integer</span>;
+  arrPrices : <span class="kw">array</span> [<span class="num">0</span>..<span class="num">9</span>]  <span class="kw">of</span> <span class="kw2">Real</span>;</code></pre></div>
+
+<h3>Arrays of Unknown Length — use a constant</h3>
+<p>You don't always know in advance exactly how many items you will store. A common trick is to declare a <strong>constant</strong> for the maximum size, then use it as the upper index. If the size needs to change later, you only edit one line.</p>
+<div class="callout warning">
+  <div class="callout-title">Declare the constant BEFORE the array</div>
+  <p>The constant must be declared <em>above</em> the array declaration (it can go just above <code>type</code> in the interface section), otherwise Delphi won't know what <code>Max</code> means yet.</p>
+</div>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">const</span>
+  Max = <span class="num">100</span>;                          <span class="cmt">// maximum possible learners</span>
+<span class="kw">var</span>
+  arrNames : <span class="kw">array</span> [<span class="num">1</span>..Max] <span class="kw">of</span> <span class="kw2">String</span>;
+  iCount   : <span class="kw2">Integer</span>;                  <span class="cmt">// how many are ACTUALLY used</span></code></pre></div>
+<p>Keep a separate counter (<code>iCount</code>) for how many elements are really in use, and loop <code>1 to iCount</code> instead of <code>1 to Max</code>.</p>
+
+<!-- ═══════ DYNAMIC ARRAYS ═══════ -->
+<h2>Dynamic Arrays</h2>
+<p>A <strong>dynamic array</strong> has <em>no fixed size</em> when declared — you set (and can later change) its length while the program runs with <code>SetLength</code>. This is perfect when the number of items is only known at runtime (e.g. after reading a file).</p>
+<div class="callout tip">
+  <div class="callout-title">Dynamic arrays start at index 0</div>
+  <p>Unlike <code>array[1..30]</code>, a dynamic array is <strong>always 0-based</strong>. If you <code>SetLength(arr, 5)</code> the valid indexes are <code>0,1,2,3,4</code>. Use <code>Low(arr)</code> for the first index (0) and <code>High(arr)</code> for the last (length − 1).</p>
+</div>
+<div class="tbl-wrap"><table>
+  <tr><th>Routine</th><th>Purpose</th></tr>
+  <tr><td><code>SetLength(arr, n)</code></td><td>Sets (or changes) the array to hold <code>n</code> elements</td></tr>
+  <tr><td><code>Length(arr)</code></td><td>Returns the current number of elements</td></tr>
+  <tr><td><code>Low(arr)</code></td><td>First valid index (always 0 for dynamic arrays)</td></tr>
+  <tr><td><code>High(arr)</code></td><td>Last valid index (<code>Length − 1</code>)</td></tr>
+</table></div>
+<div class="code-block"><span class="code-label">Delphi — dynamic array</span>
+<pre><code><span class="kw">var</span>
+  arrNum : <span class="kw">array</span> <span class="kw">of</span> <span class="kw2">Integer</span>;   <span class="cmt">// note: NO index range given</span>
+  i : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  SetLength(arrNum, <span class="num">5</span>);          <span class="cmt">// now holds 5 ints, index 0..4</span>
+
+  <span class="kw">for</span> i := Low(arrNum) <span class="kw">to</span> High(arrNum) <span class="kw">do</span>
+    arrNum[i] := i * <span class="num">2</span>;           <span class="cmt">// 0, 2, 4, 6, 8</span>
+
+  SetLength(arrNum, <span class="num">8</span>);          <span class="cmt">// grow to 8 — existing values are kept</span>
+<span class="kw">end</span>;</code></pre></div>
+
+<!-- ═══════ POPULATING ═══════ -->
+<h2>Populating an Array</h2>
+<h3>Method 1: Fixed values</h3>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>arrNames[<span class="num">1</span>] := <span class="str">'Alice'</span>;
+arrNames[<span class="num">2</span>] := <span class="str">'Bob'</span>;
+arrNames[<span class="num">3</span>] := <span class="str">'Callie'</span>;</code></pre></div>
+<h3>Method 2: Constant array (known at compile time)</h3>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">const</span>
+  arrDays : <span class="kw">array</span> [<span class="num">1</span>..<span class="num">7</span>] <span class="kw">of</span> <span class="kw2">String</span> =
+    (<span class="str">'Mon'</span>, <span class="str">'Tue'</span>, <span class="str">'Wed'</span>, <span class="str">'Thu'</span>, <span class="str">'Fri'</span>, <span class="str">'Sat'</span>, <span class="str">'Sun'</span>);</code></pre></div>
+<h3>Method 3: User input with a loop</h3>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> <span class="num">30</span> <span class="kw">do</span>
+  arrNames[i] := InputBox(<span class="str">'Name'</span>, <span class="str">'Enter name:'</span>, <span class="str">''</span>);</code></pre></div>
+
+<!-- ═══════ DISPLAY / CALC ═══════ -->
+<h2>Displaying &amp; Calculating</h2>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="cmt">// Display all</span>
+<span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(arrMarks) <span class="kw">do</span>
+  memOut.Lines.Add(IntToStr(arrMarks[i]));
+
+<span class="cmt">// Sum and average</span>
+iTotal := <span class="num">0</span>;
+<span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(arrMarks) <span class="kw">do</span>
+  iTotal := iTotal + arrMarks[i];
+rAvg := iTotal / Length(arrMarks);</code></pre></div>
+
+<!-- ═══════ LINEAR SEARCH ═══════ -->
+<h2>Linear Search</h2>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>bFound := <span class="kw">False</span>;
+<span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(arrNames) <span class="kw">do</span>
+  <span class="kw">if</span> arrNames[i] = sSearch <span class="kw">then</span>
+  <span class="kw">begin</span>
+    ShowMessage(<span class="str">'Found at position '</span> + IntToStr(i));
+    bFound := <span class="kw">True</span>;
+    Break;
+  <span class="kw">end</span>;
+<span class="kw">if not</span> bFound <span class="kw">then</span>
+  ShowMessage(<span class="str">'Not found'</span>);</code></pre></div>
+
+<!-- ═══════ BINARY SEARCH ═══════ -->
+<h2>Binary Search (sorted array)</h2>
+<p>Binary search is much faster than linear — it halves the search range each step. The array <strong>must be sorted first</strong>. We are searching for <strong>23</strong> in the array <code>[2, 5, 8, 12, 16, 23, 38, 56, 72, 91]</code>.</p>
+
+<div style="margin:1.25rem 0;overflow-x:auto">
+  <svg viewBox="0 0 720 300" width="720" height="300" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+    <rect width="720" height="300" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="360" y="22" text-anchor="middle" fill="#a78bfa" font-size="12" font-weight="700">Binary Search — searching for 23</text>
+
+    <!-- Array values row -->
+    <!-- Indices -->
+    <text x="10" y="46" fill="#8b949e" font-size="9">idx:</text>
+    <text x="62"  y="46" text-anchor="middle" fill="#8b949e" font-size="9">[1]</text>
+    <text x="130" y="46" text-anchor="middle" fill="#8b949e" font-size="9">[2]</text>
+    <text x="198" y="46" text-anchor="middle" fill="#8b949e" font-size="9">[3]</text>
+    <text x="266" y="46" text-anchor="middle" fill="#8b949e" font-size="9">[4]</text>
+    <text x="334" y="46" text-anchor="middle" fill="#8b949e" font-size="9">[5]</text>
+    <text x="402" y="46" text-anchor="middle" fill="#8b949e" font-size="9">[6]</text>
+    <text x="470" y="46" text-anchor="middle" fill="#8b949e" font-size="9">[7]</text>
+    <text x="538" y="46" text-anchor="middle" fill="#8b949e" font-size="9">[8]</text>
+    <text x="606" y="46" text-anchor="middle" fill="#8b949e" font-size="9">[9]</text>
+    <text x="674" y="46" text-anchor="middle" fill="#8b949e" font-size="9">[10]</text>
+    <!-- Values -->
+    <text x="10" y="70" fill="#8b949e" font-size="9">val:</text>
+    <text x="62"  y="70" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="600">2</text>
+    <text x="130" y="70" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="600">5</text>
+    <text x="198" y="70" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="600">8</text>
+    <text x="266" y="70" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="600">12</text>
+    <text x="334" y="70" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="600">16</text>
+    <text x="402" y="70" text-anchor="middle" fill="#4ade80" font-size="11" font-weight="700">23</text>
+    <text x="470" y="70" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="600">38</text>
+    <text x="538" y="70" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="600">56</text>
+    <text x="606" y="70" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="600">72</text>
+    <text x="674" y="70" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="600">91</text>
+
+    <!-- Trace table header -->
+    <rect x="10" y="90" width="700" height="22" rx="4" fill="#21262d"/>
+    <text x="80"  y="105" text-anchor="middle" fill="#a78bfa" font-size="10" font-weight="700">Step</text>
+    <text x="200" y="105" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">iLow</text>
+    <text x="320" y="105" text-anchor="middle" fill="#fbbf24" font-size="10" font-weight="700">iHigh</text>
+    <text x="450" y="105" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="700">iMid</text>
+    <text x="600" y="105" text-anchor="middle" fill="#e6edf3" font-size="10" font-weight="700">arrNums[iMid]</text>
+    <!-- Step 1 -->
+    <rect x="10" y="112" width="700" height="26" rx="2" fill="#161b22"/>
+    <text x="80"  y="129" text-anchor="middle" fill="#8b949e" font-size="10">1</text>
+    <text x="200" y="129" text-anchor="middle" fill="#22d3ee" font-size="10">1</text>
+    <text x="320" y="129" text-anchor="middle" fill="#fbbf24" font-size="10">10</text>
+    <text x="450" y="129" text-anchor="middle" fill="#4ade80" font-size="10">5  (1+10) div 2</text>
+    <text x="600" y="129" text-anchor="middle" fill="#e6edf3" font-size="10">16  &lt; 23 → iLow = 6</text>
+    <!-- Step 2 -->
+    <rect x="10" y="138" width="700" height="26" rx="2" fill="#21262d"/>
+    <text x="80"  y="155" text-anchor="middle" fill="#8b949e" font-size="10">2</text>
+    <text x="200" y="155" text-anchor="middle" fill="#22d3ee" font-size="10">6</text>
+    <text x="320" y="155" text-anchor="middle" fill="#fbbf24" font-size="10">10</text>
+    <text x="450" y="155" text-anchor="middle" fill="#4ade80" font-size="10">8  (6+10) div 2</text>
+    <text x="600" y="155" text-anchor="middle" fill="#e6edf3" font-size="10">56  &gt; 23 → iHigh = 7</text>
+    <!-- Step 3 -->
+    <rect x="10" y="164" width="700" height="26" rx="2" fill="#161b22"/>
+    <text x="80"  y="181" text-anchor="middle" fill="#8b949e" font-size="10">3</text>
+    <text x="200" y="181" text-anchor="middle" fill="#22d3ee" font-size="10">6</text>
+    <text x="320" y="181" text-anchor="middle" fill="#fbbf24" font-size="10">7</text>
+    <text x="450" y="181" text-anchor="middle" fill="#4ade80" font-size="10">6  (6+7) div 2</text>
+    <text x="600" y="181" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="700">23  = 23 → FOUND!</text>
+    <!-- Key -->
+    <rect x="10" y="200" width="700" height="28" rx="4" fill="#21262d" stroke="#4ade80" stroke-width="1"/>
+    <text x="360" y="218" text-anchor="middle" fill="#4ade80" font-size="10">Found 23 at position 6 in just 3 steps! Linear search would have taken 6 steps.</text>
+    <!-- Code snippet -->
+    <rect x="10" y="238" width="700" height="50" rx="4" fill="#0d1117" stroke="#30363d" stroke-width="1"/>
+    <text x="20" y="256" fill="#a78bfa" font-size="9">iLow := 1;  iHigh := Length(arrNums);  bFound := False;</text>
+    <text x="20" y="269" fill="#a78bfa" font-size="9">while (iLow &lt;= iHigh) and not bFound do begin</text>
+    <text x="30" y="282" fill="#e6edf3" font-size="9">iMid := (iLow + iHigh) div 2;</text>
+    <text x="200" y="282" fill="#8b949e" font-size="9">if arrNums[iMid] = iTarget then bFound := True</text>
+    <text x="30" y="282" fill="#e6edf3" font-size="9"/>
+  </svg>
+</div>
+
+<div class="code-block"><span class="code-label">Delphi &mdash; binary search</span>
+<pre><code>iLow := <span class="num">1</span>;
+iHigh := Length(arrNums);
+bFound := <span class="kw">False</span>;
+<span class="kw">while</span> (iLow &lt;= iHigh) <span class="kw">and not</span> bFound <span class="kw">do</span>
+<span class="kw">begin</span>
+  iMid := (iLow + iHigh) <span class="kw">div</span> <span class="num">2</span>;
+  <span class="kw">if</span> arrNums[iMid] = iTarget <span class="kw">then</span>
+    bFound := <span class="kw">True</span>
+  <span class="kw">else if</span> arrNums[iMid] &lt; iTarget <span class="kw">then</span>
+    iLow := iMid + <span class="num">1</span>
+  <span class="kw">else</span>
+    iHigh := iMid - <span class="num">1</span>;
+<span class="kw">end</span>;
+<span class="kw">if</span> bFound <span class="kw">then</span>
+  ShowMessage(<span class="str">'Found at position '</span> + IntToStr(iMid));</code></pre></div>
+
+<!-- ═══════ BUBBLE SORT VISUAL ═══════ -->
+<h2>Bubble Sort — Pass by Pass</h2>
+<p>Bubble sort compares adjacent elements and swaps them if they are in the wrong order. After each full pass, the largest unsorted value "bubbles" to its correct position at the end. Array: <strong>[5, 3, 8, 1, 9]</strong> — sorting ascending.</p>
+
+<div style="margin:1.25rem 0;overflow-x:auto">
+  <svg viewBox="0 0 680 320" width="680" height="320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+    <rect width="680" height="320" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="340" y="22" text-anchor="middle" fill="#a78bfa" font-size="12" font-weight="700">Bubble Sort — [5, 3, 8, 1, 9]</text>
+
+    <!-- Helper function to draw a row -->
+    <!-- Pass labels -->
+    <text x="14" y="52" fill="#8b949e" font-size="10">Start</text>
+    <text x="14" y="102" fill="#8b949e" font-size="10">Pass 1</text>
+    <text x="14" y="152" fill="#8b949e" font-size="10">Pass 2</text>
+    <text x="14" y="202" fill="#8b949e" font-size="10">Pass 3</text>
+    <text x="14" y="252" fill="#8b949e" font-size="10">Pass 4</text>
+    <text x="14" y="295" fill="#4ade80" font-size="10" font-weight="700">Sorted</text>
+
+    <!-- Row: Start [5,3,8,1,9] -->
+    <rect x="90" y="36" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="113" y="55" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">5</text>
+    <rect x="146" y="36" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="169" y="55" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">3</text>
+    <rect x="202" y="36" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="225" y="55" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">8</text>
+    <rect x="258" y="36" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="281" y="55" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">1</text>
+    <rect x="314" y="36" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="337" y="55" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">9</text>
+
+    <!-- Row: Pass 1 → [3,5,1,8,9] — swaps: 5>3, 8>1, 9 in place -->
+    <rect x="90" y="86" width="46" height="30" rx="3" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/><text x="113" y="105" text-anchor="middle" fill="#a78bfa" font-size="13" font-weight="700">3</text>
+    <rect x="146" y="86" width="46" height="30" rx="3" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/><text x="169" y="105" text-anchor="middle" fill="#a78bfa" font-size="13" font-weight="700">5</text>
+    <rect x="202" y="86" width="46" height="30" rx="3" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/><text x="225" y="105" text-anchor="middle" fill="#a78bfa" font-size="13" font-weight="700">1</text>
+    <rect x="258" y="86" width="46" height="30" rx="3" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/><text x="281" y="105" text-anchor="middle" fill="#a78bfa" font-size="13" font-weight="700">8</text>
+    <rect x="314" y="86" width="46" height="30" rx="3" fill="#0d1117" stroke="#4ade80" stroke-width="2"/><text x="337" y="105" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">9</text>
+    <text x="380" y="105" fill="#8b949e" font-size="9">9 locked in</text>
+
+    <!-- Row: Pass 2 → [3,1,5,8,9] -->
+    <rect x="90" y="136" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="113" y="155" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">3</text>
+    <rect x="146" y="136" width="46" height="30" rx="3" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/><text x="169" y="155" text-anchor="middle" fill="#a78bfa" font-size="13" font-weight="700">1</text>
+    <rect x="202" y="136" width="46" height="30" rx="3" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/><text x="225" y="155" text-anchor="middle" fill="#a78bfa" font-size="13" font-weight="700">5</text>
+    <rect x="258" y="136" width="46" height="30" rx="3" fill="#0d1117" stroke="#4ade80" stroke-width="2"/><text x="281" y="155" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">8</text>
+    <rect x="314" y="136" width="46" height="30" rx="3" fill="#0d1117" stroke="#4ade80" stroke-width="2"/><text x="337" y="155" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">9</text>
+    <text x="380" y="155" fill="#8b949e" font-size="9">8, 9 locked</text>
+
+    <!-- Row: Pass 3 → [1,3,5,8,9] -->
+    <rect x="90" y="186" width="46" height="30" rx="3" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/><text x="113" y="205" text-anchor="middle" fill="#a78bfa" font-size="13" font-weight="700">1</text>
+    <rect x="146" y="186" width="46" height="30" rx="3" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/><text x="169" y="205" text-anchor="middle" fill="#a78bfa" font-size="13" font-weight="700">3</text>
+    <rect x="202" y="186" width="46" height="30" rx="3" fill="#0d1117" stroke="#4ade80" stroke-width="2"/><text x="225" y="205" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">5</text>
+    <rect x="258" y="186" width="46" height="30" rx="3" fill="#0d1117" stroke="#4ade80" stroke-width="2"/><text x="281" y="205" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">8</text>
+    <rect x="314" y="186" width="46" height="30" rx="3" fill="#0d1117" stroke="#4ade80" stroke-width="2"/><text x="337" y="205" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">9</text>
+
+    <!-- Row: Pass 4 → [1,3,5,8,9] — no swaps needed -->
+    <rect x="90" y="236" width="46" height="30" rx="3" fill="#0d1117" stroke="#4ade80" stroke-width="2"/><text x="113" y="255" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">1</text>
+    <rect x="146" y="236" width="46" height="30" rx="3" fill="#0d1117" stroke="#4ade80" stroke-width="2"/><text x="169" y="255" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">3</text>
+    <rect x="202" y="236" width="46" height="30" rx="3" fill="#0d1117" stroke="#4ade80" stroke-width="2"/><text x="225" y="255" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">5</text>
+    <rect x="258" y="236" width="46" height="30" rx="3" fill="#0d1117" stroke="#4ade80" stroke-width="2"/><text x="281" y="255" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">8</text>
+    <rect x="314" y="236" width="46" height="30" rx="3" fill="#0d1117" stroke="#4ade80" stroke-width="2"/><text x="337" y="255" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">9</text>
+
+    <!-- Final sorted row -->
+    <rect x="90" y="280" width="46" height="26" rx="3" fill="#4ade80" opacity="0.7"/><text x="113" y="297" text-anchor="middle" fill="#0d1117" font-size="13" font-weight="700">1</text>
+    <rect x="146" y="280" width="46" height="26" rx="3" fill="#4ade80" opacity="0.7"/><text x="169" y="297" text-anchor="middle" fill="#0d1117" font-size="13" font-weight="700">3</text>
+    <rect x="202" y="280" width="46" height="26" rx="3" fill="#4ade80" opacity="0.7"/><text x="225" y="297" text-anchor="middle" fill="#0d1117" font-size="13" font-weight="700">5</text>
+    <rect x="258" y="280" width="46" height="26" rx="3" fill="#4ade80" opacity="0.7"/><text x="281" y="297" text-anchor="middle" fill="#0d1117" font-size="13" font-weight="700">8</text>
+    <rect x="314" y="280" width="46" height="26" rx="3" fill="#4ade80" opacity="0.7"/><text x="337" y="297" text-anchor="middle" fill="#0d1117" font-size="13" font-weight="700">9</text>
+    <text x="380" y="295" fill="#a78bfa" font-size="9">violet = swapped this pass</text>
+    <text x="380" y="308" fill="#4ade80" font-size="9">green = locked in final position</text>
+  </svg>
+</div>
+
+<div class="code-block"><span class="code-label">Delphi — Bubble Sort</span>
+<pre><code><span class="kw">for</span> i := Length(arrNums) - <span class="num">1</span> <span class="kw">downto</span> <span class="num">1</span> <span class="kw">do</span>
+  <span class="kw">for</span> j := <span class="num">1</span> <span class="kw">to</span> i <span class="kw">do</span>
+    <span class="kw">if</span> arrNums[j] > arrNums[j + <span class="num">1</span>] <span class="kw">then</span>
+    <span class="kw">begin</span>
+      iTemp := arrNums[j];
+      arrNums[j] := arrNums[j + <span class="num">1</span>];
+      arrNums[j + <span class="num">1</span>] := iTemp;
+    <span class="kw">end</span>;</code></pre></div>
+
+<!-- ═══════ SELECTION SORT VISUAL ═══════ -->
+<h2>Selection Sort — Pass by Pass</h2>
+<p>Selection sort finds the <strong>smallest remaining</strong> element and swaps it into its correct position. Same array: <strong>[5, 3, 8, 1, 9]</strong>.</p>
+
+<div style="margin:1.25rem 0;overflow-x:auto">
+  <svg viewBox="0 0 680 290" width="680" height="290" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+    <rect width="680" height="290" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="340" y="22" text-anchor="middle" fill="#a78bfa" font-size="12" font-weight="700">Selection Sort — [5, 3, 8, 1, 9]</text>
+
+    <text x="14" y="52" fill="#8b949e" font-size="10">Start</text>
+    <text x="14" y="102" fill="#8b949e" font-size="10">Pass 1</text>
+    <text x="14" y="152" fill="#8b949e" font-size="10">Pass 2</text>
+    <text x="14" y="202" fill="#8b949e" font-size="10">Pass 3</text>
+    <text x="14" y="252" fill="#8b949e" font-size="10">Pass 4</text>
+
+    <!-- Start row -->
+    <rect x="90" y="36" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="113" y="55" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">5</text>
+    <rect x="146" y="36" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="169" y="55" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">3</text>
+    <rect x="202" y="36" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="225" y="55" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">8</text>
+    <rect x="258" y="36" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="281" y="55" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">1</text>
+    <rect x="314" y="36" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="337" y="55" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">9</text>
+
+    <!-- Pass 1: min=1 at [4], swap with [1]. Result [1,3,8,5,9] -->
+    <rect x="90"  y="86" width="46" height="30" rx="3" fill="#0d1117" stroke="#4ade80" stroke-width="2"/><text x="113" y="105" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">1</text>
+    <rect x="146" y="86" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="169" y="105" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">3</text>
+    <rect x="202" y="86" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="225" y="105" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">8</text>
+    <rect x="258" y="86" width="46" height="30" rx="3" fill="#21262d" stroke="#fbbf24" stroke-width="1.5"/><text x="281" y="105" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="600">5</text>
+    <rect x="314" y="86" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="337" y="105" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">9</text>
+    <text x="380" y="105" fill="#8b949e" font-size="9">min=1 found at [4], swap → [1] locked</text>
+
+    <!-- Pass 2: min=3 already in [2]. Result [1,3,8,5,9] -->
+    <rect x="90"  y="136" width="46" height="30" rx="3" fill="#0d1117" stroke="#4ade80" stroke-width="2"/><text x="113" y="155" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">1</text>
+    <rect x="146" y="136" width="46" height="30" rx="3" fill="#0d1117" stroke="#4ade80" stroke-width="2"/><text x="169" y="155" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">3</text>
+    <rect x="202" y="136" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="225" y="155" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">8</text>
+    <rect x="258" y="136" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="281" y="155" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">5</text>
+    <rect x="314" y="136" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="337" y="155" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">9</text>
+    <text x="380" y="155" fill="#8b949e" font-size="9">min=3 already at [2] — locked</text>
+
+    <!-- Pass 3: min=5 at [4], swap with [3]. Result [1,3,5,8,9] -->
+    <rect x="90"  y="186" width="46" height="30" rx="3" fill="#0d1117" stroke="#4ade80" stroke-width="2"/><text x="113" y="205" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">1</text>
+    <rect x="146" y="186" width="46" height="30" rx="3" fill="#0d1117" stroke="#4ade80" stroke-width="2"/><text x="169" y="205" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">3</text>
+    <rect x="202" y="186" width="46" height="30" rx="3" fill="#0d1117" stroke="#4ade80" stroke-width="2"/><text x="225" y="205" text-anchor="middle" fill="#4ade80" font-size="13" font-weight="700">5</text>
+    <rect x="258" y="186" width="46" height="30" rx="3" fill="#21262d" stroke="#fbbf24" stroke-width="1.5"/><text x="281" y="205" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="600">8</text>
+    <rect x="314" y="186" width="46" height="30" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/><text x="337" y="205" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="600">9</text>
+    <text x="380" y="205" fill="#8b949e" font-size="9">min=5 found at [4], swap → [3] locked</text>
+
+    <!-- Pass 4: [1,3,5,8,9] sorted -->
+    <rect x="90"  y="236" width="46" height="30" rx="3" fill="#4ade80" opacity="0.7"/><text x="113" y="255" text-anchor="middle" fill="#0d1117" font-size="13" font-weight="700">1</text>
+    <rect x="146" y="236" width="46" height="30" rx="3" fill="#4ade80" opacity="0.7"/><text x="169" y="255" text-anchor="middle" fill="#0d1117" font-size="13" font-weight="700">3</text>
+    <rect x="202" y="236" width="46" height="30" rx="3" fill="#4ade80" opacity="0.7"/><text x="225" y="255" text-anchor="middle" fill="#0d1117" font-size="13" font-weight="700">5</text>
+    <rect x="258" y="236" width="46" height="30" rx="3" fill="#4ade80" opacity="0.7"/><text x="281" y="255" text-anchor="middle" fill="#0d1117" font-size="13" font-weight="700">8</text>
+    <rect x="314" y="236" width="46" height="30" rx="3" fill="#4ade80" opacity="0.7"/><text x="337" y="255" text-anchor="middle" fill="#0d1117" font-size="13" font-weight="700">9</text>
+    <text x="380" y="252" fill="#4ade80" font-size="9" font-weight="700">SORTED!</text>
+  </svg>
+</div>
+
+<div class="code-block"><span class="code-label">Delphi — Selection Sort</span>
+<pre><code><span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(arrNums) - <span class="num">1</span> <span class="kw">do</span>
+  <span class="kw">for</span> j := i + <span class="num">1</span> <span class="kw">to</span> Length(arrNums) <span class="kw">do</span>
+    <span class="kw">if</span> arrNums[j] &lt; arrNums[i] <span class="kw">then</span>
+    <span class="kw">begin</span>
+      iTemp := arrNums[i];
+      arrNums[i] := arrNums[j];
+      arrNums[j] := iTemp;
+    <span class="kw">end</span>;</code></pre></div>
+
+<!-- ═══════ PARALLEL ARRAYS ═══════ -->
+<h2>Parallel Arrays</h2>
+<p>Two arrays are <strong>parallel</strong> when the same index refers to the same "record" — e.g. <code>arrNames[3]</code> and <code>arrMarks[3]</code> both belong to the same student. When you sort one, you must sort both to keep them in sync.</p>
+
+<div style="margin:1.25rem 0;overflow-x:auto">
+  <svg viewBox="0 0 680 180" width="680" height="180" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+    <rect width="680" height="180" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="340" y="20" text-anchor="middle" fill="#a78bfa" font-size="12" font-weight="700">Parallel Arrays — Same Index, Different Data</text>
+
+    <!-- arrNames row -->
+    <text x="8" y="54" fill="#22d3ee" font-size="10" font-weight="600">arrNames</text>
+    <rect x="90" y="38" width="80" height="30" rx="3" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/><text x="130" y="57" text-anchor="middle" fill="#e6edf3" font-size="11">'Alice'</text>
+    <rect x="190" y="38" width="80" height="30" rx="3" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/><text x="230" y="57" text-anchor="middle" fill="#e6edf3" font-size="11">'Bob'</text>
+    <rect x="290" y="38" width="80" height="30" rx="3" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/><text x="330" y="57" text-anchor="middle" fill="#e6edf3" font-size="11">'Callie'</text>
+    <rect x="390" y="38" width="80" height="30" rx="3" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/><text x="430" y="57" text-anchor="middle" fill="#e6edf3" font-size="11">'David'</text>
+    <rect x="490" y="38" width="80" height="30" rx="3" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/><text x="530" y="57" text-anchor="middle" fill="#e6edf3" font-size="11">'Eve'</text>
+    <!-- Index labels -->
+    <text x="130" y="80" text-anchor="middle" fill="#8b949e" font-size="9">[1]</text>
+    <text x="230" y="80" text-anchor="middle" fill="#8b949e" font-size="9">[2]</text>
+    <text x="330" y="80" text-anchor="middle" fill="#8b949e" font-size="9">[3]</text>
+    <text x="430" y="80" text-anchor="middle" fill="#8b949e" font-size="9">[4]</text>
+    <text x="530" y="80" text-anchor="middle" fill="#8b949e" font-size="9">[5]</text>
+    <!-- Dotted connector lines -->
+    <line x1="130" y1="82" x2="130" y2="108" stroke="#30363d" stroke-width="1" stroke-dasharray="3,2"/>
+    <line x1="230" y1="82" x2="230" y2="108" stroke="#30363d" stroke-width="1" stroke-dasharray="3,2"/>
+    <line x1="330" y1="82" x2="330" y2="108" stroke="#30363d" stroke-width="1" stroke-dasharray="3,2"/>
+    <line x1="430" y1="82" x2="430" y2="108" stroke="#30363d" stroke-width="1" stroke-dasharray="3,2"/>
+    <line x1="530" y1="82" x2="530" y2="108" stroke="#30363d" stroke-width="1" stroke-dasharray="3,2"/>
+    <!-- arrMarks row -->
+    <text x="8" y="130" fill="#fbbf24" font-size="10" font-weight="600">arrMarks</text>
+    <rect x="90" y="110" width="80" height="30" rx="3" fill="#21262d" stroke="#fbbf24" stroke-width="1.5"/><text x="130" y="129" text-anchor="middle" fill="#e6edf3" font-size="11">78</text>
+    <rect x="190" y="110" width="80" height="30" rx="3" fill="#21262d" stroke="#fbbf24" stroke-width="1.5"/><text x="230" y="129" text-anchor="middle" fill="#e6edf3" font-size="11">65</text>
+    <rect x="290" y="110" width="80" height="30" rx="3" fill="#21262d" stroke="#fbbf24" stroke-width="1.5"/><text x="330" y="129" text-anchor="middle" fill="#e6edf3" font-size="11">91</text>
+    <rect x="390" y="110" width="80" height="30" rx="3" fill="#21262d" stroke="#fbbf24" stroke-width="1.5"/><text x="430" y="129" text-anchor="middle" fill="#e6edf3" font-size="11">54</text>
+    <rect x="490" y="110" width="80" height="30" rx="3" fill="#21262d" stroke="#fbbf24" stroke-width="1.5"/><text x="530" y="129" text-anchor="middle" fill="#e6edf3" font-size="11">88</text>
+    <text x="340" y="165" text-anchor="middle" fill="#8b949e" font-size="9">arrNames[3] = 'Callie'  linked to  arrMarks[3] = 91 — same student, same index</text>
+  </svg>
+</div>
+
+<div class="code-block"><span class="code-label">Delphi &mdash; parallel sort (names &amp; marks together)</span>
+<pre><code><span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(arrNames) - <span class="num">1</span> <span class="kw">do</span>
+  <span class="kw">for</span> j := i + <span class="num">1</span> <span class="kw">to</span> Length(arrNames) <span class="kw">do</span>
+    <span class="kw">if</span> arrNames[i] > arrNames[j] <span class="kw">then</span>
+    <span class="kw">begin</span>
+      <span class="cmt">// Swap both arrays at the same time</span>
+      sTemp := arrNames[i]; arrNames[i] := arrNames[j]; arrNames[j] := sTemp;
+      iTemp := arrMarks[i]; arrMarks[i] := arrMarks[j]; arrMarks[j] := iTemp;
+    <span class="kw">end</span>;</code></pre></div>
+
+<!-- ═══════ DATE METHODS ═══════ -->
+<h2>Date Methods (Grade 11)</h2>
+<p>Delphi has built-in functions for working with dates — required for Grade 11 Term 1.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Function</th><th>Returns</th><th>Example &amp; Output</th></tr>
+  <tr><td><code>Now</code></td><td>Current date &amp; time (TDateTime)</td><td><code>lblDate.Caption := DateToStr(Now)</code> → <code>'2025/05/30'</code></td></tr>
+  <tr><td><code>DateToStr(d)</code></td><td>Date as formatted string</td><td><code>DateToStr(dtpBirth.Date)</code> → <code>'2008/03/15'</code></td></tr>
+  <tr><td><code>TimeToStr(t)</code></td><td>Time as formatted string</td><td><code>TimeToStr(Now)</code> → <code>'14:32:07'</code></td></tr>
+  <tr><td><code>StrToDate(s)</code></td><td>String → TDateTime</td><td><code>StrToDate('2024/05/01')</code></td></tr>
+  <tr><td><code>IsLeapYear(y)</code></td><td>Boolean (True/False)</td><td><code>IsLeapYear(2024)</code> → <code>True</code></td></tr>
+  <tr><td><code>YearOf(d)</code></td><td>Integer year</td><td><code>YearOf(dtpDate.Date)</code> → <code>2025</code></td></tr>
+  <tr><td><code>MonthOf(d)</code></td><td>Integer month (1–12)</td><td><code>MonthOf(Now)</code> → <code>5</code></td></tr>
+  <tr><td><code>DayOf(d)</code></td><td>Integer day (1–31)</td><td><code>DayOf(Now)</code> → <code>30</code></td></tr>
+</table></div>
+
+<div class="code-block"><span class="code-label">Delphi — Date examples with output</span>
+<pre><code><span class="cmt">// Display today's date</span>
+lblToday.Caption := DateToStr(Now);         <span class="cmt">// '2025/05/30'</span>
+
+<span class="cmt">// Calculate age in years</span>
+iAge := YearOf(Now) - YearOf(dtpBirth.Date); <span class="cmt">// e.g. 17</span>
+
+<span class="cmt">// Check leap year</span>
+<span class="kw">if</span> IsLeapYear(YearOf(Now)) <span class="kw">then</span>
+  ShowMessage(<span class="str">'This is a leap year'</span>)
+<span class="kw">else</span>
+  ShowMessage(<span class="str">'Not a leap year'</span>);</code></pre></div>
+
+<div class="page-nav">
+  <a href="../theory/hardware-gr11.html"><span class="page-nav-label">&larr; Theory</span>Motherboard &amp; Hardware</a>
+  <a class="next" href="text-files.html"><span class="page-nav-label">Next &rarr;</span>Text Files</a>
+</div>
+</main>
+</div>
+<script src="../../js/nav.js"></script><script src="../../js/main.js"></script></body></html>

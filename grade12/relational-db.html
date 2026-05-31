@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Relational Databases & Normalisation (Grade 12) &#x00B7; Ms Coetzee IT</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>:root{--grade-color:var(--gr12);}</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+<aside class="sidebar"><div class="sidebar-grade">Grade 12 Practical</div><a href="sql.html">SQL</a><a href="sql-join.html">SQL — Joining Tables</a><a href="oop.html">OOP</a><a href="arrays-2d.html">2D Arrays</a><a href="recursion.html">Recursion</a><div class="sidebar-grade" style="margin-top:1rem">Grade 12 Theory</div><a href="data-management.html">Data Collection &amp; Warehousing</a><a href="relational-db.html">Relational DBs &amp; Normalisation</a><a href="hardware-gr12.html">Hardware &amp; Performance</a><a href="cloud-vr-ar.html">Cloud, VR &amp; AR</a><a href="internet-tech.html">Internet Technologies</a><a href="networks-gr12.html">Networks &amp; Remote Access</a><a href="communication-tech.html">Communication Technologies</a><a href="cybercrime.html">Cybercrime &amp; Safeguards</a><a href="social-gr12.html">Social Implications</a></aside>
+<main class="content">
+  <div class="breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb-sep">&rsaquo;</span><span>Relational Databases &amp; Normalisation</span></div>
+  <h1>Relational Databases &amp; Normalisation <span class="grade-badge">Grade 12</span></h1>
+  <p class="page-intro">A relational database stores data in structured tables linked together. Normalisation is the process of cleaning up a database design to remove repetition and prevent errors.</p>
+
+  <h2>What is a Relational Database?</h2>
+  <p>A relational database stores data in <strong>tables</strong> (also called relations). Each table represents one type of thing — for example, a table for students, a separate table for subjects. Tables are then <strong>linked</strong> together using key fields.</p>
+
+  <!-- TABLE DIAGRAM SVG -->
+  <div style="margin:1.5rem 0;overflow-x:auto">
+    <svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:640px">
+      <!-- tblStudents -->
+      <rect x="20" y="10" width="260" height="200" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+      <rect x="20" y="10" width="260" height="34" rx="6" fill="#fbbf24" opacity="0.2"/>
+      <rect x="20" y="10" width="260" height="34" fill="none" stroke="#fbbf24" stroke-width="1.5" rx="6"/>
+      <text x="150" y="33" text-anchor="middle" font-size="13" font-weight="700" fill="#fbbf24" font-family="Consolas,monospace">tblStudents</text>
+      <!-- headers -->
+      <rect x="21" y="44" width="258" height="24" fill="#21262d"/>
+      <text x="35" y="61" font-size="11" fill="#8b949e" font-family="Consolas,monospace">StudentID</text>
+      <text x="120" y="61" font-size="11" fill="#8b949e" font-family="Consolas,monospace">Name</text>
+      <text x="200" y="61" font-size="11" fill="#8b949e" font-family="Consolas,monospace">ClassID</text>
+      <!-- PK indicator -->
+      <text x="22" y="61" font-size="11" fill="#fbbf24">🔑</text>
+      <!-- row 1 -->
+      <line x1="21" y1="68" x2="279" y2="68" stroke="#30363d"/>
+      <text x="35" y="83" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">1</text>
+      <text x="120" y="83" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">Alice</text>
+      <text x="200" y="83" font-size="11" fill="#22d3ee" font-family="Consolas,monospace">C01</text>
+      <!-- row 2 -->
+      <line x1="21" y1="91" x2="279" y2="91" stroke="#30363d"/>
+      <text x="35" y="106" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">2</text>
+      <text x="120" y="106" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">Bob</text>
+      <text x="200" y="106" font-size="11" fill="#22d3ee" font-family="Consolas,monospace">C02</text>
+      <!-- row 3 -->
+      <line x1="21" y1="114" x2="279" y2="114" stroke="#30363d"/>
+      <text x="35" y="129" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">3</text>
+      <text x="120" y="129" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">Carol</text>
+      <text x="200" y="129" font-size="11" fill="#22d3ee" font-family="Consolas,monospace">C01</text>
+      <text x="35" y="185" font-size="10" fill="#4ade80" font-family="sans-serif">PK: StudentID</text>
+      <text x="35" y="200" font-size="10" fill="#22d3ee" font-family="sans-serif">FK: ClassID → tblClasses</text>
+
+      <!-- Arrow -->
+      <line x1="200" y1="106" x2="360" y2="106" stroke="#22d3ee" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#22d3ee"/>
+        </marker>
+      </defs>
+      <text x="290" y="100" font-size="10" fill="#22d3ee" font-family="sans-serif">FK links to PK</text>
+
+      <!-- tblClasses -->
+      <rect x="360" y="10" width="260" height="200" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+      <rect x="360" y="10" width="260" height="34" rx="6" fill="#fbbf24" opacity="0.2"/>
+      <rect x="360" y="10" width="260" height="34" fill="none" stroke="#fbbf24" stroke-width="1.5" rx="6"/>
+      <text x="490" y="33" text-anchor="middle" font-size="13" font-weight="700" fill="#fbbf24" font-family="Consolas,monospace">tblClasses</text>
+      <rect x="361" y="44" width="258" height="24" fill="#21262d"/>
+      <text x="375" y="61" font-size="11" fill="#8b949e" font-family="Consolas,monospace">ClassID</text>
+      <text x="450" y="61" font-size="11" fill="#8b949e" font-family="Consolas,monospace">ClassName</text>
+      <text x="362" y="61" font-size="11" fill="#fbbf24">🔑</text>
+      <line x1="361" y1="68" x2="619" y2="68" stroke="#30363d"/>
+      <text x="375" y="83" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">C01</text>
+      <text x="450" y="83" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">12A</text>
+      <line x1="361" y1="91" x2="619" y2="91" stroke="#30363d"/>
+      <text x="375" y="106" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">C02</text>
+      <text x="450" y="106" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">12B</text>
+      <text x="375" y="185" font-size="10" fill="#4ade80" font-family="sans-serif">PK: ClassID</text>
+    </svg>
+  </div>
+
+  <h2>Key Fields</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Key Type</th><th>Description</th><th>Example</th></tr>
+    <tr><td><strong>Primary Key (PK)</strong></td><td>Uniquely identifies each record. No duplicates, no blanks.</td><td><code>StudentID</code> in tblStudents</td></tr>
+    <tr><td><strong>Foreign Key (FK)</strong></td><td>A field that links to the primary key of another table. Creates the relationship.</td><td><code>ClassID</code> in tblStudents → links to tblClasses</td></tr>
+    <tr><td><strong>Composite Key</strong></td><td>Two or more fields combined to create a unique identifier</td><td><code>StudentID + SubjectID</code> in tblMarks</td></tr>
+    <tr><td><strong>Alternate Key</strong></td><td>Could be a primary key but wasn&apos;t chosen as one</td><td>Email address (also unique, but ID was chosen as PK)</td></tr>
+  </table></div>
+
+  <h2>Referential Integrity</h2>
+  <p>Referential integrity is a rule that ensures relationships between tables remain consistent. It means: <strong>a foreign key value must always match an existing primary key value</strong> in the related table.</p>
+  <div class="callout warning">
+    <div class="callout-title">Example of violating referential integrity</div>
+    <p>If ClassID <code>C03</code> doesn&apos;t exist in tblClasses, you cannot add a student with ClassID = <code>C03</code>. The database will reject this to prevent orphan records (records with no matching parent).</p>
+  </div>
+
+  <h2>Entity Relationship Diagram (ERD)</h2>
+  <p>An <strong>ERD</strong> is a diagram that shows the <strong>entities</strong> (tables) in a database and the <strong>relationships</strong> between them. Each box is a table; the line between boxes shows how they relate. You are often asked to <em>draw</em> one in the exam, so practise the crow's-foot notation below.</p>
+
+  <div style="margin:1.25rem 0;overflow-x:auto">
+    <svg viewBox="0 0 720 200" width="720" height="200" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+      <rect width="720" height="200" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+      <!-- tblBooks entity -->
+      <rect x="30" y="40" width="220" height="120" rx="6" fill="#21262d" stroke="#fbbf24" stroke-width="1.5"/>
+      <rect x="30" y="40" width="220" height="26" rx="6" fill="#fbbf24" opacity="0.2"/>
+      <text x="140" y="57" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">tblBooks</text>
+      <text x="40" y="78" fill="#fbbf24" font-size="10">BookID (PK)</text>
+      <text x="40" y="96" fill="#8b949e" font-size="10">Title</text>
+      <text x="40" y="114" fill="#8b949e" font-size="10">Author</text>
+      <text x="40" y="132" fill="#8b949e" font-size="10">Genre</text>
+      <!-- relationship line one-to-many -->
+      <line x1="250" y1="100" x2="470" y2="100" stroke="#4ade80" stroke-width="2"/>
+      <line x1="262" y1="88" x2="262" y2="112" stroke="#4ade80" stroke-width="2"/>
+      <text x="250" y="84" fill="#4ade80" font-size="11" font-weight="700">1</text>
+      <!-- crow's foot at many side -->
+      <line x1="470" y1="100" x2="456" y2="88" stroke="#4ade80" stroke-width="2"/>
+      <line x1="470" y1="100" x2="456" y2="100" stroke="#4ade80" stroke-width="2"/>
+      <line x1="470" y1="100" x2="456" y2="112" stroke="#4ade80" stroke-width="2"/>
+      <text x="430" y="84" fill="#4ade80" font-size="11" font-weight="700">&infin;</text>
+      <!-- tblLoans entity -->
+      <rect x="470" y="40" width="220" height="120" rx="6" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
+      <rect x="470" y="40" width="220" height="26" rx="6" fill="#22d3ee" opacity="0.2"/>
+      <text x="580" y="57" text-anchor="middle" fill="#22d3ee" font-size="11" font-weight="700">tblLoans</text>
+      <text x="480" y="78" fill="#22d3ee" font-size="10">LoanID (PK)</text>
+      <text x="480" y="96" fill="#a78bfa" font-size="10">BookID (FK)</text>
+      <text x="480" y="114" fill="#8b949e" font-size="10">DateBorrowed</text>
+      <text x="480" y="132" fill="#8b949e" font-size="10">DateReturned</text>
+    </svg>
+  </div>
+  <p>The relationship is created by putting the <strong>primary key</strong> of the "one" table into the "many" table as a <strong>foreign key</strong> (here <code>BookID</code> links <code>tblBooks</code> to <code>tblLoans</code>).</p>
+
+  <h3>Types of Relationships</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Relationship</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td><strong>One-to-One (1:1)</strong></td><td>One record links to exactly one record in the other table</td><td>One person &harr; one ID number</td></tr>
+    <tr><td><strong>One-to-Many (1:&infin;)</strong></td><td>One record links to many records in the other table</td><td>One book can appear in many loans</td></tr>
+    <tr><td><strong>Many-to-Many (&infin;:&infin;)</strong></td><td>Many records link to many records &mdash; resolved with a third "link" table</td><td>Students &harr; Activities (via a link table)</td></tr>
+  </table></div>
+  <div class="callout tip">
+    <div class="callout-title">Many-to-many needs a link table</div>
+    <p>A relational database can't store a many-to-many relationship directly. You break it into two one-to-many relationships using a <strong>junction/link table</strong> (e.g. <code>tblLoans</code> links books and borrowers).</p>
+  </div>
+
+  <h2>Physical vs Logical Integrity</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Type</th><th>What it protects</th><th>How it is ensured</th></tr>
+    <tr><td><strong>Physical integrity</strong></td><td>The data is not lost or damaged by hardware failure, power loss or disaster</td><td>RAID, UPS, regular backups, off-site storage</td></tr>
+    <tr><td><strong>Logical integrity</strong></td><td>The data stays correct, consistent and valid <em>within</em> the database</td><td>Validation rules, referential integrity, record locking</td></tr>
+  </table></div>
+  <div class="callout">
+    <div class="callout-title">Record locking</div>
+    <p><strong>Record locking</strong> temporarily "locks" a record while one user is editing it, so that a second user cannot change the same record at the same time. This prevents two users overwriting each other's changes and keeps the data consistent (a key way to protect <em>logical</em> integrity in a multi-user database).</p>
+  </div>
+
+  <h2>Database Anomalies</h2>
+  <p>When a database is poorly designed (not normalised), three types of errors can occur when working with data:</p>
+  <div class="tbl-wrap"><table>
+    <tr><th>Anomaly</th><th>When it happens</th><th>Example</th></tr>
+    <tr><td><strong>Insertion anomaly</strong></td><td>You can&apos;t add new data without first adding other unrelated data</td><td>Can&apos;t add a new class until at least one student enrols in it</td></tr>
+    <tr><td><strong>Deletion anomaly</strong></td><td>Deleting one record accidentally removes other important data</td><td>Deleting the only student in a class also deletes the class&apos;s information</td></tr>
+    <tr><td><strong>Modification anomaly</strong></td><td>Changing one value means updating many rows — and missing some creates inconsistency</td><td>A teacher&apos;s name appears in 50 student records; update one and the others are wrong</td></tr>
+  </table></div>
+  <div class="callout tip">
+    <div class="callout-title">The fix: Normalisation</div>
+    <p>Normalisation splits large, messy tables into smaller, focused tables and links them properly. This eliminates all three anomalies.</p>
+  </div>
+
+  <h2>Normalisation — The Three Normal Forms</h2>
+
+  <h3>First Normal Form (1NF)</h3>
+  <p>A table is in 1NF when:</p>
+  <ul>
+    <li>Every cell contains a <strong>single value</strong> (no lists of values in one cell)</li>
+    <li>There are no <strong>repeating groups</strong> of columns</li>
+    <li>Every record is <strong>unique</strong> (has a primary key)</li>
+  </ul>
+  <h4>Not in 1NF:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID</th><th>Name</th><th>Subjects</th></tr>
+    <tr><td>1</td><td>Alice</td><td>Maths, IT, English</td></tr>
+  </table></div>
+  <p style="color:var(--muted);font-size:.875rem">❌ Problem: Three values in one cell (Subjects column)</p>
+  <h4>In 1NF:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID</th><th>Name</th><th>Subject</th></tr>
+    <tr><td>1</td><td>Alice</td><td>Maths</td></tr>
+    <tr><td>1</td><td>Alice</td><td>IT</td></tr>
+    <tr><td>1</td><td>Alice</td><td>English</td></tr>
+  </table></div>
+
+  <h3>Second Normal Form (2NF)</h3>
+  <p>A table is in 2NF when it is in 1NF <strong>AND</strong> every non-key field depends on the <em>whole</em> primary key (not just part of it). This only matters when the primary key is a composite key.</p>
+  <h4>Example violation:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID (PK)</th><th>SubjectID (PK)</th><th>StudentName</th><th>Mark</th></tr>
+    <tr><td>1</td><td>IT</td><td>Alice</td><td>85</td></tr>
+  </table></div>
+  <p style="color:var(--muted);font-size:.875rem">❌ Problem: StudentName only depends on StudentID, not on (StudentID + SubjectID) together</p>
+  <h4>In 2NF — split the table:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID (PK)</th><th>StudentName</th></tr>
+    <tr><td>1</td><td>Alice</td></tr>
+  </table></div>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID (PK+FK)</th><th>SubjectID (PK)</th><th>Mark</th></tr>
+    <tr><td>1</td><td>IT</td><td>85</td></tr>
+  </table></div>
+
+  <h3>Third Normal Form (3NF)</h3>
+  <p>A table is in 3NF when it is in 2NF <strong>AND</strong> no non-key field depends on another non-key field (no transitive dependency).</p>
+  <h4>Example violation:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID (PK)</th><th>Name</th><th>GradeLevel</th><th>GradeDescription</th></tr>
+    <tr><td>1</td><td>Alice</td><td>12</td><td>Matric</td></tr>
+  </table></div>
+  <p style="color:var(--muted);font-size:.875rem">❌ Problem: GradeDescription depends on GradeLevel (a non-key field), not on StudentID</p>
+  <h4>In 3NF — split it:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID (PK)</th><th>Name</th><th>GradeLevel (FK)</th></tr>
+    <tr><td>1</td><td>Alice</td><td>12</td></tr>
+  </table></div>
+  <div class="tbl-wrap"><table>
+    <tr><th>GradeLevel (PK)</th><th>GradeDescription</th></tr>
+    <tr><td>12</td><td>Matric</td></tr>
+  </table></div>
+
+  <h2>Quick Normalisation Checklist</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Normal Form</th><th>Check for</th><th>Fix by</th></tr>
+    <tr><td><strong>1NF</strong></td><td>Multiple values in one cell? Repeating columns?</td><td>Split into separate rows; add PK</td></tr>
+    <tr><td><strong>2NF</strong></td><td>Non-key field depends on only PART of the composite PK?</td><td>Move that field to its own table</td></tr>
+    <tr><td><strong>3NF</strong></td><td>Non-key field depends on another non-key field?</td><td>Move the dependency to its own table</td></tr>
+  </table></div>
+
+  <h2>Good Database Characteristics</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Characteristic</th><th>Meaning</th></tr>
+    <tr><td><strong>Data integrity</strong></td><td>Data is accurate, consistent and complete throughout its lifecycle</td></tr>
+    <tr><td><strong>Data independence</strong></td><td>Changing the database structure doesn&apos;t break the programs that use it</td></tr>
+    <tr><td><strong>Data redundancy</strong></td><td>Minimum — the same data should not be stored in multiple places</td></tr>
+    <tr><td><strong>Data security</strong></td><td>Only authorised users can access or modify data</td></tr>
+    <tr><td><strong>Ease of maintenance</strong></td><td>The database design makes it simple to insert, update and delete without causing problems</td></tr>
+  </table></div>
+
+  <div class="page-nav">
+    <a href="data-management.html"><span class="page-nav-label">&larr; Previous</span>Data Warehousing</a>
+    <a class="next" href="hardware-gr12.html"><span class="page-nav-label">Next &rarr;</span>Hardware &amp; Performance</a>
+  </div>
+</main>
+</div>
+<script src="../js/nav.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Text Files &#x00B7; Ms Coetzee IT</title><link rel="stylesheet" href="../../css/style.css"><style>:root{--grade-color:var(--gr11);}</style></head><body><div id="topnav"></div><div class="page-wrapper"><aside class="sidebar"><div class="sidebar-grade">Grade 11 Practical</div><a href="../../grade11/practical/text-files.html">Text Files</a><a href="../../grade11/practical/methods.html">Procedures &amp; Functions</a><a href="../../grade11/practical/databases-delphi.html">Databases in Delphi</a><div class="sidebar-grade" style="margin-top:1rem">Grade 11 Theory</div><a href="../../grade11/theory/hardware-gr11.html">Motherboard &amp; Hardware</a><a href="../../grade11/theory/processing.html">Processing</a><a href="../../grade11/theory/databases.html">Databases</a><a href="../../grade11/theory/networks-gr11.html">Networks</a><a href="../../grade11/theory/mobile-tech.html">Mobile Tech</a><a href="../../grade11/theory/social-gr11.html">Social Implications</a></aside><main class="content"><div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Text Files</span></div>
+<h1>Text Files <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">Text files allow your Delphi program to save and load data that persists between runs. Learn the four operations: reading, writing, appending, and checking existence.</p>
+
+<h2>What Is a Text File?</h2>
+<p>A <strong>text file</strong> is a file that stores plain, readable characters with no special formatting — just letters, numbers and line breaks, exactly as you would type them into Notepad. There are no fonts, colours, or hidden layout codes like you would find in a Word document; it is simply text, one line after another.</p>
+<div class="callout">
+  <div class="callout-title">ANALOGY</div>
+  <p>Think of a text file as a plain notepad. You can open it, read what is written, add a new line at the bottom, or tear out the page and start fresh. There is nothing fancy inside — just the words you wrote.</p>
+</div>
+
+<h2>Why Do We Use Files?</h2>
+<p>The variables in your program only live in memory (RAM) while the program is running. The moment you close the program, everything in those variables is gone. A file gives your data <strong>persistence</strong> — it is saved onto the disk so that it survives after the program closes and is still there the next time you run it.</p>
+<p><strong>Example:</strong> a marks program that lets a teacher capture results is useless if every mark vanishes when she closes it. By writing the marks to a text file, the data is safely stored and can be read back tomorrow.</p>
+
+<h2>Physical vs Logical Filename</h2>
+<p>When working with files in Delphi there are two "names" to keep straight:</p>
+<ul>
+  <li><strong>Physical filename</strong> – the real name of the file as it exists on the disk, for example <code>'Data.txt'</code>. This is what you would see in File Explorer.</li>
+  <li><strong>Logical filename</strong> – the file <em>variable</em> inside your program (of type <code>TextFile</code>), for example <code>F</code>. Your code talks to this variable, not directly to the disk.</li>
+</ul>
+<p>The <code>AssignFile</code> command is what links the two together — it tells Delphi "whenever I use the logical variable <code>F</code>, I really mean the physical file <code>Data.txt</code> on the disk".</p>
+<div class="callout">
+  <div class="callout-title">ANALOGY</div>
+  <p>Think of a postbox. The <strong>physical filename</strong> is the actual postbox standing in the street with a real street address. The <strong>logical filename</strong> is the label <code>F</code> you stick on your desk that says "this drawer represents that postbox". <code>AssignFile</code> is the act of writing the street address onto your label so the two are connected.</p>
+</div>
+
+<h2>What Each File Command Does</h2>
+<p>Before looking at the table, here is each command explained in plain words:</p>
+<ul>
+  <li><strong>AssignFile(F, 'file.txt')</strong> – links your file variable to the real file on disk. Always the very first step.</li>
+  <li><strong>Reset(F)</strong> – opens an existing file so you can <em>read</em> from it, starting at the very beginning.</li>
+  <li><strong>Rewrite(F)</strong> – creates a brand-new empty file for writing. If the file already exists, its old contents are wiped out, so use it with care.</li>
+  <li><strong>Append(F)</strong> – opens an existing file and moves to the very end, so new lines are <em>added</em> without destroying what is already there.</li>
+  <li><strong>ReadLn(F, S)</strong> – reads one whole line from the file into the variable <code>S</code>, then moves on to the next line.</li>
+  <li><strong>WriteLn(F, S)</strong> – writes the contents of <code>S</code> into the file as one line.</li>
+  <li><strong>CloseFile(F)</strong> – saves and properly closes the file. Like shutting and locking the postbox so nothing is lost.</li>
+  <li><strong>Eof(F)</strong> – short for "End Of File". Returns <code>True</code> once you have read the last line, so your loop knows when to stop.</li>
+</ul>
+
+<h2>Key Procedures and Functions</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Command</th><th>Purpose</th></tr>
+  <tr><td><code>AssignFile(F, 'file.txt')</code></td><td>Links the file variable F to a file on disk</td></tr>
+  <tr><td><code>Reset(F)</code></td><td>Opens existing file for <strong>reading</strong> (from beginning)</td></tr>
+  <tr><td><code>Rewrite(F)</code></td><td>Creates/overwrites a file for <strong>writing</strong></td></tr>
+  <tr><td><code>Append(F)</code></td><td>Opens existing file for writing — <strong>adds to end</strong></td></tr>
+  <tr><td><code>CloseFile(F)</code></td><td>Saves and closes the file</td></tr>
+  <tr><td><code>ReadLn(F, S)</code></td><td>Reads one line from file into variable S</td></tr>
+  <tr><td><code>WriteLn(F, S)</code></td><td>Writes variable S as one line to the file</td></tr>
+  <tr><td><code>EOF(F)</code></td><td>Returns True when the end of the file is reached</td></tr>
+  <tr><td><code>FileExists('file.txt')</code></td><td>Returns True if the file exists on disk</td></tr>
+</table></div>
+<h2>Reading a Text File</h2>
+<div class="code-block"><span class="code-label">Delphi — read all lines</span>
+<pre><code><span class="kw">var</span>
+  F: TextFile;
+  S: <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  <span class="kw">if</span> FileExists(<span class="str">'Data.txt'</span>) <span class="kw">then</span>
+  <span class="kw">begin</span>
+    AssignFile(F, <span class="str">'Data.txt'</span>);
+    Reset(F);                          <span class="cmt">// open for reading</span>
+    <span class="kw">while not</span> EOF(F) <span class="kw">do</span>
+    <span class="kw">begin</span>
+      ReadLn(F, S);
+      memOut.Lines.Add(S);             <span class="cmt">// process each line</span>
+    <span class="kw">end</span>;
+    CloseFile(F);
+  <span class="kw">end</span>
+  <span class="kw">else</span>
+    ShowMessage(<span class="str">'File not found!'</span>);
+<span class="kw">end</span>;</code></pre></div>
+<h2>Writing to a Text File (Overwrite)</h2>
+<div class="code-block"><span class="code-label">Delphi — create / overwrite</span>
+<pre><code><span class="kw">var</span>
+  F: TextFile;
+<span class="kw">begin</span>
+  AssignFile(F, <span class="str">'Output.txt'</span>);
+  Rewrite(F);                          <span class="cmt">// creates or overwrites</span>
+  WriteLn(F, sName + <span class="str">','</span> + sSurname + <span class="str">','</span> + IntToStr(iAge));
+  CloseFile(F);
+<span class="kw">end</span>;</code></pre></div>
+<h2>Appending to a Text File</h2>
+<div class="code-block"><span class="code-label">Delphi — add to end</span>
+<pre><code><span class="kw">var</span>
+  F: TextFile;
+<span class="kw">begin</span>
+  AssignFile(F, <span class="str">'Data.txt'</span>);
+  Append(F);                           <span class="cmt">// adds to existing file</span>
+  WriteLn(F, <span class="str">'New data line'</span>);
+  CloseFile(F);
+<span class="kw">end</span>;</code></pre></div>
+<h2>Reading CSV Data into Arrays</h2>
+<div class="code-block"><span class="code-label">Delphi — read Name,Mark pairs</span>
+<pre><code><span class="kw">var</span>
+  F: TextFile;
+  sLine, sName: <span class="kw2">string</span>;
+  iMark, iCount, iPos: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iCount := <span class="num">0</span>;
+  AssignFile(F, <span class="str">'marks.txt'</span>);
+  Reset(F);
+  <span class="kw">while not</span> EOF(F) <span class="kw">do</span>
+  <span class="kw">begin</span>
+    ReadLn(F, sLine);
+    iPos := Pos(<span class="str">','</span>, sLine);
+    Inc(iCount);
+    arrNames[iCount] := Copy(sLine, <span class="num">1</span>, iPos - <span class="num">1</span>);
+    arrMarks[iCount] := StrToInt(Copy(sLine, iPos + <span class="num">1</span>, Length(sLine)));
+  <span class="kw">end</span>;
+  CloseFile(F);
+<span class="kw">end</span>;</code></pre></div>
+<div class="callout warning">
+  <div class="callout-title">Always CloseFile!</div>
+  <p>Forgetting <code>CloseFile(F)</code> means the file remains locked and data may not be saved properly.</p>
+</div>
+<div class="page-nav">
+  <span></span>
+  <a class="next" href="methods.html"><span class="page-nav-label">Next →</span>Procedures &amp; Functions</a>
+</div></main></div><script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script></body></html>

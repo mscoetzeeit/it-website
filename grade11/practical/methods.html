@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Procedures & Functions &#x00B7; Ms Coetzee IT</title><link rel="stylesheet" href="../../css/style.css"><style>:root{--grade-color:var(--gr11);}</style></head><body><div id="topnav"></div><div class="page-wrapper"><aside class="sidebar"><div class="sidebar-grade">Grade 11 Practical</div><a href="../../grade11/practical/text-files.html">Text Files</a><a href="../../grade11/practical/methods.html">Procedures &amp; Functions</a><a href="../../grade11/practical/databases-delphi.html">Databases in Delphi</a><div class="sidebar-grade" style="margin-top:1rem">Grade 11 Theory</div><a href="../../grade11/theory/hardware-gr11.html">Motherboard &amp; Hardware</a><a href="../../grade11/theory/processing.html">Processing</a><a href="../../grade11/theory/databases.html">Databases</a><a href="../../grade11/theory/networks-gr11.html">Networks</a><a href="../../grade11/theory/mobile-tech.html">Mobile Tech</a><a href="../../grade11/theory/social-gr11.html">Social Implications</a></aside><main class="content"><div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Procedures &amp; Functions</span></div>
+<h1>Procedures &amp; Functions <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">User-defined procedures and functions let you break code into reusable, named blocks. This makes programs easier to read, maintain and debug.</p>
+
+<h2>What Is a Method?</h2>
+<p>A <strong>method</strong> is a named block of code that performs a specific task. Instead of writing the same instructions over and over inside your event handlers, you write them <em>once</em>, give that block a name, and then simply call that name whenever you need the task done. In Delphi we build methods in two forms: <strong>procedures</strong> and <strong>functions</strong>.</p>
+<p>Think of a method like a recipe card in a cookbook. The recipe is written down once. Whenever you want that dish, you don't rewrite the steps from scratch — you just fetch the card and follow it. A method works exactly the same way: write the steps once, then "fetch" them by name as often as you like.</p>
+
+<h2>What Is a Procedure?</h2>
+<p>A <strong>procedure</strong> is a named block of code that <em>does</em> a task but does <strong>not</strong> send a value back to where it was called. It simply carries out its instructions — showing a message, clearing some boxes, drawing on a canvas — and then control returns to the program.</p>
+<div class="callout">
+  <div class="callout-title">ANALOGY</div>
+  <p>A procedure is like asking someone to "switch off the lights". They go and do the job. You don't expect them to hand you anything back — you just expect the task to be done.</p>
+</div>
+
+<h2>What Is a Function?</h2>
+<p>A <strong>function</strong> is a named block of code that does a task <strong>and then returns exactly one value</strong> back to where it was called. Inside the function you store the answer in the special variable <code>Result</code>, and that answer is handed back so you can use it — store it, display it, or calculate further with it.</p>
+<div class="callout">
+  <div class="callout-title">ANALOGY</div>
+  <p>A function is like asking someone "How much is the bread?" They go, check, and come <em>back with an answer</em> you can use. A function always brings something back; a procedure does not have to.</p>
+</div>
+
+<h2>Why Do We Break Code Into Methods?</h2>
+<p>When you are starting out it can feel like extra work to split your program into little named blocks. But experienced programmers do it for very good reasons:</p>
+<ul>
+  <li><strong>DRY (Don't Repeat Yourself)</strong> – if the same instructions appear in three places and you copy-paste them, you now have to fix bugs in three places. Put them in one method and you fix it once.</li>
+  <li><strong>Readability</strong> – a well-named method like <code>CalcAverage</code> tells the reader exactly what is happening, far better than ten lines of arithmetic.</li>
+  <li><strong>Easier testing and debugging</strong> – you can test one small method on its own instead of hunting through a giant block of code.</li>
+  <li><strong>Reuse</strong> – once written, a method can be called from many different buttons and events.</li>
+</ul>
+<div class="callout tip">
+  <div class="callout-title">Important Rule</div>
+  <p>Each method should do <strong>only one job</strong>. If a method is trying to do several things at once, that is usually a sign it should be split into smaller methods.</p>
+</div>
+
+<h2>Parameters vs Arguments</h2>
+<p>A <strong>parameter</strong> is a placeholder name listed in the method's declaration — it stands for a value the method will receive. An <strong>argument</strong> is the actual value you pass <em>in</em> when you call the method. In short: parameters live in the declaration; arguments are the real values you supply at the call.</p>
+<div class="callout">
+  <div class="callout-title">ANALOGY</div>
+  <p>Think of a parameter as a labelled jar called "sName" sitting empty on the shelf when the recipe is written. The argument is the actual "Ms Coetzee" you scoop into that jar when you finally cook. The jar's label is the parameter; what you put in it is the argument.</p>
+</div>
+<p><strong>Example:</strong> in <code>DisplayGreeting(sMessage, sName: string)</code> the names <code>sMessage</code> and <code>sName</code> are parameters. When you call <code>DisplayGreeting('Good morning', 'Ms Coetzee')</code>, the strings <code>'Good morning'</code> and <code>'Ms Coetzee'</code> are the arguments.</p>
+
+<h3>Value Parameters</h3>
+<p>A <strong>value parameter</strong> means the method receives a <em>copy</em> of the argument. The method can change that copy freely inside itself, but the original variable back in the calling code stays untouched. This is the default and safest kind of parameter, because the caller never has to worry about its variables being changed unexpectedly.</p>
+<div class="callout">
+  <div class="callout-title">ANALOGY</div>
+  <p>A value parameter is like giving someone a <strong>photocopy</strong> of a document. They can scribble all over their copy, but your original is safe at home.</p>
+</div>
+
+<h2>Procedures vs Functions</h2>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Procedure</th><th>Function</th></tr>
+  <tr><td><strong>Returns a value?</strong></td><td>No (or modifies var parameters)</td><td>Yes — always returns exactly one value</td></tr>
+  <tr><td><strong>Called how?</strong></td><td>Alone as a statement</td><td>As part of another statement (assigned)</td></tr>
+  <tr><td><strong>Keyword</strong></td><td><code>procedure</code></td><td><code>function</code></td></tr>
+</table></div>
+<h2>Procedures</h2>
+<h3>Without Parameters</h3>
+<div class="code-block"><span class="code-label">Delphi — declare and call</span>
+<pre><code><span class="cmt">// Declaration (above the event handlers)</span>
+<span class="kw">procedure</span> <span class="fn">ShowHello</span>;
+<span class="kw">begin</span>
+  ShowMessage(<span class="str">'Hello!'</span>);
+<span class="kw">end</span>;
+
+<span class="cmt">// Calling it</span>
+<span class="kw">procedure</span> TForm1.<span class="fn">btnShowClick</span>(Sender: TObject);
+<span class="kw">begin</span>
+  ShowHello;   <span class="cmt">// called alone</span>
+<span class="kw">end</span>;</code></pre></div>
+<h3>With Parameters</h3>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">procedure</span> <span class="fn">DisplayGreeting</span>(sMessage, sName: <span class="kw2">string</span>);
+<span class="kw">begin</span>
+  ShowMessage(sMessage + <span class="str">' '</span> + sName);
+<span class="kw">end</span>;
+
+<span class="cmt">// Call with arguments</span>
+DisplayGreeting(<span class="str">'Good morning'</span>, <span class="str">'Ms Coetzee'</span>);</code></pre></div>
+<h2>Functions</h2>
+<h3>Without Parameters</h3>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">function</span> <span class="fn">GetAnswer</span>: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  Result := <span class="num">42</span>;
+<span class="kw">end</span>;
+
+<span class="cmt">// Must be assigned</span>
+iVal := GetAnswer;</code></pre></div>
+<h3>With Parameters</h3>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">function</span> <span class="fn">AddNumbers</span>(num1, num2: <span class="kw2">Integer</span>): <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  Result := num1 + num2;
+<span class="kw">end</span>;
+
+<span class="cmt">// Call</span>
+iAnswer := AddNumbers(<span class="num">5</span>, <span class="num">3</span>);          <span class="cmt">// = 8</span>
+lblResult.Caption := IntToStr(AddNumbers(iA, iB));</code></pre></div>
+<h3>Function Example — Calculate Average</h3>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">function</span> <span class="fn">CalcAverage</span>(iTotal, iCount: <span class="kw2">Integer</span>): <span class="kw2">Real</span>;
+<span class="kw">begin</span>
+  <span class="kw">if</span> iCount = <span class="num">0</span> <span class="kw">then</span>
+    Result := <span class="num">0</span>
+  <span class="kw">else</span>
+    Result := iTotal / iCount;
+<span class="kw">end</span>;
+
+<span class="cmt">// Use it</span>
+rAvg := CalcAverage(iSum, iNumStudents);
+lblAvg.Caption := FloatToStr(rAvg);</code></pre></div>
+<h2>Why Use Procedures and Functions?</h2>
+<p>To bring it all together, here are the practical benefits you gain every time you reach for a method instead of writing one long block of code:</p>
+<ul>
+  <li>Break large programs into manageable pieces</li>
+  <li>Reuse code from multiple event handlers — no duplication</li>
+  <li>Easier to find and fix bugs</li>
+  <li>Easier to update — change in one place, works everywhere</li>
+  <li>Each method should perform only one task</li>
+</ul>
+<div class="page-nav">
+  <a href="text-files.html"><span class="page-nav-label">← Previous</span>Text Files</a>
+  <a class="next" href="databases-delphi.html"><span class="page-nav-label">Next →</span>Databases in Delphi</a>
+</div></main></div><script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script></body></html>

@@ -1,0 +1,322 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Networks – IT CAPS</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root{--grade-color:var(--gr10);}</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+<aside class="sidebar">
+  <div class="sidebar-grade">Grade 10 Theory</div>
+  <a href="../../grade10/theory/digital-tech.html">Digital Technologies</a>
+  <a href="../../grade10/theory/hardware.html">Hardware</a>
+  <a href="../../grade10/theory/software.html">Software &amp; Licensing</a>
+  <a href="../../grade10/theory/data-representation.html">Data Representation</a>
+  <a href="../../grade10/theory/networks.html">Networks</a>
+  <a href="../../grade10/theory/internet.html">Internet &amp; WWW</a>
+  <a href="../../grade10/theory/e-communication.html">E-Communication</a>
+  <a href="../../grade10/theory/management.html">Management &amp; Security</a>
+  <div class="sidebar-grade" style="margin-top:1rem">Grade 10 Practical</div>
+  <a href="../../grade10/practical/algorithms.html">Algorithms</a>
+  <a href="../../grade10/practical/delphi-intro.html">Delphi Intro</a>
+  <a href="../../grade10/practical/data-types.html">Data Types</a>
+  <a href="../../grade10/practical/decisions.html">Decisions</a>
+  <a href="../../grade10/practical/loops.html">Loops</a>
+  <a href="../../grade10/practical/strings.html">Strings</a>
+  
+</aside>
+<main class="content">
+<div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Networks</span></div>
+
+<h1>Networks <span class="grade-badge">Grade 10</span></h1>
+<p class="page-intro">A computer network connects two or more devices so they can communicate and share resources. Networks are what make the internet, school computer labs, and your home Wi-Fi possible.</p>
+
+<!-- INTRO: WHY NETWORKS -->
+<h2>Why Would You Connect Computers Together?</h2>
+<p>Imagine your school has 30 computers but only 2 printers. Without a network, only the computers physically connected to a printer could print. With a network, every computer can send print jobs to either printer — that's sharing resources.</p>
+<p>Networks make all of the following possible:</p>
+<ul>
+  <li><strong>Resource sharing</strong> — share printers, scanners, internet connections, and storage across multiple computers</li>
+  <li><strong>File sharing</strong> — send a document from one computer to another without a USB drive</li>
+  <li><strong>Communication</strong> — email, instant messaging, video calls (e.g. your school uses Microsoft Teams or Google Meet)</li>
+  <li><strong>Centralised data and backups</strong> — store all student data on one server so it's accessible from any computer in the lab</li>
+  <li><strong>Internet access</strong> — one router can give all devices in a building internet access</li>
+  <li><strong>Remote work</strong> — teachers can access school systems from home via a VPN (Virtual Private Network)</li>
+</ul>
+
+<div class="callout">
+  <div class="callout-title">SA EXAMPLE</div>
+  <p>Your school's computer lab is a <strong>LAN</strong> (Local Area Network). Every computer connects through a switch to a router, which connects to your ISP (Internet Service Provider) — maybe Telkom, MWEB, or Vodacom. That router gives every computer in the lab access to the internet.</p>
+</div>
+
+<!-- NETWORK SIZE CLASSIFICATIONS -->
+<h2>Network Size Classifications</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Full name</th><th>Coverage area</th><th>Typical speed</th><th>SA Examples</th></tr>
+  <tr>
+    <td><strong>PAN</strong></td>
+    <td>Personal Area Network</td>
+    <td>~1–3 metres (arm's reach)</td>
+    <td>Low–medium</td>
+    <td>Bluetooth headphones, Apple Watch connected to phone, wireless keyboard</td>
+  </tr>
+  <tr>
+    <td><strong>HAN</strong></td>
+    <td>Home Area Network</td>
+    <td>Within one household</td>
+    <td>Medium–fast</td>
+    <td>Home Wi-Fi router (Telkom/Vodacom fibre), smart TV, gaming console, laptop all connected</td>
+  </tr>
+  <tr>
+    <td><strong>LAN</strong></td>
+    <td>Local Area Network</td>
+    <td>One building or campus</td>
+    <td>Fast (100 Mbps–10 Gbps)</td>
+    <td>School computer lab, office building network, university campus network</td>
+  </tr>
+  <tr>
+    <td><strong>WAN</strong></td>
+    <td>Wide Area Network</td>
+    <td>Cities, countries, continents</td>
+    <td>Varies widely</td>
+    <td>The Internet; MTN/Vodacom cellular network connecting towns across SA</td>
+  </tr>
+</table></div>
+
+<!-- STAR TOPOLOGY SVG -->
+<h2>Network Topologies — Star Topology</h2>
+<p>A <strong>topology</strong> describes the physical layout of how devices are connected in a network. The most common topology used in school labs and offices is the <strong>Star Topology</strong>: every device connects directly to a central switch or hub.</p>
+
+<div style="margin:1.25rem 0; overflow-x:auto">
+  <svg viewBox="0 0 500 420" width="100%" style="max-width:500px; display:block; margin:0 auto" aria-label="Star topology diagram: central switch connected to 5 computer nodes">
+    <rect width="500" height="420" fill="#0d1117" rx="10"/>
+
+    <text x="250" y="26" text-anchor="middle" fill="#e6edf3" font-size="14" font-family="sans-serif" font-weight="bold">Star Topology</text>
+
+    <!-- Central switch box -->
+    <rect x="190" y="170" width="120" height="60" rx="8" fill="#161b22" stroke="#facc15" stroke-width="2.5"/>
+    <text x="250" y="196" text-anchor="middle" fill="#facc15" font-size="12" font-family="sans-serif" font-weight="bold">SWITCH</text>
+    <text x="250" y="213" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">Central device</text>
+
+    <!-- Computer nodes: positions around switch -->
+    <!-- Node 1 - Top centre -->
+    <line x1="250" y1="170" x2="250" y2="100" stroke="#30363d" stroke-width="2"/>
+    <rect x="210" y="60" width="80" height="40" rx="5" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="250" y="78" text-anchor="middle" fill="#22d3ee" font-size="11" font-family="sans-serif" font-weight="bold">PC 1</text>
+    <text x="250" y="93" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">Student</text>
+
+    <!-- Node 2 - Top right -->
+    <line x1="310" y1="185" x2="390" y2="105" stroke="#30363d" stroke-width="2"/>
+    <rect x="365" y="68" width="80" height="40" rx="5" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="405" y="86" text-anchor="middle" fill="#22d3ee" font-size="11" font-family="sans-serif" font-weight="bold">PC 2</text>
+    <text x="405" y="101" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">Student</text>
+
+    <!-- Node 3 - Bottom right -->
+    <line x1="310" y1="215" x2="395" y2="300" stroke="#30363d" stroke-width="2"/>
+    <rect x="368" y="298" width="80" height="40" rx="5" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="408" y="316" text-anchor="middle" fill="#22d3ee" font-size="11" font-family="sans-serif" font-weight="bold">PC 3</text>
+    <text x="408" y="331" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">Student</text>
+
+    <!-- Node 4 - Bottom left -->
+    <line x1="190" y1="215" x2="105" y2="300" stroke="#30363d" stroke-width="2"/>
+    <rect x="52" y="298" width="80" height="40" rx="5" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="92" y="316" text-anchor="middle" fill="#22d3ee" font-size="11" font-family="sans-serif" font-weight="bold">PC 4</text>
+    <text x="92" y="331" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">Student</text>
+
+    <!-- Node 5 - Top left -->
+    <line x1="190" y1="185" x2="110" y2="105" stroke="#30363d" stroke-width="2"/>
+    <rect x="55" y="68" width="80" height="40" rx="5" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="95" y="86" text-anchor="middle" fill="#22d3ee" font-size="11" font-family="sans-serif" font-weight="bold">PC 5</text>
+    <text x="95" y="101" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">Teacher</text>
+
+    <!-- Router below switch -->
+    <line x1="250" y1="230" x2="250" y2="290" stroke="#30363d" stroke-width="2"/>
+    <rect x="195" y="290" width="110" height="40" rx="6" fill="#161b22" stroke="#4ade80" stroke-width="1.5"/>
+    <text x="250" y="308" text-anchor="middle" fill="#4ade80" font-size="11" font-family="sans-serif" font-weight="bold">ROUTER</text>
+    <text x="250" y="323" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">to Internet</text>
+
+    <!-- Internet cloud shape -->
+    <line x1="250" y1="330" x2="250" y2="360" stroke="#30363d" stroke-width="2" stroke-dasharray="5,3"/>
+    <ellipse cx="250" cy="387" rx="60" ry="22" fill="#161b22" stroke="#a78bfa" stroke-width="1.5"/>
+    <ellipse cx="225" cy="375" rx="22" ry="16" fill="#161b22" stroke="#a78bfa" stroke-width="1.5"/>
+    <ellipse cx="275" cy="375" rx="22" ry="16" fill="#161b22" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="250" y="393" text-anchor="middle" fill="#a78bfa" font-size="11" font-family="sans-serif" font-weight="bold">INTERNET</text>
+  </svg>
+</div>
+
+<h3>Star Topology — Advantages and Disadvantages</h3>
+<div class="tbl-wrap"><table>
+  <tr><th>Advantages</th><th>Disadvantages</th></tr>
+  <tr><td>Easy to add new devices — just connect to the switch</td><td>If the central switch fails, the whole network goes down</td></tr>
+  <tr><td>One faulty cable only affects that one device</td><td>Requires more cable than some other topologies</td></tr>
+  <tr><td>Easy to diagnose faults — test one connection at a time</td><td>Cost of the switch adds to setup expense</td></tr>
+  <tr><td>Most widely used in schools and offices</td><td>Performance depends on the quality of the switch</td></tr>
+</table></div>
+
+<!-- NETWORK COMPONENTS DIAGRAM -->
+<h2>Essential Network Components</h2>
+<p>Data from your computer travels through several devices before it reaches the internet. Here is how they connect:</p>
+
+<!-- NIC → Cable → Switch → Router → Internet flow diagram -->
+<div style="margin:1.25rem 0; overflow-x:auto">
+  <svg viewBox="0 0 720 130" width="100%" style="max-width:720px; display:block; margin:0 auto" aria-label="Network components flow: NIC to cable to switch to router to internet">
+    <rect width="720" height="130" fill="#0d1117" rx="10"/>
+
+    <!-- NIC -->
+    <rect x="15" y="35" width="90" height="50" rx="6" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="60" y="57" text-anchor="middle" fill="#22d3ee" font-size="11" font-family="sans-serif" font-weight="bold">NIC</text>
+    <text x="60" y="72" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">Network Interface</text>
+    <text x="60" y="84" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">Card (in PC)</text>
+    <text x="60" y="108" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">Connects PC to network</text>
+
+    <line x1="105" y1="60" x2="140" y2="60" stroke="#30363d" stroke-width="2"/>
+    <polygon points="138,55 150,60 138,65" fill="#30363d"/>
+
+    <!-- Cable -->
+    <rect x="150" y="35" width="90" height="50" rx="6" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="195" y="57" text-anchor="middle" fill="#22d3ee" font-size="11" font-family="sans-serif" font-weight="bold">Cable</text>
+    <text x="195" y="72" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">UTP / Fibre</text>
+    <text x="195" y="84" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">optic / Wi-Fi</text>
+    <text x="195" y="108" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">Physical connection</text>
+
+    <line x1="240" y1="60" x2="275" y2="60" stroke="#30363d" stroke-width="2"/>
+    <polygon points="273,55 285,60 273,65" fill="#30363d"/>
+
+    <!-- Switch -->
+    <rect x="285" y="35" width="90" height="50" rx="6" fill="#161b22" stroke="#facc15" stroke-width="1.5"/>
+    <text x="330" y="57" text-anchor="middle" fill="#facc15" font-size="11" font-family="sans-serif" font-weight="bold">Switch</text>
+    <text x="330" y="72" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">Connects devices</text>
+    <text x="330" y="84" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">in the LAN</text>
+    <text x="330" y="108" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">Directs traffic by MAC</text>
+
+    <line x1="375" y1="60" x2="410" y2="60" stroke="#30363d" stroke-width="2"/>
+    <polygon points="408,55 420,60 408,65" fill="#30363d"/>
+
+    <!-- Router -->
+    <rect x="420" y="35" width="90" height="50" rx="6" fill="#161b22" stroke="#4ade80" stroke-width="1.5"/>
+    <text x="465" y="57" text-anchor="middle" fill="#4ade80" font-size="11" font-family="sans-serif" font-weight="bold">Router</text>
+    <text x="465" y="72" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">Connects LAN</text>
+    <text x="465" y="84" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">to internet</text>
+    <text x="465" y="108" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">Routes by IP address</text>
+
+    <line x1="510" y1="60" x2="545" y2="60" stroke="#30363d" stroke-width="2"/>
+    <polygon points="543,55 555,60 543,65" fill="#30363d"/>
+
+    <!-- Modem -->
+    <rect x="555" y="35" width="80" height="50" rx="6" fill="#161b22" stroke="#fb923c" stroke-width="1.5"/>
+    <text x="595" y="57" text-anchor="middle" fill="#fb923c" font-size="11" font-family="sans-serif" font-weight="bold">Modem</text>
+    <text x="595" y="72" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">Converts digital</text>
+    <text x="595" y="84" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">↔ analogue</text>
+    <text x="595" y="108" text-anchor="middle" fill="#8b949e" font-size="9" font-family="sans-serif">Connects to ISP</text>
+
+    <line x1="635" y1="60" x2="660" y2="60" stroke="#30363d" stroke-width="2"/>
+    <polygon points="658,55 670,60 658,65" fill="#30363d"/>
+
+    <!-- Internet cloud -->
+    <ellipse cx="695" cy="62" rx="22" ry="16" fill="#161b22" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="695" y="66" text-anchor="middle" fill="#a78bfa" font-size="9" font-family="sans-serif" font-weight="bold">WWW</text>
+  </svg>
+</div>
+
+<h3>Network Hardware Reference</h3>
+<div class="tbl-wrap"><table>
+  <tr><th>Component</th><th>Purpose</th><th>SA Example</th></tr>
+  <tr><td><strong>NIC</strong> (Network Interface Card)</td><td>Connects a device to a network. Every computer has one, either built-in or as an add-on card. Assigns the device a unique MAC address.</td><td>Your laptop's built-in Ethernet port or Wi-Fi card</td></tr>
+  <tr><td><strong>Switch</strong></td><td>Connects multiple devices within a LAN. Smarter than a hub — sends data only to the specific device it's addressed to (using MAC addresses).</td><td>The network switch in your school's server room connecting all computers in the lab</td></tr>
+  <tr><td><strong>Router</strong></td><td>Connects two or more networks together. Routes data between your LAN and the internet using IP addresses. Usually also acts as a firewall.</td><td>The Telkom/Vodacom router in your home or school that gives Wi-Fi access</td></tr>
+  <tr><td><strong>Modem</strong></td><td>Converts digital computer data into a signal suitable for your internet line (ADSL, fibre, LTE), and vice versa. "Modulator-Demodulator".</td><td>Telkom ADSL modem, or LTE modem (like a Huawei Wifi router)</td></tr>
+  <tr><td><strong>Access Point (Wi-Fi)</strong></td><td>Extends wireless network coverage. Connects wirelessly to clients and wired to the switch/router.</td><td>Extra Wi-Fi routers placed in different classrooms of a large school</td></tr>
+</table></div>
+
+<!-- CLIENT-SERVER vs P2P -->
+<h2>Network Types — Client-Server vs Peer-to-Peer</h2>
+
+<h3>Client-Server Network</h3>
+<p>A central <strong>server</strong> provides services (files, printers, internet access, authentication) to multiple <strong>client</strong> computers. The server is a dedicated, powerful computer that is always on.</p>
+
+<h3>Peer-to-Peer (P2P) Network</h3>
+<p>All computers have equal status — any device can be both client and server. No single central machine is in charge. Common in small home networks.</p>
+
+<div class="tbl-wrap"><table>
+  <tr><th>Feature</th><th>Client-Server</th><th>Peer-to-Peer (P2P)</th></tr>
+  <tr><td>Cost</td><td>Expensive — dedicated server hardware needed</td><td>Cheap — any computer can participate</td></tr>
+  <tr><td>Security</td><td>Strong — administrator controls all access</td><td>Weak — each device manages its own security</td></tr>
+  <tr><td>Management</td><td>Centralised — easy to manage by one admin</td><td>Decentralised — hard to manage as network grows</td></tr>
+  <tr><td>Performance</td><td>Consistent — server is optimised for the job</td><td>Variable — depends on each computer's specs</td></tr>
+  <tr><td>Backups</td><td>Easy — all data is on the server</td><td>Difficult — data is spread across all machines</td></tr>
+  <tr><td>Failure point</td><td>If server fails, whole network is affected</td><td>One computer failing rarely affects others</td></tr>
+  <tr><td>Best for</td><td>Schools, businesses, organisations (10+ users)</td><td>Small home networks (2–5 devices)</td></tr>
+  <tr><td>SA Example</td><td>School lab with a Windows Server; bank branch</td><td>Two friends sharing files between laptops at home</td></tr>
+</table></div>
+
+<!-- COMMUNICATION MEDIA -->
+<h2>Communication Media</h2>
+<p>The <em>medium</em> is the physical pathway over which data travels. Choosing the right medium depends on the required speed, distance, security, and budget.</p>
+
+<div class="tbl-wrap"><table>
+  <tr><th>Medium</th><th>How it works</th><th>Speed</th><th>Range</th><th>Security</th><th>Cost</th><th>SA Example</th></tr>
+  <tr>
+    <td><strong>UTP Cable</strong><br><small>(Ethernet, Cat5e/Cat6)</small></td>
+    <td>Electrical signals through 4 twisted copper pairs. RJ45 connectors.</td>
+    <td>100 Mbps – 10 Gbps</td>
+    <td>Up to 100 m per segment</td>
+    <td>Good — hard to intercept without physical access</td>
+    <td>Low — cheapest option</td>
+    <td>School computer lab wiring; office desk connections</td>
+  </tr>
+  <tr>
+    <td><strong>Fibre Optic</strong></td>
+    <td>Light pulses through thin glass/plastic strands. Not affected by electrical interference.</td>
+    <td>1 Gbps – 100+ Gbps</td>
+    <td>Kilometres (single-mode)</td>
+    <td>Very high — almost impossible to tap</td>
+    <td>Higher — more expensive to install</td>
+    <td>Openserve/Vumatel fibre to your home; undersea cables connecting SA to Europe</td>
+  </tr>
+  <tr>
+    <td><strong>Wi-Fi</strong><br><small>(802.11 radio waves)</small></td>
+    <td>Radio signals transmitted through air. No cable needed.</td>
+    <td>54 Mbps – 9.6 Gbps (Wi-Fi 6)</td>
+    <td>10–100 m indoors</td>
+    <td>Needs encryption (WPA3) — radio signals can be intercepted</td>
+    <td>Low — just a router; no cabling needed</td>
+    <td>Home routers; school library hotspots; coffee shops</td>
+  </tr>
+  <tr>
+    <td><strong>LTE / 5G</strong><br><small>(mobile broadband)</small></td>
+    <td>Radio signals through cell towers. Cellular network.</td>
+    <td>10–100+ Mbps (LTE); up to 1 Gbps (5G)</td>
+    <td>Kilometres per tower</td>
+    <td>Moderate — carrier-managed encryption</td>
+    <td>Variable — data bundle costs</td>
+    <td>MTN, Vodacom, Cell C towers connecting rural SA; mobile data on phones</td>
+  </tr>
+  <tr>
+    <td><strong>Infrared</strong></td>
+    <td>Infrared light — requires line of sight, no obstacles.</td>
+    <td>Very slow</td>
+    <td>Very short (&lt;1 m)</td>
+    <td>Line of sight only</td>
+    <td>Very low</td>
+    <td>TV remotes, old phone data transfers (largely obsolete)</td>
+  </tr>
+</table></div>
+
+<div class="callout">
+  <div class="callout-title">SA CONTEXT</div>
+  <p>Many South African schools and homes are getting <strong>fibre</strong> connections through providers like Openserve (Telkom), Vumatel, and Frogfoot. Before fibre, most homes used <strong>ADSL</strong> over copper phone lines. In rural areas where fibre hasn't reached, <strong>LTE (4G)</strong> from MTN, Vodacom, or Rain is the main option for internet access.</p>
+</div>
+
+<div class="page-nav">
+  <a href="data-representation.html"><span class="page-nav-label">← Previous</span>Data Representation</a>
+  <a class="next" href="internet.html"><span class="page-nav-label">Next →</span>Internet &amp; WWW</a>
+</div>
+</main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

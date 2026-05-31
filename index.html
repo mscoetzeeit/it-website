@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ms Coetzee IT</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- TOP NAV -->
+<div id="topnav"></div>
+
+<!-- HOME CONTENT (no sidebar on home) -->
+<main style="flex:1">
+  <div class="home-hero">
+    <h1>Ms Coetzee<br><span style="color:var(--gr10)">Study Reference</span></h1>
+    <p>Your complete guide to Information Technology for Grades 10, 11 and 12 — covering both practical Delphi programming and theory.</p>
+
+    <div class="grade-cards">
+      <a class="grade-card grade-card-10" href="grade10/practical/algorithms.html">
+        <div class="grade-card-num">10</div>
+        <h3>Grade 10</h3>
+        <p>Algorithms, Delphi basics, data types, decisions, loops, strings &amp; theory: hardware, software, networks.</p>
+      </a>
+      <a class="grade-card grade-card-11" href="grade11/practical/arrays.html">
+        <div class="grade-card-num">11</div>
+        <h3>Grade 11</h3>
+        <p>1D arrays, text files, user-defined methods, databases in Delphi &amp; theory: motherboard, mobile tech, IoT.</p>
+      </a>
+      <a class="grade-card grade-card-12" href="grade12/sql.html">
+        <div class="grade-card-num">12</div>
+        <h3>Grade 12</h3>
+        <p>SQL, OOP, 2D arrays, recursion &amp; theory: normalisation, data warehousing, AI, cloud computing, cybercrime.</p>
+      </a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:2.5rem">
+      <a href="terms-gr10.html" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;text-decoration:none;display:flex;align-items:center;gap:.75rem;transition:border-color .15s" onmouseover="this.style.borderColor='#4ade80'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:1.5rem">📅</span>
+        <div><div style="font-weight:600;color:var(--text);font-size:.9rem">Study by Term</div><div style="font-size:.8rem;color:var(--muted);margin-top:.1rem">Know exactly what to study each term</div></div>
+      </a>
+      <a href="exam-extras.html" style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:1.25rem;text-decoration:none;display:flex;align-items:center;gap:.75rem;transition:border-color .15s" onmouseover="this.style.borderColor='#4ade80'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:1.5rem">⚡</span>
+        <div><div style="font-weight:600;color:var(--text);font-size:.9rem">Exam Extras</div><div style="font-size:.8rem;color:var(--muted);margin-top:.1rem">Out-of-CAPS topics from past papers</div></div>
+      </a>
+    </div>
+
+    <div class="quick-links">
+      <h2>Popular Topics</h2>
+      <div class="ql-grid">
+        <a class="ql-item" href="grade10/practical/algorithms.html"><span class="ql-dot" style="background:var(--gr10)"></span>Algorithms</a>
+        <a class="ql-item" href="grade10/practical/delphi-intro.html"><span class="ql-dot" style="background:var(--gr10)"></span>Delphi Intro</a>
+        <a class="ql-item" href="grade10/practical/decisions.html"><span class="ql-dot" style="background:var(--gr10)"></span>IF &amp; CASE</a>
+        <a class="ql-item" href="grade10/practical/loops.html"><span class="ql-dot" style="background:var(--gr10)"></span>Loops</a>
+        <a class="ql-item" href="grade10/practical/strings.html"><span class="ql-dot" style="background:var(--gr10)"></span>String Functions</a>
+        <a class="ql-item" href="grade10/theory/data-representation.html"><span class="ql-dot" style="background:var(--gr10)"></span>Binary &amp; Hex</a>
+        <a class="ql-item" href="grade10/theory/hardware.html"><span class="ql-dot" style="background:var(--gr10)"></span>Hardware</a>
+        <a class="ql-item" href="grade10/theory/networks.html"><span class="ql-dot" style="background:var(--gr10)"></span>Networks</a>
+        <a class="ql-item" href="grade11/practical/arrays.html"><span class="ql-dot" style="background:var(--gr11)"></span>1D Arrays</a>
+        <a class="ql-item" href="grade11/practical/text-files.html"><span class="ql-dot" style="background:var(--gr11)"></span>Text Files</a>
+        <a class="ql-item" href="grade11/practical/methods.html"><span class="ql-dot" style="background:var(--gr11)"></span>Procedures &amp; Functions</a>
+        <a class="ql-item" href="grade11/practical/databases-delphi.html"><span class="ql-dot" style="background:var(--gr11)"></span>Databases in Delphi</a>
+        <a class="ql-item" href="grade12/sql.html"><span class="ql-dot" style="background:var(--gr12)"></span>SQL</a>
+        <a class="ql-item" href="grade12/oop.html"><span class="ql-dot" style="background:var(--gr12)"></span>OOP &amp; Classes</a>
+        <a class="ql-item" href="grade12/arrays-2d.html"><span class="ql-dot" style="background:var(--gr12)"></span>2D Arrays</a>
+        <a class="ql-item" href="grade12/relational-db.html"><span class="ql-dot" style="background:var(--gr12)"></span>Normalisation</a>
+        <a class="ql-item" href="grade12/data-management.html"><span class="ql-dot" style="background:var(--gr12)"></span>Data Warehousing</a>
+        <a class="ql-item" href="grade12/recursion.html"><span class="ql-dot" style="background:var(--gr12)"></span>Recursion</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="./js/nav.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exam Extras — Out-of-CAPS Topics · IT CAPS</title>
+<link rel="stylesheet" href="css/style.css">
+<style>:root{--grade-color:#4ade80;}</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+<aside class="sidebar">
+  <div class="sidebar-grade">Study Tools</div>
+  <a href="terms-gr10.html">📅 Grade 10 — By Term</a>
+  <a href="terms-gr11.html">📅 Grade 11 — By Term</a>
+  <a href="terms-gr12.html">📅 Grade 12 — By Term</a>
+  <a href="exam-extras.html">⚡ Exam Extras</a>
+  <div class="sidebar-grade" style="margin-top:1rem">Sections</div>
+  <a href="#practical-extras">Practical Extras (P1)</a>
+  <a href="#theory-extras">Theory Extras (P2)</a>
+  <a href="#delphi-functions">Delphi Functions Reference</a>
+  <a href="#past-paper-tips">Past Paper Tips</a>
+</aside>
+<main class="content">
+  <div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><span>Exam Extras</span></div>
+  <h1>Exam Extras <span class="grade-badge" style="background:rgba(74,222,128,.15);color:#4ade80">Out-of-CAPS</span></h1>
+  <p class="page-intro">These topics are not explicitly required by CAPS but have appeared in NSC past papers (2015–2024). Knowing them can mean the difference between a pass and a distinction.</p>
+
+  <div class="callout warning">
+    <div class="callout-title">How to use this page</div>
+    <p>Items marked <span class="badge badge-blue">P1</span> appear in Paper 1 (practical/Delphi), <span class="badge badge-purple">P2</span> in Paper 2 (theory), and <span class="badge badge-green">Both</span> in either paper. These are <em>supplementary</em> — master your CAPS content first.</p>
+  </div>
+
+  <!-- PRACTICAL EXTRAS -->
+  <h2 id="practical-extras">Practical Extras — Paper 1 (Delphi)</h2>
+  <p>These Delphi functions, components and techniques are not listed in CAPS but appear regularly in exam questions or are needed to solve exam problems efficiently.</p>
+
+  <div class="extras-grid">
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>StringReplace()</h4>
+      <p>Replaces all or first occurrence of a substring within a string.<br>
+      <code>s := StringReplace(s, 'old', 'new', [rfReplaceAll]);</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>TStringList</h4>
+      <p>A powerful list of strings — very useful for loading file lines into memory.<br>
+      <code>sl := TStringList.Create; sl.LoadFromFile('data.txt'); sl.Free;</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Format() function</h4>
+      <p>Formats numbers/strings with precise control — <code>Format('%.2f', [rVal])</code> gives 2 decimal places. More powerful than FloatToStrF.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Random() &amp; Randomize()</h4>
+      <p>Generate random integers. Always call <code>Randomize;</code> first to seed the generator. <code>Random(100)</code> returns 0–99.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>TOpenDialog / TSaveDialog</h4>
+      <p>Let users browse for files at runtime.<br>
+      <code>if OpenDialog1.Execute then sFile := OpenDialog1.FileName;</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>DateToStr() &amp; StrToDate()</h4>
+      <p>Convert between TDate values and string representation. Used with TDateTimePicker.<br>
+      <code>sDate := DateToStr(dtpDate.Date);</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Try…Except…End (Exception Handling)</h4>
+      <p>Catch runtime errors gracefully — e.g. invalid StrToInt input.<br>
+      <code>try iNum := StrToInt(edtNum.Text); except ShowMessage('Invalid'); end;</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Memo.Lines.Count</h4>
+      <p>Returns the number of lines in a Memo. Often used in loops to process all memo lines.<br>
+      <code>for i := 0 to Memo1.Lines.Count - 1 do</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>SameText() / CompareText()</h4>
+      <p>Case-insensitive string comparison — avoids problems when user types 'yes', 'YES' or 'Yes'.<br>
+      <code>if SameText(sInput, 'yes') then</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>IntToHex() &amp; HexToInt()</h4>
+      <p>Convert integers to hexadecimal strings and back. Sometimes tested in conjunction with number systems theory.<br>
+      <code>sHex := IntToHex(255, 4); // = '00FF'</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Odd() &amp; Even() functions</h4>
+      <p>Built-in boolean checks — cleaner than MOD 2.<br>
+      <code>if Odd(iNum) then // true if iNum is odd</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Break &amp; Continue in loops</h4>
+      <p><code>Break</code> exits the loop immediately. <code>Continue</code> skips to the next iteration. Both appear in exam solutions — know the difference.</p>
+    </div>
+  </div>
+
+  <!-- THEORY EXTRAS -->
+  <h2 id="theory-extras">Theory Extras — Paper 2</h2>
+  <p>These theory topics have appeared in NSC Theory papers but sit at the edge of or outside the formal CAPS scope. They typically appear in social implications or "current technology" questions.</p>
+
+  <div class="extras-grid">
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Artificial Intelligence (AI) &amp; Machine Learning</h4>
+      <p>AI appears regularly in social implications questions — automation of jobs, AI decision-making, bias in AI, chatbots. Not deeply technical — understand the concept and its social effects.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Blockchain Technology</h4>
+      <p>A distributed digital ledger of linked blocks. Used in cryptocurrency, supply chain, and secure records. Appeared in Gr12 theory papers. Know: what it is, how it works, and 2 uses.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Deep Fakes</h4>
+      <p>AI-generated fake videos or audio that appear authentic. Social implications question topic — impacts on trust, truth, and politics. Know the definition and two risks.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Dark Web</h4>
+      <p>A part of the internet not indexed by search engines, accessed via special software (Tor). Used for anonymity — legal and illegal uses. Appeared in theory cybercrime questions.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Net Neutrality</h4>
+      <p>The principle that all internet traffic should be treated equally — ISPs cannot throttle or prioritise certain content. A social/political IT topic.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>IPv6</h4>
+      <p>The successor to IPv4 — uses 128-bit addresses (vs 32-bit) to solve address exhaustion. Format: 2001:0db8:85a3::8a2e:0370:7334. Know why it was introduced.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>RAID Levels (0, 1, 5)</h4>
+      <p>RAID 0: speed (striping, no redundancy). RAID 1: mirroring (exact copy). RAID 5: striping with parity (balance of speed + fault tolerance). CAPS only mentions RAID in general — exams go deeper.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Steganography</h4>
+      <p>Hiding secret information within ordinary files (images, audio) without detection. Different from encryption — encryption scrambles data; steganography hides its existence. Appeared in theory questions.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Smart Contracts</h4>
+      <p>Self-executing contracts where terms are written in code on a blockchain. No middlemen needed. Related to blockchain technology — appeared in Gr12 social implications.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Edge Computing</h4>
+      <p>Processing data close to where it is generated (the "edge" of the network) rather than sending it all to a central cloud server. Reduces latency — important for IoT and 5G.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Bus Network Topology</h4>
+      <p>All devices share a single communication line (the bus). Not in the current CAPS but appeared in older papers. Advantage: cheap. Disadvantage: single point of failure; performance drops with more devices.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Social Engineering</h4>
+      <p>Manipulating people (rather than systems) to reveal confidential information. Includes pretexting, baiting, tailgating. Appears in cybercrime theory questions.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-both">Both</span>
+      <h4>Number System Conversions</h4>
+      <p>Exams frequently ask you to <em>convert</em> values — not just explain systems. Practise: decimal↔binary, decimal↔hex, binary↔hex. Know the place values (powers of 2 and 16).</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>POPIA (Protection of Personal Information Act)</h4>
+      <p>South African law governing how personal data must be collected, stored, and protected. Appears in privacy and legal implications questions. Know: what it is, who it protects, and 2 requirements.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Cybercrimes Act (2020)</h4>
+      <p>SA legislation that criminalises hacking, ransomware, online fraud, and malicious communications. Often referenced in cybercrime theory questions for Gr12.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Digital Twins</h4>
+      <p>A virtual replica of a physical object or system, updated in real time from sensor data. Used in engineering, manufacturing, and smart cities. Appeared in 4IR/IoT questions.</p>
+    </div>
+  </div>
+
+  <!-- DELPHI FUNCTIONS REFERENCE -->
+  <h2 id="delphi-functions">Complete Delphi Functions Quick Reference</h2>
+  <p>A comprehensive reference of all Delphi functions you need to know — both CAPS-required and commonly appearing in exams.</p>
+
+  <h3>String Functions</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Function/Procedure</th><th>What it does</th><th>Example</th></tr>
+    <tr><td><code>Length(s)</code></td><td>Returns number of characters</td><td><code>Length('Hello') = 5</code></td></tr>
+    <tr><td><code>Pos(find, source)</code></td><td>Position of substring (0 if not found)</td><td><code>Pos('lo','Hello') = 4</code></td></tr>
+    <tr><td><code>Copy(source, start, len)</code></td><td>Extract substring</td><td><code>Copy('Hello',2,3) = 'ell'</code></td></tr>
+    <tr><td><code>Insert(text, var s, pos)</code></td><td>Insert text into string at position</td><td><code>Insert('!','Hello',6) → 'Hello!'</code></td></tr>
+    <tr><td><code>Delete(var s, pos, len)</code></td><td>Remove characters from string</td><td><code>Delete(s,1,3)</code></td></tr>
+    <tr><td><code>UpperCase(s)</code></td><td>All uppercase</td><td><code>UpperCase('hi') = 'HI'</code></td></tr>
+    <tr><td><code>LowerCase(s)</code></td><td>All lowercase</td><td><code>LowerCase('HI') = 'hi'</code></td></tr>
+    <tr><td><code>Trim(s)</code></td><td>Remove leading/trailing spaces</td><td><code>Trim('  Hi  ') = 'Hi'</code></td></tr>
+    <tr><td><code>StringReplace(s,old,new,flags)</code></td><td>Replace substring(s)</td><td><code>StringReplace(s,'a','e',[rfReplaceAll])</code></td></tr>
+    <tr><td><code>SameText(s1,s2)</code></td><td>Case-insensitive comparison (boolean)</td><td><code>SameText('Yes','yes') = True</code></td></tr>
+    <tr><td><code>Concat(s1,s2)</code></td><td>Join two strings (same as +)</td><td><code>Concat('Hel','lo')</code></td></tr>
+    <tr><td><code>s[i]</code></td><td>Character at index i (1-based)</td><td><code>s[1]</code> = first character</td></tr>
+  </table></div>
+
+  <h3>Math Functions</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Function</th><th>What it does</th><th>Example</th></tr>
+    <tr><td><code>Sqr(x)</code></td><td>x squared (x²)</td><td><code>Sqr(4) = 16</code></td></tr>
+    <tr><td><code>Sqrt(x)</code></td><td>Square root</td><td><code>Sqrt(16) = 4</code></td></tr>
+    <tr><td><code>Power(base, exp)</code></td><td>base to the power of exp</td><td><code>Power(2,8) = 256</code></td></tr>
+    <tr><td><code>Round(x)</code></td><td>Round to nearest integer</td><td><code>Round(4.6) = 5</code></td></tr>
+    <tr><td><code>Trunc(x)</code></td><td>Remove decimal (truncate toward zero)</td><td><code>Trunc(4.9) = 4</code></td></tr>
+    <tr><td><code>Ceil(x)</code></td><td>Round UP to integer</td><td><code>Ceil(4.1) = 5</code></td></tr>
+    <tr><td><code>Floor(x)</code></td><td>Round DOWN to integer</td><td><code>Floor(4.9) = 4</code></td></tr>
+    <tr><td><code>Abs(x)</code></td><td>Absolute value</td><td><code>Abs(-5) = 5</code></td></tr>
+    <tr><td><code>Random(n)</code></td><td>Random integer 0 to n-1</td><td><code>Random(6)+1</code> simulates a die</td></tr>
+    <tr><td><code>Randomize</code></td><td>Seed the random generator (call once)</td><td>Call before Random()</td></tr>
+    <tr><td><code>Inc(x)</code> / <code>Inc(x,n)</code></td><td>Increment by 1 or n</td><td><code>Inc(i) ≡ i := i+1</code></td></tr>
+    <tr><td><code>Dec(x)</code> / <code>Dec(x,n)</code></td><td>Decrement by 1 or n</td><td><code>Dec(i,3) ≡ i := i-3</code></td></tr>
+    <tr><td><code>Odd(n)</code></td><td>True if n is odd</td><td><code>Odd(3) = True</code></td></tr>
+    <tr><td><code>Pi</code></td><td>Returns π (3.14159…)</td><td><code>rArea := Pi * Sqr(r)</code></td></tr>
+  </table></div>
+
+  <h3>Type Conversion Functions</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Function</th><th>Converts</th><th>Example</th></tr>
+    <tr><td><code>StrToInt(s)</code></td><td>String → Integer</td><td><code>StrToInt('42') = 42</code></td></tr>
+    <tr><td><code>StrToFloat(s)</code></td><td>String → Real</td><td><code>StrToFloat('3.14')</code></td></tr>
+    <tr><td><code>StrToIntDef(s, default)</code></td><td>String → Integer (safe — returns default if invalid)</td><td><code>StrToIntDef(edtNum.Text, 0)</code></td></tr>
+    <tr><td><code>IntToStr(n)</code></td><td>Integer → String</td><td><code>IntToStr(42) = '42'</code></td></tr>
+    <tr><td><code>FloatToStr(r)</code></td><td>Real → String</td><td><code>FloatToStr(3.14)</code></td></tr>
+    <tr><td><code>FloatToStrF(r, fmt, digits, dec)</code></td><td>Formatted real → String</td><td><code>FloatToStrF(r, ffFixed, 6, 2)</code></td></tr>
+    <tr><td><code>Ord(c)</code></td><td>Char → Integer (ASCII value)</td><td><code>Ord('A') = 65</code></td></tr>
+    <tr><td><code>Chr(n)</code></td><td>Integer → Char</td><td><code>Chr(65) = 'A'</code></td></tr>
+    <tr><td><code>UpCase(c)</code></td><td>Single char to uppercase</td><td><code>UpCase('a') = 'A'</code></td></tr>
+    <tr><td><code>IntToHex(n, digits)</code></td><td>Integer → Hex string</td><td><code>IntToHex(255,2) = 'FF'</code></td></tr>
+    <tr><td><code>DateToStr(d)</code></td><td>TDate → String</td><td><code>DateToStr(Now)</code></td></tr>
+    <tr><td><code>FormatFloat(fmt, r)</code></td><td>Real → formatted string</td><td><code>FormatFloat('#,##0.00', 1234.5)</code></td></tr>
+  </table></div>
+
+  <!-- PAST PAPER TIPS -->
+  <h2 id="past-paper-tips">Past Paper Patterns &amp; Tips</h2>
+
+  <h3>Paper 1 (Practical) — What Always Appears</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Section</th><th>What to expect</th><th>Common traps</th></tr>
+    <tr><td><strong>Q1: General programming</strong></td><td>Strings, loops, decisions, calculations (~30–40 marks)</td><td>Off-by-one errors in loops; forgetting to initialise variables</td></tr>
+    <tr><td><strong>Q2: Arrays &amp; files</strong></td><td>1D/2D arrays, text file reading/writing (~20–25 marks)</td><td>Using wrong index (0 vs 1-based); not closing file</td></tr>
+    <tr><td><strong>Q3: OOP</strong></td><td>Class with constructor, accessors, mutators, toString (~25–30 marks)</td><td>Calling Create on the object var (not class name); forgetting Result in functions</td></tr>
+    <tr><td><strong>Q4: Database/SQL</strong></td><td>TADOQuery, SQL statements including JOIN (~20–25 marks)</td><td>Not calling qry.Close before changing SQL; wrong JOIN ON condition</td></tr>
+    <tr><td><strong>Recursion (Gr12)</strong></td><td>Write a recursive function; trace it (~10–15 marks)</td><td>Missing base case; not returning Result</td></tr>
+  </table></div>
+
+  <h3>Paper 2 (Theory) — What Always Appears</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Topic</th><th>Typical mark allocation</th><th>What examiners look for</th></tr>
+    <tr><td>Hardware &amp; software</td><td>15–20 marks</td><td>Specific advantages/disadvantages; real-world examples</td></tr>
+    <tr><td>Networks &amp; internet</td><td>20–25 marks</td><td>Correct terminology; topology advantages/disadvantages</td></tr>
+    <tr><td>Databases &amp; normalisation</td><td>20–30 marks</td><td>Correct normal form identification; proper primary/foreign key use</td></tr>
+    <tr><td>Social implications</td><td>20–25 marks</td><td>Balance of positive AND negative effects; specific examples</td></tr>
+    <tr><td>Cybercrime</td><td>10–15 marks (Gr12)</td><td>Correct crime type names; effects on both victim and business</td></tr>
+    <tr><td>Current technology (IoT, AI, VR)</td><td>10–15 marks (Gr12)</td><td>Practical application examples; social implications</td></tr>
+  </table></div>
+
+  <h3>General Exam Advice</h3>
+  <div class="callout tip">
+    <div class="callout-title">Top 5 mark-saving habits</div>
+    <ul style="margin:0.5rem 0 0 1.25rem">
+      <li>Read the question twice — "list" means bullet points, "explain" means a sentence or two</li>
+      <li>Never leave a practical question blank — partial marks are awarded for correct structure</li>
+      <li>In SQL: always check your WHERE condition matches the question's criteria exactly</li>
+      <li>In OOP: write the constructor first — it sets up all the attributes you'll use elsewhere</li>
+      <li>In theory: "advantage AND disadvantage" means you need both for full marks</li>
+    </ul>
+  </div>
+
+  <div class="page-nav">
+    <a href="terms-gr12.html"><span class="page-nav-label">← Previous</span>Grade 12 Term Planner</a>
+    <a class="next" href="index.html"><span class="page-nav-label">Back to</span>Home</a>
+  </div>
+</main>
+</div>
+<script src="./js/nav.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>

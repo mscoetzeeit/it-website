@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Networks & Protocols &#x00B7; Ms Coetzee IT</title><link rel="stylesheet" href="../../css/style.css"><style>:root{--grade-color:var(--gr11);}</style></head><body><div id="topnav"></div><div class="page-wrapper"><aside class="sidebar"><div class="sidebar-grade">Grade 11 Theory</div><a href="hardware-gr11.html">Motherboard &amp; Hardware</a><a href="processing.html">Processing Techniques</a><a href="databases.html">Database Management</a><a href="networks-gr11.html">Networks &amp; Protocols</a><a href="mobile-tech.html">Mobile Technology</a><a href="computer-management.html">Computer Management</a><a href="e-communications-gr11.html">E-Communications</a><a href="internet-gr11.html">Internet &amp; Multimedia</a><a href="internet-services-gr11.html">Internet Services</a><a href="social-gr11.html">Social Implications</a><div class="sidebar-grade" style="margin-top:1rem">Grade 11 Practical</div><a href="../practical/arrays.html">1D Arrays</a><a href="../practical/text-files.html">Text Files</a><a href="../practical/methods.html">Procedures &amp; Functions</a><a href="../practical/databases-delphi.html">Databases in Delphi</a></aside><main class="content"><div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Networks &amp; Protocols</span></div>
+<h1>Networks &amp; Protocols <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">Building on Grade 10 networks — this page covers topologies, network devices in depth, protocols, VoIP, VPN and acceptable use.</p>
+<h2>Network Topologies</h2>
+<p>A <strong>network topology</strong> is the layout or "shape" of a network — it describes how the computers and devices are physically or logically arranged and connected to one another. The topology you choose affects how easy the network is to set up, how it copes with a fault, and how easy it is to add new devices later.</p>
+<h3>Star Topology</h3>
+<p>In a <strong>star topology</strong> every device connects to one central point — usually a switch. Nothing connects directly to anything else; all traffic passes through the middle.</p>
+<div class="callout">
+  <div class="callout-title">ANALOGY</div>
+  <p>Picture a bicycle wheel: the hub in the centre is the switch, and each spoke is a cable running out to one computer. If a single spoke breaks the rest of the wheel is fine — but if the hub itself fails, the whole wheel falls apart. That is exactly why a star network keeps working when one PC fails, yet goes completely down if the central switch fails.</p>
+</div>
+<div class="tbl-wrap"><table>
+  <tr><th>Topology</th><th>Layout</th><th>Advantages</th><th>Disadvantages</th></tr>
+  <tr><td><strong>Star</strong></td><td>All devices connect to a central switch</td><td>One failure doesn't affect others; easy to add devices</td><td>If switch fails, entire network fails</td></tr>
+  <tr><td><strong>Ring</strong></td><td>Devices in a closed loop</td><td>Equal opportunity to transmit; no collision</td><td>One break can down the whole network</td></tr>
+</table></div>
+<h2>Thin vs Thick Client</h2>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Thin Client</th><th>Thick (Fat) Client</th></tr>
+  <tr><td>Processing</td><td>Done mostly on server</td><td>Done on local computer</td></tr>
+  <tr><td>Storage</td><td>Minimal local storage</td><td>Large local storage</td></tr>
+  <tr><td>Cost</td><td>Cheaper</td><td>More expensive</td></tr>
+  <tr><td>Example</td><td>School lab PC connected to server</td><td>Personal desktop PC</td></tr>
+</table></div>
+<h2>Key Protocols</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Protocol</th><th>Purpose</th></tr>
+  <tr><td><strong>HTTP</strong></td><td>Transfer web pages (unencrypted)</td></tr>
+  <tr><td><strong>HTTPS</strong></td><td>Secure web transfer (SSL/TLS encryption)</td></tr>
+  <tr><td><strong>SMTP</strong></td><td>Send emails</td></tr>
+  <tr><td><strong>POP3</strong></td><td>Download emails to device</td></tr>
+  <tr><td><strong>IMAP</strong></td><td>Access emails online without downloading</td></tr>
+  <tr><td><strong>FTP</strong></td><td>Transfer large files between computers</td></tr>
+  <tr><td><strong>VoIP</strong></td><td>Voice calls over the Internet</td></tr>
+</table></div>
+<h2>VoIP</h2>
+<p><strong>Voice over Internet Protocol</strong> allows phone/video calls using the Internet instead of traditional phone lines.</p>
+<p>Your voice is broken into tiny digital packets, sent across the internet just like any other data, and reassembled at the other end. Because it rides on your existing internet connection, calls to other VoIP users are usually free no matter how far away they are — which makes it far cheaper than a traditional long-distance phone call.</p>
+<ul>
+  <li>Examples: WhatsApp calls, Skype, Discord, Zoom</li>
+  <li>Requires: stable internet, low latency, sufficient bandwidth</li>
+</ul>
+<h2>VPN</h2>
+<p>A <strong>Virtual Private Network</strong> creates an encrypted "tunnel" over the Internet.</p>
+<ul>
+  <li>Allows remote users to access a private network securely</li>
+  <li>Hides IP address and encrypts all data in transit</li>
+  <li>Used by companies for remote workers</li>
+</ul>
+<h2>Internet vs Intranet vs Extranet</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Network</th><th>Access</th><th>Description</th></tr>
+  <tr><td><strong>Internet</strong></td><td>Public</td><td>Global network open to all</td></tr>
+  <tr><td><strong>Intranet</strong></td><td>Private</td><td>Internal company/school network</td></tr>
+  <tr><td><strong>Extranet</strong></td><td>Controlled external</td><td>Intranet accessible from outside (VPN)</td></tr>
+</table></div>
+<h2>Acceptable Use Policies (AUP)</h2>
+<p>Rules governing how ICT resources may be used in an organisation. Key rules:</p>
+<ul>
+  <li>No downloading illegal content</li>
+  <li>Use computers for educational/work purposes</li>
+  <li>No cyberbullying or harassment</li>
+  <li>Respect copyright laws</li>
+</ul>
+<div class="page-nav">
+  <a href="databases.html"><span class="page-nav-label">← Previous</span>Database Management</a>
+  <a class="next" href="mobile-tech.html"><span class="page-nav-label">Next →</span>Mobile Technology</a>
+</div></main></div><script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script></body></html>

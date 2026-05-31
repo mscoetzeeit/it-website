@@ -1,0 +1,476 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algorithms &amp; Problem Solving – IT CAPS</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr10); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 10 · Practical</div>
+    <a href="algorithms.html">Algorithms &amp; Problem Solving</a>
+    <a href="delphi-intro.html">Introduction to Delphi</a>
+    <a href="data-types.html">Data Types &amp; Variables</a>
+    <a href="operators.html">Operators &amp; Functions</a>
+    <a href="decisions.html">Decision Making (IF / CASE)</a>
+    <a href="loops.html">Loops</a>
+    <a href="strings.html">String Manipulation</a>
+    
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 10 · Theory</div>
+    <a href="../theory/digital-tech.html">Digital Technologies &amp; ICT</a>
+    <a href="../theory/hardware.html">Hardware</a>
+    <a href="../theory/software.html">Software &amp; Licensing</a>
+    <a href="../theory/data-representation.html">Data Representation</a>
+    <a href="../theory/networks.html">Networks</a>
+    <a href="../theory/internet.html">Internet &amp; WWW</a>
+    <a href="../theory/e-communication.html">E-Communication</a>
+    <a href="../theory/management.html">Computer Management &amp; Security</a>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb">
+      <a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span>
+      <a href="#">Grade 10</a><span class="breadcrumb-sep">›</span>
+      <span>Algorithms &amp; Problem Solving</span>
+    </div>
+
+    <h1>Algorithms &amp; Problem Solving <span class="grade-badge">Grade 10</span></h1>
+    <p class="page-intro">Before writing a single line of code, good programmers plan their solution. This page covers algorithms, pseudocode, flowcharts, IPO tables and trace tables — the thinking tools of programming.</p>
+
+    <!-- WHAT IS AN ALGORITHM -->
+    <h2>What is an Algorithm?</h2>
+    <p>Imagine you want to make a cup of tea. You don't just randomly pour hot water and hope for the best — you follow steps: boil water, put teabag in cup, pour water, wait, add milk. That ordered list of steps is an <strong>algorithm</strong>.</p>
+    <p>In computing, an <strong>algorithm</strong> is a precise, step-by-step set of instructions used to solve a problem or complete a task. Every program you write starts as an algorithm in your head (or on paper) before it becomes code.</p>
+
+    <div class="callout">
+      <div class="callout-title">TIP</div>
+      <p>Think of an algorithm like a recipe. A recipe tells you <em>exactly</em> what ingredients to use, in what order, and what to do with them. A computer program is just a recipe written in a language the computer understands.</p>
+    </div>
+
+    <h3>Key Characteristics of a Good Algorithm</h3>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Property</th><th>Meaning</th><th>Example of failure</th></tr>
+        <tr><td><strong>Clear</strong></td><td>Every step is unambiguous — only one interpretation</td><td>"Do something with the number" — too vague</td></tr>
+        <tr><td><strong>Finite</strong></td><td>It must end after a certain number of steps</td><td>A loop that never stops</td></tr>
+        <tr><td><strong>Correct</strong></td><td>It must produce the right answer every time</td><td>Adding instead of multiplying</td></tr>
+        <tr><td><strong>Ordered</strong></td><td>Steps must follow a logical sequence</td><td>Calculating average before calculating total</td></tr>
+        <tr><td><strong>Efficient</strong></td><td>No unnecessary steps or wasted resources</td><td>Calculating the same total three times</td></tr>
+      </table>
+    </div>
+
+    <!-- WHY ALGORITHMS MATTER -->
+    <h2>Why Do Algorithms Matter?</h2>
+    <p>Before writing code, planning with an algorithm helps you:</p>
+    <ul>
+      <li>Spot logical errors <em>before</em> they become code bugs</li>
+      <li>Save time — plan once, code faster</li>
+      <li>Communicate your solution to others</li>
+      <li>Prove your solution is correct</li>
+    </ul>
+    <div class="callout">
+      <div class="callout-title">REAL WORLD</div>
+      <p>In 1999, NASA's Mars Climate Orbiter crashed because one team used metric units and another used imperial in their calculations. A clear algorithm with defined units would have caught this. The mistake cost $327 million. Accurate algorithms matter.</p>
+    </div>
+
+    <!-- PROBLEM SOLVING CYCLE -->
+    <h2>The Problem-Solving Cycle</h2>
+    <ol>
+      <li><strong>Understand the problem</strong> — State it in your own words. What is given? What must be produced?</li>
+      <li><strong>Plan the solution</strong> — Write pseudocode or draw a flowchart. Use an IPO table.</li>
+      <li><strong>Implement</strong> — Convert your plan into Delphi code.</li>
+      <li><strong>Test</strong> — Run the program and check output against expected results using a trace table.</li>
+      <li><strong>Fix errors</strong> — Debug and correct any mistakes, then retest.</li>
+    </ol>
+
+    <!-- IPO TABLES -->
+    <h2>IPO Tables (Input – Process – Output)</h2>
+    <p>An <strong>IPO table</strong> is the first planning tool you use. It forces you to identify three things before writing any code: what data goes <em>in</em>, what happens to it (<em>process</em>), and what comes <em>out</em>.</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Input</th><th>Process</th><th>Output</th></tr>
+        <tr>
+          <td>Length, Width</td>
+          <td>Area = Length × Width<br>Perimeter = 2 × (Length + Width)</td>
+          <td>Area, Perimeter of rectangle</td>
+        </tr>
+        <tr>
+          <td>Mark1, Mark2, Mark3</td>
+          <td>Total = Mark1 + Mark2 + Mark3<br>Average = Total ÷ 3</td>
+          <td>Total marks, Average mark</td>
+        </tr>
+        <tr>
+          <td>A number (num)</td>
+          <td>IF num MOD 2 = 0 THEN "Even" ELSE "Odd"</td>
+          <td>"Even" or "Odd"</td>
+        </tr>
+        <tr>
+          <td>Temperature in Celsius (C)</td>
+          <td>F = (C × 9/5) + 32</td>
+          <td>Temperature in Fahrenheit (F)</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">EXAM TIP</div>
+      <p>In exams you may be asked to complete an IPO table. Always write the Process column as a formula or decision — not just "calculate it". Show your working: <code>Area = Length × Width</code>, not just "work out the area".</p>
+    </div>
+
+    <!-- PSEUDOCODE -->
+    <h2>Pseudocode</h2>
+    <p>Pseudocode is <em>fake code</em> written in plain English that describes the logic of a program. It is not real Delphi code — it is for planning only. Anyone who understands programming should be able to read your pseudocode, even if they don't know Delphi.</p>
+
+    <h3>Pseudocode Rules</h3>
+    <ul>
+      <li>Use <strong>CAPITALS</strong> for keywords: <code>IF</code>, <code>THEN</code>, <code>ELSE</code>, <code>ENDIF</code>, <code>WHILE</code>, <code>FOR</code>, <code>INPUT</code>, <code>OUTPUT</code></li>
+      <li>Indent inside structures to show what is inside a block</li>
+      <li>Use <code>:=</code> or <code>=</code> for assignment (both are accepted)</li>
+      <li>Keep it short and clear — no Delphi syntax needed</li>
+      <li>Start with START and end with END</li>
+    </ul>
+
+    <div class="code-block">
+      <span class="code-label">Pseudocode – Basic Statements</span>
+      <pre><code>SET total TO 10          // assignment
+INPUT age                // get data from user
+OUTPUT total             // show result
+SET area TO length * width   // calculation
+
+IF age >= 18 THEN
+    OUTPUT "May vote"
+ELSE
+    OUTPUT "Too young to vote"
+ENDIF</code></pre>
+    </div>
+
+    <h3>Example: Find the Average of Three Marks</h3>
+    <div class="code-block">
+      <span class="code-label">Pseudocode</span>
+      <pre><code>START
+    INPUT mark1
+    INPUT mark2
+    INPUT mark3
+    SET total TO mark1 + mark2 + mark3
+    SET average TO total / 3
+    OUTPUT "Total: ", total
+    OUTPUT "Average: ", average
+END</code></pre>
+    </div>
+
+    <h3>Example: Even or Odd</h3>
+    <div class="code-block">
+      <span class="code-label">Pseudocode</span>
+      <pre><code>START
+    INPUT num
+    IF num MOD 2 = 0 THEN
+        OUTPUT num, " is Even"
+    ELSE
+        OUTPUT num, " is Odd"
+    ENDIF
+END</code></pre>
+    </div>
+
+    <!-- FLOWCHARTS -->
+    <h2>Flowcharts</h2>
+    <p>A flowchart shows the steps of an algorithm as a <em>picture</em> using standard symbols connected by arrows. It is easier to spot errors in a diagram than in written text, which is why flowcharts are so useful.</p>
+
+    <h3>Flowchart Symbol Reference</h3>
+
+    <!-- SVG: 4 flowchart symbols with legend -->
+    <div style="margin:1.25rem 0; overflow-x:auto">
+      <svg viewBox="0 0 760 220" width="100%" style="max-width:760px; display:block; margin:0 auto" aria-label="Flowchart symbols: oval, parallelogram, rectangle, diamond">
+        <!-- Background -->
+        <rect width="760" height="220" fill="#0d1117" rx="10"/>
+
+        <!-- Title -->
+        <text x="380" y="24" text-anchor="middle" fill="#e6edf3" font-size="13" font-family="sans-serif" font-weight="bold">Flowchart Symbols</text>
+
+        <!-- OVAL (Start/End) -->
+        <g transform="translate(50,50)">
+          <ellipse cx="70" cy="45" rx="65" ry="30" fill="#161b22" stroke="#4ade80" stroke-width="2"/>
+          <text x="70" y="49" text-anchor="middle" fill="#4ade80" font-size="13" font-family="sans-serif" font-weight="bold">Start / End</text>
+          <text x="70" y="100" text-anchor="middle" fill="#e6edf3" font-size="12" font-family="sans-serif">Oval</text>
+          <text x="70" y="118" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">Marks the beginning</text>
+          <text x="70" y="133" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">or end of a program</text>
+        </g>
+
+        <!-- PARALLELOGRAM (Input/Output) -->
+        <g transform="translate(220,50)">
+          <polygon points="15,15 135,15 120,75 0,75" fill="#161b22" stroke="#22d3ee" stroke-width="2"/>
+          <text x="68" y="51" text-anchor="middle" fill="#22d3ee" font-size="12" font-family="sans-serif" font-weight="bold">Input / Output</text>
+          <text x="68" y="100" text-anchor="middle" fill="#e6edf3" font-size="12" font-family="sans-serif">Parallelogram</text>
+          <text x="68" y="118" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">Read a value from user</text>
+          <text x="68" y="133" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">or display a result</text>
+        </g>
+
+        <!-- RECTANGLE (Process) -->
+        <g transform="translate(400,50)">
+          <rect x="5" y="15" width="125" height="60" rx="3" fill="#161b22" stroke="#a78bfa" stroke-width="2"/>
+          <text x="68" y="49" text-anchor="middle" fill="#a78bfa" font-size="13" font-family="sans-serif" font-weight="bold">Process</text>
+          <text x="68" y="65" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">e.g. total = a + b</text>
+          <text x="68" y="100" text-anchor="middle" fill="#e6edf3" font-size="12" font-family="sans-serif">Rectangle</text>
+          <text x="68" y="118" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">A calculation or</text>
+          <text x="68" y="133" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">assignment step</text>
+        </g>
+
+        <!-- DIAMOND (Decision) -->
+        <g transform="translate(570,40)">
+          <polygon points="75,5 145,50 75,95 5,50" fill="#161b22" stroke="#fb923c" stroke-width="2"/>
+          <text x="75" y="47" text-anchor="middle" fill="#fb923c" font-size="12" font-family="sans-serif" font-weight="bold">Decision</text>
+          <text x="75" y="63" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">Yes / No</text>
+          <text x="75" y="110" text-anchor="middle" fill="#e6edf3" font-size="12" font-family="sans-serif">Diamond</text>
+          <text x="75" y="128" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">A question with two</text>
+          <text x="75" y="143" text-anchor="middle" fill="#8b949e" font-size="11" font-family="sans-serif">possible paths (Yes/No)</text>
+        </g>
+
+        <!-- Arrow legend -->
+        <g transform="translate(50,175)">
+          <line x1="0" y1="10" x2="40" y2="10" stroke="#30363d" stroke-width="2"/>
+          <polygon points="40,6 50,10 40,14" fill="#30363d"/>
+          <text x="60" y="14" fill="#8b949e" font-size="11" font-family="sans-serif">Arrows show the direction of flow</text>
+        </g>
+      </svg>
+    </div>
+
+    <figure class="img-center">
+      <img src="../../images/flowchart-example.png" alt="Flowchart example: checking if a colour is blue" class="img-center">
+      <figcaption class="img-caption">Flowchart example: checking if a colour is blue</figcaption>
+    </figure>
+
+    <h3>Worked Example: Is a Number Even or Odd?</h3>
+    <p>This flowchart takes a number as input, checks if it divides evenly by 2, and displays "Even" or "Odd" before ending.</p>
+
+    <!-- SVG: Even or Odd flowchart -->
+    <div style="margin:1.25rem 0; overflow-x:auto">
+      <svg viewBox="0 0 340 580" width="100%" style="max-width:340px; display:block; margin:0 auto" aria-label="Flowchart: even or odd number check">
+        <rect width="340" height="580" fill="#0d1117" rx="10"/>
+
+        <!-- START oval -->
+        <ellipse cx="170" cy="45" rx="60" ry="25" fill="#161b22" stroke="#4ade80" stroke-width="2"/>
+        <text x="170" y="50" text-anchor="middle" fill="#4ade80" font-size="13" font-family="sans-serif" font-weight="bold">START</text>
+
+        <!-- Arrow START -> INPUT -->
+        <line x1="170" y1="70" x2="170" y2="105" stroke="#30363d" stroke-width="2"/>
+        <polygon points="164,105 170,118 176,105" fill="#30363d"/>
+
+        <!-- INPUT parallelogram -->
+        <polygon points="55,118 285,118 270,168 70,168" fill="#161b22" stroke="#22d3ee" stroke-width="2"/>
+        <text x="170" y="148" text-anchor="middle" fill="#22d3ee" font-size="12" font-family="sans-serif" font-weight="bold">INPUT num</text>
+
+        <!-- Arrow INPUT -> DECISION -->
+        <line x1="170" y1="168" x2="170" y2="208" stroke="#30363d" stroke-width="2"/>
+        <polygon points="164,208 170,221 176,208" fill="#30363d"/>
+
+        <!-- DECISION diamond -->
+        <polygon points="170,221 290,280 170,339 50,280" fill="#161b22" stroke="#fb923c" stroke-width="2"/>
+        <text x="170" y="276" text-anchor="middle" fill="#fb923c" font-size="11" font-family="sans-serif" font-weight="bold">num MOD 2</text>
+        <text x="170" y="292" text-anchor="middle" fill="#fb923c" font-size="11" font-family="sans-serif" font-weight="bold">= 0 ?</text>
+
+        <!-- YES label (left) -->
+        <text x="58" y="276" text-anchor="middle" fill="#4ade80" font-size="11" font-family="sans-serif" font-weight="bold">YES</text>
+
+        <!-- NO label (right) -->
+        <text x="285" y="276" text-anchor="middle" fill="#f87171" font-size="11" font-family="sans-serif" font-weight="bold">NO</text>
+
+        <!-- YES arrow -> EVEN box (left branch) -->
+        <line x1="50" y1="280" x2="20" y2="280" stroke="#4ade80" stroke-width="2"/>
+        <line x1="20" y1="280" x2="20" y2="390" stroke="#4ade80" stroke-width="2"/>
+        <polygon points="14,390 20,403 26,390" fill="#4ade80"/>
+
+        <!-- EVEN output box -->
+        <polygon points="20,403 100,403 85,443 5,443" fill="#161b22" stroke="#22d3ee" stroke-width="2"/>
+        <text x="52" y="429" text-anchor="middle" fill="#22d3ee" font-size="12" font-family="sans-serif" font-weight="bold">OUTPUT</text>
+        <text x="52" y="443" text-anchor="middle" fill="#22d3ee" font-size="11" font-family="sans-serif">"Even"</text>
+
+        <!-- EVEN -> merge arrow down -->
+        <line x1="45" y1="443" x2="45" y2="510" stroke="#30363d" stroke-width="2"/>
+        <line x1="45" y1="510" x2="170" y2="510" stroke="#30363d" stroke-width="2"/>
+        <polygon points="164,504 170,517 176,504" fill="#30363d"/>
+
+        <!-- NO arrow -> ODD box (right branch) -->
+        <line x1="290" y1="280" x2="320" y2="280" stroke="#f87171" stroke-width="2"/>
+        <line x1="320" y1="280" x2="320" y2="390" stroke="#f87171" stroke-width="2"/>
+        <polygon points="314,390 320,403 326,390" fill="#f87171"/>
+
+        <!-- ODD output box -->
+        <polygon points="250,403 330,403 315,443 235,443" fill="#161b22" stroke="#22d3ee" stroke-width="2"/>
+        <text x="282" y="429" text-anchor="middle" fill="#22d3ee" font-size="12" font-family="sans-serif" font-weight="bold">OUTPUT</text>
+        <text x="282" y="443" text-anchor="middle" fill="#22d3ee" font-size="11" font-family="sans-serif">"Odd"</text>
+
+        <!-- ODD -> merge arrow down -->
+        <line x1="282" y1="443" x2="282" y2="510" stroke="#30363d" stroke-width="2"/>
+        <line x1="282" y1="510" x2="170" y2="510" stroke="#30363d" stroke-width="2"/>
+
+        <!-- Arrow merge -> END -->
+        <line x1="170" y1="517" x2="170" y2="540" stroke="#30363d" stroke-width="2"/>
+        <polygon points="164,540 170,553 176,540" fill="#30363d"/>
+
+        <!-- END oval -->
+        <ellipse cx="170" cy="560" rx="60" ry="22" fill="#161b22" stroke="#4ade80" stroke-width="2"/>
+        <text x="170" y="565" text-anchor="middle" fill="#4ade80" font-size="13" font-family="sans-serif" font-weight="bold">END</text>
+      </svg>
+    </div>
+
+    <figure class="img-center">
+      <img src="../../images/flowchart-nested-if.png" alt="Flowchart: nested decisions" class="img-center">
+      <figcaption class="img-caption">Flowchart: nested decisions</figcaption>
+    </figure>
+
+    <div class="callout">
+      <div class="callout-title">TIP</div>
+      <p>The <strong>diamond</strong> shape always asks a Yes/No question. The two arrows leaving the diamond are labelled <strong>YES</strong> and <strong>NO</strong>. Both paths must eventually reach the END oval.</p>
+    </div>
+
+    <!-- TRACE TABLES -->
+    <h2>Trace Tables</h2>
+    <p>A <strong>trace table</strong> is used to <em>test</em> an algorithm by hand. You pick a test value, then track every variable as you step through the algorithm line by line. This helps you check whether the algorithm produces the correct output.</p>
+
+    <h3>Trace Table Example: Even or Odd (num = 7)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Step</th><th>Instruction</th><th>num</th><th>num MOD 2</th><th>Output</th></tr>
+        <tr><td>1</td><td>START</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>2</td><td>INPUT num</td><td>7</td><td>—</td><td>—</td></tr>
+        <tr><td>3</td><td>IF num MOD 2 = 0?</td><td>7</td><td>1</td><td>—</td></tr>
+        <tr><td>4</td><td>Condition FALSE → ELSE branch</td><td>7</td><td>1</td><td>—</td></tr>
+        <tr><td>5</td><td>OUTPUT "Odd"</td><td>7</td><td>1</td><td>"Odd"</td></tr>
+        <tr><td>6</td><td>END</td><td>—</td><td>—</td><td>—</td></tr>
+      </table>
+    </div>
+
+    <h3>Trace Table Example: Average of Three Marks (90, 70, 80)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Step</th><th>Instruction</th><th>mark1</th><th>mark2</th><th>mark3</th><th>total</th><th>average</th></tr>
+        <tr><td>1</td><td>INPUT mark1</td><td>90</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>2</td><td>INPUT mark2</td><td>90</td><td>70</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>3</td><td>INPUT mark3</td><td>90</td><td>70</td><td>80</td><td>—</td><td>—</td></tr>
+        <tr><td>4</td><td>total = mark1+mark2+mark3</td><td>90</td><td>70</td><td>80</td><td>240</td><td>—</td></tr>
+        <tr><td>5</td><td>average = total / 3</td><td>90</td><td>70</td><td>80</td><td>240</td><td>80</td></tr>
+        <tr><td>6</td><td>OUTPUT total, average</td><td>—</td><td>—</td><td>—</td><td>240</td><td>80</td></tr>
+      </table>
+    </div>
+
+    <!-- COMPARING ALGORITHMS -->
+    <h2>Comparing Algorithms</h2>
+    <p>When two algorithms solve the same problem, we compare them. Three key criteria matter in CAPS exams:</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Criterion</th><th>What it means</th><th>Poor example</th><th>Better example</th></tr>
+        <tr>
+          <td><strong>Sequence</strong></td>
+          <td>Steps must be in the correct order</td>
+          <td>Calculate average BEFORE total</td>
+          <td>Calculate total first, THEN average</td>
+        </tr>
+        <tr>
+          <td><strong>Precision</strong></td>
+          <td>Each step must have one clear meaning</td>
+          <td>"Calculate the answer"</td>
+          <td><code>SET total TO mark1 + mark2 + mark3</code></td>
+        </tr>
+        <tr>
+          <td><strong>Efficiency</strong></td>
+          <td>No unnecessary steps or repeated work</td>
+          <td>Calculate total three separate times</td>
+          <td>Calculate total once and reuse the variable</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- COMMON ALGORITHM PATTERNS -->
+    <h2>Common Algorithm Patterns in Delphi</h2>
+
+    <h3>Finding Smallest and Largest Values</h3>
+    <p>The trick: assume the first value is both smallest and largest, then compare the rest one by one.</p>
+    <div class="code-block">
+      <span class="code-label">Delphi</span>
+      <pre><code><span class="kw">var</span>
+  iNum1, iNum2, iNum3: <span class="kw2">Integer</span>;
+  iSmallest, iLargest: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iNum1 := StrToInt(edtNum1.Text);
+  iNum2 := StrToInt(edtNum2.Text);
+  iNum3 := StrToInt(edtNum3.Text);
+
+  iSmallest := iNum1;   <span class="cmt">// assume first is smallest</span>
+  iLargest  := iNum1;   <span class="cmt">// assume first is largest</span>
+
+  <span class="kw">if</span> iNum2 &lt; iSmallest <span class="kw">then</span> iSmallest := iNum2;
+  <span class="kw">if</span> iNum3 &lt; iSmallest <span class="kw">then</span> iSmallest := iNum3;
+  <span class="kw">if</span> iNum2 &gt; iLargest  <span class="kw">then</span> iLargest  := iNum2;
+  <span class="kw">if</span> iNum3 &gt; iLargest  <span class="kw">then</span> iLargest  := iNum3;
+
+  lblResult.Caption := <span class="str">'Smallest: '</span> + IntToStr(iSmallest)
+                     + <span class="str">' Largest: '</span> + IntToStr(iLargest);
+<span class="kw">end</span>;</code></pre>
+    </div>
+
+    <h3>Swapping Two Values</h3>
+    <div class="callout">
+      <div class="callout-title">IMPORTANT RULE</div>
+      <p>You <strong>always</strong> need a temporary variable to swap values. Without it, one value gets overwritten before it can be saved — like trying to swap two glasses of water without a third empty glass.</p>
+    </div>
+    <div class="code-block">
+      <span class="code-label">Delphi</span>
+      <pre><code><span class="kw">var</span>
+  iA, iB, iTemp: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iA := StrToInt(edtA.Text);
+  iB := StrToInt(edtB.Text);
+
+  iTemp := iA;    <span class="cmt">// step 1: save A into temp</span>
+  iA    := iB;    <span class="cmt">// step 2: overwrite A with B</span>
+  iB    := iTemp; <span class="cmt">// step 3: put saved A into B</span>
+
+  edtA.Text := IntToStr(iA);
+  edtB.Text := IntToStr(iB);
+<span class="kw">end</span>;</code></pre>
+    </div>
+
+    <h3>Even or Odd</h3>
+    <div class="code-block">
+      <span class="code-label">Delphi</span>
+      <pre><code><span class="kw">var</span>
+  iNum: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iNum := StrToInt(edtNum.Text);
+  <span class="kw">if</span> iNum <span class="kw">MOD</span> 2 = 0 <span class="kw">then</span>
+    lblResult.Caption := <span class="str">'Even number'</span>
+  <span class="kw">else</span>
+    lblResult.Caption := <span class="str">'Odd number'</span>;
+<span class="kw">end</span>;</code></pre>
+    </div>
+
+    <h3>Factor Check</h3>
+    <p>A number is a factor if it divides another with no remainder (<code>MOD = 0</code>). For example, 3 is a factor of 12 because 12 ÷ 3 = 4 with remainder 0.</p>
+    <div class="code-block">
+      <span class="code-label">Delphi</span>
+      <pre><code><span class="kw">if</span> iNum2 <span class="kw">MOD</span> iNum1 = 0 <span class="kw">then</span>
+  lblResult.Caption := IntToStr(iNum1) + <span class="str">' is a factor of '</span> + IntToStr(iNum2)
+<span class="kw">else</span>
+  lblResult.Caption := IntToStr(iNum1) + <span class="str">' is NOT a factor of '</span> + IntToStr(iNum2);</code></pre>
+    </div>
+
+    <div class="page-nav">
+      <span></span>
+      <a class="next" href="delphi-intro.html">
+        <span class="page-nav-label">Next →</span>
+        Introduction to Delphi
+      </a>
+    </div>
+  </main>
+</div>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loops – IT CAPS</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr10); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 10 · Practical</div>
+    <a href="algorithms.html">Algorithms &amp; Problem Solving</a><a href="delphi-intro.html">Introduction to Delphi</a><a href="data-types.html">Data Types &amp; Variables</a><a href="operators.html">Operators &amp; Functions</a><a href="decisions.html">Decision Making (IF / CASE)</a><a href="loops.html">Loops</a><a href="strings.html">String Manipulation</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 10 · Theory</div>
+    <a href="../theory/digital-tech.html">Digital Technologies &amp; ICT</a><a href="../theory/hardware.html">Hardware</a><a href="../theory/software.html">Software &amp; Licensing</a><a href="../theory/data-representation.html">Data Representation</a><a href="../theory/networks.html">Networks</a><a href="../theory/internet.html">Internet &amp; WWW</a><a href="../theory/e-communication.html">E-Communication</a><a href="../theory/management.html">Computer Management &amp; Security</a>
+  </aside>
+  <main class="content">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><a href="#">Grade 10</a><span class="breadcrumb-sep">›</span><span>Loops</span></div>
+
+    <h1>Loops <span class="grade-badge">Grade 10</span></h1>
+    <p class="page-intro">Loops repeat a block of code multiple times. Delphi has three loop types — choose based on whether you know how many times to repeat.</p>
+
+    <h2>What is a Loop?</h2>
+    <p>A <strong>loop</strong> is a programming structure that repeats a block of code over and over until a certain point is reached. Instead of writing the same instruction many times, you write it once and tell the computer how often, or until when, to repeat it.</p>
+    <p><strong>Everyday analogy:</strong> Think of doing push-ups. The coach does not shout "do a push-up" fifty separate times. He says "do fifty push-ups." That single instruction, repeated until you reach fifty, is a loop. The action (one push-up) is the loop <em>body</em>, and "fifty" is the condition that tells you when to stop.</p>
+
+    <h2>Why Do We Use Loops?</h2>
+    <p>Loops save us from repeating ourselves and let programs handle any amount of work with the same short piece of code.</p>
+    <ul>
+      <li><strong>Less code</strong> – printing the numbers 1 to 100 takes three lines with a loop instead of one hundred lines without one.</li>
+      <li><strong>Fewer mistakes</strong> – you write the instruction once, so there is only one place where a typo could hide.</li>
+      <li><strong>Flexibility</strong> – the same loop can run 5 times or 5 000 times just by changing one number, so your program copes with any size of data.</li>
+      <li><strong>Processing collections</strong> – loops let you visit every item in a list, every learner in a class, or every character in a string, one at a time.</li>
+    </ul>
+
+    <h2>The Three Loop Types in Plain Words</h2>
+    <p>Choosing the right loop comes down to one question: <strong>do you know in advance how many times to repeat?</strong></p>
+    <ul>
+      <li><strong>FOR</strong> – use it when you <em>know the exact number</em> of repeats. <em>Analogy:</em> climbing a staircase with a known number of steps — you count "step 1, step 2…" up to the top.</li>
+      <li><strong>WHILE</strong> – use it when you do <em>not</em> know how many times, and you must <em>check first</em> before doing anything. <em>Analogy:</em> filling a glass of water — you keep checking "is it full yet?" <em>before</em> each pour, and if the glass was already full you never pour at all.</li>
+      <li><strong>REPEAT…UNTIL</strong> – use it when you do <em>not</em> know how many times, but you must do the action <em>at least once</em> and check afterwards. <em>Analogy:</em> asking someone for their PIN — you always ask once, then check if it was right, and ask again only if it was wrong.</li>
+    </ul>
+
+    <h2>Types of Loops</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Loop</th><th>Type</th><th>Use when…</th></tr>
+      <tr><td><code>for … do</code></td><td>Unconditional (fixed)</td><td>You know exactly how many times</td></tr>
+      <tr><td><code>while … do</code></td><td>Conditional (pre-test)</td><td>Repeat WHILE a condition is true — check first</td></tr>
+      <tr><td><code>repeat … until</code></td><td>Conditional (post-test)</td><td>Repeat UNTIL a condition is true — always runs at least once</td></tr>
+    </table></div>
+
+    <h2>FOR Loop (Fixed / Unconditional)</h2>
+    <p>Runs a set number of times. The counter increments or decrements automatically.</p>
+    <p>We call it <strong>fixed</strong> or <strong>unconditional</strong> because the number of repeats is decided before the loop even starts and cannot change while it runs. You give it a start value and an end value, and Delphi handles the counting for you — you never have to add 1 to the counter yourself.</p>
+    <div class="callout tip">
+      <div class="callout-title">WHEN TO USE</div>
+      <p>Reach for a FOR loop whenever you can finish the sentence "do this exactly ___ times" with a number — printing 1 to 10, working through all 30 learners in a class, or drawing 12 rows of a table.</p>
+    </div>
+    <div class="code-block"><span class="code-label">Syntax — counting UP</span>
+<pre><code><span class="kw">for</span> counter := lowest <span class="kw">to</span> highest <span class="kw">do</span>
+<span class="kw">begin</span>
+  <span class="cmt">// code repeated each iteration</span>
+<span class="kw">end</span>;</code></pre></div>
+
+    <div class="code-block"><span class="code-label">Delphi — print 1 to 5</span>
+<pre><code><span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> <span class="num">5</span> <span class="kw">do</span>
+<span class="kw">begin</span>
+  memOut.Lines.Add(IntToStr(i));
+<span class="kw">end</span>;</code></pre></div>
+
+    <h3>FOR … DOWNTO (counting down)</h3>
+    <div class="code-block"><span class="code-label">Delphi — countdown 5 to 1</span>
+<pre><code><span class="kw">for</span> i := <span class="num">5</span> <span class="kw">downto</span> <span class="num">1</span> <span class="kw">do</span>
+<span class="kw">begin</span>
+  memOut.Lines.Add(IntToStr(i));
+<span class="kw">end</span>;</code></pre></div>
+
+    <h3>FOR Loop — Running Total</h3>
+    <div class="code-block"><span class="code-label">Delphi — sum 1 to 10</span>
+<pre><code><span class="kw">var</span>
+  i, iTotal: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iTotal := <span class="num">0</span>;  <span class="cmt">// initialise!</span>
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> <span class="num">10</span> <span class="kw">do</span>
+    iTotal := iTotal + i;
+  lblTotal.Caption := <span class="str">'Sum = '</span> + IntToStr(iTotal);
+<span class="kw">end</span>;</code></pre></div>
+
+    <h2>WHILE … DO Loop (Pre-Conditional)</h2>
+    <p>Checks the condition <strong>before</strong> each iteration. If the condition is false from the start, the loop body never runs.</p>
+    <p>We call it <strong>pre-conditional</strong> ("pre" = before) because it tests the condition <em>first</em>, and only then decides whether to run the body. This makes it the safe choice when there is a chance the loop should not run at all.</p>
+    <div class="callout tip">
+      <div class="callout-title">WHEN TO USE</div>
+      <p>Use WHILE when you do not know how many repeats you need <em>and</em> it might be zero — for example, "keep reading numbers while the user hasn't typed 0". If they type 0 immediately, you correctly do nothing.</p>
+    </div>
+    <div class="code-block"><span class="code-label">Syntax</span>
+<pre><code><span class="kw">while</span> condition <span class="kw">do</span>
+<span class="kw">begin</span>
+  <span class="cmt">// code</span>
+<span class="kw">end</span>;</code></pre></div>
+
+    <div class="callout warning">
+      <div class="callout-title">Avoid Infinite Loops</div>
+      <p>The counter must be <strong>initialised before</strong> the loop and <strong>incremented inside</strong> the loop — otherwise it runs forever and crashes your program.</p>
+    </div>
+
+    <div class="code-block"><span class="code-label">Delphi — while counter ≤ 5</span>
+<pre><code><span class="kw">var</span>
+  Counter: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  Counter := <span class="num">1</span>;           <span class="cmt">// initialise BEFORE loop</span>
+  <span class="kw">while</span> Counter &lt;= <span class="num">5</span> <span class="kw">do</span>
+  <span class="kw">begin</span>
+    memOut.Lines.Add(<span class="str">'Counter: '</span> + IntToStr(Counter));
+    Inc(Counter);          <span class="cmt">// increment INSIDE loop</span>
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</code></pre></div>
+
+    <h3>WHILE — Reading user input until sentinel</h3>
+    <div class="code-block"><span class="code-label">Delphi — keep adding until user enters 0</span>
+<pre><code><span class="kw">var</span>
+  iNum, iTotal: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iTotal := <span class="num">0</span>;
+  iNum   := StrToInt(InputBox(<span class="str">'Input'</span>, <span class="str">'Enter number (0 to stop):'</span>, <span class="str">''</span>));
+  <span class="kw">while</span> iNum &lt;> <span class="num">0</span> <span class="kw">do</span>
+  <span class="kw">begin</span>
+    iTotal := iTotal + iNum;
+    iNum   := StrToInt(InputBox(<span class="str">'Input'</span>, <span class="str">'Enter number (0 to stop):'</span>, <span class="str">''</span>));
+  <span class="kw">end</span>;
+  lblTotal.Caption := <span class="str">'Total: '</span> + IntToStr(iTotal);
+<span class="kw">end</span>;</code></pre></div>
+
+    <h2>REPEAT … UNTIL Loop (Post-Conditional)</h2>
+    <p>Runs the body <strong>first</strong>, then checks the condition. Guaranteed to run at least once. Loop continues while condition is <strong>false</strong>; stops when it becomes <strong>true</strong>.</p>
+    <p>We call it <strong>post-conditional</strong> ("post" = after) because it does the work <em>first</em> and asks the question afterwards. That is the opposite of the WHILE loop, and it is exactly what you want when the action must happen at least one time no matter what.</p>
+    <div class="callout tip">
+      <div class="callout-title">WHEN TO USE</div>
+      <p>Use REPEAT…UNTIL when the body must run at least once — like showing a menu and asking the user to choose, or asking for a valid mark and re-asking until they get it right. You always ask once, then keep asking until the answer is acceptable.</p>
+    </div>
+    <div class="code-block"><span class="code-label">Syntax</span>
+<pre><code><span class="kw">repeat</span>
+  <span class="cmt">// code</span>
+<span class="kw">until</span> condition;</code></pre></div>
+
+    <div class="code-block"><span class="code-label">Delphi — repeat until i = 10</span>
+<pre><code><span class="kw">var</span>
+  i: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  i := <span class="num">1</span>;
+  <span class="kw">repeat</span>
+    memOut.Lines.Add(IntToStr(i));
+    i := i + <span class="num">1</span>;
+  <span class="kw">until</span> i > <span class="num">10</span>;
+<span class="kw">end</span>;</code></pre></div>
+
+    <h3>REPEAT — Validate input</h3>
+    <div class="code-block"><span class="code-label">Delphi — keep asking until valid mark</span>
+<pre><code><span class="kw">var</span>
+  iMark: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  <span class="kw">repeat</span>
+    iMark := StrToInt(InputBox(<span class="str">'Mark'</span>, <span class="str">'Enter mark (0-100):'</span>, <span class="str">''</span>));
+    <span class="kw">if</span> (iMark &lt; <span class="num">0</span>) <span class="kw">OR</span> (iMark > <span class="num">100</span>) <span class="kw">then</span>
+      ShowMessage(<span class="str">'Invalid! Enter 0-100'</span>);
+  <span class="kw">until</span> (iMark >= <span class="num">0</span>) <span class="kw">AND</span> (iMark &lt;= <span class="num">100</span>);
+<span class="kw">end</span>;</code></pre></div>
+
+    <h2>Comparison: Which Loop to Use?</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Situation</th><th>Best Loop</th></tr>
+      <tr><td>Print numbers 1 to 100</td><td><code>for</code></td></tr>
+      <tr><td>Read until user types "stop"</td><td><code>while</code> or <code>repeat</code></td></tr>
+      <tr><td>Must run at least once (e.g. menu)</td><td><code>repeat</code></td></tr>
+      <tr><td>Unknown number of iterations</td><td><code>while</code> or <code>repeat</code></td></tr>
+      <tr><td>Process each element in an array</td><td><code>for</code></td></tr>
+    </table></div>
+
+    <div class="page-nav">
+      <a href="decisions.html"><span class="page-nav-label">← Previous</span>Decision Making</a>
+      <a class="next" href="strings.html"><span class="page-nav-label">Next →</span>String Manipulation</a>
+    </div>
+  </main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

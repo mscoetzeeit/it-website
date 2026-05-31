@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML — Web Design &#x00B7; Ms Coetzee IT</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root{--grade-color:var(--gr10);}</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 10 · Practical</div>
+    <a href="algorithms.html">Algorithms</a>
+    <a href="delphi-intro.html">Introduction to Delphi</a>
+    <a href="delphi-components.html">Components &amp; Events</a>
+    <a href="data-types.html">Data Types &amp; Variables</a>
+    <a href="operators.html">Operators &amp; Functions</a>
+    <a href="decisions.html">Decision Making</a>
+    <a href="loops.html">Loops</a>
+    <a href="strings.html">String Manipulation</a>
+    
+    <a href="html.html">HTML — Web Design</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 10 · Theory</div>
+    <a href="../theory/digital-tech.html">Digital Technologies</a>
+    <a href="../theory/hardware.html">Hardware</a>
+    <a href="../theory/software.html">Software &amp; Licensing</a>
+    <a href="../theory/data-representation.html">Data Representation</a>
+    <a href="../theory/networks.html">Networks</a>
+    <a href="../theory/internet.html">Internet &amp; WWW</a>
+    <a href="../theory/internet-services.html">Internet Services</a>
+    <a href="../theory/e-communication.html">E-Communication</a>
+    <a href="../theory/management.html">Management &amp; Security</a>
+  </aside>
+<main class="content">
+<div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><a href="#">Grade 10</a><span class="breadcrumb-sep">›</span><span>HTML — Web Design</span></div>
+<h1>HTML — Web Design <span class="grade-badge">Grade 10</span></h1>
+<p class="page-intro">HTML (HyperText Markup Language) is the coding language used to build web pages. In IT CAPS, you create basic static web pages using HTML tags.</p>
+
+<h2>What is HTML?</h2>
+<p>HTML uses <strong>tags</strong> — keywords inside angle brackets <code>&lt;like this&gt;</code> — to mark up content. Most tags come in pairs: an <strong>opening</strong> tag and a <strong>closing</strong> tag (with a slash).</p>
+<div class="code-block"><span class="code-label">HTML — basic tag structure</span>
+<pre><code>&lt;tagname&gt;content here&lt;/tagname&gt;</code></pre></div>
+
+<h2>Basic Page Structure</h2>
+<div class="callout warning"><div class="callout-title">Every HTML file must have this skeleton</div><p>Leave nothing out — examiners check for the doctype, html, head, title, and body tags.</p></div>
+<div class="code-block"><span class="code-label">HTML — complete page skeleton</span>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My First Web Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+    &lt;!-- page content goes here --&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+<div class="tbl-wrap"><table>
+  <tr><th>Tag</th><th>Purpose</th></tr>
+  <tr><td><code>&lt;!DOCTYPE html&gt;</code></td><td>Declares this is an HTML5 document</td></tr>
+  <tr><td><code>&lt;html&gt; … &lt;/html&gt;</code></td><td>Root element — wraps the entire page</td></tr>
+  <tr><td><code>&lt;head&gt; … &lt;/head&gt;</code></td><td>Metadata — not visible on the page (title, CSS links)</td></tr>
+  <tr><td><code>&lt;title&gt; … &lt;/title&gt;</code></td><td>Text shown in the browser tab</td></tr>
+  <tr><td><code>&lt;body&gt; … &lt;/body&gt;</code></td><td>Everything visible on the page</td></tr>
+  <tr><td><code>&lt;!-- comment --&gt;</code></td><td>Comment — not displayed, for notes only</td></tr>
+</table></div>
+
+<h2>Headings</h2>
+<p>Six levels: <code>&lt;h1&gt;</code> is the largest/most important; <code>&lt;h6&gt;</code> is the smallest.</p>
+<div class="code-block"><span class="code-label">HTML</span>
+<pre><code>&lt;h1&gt;Main Page Heading&lt;/h1&gt;
+&lt;h2&gt;Section Heading&lt;/h2&gt;
+&lt;h3&gt;Sub-section Heading&lt;/h3&gt;</code></pre></div>
+
+<h2>Paragraphs &amp; Text Formatting</h2>
+<div class="code-block"><span class="code-label">HTML</span>
+<pre><code>&lt;p&gt;This is a paragraph of text.&lt;/p&gt;
+
+&lt;p&gt;This word is &lt;b&gt;bold&lt;/b&gt; and this is &lt;i&gt;italic&lt;/i&gt;.&lt;/p&gt;
+&lt;p&gt;This is &lt;strong&gt;strong&lt;/strong&gt; and this is &lt;em&gt;emphasised&lt;/em&gt;.&lt;/p&gt;
+
+&lt;br&gt;   &lt;!-- line break (no closing tag) --&gt;
+&lt;hr&gt;   &lt;!-- horizontal rule / divider line --&gt;</code></pre></div>
+
+<h2>Lists</h2>
+<div class="code-block"><span class="code-label">HTML — unordered (bullet) list</span>
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;Apples&lt;/li&gt;
+  &lt;li&gt;Bananas&lt;/li&gt;
+  &lt;li&gt;Mangoes&lt;/li&gt;
+&lt;/ul&gt;</code></pre></div>
+<div class="code-block"><span class="code-label">HTML — ordered (numbered) list</span>
+<pre><code>&lt;ol&gt;
+  &lt;li&gt;Wake up&lt;/li&gt;
+  &lt;li&gt;Go to school&lt;/li&gt;
+  &lt;li&gt;Learn IT&lt;/li&gt;
+&lt;/ol&gt;</code></pre></div>
+
+<h2>Links (Hyperlinks)</h2>
+<p>The <code>href</code> attribute specifies the destination URL.</p>
+<div class="code-block"><span class="code-label">HTML</span>
+<pre><code>&lt;!-- Link to an external website --&gt;
+&lt;a href="https://www.google.com"&gt;Go to Google&lt;/a&gt;
+
+&lt;!-- Link to another page in the same folder --&gt;
+&lt;a href=&quot;page2.html&quot;&gt;Go to Page 2&lt;/a&gt;
+
+&lt;!-- Open link in a new tab --&gt;
+&lt;a href="https://www.google.com" target="_blank"&gt;Open in new tab&lt;/a&gt;</code></pre></div>
+
+<h2>Images</h2>
+<p>The <code>&lt;img&gt;</code> tag has no closing tag. <code>src</code> = image path; <code>alt</code> = alternative text (for accessibility and when image fails to load).</p>
+<div class="code-block"><span class="code-label">HTML</span>
+<pre><code>&lt;img src=&quot;photo.jpg&quot; alt="A beautiful sunset" width="400" height="300"&gt;
+
+&lt;!-- Image from same folder --&gt;
+&lt;img src=&quot;logo.png&quot; alt="School logo"&gt;</code></pre></div>
+
+<h2>Tables</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Tag</th><th>Meaning</th></tr>
+  <tr><td><code>&lt;table&gt;</code></td><td>Creates the table</td></tr>
+  <tr><td><code>&lt;tr&gt;</code></td><td>Table row</td></tr>
+  <tr><td><code>&lt;th&gt;</code></td><td>Table header cell (bold, centred)</td></tr>
+  <tr><td><code>&lt;td&gt;</code></td><td>Table data cell</td></tr>
+  <tr><td><code>border="1"</code></td><td>Attribute to show borders (old method)</td></tr>
+</table></div>
+<div class="code-block"><span class="code-label">HTML — table example</span>
+<pre><code>&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Name&lt;/th&gt;
+    &lt;th&gt;Mark&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Alice&lt;/td&gt;
+    &lt;td&gt;85&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Bob&lt;/td&gt;
+    &lt;td&gt;72&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre></div>
+
+<h2>Background &amp; Font Colour (Inline)</h2>
+<div class="code-block"><span class="code-label">HTML — body background and font</span>
+<pre><code>&lt;body bgcolor="lightblue"&gt;
+
+&lt;font color="red" size="5" face="Arial"&gt;This text is red&lt;/font&gt;</code></pre></div>
+
+<h2>Complete Example Page</h2>
+<div class="code-block"><span class="code-label">HTML — full working example</span>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;IT Study Guide&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body bgcolor="white"&gt;
+    &lt;h1&gt;IT Study Guide&lt;/h1&gt;
+    &lt;p&gt;Welcome to the &lt;b&gt;IT Study Guide&lt;/b&gt; for Grade 10.&lt;/p&gt;
+    &lt;hr&gt;
+
+    &lt;h2&gt;Topics Covered&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Algorithms&lt;/li&gt;
+      &lt;li&gt;Delphi Programming&lt;/li&gt;
+      &lt;li&gt;HTML&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2&gt;Visit Our School&lt;/h2&gt;
+    &lt;a href="https://www.school.co.za"&gt;Click here&lt;/a&gt;
+
+    &lt;h2&gt;School Logo&lt;/h2&gt;
+    &lt;img src=&quot;logo.png&quot; alt="School logo" width="200"&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre></div>
+
+<h2>Common HTML Tag Reference</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Tag</th><th>Purpose</th></tr>
+  <tr><td><code>&lt;h1&gt;…&lt;h6&gt;</code></td><td>Headings (largest to smallest)</td></tr>
+  <tr><td><code>&lt;p&gt;</code></td><td>Paragraph</td></tr>
+  <tr><td><code>&lt;br&gt;</code></td><td>Line break</td></tr>
+  <tr><td><code>&lt;hr&gt;</code></td><td>Horizontal line</td></tr>
+  <tr><td><code>&lt;b&gt;</code> / <code>&lt;strong&gt;</code></td><td>Bold text</td></tr>
+  <tr><td><code>&lt;i&gt;</code> / <code>&lt;em&gt;</code></td><td>Italic text</td></tr>
+  <tr><td><code>&lt;u&gt;</code></td><td>Underlined text</td></tr>
+  <tr><td><code>&lt;ul&gt;</code> / <code>&lt;ol&gt;</code> / <code>&lt;li&gt;</code></td><td>Unordered / ordered list / list item</td></tr>
+  <tr><td><code>&lt;a href=""&gt;</code></td><td>Hyperlink</td></tr>
+  <tr><td><code>&lt;img src="" alt=""&gt;</code></td><td>Image</td></tr>
+  <tr><td><code>&lt;table&gt; &lt;tr&gt; &lt;th&gt; &lt;td&gt;</code></td><td>Table structure</td></tr>
+  <tr><td><code>&lt;div&gt;</code></td><td>Block-level container</td></tr>
+  <tr><td><code>&lt;span&gt;</code></td><td>Inline container</td></tr>
+</table></div>
+
+<div class="page-nav">
+  <a href="../../grade11/practical/arrays.html"><span class="page-nav-label">← Previous</span>1D Arrays</a>
+  <a class="next" href="../theory/digital-tech.html"><span class="page-nav-label">Next →</span>Digital Technologies (Theory)</a>
+</div>
+</main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

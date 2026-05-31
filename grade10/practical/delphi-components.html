@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Delphi Components & Events &#x00B7; Ms Coetzee IT</title><link rel="stylesheet" href="../../css/style.css"><style>:root{--grade-color:var(--gr10);}</style></head><body><div id="topnav"></div><div class="page-wrapper"><aside class="sidebar"><div class="sidebar-grade">Grade 10 · Practical</div><a href="algorithms.html">Algorithms</a><a href="delphi-intro.html">Introduction to Delphi</a><a href="delphi-components.html">Components &amp; Events</a><a href="data-types.html">Data Types</a><a href="operators.html">Operators</a><a href="decisions.html">Decision Making</a><a href="loops.html">Loops</a><a href="strings.html">Strings</a><a href="html.html">HTML</a><div class="sidebar-grade" style="margin-top:1rem">Grade 10 · Theory</div><a href="../theory/digital-tech.html">Digital Technologies</a><a href="../theory/hardware.html">Hardware</a><a href="../theory/software.html">Software</a><a href="../theory/data-representation.html">Data Representation</a><a href="../theory/networks.html">Networks</a><a href="../theory/internet.html">Internet &amp; WWW</a><a href="../theory/internet-services.html">Internet Services</a><a href="../theory/e-communication.html">E-Communication</a><a href="../theory/management.html">Management</a></aside><main class="content"><div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Delphi Components &amp; Events</span></div>
+<h1>Delphi Components &amp; Events <span class="grade-badge">Grade 10</span></h1>
+<p class="page-intro">Beyond buttons and labels — these components are used in most IT practical exams. Know each one's key property and how to use it in code.</p>
+<h2>Input Components</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Component</th><th>Key Property/Event</th><th>How to use in code</th></tr>
+  <tr><td><strong>TEdit</strong></td><td><code>.Text</code></td><td><code>edtName.Text</code> — read or write as string</td></tr>
+  <tr><td><strong>TSpinEdit</strong> (sedNum)</td><td><code>.Value</code></td><td><code>sedNum.Value</code> — returns Integer directly</td></tr>
+  <tr><td><strong>TComboBox</strong></td><td><code>.Text</code> or <code>.ItemIndex</code></td><td><code>cboMonth.Text</code> or <code>cboMonth.ItemIndex</code> (0-based)</td></tr>
+  <tr><td><strong>TListBox</strong></td><td><code>.ItemIndex</code>, <code>.Items</code></td><td><code>lstNames.Items.Add('Alice')</code>; <code>lstNames.ItemIndex</code></td></tr>
+  <tr><td><strong>TRadioGroup</strong></td><td><code>.ItemIndex</code></td><td><code>if rgpGender.ItemIndex = 0 then</code> (0 = first item)</td></tr>
+  <tr><td><strong>TCheckBox</strong></td><td><code>.Checked</code></td><td><code>if chkAgree.Checked then</code></td></tr>
+  <tr><td><strong>TTrackBar</strong></td><td><code>.Position</code></td><td><code>trkVolume.Position</code> — Integer</td></tr>
+  <tr><td><strong>TDateTimePicker</strong></td><td><code>.Date</code></td><td><code>dtpBirth.Date</code> — TDate value</td></tr>
+</table></div>
+<h2>Output Components</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Component</th><th>Key Property</th><th>Code example</th></tr>
+  <tr><td><strong>TLabel</strong></td><td><code>.Caption</code></td><td><code>lblResult.Caption := 'Done';</code></td></tr>
+  <tr><td><strong>TMemo</strong></td><td><code>.Lines</code></td><td><code>memOut.Lines.Add('Hello');</code></td></tr>
+  <tr><td><strong>TRichEdit</strong></td><td><code>.Lines</code></td><td>Same as Memo; supports formatting</td></tr>
+  <tr><td><strong>TListBox</strong></td><td><code>.Items</code></td><td><code>lstOut.Items.Add('Alice');</code></td></tr>
+  <tr><td><strong>TImage</strong></td><td><code>.Picture</code></td><td><code>imgPhoto.Picture.LoadFromFile('face.jpg');</code></td></tr>
+  <tr><td><strong>TProgressBar</strong></td><td><code>.Position</code></td><td><code>pbrLoad.Position := 75;</code></td></tr>
+  <tr><td><strong>TPanel</strong></td><td><code>.Caption</code>, <code>.Color</code></td><td><code>pnlInfo.Caption := 'Ready';</code></td></tr>
+</table></div>
+<h2>PageControl (Tabbed Forms)</h2>
+<p>A <code>TPageControl</code> creates tabbed pages on a form. Each tab is a <code>TTabSheet</code>.</p>
+<h3>Creating tabs</h3>
+<ol>
+  <li>Add <code>TPageControl</code> to the form</li>
+  <li>Right-click → <strong>New Page</strong> to add tabs</li>
+  <li>Set each <code>TTabSheet.Caption</code> in the Object Inspector</li>
+  <li>Drop other components onto each tab — they belong to that tab</li>
+</ol>
+<h3>Controlling tabs in code</h3>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="cmt">// Show a tab</span>
+TabSheet2.TabVisible := <span class="kw">True</span>;
+
+<span class="cmt">// Hide a tab</span>
+TabSheet2.TabVisible := <span class="kw">False</span>;
+
+<span class="cmt">// Jump to a specific tab</span>
+pgcMain.ActivePage := TabSheet3;</code></pre></div>
+<h2>Timer Component</h2>
+<p>A <code>TTimer</code> fires its <code>OnTimer</code> event at regular intervals without user input.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Property</th><th>Meaning</th></tr>
+  <tr><td><code>Interval</code></td><td>Milliseconds between triggers (1000 = 1 second)</td></tr>
+  <tr><td><code>Enabled</code></td><td>True/False — starts or stops the timer</td></tr>
+</table></div>
+<div class="code-block"><span class="code-label">Delphi — countdown timer</span>
+<pre><code><span class="kw">var</span>
+  iSeconds: <span class="kw2">Integer</span>;  <span class="cmt">// global variable</span>
+
+<span class="cmt">// OnTimer event (fires every 1000ms)</span>
+<span class="kw">procedure</span> TForm1.<span class="fn">tmrCountTimer</span>(Sender: TObject);
+<span class="kw">begin</span>
+  Dec(iSeconds);
+  lblTime.Caption := IntToStr(iSeconds) + <span class="str">' seconds left'</span>;
+  <span class="kw">if</span> iSeconds &lt;= <span class="num">0</span> <span class="kw">then</span>
+  <span class="kw">begin</span>
+    tmrCount.Enabled := <span class="kw">False</span>;
+    ShowMessage(<span class="str">'Time is up!'</span>);
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</code></pre></div>
+<h2>ComboBox — Adding Items</h2>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="cmt">// At design time: use Items property in Object Inspector
+// At runtime:</span>
+cboMonth.Items.Add(<span class="str">'January'</span>);
+cboMonth.Items.Add(<span class="str">'February'</span>);
+cboMonth.ItemIndex := <span class="num">0</span>;  <span class="cmt">// select first item
+
+// Reading selected item</span>
+sSelected := cboMonth.Text;
+iIndex    := cboMonth.ItemIndex;</code></pre></div>
+<h2>ListBox — Adding, Clearing, Accessing Items</h2>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>lstNames.Items.Add(<span class="str">'Alice'</span>);         <span class="cmt">// add item</span>
+lstNames.Items.Clear;                 <span class="cmt">// remove all</span>
+lstNames.Items.Delete(<span class="num">0</span>);            <span class="cmt">// remove first item</span>
+iCount := lstNames.Items.Count;       <span class="cmt">// number of items</span>
+sItem  := lstNames.Items[<span class="num">2</span>];         <span class="cmt">// access item at index 2</span>
+sSelected := lstNames.Items[lstNames.ItemIndex]; <span class="cmt">// selected item</span></code></pre></div>
+
+<h2>Resetting a Selection &mdash; the <code>-1</code> Trick</h2>
+<p>The <code>ItemIndex</code> property tells you <em>which</em> item is selected, counting from <strong>0</strong> (the first item). When <strong>nothing</strong> is selected, <code>ItemIndex</code> is <code>-1</code>.</p>
+<p>This works in reverse too: setting <code>ItemIndex := -1</code> <strong>deselects everything</strong> and visually clears the box. This is the standard way to reset a <code>TComboBox</code>, <code>TListBox</code> or <code>TRadioGroup</code> &mdash; for example when a user clicks a "Clear form" button.</p>
+<div class="code-block"><span class="code-label">Delphi — clearing selections</span>
+<pre><code>cboMonth.ItemIndex  := <span class="num">-1</span>;   <span class="cmt">// ComboBox: no month selected (box appears empty)</span>
+rgpGender.ItemIndex := <span class="num">-1</span>;   <span class="cmt">// RadioGroup: no radio button filled in</span>
+lstNames.ItemIndex  := <span class="num">-1</span>;   <span class="cmt">// ListBox: nothing highlighted</span></code></pre></div>
+<div class="callout warning">
+  <div class="callout-title">Always check for -1 before reading a selection</div>
+  <p>If the user has not chosen anything, <code>ItemIndex</code> is <code>-1</code>. Reading <code>cboMonth.Items[cboMonth.ItemIndex]</code> while it is <code>-1</code> causes a <strong>runtime error</strong> (list index out of bounds). Guard it first:</p>
+<div class="code-block"><span class="code-label">Delphi — safe reading</span>
+<pre><code><span class="kw">if</span> cboMonth.ItemIndex = <span class="num">-1</span> <span class="kw">then</span>
+  ShowMessage(<span class="str">'Please select a month first.'</span>)
+<span class="kw">else</span>
+  sMonth := cboMonth.Text;</code></pre></div>
+</div>
+
+<h2>Naming Convention for Components</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Prefix</th><th>Component</th></tr>
+  <tr><td><code>btn</code></td><td>TButton</td></tr>
+  <tr><td><code>lbl</code></td><td>TLabel</td></tr>
+  <tr><td><code>edt</code></td><td>TEdit</td></tr>
+  <tr><td><code>mem</code></td><td>TMemo</td></tr>
+  <tr><td><code>sed</code></td><td>TSpinEdit</td></tr>
+  <tr><td><code>cbo</code></td><td>TComboBox</td></tr>
+  <tr><td><code>lst</code></td><td>TListBox</td></tr>
+  <tr><td><code>rgp</code></td><td>TRadioGroup</td></tr>
+  <tr><td><code>chk</code></td><td>TCheckBox</td></tr>
+  <tr><td><code>pgc</code></td><td>TPageControl</td></tr>
+  <tr><td><code>tmr</code></td><td>TTimer</td></tr>
+  <tr><td><code>img</code></td><td>TImage</td></tr>
+</table></div>
+<div class="page-nav">
+  <a href="delphi-intro.html"><span class="page-nav-label">← Previous</span>Introduction to Delphi</a>
+  <a class="next" href="data-types.html"><span class="page-nav-label">Next →</span>Data Types &amp; Variables</a>
+</div></main></div><script src="../../js/nav.js"></script><script src="../../js/main.js"></script></body></html>

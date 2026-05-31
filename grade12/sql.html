@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SQL (Grade 12) &#x00B7; Ms Coetzee IT</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>:root{--grade-color:var(--gr12);}</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+<aside class="sidebar">
+  <div class="sidebar-grade">Grade 12 Practical</div>
+  <a href="sql.html">SQL</a>
+  <a href="sql-join.html">SQL &mdash; Joining Tables</a>
+  <a href="oop.html">OOP</a>
+  <a href="arrays-2d.html">2D Arrays</a>
+  <a href="recursion.html">Recursion</a>
+  <div class="sidebar-grade" style="margin-top:1rem">Grade 12 Theory</div>
+  <a href="data-management.html">Data Warehousing</a>
+  <a href="relational-db.html">Relational DBs</a>
+  <a href="hardware-gr12.html">Hardware</a>
+  <a href="cloud-vr-ar.html">Cloud, AI, VR &amp; AR</a>
+  <a href="internet-tech.html">Internet Tech</a>
+  <a href="networks-gr12.html">Networks</a>
+  <a href="communication-tech.html">Communication Tech</a>
+  <a href="cybercrime.html">Cybercrime</a>
+  <a href="social-gr12.html">Social Implications</a>
+</aside>
+<main class="content">
+  <div class="breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb-sep">&rsaquo;</span><span>SQL</span></div>
+  <h1>SQL &mdash; Structured Query Language <span class="grade-badge">Grade 12</span></h1>
+  <p class="page-intro">SQL (pronounced "S-Q-L" or "sequel") is the language used to communicate with a database. It lets you retrieve, add, update and delete records. In Delphi, SQL is added to a <code>TADOQuery</code> component.</p>
+
+  <div class="callout">
+    <div class="callout-title">What is SQL?</div>
+    <p>Think of a database as a massive spreadsheet with thousands of rows. SQL is how you <strong>ask the database a question</strong>: "Give me all students in Grade 12 with a mark above 80, sorted by surname." Without SQL, you would have to scroll through every row manually.</p>
+  </div>
+
+  <!-- ANATOMY DIAGRAM -->
+  <h2>Anatomy of a SQL Statement</h2>
+  <div style="margin:1.25rem 0;overflow-x:auto">
+    <svg viewBox="0 0 680 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px;font-family:Consolas,monospace">
+      <rect width="680" height="120" rx="8" fill="#161b22"/>
+      <!-- SQL text -->
+      <text x="24" y="52" font-size="17" fill="#e6edf3" font-weight="bold">
+        <tspan fill="#569cd6">SELECT</tspan>
+        <tspan fill="#e6edf3"> Name, Surname, Mark </tspan>
+        <tspan fill="#569cd6">FROM</tspan>
+        <tspan fill="#4ec9b0"> tblStudents </tspan>
+        <tspan fill="#569cd6">WHERE</tspan>
+        <tspan fill="#e6edf3"> Grade = 12 </tspan>
+        <tspan fill="#569cd6">ORDER BY</tspan>
+        <tspan fill="#e6edf3"> Surname</tspan>
+      </text>
+      <!-- Labels below -->
+      <line x1="42" y1="60" x2="42" y2="85" stroke="#569cd6" stroke-width="1.5"/>
+      <text x="10" y="100" font-size="11" fill="#569cd6">Which fields</text>
+      <line x1="290" y1="60" x2="290" y2="85" stroke="#4ec9b0" stroke-width="1.5"/>
+      <text x="255" y="100" font-size="11" fill="#4ec9b0">Which table</text>
+      <line x1="390" y1="60" x2="390" y2="85" stroke="#fbbf24" stroke-width="1.5"/>
+      <text x="360" y="100" font-size="11" fill="#fbbf24">Filter condition</text>
+      <line x1="570" y1="60" x2="570" y2="85" stroke="#4ade80" stroke-width="1.5"/>
+      <text x="538" y="100" font-size="11" fill="#4ade80">Sort order</text>
+    </svg>
+  </div>
+
+  <h2>Using SQL in Delphi</h2>
+  <p>SQL goes into the <code>SQL</code> property of a <code>TADOQuery</code> component. Always close the query before changing the SQL, then open it again.</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; two ways to run a query</span>
+<pre><code><span class="cmt">// Method 1: assign as one string</span>
+qryStudents.Close;
+qryStudents.SQL.Text := <span class="str">'SELECT * FROM tblStudents WHERE Grade = 12'</span>;
+qryStudents.Open;
+
+<span class="cmt">// Method 2: build line-by-line (easier to read for long queries)</span>
+qryStudents.Close;
+qryStudents.SQL.Clear;
+qryStudents.SQL.Add(<span class="str">'SELECT Name, Surname, Mark'</span>);
+qryStudents.SQL.Add(<span class="str">'FROM tblStudents'</span>);
+qryStudents.SQL.Add(<span class="str">'WHERE Grade = 12'</span>);
+qryStudents.SQL.Add(<span class="str">'ORDER BY Surname ASC'</span>);
+qryStudents.Open;</code></pre></div>
+
+  <h2>SELECT &mdash; Choosing What to Display</h2>
+  <div class="code-block"><span class="code-label">SQL</span>
+<pre><code><span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblCD;                      <span class="cmt">-- all fields, all records</span>
+<span class="sql-kw">SELECT</span> CDName, Artist <span class="sql-kw">FROM</span> tblCD;          <span class="cmt">-- only these two fields</span>
+<span class="sql-kw">SELECT DISTINCT</span> Genre <span class="sql-kw">FROM</span> tblCD;          <span class="cmt">-- each genre shown once only</span>
+<span class="sql-kw">SELECT TOP</span> <span class="num">5</span> * <span class="sql-kw">FROM</span> tblCD;               <span class="cmt">-- first 5 records only</span></code></pre></div>
+
+  <h2>WHERE &mdash; Filtering Records</h2>
+  <p>The <code>WHERE</code> clause is how you filter — like asking "show me only the records that match this condition."</p>
+  <div class="code-block"><span class="code-label">SQL &mdash; comparison operators</span>
+<pre><code><span class="sql-kw">WHERE</span> Genre = <span class="str">"Rock"</span>             <span class="cmt">-- exact match (text in double quotes)</span>
+<span class="sql-kw">WHERE</span> Price &lt; <span class="num">100</span>               <span class="cmt">-- numbers (no quotes)</span>
+<span class="sql-kw">WHERE</span> Grade &lt;&gt; <span class="num">11</span>              <span class="cmt">-- not equal</span>
+<span class="sql-kw">WHERE</span> Mark &gt;= <span class="num">50</span>              <span class="cmt">-- greater than or equal</span>
+<span class="sql-kw">WHERE</span> Genre = <span class="str">"Pop"</span> <span class="sql-kw">AND</span> Price &lt; <span class="num">100</span>       <span class="cmt">-- both must be true</span>
+<span class="sql-kw">WHERE</span> Genre = <span class="str">"Pop"</span> <span class="sql-kw">OR</span> Genre = <span class="str">"Rock"</span>     <span class="cmt">-- either can be true</span></code></pre></div>
+
+  <h2>Special WHERE Operators</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Operator</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td><code>LIKE</code></td><td>Pattern match. <code>%</code> = any chars, <code>_</code> = one char</td><td><code>WHERE Name LIKE "S%"</code> — starts with S</td></tr>
+    <tr><td><code>IN</code></td><td>Match any value in a list</td><td><code>WHERE Genre IN ("Rock","Pop","Jazz")</code></td></tr>
+    <tr><td><code>BETWEEN</code></td><td>Within a range (inclusive for numbers)</td><td><code>WHERE Price BETWEEN 50 AND 150</code></td></tr>
+    <tr><td><code>IS NULL</code></td><td>Field is empty/blank</td><td><code>WHERE CellNo IS NULL</code></td></tr>
+    <tr><td><code>IS NOT NULL</code></td><td>Field has a value</td><td><code>WHERE CellNo IS NOT NULL</code></td></tr>
+    <tr><td><code>#date#</code></td><td>Date values use # symbols</td><td><code>WHERE OrderDate = #2024-05-01#</code></td></tr>
+  </table></div>
+  <div class="code-block"><span class="code-label">LIKE wildcard examples</span>
+<pre><code><span class="sql-kw">WHERE</span> CDName <span class="sql-kw">LIKE</span> <span class="str">"S%"</span>        <span class="cmt">-- starts with S</span>
+<span class="sql-kw">WHERE</span> CDName <span class="sql-kw">LIKE</span> <span class="str">"%love%"</span>    <span class="cmt">-- contains the word "love"</span>
+<span class="sql-kw">WHERE</span> CDName <span class="sql-kw">LIKE</span> <span class="str">"%s"</span>        <span class="cmt">-- ends with s</span>
+<span class="sql-kw">WHERE</span> Code   <span class="sql-kw">LIKE</span> <span class="str">"A__"</span>       <span class="cmt">-- starts with A followed by exactly 2 chars</span></code></pre></div>
+
+  <h2>ORDER BY &mdash; Sorting Results</h2>
+  <div class="code-block"><span class="code-label">SQL</span>
+<pre><code><span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblCD <span class="sql-kw">ORDER BY</span> Artist;             <span class="cmt">-- ascending (default)</span>
+<span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblCD <span class="sql-kw">ORDER BY</span> Price <span class="sql-kw">DESC</span>;        <span class="cmt">-- most expensive first</span>
+<span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblCD <span class="sql-kw">ORDER BY</span> Genre, CDName <span class="sql-kw">ASC</span>; <span class="cmt">-- sort by genre, then name</span></code></pre></div>
+
+  <h2>Calculated Fields &amp; Aliases</h2>
+  <p>You can do maths inside a SELECT and give the result a name using <code>AS</code>.</p>
+  <div class="code-block"><span class="code-label">SQL</span>
+<pre><code><span class="sql-kw">SELECT</span> Name, Price, Price * <span class="num">1.15</span> <span class="sql-kw">AS</span> PriceWithVAT <span class="sql-kw">FROM</span> tblProducts;
+<span class="sql-kw">SELECT</span> Name, Mark, <span class="sql-fn">ROUND</span>(Mark / <span class="num">2</span>, <span class="num">0</span>) <span class="sql-kw">AS</span> HalfMark <span class="sql-kw">FROM</span> tblStudents;</code></pre></div>
+
+  <h2>Aggregate Functions &mdash; Calculating Summaries</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Function</th><th>What it calculates</th><th>Example</th></tr>
+    <tr><td><code>COUNT(*)</code></td><td>Number of records</td><td><code>SELECT COUNT(*) FROM tblStudents</code></td></tr>
+    <tr><td><code>SUM(field)</code></td><td>Total of numeric field</td><td><code>SELECT SUM(Mark) FROM tblResults</code></td></tr>
+    <tr><td><code>AVG(field)</code></td><td>Average of numeric field</td><td><code>SELECT AVG(Mark) FROM tblResults</code></td></tr>
+    <tr><td><code>MIN(field)</code></td><td>Lowest value</td><td><code>SELECT MIN(Price) FROM tblProducts</code></td></tr>
+    <tr><td><code>MAX(field)</code></td><td>Highest value</td><td><code>SELECT MAX(Price) FROM tblProducts</code></td></tr>
+  </table></div>
+  <div class="code-block"><span class="code-label">SQL &mdash; GROUP BY and HAVING</span>
+<pre><code><span class="cmt">-- Count students per grade</span>
+<span class="sql-kw">SELECT</span> Grade, <span class="sql-fn">COUNT</span>(*) <span class="sql-kw">AS</span> Total
+<span class="sql-kw">FROM</span> tblStudents
+<span class="sql-kw">GROUP BY</span> Grade;
+
+<span class="cmt">-- Only show groups with more than 10 students</span>
+<span class="sql-kw">SELECT</span> Grade, <span class="sql-fn">COUNT</span>(*) <span class="sql-kw">AS</span> Total
+<span class="sql-kw">FROM</span> tblStudents
+<span class="sql-kw">GROUP BY</span> Grade
+<span class="sql-kw">HAVING</span> <span class="sql-fn">COUNT</span>(*) &gt; <span class="num">10</span>;</code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">WHERE vs HAVING</div>
+    <p><strong>WHERE</strong> filters individual records <em>before</em> grouping. <strong>HAVING</strong> filters groups <em>after</em> GROUP BY. If you have both, WHERE runs first.</p>
+  </div>
+
+  <h2>SQL String &amp; Math Functions</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Function</th><th>Returns</th><th>Example</th></tr>
+    <tr><td><code>LEN(field)</code></td><td>Character count</td><td><code>SELECT LEN(Name) FROM tblStudents</code></td></tr>
+    <tr><td><code>LEFT(field, n)</code></td><td>First n characters</td><td><code>LEFT(Surname, 3)</code> → first 3 letters</td></tr>
+    <tr><td><code>RIGHT(field, n)</code></td><td>Last n characters</td><td><code>RIGHT(IDNo, 4)</code></td></tr>
+    <tr><td><code>MID(field, start, n)</code></td><td>Substring from position</td><td><code>MID(IDNo, 3, 2)</code> → year of birth</td></tr>
+    <tr><td><code>ROUND(field, dec)</code></td><td>Rounded value</td><td><code>ROUND(Avg, 2)</code> → 2 decimal places</td></tr>
+    <tr><td><code>INT(field)</code></td><td>Integer part (no decimal)</td><td><code>INT(75.8)</code> = 75</td></tr>
+    <tr><td><code>FORMAT(field, "0.00")</code></td><td>Formatted string</td><td><code>FORMAT(Price, "R0.00")</code></td></tr>
+  </table></div>
+
+  <h2>Date Functions</h2>
+  <div class="code-block"><span class="code-label">SQL &mdash; date examples</span>
+<pre><code><span class="sql-kw">SELECT</span> Name, <span class="sql-fn">YEAR</span>(BirthDate) <span class="sql-kw">AS</span> BirthYear <span class="sql-kw">FROM</span> tblStudents;
+<span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblOrders <span class="sql-kw">WHERE</span> <span class="sql-fn">MONTH</span>(OrderDate) = <span class="num">12</span>;     <span class="cmt">-- December orders</span>
+<span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblStudents <span class="sql-kw">WHERE</span> <span class="sql-fn">YEAR</span>(BirthDate) = <span class="num">2008</span>;</code></pre></div>
+
+  <h2>INSERT, UPDATE, DELETE</h2>
+  <div class="code-block"><span class="code-label">SQL &mdash; modifying data</span>
+<pre><code><span class="cmt">-- Add a new record</span>
+<span class="sql-kw">INSERT INTO</span> tblStudents (Name, Surname, Grade)
+<span class="sql-kw">VALUES</span> (<span class="str">"Alice"</span>, <span class="str">"Smith"</span>, <span class="num">12</span>);
+
+<span class="cmt">-- Change existing data</span>
+<span class="sql-kw">UPDATE</span> tblStudents
+<span class="sql-kw">SET</span> Grade = <span class="num">12</span>
+<span class="sql-kw">WHERE</span> StudentID = <span class="num">45</span>;
+
+<span class="cmt">-- Remove a record</span>
+<span class="sql-kw">DELETE FROM</span> tblStudents
+<span class="sql-kw">WHERE</span> StudentID = <span class="num">45</span>;</code></pre></div>
+  <div class="callout warning">
+    <div class="callout-title">Always use WHERE with UPDATE and DELETE</div>
+    <p>Without a WHERE clause, UPDATE changes <em>every</em> record and DELETE removes <em>every</em> record in the table. Always double-check your condition.</p>
+  </div>
+
+  <h2>Parameterised Queries</h2>
+  <p>Instead of hardcoding a value, use a parameter that is filled in by the user at runtime.</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; parameterised query (by name method)</span>
+<pre><code>qryStudents.Close;
+qryStudents.SQL.Clear;
+qryStudents.SQL.Add(<span class="str">'SELECT * FROM tblStudents'</span>);
+qryStudents.SQL.Add(<span class="str">'WHERE Grade = :pGrade'</span>);   <span class="cmt">// :pGrade is the parameter</span>
+qryStudents.Parameters.ParamByName(<span class="str">'pGrade'</span>).Value := sedGrade.Value;
+qryStudents.Open;</code></pre></div>
+
+  <h2>SQL in Delphi &mdash; Reading Field Values</h2>
+  <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="cmt">// Read a field value from the current record</span>
+sName   := qryStudents[<span class="str">'Name'</span>];
+iGrade  := qryStudents[<span class="str">'Grade'</span>];
+rMark   := qryStudents[<span class="str">'Average'</span>];
+
+<span class="cmt">// Loop through all records</span>
+qryStudents.First;
+<span class="kw">while not</span> qryStudents.Eof <span class="kw">do</span>
+<span class="kw">begin</span>
+  memOut.Lines.Add(qryStudents[<span class="str">'Name'</span>] + <span class="str">' '</span> + qryStudents[<span class="str">'Surname'</span>]);
+  qryStudents.Next;
+<span class="kw">end</span>;</code></pre></div>
+
+  <div class="page-nav">
+    <a href="../grade11/practical/databases-delphi.html"><span class="page-nav-label">&larr; Previous</span>Databases in Delphi</a>
+    <a class="next" href="sql-join.html"><span class="page-nav-label">Next &rarr;</span>SQL &mdash; Joining Tables</a>
+  </div>
+</main>
+</div>
+<script src="../js/nav.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

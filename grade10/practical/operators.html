@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operators & Functions – IT CAPS</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr10); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 10 · Practical</div>
+    <a href="algorithms.html">Algorithms &amp; Problem Solving</a><a href="delphi-intro.html">Introduction to Delphi</a><a href="data-types.html">Data Types &amp; Variables</a><a href="operators.html">Operators &amp; Functions</a><a href="decisions.html">Decision Making (IF / CASE)</a><a href="loops.html">Loops</a><a href="strings.html">String Manipulation</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 10 · Theory</div>
+    <a href="../theory/digital-tech.html">Digital Technologies &amp; ICT</a><a href="../theory/hardware.html">Hardware</a><a href="../theory/software.html">Software &amp; Licensing</a><a href="../theory/data-representation.html">Data Representation</a><a href="../theory/networks.html">Networks</a><a href="../theory/internet.html">Internet &amp; WWW</a><a href="../theory/e-communication.html">E-Communication</a><a href="../theory/management.html">Computer Management &amp; Security</a>
+  </aside>
+  <main class="content">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><a href="#">Grade 10</a><span class="breadcrumb-sep">›</span><span>Operators &amp; Functions</span></div>
+    <h1>Operators &amp; Functions <span class="grade-badge">Grade 10</span></h1>
+    <p class="page-intro">Operators perform calculations. Delphi also has a rich library of built-in functions for maths, string handling, and more.</p>
+
+    <h2>Arithmetic Operators</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Operator</th><th>Symbol</th><th>Description</th><th>Example</th><th>Result</th></tr>
+      <tr><td>Addition</td><td><code>+</code></td><td>Add values</td><td><code>5 + 3</code></td><td><code>8</code></td></tr>
+      <tr><td>Subtraction</td><td><code>-</code></td><td>Subtract</td><td><code>10 - 4</code></td><td><code>6</code></td></tr>
+      <tr><td>Multiplication</td><td><code>*</code></td><td>Multiply</td><td><code>4 * 3</code></td><td><code>12</code></td></tr>
+      <tr><td>Division</td><td><code>/</code></td><td>Divide (returns Real)</td><td><code>7 / 2</code></td><td><code>3.5</code></td></tr>
+      <tr><td>Integer Division</td><td><code>DIV</code></td><td>Whole part only (no remainder)</td><td><code>7 DIV 2</code></td><td><code>3</code></td></tr>
+      <tr><td>Modulus</td><td><code>MOD</code></td><td>Remainder only</td><td><code>7 MOD 2</code></td><td><code>1</code></td></tr>
+    </table></div>
+
+    <h3>MOD and DIV Examples</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Calculation</th><th>Working</th><th>MOD result</th><th>DIV result</th></tr>
+      <tr><td><code>5 MOD/DIV 2</code></td><td>5 ÷ 2 = 2 remainder 1</td><td><code>1</code></td><td><code>2</code></td></tr>
+      <tr><td><code>25 MOD/DIV 5</code></td><td>25 ÷ 5 = 5 remainder 0</td><td><code>0</code></td><td><code>5</code></td></tr>
+      <tr><td><code>17 MOD/DIV 3</code></td><td>17 ÷ 3 = 5 remainder 2</td><td><code>2</code></td><td><code>5</code></td></tr>
+    </table></div>
+
+    <div class="callout tip">
+      <div class="callout-title">Common Uses of MOD</div>
+      <p><strong>Even/Odd check:</strong> <code>n MOD 2 = 0</code> → even<br>
+      <strong>Factor check:</strong> <code>b MOD a = 0</code> → a is a factor of b<br>
+      <strong>Last digit:</strong> <code>n MOD 10</code> → last digit of n</p>
+    </div>
+
+    <h2>Operator Precedence (Order of Operations)</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Priority</th><th>Operators</th></tr>
+      <tr><td>1st (highest)</td><td>Brackets <code>( )</code></td></tr>
+      <tr><td>2nd</td><td><code>*</code> &nbsp; <code>/</code> &nbsp; <code>DIV</code> &nbsp; <code>MOD</code> (left to right)</td></tr>
+      <tr><td>3rd (lowest)</td><td><code>+</code> &nbsp; <code>-</code> (left to right)</td></tr>
+    </table></div>
+
+    <div class="code-block"><span class="code-label">Example</span>
+<pre><code>result := <span class="num">2</span> + <span class="num">3</span> * <span class="num">4</span>;         <span class="cmt">// = 14  (3*4 first)</span>
+result := (<span class="num">2</span> + <span class="num">3</span>) * <span class="num">4</span>;       <span class="cmt">// = 20  (brackets first)</span>
+result := <span class="num">10</span> <span class="kw">DIV</span> <span class="num">2</span> + <span class="num">3</span>;      <span class="cmt">// = 8   (DIV first)</span></code></pre></div>
+
+    <h2>Mathematical Functions</h2>
+    <p>Add <code>Math</code> to your <code>uses</code> section to access power, floor, ceil etc.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Function</th><th>Description</th><th>Example</th><th>Result</th></tr>
+      <tr><td><code>sqr(x)</code></td><td>x squared (x²)</td><td><code>sqr(4)</code></td><td><code>16</code></td></tr>
+      <tr><td><code>sqrt(x)</code></td><td>Square root</td><td><code>sqrt(16)</code></td><td><code>4.0</code></td></tr>
+      <tr><td><code>power(x,n)</code></td><td>x to the power of n</td><td><code>power(5,3)</code></td><td><code>125</code></td></tr>
+      <tr><td><code>round(x)</code></td><td>Round to nearest integer</td><td><code>round(5.68)</code></td><td><code>6</code></td></tr>
+      <tr><td><code>trunc(x)</code></td><td>Remove decimal (truncate)</td><td><code>trunc(5.68)</code></td><td><code>5</code></td></tr>
+      <tr><td><code>floor(x)</code></td><td>Round DOWN</td><td><code>floor(3.76)</code></td><td><code>3</code></td></tr>
+      <tr><td><code>ceil(x)</code></td><td>Round UP</td><td><code>ceil(3.76)</code></td><td><code>4</code></td></tr>
+      <tr><td><code>abs(x)</code></td><td>Absolute value (remove negative)</td><td><code>abs(-12)</code></td><td><code>12</code></td></tr>
+      <tr><td><code>frac(x)</code></td><td>Fractional part only</td><td><code>frac(12.75)</code></td><td><code>0.75</code></td></tr>
+      <tr><td><code>pi</code></td><td>Value of π</td><td><code>pi</code></td><td><code>3.14159…</code></td></tr>
+      <tr><td><code>random(n)</code></td><td>Random number from 0 to n-1</td><td><code>random(10)</code></td><td>0–9</td></tr>
+      <tr><td><code>RoundTo(x,-n)</code></td><td>Round to n decimal places</td><td><code>RoundTo(12.3456,-2)</code></td><td><code>12.35</code></td></tr>
+    </table></div>
+
+    <h2>Inc and Dec</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Procedure</th><th>Effect</th><th>Example</th><th>Result</th></tr>
+      <tr><td><code>Inc(x)</code></td><td>Increment by 1</td><td><code>Inc(5)</code></td><td><code>6</code></td></tr>
+      <tr><td><code>Inc(x, n)</code></td><td>Increment by n</td><td><code>Inc(5, 3)</code></td><td><code>8</code></td></tr>
+      <tr><td><code>Dec(x)</code></td><td>Decrement by 1</td><td><code>Dec(5)</code></td><td><code>4</code></td></tr>
+      <tr><td><code>Dec(x, n)</code></td><td>Decrement by n</td><td><code>Dec(6, 4)</code></td><td><code>2</code></td></tr>
+    </table></div>
+
+    <h2>Ord and Chr</h2>
+    <p><code>Ord</code> and <code>Chr</code> convert between characters and their ASCII numeric codes.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Function</th><th>Description</th><th>Example</th><th>Result</th></tr>
+      <tr><td><code>Ord(c)</code></td><td>Character → ASCII integer</td><td><code>Ord('A')</code></td><td><code>65</code></td></tr>
+      <tr><td><code>Chr(n)</code></td><td>ASCII integer → Character</td><td><code>Chr(65)</code></td><td><code>'A'</code></td></tr>
+    </table></div>
+
+    <h3>Caesar Cipher Example</h3>
+    <div class="code-block"><span class="code-label">Delphi — Shift characters by a number</span>
+<pre><code><span class="kw">var</span>
+  sInput, sOutput: <span class="kw2">string</span>;
+  i, iShift: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  sInput := InputBox(<span class="str">'Text'</span>, <span class="str">'Enter text:'</span>, <span class="str">'ABC'</span>);
+  iShift := StrToInt(InputBox(<span class="str">'Shift'</span>, <span class="str">'Enter shift (1-25):'</span>, <span class="str">'3'</span>));
+  sOutput := <span class="str">''</span>;
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sInput) <span class="kw">do</span>
+    sOutput := sOutput + Chr(Ord(sInput[i]) + iShift);
+  ShowMessage(<span class="str">'Shifted: '</span> + sOutput);  <span class="cmt">// ABC → DEF</span>
+<span class="kw">end</span>;</code></pre></div>
+
+    <h2>Upcase and Trim</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Function</th><th>Description</th><th>Example</th><th>Result</th></tr>
+      <tr><td><code>UpCase(c)</code></td><td>Convert single char to uppercase</td><td><code>UpCase('a')</code></td><td><code>'A'</code></td></tr>
+      <tr><td><code>Trim(s)</code></td><td>Remove spaces from both ends</td><td><code>Trim('  Hello  ')</code></td><td><code>'Hello'</code></td></tr>
+      <tr><td><code>TrimLeft(s)</code></td><td>Remove leading spaces</td><td><code>TrimLeft('  Hi')</code></td><td><code>'Hi'</code></td></tr>
+      <tr><td><code>TrimRight(s)</code></td><td>Remove trailing spaces</td><td><code>TrimRight('Hi  ')</code></td><td><code>'Hi'</code></td></tr>
+    </table></div>
+
+    <div class="page-nav">
+      <a href="data-types.html"><span class="page-nav-label">← Previous</span>Data Types &amp; Variables</a>
+      <a class="next" href="decisions.html"><span class="page-nav-label">Next →</span>Decision Making</a>
+    </div>
+  </main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

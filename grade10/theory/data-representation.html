@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Representation – IT CAPS</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr10); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+<aside class="sidebar"><div class="sidebar-grade">Grade 10 &middot; Theory</div><a href="../../grade10/theory/digital-tech.html">Digital Technologies</a><a href="../../grade10/theory/hardware.html">Hardware</a><a href="../../grade10/theory/software.html">Software &amp; Licensing</a><a href="../../grade10/theory/data-representation.html">Data Representation</a><a href="../../grade10/theory/networks.html">Networks</a><a href="../../grade10/theory/internet.html">Internet &amp; WWW</a><a href="../../grade10/theory/e-communication.html">E-Communication</a><a href="../../grade10/theory/management.html">Management &amp; Security</a><div class="sidebar-grade" style="margin-top:1rem">Grade 10 &middot; Practical</div><a href="../../grade10/practical/algorithms.html">Algorithms</a><a href="../../grade10/practical/delphi-intro.html">Delphi Intro</a><a href="../../grade10/practical/data-types.html">Data Types</a><a href="../../grade10/practical/operators.html">Operators</a><a href="../../grade10/practical/decisions.html">Decision Making</a><a href="../../grade10/practical/loops.html">Loops</a><a href="../../grade10/practical/strings.html">Strings</a></aside>
+<main class="content">
+<div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Data Representation</span></div>
+<h1>Data Representation <span class="grade-badge">Grade 10</span></h1>
+<p class="page-intro">Computers only understand two states: on (1) and off (0). Everything — text, images, sound, video — must first be converted to those 1s and 0s before a computer can process it. This page explains how that conversion works.</p>
+
+<!-- INTRO -->
+<h2>Why Only 1s and 0s?</h2>
+<p>Deep inside your computer, everything is built from tiny transistors — microscopic electronic switches. Each switch can only be in one of two states: <strong>on (1)</strong> or <strong>off (0)</strong>. This is called <strong>binary</strong> because there are only two options.</p>
+<p>A single 1 or 0 is called a <strong>bit</strong> (short for <em>binary digit</em>). On its own, one bit can only represent two things. But group 8 bits together into a <strong>byte</strong>, and suddenly you can represent 256 different values (2<sup>8</sup> = 256) — enough for every letter, digit, and common symbol.</p>
+
+<div class="callout">
+  <div class="callout-title">ANALOGY</div>
+  <p>Think of a light switch: it is either ON or OFF — that's 1 bit. Now imagine a row of 8 light switches. Each combination of on/off gives a different pattern — 256 possible combinations. That's how a computer stores one character.</p>
+</div>
+
+<!-- BIT / BYTE SVG DIAGRAM -->
+<h2>Bits and Bytes — Visual Diagram</h2>
+<p>Eight bits grouped together form one <strong>byte</strong>. The example below shows the byte <code>01000001</code> — the binary code for the letter <strong>A</strong> in ASCII.</p>
+
+<div style="margin:1.25rem 0; overflow-x:auto">
+  <svg viewBox="0 0 580 130" width="100%" style="max-width:580px; display:block; margin:0 auto" aria-label="Byte diagram: 8 bit boxes labeled bit 7 to bit 0, showing 01000001 = A">
+    <rect width="580" height="130" fill="#0d1117" rx="10"/>
+    <text x="290" y="22" text-anchor="middle" fill="#e6edf3" font-size="13" font-family="sans-serif" font-weight="bold">One Byte = 8 Bits &nbsp;→&nbsp; 01000001 = 'A' (ASCII 65)</text>
+
+    <!-- 8 bit boxes -->
+    <!-- Bit 7 = 0 -->
+    <rect x="20" y="35" width="60" height="50" rx="5" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="50" y="66" text-anchor="middle" fill="#8b949e" font-size="22" font-family="monospace">0</text>
+    <text x="50" y="98" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">bit 7</text>
+
+    <!-- Bit 6 = 1 -->
+    <rect x="85" y="35" width="60" height="50" rx="5" fill="#161b22" stroke="#4ade80" stroke-width="2"/>
+    <text x="115" y="66" text-anchor="middle" fill="#4ade80" font-size="22" font-family="monospace" font-weight="bold">1</text>
+    <text x="115" y="98" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">bit 6</text>
+
+    <!-- Bit 5 = 0 -->
+    <rect x="150" y="35" width="60" height="50" rx="5" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="180" y="66" text-anchor="middle" fill="#8b949e" font-size="22" font-family="monospace">0</text>
+    <text x="180" y="98" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">bit 5</text>
+
+    <!-- Bit 4 = 0 -->
+    <rect x="215" y="35" width="60" height="50" rx="5" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="245" y="66" text-anchor="middle" fill="#8b949e" font-size="22" font-family="monospace">0</text>
+    <text x="245" y="98" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">bit 4</text>
+
+    <!-- Bit 3 = 0 -->
+    <rect x="280" y="35" width="60" height="50" rx="5" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="310" y="66" text-anchor="middle" fill="#8b949e" font-size="22" font-family="monospace">0</text>
+    <text x="310" y="98" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">bit 3</text>
+
+    <!-- Bit 2 = 0 -->
+    <rect x="345" y="35" width="60" height="50" rx="5" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="375" y="66" text-anchor="middle" fill="#8b949e" font-size="22" font-family="monospace">0</text>
+    <text x="375" y="98" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">bit 2</text>
+
+    <!-- Bit 1 = 0 -->
+    <rect x="410" y="35" width="60" height="50" rx="5" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="440" y="66" text-anchor="middle" fill="#8b949e" font-size="22" font-family="monospace">0</text>
+    <text x="440" y="98" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">bit 1</text>
+
+    <!-- Bit 0 = 1 -->
+    <rect x="475" y="35" width="60" height="50" rx="5" fill="#161b22" stroke="#4ade80" stroke-width="2"/>
+    <text x="505" y="66" text-anchor="middle" fill="#4ade80" font-size="22" font-family="monospace" font-weight="bold">1</text>
+    <text x="505" y="98" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">bit 0</text>
+
+    <!-- label: 1 byte brace -->
+    <line x1="20" y1="116" x2="535" y2="116" stroke="#30363d" stroke-width="1.5"/>
+    <text x="290" y="128" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">← 1 byte (8 bits) →</text>
+  </svg>
+</div>
+
+<!-- NUMBER SYSTEMS -->
+<h2>Number Systems Overview</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>System</th><th>Base</th><th>Digits used</th><th>Used for</th></tr>
+  <tr><td><strong>Decimal</strong></td><td>10</td><td>0–9</td><td>Everyday counting — the system humans naturally use</td></tr>
+  <tr><td><strong>Binary</strong></td><td>2</td><td>0, 1</td><td>Internal computer data — all data is stored this way</td></tr>
+  <tr><td><strong>Hexadecimal</strong></td><td>16</td><td>0–9, A–F</td><td>Colour codes (#FF5733), memory addresses, shorter binary notation</td></tr>
+</table></div>
+
+<!-- BINARY PLACE VALUE SVG -->
+<h2>Binary (Base 2)</h2>
+<p>In decimal, each column is worth 10× the column to its right (1, 10, 100, 1000…). In binary, each column is worth <strong>2× the column to its right</strong> — these are the powers of 2.</p>
+
+<div style="margin:1.25rem 0; overflow-x:auto">
+  <svg viewBox="0 0 620 120" width="100%" style="max-width:620px; display:block; margin:0 auto" aria-label="Binary place value table: powers of 2 from 128 down to 1">
+    <rect width="620" height="120" fill="#0d1117" rx="10"/>
+    <text x="310" y="22" text-anchor="middle" fill="#e6edf3" font-size="13" font-family="sans-serif" font-weight="bold">Binary Place Values (8-bit)</text>
+
+    <!-- 8 columns -->
+    <!-- col header labels: power of 2 -->
+    <text x="48" y="45" text-anchor="middle" fill="#a78bfa" font-size="11" font-family="sans-serif">2⁷</text>
+    <text x="120" y="45" text-anchor="middle" fill="#a78bfa" font-size="11" font-family="sans-serif">2⁶</text>
+    <text x="192" y="45" text-anchor="middle" fill="#a78bfa" font-size="11" font-family="sans-serif">2⁵</text>
+    <text x="264" y="45" text-anchor="middle" fill="#a78bfa" font-size="11" font-family="sans-serif">2⁴</text>
+    <text x="336" y="45" text-anchor="middle" fill="#a78bfa" font-size="11" font-family="sans-serif">2³</text>
+    <text x="408" y="45" text-anchor="middle" fill="#a78bfa" font-size="11" font-family="sans-serif">2²</text>
+    <text x="480" y="45" text-anchor="middle" fill="#a78bfa" font-size="11" font-family="sans-serif">2¹</text>
+    <text x="552" y="45" text-anchor="middle" fill="#a78bfa" font-size="11" font-family="sans-serif">2⁰</text>
+
+    <!-- decimal values -->
+    <g>
+      <rect x="14" y="52" width="68" height="30" rx="4" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="48" y="72" text-anchor="middle" fill="#22d3ee" font-size="14" font-family="monospace" font-weight="bold">128</text>
+
+      <rect x="86" y="52" width="68" height="30" rx="4" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="120" y="72" text-anchor="middle" fill="#22d3ee" font-size="14" font-family="monospace" font-weight="bold">64</text>
+
+      <rect x="158" y="52" width="68" height="30" rx="4" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="192" y="72" text-anchor="middle" fill="#22d3ee" font-size="14" font-family="monospace" font-weight="bold">32</text>
+
+      <rect x="230" y="52" width="68" height="30" rx="4" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="264" y="72" text-anchor="middle" fill="#22d3ee" font-size="14" font-family="monospace" font-weight="bold">16</text>
+
+      <rect x="302" y="52" width="68" height="30" rx="4" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="336" y="72" text-anchor="middle" fill="#22d3ee" font-size="14" font-family="monospace" font-weight="bold">8</text>
+
+      <rect x="374" y="52" width="68" height="30" rx="4" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="408" y="72" text-anchor="middle" fill="#22d3ee" font-size="14" font-family="monospace" font-weight="bold">4</text>
+
+      <rect x="446" y="52" width="68" height="30" rx="4" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="480" y="72" text-anchor="middle" fill="#22d3ee" font-size="14" font-family="monospace" font-weight="bold">2</text>
+
+      <rect x="518" y="52" width="68" height="30" rx="4" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="552" y="72" text-anchor="middle" fill="#22d3ee" font-size="14" font-family="monospace" font-weight="bold">1</text>
+    </g>
+
+    <text x="310" y="108" text-anchor="middle" fill="#8b949e" font-size="10" font-family="sans-serif">← Most significant bit (MSB) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Least significant bit (LSB) →</text>
+  </svg>
+</div>
+
+<div class="callout">
+  <div class="callout-title">TIP — Learn These!</div>
+  <p>Memorise the 8 place values: <strong>128, 64, 32, 16, 8, 4, 2, 1</strong>. Every binary conversion uses these numbers. Notice each one doubles: 1×2=2, 2×2=4, 4×2=8, 8×2=16, and so on.</p>
+</div>
+
+<!-- CONVERSIONS -->
+<h2>Step-by-Step Conversion Examples</h2>
+
+<h3>Binary → Decimal</h3>
+<p>Multiply each bit by its place value, then add them all up. Only count the columns where the bit is <strong>1</strong>.</p>
+
+<div class="code-block">
+  <span class="code-label">Example: 00101101 in binary → decimal</span>
+  <pre><code>Place value:  128   64   32   16    8    4    2    1
+Bit:            0    0    1    0    1    1    0    1
+Calculation:    0 +  0 + 32 +  0 +  8 +  4 +  0 +  1
+                                                   = 45</code></pre>
+</div>
+
+<div class="code-block">
+  <span class="code-label">Example: 10110 in binary → decimal</span>
+  <pre><code>Place value:   16    8    4    2    1
+Bit:            1    0    1    1    0
+Calculation:   16 +  0 +  4 +  2 +  0
+                                    = 22</code></pre>
+</div>
+
+<h3>Decimal → Binary (Divide by 2 Method)</h3>
+<p>Divide the number by 2 repeatedly. Write down each remainder. Read the remainders from <strong>bottom to top</strong>.</p>
+
+<div class="code-block">
+  <span class="code-label">Example: 25 in decimal → binary</span>
+  <pre><code>25 ÷ 2 = 12  remainder  1   ← LSB (written last, read first from bottom)
+12 ÷ 2 =  6  remainder  0
+ 6 ÷ 2 =  3  remainder  0
+ 3 ÷ 2 =  1  remainder  1
+ 1 ÷ 2 =  0  remainder  1   ← MSB (written first, read last from bottom)
+
+Read remainders bottom to top:  1  1  0  0  1
+                                                = 11001₂
+
+Verify:  16 + 8 + 0 + 0 + 1 = 25 ✓</code></pre>
+</div>
+
+<div class="code-block">
+  <span class="code-label">Example: 13 in decimal → binary</span>
+  <pre><code>13 ÷ 2 = 6  remainder  1
+ 6 ÷ 2 = 3  remainder  0
+ 3 ÷ 2 = 1  remainder  1
+ 1 ÷ 2 = 0  remainder  1
+
+Read bottom to top:  1  1  0  1  =  1101₂
+
+Verify:  8 + 4 + 0 + 1 = 13 ✓</code></pre>
+</div>
+
+<!-- HEXADECIMAL -->
+<h2>Hexadecimal (Base 16)</h2>
+<p>Hexadecimal (hex) uses 16 symbols: the digits 0–9, then the letters A–F for values 10–15. Because one hex digit represents exactly 4 binary bits, hex is a much shorter way to write binary numbers. For example, <code>11111111</code> in binary is just <code>FF</code> in hex.</p>
+
+<h3>Hex Digit Table</h3>
+<div class="tbl-wrap"><table>
+  <tr><th>Decimal</th><th>Binary (4-bit)</th><th>Hex</th></tr>
+  <tr><td>0</td><td>0000</td><td>0</td></tr>
+  <tr><td>1</td><td>0001</td><td>1</td></tr>
+  <tr><td>2</td><td>0010</td><td>2</td></tr>
+  <tr><td>3</td><td>0011</td><td>3</td></tr>
+  <tr><td>4</td><td>0100</td><td>4</td></tr>
+  <tr><td>5</td><td>0101</td><td>5</td></tr>
+  <tr><td>6</td><td>0110</td><td>6</td></tr>
+  <tr><td>7</td><td>0111</td><td>7</td></tr>
+  <tr><td>8</td><td>1000</td><td>8</td></tr>
+  <tr><td>9</td><td>1001</td><td>9</td></tr>
+  <tr><td>10</td><td>1010</td><td><strong>A</strong></td></tr>
+  <tr><td>11</td><td>1011</td><td><strong>B</strong></td></tr>
+  <tr><td>12</td><td>1100</td><td><strong>C</strong></td></tr>
+  <tr><td>13</td><td>1101</td><td><strong>D</strong></td></tr>
+  <tr><td>14</td><td>1110</td><td><strong>E</strong></td></tr>
+  <tr><td>15</td><td>1111</td><td><strong>F</strong></td></tr>
+</table></div>
+
+<h3>Hex → Decimal Conversion</h3>
+<p>Each position in hex is worth 16× the position to its right (just like binary uses powers of 2, hex uses powers of 16).</p>
+
+<div class="code-block">
+  <span class="code-label">Example: 2A (hex) → decimal</span>
+  <pre><code>2A₁₆  has two digits:  2  and  A
+
+Position:   16¹    16⁰
+Digit:        2      A (=10)
+Value:     2×16  + 10×1
+         =   32  +   10
+         =       42₁₀</code></pre>
+</div>
+
+<div class="code-block">
+  <span class="code-label">Example: 3F (hex) → decimal</span>
+  <pre><code>3F₁₆:
+  3 × 16¹ = 3 × 16 = 48
+  F × 16⁰ = 15 × 1 = 15
+                     ----
+                      63₁₀</code></pre>
+</div>
+
+<h3>Decimal → Hex Conversion (Divide by 16)</h3>
+<div class="code-block">
+  <span class="code-label">Example: 200 (decimal) → hex</span>
+  <pre><code>200 ÷ 16 = 12  remainder  8    →  8
+ 12 ÷ 16 =  0  remainder  12   →  C  (12 in hex = C)
+
+Read remainders bottom to top:  C  8  →  C8₁₆
+
+Verify:  12 × 16 + 8 = 192 + 8 = 200 ✓</code></pre>
+</div>
+
+<div class="callout">
+  <div class="callout-title">WHERE YOU SEE HEX</div>
+  <p>Hex is everywhere in computing. Colour codes in web design use hex: <code>#FF0000</code> = red (255 red, 0 green, 0 blue). Memory addresses in low-level programming are hex. Even Delphi lets you write hex literals with a dollar sign: <code>$FF</code> = 255.</p>
+</div>
+
+<!-- ASCII -->
+<h2>ASCII — Storing Text</h2>
+<p>A computer stores text by mapping each character to a number. The most common mapping is <strong>ASCII</strong> (American Standard Code for Information Interchange). Each character has a unique number — a code — which is then stored in binary.</p>
+
+<h3>Key ASCII Values to Memorise</h3>
+<div class="tbl-wrap"><table>
+  <tr><th>Character</th><th>ASCII decimal</th><th>Binary (8-bit)</th><th>Notes</th></tr>
+  <tr><td>Space</td><td>32</td><td>00100000</td><td>The space bar produces this</td></tr>
+  <tr><td>0</td><td>48</td><td>00110000</td><td>The digit zero (not the letter O)</td></tr>
+  <tr><td>9</td><td>57</td><td>00111001</td><td>Digits 0–9 = ASCII 48–57</td></tr>
+  <tr><td>A</td><td>65</td><td>01000001</td><td>First uppercase letter</td></tr>
+  <tr><td>B</td><td>66</td><td>01000010</td><td></td></tr>
+  <tr><td>Z</td><td>90</td><td>01011010</td><td>Last uppercase letter</td></tr>
+  <tr><td>a</td><td>97</td><td>01100001</td><td>First lowercase — exactly 32 more than 'A'</td></tr>
+  <tr><td>z</td><td>122</td><td>01111010</td><td>Last lowercase letter</td></tr>
+</table></div>
+
+<div class="callout">
+  <div class="callout-title">EXAM TIP — The +32 Rule</div>
+  <p>The difference between an uppercase letter and its lowercase version is always <strong>32</strong> in ASCII. So <code>Ord('A') = 65</code> and <code>Ord('a') = 97</code> (65 + 32 = 97). This is how Delphi's <code>UpCase()</code> function works internally — it subtracts 32.</p>
+</div>
+
+<h3>Unicode and UTF-8</h3>
+<div class="tbl-wrap"><table>
+  <tr><th>Standard</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>ASCII</strong></td><td>7-bit (128 chars) or 8-bit (256). English letters, digits, symbols only.</td><td>'A' = 65</td></tr>
+  <tr><td><strong>UTF-8</strong></td><td>Variable length (1–4 bytes). Backward compatible with ASCII. Most common on the web.</td><td>Supports Zulu, Xhosa, Arabic, Chinese…</td></tr>
+  <tr><td><strong>Unicode</strong></td><td>Universal standard — 140 000+ characters including all world languages.</td><td>isiZulu characters, emoji</td></tr>
+</table></div>
+
+<!-- DELPHI CODE -->
+<h2>Data Representation in Delphi</h2>
+<div class="code-block"><span class="code-label">Delphi — Ord and Chr with ASCII</span>
+<pre><code><span class="cmt">// Ord: char → ASCII number</span>
+iCode := Ord(<span class="str">'A'</span>);         <span class="cmt">// = 65</span>
+iCode := Ord(<span class="str">'a'</span>);         <span class="cmt">// = 97</span>
+
+<span class="cmt">// Chr: ASCII number → char</span>
+cChar := Chr(<span class="num">65</span>);           <span class="cmt">// = 'A'</span>
+cChar := Chr(<span class="num">97</span>);           <span class="cmt">// = 'a'</span>
+
+<span class="cmt">// Convert lowercase to uppercase using the +32 rule:</span>
+cUpper := Chr(Ord(cLower) - <span class="num">32</span>);
+
+<span class="cmt">// Print ASCII values of each character in a string</span>
+<span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sText) <span class="kw">do</span>
+  memOut.Lines.Add(sText[i] + <span class="str">' = '</span> + IntToStr(Ord(sText[i])));</code></pre></div>
+
+<!-- STORAGE UNITS -->
+<h2>Storage Units</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Unit</th><th>Symbol</th><th>Size</th><th>Real-world example</th></tr>
+  <tr><td>Bit</td><td>b</td><td>Single 0 or 1</td><td>One transistor state</td></tr>
+  <tr><td>Byte</td><td>B</td><td>8 bits</td><td>One character, e.g. 'A'</td></tr>
+  <tr><td>Kilobyte</td><td>KB</td><td>1 024 bytes</td><td>One page of plain text (~1 000 characters)</td></tr>
+  <tr><td>Megabyte</td><td>MB</td><td>1 024 KB</td><td>A small JPEG photo, a 3-min MP3 song</td></tr>
+  <tr><td>Gigabyte</td><td>GB</td><td>1 024 MB</td><td>A 2-hour HD movie, a mobile game</td></tr>
+  <tr><td>Terabyte</td><td>TB</td><td>1 024 GB</td><td>A standard laptop hard drive</td></tr>
+  <tr><td>Petabyte</td><td>PB</td><td>1 024 TB</td><td>Large data centres, cloud storage</td></tr>
+</table></div>
+
+<div class="callout">
+  <div class="callout-title">TIP — Why 1 024 not 1 000?</div>
+  <p>Computers work in binary (powers of 2). 2<sup>10</sup> = 1 024, which is close to 1 000 but not equal. So 1 KB = 1 024 bytes (not 1 000). Hard drive manufacturers sometimes use 1 000 to make drives sound bigger — that's why a "500 GB" drive shows as ~465 GB in Windows.</p>
+</div>
+
+<div class="page-nav">
+  <a href="software.html"><span class="page-nav-label">← Previous</span>Software &amp; Licensing</a>
+  <a class="next" href="networks.html"><span class="page-nav-label">Next →</span>Networks</a>
+</div>
+</main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>String Manipulation – IT CAPS</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr10); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 10 · Practical</div>
+    <a href="algorithms.html">Algorithms &amp; Problem Solving</a><a href="delphi-intro.html">Introduction to Delphi</a><a href="data-types.html">Data Types &amp; Variables</a><a href="operators.html">Operators &amp; Functions</a><a href="decisions.html">Decision Making (IF / CASE)</a><a href="loops.html">Loops</a><a href="strings.html">String Manipulation</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 10 · Theory</div>
+    <a href="../theory/digital-tech.html">Digital Technologies &amp; ICT</a><a href="../theory/hardware.html">Hardware</a><a href="../theory/software.html">Software &amp; Licensing</a><a href="../theory/data-representation.html">Data Representation</a><a href="../theory/networks.html">Networks</a><a href="../theory/internet.html">Internet &amp; WWW</a><a href="../theory/e-communication.html">E-Communication</a><a href="../theory/management.html">Computer Management &amp; Security</a>
+  </aside>
+  <main class="content">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><a href="#">Grade 10</a><span class="breadcrumb-sep">›</span><span>String Manipulation</span></div>
+
+    <h1>String Manipulation <span class="grade-badge">Grade 10</span></h1>
+    <p class="page-intro">Strings are sequences of characters. Delphi provides built-in functions and procedures to analyse, extract, and modify strings.</p>
+
+    <h2>What is String Manipulation?</h2>
+    <p><strong>String manipulation</strong> is the process of working with text inside a program — searching it, pulling pieces out of it, changing it and measuring it. A <strong>string</strong> is simply a piece of text: a name, an ID number, an email address or a whole sentence are all strings.</p>
+    <p><strong>Everyday analogy:</strong> Think of a string like a row of bead letters on a piece of string, exactly like a beaded keyring that spells a name. Each bead is one character and it sits in a fixed position. String manipulation is what you do when you slide beads off the end, count how many there are, swap a small to a capital bead, or read which bead is sitting in position 3.</p>
+
+    <div class="callout">
+      <div class="callout-title">WHY IT MATTERS</div>
+      <p>Almost every real program handles text. When you log in, the computer compares the string you typed against the stored one. When a website greets you by your first name only, it has <em>extracted</em> that name out of your full name. When a form checks that an email contains an "@", it is <em>searching</em> a string. Learning these functions means you can validate input, format output neatly, and pull useful data out of messy text — skills you will use in every program from here on.</p>
+    </div>
+
+    <p><strong>Note:</strong> In Delphi, the very first character of a string sits at position <code>1</code> (not 0). This is why the reference string below numbers its letters starting at 1.</p>
+
+    <div class="callout">
+      <div class="callout-title">Reference String</div>
+      <p>All examples on this page use: <code>sSourceText := 'Andre is cute';</code></p>
+      <p>Positions: A=1, n=2, d=3, r=4, e=5, (space)=6, i=7, s=8, (space)=9, c=10, u=11, t=12, e=13</p>
+    </div>
+
+    <h2>Quick Reference</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Name</th><th>Type</th><th>What it does</th><th>Returns</th></tr>
+      <tr><td><code>Pos</code></td><td>Function</td><td>Position of a substring in a string</td><td>Integer</td></tr>
+      <tr><td><code>Index [ ]</code></td><td>—</td><td>Character at a specific position</td><td>String (1 char)</td></tr>
+      <tr><td><code>Copy</code></td><td>Function</td><td>Extract part of a string</td><td>String</td></tr>
+      <tr><td><code>Insert</code></td><td>Procedure</td><td>Insert text into a string</td><td>Modifies original</td></tr>
+      <tr><td><code>Delete</code></td><td>Procedure</td><td>Remove part of a string</td><td>Modifies original</td></tr>
+      <tr><td><code>Length</code></td><td>Function</td><td>Number of characters in a string</td><td>Integer</td></tr>
+      <tr><td><code>UpperCase</code></td><td>Function</td><td>Convert to all capitals</td><td>String</td></tr>
+      <tr><td><code>LowerCase</code></td><td>Function</td><td>Convert to all lowercase</td><td>String</td></tr>
+    </table></div>
+
+    <h2>Group 1 — Searching a String</h2>
+    <p><strong>Searching</strong> means asking "is this smaller piece of text in there, and if so, where?" The answer you get back is a position number. This is the first thing you do before you can extract or change part of a string, because you usually need to know <em>where</em> something is first.</p>
+    <p><strong>Everyday analogy:</strong> It is like using <em>Find</em> (Ctrl+F) in a document. You type a word, and the computer jumps to the spot where it appears and tells you where it is. <code>Pos</code> is Delphi's version of that "Find".</p>
+
+    <h2>Pos — Find Position</h2>
+    <p>Returns the integer position of the <em>first</em> occurrence of a substring. Returns <code>0</code> if not found.</p>
+    <div class="code-block"><span class="code-label">Syntax</span>
+<pre><code>IntegerVariable := <span class="fn">Pos</span>(StrToBeFound, SourceText);</code></pre></div>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>iX := <span class="fn">Pos</span>(<span class="str">'e'</span>, sSourceText);    <span class="cmt">// = 5  (first 'e' in 'Andre')</span>
+iX := <span class="fn">Pos</span>(<span class="str">'is'</span>, sSourceText);   <span class="cmt">// = 7</span>
+iX := <span class="fn">Pos</span>(<span class="str">'xyz'</span>, sSourceText);  <span class="cmt">// = 0  (not found)</span></code></pre></div>
+
+    <h2>Index [ ] — Character at Position</h2>
+    <p>Access a single character using square brackets and a position number.</p>
+    <div class="code-block"><span class="code-label">Syntax</span>
+<pre><code>StringVariable := SourceText[CharacterPosition];</code></pre></div>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>sNewText := sSourceText[<span class="num">2</span>];   <span class="cmt">// = 'n'</span>
+sNewText := sSourceText[<span class="num">5</span>];   <span class="cmt">// = 'e'</span></code></pre></div>
+
+    <h2>Group 2 — Extracting Part of a String</h2>
+    <p><strong>Extracting</strong> means taking a copy of a piece of the string without changing the original. You decide where to start and how many characters to grab. This is how you pull a first name out of a full name, a year out of a date, or an area code out of a phone number.</p>
+    <p><strong>Everyday analogy:</strong> Think of cutting a slice out of a loaf of bread. The loaf (the original string) stays whole; you just take a slice from a chosen spot of a chosen thickness. <code>Copy</code> takes the slice, and <code>Index [ ]</code> takes a single thin slice — just one character.</p>
+
+    <h2>Copy — Extract Substring</h2>
+    <p>Extracts a section of text starting at a position for a given number of characters.</p>
+    <div class="code-block"><span class="code-label">Syntax</span>
+<pre><code>StringVariable := <span class="fn">Copy</span>(SourceText, BeginPosition, Length);</code></pre></div>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>sNewText := <span class="fn">Copy</span>(sSourceText, <span class="num">10</span>, <span class="num">4</span>);  <span class="cmt">// = 'cute'  (start at 10, take 4)</span>
+sNewText := <span class="fn">Copy</span>(sSourceText, <span class="num">1</span>, <span class="num">5</span>);  <span class="cmt">// = 'Andre' (start at 1, take 5)</span></code></pre></div>
+
+    <h2>Group 3 — Changing a String</h2>
+    <p><strong>Changing</strong> a string means actually modifying it — adding text in, taking text out, or measuring it. Unlike extracting, these <code>Insert</code> and <code>Delete</code> procedures change the original string directly, so afterwards the string is different from before.</p>
+    <p><strong>Everyday analogy:</strong> This is like editing a sentence in your exercise book. <code>Insert</code> squeezes a new word into the middle of the sentence; <code>Delete</code> rubs a few words out. <code>Length</code> is just counting how many letters the sentence now has.</p>
+
+    <h2>Insert — Add Text</h2>
+    <p>Inserts text into an existing string at a given position. Modifies the string directly.</p>
+    <div class="code-block"><span class="code-label">Syntax</span>
+<pre><code><span class="fn">Insert</span>(InsertText, SourceText, Position);</code></pre></div>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="fn">Insert</span>(<span class="str">'very '</span>, sSourceText, <span class="num">10</span>);
+<span class="cmt">// sSourceText is now: 'Andre is very cute'</span></code></pre></div>
+
+    <h2>Delete — Remove Text</h2>
+    <p>Removes a section of text from a string. Modifies the string directly.</p>
+    <div class="code-block"><span class="code-label">Syntax</span>
+<pre><code><span class="fn">Delete</span>(SourceText, Position, Length);</code></pre></div>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="fn">Delete</span>(sSourceText, <span class="num">9</span>, <span class="num">5</span>);
+<span class="cmt">// sSourceText is now: 'Andre is' (removed ' cute')</span></code></pre></div>
+
+    <h2>Length — String Length</h2>
+    <div class="code-block"><span class="code-label">Syntax</span>
+<pre><code>IntegerVariable := <span class="fn">Length</span>(SourceText);</code></pre></div>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>iX := <span class="fn">Length</span>(sSourceText);   <span class="cmt">// = 13 (length of 'Andre is cute')</span>
+iX := <span class="fn">Length</span>(<span class="str">'Hello'</span>);       <span class="cmt">// = 5</span></code></pre></div>
+
+    <h2>Group 4 — Changing Case</h2>
+    <p><strong>Changing case</strong> means turning all the letters into capitals (<code>UpperCase</code>) or all into small letters (<code>LowerCase</code>). The most important reason we do this is to compare text <em>fairly</em>. The computer thinks <code>'YES'</code>, <code>'yes'</code> and <code>'Yes'</code> are three different strings, so if you force them all to lowercase first, they all match.</p>
+    <p><strong>Everyday analogy:</strong> Imagine a teacher marking a one-word answer. Whether a learner wrote "Cape Town", "CAPE TOWN" or "cape town", it is the same correct answer. Lowercasing both the answer and the memo before comparing is how you make sure capitals do not unfairly mark someone wrong.</p>
+    <p><strong>Important Rule:</strong> <code>UpperCase</code> and <code>LowerCase</code> return a <em>new</em> string — they do not change the original unless you store the result back into a variable.</p>
+
+    <h2>UpperCase and LowerCase</h2>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>sResult := <span class="fn">UpperCase</span>(sSourceText);
+<span class="cmt">// 'Andre is cute' → 'ANDRE IS CUTE'</span>
+
+sResult := <span class="fn">LowerCase</span>(sSourceText);
+<span class="cmt">// 'Andre is cute' → 'andre is cute'</span></code></pre></div>
+
+    <h2>Practical Patterns</h2>
+
+    <h3>Reverse a String</h3>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">var</span>
+  sInput, sReverse: <span class="kw2">string</span>;
+  i: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  sInput   := edtInput.Text;
+  sReverse := <span class="str">''</span>;
+  <span class="kw">for</span> i := Length(sInput) <span class="kw">downto</span> <span class="num">1</span> <span class="kw">do</span>
+    sReverse := sReverse + sInput[i];
+  lblResult.Caption := sReverse;
+<span class="kw">end</span>;</code></pre></div>
+
+    <h3>Count Occurrences of a Character</h3>
+    <div class="code-block"><span class="code-label">Delphi — count vowels</span>
+<pre><code><span class="kw">var</span>
+  sText: <span class="kw2">string</span>;
+  i, iCount: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  sText  := LowerCase(edtInput.Text);
+  iCount := <span class="num">0</span>;
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sText) <span class="kw">do</span>
+    <span class="kw">if</span> sText[i] <span class="kw">IN</span> [<span class="str">'a'</span>,<span class="str">'e'</span>,<span class="str">'i'</span>,<span class="str">'o'</span>,<span class="str">'u'</span>] <span class="kw">then</span>
+      Inc(iCount);
+  lblResult.Caption := <span class="str">'Vowels: '</span> + IntToStr(iCount);
+<span class="kw">end</span>;</code></pre></div>
+
+    <h3>Extract First Name from "Surname, Name"</h3>
+    <div class="code-block"><span class="code-label">Delphi — using Pos and Copy</span>
+<pre><code><span class="kw">var</span>
+  sFullName, sName, sSurname: <span class="kw2">string</span>;
+  iCommaPos: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  sFullName  := edtInput.Text;           <span class="cmt">// e.g. 'Smith, John'</span>
+  iCommaPos  := Pos(<span class="str">','</span>, sFullName);
+  sSurname   := Copy(sFullName, <span class="num">1</span>, iCommaPos - <span class="num">1</span>);
+  sName      := Copy(sFullName, iCommaPos + <span class="num">2</span>, Length(sFullName));
+  lblOut.Caption := <span class="str">'Name: '</span> + sName + <span class="str">'  Surname: '</span> + sSurname;
+<span class="kw">end</span>;</code></pre></div>
+
+    <div class="page-nav">
+      <a href="loops.html"><span class="page-nav-label">← Previous</span>Loops</a>
+      <a class="next" href="../../grade11/practical/arrays.html"><span class="page-nav-label">Next →</span>1D Arrays</a>
+    </div>
+  </main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

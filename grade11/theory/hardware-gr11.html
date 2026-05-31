@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Motherboard & Hardware &#x00B7; Ms Coetzee IT</title><link rel="stylesheet" href="../../css/style.css"><style>:root{--grade-color:var(--gr11);}</style></head><body><div id="topnav"></div><div class="page-wrapper"><aside class="sidebar"><div class="sidebar-grade">Grade 11 Theory</div><a href="hardware-gr11.html">Motherboard &amp; Hardware</a><a href="processing.html">Processing Techniques</a><a href="databases.html">Database Management</a><a href="networks-gr11.html">Networks &amp; Protocols</a><a href="mobile-tech.html">Mobile Technology</a><a href="computer-management.html">Computer Management</a><a href="e-communications-gr11.html">E-Communications</a><a href="internet-gr11.html">Internet &amp; Multimedia</a><a href="internet-services-gr11.html">Internet Services</a><a href="social-gr11.html">Social Implications</a><div class="sidebar-grade" style="margin-top:1rem">Grade 11 Practical</div><a href="../practical/arrays.html">1D Arrays</a><a href="../practical/text-files.html">Text Files</a><a href="../practical/methods.html">Procedures &amp; Functions</a><a href="../practical/databases-delphi.html">Databases in Delphi</a></aside><main class="content"><div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Motherboard &amp; Hardware</span></div>
+<h1>Motherboard &amp; Hardware <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">A deeper look at what is inside the system unit — the motherboard, its components, buses, expansion cards, and how data flows between parts.</p>
+<h2>The Motherboard</h2>
+<p>The motherboard is a large printed circuit board that connects and provides power to all hardware components. It is the central hub of the computer.</p>
+<h3>Key Motherboard Components</h3>
+<div class="tbl-wrap"><table>
+  <tr><th>Component</th><th>Description</th></tr>
+  <tr><td><strong>BIOS chip</strong></td><td>Basic Input/Output System — first instructions when PC starts. Stored on ROM. Performs POST.</td></tr>
+  <tr><td><strong>CPU socket (ZIF)</strong></td><td>Connects the CPU to the motherboard</td></tr>
+  <tr><td><strong>DIMM slots</strong></td><td>RAM slots</td></tr>
+  <tr><td><strong>PCI / PCIe slots</strong></td><td>Add expansion cards (GPU, sound card, NIC)</td></tr>
+  <tr><td><strong>SATA ports</strong></td><td>Connect internal storage (HDD, SSD)</td></tr>
+  <tr><td><strong>Power connector</strong></td><td>Supplies power from PSU to all components</td></tr>
+  <tr><td><strong>RAM (DIMM)</strong></td><td>Volatile short-term memory for active programs</td></tr>
+  <tr><td><strong>ROM</strong></td><td>Read-Only Memory — stores BIOS firmware permanently</td></tr>
+</table></div>
+<h2>BIOS Functions</h2>
+<ul>
+  <li>Performs the <strong>POST</strong> (Power-On Self-Test) — checks RAM, keyboard, storage</li>
+  <li>Identifies and initialises hardware devices</li>
+  <li>Locates the bootloader and hands control to the OS</li>
+  <li>Provides low-level system settings</li>
+</ul>
+<h2>Motherboard Buses</h2>
+<p>A <strong>bus</strong> is a set of wires that transfers data between components.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Bus type</th><th>Purpose</th></tr>
+  <tr><td><strong>Data bus</strong></td><td>Transfers data and instructions between components</td></tr>
+  <tr><td><strong>Address bus</strong></td><td>Carries the physical memory address of data</td></tr>
+  <tr><td><strong>Control bus</strong></td><td>CPU sends signals to coordinate actions</td></tr>
+  <tr><td><strong>Power bus</strong></td><td>Delivers electricity to components</td></tr>
+  <tr><td><strong>Internal bus</strong></td><td>Links CPU and main memory</td></tr>
+  <tr><td><strong>External bus</strong></td><td>Interface for peripherals (USB, SATA, PCIe)</td></tr>
+</table></div>
+<h2>Data Flow Between Components</h2>
+<p><strong>Storage → RAM → CPU:</strong> Data is loaded from slow storage into fast RAM, then the CPU fetches from RAM for processing.</p>
+<p><strong>RAM → VRAM → GPU:</strong> Graphics data is moved from RAM to VRAM so the GPU can render images without burdening the CPU.</p>
+<h2>Cache Memory</h2>
+<p>Cache is a very small, very fast memory located close to (or inside) the CPU. It stores frequently used instructions so the CPU does not have to wait for slower RAM.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Level</th><th>Speed</th><th>Size</th></tr>
+  <tr><td>L1</td><td>Fastest</td><td>Smallest (inside each core)</td></tr>
+  <tr><td>L2</td><td>Fast</td><td>Larger</td></tr>
+  <tr><td>L3</td><td>Moderate</td><td>Largest (shared across cores)</td></tr>
+</table></div>
+<h2>Modular Design</h2>
+<p>Motherboards use a <strong>modular design</strong> — individual components (RAM, CPU, GPU) can be upgraded or replaced without replacing the whole computer.</p>
+<div class="page-nav">
+  <span></span>
+  <a class="next" href="processing.html"><span class="page-nav-label">Next →</span>Processing Techniques</a>
+</div></main></div><script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script></body></html>

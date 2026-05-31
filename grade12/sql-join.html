@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SQL Joining Tables (Grade 12) &#x00B7; Ms Coetzee IT</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>:root{--grade-color:var(--gr12);}</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+<aside class="sidebar">
+  <div class="sidebar-grade">Grade 12 Practical</div>
+  <a href="sql.html">SQL</a>
+  <a href="sql-join.html">SQL Joining Tables</a>
+  <a href="oop.html">OOP</a>
+  <a href="arrays-2d.html">2D Arrays</a>
+  <a href="recursion.html">Recursion</a>
+  <div class="sidebar-grade" style="margin-top:1rem">Grade 12 Theory</div>
+  <a href="data-management.html">Data Warehousing</a>
+  <a href="relational-db.html">Relational DBs</a>
+  <a href="hardware-gr12.html">Hardware</a>
+  <a href="cloud-vr-ar.html">Cloud, VR &amp; AR</a>
+  <a href="internet-tech.html">Internet Tech</a>
+  <a href="networks-gr12.html">Networks</a>
+  <a href="communication-tech.html">Communication Tech</a>
+  <a href="cybercrime.html">Cybercrime</a>
+  <a href="social-gr12.html">Social Implications</a>
+</aside>
+<main class="content">
+  <div class="breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb-sep">&rsaquo;</span><span>SQL &mdash; Joining Tables</span></div>
+  <h1>SQL &mdash; Joining Tables <span class="grade-badge">Grade 12</span></h1>
+  <p class="page-intro">In SA IT CAPS, joining two tables is done using the <strong>WHERE clause method</strong> &mdash; listing both tables in FROM and linking them with a matching condition in WHERE. This is the only join method required for CAPS.</p>
+
+  <div class="callout warning">
+    <div class="callout-title">CAPS Method: WHERE Clause &mdash; Not INNER JOIN</div>
+    <p>The official SA IT CAPS specifies the <strong>WHERE method</strong> for single joins. The CAPS document states: <em>&ldquo;Create a join query (single joins) using WHERE&rdquo;</em>. Do NOT use the INNER JOIN keyword in exams.</p>
+  </div>
+
+  <h2>Why Join Tables?</h2>
+  <p>A relational database splits related data across tables. For example, a student record stores a ClassID but the class name lives in a separate table. To display both together, you join the tables.</p>
+
+  <h2>Syntax</h2>
+  <div class="code-block"><span class="code-label">SQL &mdash; WHERE join syntax</span>
+<pre><code><span class="sql-kw">SELECT</span> TableA.Field1, TableB.Field2
+<span class="sql-kw">FROM</span> TableA, TableB
+<span class="sql-kw">WHERE</span> TableA.KeyField = TableB.KeyField;</code></pre></div>
+  <p>Both tables appear in <code>FROM</code>, separated by a comma. The <code>WHERE</code> clause links the tables on their shared key field.</p>
+
+  <h2>Examples</h2>
+
+  <h3>Example 1 &mdash; Students with their class names</h3>
+  <div class="code-block"><span class="code-label">SQL</span>
+<pre><code><span class="sql-kw">SELECT</span> tblStudents.Name, tblStudents.Surname, tblClasses.ClassName
+<span class="sql-kw">FROM</span> tblStudents, tblClasses
+<span class="sql-kw">WHERE</span> tblStudents.ClassID = tblClasses.ClassID;</code></pre></div>
+
+  <h3>Example 2 &mdash; With extra filtering and sorting</h3>
+  <div class="code-block"><span class="code-label">SQL</span>
+<pre><code><span class="sql-kw">SELECT</span> tblStudents.Name, tblStudents.Surname, tblClasses.ClassName
+<span class="sql-kw">FROM</span> tblStudents, tblClasses
+<span class="sql-kw">WHERE</span> tblStudents.ClassID = tblClasses.ClassID
+<span class="sql-kw">AND</span> tblStudents.Grade = <span class="num">12</span>
+<span class="sql-kw">ORDER BY</span> tblStudents.Surname <span class="sql-kw">ASC</span>;</code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">Adding extra conditions</div>
+    <p>Use <code>AND</code> after the join condition to filter results further. The join condition always comes first in WHERE.</p>
+  </div>
+
+  <h3>Example 3 &mdash; Join with GROUP BY and COUNT</h3>
+  <div class="code-block"><span class="code-label">SQL &mdash; count students per class</span>
+<pre><code><span class="sql-kw">SELECT</span> tblClasses.ClassName, <span class="sql-fn">COUNT</span>(tblStudents.StudentID) <span class="sql-kw">AS</span> Total
+<span class="sql-kw">FROM</span> tblStudents, tblClasses
+<span class="sql-kw">WHERE</span> tblStudents.ClassID = tblClasses.ClassID
+<span class="sql-kw">GROUP BY</span> tblClasses.ClassName
+<span class="sql-kw">ORDER BY</span> Total <span class="sql-kw">DESC</span>;</code></pre></div>
+
+  <h3>Example 4 &mdash; Using LIKE with a join</h3>
+  <div class="code-block"><span class="code-label">SQL</span>
+<pre><code><span class="sql-kw">SELECT</span> tblBooks.Title, tblAuthors.AuthorName, tblBooks.Price
+<span class="sql-kw">FROM</span> tblBooks, tblAuthors
+<span class="sql-kw">WHERE</span> tblBooks.AuthorID = tblAuthors.AuthorID
+<span class="sql-kw">AND</span> tblBooks.Title <span class="sql-kw">LIKE</span> <span class="str">"IT%"</span>
+<span class="sql-kw">ORDER BY</span> tblBooks.Price <span class="sql-kw">DESC</span>;</code></pre></div>
+
+  <h2>Using a Join in Delphi (TADOQuery)</h2>
+  <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>qryData.Close;
+qryData.SQL.Clear;
+qryData.SQL.Add(<span class="str">'SELECT tblStudents.Name, tblStudents.Surname, tblClasses.ClassName'</span>);
+qryData.SQL.Add(<span class="str">'FROM tblStudents, tblClasses'</span>);
+qryData.SQL.Add(<span class="str">'WHERE tblStudents.ClassID = tblClasses.ClassID'</span>);
+qryData.SQL.Add(<span class="str">'AND tblStudents.Grade = 12'</span>);
+qryData.Open;</code></pre></div>
+
+  <h2>Cartesian Product Warning</h2>
+  <div class="callout warning">
+    <div class="callout-title">Never forget the join condition</div>
+    <p>If you list two tables in FROM but omit the WHERE link condition, SQL returns every possible combination of rows (a <strong>Cartesian product</strong>). For two tables with 100 rows each, this produces 10,000 rows &mdash; all incorrect. Always include <code>WHERE TableA.Key = TableB.Key</code>.</p>
+  </div>
+
+  <h2>Common Mistakes</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Mistake</th><th>Effect</th><th>Fix</th></tr>
+    <tr><td>Missing join condition in WHERE</td><td>Cartesian product (massive wrong result)</td><td>Always link: <code>WHERE tblA.Key = tblB.Key</code></td></tr>
+    <tr><td>Ambiguous field name (e.g. just <code>Name</code> when both tables have it)</td><td>SQL error</td><td>Always prefix: <code>tblStudents.Name</code></td></tr>
+    <tr><td>Not calling <code>qryData.Close</code> before changing SQL</td><td>Runtime error</td><td>Always close first</td></tr>
+  </table></div>
+
+  <div class="page-nav">
+    <a href="sql.html"><span class="page-nav-label">&larr; Previous</span>SQL</a>
+    <a class="next" href="oop.html"><span class="page-nav-label">Next &rarr;</span>OOP</a>
+  </div>
+</main>
+</div>
+<script src="../js/nav.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>
