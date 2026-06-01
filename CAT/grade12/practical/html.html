@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML & Web Design – CAT Grade 12</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr12); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 12 · Practical</div>
+    <a href="../../grade12/practical/word-processing.html">Word Processing</a>
+    <a href="../../grade12/practical/spreadsheets.html">Spreadsheets</a>
+    <a href="../../grade12/practical/databases.html">Databases (Access)</a>
+    <a href="../../grade12/practical/html.html">HTML &amp; Web Design</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 12 · Theory</div>
+    <a href="../../grade12/theory/hardware.html">Hardware &amp; Buying Decisions</a>
+    <a href="../../grade12/theory/software.html">Software &amp; File Management</a>
+    <a href="../../grade12/theory/networks.html">Networks &amp; WAN</a>
+    <a href="../../grade12/theory/internet.html">Internet &amp; E-Communication</a>
+    <a href="../../grade12/theory/social.html">Social Implications</a>
+  </aside>
+  <main class="content">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Grade 12 Practical</span><span class="breadcrumb-sep">›</span><span>HTML &amp; Web Design</span></div>
+    <h1>HTML &amp; Web Design <span class="grade-badge">Grade 12</span></h1>
+    <p class="page-intro">Grade 12 HTML focuses on advanced table formatting (border, cellpadding, cellspacing, alignment, merging), designing complete web pages for specific scenarios, and applying good web design principles.</p>
+
+    <div class="callout">
+      <div class="callout-title">GRADE 12 HTML — ALL PREVIOUS TAGS STILL APPLY</div>
+      <p>All Grade 10 (basic structure, text tags, font tag, hr, br, body bgcolor) and Grade 11 (lists, images, tables, links, comments) tags are still examinable. Grade 12 deepens table formatting knowledge and web design principles.</p>
+    </div>
+
+    <h2>Advanced Table Formatting</h2>
+
+    <h3>Table Attributes — Complete Reference</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Attribute</th><th>Applied to</th><th>Values / Example</th><th>Effect</th></tr>
+      <tr><td><code class="hat">border</code></td><td>&lt;table&gt;</td><td>border="1"</td><td>Border around table and cells (0 = no border)</td></tr>
+      <tr><td><code class="hat">cellpadding</code></td><td>&lt;table&gt;</td><td>cellpadding="5"</td><td>Space (px) INSIDE cells between content and cell wall</td></tr>
+      <tr><td><code class="hat">cellspacing</code></td><td>&lt;table&gt;</td><td>cellspacing="3"</td><td>Space (px) BETWEEN cells</td></tr>
+      <tr><td><code class="hat">width</code></td><td>&lt;table&gt;, &lt;td&gt;</td><td>width="80%" or width="400"</td><td>Width of table or cell (px or %)</td></tr>
+      <tr><td><code class="hat">height</code></td><td>&lt;table&gt;, &lt;td&gt;</td><td>height="50"</td><td>Height of table or cell in pixels</td></tr>
+      <tr><td><code class="hat">bgcolor</code></td><td>&lt;table&gt;, &lt;tr&gt;, &lt;td&gt;</td><td>bgcolor="lightblue"</td><td>Background colour</td></tr>
+      <tr><td><code class="hat">align</code></td><td>&lt;table&gt;, &lt;td&gt;, &lt;th&gt;</td><td>left | center | right</td><td>Horizontal alignment of table on page, or content in cell</td></tr>
+      <tr><td><code class="hat">valign</code></td><td>&lt;td&gt;, &lt;th&gt;</td><td>top | middle | bottom</td><td>Vertical alignment of content within cell</td></tr>
+      <tr><td><code class="hat">colspan</code></td><td>&lt;td&gt;, &lt;th&gt;</td><td>colspan="2"</td><td>Merges cell across 2 (or more) columns</td></tr>
+      <tr><td><code class="hat">rowspan</code></td><td>&lt;td&gt;, &lt;th&gt;</td><td>rowspan="3"</td><td>Merges cell across 3 (or more) rows</td></tr>
+    </table></div>
+
+    <h3>Complete Table Example</h3>
+    <div class="code-block">
+      <div class="code-label">Grade 12 table with full formatting</div>
+      <pre><span class="ht">&lt;table</span> <span class="hat">border</span>=<span class="hv">"2"</span> <span class="hat">cellpadding</span>=<span class="hv">"8"</span> <span class="hat">cellspacing</span>=<span class="hv">"2"</span> <span class="hat">width</span>=<span class="hv">"80%"</span> <span class="hat">align</span>=<span class="hv">"center"</span><span class="ht">&gt;</span>
+
+  <span class="ht">&lt;tr</span> <span class="hat">bgcolor</span>=<span class="hv">"navy"</span><span class="ht">&gt;</span>
+    <span class="ht">&lt;th</span> <span class="hat">colspan</span>=<span class="hv">"3"</span> <span class="hat">align</span>=<span class="hv">"center"</span><span class="ht">&gt;</span>
+      <span class="ht">&lt;font</span> <span class="hat">color</span>=<span class="hv">"white"</span><span class="ht">&gt;</span>School Results 2026<span class="ht">&lt;/font&gt;</span>
+    <span class="ht">&lt;/th&gt;</span>
+  <span class="ht">&lt;/tr&gt;</span>
+
+  <span class="ht">&lt;tr</span> <span class="hat">bgcolor</span>=<span class="hv">"lightgrey"</span><span class="ht">&gt;</span>
+    <span class="ht">&lt;th&gt;</span>Name<span class="ht">&lt;/th&gt;</span>
+    <span class="ht">&lt;th&gt;</span>Grade<span class="ht">&lt;/th&gt;</span>
+    <span class="ht">&lt;th&gt;</span>Average<span class="ht">&lt;/th&gt;</span>
+  <span class="ht">&lt;/tr&gt;</span>
+
+  <span class="ht">&lt;tr&gt;</span>
+    <span class="ht">&lt;td</span> <span class="hat">align</span>=<span class="hv">"left"</span><span class="ht">&gt;</span>Amahle Dlamini<span class="ht">&lt;/td&gt;</span>
+    <span class="ht">&lt;td</span> <span class="hat">align</span>=<span class="hv">"center"</span><span class="ht">&gt;</span>12<span class="ht">&lt;/td&gt;</span>
+    <span class="ht">&lt;td</span> <span class="hat">align</span>=<span class="hv">"right"</span><span class="ht">&gt;</span>87%<span class="ht">&lt;/td&gt;</span>
+  <span class="ht">&lt;/tr&gt;</span>
+
+  <span class="ht">&lt;tr&gt;</span>
+    <span class="ht">&lt;td&gt;</span>Johan van der Berg<span class="ht">&lt;/td&gt;</span>
+    <span class="ht">&lt;td</span> <span class="hat">align</span>=<span class="hv">"center"</span><span class="ht">&gt;</span>12<span class="ht">&lt;/td&gt;</span>
+    <span class="ht">&lt;td</span> <span class="hat">align</span>=<span class="hv">"right"</span><span class="ht">&gt;</span>74%<span class="ht">&lt;/td&gt;</span>
+  <span class="ht">&lt;/tr&gt;</span>
+
+<span class="ht">&lt;/table&gt;</span></pre>
+    </div>
+
+    <h3>Merging Cells — colspan and rowspan Together</h3>
+    <div class="code-block">
+      <div class="code-label">Complex table with merged cells</div>
+      <pre><span class="ht">&lt;table</span> <span class="hat">border</span>=<span class="hv">"1"</span> <span class="hat">cellpadding</span>=<span class="hv">"5"</span><span class="ht">&gt;</span>
+  <span class="ht">&lt;tr&gt;</span>
+    <span class="ht">&lt;th</span> <span class="hat">rowspan</span>=<span class="hv">"2"</span><span class="ht">&gt;</span>Name<span class="ht">&lt;/th&gt;</span>      <span class="hcmt">&lt;!-- spans 2 rows vertically --&gt;</span>
+    <span class="ht">&lt;th</span> <span class="hat">colspan</span>=<span class="hv">"2"</span><span class="ht">&gt;</span>Scores<span class="ht">&lt;/th&gt;</span>  <span class="hcmt">&lt;!-- spans 2 columns horizontally --&gt;</span>
+  <span class="ht">&lt;/tr&gt;</span>
+  <span class="ht">&lt;tr&gt;</span>
+    <span class="ht">&lt;th&gt;</span>Term 1<span class="ht">&lt;/th&gt;</span>                  <span class="hcmt">&lt;!-- 2nd row of "Scores" header --&gt;</span>
+    <span class="ht">&lt;th&gt;</span>Term 2<span class="ht">&lt;/th&gt;</span>
+  <span class="ht">&lt;/tr&gt;</span>
+  <span class="ht">&lt;tr&gt;</span>
+    <span class="ht">&lt;td&gt;</span>Sipho<span class="ht">&lt;/td&gt;</span>
+    <span class="ht">&lt;td&gt;</span>72<span class="ht">&lt;/td&gt;</span>
+    <span class="ht">&lt;td&gt;</span>85<span class="ht">&lt;/td&gt;</span>
+  <span class="ht">&lt;/tr&gt;</span>
+<span class="ht">&lt;/table&gt;</span></pre>
+    </div>
+
+    <h2>Good Web Page Design Principles</h2>
+    <p>Grade 12 expects you to evaluate and apply these principles:</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Principle</th><th>Good practice</th><th>Bad practice</th></tr>
+      <tr><td><strong>Readability</strong></td><td>High contrast (dark text on light bg), min 12pt body text, clear headings</td><td>Light grey text on white, tiny font, no spacing</td></tr>
+      <tr><td><strong>Navigation</strong></td><td>Consistent menu, clear labels, max 3 clicks to any page</td><td>No back button, broken links, confusing structure</td></tr>
+      <tr><td><strong>Consistency</strong></td><td>Same colours, fonts and header on all pages</td><td>Different layout on every page</td></tr>
+      <tr><td><strong>Layout</strong></td><td>Grid-based, balanced text and images, breathing room</td><td>Cluttered, inconsistent margins, too much text</td></tr>
+      <tr><td><strong>Colour</strong></td><td>Max 3 main colours, complementary palette, accessible contrast</td><td>Clashing colours, too many colours, red text on green</td></tr>
+      <tr><td><strong>Typography</strong></td><td>Max 2 font families, heading clearly larger than body</td><td>5 different fonts, all the same size</td></tr>
+      <tr><td><strong>Loading speed</strong></td><td>Compress images, avoid large files</td><td>Huge uncompressed images, embedded videos on every page</td></tr>
+    </table></div>
+
+    <h2>Complete Grade 12 Web Page Example</h2>
+    <div class="code-block">
+      <div class="code-label">Full Grade 12 HTML page</div>
+      <pre><span class="ht">&lt;html&gt;</span>
+<span class="ht">&lt;head&gt;</span>
+  <span class="ht">&lt;title&gt;</span>Bellville High School — CAT Department<span class="ht">&lt;/title&gt;</span>
+<span class="ht">&lt;/head&gt;</span>
+<span class="ht">&lt;body</span> <span class="hat">bgcolor</span>=<span class="hv">"#f0f0f0"</span><span class="ht">&gt;</span>
+
+  <span class="hcmt">&lt;!-- Page heading with navigation link --&gt;</span>
+  <span class="ht">&lt;h1</span> <span class="hat">align</span>=<span class="hv">"center"</span><span class="ht">&gt;</span>
+    <span class="ht">&lt;font</span> <span class="hat">color</span>=<span class="hv">"#003366"</span> <span class="hat">face</span>=<span class="hv">"Arial"</span><span class="ht">&gt;</span>CAT Department<span class="ht">&lt;/font&gt;</span>
+  <span class="ht">&lt;/h1&gt;</span>
+  <span class="ht">&lt;hr</span> <span class="hat">width</span>=<span class="hv">"90%"</span> <span class="hat">size</span>=<span class="hv">"2"</span><span class="ht">&gt;</span>
+
+  <span class="hcmt">&lt;!-- Navigation --&gt;</span>
+  <span class="ht">&lt;p</span> <span class="hat">align</span>=<span class="hv">"center"</span><span class="ht">&gt;</span>
+    <span class="ht">&lt;a</span> <span class="hat">href</span>=<span class="hv">"index.html"</span><span class="ht">&gt;</span>Home<span class="ht">&lt;/a&gt;</span> |
+    <span class="ht">&lt;a</span> <span class="hat">href</span>=<span class="hv">"results.html"</span><span class="ht">&gt;</span>Results<span class="ht">&lt;/a&gt;</span> |
+    <span class="ht">&lt;a</span> <span class="hat">href</span>=<span class="hv">"contact.html"</span><span class="ht">&gt;</span>Contact<span class="ht">&lt;/a&gt;</span>
+  <span class="ht">&lt;/p&gt;</span>
+
+  <span class="hcmt">&lt;!-- Logo image --&gt;</span>
+  <span class="ht">&lt;img</span> <span class="hat">src</span>=<span class="hv">"school_logo.png"</span> <span class="hat">alt</span>=<span class="hv">"School Logo"</span> <span class="hat">width</span>=<span class="hv">"150"</span> <span class="hat">align</span>=<span class="hv">"right"</span><span class="ht">&gt;</span>
+
+  <span class="ht">&lt;h2&gt;</span>About CAT<span class="ht">&lt;/h2&gt;</span>
+  <span class="ht">&lt;p&gt;</span>Computer Applications Technology teaches learners to use
+  <span class="ht">&lt;b&gt;</span>application software<span class="ht">&lt;/b&gt;</span> effectively to solve real-world problems.<span class="ht">&lt;/p&gt;</span>
+
+  <span class="hcmt">&lt;!-- Results table --&gt;</span>
+  <span class="ht">&lt;h2&gt;</span>2026 Grade 12 Results<span class="ht">&lt;/h2&gt;</span>
+  <span class="ht">&lt;table</span> <span class="hat">border</span>=<span class="hv">"1"</span> <span class="hat">cellpadding</span>=<span class="hv">"6"</span> <span class="hat">cellspacing</span>=<span class="hv">"0"</span> <span class="hat">width</span>=<span class="hv">"60%"</span><span class="ht">&gt;</span>
+    <span class="ht">&lt;tr</span> <span class="hat">bgcolor</span>=<span class="hv">"#003366"</span><span class="ht">&gt;</span>
+      <span class="ht">&lt;th&gt;&lt;font</span> <span class="hat">color</span>=<span class="hv">"white"</span><span class="ht">&gt;</span>Name<span class="ht">&lt;/font&gt;&lt;/th&gt;</span>
+      <span class="ht">&lt;th&gt;&lt;font</span> <span class="hat">color</span>=<span class="hv">"white"</span><span class="ht">&gt;</span>Mark<span class="ht">&lt;/font&gt;&lt;/th&gt;</span>
+    <span class="ht">&lt;/tr&gt;</span>
+    <span class="ht">&lt;tr&gt;</span>
+      <span class="ht">&lt;td&gt;</span>Amahle Dlamini<span class="ht">&lt;/td&gt;</span>
+      <span class="ht">&lt;td</span> <span class="hat">align</span>=<span class="hv">"center"</span><span class="ht">&gt;</span>87%<span class="ht">&lt;/td&gt;</span>
+    <span class="ht">&lt;/tr&gt;</span>
+  <span class="ht">&lt;/table&gt;</span>
+
+<span class="ht">&lt;/body&gt;</span>
+<span class="ht">&lt;/html&gt;</span></pre>
+    </div>
+
+    <div class="callout exam">
+      <div class="callout-title">EXAM TIP — HTML Tag Sheet</div>
+      <p>In a practical exam, an HTML tag reference sheet is provided. Read it carefully — the exam uses only the tags listed. Most common Grade 12 mistakes: (1) confusing cellpadding (inside cells) vs cellspacing (between cells); (2) counting columns wrong when using colspan/rowspan — draw the table on paper first to plan merges; (3) forgetting to close tags like &lt;/table&gt; or &lt;/tr&gt;.</p>
+    </div>
+
+    <div class="page-nav">
+      <a href="databases.html"><span class="page-nav-label">← Previous</span>Databases (Access)</a>
+      <a class="next" href="../../grade12/theory/hardware.html"><span class="page-nav-label">Next →</span>Hardware Theory (Gr 12)</a>
+    </div>
+  </main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

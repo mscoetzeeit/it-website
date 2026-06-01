@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Software & File Management – CAT Grade 12</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr12); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 12 · Theory</div>
+    <a href="../../grade12/theory/hardware.html">Hardware &amp; Buying Decisions</a>
+    <a href="../../grade12/theory/software.html">Software &amp; File Management</a>
+    <a href="../../grade12/theory/networks.html">Networks &amp; WAN</a>
+    <a href="../../grade12/theory/internet.html">Internet &amp; E-Communication</a>
+    <a href="../../grade12/theory/social.html">Social Implications</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 12 · Practical</div>
+    <a href="../../grade12/practical/word-processing.html">Word Processing</a>
+    <a href="../../grade12/practical/spreadsheets.html">Spreadsheets</a>
+    <a href="../../grade12/practical/databases.html">Databases (Access)</a>
+    <a href="../../grade12/practical/html.html">HTML &amp; Web Design</a>
+  </aside>
+  <main class="content">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Grade 12 Theory</span><span class="breadcrumb-sep">›</span><span>Software &amp; File Management</span></div>
+    <h1>Software &amp; File Management <span class="grade-badge">Grade 12</span></h1>
+    <p class="page-intro">Grade 12 covers the operating system in depth, system utilities, file management (metadata, attributes), performance factors, and comparing web-based vs installed applications.</p>
+
+    <h2>Role of the Operating System</h2>
+    <p>The OS manages all hardware and software. Its main functions:</p>
+    <div class="def-grid">
+      <div class="def-term">Starting the computer</div><div class="def-desc">Loads itself into RAM when the computer powers on (bootstrapping/boot process)</div>
+      <div class="def-term">User interface</div><div class="def-desc">Provides GUI (or command line) for users to interact with the computer</div>
+      <div class="def-term">Program management</div><div class="def-desc">Loads, runs and closes programs; manages multitasking (multiple programs at once)</div>
+      <div class="def-term">Memory management</div><div class="def-desc">Allocates RAM to programs; manages virtual memory (using disk space as extra RAM)</div>
+      <div class="def-term">File management</div><div class="def-desc">Creates, opens, saves, renames, moves and deletes files and folders</div>
+      <div class="def-term">Security</div><div class="def-desc">User accounts, login, access rights, firewall, anti-spyware/adware</div>
+      <div class="def-term">Device management</div><div class="def-desc">Communicates with hardware through drivers</div>
+    </div>
+
+    <h3>Multitasking</h3>
+    <p><strong>Multitasking</strong> = running multiple programs apparently simultaneously. The CPU switches between tasks so rapidly it seems parallel. Modern CPUs with multiple cores can actually run tasks in parallel.</p>
+    <h3>Task Manager</h3>
+    <p>Ctrl+Alt+Del → Task Manager. Allows you to: see all running programs and processes, end unresponsive tasks, monitor CPU/RAM/disk/network usage, view startup programs.</p>
+
+    <h2>Operating System Utilities</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Utility</th><th>Purpose</th></tr>
+      <tr><td><strong>Disk Cleanup</strong></td><td>Removes temporary files, recycle bin contents, system files to free space</td></tr>
+      <tr><td><strong>Disk Defragmenter</strong></td><td>Reorganises fragmented HDD files for faster access (NOT needed for SSDs)</td></tr>
+      <tr><td><strong>Backup software</strong></td><td>Creates copies of data on external drive or cloud; automates regular backups</td></tr>
+      <tr><td><strong>Antivirus / Anti-malware</strong></td><td>Detects and removes malware; must be updated regularly</td></tr>
+      <tr><td><strong>Firewall</strong></td><td>Monitors incoming/outgoing network traffic; blocks unauthorised connections</td></tr>
+      <tr><td><strong>VPN</strong></td><td>Virtual Private Network — encrypts internet traffic; hides IP address; secure remote access</td></tr>
+      <tr><td><strong>Printer spooler</strong></td><td>Manages print queue — stores print jobs and sends them to the printer in order</td></tr>
+      <tr><td><strong>Scheduler</strong></td><td>Automates tasks at set times (e.g. scheduled backups, updates)</td></tr>
+      <tr><td><strong>Disk repair (CHKDSK)</strong></td><td>Finds and fixes file system errors and bad sectors on a disk</td></tr>
+      <tr><td><strong>7-Zip / WinZip</strong></td><td>Compress/decompress files; can add password protection to compressed archives</td></tr>
+    </table></div>
+
+    <h2>File Management — Advanced</h2>
+    <h3>File Properties and Metadata</h3>
+    <p><strong>Metadata</strong> = data about data — information stored with a file that describes it.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Property</th><th>Description</th></tr>
+      <tr><td>File name</td><td>The name of the file (must be unique in the same folder)</td></tr>
+      <tr><td>File type / extension</td><td>.docx, .xlsx, .pdf, .jpg — determines which application opens it</td></tr>
+      <tr><td>File size</td><td>How much storage space it takes up (bytes, KB, MB, GB)</td></tr>
+      <tr><td>Date created</td><td>When the file was first created</td></tr>
+      <tr><td>Date modified</td><td>When the file was last saved/changed</td></tr>
+      <tr><td>Author</td><td>The name of who created the file (from Office settings)</td></tr>
+      <tr><td>Title</td><td>A title property set in File → Info → Properties</td></tr>
+      <tr><td>Location (path)</td><td>The full folder path where the file is stored</td></tr>
+    </table></div>
+    <h3>File Attributes</h3>
+    <div class="def-grid">
+      <div class="def-term">Read-only</div><div class="def-desc">File can be opened but NOT edited or deleted; useful for protecting important files from accidental changes</div>
+      <div class="def-term">Hidden</div><div class="def-desc">File does not appear in standard File Explorer view; used for system files; can be revealed by enabling "Show hidden files"</div>
+    </div>
+    <p>Set attributes: right-click file → Properties → check/uncheck Read-only or Hidden.</p>
+
+    <h3>Compressing Files (with Password)</h3>
+    <ul>
+      <li>Right-click file/folder → Send to → Compressed (zipped) folder (basic Windows compression)</li>
+      <li>Using 7-Zip: right-click → 7-Zip → Add to archive → set password → OK</li>
+      <li>Purpose: reduce file size for email attachment; protect with password for security</li>
+    </ul>
+
+    <h2>Software Maintenance</h2>
+    <div class="def-grid">
+      <div class="def-term">Patch</div><div class="def-desc">Small fix for a specific bug or security vulnerability; does not change overall version number</div>
+      <div class="def-term">Update</div><div class="def-desc">Larger improvement including multiple patches, performance improvements and minor new features</div>
+      <div class="def-term">Upgrade (New version)</div><div class="def-desc">Major new release with significant new features (e.g. Office 2019 → Office 2021); usually paid</div>
+    </div>
+
+    <h2>Web-Based vs Installed Applications</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th></th><th>Web-Based (Cloud) App</th><th>Installed (Desktop) App</th></tr>
+      <tr><td><strong>Examples</strong></td><td>Google Docs, Office Online, Canva</td><td>MS Word, MS Excel, Adobe Photoshop</td></tr>
+      <tr><td><strong>Internet needed?</strong></td><td>Yes — always</td><td>No — works offline</td></tr>
+      <tr><td><strong>Installation</strong></td><td>None — runs in browser</td><td>Must install on each device</td></tr>
+      <tr><td><strong>Storage</strong></td><td>Files saved in cloud</td><td>Files saved locally</td></tr>
+      <tr><td><strong>Collaboration</strong></td><td>Multiple users edit simultaneously</td><td>Files must be shared and merged manually</td></tr>
+      <tr><td><strong>Updates</strong></td><td>Automatic — always latest version</td><td>Must update manually</td></tr>
+      <tr><td><strong>Cost</strong></td><td>Often free or subscription</td><td>One-time purchase or subscription</td></tr>
+      <tr><td><strong>Features</strong></td><td>Fewer features than desktop</td><td>Full feature set</td></tr>
+      <tr><td><strong>Data privacy</strong></td><td>Data on 3rd-party servers</td><td>Data stays on your device</td></tr>
+    </table></div>
+
+    <h2>Factors Influencing Performance</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Factor</th><th>How it affects performance</th></tr>
+      <tr><td>RAM</td><td>More RAM = more programs running simultaneously without slowing</td></tr>
+      <tr><td>CPU speed &amp; cores</td><td>Faster clock speed and more cores = quicker processing</td></tr>
+      <tr><td>Number of running apps</td><td>More apps = more RAM used; CPU splits time between more tasks</td></tr>
+      <tr><td>Caching</td><td>Frequently accessed data stored in fast cache = quicker access</td></tr>
+      <tr><td>Disk optimisation</td><td>Defragmented HDD or fast SSD = quicker file access</td></tr>
+      <tr><td>Malware</td><td>Malware uses CPU/RAM/network in background = slower system</td></tr>
+      <tr><td>Startup programs</td><td>Too many programs starting with Windows = slow boot; disable unnecessary ones</td></tr>
+      <tr><td>Overheating</td><td>Poor ventilation causes CPU throttling = slower performance</td></tr>
+    </table></div>
+
+    <div class="callout exam">
+      <div class="callout-title">EXAM TIP — Patches vs Updates vs Upgrades</div>
+      <p>These three terms are often confused. Remember: <strong>Patch</strong> = small specific fix (security hole); <strong>Update</strong> = bigger collection of fixes + improvements; <strong>Upgrade</strong> = entirely new version (costs money, big change). An antivirus "definition update" adds new virus signatures — that's an update. Moving from Windows 10 to Windows 11 is an upgrade.</p>
+    </div>
+
+    <div class="page-nav">
+      <a href="hardware.html"><span class="page-nav-label">← Previous</span>Hardware &amp; Buying Decisions</a>
+      <a class="next" href="networks.html"><span class="page-nav-label">Next →</span>Networks &amp; WAN</a>
+    </div>
+  </main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

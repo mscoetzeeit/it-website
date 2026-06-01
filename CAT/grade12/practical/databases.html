@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Databases (Access) – CAT Grade 12</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr12); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 12 · Practical</div>
+    <a href="../../grade12/practical/word-processing.html">Word Processing</a>
+    <a href="../../grade12/practical/spreadsheets.html">Spreadsheets</a>
+    <a href="../../grade12/practical/databases.html">Databases (Access)</a>
+    <a href="../../grade12/practical/html.html">HTML &amp; Web Design</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 12 · Theory</div>
+    <a href="../../grade12/theory/hardware.html">Hardware &amp; Buying Decisions</a>
+    <a href="../../grade12/theory/software.html">Software &amp; File Management</a>
+    <a href="../../grade12/theory/networks.html">Networks &amp; WAN</a>
+    <a href="../../grade12/theory/internet.html">Internet &amp; E-Communication</a>
+    <a href="../../grade12/theory/social.html">Social Implications</a>
+  </aside>
+  <main class="content">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Grade 12 Practical</span><span class="breadcrumb-sep">›</span><span>Databases (Access)</span></div>
+    <h1>Databases (Access) <span class="grade-badge">Grade 12</span></h1>
+    <p class="page-intro">Grade 12 extends Access to advanced queries (calculated fields, totals, wildcards, IS Null), grouped reports with calculations, and designing complete database solutions for specific scenarios.</p>
+
+    <h2>Advanced Queries</h2>
+
+    <h3>Calculated Fields in Queries</h3>
+    <p>You can add a new column in a query that calculates a result based on other fields:</p>
+    <div class="code-block">
+      <div class="code-label">Calculated field syntax in query design</div>
+      <pre><span class="hcmt">In the Field row of a blank column, type:</span>
+FieldName: [Field1] * [Field2]
+
+<span class="hcmt">Examples:</span>
+TotalPrice: [UnitPrice] * [Quantity]
+Discount: [Price] * 0.1
+FullName: [FirstName] &amp; " " &amp; [LastName]
+Age: Year(Now()) - Year([DateOfBirth])</pre>
+    </div>
+
+    <h3>Totals / Group By in Queries</h3>
+    <p>The Totals row allows you to perform aggregate calculations grouped by a field:</p>
+    <ul>
+      <li>Query Design → Design tab → Totals (Σ) button</li>
+      <li>A <strong>Total</strong> row appears under each field</li>
+      <li>Set it to <strong>Group By</strong> for the grouping field</li>
+      <li>Set it to a function (<strong>Sum, Avg, Count, Max, Min</strong>) for calculated fields</li>
+    </ul>
+    <div class="tbl-wrap"><table>
+      <tr><th>Function in Total row</th><th>Effect</th></tr>
+      <tr><td>Group By</td><td>Groups records by unique values in this field</td></tr>
+      <tr><td>Sum</td><td>Adds all values in the field for each group</td></tr>
+      <tr><td>Avg</td><td>Average value for each group</td></tr>
+      <tr><td>Count</td><td>Number of records in each group</td></tr>
+      <tr><td>Max</td><td>Largest value in each group</td></tr>
+      <tr><td>Min</td><td>Smallest value in each group</td></tr>
+      <tr><td>Where</td><td>Used to filter records before grouping (criteria applies to ungrouped data)</td></tr>
+    </table></div>
+
+    <h3>Wildcard Characters</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Wildcard</th><th>Matches</th><th>Example</th><th>Finds</th></tr>
+      <tr><td><code>*</code></td><td>Any number of characters</td><td>Like "S*"</td><td>Smith, Sarah, SA</td></tr>
+      <tr><td><code>?</code></td><td>Any single character</td><td>Like "B?g"</td><td>Big, Bag, Bug</td></tr>
+      <tr><td><code>#</code></td><td>Any single digit</td><td>Like "200#"</td><td>2001, 2002, 2009</td></tr>
+    </table></div>
+
+    <h3>IS Null / IS Not Null</h3>
+    <ul>
+      <li><code>Is Null</code> — finds records where the field is empty (no data entered)</li>
+      <li><code>Is Not Null</code> — finds records where the field has any value</li>
+    </ul>
+
+    <h3>AND / OR / NOT in Queries</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Logic</th><th>How to enter in query grid</th></tr>
+      <tr><td>AND</td><td>Put criteria for BOTH fields in the <strong>same Criteria row</strong></td></tr>
+      <tr><td>OR</td><td>Put one criterion in Criteria row, the other in the <strong>Or row below</strong></td></tr>
+      <tr><td>NOT</td><td>Use <code>Not "value"</code> or <code>&lt;&gt;"value"</code> in the criteria</td></tr>
+    </table></div>
+
+    <h2>Advanced Reports — Grouped Reports</h2>
+    <div class="steps-box">
+      <div class="steps-title">Step-by-step: Create a grouped report with subtotals</div>
+      <ol class="steps">
+        <li>Click the <span class="ribbon-path"><span class="rp">Create</span><span class="rp-arrow">→</span><span class="rp">Report Wizard</span></span> button.</li>
+        <li>Choose the table or query, then move the fields you want into the report (click each field, then click the <code>&gt;</code> button). Click <strong>Next</strong>.</li>
+        <li>Now choose what to <strong>group by</strong>: click the field (e.g. "Grade"), then click the <code>&gt;</code> button to add it as a grouping level. Click <strong>Next</strong>.</li>
+        <li>Choose how to sort the records inside each group (e.g. by Surname). Then click the <strong>Summary Options…</strong> button.</li>
+        <li>Tick the boxes for the calculations you want per group — <strong>Sum, Avg, Count, Min</strong> or <strong>Max</strong>. Click <strong>OK</strong>, then <strong>Next</strong>.</li>
+        <li>Choose a layout (e.g. "Stepped") and orientation, click <strong>Next</strong>, give the report a name, and click <strong>Finish</strong>.</li>
+      </ol>
+    </div>
+    <h3>Report Structure with Groups</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Section</th><th>Appears</th><th>Used for</th></tr>
+      <tr><td>Report Header</td><td>Top of report (once)</td><td>Report title, logo, date</td></tr>
+      <tr><td>Page Header</td><td>Top of each page</td><td>Column headings</td></tr>
+      <tr><td>[Group] Header</td><td>Start of each group</td><td>Group name/label</td></tr>
+      <tr><td>Detail</td><td>Each individual record</td><td>Row data</td></tr>
+      <tr><td>[Group] Footer</td><td>End of each group</td><td>Group subtotals</td></tr>
+      <tr><td>Page Footer</td><td>Bottom of each page</td><td>Page number</td></tr>
+      <tr><td>Report Footer</td><td>Bottom of report (once)</td><td>Grand totals</td></tr>
+    </table></div>
+
+    <h3>Calculations in Group Footer</h3>
+    <div class="code-block">
+      <div class="code-label">Group footer calculated text boxes</div>
+      <pre>=<span class="fn">Sum</span>([Price])    <span class="hcmt">&lt;-- subtotal for this group</span>
+=<span class="fn">Avg</span>([Mark])     <span class="hcmt">&lt;-- group average</span>
+=<span class="fn">Count</span>([ID])     <span class="hcmt">&lt;-- number of records in group</span>
+=<span class="fn">Max</span>([Score])    <span class="hcmt">&lt;-- highest score in group</span></pre>
+    </div>
+
+    <h3>Changing a Report's Source</h3>
+    <p>To change which table or query a report is based on:</p>
+    <ol>
+      <li>Open report in Design View</li>
+      <li>View the Property Sheet: Design → Property Sheet (F4)</li>
+      <li>On the Data tab, find <strong>Record Source</strong> → click dropdown → choose different table or query</li>
+    </ol>
+
+    <h2>Data Validation in Tables</h2>
+    <p>Validation ensures only correct data can be entered:</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Property</th><th>Example</th><th>Effect</th></tr>
+      <tr><td>Validation Rule</td><td>&gt;=0 And &lt;=100</td><td>Marks must be between 0 and 100</td></tr>
+      <tr><td>Validation Text</td><td>"Mark must be 0–100"</td><td>Error message shown when rule is broken</td></tr>
+      <tr><td>Required = Yes</td><td>(tick Yes)</td><td>Field cannot be left empty</td></tr>
+      <tr><td>Input Mask</td><td>000-0000000</td><td>Forces phone number format</td></tr>
+    </table></div>
+
+    <h2>Import and Export</h2>
+    <ul>
+      <li><strong>Import Excel</strong>: External Data → Excel → choose file → map columns to fields</li>
+      <li><strong>Import CSV</strong>: External Data → Text File → follow wizard</li>
+      <li><strong>Export to Excel</strong>: right-click table/query → Export → Excel</li>
+      <li><strong>Export to CSV</strong>: right-click → Export → Text File</li>
+      <li><strong>Linking</strong>: External Data → Excel → Link to data source (live link — changes in Excel reflect in Access)</li>
+    </ul>
+
+    <h2>Integration with Other Applications</h2>
+    <ul>
+      <li>Use an Access query as a data source for Excel (Data → Get Data → From Database)</li>
+      <li>Use an Access table as a mail merge data source in Word</li>
+      <li>Export a report to PDF: right-click report → Export → PDF or XPS</li>
+    </ul>
+
+    <div class="callout exam">
+      <div class="callout-title">EXAM TIP — Designing a Database for a Scenario</div>
+      <p>You may be asked to design a database from scratch for a given scenario. Steps: (1) Identify the entities (what needs to be stored — e.g. Students, Courses). (2) List the fields for each table. (3) Identify the primary key. (4) Identify calculated fields. (5) Plan queries and reports needed. Always think: "What data do I need to capture? What reports will be generated?"</p>
+    </div>
+
+    <div class="page-nav">
+      <a href="spreadsheets.html"><span class="page-nav-label">← Previous</span>Spreadsheets</a>
+      <a class="next" href="html.html"><span class="page-nav-label">Next →</span>HTML &amp; Web Design</a>
+    </div>
+  </main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

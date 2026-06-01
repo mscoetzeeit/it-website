@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spreadsheets – CAT Grade 12</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr12); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 12 · Practical</div>
+    <a href="../../grade12/practical/word-processing.html">Word Processing</a>
+    <a href="../../grade12/practical/spreadsheets.html">Spreadsheets</a>
+    <a href="../../grade12/practical/databases.html">Databases (Access)</a>
+    <a href="../../grade12/practical/html.html">HTML &amp; Web Design</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 12 · Theory</div>
+    <a href="../../grade12/theory/hardware.html">Hardware &amp; Buying Decisions</a>
+    <a href="../../grade12/theory/software.html">Software &amp; File Management</a>
+    <a href="../../grade12/theory/networks.html">Networks &amp; WAN</a>
+    <a href="../../grade12/theory/internet.html">Internet &amp; E-Communication</a>
+    <a href="../../grade12/theory/social.html">Social Implications</a>
+  </aside>
+  <main class="content">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Grade 12 Practical</span><span class="breadcrumb-sep">›</span><span>Spreadsheets</span></div>
+    <h1>Spreadsheets <span class="grade-badge">Grade 12</span></h1>
+    <p class="page-intro">Grade 12 adds complex functions (Nested IF, AND/OR, VLOOKUP/HLOOKUP, COUNTIFS/SUMIFS, text functions, date/time functions) and advanced charts including stacked graphs and trendlines.</p>
+
+    <h2>Complex Functions</h2>
+
+    <h3>Nested IF</h3>
+    <p>A nested IF places one IF inside another to test multiple conditions:</p>
+    <div class="code-block">
+      <div class="code-label">Nested IF — Grade classification</div>
+      <pre>=<span class="fn">IF</span>(<span class="ref">B2</span>&gt;=80, <span class="str">"Distinction"</span>,
+  <span class="fn">IF</span>(<span class="ref">B2</span>&gt;=60, <span class="str">"Merit"</span>,
+    <span class="fn">IF</span>(<span class="ref">B2</span>&gt;=50, <span class="str">"Pass"</span>,
+      <span class="str">"Fail"</span>)))</pre>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title">COUNTING BRACKETS</div>
+      <p>Each IF needs a closing bracket. With 3 nested IFs, you need 3 closing brackets <code>)))</code> at the end. Count: one ) for each IF opened.</p>
+    </div>
+
+    <h3>AND / OR Functions</h3>
+    <div class="code-block">
+      <div class="code-label">AND and OR</div>
+      <pre><span class="hcmt">&lt;-- AND: all conditions must be TRUE --&gt;</span>
+=<span class="fn">IF</span>(<span class="fn">AND</span>(<span class="ref">B2</span>&gt;=50, <span class="ref">C2</span>&gt;=50), <span class="str">"Pass"</span>, <span class="str">"Fail"</span>)
+
+<span class="hcmt">&lt;-- OR: at least one condition must be TRUE --&gt;</span>
+=<span class="fn">IF</span>(<span class="fn">OR</span>(<span class="ref">B2</span>&gt;=80, <span class="ref">C2</span>&gt;=80), <span class="str">"Has Distinction"</span>, <span class="str">"No Distinction"</span>)
+
+<span class="hcmt">&lt;-- Combined AND + OR --&gt;</span>
+=<span class="fn">IF</span>(<span class="fn">AND</span>(<span class="ref">A2</span>=<span class="str">"Active"</span>, <span class="fn">OR</span>(<span class="ref">B2</span>&gt;100, <span class="ref">C2</span>&gt;100)), <span class="str">"Yes"</span>, <span class="str">"No"</span>)</pre>
+    </div>
+
+    <h3>LOOKUP Functions</h3>
+    <div class="code-block">
+      <div class="code-label">VLOOKUP — looks up values in a vertical table</div>
+      <pre>=<span class="fn">VLOOKUP</span>(lookup_value, table_array, col_index_num, [range_lookup])
+
+<span class="hcmt">Example: Look up student ID in B2, find their mark in column 3 of the lookup table</span>
+=<span class="fn">VLOOKUP</span>(<span class="ref">B2</span>, <span class="ref">$E$2:$G$20</span>, 3, <span class="num">FALSE</span>)
+
+<span class="hcmt">Arguments:</span>
+<span class="hcmt">  lookup_value = the value to search for (B2)</span>
+<span class="hcmt">  table_array  = the range to search in ($E$2:$G$20) — always ABSOLUTE!</span>
+<span class="hcmt">  col_index    = which column in the table to return (3 = 3rd column)</span>
+<span class="hcmt">  range_lookup = FALSE = exact match; TRUE = approximate match</span>
+
+<span class="hcmt">Error: if not found, returns #N/A</span></pre>
+    </div>
+    <div class="code-block">
+      <div class="code-label">HLOOKUP — looks up values in a horizontal table</div>
+      <pre>=<span class="fn">HLOOKUP</span>(lookup_value, table_array, row_index_num, [range_lookup])
+
+<span class="hcmt">Same as VLOOKUP but searches across rows instead of down columns</span></pre>
+    </div>
+    <div class="steps-box">
+      <div class="steps-title">Step-by-step: Build a VLOOKUP to find a learner's mark</div>
+      <ol class="steps">
+        <li>Click the empty cell where you want the answer to appear.</li>
+        <li>Type <code>=VLOOKUP(</code> to start the function.</li>
+        <li><strong>Lookup value:</strong> click the cell that holds the thing you are searching for (e.g. the learner ID in B2), then type a comma <code>,</code></li>
+        <li><strong>Table array:</strong> highlight the whole lookup table (all columns), then press <kbd>F4</kbd> once. This adds dollar signs (e.g. <code>$E$2:$G$20</code>) so the table will not shift when you copy the formula. Type a comma <code>,</code></li>
+        <li><strong>Column number:</strong> count which column of that table holds the answer, counting from the LEFT starting at 1. Type that number (e.g. <code>3</code> for the 3rd column), then a comma <code>,</code></li>
+        <li><strong>Exact match:</strong> type <code>FALSE</code> (this means "only give me an exact match").</li>
+        <li>Type the closing bracket <code>)</code> and press <kbd>Enter</kbd>. Final formula: <code>=VLOOKUP(B2,$E$2:$G$20,3,FALSE)</code></li>
+      </ol>
+    </div>
+    <div class="callout exam">
+      <div class="callout-title">EXAM TIP — VLOOKUP</div>
+      <p>Most common VLOOKUP mistakes: (1) not using absolute reference for table_array ($E$2:$G$20) — it shifts when copied; (2) wrong col_index number — count from the LEFT of the table_array, not from column A; (3) using TRUE instead of FALSE for exact match — always use FALSE in CAT unless told otherwise.</p>
+    </div>
+
+    <h3>COUNTIFS and SUMIFS</h3>
+    <p>These extend COUNTIF/SUMIF to support multiple criteria:</p>
+    <div class="code-block">
+      <div class="code-label">COUNTIFS and SUMIFS</div>
+      <pre><span class="hcmt">COUNTIFS: count cells meeting MULTIPLE conditions</span>
+=<span class="fn">COUNTIFS</span>(<span class="ref">A2:A20</span>, <span class="str">"Male"</span>, <span class="ref">B2:B20</span>, <span class="str">"&gt;=50"</span>)
+<span class="hcmt">&lt;-- counts rows where A = "Male" AND B &gt;= 50</span>
+
+<span class="hcmt">SUMIFS: sum values meeting MULTIPLE conditions</span>
+=<span class="fn">SUMIFS</span>(sum_range, criteria_range1, criteria1, criteria_range2, criteria2)
+=<span class="fn">SUMIFS</span>(<span class="ref">C2:C20</span>, <span class="ref">A2:A20</span>, <span class="str">"Cape Town"</span>, <span class="ref">B2:B20</span>, <span class="str">"&gt;100"</span>)
+<span class="hcmt">&lt;-- sums C where A = "Cape Town" AND B &gt; 100</span></pre>
+    </div>
+
+    <h3>ROUNDUP and ROUNDDOWN</h3>
+    <div class="code-block">
+      <div class="code-label">ROUNDUP / ROUNDDOWN</div>
+      <pre>=<span class="fn">ROUNDUP</span>(<span class="ref">A1</span>, 0)    <span class="hcmt">&lt;-- always rounds UP to nearest integer (3.1 → 4)</span>
+=<span class="fn">ROUNDDOWN</span>(<span class="ref">A1</span>, 0) <span class="hcmt">&lt;-- always rounds DOWN to nearest integer (3.9 → 3)</span>
+=<span class="fn">ROUND</span>(<span class="ref">A1</span>, 0)      <span class="hcmt">&lt;-- rounds to nearest (3.5 → 4; 3.4 → 3)</span></pre>
+    </div>
+
+    <h2>Text Functions</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Function</th><th>Syntax</th><th>Example</th><th>Result</th></tr>
+      <tr><td><code class="fn">LEFT</code></td><td>=LEFT(text, n)</td><td>=LEFT("Cape Town",4)</td><td>Cape</td></tr>
+      <tr><td><code class="fn">RIGHT</code></td><td>=RIGHT(text, n)</td><td>=RIGHT("Cape Town",4)</td><td>Town</td></tr>
+      <tr><td><code class="fn">MID</code></td><td>=MID(text, start, n)</td><td>=MID("Cape Town",6,4)</td><td>Town</td></tr>
+      <tr><td><code class="fn">LEN</code></td><td>=LEN(text)</td><td>=LEN("Hello")</td><td>5</td></tr>
+      <tr><td><code class="fn">CONCATENATE</code></td><td>=CONCATENATE(t1,t2…) or &amp;</td><td>=A2&amp;" "&amp;B2</td><td>Jane Smith</td></tr>
+      <tr><td><code class="fn">FIND</code></td><td>=FIND(find_text, within_text)</td><td>=FIND("o","Town")</td><td>2 (position of "o")</td></tr>
+      <tr><td><code class="fn">VALUE</code></td><td>=VALUE(text)</td><td>=VALUE("123")</td><td>123 (number)</td></tr>
+    </table></div>
+
+    <h2>Date and Time Functions</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Function</th><th>Returns</th><th>Example</th></tr>
+      <tr><td><code class="fn">TODAY()</code></td><td>Today's date</td><td>=TODAY()</td></tr>
+      <tr><td><code class="fn">NOW()</code></td><td>Current date and time</td><td>=NOW()</td></tr>
+      <tr><td><code class="fn">YEAR(date)</code></td><td>Year part of a date</td><td>=YEAR(A1) → 2026</td></tr>
+      <tr><td><code class="fn">MONTH(date)</code></td><td>Month number (1–12)</td><td>=MONTH(A1) → 6</td></tr>
+      <tr><td><code class="fn">DAY(date)</code></td><td>Day number (1–31)</td><td>=DAY(A1) → 15</td></tr>
+      <tr><td><code class="fn">DAYS(end,start)</code></td><td>Number of days between two dates</td><td>=DAYS(TODAY(),A1)</td></tr>
+    </table></div>
+    <div class="code-block">
+      <div class="code-label">Age calculation example</div>
+      <pre>=<span class="fn">YEAR</span>(<span class="fn">TODAY</span>()) - <span class="fn">YEAR</span>(<span class="ref">B2</span>)   <span class="hcmt">&lt;-- approximate age in years</span>
+=<span class="fn">DAYS</span>(<span class="fn">TODAY</span>(), <span class="ref">B2</span>) / 365.25  <span class="hcmt">&lt;-- more precise age</span></pre>
+    </div>
+
+    <h2>Subtotal Feature</h2>
+    <p>Subtotal creates grouped summaries within filtered data (unlike SUM which includes hidden rows):</p>
+    <ul>
+      <li>Data → Subtotal → choose column to group by, function (SUM/AVG/COUNT) and column to calculate</li>
+      <li>Creates outline levels — click 1, 2, 3 buttons to expand/collapse groups</li>
+      <li>Remove: Data → Subtotal → Remove All</li>
+    </ul>
+
+    <h2>Advanced Charts</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Task</th><th>How</th></tr>
+      <tr><td>Edit axis min/max values</td><td>Double-click axis → Format Axis → Bounds: Minimum / Maximum</td></tr>
+      <tr><td>Re-label axes</td><td>Chart Design → Add Chart Element → Axis Titles</td></tr>
+      <tr><td>Add trendline</td><td>Right-click data series → Add Trendline → Linear / Exponential / etc.</td></tr>
+      <tr><td>Stacked column chart</td><td>Select data → Insert → Bar/Column → Stacked Column (shows parts of a whole over time)</td></tr>
+      <tr><td>Change chart type</td><td>Right-click chart → Change Chart Type</td></tr>
+      <tr><td>Move chart to its own sheet</td><td>Chart Design → Move Chart → New Sheet</td></tr>
+    </table></div>
+
+    <div class="callout exam">
+      <div class="callout-title">EXAM TIP — Function Identification</div>
+      <p>A common Grade 12 exam task: given a scenario, choose the CORRECT function. Key decision points:<br>
+      • Need to find a value in a table? → <strong>VLOOKUP</strong><br>
+      • Multiple conditions to count? → <strong>COUNTIFS</strong><br>
+      • Multiple conditions to add? → <strong>SUMIFS</strong><br>
+      • Grade classification? → <strong>Nested IF</strong><br>
+      • Extract part of a code? → <strong>LEFT / RIGHT / MID</strong><br>
+      • Calculate how many days since a date? → <strong>DAYS</strong> or <strong>TODAY()</strong></p>
+    </div>
+
+    <div class="page-nav">
+      <a href="word-processing.html"><span class="page-nav-label">← Previous</span>Word Processing</a>
+      <a class="next" href="databases.html"><span class="page-nav-label">Next →</span>Databases (Access)</a>
+    </div>
+  </main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Networks & WAN – CAT Grade 12</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr12); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 12 · Theory</div>
+    <a href="../../grade12/theory/hardware.html">Hardware &amp; Buying Decisions</a>
+    <a href="../../grade12/theory/software.html">Software &amp; File Management</a>
+    <a href="../../grade12/theory/networks.html">Networks &amp; WAN</a>
+    <a href="../../grade12/theory/internet.html">Internet &amp; E-Communication</a>
+    <a href="../../grade12/theory/social.html">Social Implications</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 12 · Practical</div>
+    <a href="../../grade12/practical/word-processing.html">Word Processing</a>
+    <a href="../../grade12/practical/spreadsheets.html">Spreadsheets</a>
+    <a href="../../grade12/practical/databases.html">Databases (Access)</a>
+    <a href="../../grade12/practical/html.html">HTML &amp; Web Design</a>
+  </aside>
+  <main class="content">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Grade 12 Theory</span><span class="breadcrumb-sep">›</span><span>Networks &amp; WAN</span></div>
+    <h1>Networks &amp; WAN <span class="grade-badge">Grade 12</span></h1>
+    <p class="page-intro">Grade 12 network coverage focuses on Wide Area Networks (WANs), Internet services, connection types and ISP considerations including throttling, CAPs and informed buying decisions.</p>
+
+    <h2>Wide Area Networks (WAN)</h2>
+    <div class="callout">
+      <div class="callout-title">DEFINITION</div>
+      <p>A <strong>WAN (Wide Area Network)</strong> connects networks across large geographical areas — cities, countries, even globally. The <strong>Internet is the largest WAN</strong> in the world, connecting billions of devices across every continent.</p>
+    </div>
+    <div class="tbl-wrap"><table>
+      <tr><th></th><th>LAN</th><th>WAN</th></tr>
+      <tr><td><strong>Coverage</strong></td><td>Building/campus</td><td>Cities, countries, global</td></tr>
+      <tr><td><strong>Ownership</strong></td><td>Owned by one organisation</td><td>Uses leased infrastructure (ISP, telecom)</td></tr>
+      <tr><td><strong>Speed</strong></td><td>Fast (1 Gbps+)</td><td>Varies (ISP bandwidth)</td></tr>
+      <tr><td><strong>Example</strong></td><td>School network</td><td>Internet; company linking branches nationally</td></tr>
+    </table></div>
+
+    <h2>Internet Services</h2>
+    <div class="def-grid">
+      <div class="def-term">Instant messaging</div><div class="def-desc">Real-time text chat (WhatsApp, Telegram, Teams); advantage: immediate; disadvantage: always-on pressure, distraction</div>
+      <div class="def-term">VoIP</div><div class="def-desc">Voice calls over Internet (Skype, WhatsApp calls); advantage: free/cheap; disadvantage: needs internet, quality varies</div>
+      <div class="def-term">File sharing</div><div class="def-desc">Share files via cloud (Google Drive, OneDrive) or P2P; advantage: easy to collaborate; disadvantage: copyright issues with P2P</div>
+      <div class="def-term">Grid computing</div><div class="def-desc">Combines computing power of many computers over the internet to solve one complex problem (scientific research)</div>
+      <div class="def-term">Cloud computing</div><div class="def-desc">Access software, storage and processing over the Internet (SaaS, IaaS, PaaS)</div>
+      <div class="def-term">Government services</div><div class="def-desc">Online ID/passport renewal, NSFAS applications, traffic fine payments, e-Citizen portals</div>
+      <div class="def-term">Streaming</div><div class="def-desc">Receiving and playing media continuously in real time (Netflix, YouTube, Spotify) — no download needed</div>
+      <div class="def-term">Downloading</div><div class="def-desc">Saving a complete copy of media/file to your device before using it</div>
+    </table></div>
+
+    <h2>Internet Connection Types</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Type</th><th>Speed</th><th>Notes</th></tr>
+      <tr><td><strong>ADSL</strong></td><td>1–20 Mbps</td><td>Uses existing telephone lines; speed depends on distance from exchange; being replaced by fibre</td></tr>
+      <tr><td><strong>Fibre (FTTH)</strong></td><td>25–1000 Mbps</td><td>Fibre to the Home; fastest and most reliable fixed connection; symmetrical upload/download</td></tr>
+      <tr><td><strong>LTE / 4G</strong></td><td>10–150 Mbps</td><td>Mobile data via cell towers; good coverage; relies on signal strength</td></tr>
+      <tr><td><strong>5G</strong></td><td>100 Mbps – 1 Gbps</td><td>Very fast mobile data; low latency; limited coverage currently</td></tr>
+      <tr><td><strong>Wi-Fi (hotspot)</strong></td><td>Varies</td><td>Wi-Fi in public/private areas; security risk on public hotspots</td></tr>
+      <tr><td><strong>WiMAX</strong></td><td>10–70 Mbps</td><td>Wireless broadband over larger areas than Wi-Fi; used in rural areas</td></tr>
+      <tr><td><strong>Satellite</strong></td><td>10–100+ Mbps</td><td>Coverage everywhere; high latency; expensive; useful in remote areas (Starlink)</td></tr>
+    </table></div>
+
+    <h2>ISP — Internet Service Provider</h2>
+    <p>An ISP provides Internet access to homes and businesses. They lease bandwidth from telecommunications companies.</p>
+    <h3>Key ISP Terms</h3>
+    <div class="def-grid">
+      <div class="def-term">Bandwidth</div><div class="def-desc">The maximum amount of data that can be transmitted per second (like the width of a pipe)</div>
+      <div class="def-term">Broadband</div><div class="def-desc">High-speed Internet connection (always on); generally 25 Mbps or faster</div>
+      <div class="def-term">CAP (Data Cap)</div><div class="def-desc">The maximum amount of data allowed per month before being throttled or charged extra (e.g. 50 GB/month)</div>
+      <div class="def-term">Bundle</div><div class="def-desc">A package deal — often data + voice minutes + SMS for one price</div>
+      <div class="def-term">Throttling</div><div class="def-desc">ISP deliberately slows your connection speed after you exceed your data cap or during peak times</div>
+      <div class="def-term">Traffic Shaping</div><div class="def-desc">ISP prioritises certain types of traffic (e.g. slows streaming but keeps browsing fast) to manage network congestion</div>
+      <div class="def-term">Fair Use Policy (FUP)</div><div class="def-desc">Rules about "uncapped" plans — excessive use may still be throttled; "uncapped" does not mean unlimited at full speed</div>
+    </table></div>
+
+    <h2>Making Informed Buying Decisions — Internet</h2>
+    <h3>Factors to Consider</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Factor</th><th>Questions to ask</th></tr>
+      <tr><td>Speed (Mbps)</td><td>How many users? What will it be used for? (Video streaming needs 25 Mbps+; gaming needs low latency)</td></tr>
+      <tr><td>Data cap (CAP)</td><td>How much data do I use per month? Will uncapped be better value?</td></tr>
+      <tr><td>Coverage / Signal</td><td>Is fibre available in my area? What mobile signal strength do I get?</td></tr>
+      <tr><td>Cost</td><td>Monthly fee, installation cost, router cost, contract period</td></tr>
+      <tr><td>Reliability</td><td>Does the ISP have good uptime? Is fibre more reliable than wireless?</td></tr>
+      <tr><td>Contract</td><td>Month-to-month or fixed term? Penalties for early cancellation?</td></tr>
+      <tr><td>Router/modem</td><td>Provided by ISP or must you buy? Does it support Wi-Fi 5/6?</td></tr>
+    </table></div>
+
+    <h3>Wireless Network Considerations</h3>
+    <ul>
+      <li><strong>Access points</strong>: more access points = better Wi-Fi coverage in large buildings</li>
+      <li><strong>Coverage area</strong>: walls and interference reduce Wi-Fi range; 5 GHz is faster but shorter range; 2.4 GHz travels further but is slower</li>
+      <li><strong>Mbps</strong> (megabits per second): measure of data transmission speed — note: 1 MB/s = 8 Mbps</li>
+    </ul>
+
+    <div class="callout exam">
+      <div class="callout-title">EXAM TIP — Throttling vs Traffic Shaping</div>
+      <p><strong>Throttling</strong>: slows ALL your Internet speed after you reach your data cap. <strong>Traffic shaping</strong>: selectively slows specific traffic types (e.g. slows YouTube but keeps WhatsApp fast) — used during peak hours to manage congestion. Both are used by ISPs to manage network load.</p>
+    </div>
+
+    <div class="page-nav">
+      <a href="software.html"><span class="page-nav-label">← Previous</span>Software &amp; File Management</a>
+      <a class="next" href="internet.html"><span class="page-nav-label">Next →</span>Internet &amp; E-Communication</a>
+    </div>
+  </main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

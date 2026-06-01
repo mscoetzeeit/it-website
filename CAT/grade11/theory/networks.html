@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Networks (LAN/WLAN) – CAT Grade 11</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr11); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 11 · Theory</div>
+    <a href="../../grade11/theory/hardware.html">Hardware &amp; Processing</a>
+    <a href="../../grade11/theory/software.html">Software &amp; Cloud</a>
+    <a href="../../grade11/theory/networks.html">Networks (LAN/WLAN)</a>
+    <a href="../../grade11/theory/internet.html">Internet, IoT &amp; 4IR</a>
+    <a href="../../grade11/theory/social.html">Social Implications</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 11 · Practical</div>
+    <a href="../../grade11/practical/word-processing.html">Word Processing</a>
+    <a href="../../grade11/practical/spreadsheets.html">Spreadsheets</a>
+    <a href="../../grade11/practical/databases.html">Databases (Access)</a>
+    <a href="../../grade11/practical/html.html">HTML &amp; Web Design</a>
+  </aside>
+  <main class="content">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Grade 11 Theory</span><span class="breadcrumb-sep">›</span><span>Networks (LAN/WLAN)</span></div>
+    <h1>Networks (LAN/WLAN) <span class="grade-badge">Grade 11</span></h1>
+    <p class="page-intro">Grade 11 focuses on Local Area Networks (LAN and WLAN) — their components, connection types, speed, security and acceptable use policies. Builds on Grade 10 network basics.</p>
+
+    <h2>LAN vs WLAN</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th></th><th>LAN (Local Area Network)</th><th>WLAN (Wireless Local Area Network)</th></tr>
+      <tr><td><strong>Connection</strong></td><td>Wired (Ethernet/UTP cables)</td><td>Wireless (Wi-Fi radio waves)</td></tr>
+      <tr><td><strong>Speed</strong></td><td>100 Mbps – 10 Gbps (very fast)</td><td>Generally slower than wired; varies by distance</td></tr>
+      <tr><td><strong>Reliability</strong></td><td>Very reliable — no interference</td><td>Can suffer interference from walls, other devices</td></tr>
+      <tr><td><strong>Setup</strong></td><td>Requires cables — harder to install</td><td>Easy — just connect to Wi-Fi network</td></tr>
+      <tr><td><strong>Security</strong></td><td>More secure — harder to intercept</td><td>Less secure — signals can be intercepted if not encrypted</td></tr>
+      <tr><td><strong>Mobility</strong></td><td>Limited — device must be near a port</td><td>Move anywhere in the coverage area</td></tr>
+    </table></div>
+
+    <h2>Basic Network Components</h2>
+    <div class="def-grid">
+      <div class="def-term">Workstation</div><div class="def-desc">A computer on the network that users work on (client in client-server; peer in peer-to-peer)</div>
+      <div class="def-term">Server</div><div class="def-desc">A powerful computer that provides services to other computers (file storage, printing, email, authentication)</div>
+      <div class="def-term">NIC (Network Interface Card)</div><div class="def-desc">Hardware that connects a device to a network — wired (Ethernet port) or wireless (Wi-Fi adapter); every networked device has one</div>
+      <div class="def-term">Modem</div><div class="def-desc">Converts digital signals to analogue (and back) for transmission over telephone/fibre lines; connects network to ISP</div>
+      <div class="def-term">Switch</div><div class="def-desc">Connects multiple devices in a LAN; forwards data only to the intended device (more efficient than a hub)</div>
+      <div class="def-term">Router</div><div class="def-desc">Connects different networks together; directs data between the LAN and the Internet; manages IP addresses (DHCP)</div>
+      <div class="def-term">Access Point (WAP)</div><div class="def-desc">Wireless Access Point — extends a wired network by providing a Wi-Fi signal for wireless devices</div>
+    </div>
+
+    <h2>Client-Server vs Peer-to-Peer</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th></th><th>Client-Server</th><th>Peer-to-Peer (P2P)</th></tr>
+      <tr><td><strong>Structure</strong></td><td>Dedicated server serves multiple client computers</td><td>All computers equal — any can be server or client</td></tr>
+      <tr><td><strong>Used in</strong></td><td>Schools, businesses, large organisations</td><td>Small home networks, file sharing (BitTorrent)</td></tr>
+      <tr><td><strong>Advantage</strong></td><td>Centralised control, security, backups</td><td>Simple, cheap — no server needed</td></tr>
+      <tr><td><strong>Disadvantage</strong></td><td>Expensive server; if server fails, everyone affected</td><td>Less secure, harder to manage many computers</td></tr>
+    </table></div>
+
+    <h2>Communication Media</h2>
+    <h3>Wired</h3>
+    <div class="def-grid">
+      <div class="def-term">UTP (Unshielded Twisted Pair)</div><div class="def-desc">Most common Ethernet cable; copper wire pairs twisted together; cheap; used in homes and offices</div>
+      <div class="def-term">Fibre optic</div><div class="def-desc">Transmits data as light pulses through glass/plastic fibres; very fast; long distances; expensive; not affected by electrical interference</div>
+    </div>
+    <h3>Wireless</h3>
+    <div class="def-grid">
+      <div class="def-term">Wi-Fi</div><div class="def-desc">Wireless LAN standard; uses radio waves; range ~30–100 m indoors; requires access point/router</div>
+      <div class="def-term">Bluetooth</div><div class="def-desc">Short-range (~10 m); used to connect peripherals (keyboard, mouse, headphones, phone)</div>
+      <div class="def-term">4G / 5G</div><div class="def-desc">Mobile cellular data; 5G is faster and lower latency; accessed via SIM card in phone/router</div>
+    </div>
+
+    <h2>Connection Speed</h2>
+    <p>Data transmission speed is measured in <strong>Mbps (megabits per second)</strong> or <strong>Gbps (gigabits per second)</strong>.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Technology</th><th>Typical Speed</th><th>Notes</th></tr>
+      <tr><td>Ethernet (UTP Cat5e)</td><td>100 Mbps – 1 Gbps</td><td>Standard office wiring</td></tr>
+      <tr><td>Ethernet (Cat6)</td><td>1 – 10 Gbps</td><td>High-performance networks</td></tr>
+      <tr><td>Fibre optic</td><td>100 Mbps – 1 Gbps+</td><td>Fastest for long distances</td></tr>
+      <tr><td>Wi-Fi 5 (802.11ac)</td><td>Up to 3.5 Gbps</td><td>Common home/office Wi-Fi</td></tr>
+      <tr><td>Wi-Fi 6 (802.11ax)</td><td>Up to 9.6 Gbps</td><td>Latest standard; faster in crowded areas</td></tr>
+      <tr><td>4G LTE</td><td>10–150 Mbps</td><td>Mobile data</td></tr>
+      <tr><td>5G</td><td>Up to 1 Gbps+</td><td>Very fast mobile; low latency</td></tr>
+    </table></div>
+
+    <h2>Network Security</h2>
+    <div class="def-grid">
+      <div class="def-term">Passwords</div><div class="def-desc">Strong passwords protect network access (use mix of upper/lower/numbers/symbols; min 8 characters)</div>
+      <div class="def-term">Usernames</div><div class="def-desc">Identifies who is logging in; linked to specific access rights</div>
+      <div class="def-term">Access rights / Permissions</div><div class="def-desc">Controls what each user can see and do on the network (Read, Write, Execute, Full Control, No Access)</div>
+      <div class="def-term">Encryption</div><div class="def-desc">Scrambles data so it cannot be read if intercepted (WPA2/WPA3 for Wi-Fi; HTTPS for web)</div>
+      <div class="def-term">Firewall</div><div class="def-desc">Hardware or software that monitors and filters network traffic — blocks unauthorised access</div>
+    </div>
+
+    <h2>Acceptable Use Policy (AUP)</h2>
+    <p>An <strong>Acceptable Use Policy</strong> is a set of rules that users must agree to when using a school or organisation's network. It defines:</p>
+    <ul>
+      <li>What the network may and may NOT be used for</li>
+      <li>Consequences for misuse (e.g. loss of access, disciplinary action)</li>
+      <li>Privacy expectations (IT staff may monitor usage)</li>
+      <li>Guidelines on downloading, installing software and accessing certain websites</li>
+    </ul>
+    <div class="callout warning">
+      <div class="callout-title">BYOD (Bring Your Own Device)</div>
+      <p>BYOD allows learners/employees to use their personal devices on the school/office network. Benefits: cheaper for school, familiar devices. Risks: malware from personal devices, privacy/security concerns, distraction. Schools need a clear BYOD policy as part of their AUP.</p>
+    </div>
+
+    <div class="callout exam">
+      <div class="callout-title">EXAM TIP</div>
+      <p>Know at least <strong>2 advantages and 2 disadvantages</strong> of wired vs wireless networks. Know the names and functions of all network components. Be able to <strong>interpret a network advert</strong> — e.g. "100 Mbps Ethernet switch with 8 ports" means it connects up to 8 devices at 100 Mbps each.</p>
+    </div>
+
+    <div class="page-nav">
+      <a href="software.html"><span class="page-nav-label">← Previous</span>Software &amp; Cloud</a>
+      <a class="next" href="internet.html"><span class="page-nav-label">Next →</span>Internet, IoT &amp; 4IR</a>
+    </div>
+  </main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

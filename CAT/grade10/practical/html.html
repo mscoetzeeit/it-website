@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML & Web Design – CAT Grade 10</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr10); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 10 · Practical</div>
+    <a href="../../grade10/practical/word-processing.html">Word Processing</a>
+    <a href="../../grade10/practical/spreadsheets.html">Spreadsheets</a>
+    <a href="../../grade10/practical/html.html">HTML &amp; Web Design</a>
+    <a href="../../grade10/practical/presentations.html">Presentations (PAT)</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 10 · Theory</div>
+    <a href="../../grade10/theory/concepts.html">Concepts of Computing</a>
+    <a href="../../grade10/theory/hardware.html">Hardware</a>
+    <a href="../../grade10/theory/software.html">Software &amp; Licensing</a>
+    <a href="../../grade10/theory/networks.html">Networks</a>
+    <a href="../../grade10/theory/internet.html">Internet &amp; E-Communication</a>
+    <a href="../../grade10/theory/social.html">Social Implications</a>
+  </aside>
+  <main class="content">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Grade 10 Practical</span><span class="breadcrumb-sep">›</span><span>HTML &amp; Web Design</span></div>
+    <h1>HTML &amp; Web Design <span class="grade-badge">Grade 10</span></h1>
+    <p class="page-intro">HTML (HyperText Markup Language) is the language used to create web pages. In CAT, HTML is coded in a text editor like Notepad++ and viewed in a browser.</p>
+
+    <h2>What is HTML?</h2>
+    <p><strong>HTML</strong> = HyperText Markup Language. It uses <strong>tags</strong> (instructions wrapped in angle brackets) to structure and format content on a web page. Browsers read the HTML and display it visually.</p>
+    <div class="callout">
+      <div class="callout-title">HTML EDITOR</div>
+      <p>In CAT, use <strong>Notepad++</strong> to write HTML (it highlights your code in colour). Save the file with a <code>.html</code> extension. Open it in a browser (Chrome, Edge) to see the result. You do NOT need an internet connection to view local HTML files.</p>
+    </div>
+
+    <div class="steps-box">
+      <div class="steps-title">Step-by-step: Create your first HTML file in Notepad++</div>
+      <ol class="steps">
+        <li>Open <strong>Notepad++</strong> (click the Start button, type "Notepad++" and click it). A blank white page appears.</li>
+        <li>Type your HTML code into the page (use the examples below).</li>
+        <li>Click <span class="ribbon-path"><span class="rp">File</span><span class="rp-arrow">→</span><span class="rp">Save As</span></span> at the top.</li>
+        <li>In the <strong>File name</strong> box, type a name ending in <strong>.html</strong> — for example <code>mypage.html</code> (the <code>.html</code> part is very important, it tells the computer this is a web page).</li>
+        <li>Click <strong>Save</strong>.</li>
+        <li>Find your saved file in its folder and <strong>double-click</strong> it. It opens in a web browser (Chrome/Edge) so you can see the result.</li>
+        <li>To make changes: edit the code in Notepad++, save again (<kbd>Ctrl</kbd> + <kbd>S</kbd>), then go back to the browser and press <kbd>F5</kbd> to refresh.</li>
+      </ol>
+    </div>
+
+    <h2>Tag Syntax</h2>
+    <p>Most HTML tags come in pairs: an <strong>opening tag</strong> and a <strong>closing tag</strong>. The closing tag has a forward slash <code>/</code> before the tag name.</p>
+    <figure class="figure">
+      <svg viewBox="0 0 520 130" width="520" aria-label="Anatomy of an HTML tag">
+        <text x="260" y="60" font-family="Courier New" font-size="26" text-anchor="middle">
+          <tspan fill="#4ec9b0">&lt;p&gt;</tspan><tspan fill="#e6edf3"> Hello </tspan><tspan fill="#4ec9b0">&lt;/p&gt;</tspan>
+        </text>
+        <!-- opening tag bracket -->
+        <line x1="175" y1="72" x2="175" y2="92" stroke="#34d399"/>
+        <text x="175" y="108" fill="#34d399" font-family="Segoe UI" font-size="11" text-anchor="middle">Opening tag</text>
+        <!-- content -->
+        <line x1="258" y1="72" x2="258" y2="86" stroke="#fb923c"/>
+        <text x="258" y="100" fill="#fb923c" font-family="Segoe UI" font-size="11" text-anchor="middle">Content</text>
+        <!-- closing tag -->
+        <line x1="345" y1="72" x2="345" y2="92" stroke="#f472b6"/>
+        <text x="345" y="108" fill="#f472b6" font-family="Segoe UI" font-size="11" text-anchor="middle">Closing tag (note the /)</text>
+      </svg>
+      <figcaption>An HTML element = an <strong>opening tag</strong> + the <strong>content</strong> + a <strong>closing tag</strong>. The closing tag is identical to the opening tag but has a forward slash <code>/</code> after the first bracket.</figcaption>
+    </figure>
+    <div class="code-block">
+      <div class="code-label">Syntax</div>
+      <pre><span class="ht">&lt;tagname&gt;</span>Content goes here<span class="ht">&lt;/tagname&gt;</span></pre>
+    </div>
+    <p>Some tags are <strong>self-closing</strong> — they have no content and no closing tag: <code class="ht">&lt;br&gt;</code> and <code class="ht">&lt;hr&gt;</code></p>
+
+    <h2>Basic HTML Page Structure</h2>
+    <div class="code-block">
+      <div class="code-label">Basic HTML structure</div>
+      <pre><span class="ht">&lt;html&gt;</span>
+  <span class="ht">&lt;head&gt;</span>
+    <span class="ht">&lt;title&gt;</span>Page Title Here<span class="ht">&lt;/title&gt;</span>
+  <span class="ht">&lt;/head&gt;</span>
+  <span class="ht">&lt;body&gt;</span>
+    <span class="hcmt">&lt;!-- All visible content goes here --&gt;</span>
+    <span class="ht">&lt;h1&gt;</span>My First Web Page<span class="ht">&lt;/h1&gt;</span>
+    <span class="ht">&lt;p&gt;</span>This is a paragraph.<span class="ht">&lt;/p&gt;</span>
+  <span class="ht">&lt;/body&gt;</span>
+<span class="ht">&lt;/html&gt;</span></pre>
+    </div>
+
+    <h2>Grade 10 HTML Tag Reference</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Tag</th><th>Closing Tag</th><th>Purpose</th></tr>
+      <tr><td><code class="ht">&lt;html&gt;</code></td><td><code class="ht">&lt;/html&gt;</code></td><td>Marks the start and end of the HTML document</td></tr>
+      <tr><td><code class="ht">&lt;head&gt;</code></td><td><code class="ht">&lt;/head&gt;</code></td><td>Contains metadata (page info not shown on page)</td></tr>
+      <tr><td><code class="ht">&lt;title&gt;</code></td><td><code class="ht">&lt;/title&gt;</code></td><td>Sets the browser tab/window title</td></tr>
+      <tr><td><code class="ht">&lt;body&gt;</code></td><td><code class="ht">&lt;/body&gt;</code></td><td>Contains all visible page content</td></tr>
+      <tr><td><code class="ht">&lt;h1&gt;</code> to <code class="ht">&lt;h6&gt;</code></td><td><code class="ht">&lt;/h1&gt;</code> etc.</td><td>Headings — h1 is largest, h6 is smallest</td></tr>
+      <tr><td><code class="ht">&lt;p&gt;</code></td><td><code class="ht">&lt;/p&gt;</code></td><td>Paragraph — adds a blank line before and after</td></tr>
+      <tr><td><code class="ht">&lt;br&gt;</code></td><td>none</td><td>Line break — moves to the next line (no blank line)</td></tr>
+      <tr><td><code class="ht">&lt;hr&gt;</code></td><td>none</td><td>Horizontal rule — draws a horizontal dividing line</td></tr>
+      <tr><td><code class="ht">&lt;b&gt;</code></td><td><code class="ht">&lt;/b&gt;</code></td><td><strong>Bold</strong> text</td></tr>
+      <tr><td><code class="ht">&lt;i&gt;</code></td><td><code class="ht">&lt;/i&gt;</code></td><td><em>Italic</em> text</td></tr>
+      <tr><td><code class="ht">&lt;u&gt;</code></td><td><code class="ht">&lt;/u&gt;</code></td><td><u>Underlined</u> text</td></tr>
+    </table></div>
+
+    <h2>Attributes</h2>
+    <p>Attributes add extra information to a tag. They go inside the opening tag as <code>name="value"</code> pairs.</p>
+    <div class="code-block">
+      <div class="code-label">Attribute syntax</div>
+      <pre><span class="ht">&lt;tagname</span> <span class="hat">attribute</span>=<span class="hv">"value"</span><span class="ht">&gt;</span>content<span class="ht">&lt;/tagname&gt;</span></pre>
+    </div>
+
+    <h2>The Font Tag</h2>
+    <p>The <code class="ht">&lt;font&gt;</code> tag controls the appearance of text using attributes:</p>
+    <div class="code-block">
+      <div class="code-label">Font tag examples</div>
+      <pre><span class="ht">&lt;font</span> <span class="hat">face</span>=<span class="hv">"Arial"</span> <span class="hat">size</span>=<span class="hv">"4"</span> <span class="hat">color</span>=<span class="hv">"red"</span><span class="ht">&gt;</span>
+  This text is Arial, size 4, red colour
+<span class="ht">&lt;/font&gt;</span></pre>
+    </div>
+    <div class="tbl-wrap"><table>
+      <tr><th>Attribute</th><th>Values</th><th>Effect</th></tr>
+      <tr><td><code class="hat">face</code></td><td>Font name (e.g. "Arial", "Times New Roman")</td><td>Sets the typeface</td></tr>
+      <tr><td><code class="hat">size</code></td><td>1 (smallest) to 7 (largest)</td><td>Sets the text size</td></tr>
+      <tr><td><code class="hat">color</code></td><td>Colour name ("red") or hex (#FF0000)</td><td>Sets text colour</td></tr>
+    </table></div>
+
+    <h2>Horizontal Rule Attributes</h2>
+    <div class="code-block">
+      <div class="code-label">hr with attributes</div>
+      <pre><span class="ht">&lt;hr</span> <span class="hat">width</span>=<span class="hv">"50%"</span> <span class="hat">size</span>=<span class="hv">"3"</span><span class="ht">&gt;</span>   <span class="hcmt">&lt;!-- 50% wide, 3px thick --&gt;</span></pre>
+    </div>
+
+    <h2>Body Background Colour</h2>
+    <div class="code-block">
+      <div class="code-label">Setting page background colour</div>
+      <pre><span class="ht">&lt;body</span> <span class="hat">bgcolor</span>=<span class="hv">"lightblue"</span><span class="ht">&gt;</span>
+  <span class="hcmt">&lt;!-- All page content --&gt;</span>
+<span class="ht">&lt;/body&gt;</span></pre>
+    </div>
+    <p>Colour values can be: colour names (<code>"red"</code>, <code>"yellow"</code>, <code>"lightgreen"</code>) or hex codes (<code>"#FF0000"</code>).</p>
+
+    <h2>Complete Example — Grade 10 HTML Page</h2>
+    <div class="code-block">
+      <div class="code-label">Full example</div>
+      <pre><span class="ht">&lt;html&gt;</span>
+<span class="ht">&lt;head&gt;</span>
+  <span class="ht">&lt;title&gt;</span>Ms Coetzee CAT<span class="ht">&lt;/title&gt;</span>
+<span class="ht">&lt;/head&gt;</span>
+<span class="ht">&lt;body</span> <span class="hat">bgcolor</span>=<span class="hv">"lightyellow"</span><span class="ht">&gt;</span>
+
+  <span class="ht">&lt;h1&gt;</span><span class="ht">&lt;font</span> <span class="hat">color</span>=<span class="hv">"darkblue"</span><span class="ht">&gt;</span>Welcome to Grade 10 CAT<span class="ht">&lt;/font&gt;&lt;/h1&gt;</span>
+  <span class="ht">&lt;hr</span> <span class="hat">width</span>=<span class="hv">"80%"</span><span class="ht">&gt;</span>
+
+  <span class="ht">&lt;h2&gt;</span>About this subject<span class="ht">&lt;/h2&gt;</span>
+  <span class="ht">&lt;p&gt;</span>CAT teaches us to use <span class="ht">&lt;b&gt;</span>application software<span class="ht">&lt;/b&gt;</span> effectively.<span class="ht">&lt;/p&gt;</span>
+  <span class="ht">&lt;p&gt;</span>We study <span class="ht">&lt;i&gt;</span>Word, Excel, Access<span class="ht">&lt;/i&gt;</span> and <span class="ht">&lt;u&gt;</span>HTML<span class="ht">&lt;/u&gt;</span>.<span class="ht">&lt;/p&gt;</span>
+
+  <span class="ht">&lt;h3&gt;</span>Practical Tools:<span class="ht">&lt;/h3&gt;</span>
+  <span class="ht">&lt;p&gt;&lt;font</span> <span class="hat">face</span>=<span class="hv">"Arial"</span> <span class="hat">size</span>=<span class="hv">"3"</span> <span class="hat">color</span>=<span class="hv">"green"</span><span class="ht">&gt;</span>Microsoft Word<span class="ht">&lt;/font&gt;&lt;/p&gt;</span>
+  <span class="ht">&lt;p&gt;&lt;font</span> <span class="hat">face</span>=<span class="hv">"Arial"</span> <span class="hat">size</span>=<span class="hv">"3"</span> <span class="hat">color</span>=<span class="hv">"green"</span><span class="ht">&gt;</span>Microsoft Excel<span class="ht">&lt;/font&gt;&lt;/p&gt;</span>
+
+<span class="ht">&lt;/body&gt;</span>
+<span class="ht">&lt;/html&gt;</span></pre>
+    </div>
+
+    <div class="callout exam">
+      <div class="callout-title">EXAM TIP — Common HTML Mistakes</div>
+      <p>
+        1. Forgetting to close tags (e.g. <code>&lt;b&gt;</code> without <code>&lt;/b&gt;</code>) — everything after becomes bold.<br>
+        2. Wrong quotes — use straight quotes <code>"</code> not curly quotes <code>"</code>.<br>
+        3. Spelling colour as "color" — HTML uses <strong>American spelling</strong>: <code>color</code>, not <code>colour</code>.<br>
+        4. &lt;hr&gt; and &lt;br&gt; do NOT need closing tags.<br>
+        5. The &lt;title&gt; only changes the browser tab text — not what you see on the page.
+      </p>
+    </div>
+
+    <div class="page-nav">
+      <a href="spreadsheets.html"><span class="page-nav-label">← Previous</span>Spreadsheets</a>
+      <a class="next" href="presentations.html"><span class="page-nav-label">Next →</span>Presentations (PAT)</a>
+    </div>
+  </main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

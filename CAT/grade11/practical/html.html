@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML & Web Design – CAT Grade 11</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr11); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 11 · Practical</div>
+    <a href="../../grade11/practical/word-processing.html">Word Processing</a>
+    <a href="../../grade11/practical/spreadsheets.html">Spreadsheets</a>
+    <a href="../../grade11/practical/databases.html">Databases (Access)</a>
+    <a href="../../grade11/practical/html.html">HTML &amp; Web Design</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 11 · Theory</div>
+    <a href="../../grade11/theory/hardware.html">Hardware &amp; Processing</a>
+    <a href="../../grade11/theory/software.html">Software &amp; Cloud</a>
+    <a href="../../grade11/theory/networks.html">Networks (LAN/WLAN)</a>
+    <a href="../../grade11/theory/internet.html">Internet, IoT &amp; 4IR</a>
+    <a href="../../grade11/theory/social.html">Social Implications</a>
+  </aside>
+  <main class="content">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Grade 11 Practical</span><span class="breadcrumb-sep">›</span><span>HTML &amp; Web Design</span></div>
+    <h1>HTML &amp; Web Design <span class="grade-badge">Grade 11</span></h1>
+    <p class="page-intro">Grade 11 extends on Grade 10 HTML basics. New topics: HTML tables, lists (ordered and unordered), images, hyperlinks, comments, and basic colour use in web design.</p>
+
+    <h2>Revision — HTML Structure</h2>
+    <p>All Grade 10 tags still apply. Grade 11 builds on top of them.</p>
+
+    <h2>HTML Comments</h2>
+    <p>Comments are notes for the developer — they are NOT displayed in the browser.</p>
+    <div class="code-block">
+      <div class="code-label">Comment syntax</div>
+      <pre><span class="hcmt">&lt;!-- This is a comment. The browser ignores this. --&gt;</span>
+<span class="ht">&lt;p&gt;</span>This text IS displayed.<span class="ht">&lt;/p&gt;</span></pre>
+    </div>
+
+    <h2>Attributes — Extended</h2>
+    <p>Attributes control the appearance and behaviour of elements. Multiple attributes can be used in one tag:</p>
+    <div class="code-block">
+      <div class="code-label">Multiple attributes</div>
+      <pre><span class="ht">&lt;p</span> <span class="hat">align</span>=<span class="hv">"center"</span><span class="ht">&gt;</span>Centred paragraph<span class="ht">&lt;/p&gt;</span>
+<span class="ht">&lt;h2</span> <span class="hat">align</span>=<span class="hv">"right"</span><span class="ht">&gt;</span>Right-aligned heading<span class="ht">&lt;/h2&gt;</span></pre>
+    </div>
+
+    <h2>HTML Lists</h2>
+    <h3>Unordered (Bulleted) List</h3>
+    <div class="code-block">
+      <div class="code-label">Unordered list</div>
+      <pre><span class="ht">&lt;ul&gt;</span>
+  <span class="ht">&lt;li&gt;</span>First item<span class="ht">&lt;/li&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Second item<span class="ht">&lt;/li&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Third item<span class="ht">&lt;/li&gt;</span>
+<span class="ht">&lt;/ul&gt;</span>
+
+<span class="hcmt">&lt;!-- type attribute changes bullet symbol --&gt;</span>
+<span class="ht">&lt;ul</span> <span class="hat">type</span>=<span class="hv">"disc"</span><span class="ht">&gt;</span>    <span class="hcmt">&lt;-- ● (default)</span>
+<span class="ht">&lt;ul</span> <span class="hat">type</span>=<span class="hv">"circle"</span><span class="ht">&gt;</span>  <span class="hcmt">&lt;-- ○</span>
+<span class="ht">&lt;ul</span> <span class="hat">type</span>=<span class="hv">"square"</span><span class="ht">&gt;</span>  <span class="hcmt">&lt;-- ■</span></pre>
+    </div>
+
+    <h3>Ordered (Numbered) List</h3>
+    <div class="code-block">
+      <div class="code-label">Ordered list</div>
+      <pre><span class="ht">&lt;ol&gt;</span>
+  <span class="ht">&lt;li&gt;</span>First step<span class="ht">&lt;/li&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Second step<span class="ht">&lt;/li&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Third step<span class="ht">&lt;/li&gt;</span>
+<span class="ht">&lt;/ol&gt;</span>
+
+<span class="hcmt">&lt;!-- type attribute changes numbering style --&gt;</span>
+<span class="ht">&lt;ol</span> <span class="hat">type</span>=<span class="hv">"1"</span><span class="ht">&gt;</span>   <span class="hcmt">&lt;-- 1, 2, 3 (default)</span>
+<span class="ht">&lt;ol</span> <span class="hat">type</span>=<span class="hv">"A"</span><span class="ht">&gt;</span>   <span class="hcmt">&lt;-- A, B, C</span>
+<span class="ht">&lt;ol</span> <span class="hat">type</span>=<span class="hv">"a"</span><span class="ht">&gt;</span>   <span class="hcmt">&lt;-- a, b, c</span>
+<span class="ht">&lt;ol</span> <span class="hat">type</span>=<span class="hv">"I"</span><span class="ht">&gt;</span>   <span class="hcmt">&lt;-- I, II, III (Roman numerals)</span>
+<span class="ht">&lt;ol</span> <span class="hat">type</span>=<span class="hv">"i"</span><span class="ht">&gt;</span>   <span class="hcmt">&lt;-- i, ii, iii</span></pre>
+    </div>
+
+    <h2>HTML Images</h2>
+    <div class="code-block">
+      <div class="code-label">Image tag</div>
+      <pre><span class="ht">&lt;img</span> <span class="hat">src</span>=<span class="hv">"logo.png"</span> <span class="hat">alt</span>=<span class="hv">"Company Logo"</span><span class="ht">&gt;</span>
+
+<span class="hcmt">&lt;!-- With width and height --&gt;</span>
+<span class="ht">&lt;img</span> <span class="hat">src</span>=<span class="hv">"photo.jpg"</span> <span class="hat">alt</span>=<span class="hv">"School photo"</span> <span class="hat">width</span>=<span class="hv">"300"</span> <span class="hat">height</span>=<span class="hv">"200"</span><span class="ht">&gt;</span>
+
+<span class="hcmt">&lt;!-- With border --&gt;</span>
+<span class="ht">&lt;img</span> <span class="hat">src</span>=<span class="hv">"icon.gif"</span> <span class="hat">alt</span>=<span class="hv">"Icon"</span> <span class="hat">border</span>=<span class="hv">"2"</span><span class="ht">&gt;</span></pre>
+    </div>
+    <div class="tbl-wrap"><table>
+      <tr><th>Attribute</th><th>Purpose</th><th>Required?</th></tr>
+      <tr><td><code class="hat">src</code></td><td>Path/filename of the image</td><td>Yes</td></tr>
+      <tr><td><code class="hat">alt</code></td><td>Alternative text (shown if image doesn't load; accessibility)</td><td>Yes</td></tr>
+      <tr><td><code class="hat">width</code></td><td>Width of the image in pixels</td><td>No</td></tr>
+      <tr><td><code class="hat">height</code></td><td>Height of the image in pixels</td><td>No</td></tr>
+      <tr><td><code class="hat">border</code></td><td>Border thickness in pixels</td><td>No</td></tr>
+    </table></div>
+    <div class="callout">
+      <div class="callout-title">IMAGE FILE PATHS</div>
+      <p>If the image is in the same folder as the HTML file: <code>src="photo.jpg"</code><br>
+      If in a subfolder: <code>src="images/photo.jpg"</code><br>
+      Online image (URL): <code>src="https://example.com/photo.jpg"</code></p>
+    </div>
+
+    <h2>HTML Tables</h2>
+    <div class="code-block">
+      <div class="code-label">Table structure</div>
+      <pre><span class="ht">&lt;table</span> <span class="hat">border</span>=<span class="hv">"1"</span><span class="ht">&gt;</span>
+  <span class="ht">&lt;tr&gt;</span>                        <span class="hcmt">&lt;!-- Table Row --&gt;</span>
+    <span class="ht">&lt;th&gt;</span>Name<span class="ht">&lt;/th&gt;</span>              <span class="hcmt">&lt;!-- Table Header (bold, centred) --&gt;</span>
+    <span class="ht">&lt;th&gt;</span>Age<span class="ht">&lt;/th&gt;</span>
+    <span class="ht">&lt;th&gt;</span>City<span class="ht">&lt;/th&gt;</span>
+  <span class="ht">&lt;/tr&gt;</span>
+  <span class="ht">&lt;tr&gt;</span>
+    <span class="ht">&lt;td&gt;</span>Amahle<span class="ht">&lt;/td&gt;</span>            <span class="hcmt">&lt;!-- Table Data (regular cell) --&gt;</span>
+    <span class="ht">&lt;td&gt;</span>17<span class="ht">&lt;/td&gt;</span>
+    <span class="ht">&lt;td&gt;</span>Cape Town<span class="ht">&lt;/td&gt;</span>
+  <span class="ht">&lt;/tr&gt;</span>
+  <span class="ht">&lt;tr&gt;</span>
+    <span class="ht">&lt;td&gt;</span>Johan<span class="ht">&lt;/td&gt;</span>
+    <span class="ht">&lt;td&gt;</span>18<span class="ht">&lt;/td&gt;</span>
+    <span class="ht">&lt;td&gt;</span>Pretoria<span class="ht">&lt;/td&gt;</span>
+  <span class="ht">&lt;/tr&gt;</span>
+<span class="ht">&lt;/table&gt;</span></pre>
+    </div>
+    <div class="steps-box">
+      <div class="steps-title">How to think about building a table (type it in this order)</div>
+      <ol class="steps">
+        <li>Start with the table "fence": type the opening <code>&lt;table border="1"&gt;</code> and, a few lines below, the closing <code>&lt;/table&gt;</code>. Everything else goes between them.</li>
+        <li>Each ROW is a <code>&lt;tr&gt; … &lt;/tr&gt;</code> pair. Add one <code>&lt;tr&gt;&lt;/tr&gt;</code> for every row you need.</li>
+        <li>Inside each row, add the CELLS. Use <code>&lt;th&gt;</code> for heading cells (bold, centred) in the first row, and <code>&lt;td&gt;</code> for normal data cells in the other rows.</li>
+        <li>Type your text between each cell's tags, e.g. <code>&lt;td&gt;Amahle&lt;/td&gt;</code></li>
+        <li>Save (<kbd>Ctrl</kbd> + <kbd>S</kbd>) and refresh the browser (<kbd>F5</kbd>) to check it. Count your <code>&lt;td&gt;</code> tags — every row should have the same number of cells.</li>
+      </ol>
+    </div>
+    <div class="def-grid">
+      <div class="def-term">&lt;table&gt;</div><div class="def-desc">Creates the entire table</div>
+      <div class="def-term">&lt;tr&gt;</div><div class="def-desc">Table Row — one horizontal row</div>
+      <div class="def-term">&lt;th&gt;</div><div class="def-desc">Table Header cell — bold and centred by default</div>
+      <div class="def-term">&lt;td&gt;</div><div class="def-desc">Table Data cell — regular content cell</div>
+    </div>
+    <h3>Table Attributes</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Attribute</th><th>Applied to</th><th>Effect</th></tr>
+      <tr><td><code class="hat">border</code></td><td>&lt;table&gt;</td><td>Thickness of the table border (e.g. border="1")</td></tr>
+      <tr><td><code class="hat">cellpadding</code></td><td>&lt;table&gt;</td><td>Space INSIDE each cell between content and border</td></tr>
+      <tr><td><code class="hat">cellspacing</code></td><td>&lt;table&gt;</td><td>Space BETWEEN cells</td></tr>
+      <tr><td><code class="hat">width</code></td><td>&lt;table&gt; or &lt;td&gt;</td><td>Width of the whole table or a specific cell</td></tr>
+      <tr><td><code class="hat">bgcolor</code></td><td>&lt;table&gt;, &lt;tr&gt;, or &lt;td&gt;</td><td>Background colour</td></tr>
+      <tr><td><code class="hat">align</code></td><td>&lt;td&gt; or &lt;th&gt;</td><td>Horizontal alignment: left, center, right</td></tr>
+      <tr><td><code class="hat">valign</code></td><td>&lt;td&gt; or &lt;th&gt;</td><td>Vertical alignment: top, middle, bottom</td></tr>
+      <tr><td><code class="hat">colspan</code></td><td>&lt;td&gt; or &lt;th&gt;</td><td>Merges cells horizontally across columns</td></tr>
+      <tr><td><code class="hat">rowspan</code></td><td>&lt;td&gt; or &lt;th&gt;</td><td>Merges cells vertically across rows</td></tr>
+    </table></div>
+    <div class="code-block">
+      <div class="code-label">Merging cells — colspan and rowspan</div>
+      <pre><span class="hcmt">&lt;!-- colspan: merge across 2 columns --&gt;</span>
+<span class="ht">&lt;td</span> <span class="hat">colspan</span>=<span class="hv">"2"</span><span class="ht">&gt;</span>This cell spans two columns<span class="ht">&lt;/td&gt;</span>
+
+<span class="hcmt">&lt;!-- rowspan: merge across 3 rows --&gt;</span>
+<span class="ht">&lt;td</span> <span class="hat">rowspan</span>=<span class="hv">"3"</span><span class="ht">&gt;</span>This cell spans three rows<span class="ht">&lt;/td&gt;</span></pre>
+    </div>
+
+    <h2>Hyperlinks</h2>
+    <div class="code-block">
+      <div class="code-label">Anchor tag — hyperlinks</div>
+      <pre><span class="hcmt">&lt;!-- Link to a website --&gt;</span>
+<span class="ht">&lt;a</span> <span class="hat">href</span>=<span class="hv">"https://www.google.com"</span><span class="ht">&gt;</span>Go to Google<span class="ht">&lt;/a&gt;</span>
+
+<span class="hcmt">&lt;!-- Link to another page in same folder --&gt;</span>
+<span class="ht">&lt;a</span> <span class="hat">href</span>=<span class="hv">"page2.html"</span><span class="ht">&gt;</span>Go to Page 2<span class="ht">&lt;/a&gt;</span>
+
+<span class="hcmt">&lt;!-- Open link in new tab --&gt;</span>
+<span class="ht">&lt;a</span> <span class="hat">href</span>=<span class="hv">"https://dbe.gov.za"</span> <span class="hat">target</span>=<span class="hv">"_blank"</span><span class="ht">&gt;</span>DBE Website<span class="ht">&lt;/a&gt;</span>
+
+<span class="hcmt">&lt;!-- Link to a bookmark (id) on the same page --&gt;</span>
+<span class="ht">&lt;a</span> <span class="hat">href</span>=<span class="hv">"#section2"</span><span class="ht">&gt;</span>Jump to Section 2<span class="ht">&lt;/a&gt;</span>
+<span class="hcmt">&lt;!-- The target bookmark: --&gt;</span>
+<span class="ht">&lt;h2</span> <span class="hat">id</span>=<span class="hv">"section2"</span><span class="ht">&gt;</span>Section 2<span class="ht">&lt;/h2&gt;</span>
+
+<span class="hcmt">&lt;!-- Link to an email address --&gt;</span>
+<span class="ht">&lt;a</span> <span class="hat">href</span>=<span class="hv">"mailto:teacher@school.co.za"</span><span class="ht">&gt;</span>Email us<span class="ht">&lt;/a&gt;</span>
+
+<span class="hcmt">&lt;!-- Image as a link --&gt;</span>
+<span class="ht">&lt;a</span> <span class="hat">href</span>=<span class="hv">"home.html"</span><span class="ht">&gt;&lt;img</span> <span class="hat">src</span>=<span class="hv">"logo.png"</span> <span class="hat">alt</span>=<span class="hv">"Home"</span><span class="ht">&gt;&lt;/a&gt;</span></pre>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">target ATTRIBUTE VALUES</div>
+      <p><code>target="_blank"</code> — opens in a new browser tab.<br>
+      <code>target="_self"</code> — opens in the same tab (default).</p>
+    </div>
+
+    <h2>Good Website Design Principles</h2>
+    <ul>
+      <li><strong>Readability</strong>: clear font, appropriate size, sufficient contrast between text and background</li>
+      <li><strong>Navigation</strong>: easy to find links; consistent menu position; clear labels</li>
+      <li><strong>Consistency</strong>: same colours, fonts and layout on all pages</li>
+      <li><strong>Layout</strong>: logical structure; visual hierarchy (headings, sub-headings, body text)</li>
+      <li><strong>Typography</strong>: limit to 2 font families; body text 12–14pt; headings larger</li>
+      <li><strong>Colour use</strong>: limit to 2–3 main colours; use complementary colours; avoid clashing colours</li>
+    </ul>
+
+    <div class="callout exam">
+      <div class="callout-title">EXAM TIP — Cite Tag (PAT Only)</div>
+      <p>The <code class="ht">&lt;cite&gt;</code> tag is used in CAT only for the PAT (not in exam P1). It marks a citation or reference to another work. It typically renders in italic.<br>
+      Example: <code>&lt;cite&gt;DBE CAPS Document, 2023&lt;/cite&gt;</code></p>
+    </div>
+
+    <div class="page-nav">
+      <a href="databases.html"><span class="page-nav-label">← Previous</span>Databases (Access)</a>
+      <a class="next" href="../../grade11/theory/hardware.html"><span class="page-nav-label">Next →</span>Hardware Theory (Gr 11)</a>
+    </div>
+  </main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

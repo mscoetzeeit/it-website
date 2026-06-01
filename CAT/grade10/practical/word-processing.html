@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Processing – CAT Grade 10</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr10); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 10 · Practical</div>
+    <a href="../../grade10/practical/word-processing.html">Word Processing</a>
+    <a href="../../grade10/practical/spreadsheets.html">Spreadsheets</a>
+    <a href="../../grade10/practical/html.html">HTML &amp; Web Design</a>
+    <a href="../../grade10/practical/presentations.html">Presentations (PAT)</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 10 · Theory</div>
+    <a href="../../grade10/theory/concepts.html">Concepts of Computing</a>
+    <a href="../../grade10/theory/hardware.html">Hardware</a>
+    <a href="../../grade10/theory/software.html">Software &amp; Licensing</a>
+    <a href="../../grade10/theory/networks.html">Networks</a>
+    <a href="../../grade10/theory/internet.html">Internet &amp; E-Communication</a>
+    <a href="../../grade10/theory/social.html">Social Implications</a>
+  </aside>
+  <main class="content">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Grade 10 Practical</span><span class="breadcrumb-sep">›</span><span>Word Processing</span></div>
+    <h1>Word Processing <span class="grade-badge">Grade 10</span></h1>
+    <p class="page-intro">Microsoft Word is the word processing application used in CAT. Grade 10 covers all the essentials — from creating documents and formatting text to working with tables, page layout and objects.</p>
+
+    <div class="callout tip">
+      <div class="callout-title">HOW TO READ THE STEPS ON THIS PAGE</div>
+      <p>When you see a path like <span class="ribbon-path"><span class="rp">Home tab</span><span class="rp-arrow">→</span><span class="rp">Font group</span><span class="rp-arrow">→</span><span class="rp">Bold</span></span> it means: click the word <strong>Home</strong> at the top of the screen, then look in the section called <strong>Font</strong>, then click the <strong>Bold</strong> button. Keys you press on the keyboard look like this: <kbd>Ctrl</kbd> + <kbd>S</kbd> (hold the first key down, then tap the second).</p>
+    </div>
+
+    <h2>The Word Interface</h2>
+    <figure class="figure">
+      <svg viewBox="0 0 720 300" width="720" aria-label="Diagram of the Microsoft Word window">
+        <rect x="0" y="0" width="720" height="300" rx="6" fill="#0d1117" stroke="#30363d"/>
+        <!-- title bar -->
+        <rect x="1" y="1" width="718" height="26" rx="6" fill="#161b22"/>
+        <text x="12" y="18" fill="#8b949e" font-family="Segoe UI" font-size="11">Document1 - Word</text>
+        <!-- ribbon tabs -->
+        <rect x="1" y="27" width="718" height="22" fill="#21262d"/>
+        <text x="14" y="42" fill="#34d399" font-family="Segoe UI" font-size="11" font-weight="bold">File</text>
+        <text x="46" y="42" fill="#e6edf3" font-family="Segoe UI" font-size="11" font-weight="bold">Home</text>
+        <text x="92" y="42" fill="#8b949e" font-family="Segoe UI" font-size="11">Insert</text>
+        <text x="134" y="42" fill="#8b949e" font-family="Segoe UI" font-size="11">Design</text>
+        <text x="184" y="42" fill="#8b949e" font-family="Segoe UI" font-size="11">Layout</text>
+        <text x="236" y="42" fill="#8b949e" font-family="Segoe UI" font-size="11">References</text>
+        <text x="306" y="42" fill="#8b949e" font-family="Segoe UI" font-size="11">Review</text>
+        <text x="356" y="42" fill="#8b949e" font-family="Segoe UI" font-size="11">View</text>
+        <!-- ribbon body -->
+        <rect x="1" y="49" width="718" height="46" fill="#161b22"/>
+        <rect x="10" y="56" width="120" height="32" rx="3" fill="#21262d" stroke="#30363d"/>
+        <text x="70" y="76" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">Clipboard group</text>
+        <rect x="138" y="56" width="150" height="32" rx="3" fill="#21262d" stroke="#34d399"/>
+        <text x="213" y="76" fill="#34d399" font-family="Segoe UI" font-size="9" text-anchor="middle">Font group</text>
+        <rect x="296" y="56" width="150" height="32" rx="3" fill="#21262d" stroke="#30363d"/>
+        <text x="371" y="76" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">Paragraph group</text>
+        <rect x="454" y="56" width="120" height="32" rx="3" fill="#21262d" stroke="#30363d"/>
+        <text x="514" y="76" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">Styles group</text>
+        <!-- ruler -->
+        <rect x="1" y="95" width="718" height="12" fill="#21262d"/>
+        <!-- page -->
+        <rect x="160" y="115" width="400" height="170" fill="#ffffff" stroke="#30363d"/>
+        <rect x="185" y="135" width="350" height="8" rx="2" fill="#d0d7de"/>
+        <rect x="185" y="152" width="350" height="6" rx="2" fill="#e6edf3"/>
+        <rect x="185" y="164" width="320" height="6" rx="2" fill="#e6edf3"/>
+        <rect x="185" y="176" width="340" height="6" rx="2" fill="#e6edf3"/>
+        <!-- labels with arrows -->
+        <text x="14" y="20" fill="#fb923c" font-family="Segoe UI" font-size="10"></text>
+        <text x="600" y="44" fill="#34d399" font-family="Segoe UI" font-size="10">Ribbon tabs ↑</text>
+        <text x="600" y="78" fill="#34d399" font-family="Segoe UI" font-size="10">Groups ↑</text>
+        <text x="600" y="105" fill="#fb923c" font-family="Segoe UI" font-size="10">Ruler ↑</text>
+        <text x="600" y="205" fill="#f472b6" font-family="Segoe UI" font-size="10">← Your page</text>
+        <!-- status bar -->
+        <rect x="1" y="285" width="718" height="14" fill="#21262d"/>
+        <text x="12" y="296" fill="#8b949e" font-family="Segoe UI" font-size="9">Page 1 of 1     Words: 0</text>
+      </svg>
+      <figcaption>The main parts of the Microsoft Word window. The <strong>Ribbon</strong> across the top holds all the buttons, organised into <strong>tabs</strong> (Home, Insert…) and <strong>groups</strong> (Font, Paragraph…).</figcaption>
+    </figure>
+    <div class="def-grid">
+      <div class="def-term">Ribbon</div><div class="def-desc">The toolbar at the top with all commands, organised into tabs (Home, Insert, Layout, etc.)</div>
+      <div class="def-term">Tabs</div><div class="def-desc">Categories on the Ribbon: Home, Insert, Design, Layout, References, Mailings, Review, View</div>
+      <div class="def-term">Groups</div><div class="def-desc">Sections within a tab that group related commands (e.g. Font group, Paragraph group)</div>
+      <div class="def-term">Status Bar</div><div class="def-desc">Bottom of the screen — shows page number, word count, zoom level</div>
+      <div class="def-term">Ruler</div><div class="def-desc">Shows margins and tab stops; useful for setting indents</div>
+    </div>
+
+    <h2>File Management in Word</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Action</th><th>Shortcut</th><th>What it does</th></tr>
+      <tr><td>New document</td><td>Ctrl+N</td><td>Creates a blank new document</td></tr>
+      <tr><td>Open</td><td>Ctrl+O</td><td>Opens an existing document</td></tr>
+      <tr><td>Save</td><td>Ctrl+S</td><td>Saves with the current filename</td></tr>
+      <tr><td>Save As</td><td>F12</td><td>Saves with a new name or in a different format/location</td></tr>
+      <tr><td>Close</td><td>Ctrl+W</td><td>Closes the current document</td></tr>
+      <tr><td>Print</td><td>Ctrl+P</td><td>Opens the print dialog</td></tr>
+      <tr><td>Print Preview</td><td>Ctrl+P (then preview)</td><td>Shows how the document will look when printed</td></tr>
+    </table></div>
+
+    <h2>Document Structure</h2>
+    <p>A Word document is made up of:</p>
+    <ul>
+      <li><strong>Pages / Sections</strong> — the physical pages; sections allow different formatting in different parts</li>
+      <li><strong>Paragraphs</strong> — blocks of text ending with a paragraph mark (¶)</li>
+      <li><strong>Lines / Text</strong> — individual rows of characters</li>
+      <li><strong>Objects</strong> — images, shapes, text boxes, charts inserted into the document</li>
+    </ul>
+    <div class="callout tip">
+      <div class="callout-title">FORMATTING MARKS</div>
+      <p>Turn on formatting marks with <strong>Ctrl+Shift+8</strong> or the ¶ button on the Home tab. This shows paragraph marks (¶), spaces (·) and tab characters (→) — very helpful for troubleshooting layout problems.</p>
+    </div>
+
+    <h2>Selecting Text</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>To select</th><th>Method</th></tr>
+      <tr><td>A word</td><td>Double-click the word</td></tr>
+      <tr><td>A sentence</td><td>Click then Shift+click at end; or Ctrl+click</td></tr>
+      <tr><td>A line</td><td>Click in the left margin next to the line</td></tr>
+      <tr><td>A paragraph</td><td>Triple-click anywhere in the paragraph</td></tr>
+      <tr><td>All text</td><td>Ctrl+A</td></tr>
+      <tr><td>A block</td><td>Click at start, Shift+click at end</td></tr>
+    </table></div>
+
+    <h2>Editing Text</h2>
+    <div class="def-grid">
+      <div class="def-term">Cut</div><div class="def-desc">Ctrl+X — removes selected text and places it on the clipboard</div>
+      <div class="def-term">Copy</div><div class="def-desc">Ctrl+C — copies selected text to the clipboard</div>
+      <div class="def-term">Paste</div><div class="def-desc">Ctrl+V — inserts clipboard content at the cursor position</div>
+      <div class="def-term">Undo</div><div class="def-desc">Ctrl+Z — reverses the last action</div>
+      <div class="def-term">Redo</div><div class="def-desc">Ctrl+Y — repeats the last undone action</div>
+      <div class="def-term">Find &amp; Replace</div><div class="def-desc">Ctrl+H — finds specific text and replaces it with something else</div>
+    </div>
+
+    <h2>Font Formatting (Home Tab → Font Group)</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Formatting</th><th>Shortcut</th><th>Effect</th></tr>
+      <tr><td>Bold</td><td>Ctrl+B</td><td><strong>Makes text thicker/heavier</strong></td></tr>
+      <tr><td>Italic</td><td>Ctrl+I</td><td><em>Slants the text</em></td></tr>
+      <tr><td>Underline</td><td>Ctrl+U</td><td><u>Adds a line under the text</u></td></tr>
+      <tr><td>Font type</td><td>Font Name box</td><td>Changes the typeface (Arial, Times New Roman, Calibri)</td></tr>
+      <tr><td>Font size</td><td>Font Size box</td><td>Changes how large the text is (in points)</td></tr>
+      <tr><td>Font colour</td><td>A▼ button</td><td>Changes the colour of the text</td></tr>
+      <tr><td>Highlight</td><td>ab▼ button</td><td>Adds background colour behind text</td></tr>
+      <tr><td>Strikethrough</td><td>Font dialog</td><td><s>Draws a line through the text</s></td></tr>
+      <tr><td>Superscript</td><td>Ctrl+Shift++</td><td>Raises text (e.g. x²)</td></tr>
+      <tr><td>Subscript</td><td>Ctrl+=</td><td>Lowers text (e.g. H₂O)</td></tr>
+      <tr><td>Change Case</td><td>Shift+F3</td><td>Cycles between UPPER, lower and Title Case</td></tr>
+    </table></div>
+
+    <div class="callout">
+      <div class="callout-title">TYPOGRAPHY TIP</div>
+      <p>Use only ONE space after punctuation (full stops, commas, etc.) — NOT two spaces. Word's autocorrect will also fix "smart quotes" (curly ") and proper em-dashes (—) automatically.</p>
+    </div>
+
+    <div class="steps-box">
+      <div class="steps-title">Step-by-step: Make a heading bold, size 16, dark blue</div>
+      <ol class="steps">
+        <li>Move your mouse to the very start of the text you want to change. Press and hold the left mouse button, then drag across the words to <strong>highlight</strong> them (the text turns a shaded colour). Let go of the button.</li>
+        <li>At the top of the screen, click the <span class="ribbon-path"><span class="rp">Home</span></span> tab (it is usually already open).</li>
+        <li>Find the section labelled <strong>Font</strong> near the top-left. Click the small arrow next to the <strong>font size box</strong> (it shows a number like 11) and choose <strong>16</strong>.</li>
+        <li>Still in the Font group, click the <strong>B</strong> button to make the text bold. (Or press <kbd>Ctrl</kbd> + <kbd>B</kbd>.)</li>
+        <li>Click the small arrow next to the <strong>A</strong> with the coloured line under it (the <em>Font Colour</em> button).</li>
+        <li>A grid of colours appears. Click a dark blue square. If you cannot see the exact colour, click <strong>More Colours…</strong> and pick one.</li>
+        <li>Click anywhere else on the page to deselect, and check your heading looks correct.</li>
+      </ol>
+    </div>
+
+    <h2>Paragraph Formatting (Home Tab → Paragraph Group)</h2>
+    <h3>Alignment</h3>
+    <div class="def-grid">
+      <div class="def-term">Align Left</div><div class="def-desc">Ctrl+L — text lines up against the left margin (default)</div>
+      <div class="def-term">Centre</div><div class="def-desc">Ctrl+E — text is centred between the margins</div>
+      <div class="def-term">Align Right</div><div class="def-desc">Ctrl+R — text lines up against the right margin</div>
+      <div class="def-term">Justify</div><div class="def-desc">Ctrl+J — text stretches to fill the line between both margins</div>
+    </div>
+    <h3>Spacing</h3>
+    <ul>
+      <li><strong>Line spacing</strong>: controls space between lines within a paragraph (1.0 = single, 1.5, 2.0 = double)</li>
+      <li><strong>Paragraph spacing</strong>: adds space Before or After a paragraph (set in Paragraph dialog: Layout → Paragraph)</li>
+    </ul>
+    <h3>Indents</h3>
+    <ul>
+      <li><strong>Increase indent</strong>: Tab / Ctrl+M — moves paragraph to the right</li>
+      <li><strong>Decrease indent</strong>: Shift+Tab / Ctrl+Shift+M — moves paragraph back left</li>
+      <li><strong>First line indent</strong>: only the first line of the paragraph is indented</li>
+      <li><strong>Hanging indent</strong>: first line is at the margin; all other lines are indented</li>
+    </ul>
+
+    <h3>Bullets and Numbering</h3>
+    <ul>
+      <li><strong>Bullets</strong>: unordered list with symbols (•, ◆, ✓) — use when order doesn't matter</li>
+      <li><strong>Numbering</strong>: ordered list (1, 2, 3 or a, b, c) — use when sequence matters</li>
+    </ul>
+
+    <h3>Tabs</h3>
+    <p>Tabs position text at set intervals on a line. Different tab types:</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Tab Type</th><th>Text aligns...</th></tr>
+      <tr><td>Left tab</td><td>Left edge of text at the tab stop</td></tr>
+      <tr><td>Centre tab</td><td>Centred at the tab stop</td></tr>
+      <tr><td>Right tab</td><td>Right edge of text at the tab stop</td></tr>
+      <tr><td>Decimal tab</td><td>Decimal point aligned at the tab stop (great for numbers)</td></tr>
+    </table></div>
+
+    <h2>Page Layout (Layout Tab)</h2>
+    <div class="def-grid">
+      <div class="def-term">Margins</div><div class="def-desc">The blank space around the edges of the page; set in Layout → Margins</div>
+      <div class="def-term">Orientation</div><div class="def-desc">Portrait (tall) or Landscape (wide)</div>
+      <div class="def-term">Page Size</div><div class="def-desc">A4 (default in SA), Letter, etc.</div>
+      <div class="def-term">Page Border</div><div class="def-desc">Design tab → Page Borders — decorative border around the entire page</div>
+      <div class="def-term">Columns</div><div class="def-desc">Divides the text area into multiple columns (newspaper style)</div>
+      <div class="def-term">Watermark</div><div class="def-desc">Faint text/image behind the main content (e.g. "DRAFT" or "CONFIDENTIAL")</div>
+    </div>
+
+    <h3>Document Layout</h3>
+    <div class="def-grid">
+      <div class="def-term">Page Numbers</div><div class="def-desc">Insert → Page Number — adds automatic page numbers (top, bottom, margin)</div>
+      <div class="def-term">Page Break</div><div class="def-desc">Ctrl+Enter — forces the next content to start on a new page</div>
+      <div class="def-term">Headers &amp; Footers</div><div class="def-desc">Text that appears at the top (header) or bottom (footer) of every page — e.g. title, date, page number</div>
+    </div>
+    <div class="steps-box">
+      <div class="steps-title">Step-by-step: Put your name in the header and a page number in the footer</div>
+      <ol class="steps">
+        <li>Click the <span class="ribbon-path"><span class="rp">Insert</span><span class="rp-arrow">→</span><span class="rp">Header</span></span> button, then click <strong>Edit Header</strong> (or pick a built-in design). The cursor jumps into the header area at the top of the page.</li>
+        <li>Type your name. It will now appear at the top of <em>every</em> page automatically.</li>
+        <li>Click <strong>Go to Footer</strong> on the Header &amp; Footer tab (or scroll down and click in the footer area).</li>
+        <li>Click <strong>Page Number</strong> → <strong>Current Position</strong> → <strong>Plain Number</strong>. A page number appears.</li>
+        <li>Click <strong>Close Header and Footer</strong> (the red X on the right) to go back to your normal document.</li>
+      </ol>
+    </div>
+
+    <h2>Quick Styles (Home Tab → Styles Group)</h2>
+    <p>Styles apply a combination of formatting in one click. Built-in styles include <strong>Heading 1, Heading 2, Normal, Title</strong>. Using heading styles consistently enables automatic Table of Contents generation.</p>
+
+    <h2>Proofing and Reviewing</h2>
+    <div class="def-grid">
+      <div class="def-term">Spell Check</div><div class="def-desc">F7 or Review → Spelling &amp; Grammar — flags spelling and grammar errors</div>
+      <div class="def-term">Autocorrect</div><div class="def-desc">Automatically fixes common typing errors (teh→the, adn→and)</div>
+      <div class="def-term">Word Count</div><div class="def-desc">Review → Word Count (or shown in Status Bar at bottom)</div>
+    </div>
+
+    <h2>Working with Tables</h2>
+    <div class="steps-box">
+      <div class="steps-title">Step-by-step: Insert a table with 3 columns and 4 rows</div>
+      <ol class="steps">
+        <li>Click in your document where you want the table to appear (the blinking line, called the <strong>cursor</strong>, shows where it will go).</li>
+        <li>Click the <span class="ribbon-path"><span class="rp">Insert</span><span class="rp-arrow">→</span><span class="rp">Table</span></span> button. A small grid of squares drops down.</li>
+        <li>Move your mouse over the grid. As you move, squares light up to show the size. Move until <strong>3 across and 4 down</strong> are highlighted (it says "3x4 Table" at the top).</li>
+        <li>Click once. Word inserts an empty table with 3 columns and 4 rows.</li>
+        <li>Click inside any block (called a <strong>cell</strong>) and type. Press the <kbd>Tab</kbd> key to jump to the next cell. (Pressing <kbd>Tab</kbd> in the last cell makes a new row.)</li>
+      </ol>
+    </div>
+    <p>Two new tabs appear whenever your cursor is inside a table: <strong>Table Design</strong> (colours, borders, styles) and <strong>Table Layout</strong> (add/delete rows, merge cells, alignment).</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Task</th><th>How to do it</th></tr>
+      <tr><td>Insert row</td><td>Right-click → Insert → Rows Above/Below (or Tab at end of last row)</td></tr>
+      <tr><td>Delete row/column</td><td>Right-click → Delete Cells → delete row or column</td></tr>
+      <tr><td>Merge cells</td><td>Select cells → Table Layout → Merge Cells</td></tr>
+      <tr><td>Split cells</td><td>Table Layout → Split Cells → specify rows and columns</td></tr>
+      <tr><td>Table styles</td><td>Table Design tab → choose from style gallery</td></tr>
+      <tr><td>Borders &amp; shading</td><td>Table Design → Borders / Shading</td></tr>
+      <tr><td>Sort data</td><td>Table Layout → Sort</td></tr>
+      <tr><td>SUM in table</td><td>Table Layout → Formula → =SUM(ABOVE) or =SUM(LEFT)</td></tr>
+    </table></div>
+
+    <h2>Objects and Illustrations (Insert Tab)</h2>
+    <ul>
+      <li><strong>Pictures</strong> — insert from file or online; resize using corner handles</li>
+      <li><strong>Shapes</strong> — draw rectangles, circles, arrows; format with fill colour and borders</li>
+      <li><strong>WordArt</strong> — decorative text effects</li>
+      <li><strong>SmartArt</strong> — visual diagrams (org charts, lists, cycle diagrams)</li>
+      <li><strong>Screenshots</strong> — captures an image of your screen or a window</li>
+      <li><strong>Text Box</strong> — a box you can place anywhere on the page to type in</li>
+    </ul>
+    <div class="callout tip">
+      <div class="callout-title">TEXT WRAPPING</div>
+      <p>When inserting pictures or shapes, change the text wrapping to control how text flows around the object. Common options: <strong>In Line with Text</strong> (moves with text), <strong>Square</strong> or <strong>Tight</strong> (text wraps around the object), <strong>Behind Text</strong> / <strong>In Front of Text</strong>.</p>
+    </div>
+
+    <h2>View Options</h2>
+    <div class="def-grid">
+      <div class="def-term">Print Layout</div><div class="def-desc">Default view — shows exactly how the document will print</div>
+      <div class="def-term">Draft</div><div class="def-desc">Simplified view without page margins — good for fast editing</div>
+      <div class="def-term">Zoom</div><div class="def-desc">Ctrl+scroll wheel — enlarges or reduces the view (does NOT change font size)</div>
+      <div class="def-term">Side-by-side</div><div class="def-desc">View → View Side by Side — compare two open documents at once</div>
+    </div>
+
+    <div class="callout exam">
+      <div class="callout-title">EXAM TIP — Common Word Processing Tasks</div>
+      <p>In a practical exam, marks are awarded for precise formatting. Pay attention to: exact font sizes and types, correct alignment, proper header/footer content, correct use of styles, and whether you save in the correct format (.docx). Always save frequently!</p>
+    </div>
+
+    <div class="page-nav">
+      <a href="../../grade10/theory/social.html"><span class="page-nav-label">← Theory</span>Social Implications</a>
+      <a class="next" href="spreadsheets.html"><span class="page-nav-label">Next →</span>Spreadsheets</a>
+    </div>
+  </main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>

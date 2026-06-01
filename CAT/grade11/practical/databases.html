@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Databases (Access) – CAT Grade 11</title>
+<link rel="stylesheet" href="../../css/style.css">
+<style>:root { --grade-color: var(--gr11); }</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Grade 11 · Practical</div>
+    <a href="../../grade11/practical/word-processing.html">Word Processing</a>
+    <a href="../../grade11/practical/spreadsheets.html">Spreadsheets</a>
+    <a href="../../grade11/practical/databases.html">Databases (Access)</a>
+    <a href="../../grade11/practical/html.html">HTML &amp; Web Design</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 11 · Theory</div>
+    <a href="../../grade11/theory/hardware.html">Hardware &amp; Processing</a>
+    <a href="../../grade11/theory/software.html">Software &amp; Cloud</a>
+    <a href="../../grade11/theory/networks.html">Networks (LAN/WLAN)</a>
+    <a href="../../grade11/theory/internet.html">Internet, IoT &amp; 4IR</a>
+    <a href="../../grade11/theory/social.html">Social Implications</a>
+  </aside>
+  <main class="content">
+    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Grade 11 Practical</span><span class="breadcrumb-sep">›</span><span>Databases (Access)</span></div>
+    <h1>Databases (Access) <span class="grade-badge">Grade 11</span></h1>
+    <p class="page-intro">Microsoft Access is the database application used in CAT. Databases store structured data in tables and allow powerful filtering, querying and reporting. Grade 11 introduces tables, forms, queries and basic reports.</p>
+
+    <h2>What is a Database?</h2>
+    <p>A <strong>database</strong> is an organised collection of related data stored in a structured way so it can be efficiently accessed, managed and updated. A <strong>DBMS</strong> (Database Management System) is the software used to manage databases. Microsoft Access is a desktop DBMS.</p>
+
+    <figure class="figure">
+      <svg viewBox="0 0 560 210" width="560" aria-label="Diagram of a database table showing fields and records">
+        <!-- field name header -->
+        <g font-family="Segoe UI" font-size="11">
+          <rect x="20" y="40" width="120" height="26" fill="#fb923c33" stroke="#fb923c"/><text x="30" y="57" fill="#fb923c" font-weight="bold">LearnerID</text>
+          <rect x="140" y="40" width="150" height="26" fill="#fb923c33" stroke="#fb923c"/><text x="150" y="57" fill="#fb923c" font-weight="bold">FirstName</text>
+          <rect x="290" y="40" width="150" height="26" fill="#fb923c33" stroke="#fb923c"/><text x="300" y="57" fill="#fb923c" font-weight="bold">Surname</text>
+          <rect x="440" y="40" width="90" height="26" fill="#fb923c33" stroke="#fb923c"/><text x="450" y="57" fill="#fb923c" font-weight="bold">Grade</text>
+          <!-- records -->
+          <rect x="20" y="66" width="120" height="24" fill="#0d1117" stroke="#30363d"/><text x="30" y="82" fill="#e6edf3">L001</text>
+          <rect x="140" y="66" width="150" height="24" fill="#0d1117" stroke="#30363d"/><text x="150" y="82" fill="#e6edf3">Amahle</text>
+          <rect x="290" y="66" width="150" height="24" fill="#0d1117" stroke="#30363d"/><text x="300" y="82" fill="#e6edf3">Dlamini</text>
+          <rect x="440" y="66" width="90" height="24" fill="#0d1117" stroke="#30363d"/><text x="450" y="82" fill="#e6edf3">11</text>
+          <rect x="20" y="90" width="120" height="24" fill="#34d39922" stroke="#34d399" stroke-width="2"/><text x="30" y="106" fill="#34d399">L002</text>
+          <rect x="140" y="90" width="150" height="24" fill="#34d39922" stroke="#34d399" stroke-width="2"/><text x="150" y="106" fill="#34d399">Johan</text>
+          <rect x="290" y="90" width="150" height="24" fill="#34d39922" stroke="#34d399" stroke-width="2"/><text x="300" y="106" fill="#34d399">van der Berg</text>
+          <rect x="440" y="90" width="90" height="24" fill="#34d39922" stroke="#34d399" stroke-width="2"/><text x="450" y="106" fill="#34d399">11</text>
+          <rect x="20" y="114" width="120" height="24" fill="#0d1117" stroke="#30363d"/><text x="30" y="130" fill="#e6edf3">L003</text>
+          <rect x="140" y="114" width="150" height="24" fill="#0d1117" stroke="#30363d"/><text x="150" y="130" fill="#e6edf3">Sipho</text>
+          <rect x="290" y="114" width="150" height="24" fill="#0d1117" stroke="#30363d"/><text x="300" y="130" fill="#e6edf3">Khumalo</text>
+          <rect x="440" y="114" width="90" height="24" fill="#0d1117" stroke="#30363d"/><text x="450" y="130" fill="#e6edf3">11</text>
+        </g>
+        <text x="20" y="30" fill="#fb923c" font-family="Segoe UI" font-size="11">↓ Each column is a FIELD (one type of information)</text>
+        <text x="20" y="160" fill="#34d399" font-family="Segoe UI" font-size="11">↑ Each row is a RECORD (all the information about one learner)</text>
+        <text x="20" y="182" fill="#f472b6" font-family="Segoe UI" font-size="11">LearnerID is the PRIMARY KEY — a unique value that identifies each record</text>
+      </svg>
+      <figcaption>A database <strong>table</strong>. Columns are <strong>fields</strong> (one type of data), rows are <strong>records</strong> (one complete entry). The <strong>primary key</strong> is the field that is unique for every record.</figcaption>
+    </figure>
+
+    <h2>Key Terminology</h2>
+    <div class="def-grid">
+      <div class="def-term">Table</div><div class="def-desc">The fundamental storage object — contains data in rows and columns (like a spreadsheet, but structured)</div>
+      <div class="def-term">Record</div><div class="def-desc">A complete set of data about one item/person — one row in a table</div>
+      <div class="def-term">Field</div><div class="def-desc">A single category of information — one column in a table (e.g. FirstName, DateOfBirth, Price)</div>
+      <div class="def-term">Field name</div><div class="def-desc">The label/heading of a column (e.g. "StudentID", "Mark")</div>
+      <div class="def-term">Primary key</div><div class="def-desc">A field (or combination) that uniquely identifies each record — no two records can have the same value (e.g. ID number, StudentCode)</div>
+      <div class="def-term">Form</div><div class="def-desc">A user-friendly interface for entering, viewing and editing records (one record at a time)</div>
+      <div class="def-term">Query</div><div class="def-desc">A question asked of the database — returns specific records that meet set criteria</div>
+      <div class="def-term">Report</div><div class="def-desc">A formatted printable summary of data, often grouped and with calculations</div>
+    </div>
+
+    <h2>Database Objects (Access Navigation Pane)</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Object</th><th>Icon type</th><th>Purpose</th></tr>
+      <tr><td>Tables</td><td>Grid icon</td><td>Store the raw data</td></tr>
+      <tr><td>Queries</td><td>! icon</td><td>Filter and combine data from tables</td></tr>
+      <tr><td>Forms</td><td>Document icon</td><td>Data entry/viewing interface</td></tr>
+      <tr><td>Reports</td><td>Striped icon</td><td>Formatted printable output of data</td></tr>
+    </table></div>
+
+    <h2>Data Types</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Data Type</th><th>Used for</th><th>Example</th></tr>
+      <tr><td>Short Text</td><td>Text up to 255 characters</td><td>Name, City, Code</td></tr>
+      <tr><td>Long Text / Memo</td><td>Lengthy text (e.g. descriptions, notes)</td><td>Product description</td></tr>
+      <tr><td>Number</td><td>Numeric data for calculations</td><td>Quantity, Age, Score</td></tr>
+      <tr><td>Currency</td><td>Monetary values</td><td>Price, Salary</td></tr>
+      <tr><td>Date/Time</td><td>Dates and times</td><td>DateOfBirth, OrderDate</td></tr>
+      <tr><td>Yes/No</td><td>True/False, Yes/No, boolean</td><td>IsMember, IsPaid</td></tr>
+      <tr><td>AutoNumber</td><td>Unique number assigned automatically by Access</td><td>ID (primary key)</td></tr>
+      <tr><td>OLE Object / Attachment</td><td>Images, files embedded in the database</td><td>Photo, Document</td></tr>
+      <tr><td>Hyperlink</td><td>Web addresses or file paths</td><td>Website URL</td></tr>
+      <tr><td>Lookup</td><td>Drop-down list pulling values from another table or fixed list</td><td>Category, Status</td></tr>
+    </table></div>
+
+    <h2>Field Properties</h2>
+    <div class="def-grid">
+      <div class="def-term">Field Size / Length</div><div class="def-desc">Maximum number of characters (Short Text) or type of number (Integer, Long Integer)</div>
+      <div class="def-term">Format</div><div class="def-desc">How data is displayed (e.g. date format: dd/mm/yyyy)</div>
+      <div class="def-term">Default Value</div><div class="def-desc">Pre-filled value when a new record is added</div>
+      <div class="def-term">Required</div><div class="def-desc">Yes = the field must have a value; No = can be left blank</div>
+      <div class="def-term">Decimal Places</div><div class="def-desc">Number of decimal places shown (for Number fields)</div>
+      <div class="def-term">Validation Rule</div><div class="def-desc">A rule the data must pass (e.g. &gt;=0 ensures no negative marks)</div>
+      <div class="def-term">Validation Text</div><div class="def-desc">Error message shown when validation rule is broken</div>
+      <div class="def-term">Input Mask</div><div class="def-desc">Controls how data is entered (e.g. phone number format: 000-000-0000)</div>
+    </table></div>
+
+    <h2>Creating Tables</h2>
+    <div class="steps-box">
+      <div class="steps-title">Step-by-step: Create a new table in Design View</div>
+      <ol class="steps">
+        <li>At the top of the screen, click the <span class="ribbon-path"><span class="rp">Create</span><span class="rp-arrow">→</span><span class="rp">Table Design</span></span> button. A blank grid opens.</li>
+        <li>In the first row under <strong>Field Name</strong>, type the name of your first field (for example <code>LearnerID</code>). Field names should have no spaces.</li>
+        <li>Press <kbd>Tab</kbd> to move to the <strong>Data Type</strong> column. Click the small arrow and choose the correct type (e.g. <em>Short Text</em>, <em>Number</em>, <em>Date/Time</em>).</li>
+        <li>Repeat for each field, one per row, until all your fields are listed.</li>
+        <li>Click the row that should be the <strong>primary key</strong> (e.g. LearnerID), then click the <strong>Primary Key</strong> button (a small key icon) on the Design tab. A little key appears next to that row.</li>
+        <li>To set rules for a field, click it, then change its <strong>Field Properties</strong> in the panel at the bottom of the screen (field size, default value, required, validation rule, etc.).</li>
+        <li>Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save. Type a name for the table (e.g. <code>tblLearners</code>) and click <strong>OK</strong>.</li>
+        <li>Switch to <strong>Datasheet View</strong> (the grid icon, top-left) to start typing in records.</li>
+      </ol>
+    </div>
+    <h3>Datasheet View</h3>
+    <ul>
+      <li>Add/edit/delete records directly in the table grid</li>
+      <li>Sort: click column header → Home → Sort Ascending/Descending</li>
+      <li>Filter: Home → Filter button or right-click a value</li>
+    </ul>
+
+    <h2>Creating Forms</h2>
+    <p>Forms provide a friendly data entry interface.</p>
+    <ul>
+      <li><strong>AutoForm</strong>: select table → Create → Form (creates a basic form automatically)</li>
+      <li><strong>Form Wizard</strong>: Create → Form Wizard → choose fields and layout</li>
+      <li><strong>Design View</strong>: full control; add/remove fields, labels, buttons, images</li>
+    </ul>
+    <h3>Form Controls</h3>
+    <div class="def-grid">
+      <div class="def-term">Text Box</div><div class="def-desc">Displays/enters data from a field</div>
+      <div class="def-term">Label</div><div class="def-desc">Static descriptive text (field name)</div>
+      <div class="def-term">Button</div><div class="def-desc">Runs a macro or action (e.g. Save Record, Go to Next Record)</div>
+      <div class="def-term">Image / Picture</div><div class="def-desc">Displays a logo or image on the form</div>
+    </div>
+
+    <h2>Creating Queries</h2>
+    <p>Queries retrieve specific records from a table based on criteria.</p>
+    <div class="steps-box">
+      <div class="steps-title">Step-by-step: Build a query to find all Grade 11 learners</div>
+      <ol class="steps">
+        <li>Click the <span class="ribbon-path"><span class="rp">Create</span><span class="rp-arrow">→</span><span class="rp">Query Design</span></span> button.</li>
+        <li>A "Add Tables" panel appears on the right. Double-click the table you want (e.g. tblLearners), then close the panel.</li>
+        <li>The table appears with a list of its fields. Double-click each field you want to see in the result — they drop into the grid at the bottom.</li>
+        <li>To filter, find the <strong>Criteria</strong> row in the grid, under the field you want to filter. Under "Grade", type <code>11</code>.</li>
+        <li>Click the big red <strong>Run</strong> button (exclamation mark <code>!</code>) on the Design tab. Access shows only the records that match.</li>
+        <li>Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save, give the query a name (e.g. qryGrade11) and click <strong>OK</strong>.</li>
+      </ol>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title">REMEMBER: AND vs OR</div>
+      <p>To require TWO conditions at once (AND), type both in the <strong>same Criteria row</strong>. To allow EITHER condition (OR), type the second one in the <strong>"or" row</strong> just below.</p>
+    </div>
+    <h3>Query Criteria Examples</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Criteria</th><th>Finds records where...</th></tr>
+      <tr><td><code>"Cape Town"</code></td><td>City is exactly "Cape Town"</td></tr>
+      <tr><td><code>&gt;=50</code></td><td>Mark is 50 or more</td></tr>
+      <tr><td><code>&lt;100</code></td><td>Price is less than 100</td></tr>
+      <tr><td><code>Between 10 And 20</code></td><td>Value is between 10 and 20 (inclusive)</td></tr>
+      <tr><td><code>Like "S*"</code></td><td>Name starts with "S" (* = any characters)</td></tr>
+      <tr><td><code>Like "*son"</code></td><td>Name ends with "son"</td></tr>
+      <tr><td><code>Not "Johannesburg"</code></td><td>City is NOT Johannesburg</td></tr>
+      <tr><td><code>Is Null</code></td><td>Field has no value (empty)</td></tr>
+      <tr><td><code>Is Not Null</code></td><td>Field has a value</td></tr>
+    </table></div>
+    <h3>AND vs OR in Queries</h3>
+    <ul>
+      <li><strong>AND</strong>: place criteria in the <strong>same Criteria row</strong> — both conditions must be true</li>
+      <li><strong>OR</strong>: place criteria in <strong>different Criteria rows</strong> — either condition can be true</li>
+    </ul>
+
+    <h2>Creating Reports</h2>
+    <p>Reports present data in a formatted, printable way.</p>
+    <ul>
+      <li><strong>AutoReport</strong>: select table/query → Create → Report</li>
+      <li><strong>Report Wizard</strong>: Create → Report Wizard → choose fields, grouping, sorting and layout</li>
+    </ul>
+    <h3>Report Sections (Design View)</h3>
+    <div class="def-grid">
+      <div class="def-term">Report Header</div><div class="def-desc">Appears once at the very top of the report (title, logo, date)</div>
+      <div class="def-term">Page Header</div><div class="def-desc">Appears at the top of every page (column headings)</div>
+      <div class="def-term">Detail</div><div class="def-desc">Shows each record's data (repeats for every record)</div>
+      <div class="def-term">Page Footer</div><div class="def-desc">Appears at the bottom of every page (page number)</div>
+      <div class="def-term">Report Footer</div><div class="def-desc">Appears once at the very end (grand totals)</div>
+    </div>
+    <h3>Calculations in Reports</h3>
+    <p>Add calculated text boxes to report sections (especially footer):</p>
+    <div class="code-block">
+      <div class="code-label">Report footer calculations</div>
+      <pre>=<span class="fn">Sum</span>([Price])     <span class="hcmt">&lt;-- total of Price field</span>
+=<span class="fn">Avg</span>([Mark])      <span class="hcmt">&lt;-- average of Mark field</span>
+=<span class="fn">Count</span>([ID])      <span class="hcmt">&lt;-- number of records</span>
+=<span class="fn">Max</span>([Score])     <span class="hcmt">&lt;-- highest score</span>
+=<span class="fn">Min</span>([Score])     <span class="hcmt">&lt;-- lowest score</span></pre>
+    </div>
+
+    <div class="callout exam">
+      <div class="callout-title">EXAM TIP — Database Terminology</div>
+      <p>Know the difference: <strong>Table</strong> (stores data), <strong>Form</strong> (data entry interface), <strong>Query</strong> (filters/retrieves data), <strong>Report</strong> (formatted printed output). A query returns records from tables; a report presents those records nicely. Use Like "S*" for starts with, Like "*son" for ends with, Like "*an*" for contains "an".</p>
+    </div>
+
+    <div class="page-nav">
+      <a href="spreadsheets.html"><span class="page-nav-label">← Previous</span>Spreadsheets</a>
+      <a class="next" href="html.html"><span class="page-nav-label">Next →</span>HTML &amp; Web Design</a>
+    </div>
+  </main>
+</div>
+<script src="../../js/nav.js"></script>
+<script src="../../js/main.js"></script>
+</body>
+</html>
