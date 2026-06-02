@@ -99,6 +99,11 @@
     // ── STUDY TOOLS ──
     + '<li><button class="nav-dropdown-btn" style="color:#4ade80">Study Tools <span class="chevron"></span></button>'
     + '<div class="dropdown">'
+    + '<div class="dropdown-section">Quick Reference</div>'
+    + '<a href="' + r + 'quick-reference.html">&#128203; Programming Recap (all grades)</a>'
+    + '<a href="' + r + 'quick-ref-gr10.html">&#128203; Grade 10 — Programming</a>'
+    + '<a href="' + r + 'quick-ref-gr11.html">&#128203; Grade 11 — Programming</a>'
+    + '<a href="' + r + 'quick-ref-gr12.html">&#128203; Grade 12 — Programming</a>'
     + '<div class="dropdown-section">Term Planners</div>'
     + '<a href="' + r + 'terms-gr10.html">&#128197; Grade 10 — By Term</a>'
     + '<a href="' + r + 'terms-gr11.html">&#128197; Grade 11 — By Term</a>'

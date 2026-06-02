@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 10 Programming — Quick Reference · Ms Coetzee IT</title>
+<link rel="stylesheet" href="css/style.css">
+<style>:root { --grade-color: var(--gr10); --qr-band: #0e7490; }</style>
+</head>
+<body>
+<div id="topnav"></div>
+
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Quick Reference</div>
+    <a href="quick-reference.html">All grades</a>
+    <a href="quick-ref-gr10.html">Grade 10 — Programming</a>
+    <a href="quick-ref-gr11.html">Grade 11 — Programming</a>
+    <a href="quick-ref-gr12.html">Grade 12 — Programming</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Full Topics</div>
+    <a href="grade10/practical/data-types.html">Data Types &amp; Variables</a>
+    <a href="grade10/practical/operators.html">Operators &amp; Functions</a>
+    <a href="grade10/practical/decisions.html">Decisions (IF / CASE)</a>
+    <a href="grade10/practical/loops.html">Loops</a>
+    <a href="grade10/practical/strings.html">String Manipulation</a>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><a href="quick-reference.html">Quick Reference</a><span class="breadcrumb-sep">›</span><span>Grade 10 — Programming</span></div>
+
+    <div class="qr-hero gr10">
+      <div>
+        <h1>Grade 10 — Programming Recap</h1>
+        <p>Data types · operators · functions · decisions · loops · strings — everything on one page.</p>
+      </div>
+      <span class="qr-badge">Delphi · Paper 1</span>
+    </div>
+
+    <!-- ── DATA TYPES & I/O ── -->
+    <h2>Data, Variables &amp; Input/Output</h2>
+    <div class="qr-grid">
+      <div class="qr-card">
+        <p class="qr-card-title">Data types</p>
+        <table class="qr-table">
+          <tr><td>Integer</td><td>Whole number — age, count, mark</td></tr>
+          <tr><td>Real</td><td>Decimal — price, average</td></tr>
+          <tr><td>String</td><td>Text — name, surname, ID</td></tr>
+          <tr><td>Char</td><td>One character — a grade symbol</td></tr>
+          <tr><td>Boolean</td><td>True or False</td></tr>
+        </table>
+        <p class="qr-card-title">Declaring</p>
+        <div class="qr-code"><span class="kw">var</span>
+  iAge   : <span class="kw2">Integer</span>;
+  rPrice : <span class="kw2">Real</span>;
+  sName  : <span class="kw2">String</span>;
+  bPass  : <span class="kw2">Boolean</span>;</div>
+        <div class="qr-tip"><strong>Prefix tip:</strong> i = integer, r = real, s = string, b = boolean, c = char.</div>
+      </div>
+
+      <div class="qr-card">
+        <p class="qr-card-title">Conversions</p>
+        <table class="qr-table">
+          <tr><td>StrToInt(s)</td><td>Text → Integer</td></tr>
+          <tr><td>StrToFloat(s)</td><td>Text → Real</td></tr>
+          <tr><td>IntToStr(n)</td><td>Integer → Text</td></tr>
+          <tr><td>FloatToStr(r)</td><td>Real → Text</td></tr>
+          <tr><td>Val(s,n,code)</td><td>Safe convert; code = 0 if OK</td></tr>
+        </table>
+        <div class="qr-tip"><strong>Why convert?</strong> An Edit box's <code>.Text</code> is always a String — convert it before doing maths.</div>
+      </div>
+
+      <div class="qr-card">
+        <p class="qr-card-title">Reading input</p>
+        <div class="qr-row">
+          <span class="qr-label">From an Edit box</span>
+          <div class="qr-code">iAge := <span class="fn">StrToInt</span>(edtAge.Text);</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">From a SpinEdit</span>
+          <div class="qr-code">iQty := sedQty.Value;</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">From a pop-up box</span>
+          <div class="qr-code">sName := <span class="fn">InputBox</span>(<span class="str">'Name'</span>,<span class="str">'Enter:'</span>,<span class="str">''</span>);</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">CheckBox / RadioGroup</span>
+          <div class="qr-code"><span class="kw">if</span> chkVip.Checked <span class="kw">then</span> ...
+i := rgpSize.ItemIndex;</div>
+        </div>
+      </div>
+
+      <div class="qr-card">
+        <p class="qr-card-title">Showing output</p>
+        <div class="qr-row">
+          <span class="qr-label">In a Label</span>
+          <div class="qr-code">lblOut.Caption := <span class="str">'Total: '</span> + <span class="fn">IntToStr</span>(iTot);</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Pop-up message</span>
+          <div class="qr-code"><span class="fn">ShowMessage</span>(<span class="str">'Done!'</span>);</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Line in a Memo / RichEdit</span>
+          <div class="qr-code">redOut.Lines.Add(sLine);
+redOut.Lines.Clear;   <span class="cmt">// clear first</span></div>
+        </div>
+        <div class="qr-tip"><strong>Always</strong> clear the output area before adding new results.</div>
+      </div>
+    </div>
+
+    <!-- ── OPERATORS & FUNCTIONS ── -->
+    <h2>Operators &amp; Functions</h2>
+    <div class="qr-grid">
+      <div class="qr-card">
+        <p class="qr-card-title">Operators</p>
+        <table class="qr-table">
+          <tr><td>+ &nbsp; − &nbsp; *</td><td>Add, subtract, multiply</td></tr>
+          <tr><td>/</td><td>Real division → Real answer</td></tr>
+          <tr><td>DIV</td><td>Integer division (whole part)</td></tr>
+          <tr><td>MOD</td><td>Remainder only</td></tr>
+          <tr><td>= &nbsp; &lt;&gt; &nbsp; &lt; &nbsp; &gt; &nbsp; &lt;= &nbsp; &gt;=</td><td>Comparison (relational)</td></tr>
+          <tr><td>AND &nbsp; OR &nbsp; NOT</td><td>Logical / Boolean</td></tr>
+          <tr><td>IN [a..b]</td><td>Membership test</td></tr>
+        </table>
+        <div class="qr-tip"><strong>17 DIV 5 = 3</strong> &nbsp;·&nbsp; <strong>17 MOD 5 = 2</strong>. DIV and MOD work on integers only.</div>
+      </div>
+
+      <div class="qr-card">
+        <p class="qr-card-title">Maths functions</p>
+        <table class="qr-table">
+          <tr><td>Sqr(x)</td><td>x squared</td></tr>
+          <tr><td>Sqrt(x)</td><td>Square root of x</td></tr>
+          <tr><td>Round(x)</td><td>Nearest whole number</td></tr>
+          <tr><td>Trunc(x)</td><td>Drop the decimal part</td></tr>
+          <tr><td>Abs(x)</td><td>Always positive</td></tr>
+          <tr><td>Random(n)</td><td>0 to n−1 (add offset)</td></tr>
+        </table>
+        <div class="qr-tip"><strong>Random tip:</strong> dice = <code>Random(6) + 1</code>. Call <code>Randomize;</code> once at start.</div>
+      </div>
+
+      <div class="qr-card">
+        <p class="qr-card-title">Char functions</p>
+        <table class="qr-table">
+          <tr><td>Ord(c)</td><td>ASCII value of a character</td></tr>
+          <tr><td>Chr(n)</td><td>Character from ASCII value</td></tr>
+          <tr><td>UpCase(c)</td><td>One char to uppercase</td></tr>
+          <tr><td>c IN ['A'..'Z']</td><td>Is it a capital letter?</td></tr>
+          <tr><td>c IN ['0'..'9']</td><td>Is it a digit?</td></tr>
+        </table>
+        <div class="qr-code"><span class="fn">Ord</span>(<span class="str">'A'</span>)  <span class="cmt">// = 65</span>
+<span class="fn">Chr</span>(<span class="num">66</span>)   <span class="cmt">// = 'B'</span></div>
+      </div>
+    </div>
+
+    <div class="qr-full">
+      <p class="qr-card-title">Order of operations (BODMAS)</p>
+      <div class="qr-two" style="gap:0 1.5rem;margin-bottom:0">
+        <div>
+          <div class="qr-step"><span class="qr-num">1</span><code>( )</code><span class="qr-step-eg">Brackets first</span></div>
+          <div class="qr-step"><span class="qr-num">2</span><code>Sqr Sqrt</code><span class="qr-step-eg">Orders / powers</span></div>
+          <div class="qr-step"><span class="qr-num">3</span><code>* / DIV MOD</code><span class="qr-step-eg">Left to right</span></div>
+        </div>
+        <div>
+          <div class="qr-step"><span class="qr-num">4</span><code>+ &nbsp;−</code><span class="qr-step-eg">Left to right</span></div>
+          <div class="qr-step"><span class="qr-num">5</span><code>NOT</code><span class="qr-step-eg">Boolean negation</span></div>
+          <div class="qr-step"><span class="qr-num">6</span><code>AND OR</code><span class="qr-step-eg">Combine conditions</span></div>
+        </div>
+      </div>
+      <div class="qr-tip"><strong>Tip:</strong> put brackets around each condition when combining with AND / OR.</div>
+    </div>
+
+    <!-- ── DECISIONS & LOOPS ── -->
+    <h2>Decisions &amp; Loops</h2>
+    <div class="qr-two">
+      <div class="qr-card">
+        <p class="qr-card-title">Selection</p>
+        <div class="qr-row">
+          <span class="qr-label">IF…THEN — one path</span>
+          <div class="qr-code"><span class="kw">if</span> iMark &gt;= <span class="num">50</span> <span class="kw">then</span>
+  lblOut.Caption := <span class="str">'Pass'</span>;</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">IF…THEN…ELSE — two paths</span>
+          <div class="qr-code"><span class="kw">if</span> iMark &gt;= <span class="num">50</span> <span class="kw">then</span>
+  sResult := <span class="str">'Pass'</span>
+<span class="kw">else</span>
+  sResult := <span class="str">'Fail'</span>;</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">CASE — many fixed choices</span>
+          <div class="qr-code"><span class="kw">case</span> iDay <span class="kw">of</span>
+  <span class="num">1</span>: sName := <span class="str">'Mon'</span>;
+  <span class="num">2</span>: sName := <span class="str">'Tue'</span>;
+<span class="kw">else</span> sName := <span class="str">'?'</span>;
+<span class="kw">end</span>;</div>
+        </div>
+        <div class="qr-tip"><strong>Rule:</strong> CASE for exact values · IF for ranges and comparisons.</div>
+      </div>
+
+      <div class="qr-card">
+        <p class="qr-card-title">Loops — choose the right one</p>
+        <div class="qr-row">
+          <span class="qr-label"><span class="qr-tag">FOR</span> &nbsp;known number of times</span>
+          <div class="qr-code"><span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> <span class="num">10</span> <span class="kw">do</span>
+  redOut.Lines.Add(<span class="fn">IntToStr</span>(i));</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label"><span class="qr-tag">FOR…DOWNTO</span> &nbsp;count backwards</span>
+          <div class="qr-code"><span class="kw">for</span> i := <span class="num">10</span> <span class="kw">downto</span> <span class="num">1</span> <span class="kw">do</span> ...</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label"><span class="qr-tag">WHILE</span> &nbsp;may run zero times (check first)</span>
+          <div class="qr-code"><span class="kw">while</span> iNum &lt;= <span class="num">100</span> <span class="kw">do</span>
+<span class="kw">begin</span>
+  iSum := iSum + iNum;
+  <span class="fn">Inc</span>(iNum);
+<span class="kw">end</span>;</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label"><span class="qr-tag">REPEAT</span> &nbsp;runs at least once (check last)</span>
+          <div class="qr-code"><span class="kw">repeat</span>
+  iNum := iNum + <span class="num">1</span>;
+<span class="kw">until</span> iNum = <span class="num">5</span>;</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STRINGS ── -->
+    <h2>String Handling</h2>
+    <div class="qr-two">
+      <div class="qr-card">
+        <p class="qr-card-title">String functions</p>
+        <table class="qr-table">
+          <tr><td>Length(s)</td><td>Number of characters</td></tr>
+          <tr><td>Copy(s,pos,len)</td><td>Extract part of a string</td></tr>
+          <tr><td>Pos(sub,s)</td><td>Position of sub; 0 if not found</td></tr>
+          <tr><td>Delete(s,pos,len)</td><td>Remove characters (in place)</td></tr>
+          <tr><td>Insert(sub,s,pos)</td><td>Insert text at a position</td></tr>
+          <tr><td>UpperCase(s)</td><td>ALL CAPITALS</td></tr>
+          <tr><td>LowerCase(s)</td><td>all lowercase</td></tr>
+          <tr><td>Trim(s)</td><td>Remove leading/trailing spaces</td></tr>
+          <tr><td>s[i]</td><td>Character at position i (starts at 1)</td></tr>
+        </table>
+        <div class="qr-tip"><strong>Position 1, not 0:</strong> in Delphi the first character of a string is <code>s[1]</code>.</div>
+      </div>
+
+      <div class="qr-card">
+        <p class="qr-card-title">Common string patterns</p>
+        <div class="qr-row">
+          <span class="qr-label">First / last character</span>
+          <div class="qr-code">s[<span class="num">1</span>]
+s[<span class="fn">Length</span>(s)]</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Is the box empty?</span>
+          <div class="qr-code"><span class="kw">if</span> s = <span class="str">''</span> <span class="kw">then</span> ...</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Does it contain something?</span>
+          <div class="qr-code"><span class="kw">if</span> <span class="fn">Pos</span>(<span class="str">'@'</span>, sEmail) &gt; <span class="num">0</span> <span class="kw">then</span> ...</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Count vowels in a loop</span>
+          <div class="qr-code"><span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> <span class="fn">Length</span>(s) <span class="kw">do</span>
+  <span class="kw">if</span> s[i] <span class="kw">in</span> [<span class="str">'a'</span>,<span class="str">'e'</span>,<span class="str">'i'</span>,<span class="str">'o'</span>,<span class="str">'u'</span>] <span class="kw">then</span>
+    <span class="fn">Inc</span>(iCount);</div>
+        </div>
+        <div class="qr-tip"><strong>Fair comparison:</strong> <code>LowerCase</code> both strings before comparing so 'Yes' = 'yes'.</div>
+      </div>
+    </div>
+
+    <!-- ── FORMATTING & ERRORS ── -->
+    <h2>Formatting &amp; Common Errors</h2>
+    <div class="qr-two">
+      <div class="qr-card">
+        <p class="qr-card-title">Formatting output</p>
+        <table class="qr-table">
+          <tr><td>FloatToStrF(x,ffFixed,8,2)</td><td>2 decimal places</td></tr>
+          <tr><td>FloatToStrF(x,ffCurrency,8,2)</td><td>R prefix, 2 decimals</td></tr>
+          <tr><td>FormatDateTime('dd/mm/yyyy',d)</td><td>Format a date</td></tr>
+          <tr><td>IntToStr(x)</td><td>Integer as text</td></tr>
+          <tr><td>#9</td><td>Tab — line columns up neatly</td></tr>
+        </table>
+        <div class="qr-code">lblTot.Caption :=
+  <span class="fn">FloatToStrF</span>(rTot, ffCurrency, <span class="num">8</span>, <span class="num">2</span>);
+<span class="cmt">// e.g. R149.90</span></div>
+      </div>
+
+      <div class="qr-card">
+        <p class="qr-card-title">Common errors &amp; fixes</p>
+        <table class="qr-table">
+          <tr><td>Undeclared identifier</td><td>Check spelling of variable / component</td></tr>
+          <tr><td>Incompatible types</td><td>Convert before assigning (StrToInt…)</td></tr>
+          <tr><td>EConvertError</td><td>StrToInt failed on text — use Val</td></tr>
+          <tr><td>Operator not applicable</td><td>DIV / MOD on a Real — use integers</td></tr>
+          <tr><td>Division by zero</td><td>Check the divisor isn't 0 first</td></tr>
+          <tr><td>Missing ; or end</td><td>Check semicolons and begin…end pairs</td></tr>
+        </table>
+        <div class="qr-tip"><strong>Validate first:</strong> check the input box isn't empty and is a number before you calculate.</div>
+      </div>
+    </div>
+
+    <div class="page-nav">
+      <a href="quick-reference.html"><span class="page-nav-label">← Back</span>All Quick References</a>
+      <a class="next" href="quick-ref-gr11.html"><span class="page-nav-label">Next →</span>Grade 11 — Programming</a>
+    </div>
+  </main>
+</div>
+
+<script src="./js/nav.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
