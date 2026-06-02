@@ -13,7 +13,9 @@
   <tr><th>Topology</th><th>Layout</th><th>Advantages</th><th>Disadvantages</th></tr>
   <tr><td><strong>Star</strong></td><td>All devices connect to a central switch</td><td>One failure doesn't affect others; easy to add devices</td><td>If switch fails, entire network fails</td></tr>
   <tr><td><strong>Ring</strong></td><td>Devices in a closed loop</td><td>Equal opportunity to transmit; no collision</td><td>One break can down the whole network</td></tr>
+  <tr><td><strong>Mesh</strong></td><td>Each device connects to several others, so data has more than one possible path</td><td>Very reliable — if one link fails, traffic simply reroutes along another path; no single point of failure</td><td>Expensive — many connections/cables needed; more complex to set up</td></tr>
 </table></div>
+<div class="callout tip"><div class="callout-title">Where you see mesh</div><p>A <strong>mesh</strong> design is how "mesh Wi-Fi" home systems work: each unit relays traffic for the others, so the signal can hop around obstacles and stay up even if one unit drops. Because every node can act as a <em>relay</em>, the network heals itself around a broken link.</p></div>
 <h2>Thin vs Thick Client</h2>
 <div class="tbl-wrap"><table>
   <tr><th></th><th>Thin Client</th><th>Thick (Fat) Client</th></tr>
