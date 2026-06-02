@@ -15,6 +15,104 @@
   --radius:    6px;
 }
 
+/* ── DARK THEME ── applied via [data-theme="dark"] on <html> */
+[data-theme="dark"] {
+  --bg:        #0d1117;
+  --surface:   #161b22;
+  --surface2:  #21262d;
+  --border:    #30363d;
+  --text:      #e6edf3;
+  --muted:     #8b949e;
+  --gr10:      #22d3ee;
+  --gr11:      #a78bfa;
+  --gr12:      #fbbf24;
+}
+/* OS-level dark preference (unless user has explicitly chosen light) */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    --bg:        #0d1117;
+    --surface:   #161b22;
+    --surface2:  #21262d;
+    --border:    #30363d;
+    --text:      #e6edf3;
+    --muted:     #8b949e;
+    --gr10:      #22d3ee;
+    --gr11:      #a78bfa;
+    --gr12:      #fbbf24;
+  }
+}
+
+/* Dark-only overrides for hardcoded rgba/colour values */
+[data-theme="dark"] .topnav-links .gr10:hover { background: rgba(34,211,238,.12); }
+[data-theme="dark"] .topnav-links .gr11:hover { background: rgba(167,139,250,.12); }
+[data-theme="dark"] .topnav-links .gr12:hover { background: rgba(251,191,36,.12); }
+[data-theme="dark"] .content h1 .grade-badge  { background: rgba(255,255,255,.08); }
+[data-theme="dark"] .callout                  { background: rgba(255,255,255,.04); }
+[data-theme="dark"] .sidebar a.active         { background: rgba(255,255,255,.04); }
+[data-theme="dark"] tr:hover td               { background: rgba(255,255,255,.02); }
+[data-theme="dark"] .tag-p1   { background: rgba(34,211,238,.15);  color: var(--gr10); }
+[data-theme="dark"] .tag-p2   { background: rgba(167,139,250,.15); color: var(--gr11); }
+[data-theme="dark"] .tag-both { background: rgba(74,222,128,.15);  color: #4ade80; }
+[data-theme="dark"] .badge-blue   { background: rgba(34,211,238,.15);  color: var(--gr10); }
+[data-theme="dark"] .badge-purple { background: rgba(167,139,250,.15); color: var(--gr11); }
+[data-theme="dark"] .badge-amber  { background: rgba(251,191,36,.15);  color: var(--gr12); }
+[data-theme="dark"] .badge-green  { background: rgba(74,222,128,.15);  color: #4ade80; }
+[data-theme="dark"] .callout.tip              { border-color: #4ade80; }
+[data-theme="dark"] .callout.tip .callout-title { color: #4ade80; }
+[data-theme="dark"] .kw    { color: #569cd6; }
+[data-theme="dark"] .kw2   { color: #c586c0; }
+[data-theme="dark"] .str   { color: #ce9178; }
+[data-theme="dark"] .num   { color: #b5cea8; }
+[data-theme="dark"] .cmt   { color: #6a9955; }
+[data-theme="dark"] .fn    { color: #dcdcaa; }
+[data-theme="dark"] .cls   { color: #4ec9b0; }
+[data-theme="dark"] .sql-kw { color: #569cd6; }
+[data-theme="dark"] .sql-fn { color: #dcdcaa; }
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) .topnav-links .gr10:hover { background: rgba(34,211,238,.12); }
+  html:not([data-theme="light"]) .topnav-links .gr11:hover { background: rgba(167,139,250,.12); }
+  html:not([data-theme="light"]) .topnav-links .gr12:hover { background: rgba(251,191,36,.12); }
+  html:not([data-theme="light"]) .content h1 .grade-badge  { background: rgba(255,255,255,.08); }
+  html:not([data-theme="light"]) .callout                  { background: rgba(255,255,255,.04); }
+  html:not([data-theme="light"]) .sidebar a.active         { background: rgba(255,255,255,.04); }
+  html:not([data-theme="light"]) tr:hover td               { background: rgba(255,255,255,.02); }
+  html:not([data-theme="light"]) .tag-p1   { background: rgba(34,211,238,.15);  color: var(--gr10); }
+  html:not([data-theme="light"]) .tag-p2   { background: rgba(167,139,250,.15); color: var(--gr11); }
+  html:not([data-theme="light"]) .tag-both { background: rgba(74,222,128,.15);  color: #4ade80; }
+  html:not([data-theme="light"]) .badge-blue   { background: rgba(34,211,238,.15);  color: var(--gr10); }
+  html:not([data-theme="light"]) .badge-purple { background: rgba(167,139,250,.15); color: var(--gr11); }
+  html:not([data-theme="light"]) .badge-amber  { background: rgba(251,191,36,.15);  color: var(--gr12); }
+  html:not([data-theme="light"]) .badge-green  { background: rgba(74,222,128,.15);  color: #4ade80; }
+  html:not([data-theme="light"]) .callout.tip  { border-color: #4ade80; }
+  html:not([data-theme="light"]) .callout.tip .callout-title { color: #4ade80; }
+  html:not([data-theme="light"]) .kw    { color: #569cd6; }
+  html:not([data-theme="light"]) .kw2   { color: #c586c0; }
+  html:not([data-theme="light"]) .str   { color: #ce9178; }
+  html:not([data-theme="light"]) .num   { color: #b5cea8; }
+  html:not([data-theme="light"]) .cmt   { color: #6a9955; }
+  html:not([data-theme="light"]) .fn    { color: #dcdcaa; }
+  html:not([data-theme="light"]) .cls   { color: #4ec9b0; }
+  html:not([data-theme="light"]) .sql-kw { color: #569cd6; }
+  html:not([data-theme="light"]) .sql-fn { color: #dcdcaa; }
+}
+
+/* ── THEME TOGGLE BUTTON ── */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 20px;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color .15s, border-color .15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.theme-toggle:hover { color: var(--text); border-color: var(--muted); }
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { font-size: 16px; scroll-behavior: smooth; }

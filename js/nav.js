@@ -2,6 +2,12 @@
    Injected into every page via <div id="topnav"></div>.
    Depth is auto-detected from the URL so relative paths always resolve. */
 
+/* Apply saved theme immediately to avoid flash */
+(function () {
+  var saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+
 (function () {
   var path = window.location.pathname.replace(/\\/g, '/');
   var segs = path.split('/').filter(Boolean);
@@ -107,8 +113,35 @@
     + '<input type="text" id="search-input" placeholder="Search topics&hellip;">'
     + '<div id="search-results"></div>'
     + '</div>'
+    + '<button class="theme-toggle" id="theme-toggle" title="Toggle dark / light mode"></button>'
     + '</nav>';
 
   var el = document.getElementById('topnav');
   if (el) el.outerHTML = html;
+
+  /* Theme toggle logic */
+  document.addEventListener('DOMContentLoaded', function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+
+    function isDark() {
+      var t = document.documentElement.getAttribute('data-theme');
+      if (t === 'dark') return true;
+      if (t === 'light') return false;
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    function updateBtn() {
+      btn.textContent = isDark() ? '☀' : '☽';  /* ☀ sun / ☽ crescent */
+      btn.title = isDark() ? 'Switch to light mode' : 'Switch to dark mode';
+    }
+    updateBtn();
+
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateBtn();
+    });
+  });
 })();
