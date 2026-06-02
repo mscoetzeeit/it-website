@@ -1,16 +1,16 @@
 ﻿/* ── Ms Coetzee IT ── shared stylesheet ── */
 
 :root {
-  --bg:        #0d1117;
-  --surface:   #161b22;
-  --surface2:  #21262d;
-  --border:    #30363d;
-  --text:      #e6edf3;
-  --muted:     #8b949e;
-  --gr10:      #22d3ee;   /* cyan  */
-  --gr11:      #a78bfa;   /* violet */
-  --gr12:      #fbbf24;   /* amber */
-  --accent:    var(--grade-color, #22d3ee);
+  --bg:        #efe9dc;
+  --surface:   #e5ddd0;
+  --surface2:  #d9d1c4;
+  --border:    #c4b9a8;
+  --text:      #1a1614;
+  --muted:     #6b5f52;
+  --gr10:      #0891b2;   /* dark cyan  */
+  --gr11:      #6d28d9;   /* dark violet */
+  --gr12:      #b45309;   /* dark amber */
+  --accent:    var(--grade-color, #0891b2);
   --sidebar-w: 260px;
   --radius:    6px;
 }
@@ -90,10 +90,10 @@ a:hover { text-decoration: underline; }
 .topnav-links .gr10 { color: var(--gr10); }
 .topnav-links .gr11 { color: var(--gr11); }
 .topnav-links .gr12 { color: var(--gr12); }
-.topnav-links .gr10:hover { background: rgba(34,211,238,.12); }
-.topnav-links .gr11:hover { background: rgba(167,139,250,.12); }
-.topnav-links .gr12:hover { background: rgba(251,191,36,.12); }
-.topnav-links li > button[style*="4ade80"]:hover { background: rgba(74,222,128,.12); }
+.topnav-links .gr10:hover { background: rgba(8,145,178,.12); }
+.topnav-links .gr11:hover { background: rgba(109,40,217,.12); }
+.topnav-links .gr12:hover { background: rgba(180,83,9,.12); }
+.topnav-links li > button[style*="4ade80"]:hover { background: rgba(22,163,74,.12); }
 
 /* ── TERM PAGE STYLES ── */
 .term-block {
@@ -176,9 +176,9 @@ a:hover { text-decoration: underline; }
   border-radius: 3px;
   margin-bottom: 0.4rem;
 }
-.tag-p1 { background: rgba(34,211,238,.15); color: var(--gr10); }
-.tag-p2 { background: rgba(167,139,250,.15); color: var(--gr11); }
-.tag-both { background: rgba(74,222,128,.15); color: #4ade80; }
+.tag-p1 { background: rgba(8,145,178,.15); color: var(--gr10); }
+.tag-p2 { background: rgba(109,40,217,.15); color: var(--gr11); }
+.tag-both { background: rgba(22,163,74,.15); color: #15803d; }
 
 /* dropdown */
 .dropdown {
@@ -329,7 +329,7 @@ li.open .dropdown { display: block; }
 .sidebar a.active {
   color: var(--accent);
   border-left-color: var(--accent);
-  background: rgba(255,255,255,.04);
+  background: rgba(0,0,0,.06);
 }
 
 /* ── CONTENT ── */
@@ -356,7 +356,7 @@ li.open .dropdown { display: block; }
   letter-spacing: .1em;
   padding: 0.2rem 0.5rem;
   border-radius: 3px;
-  background: rgba(255,255,255,.08);
+  background: rgba(0,0,0,.08);
   color: var(--accent);
   vertical-align: middle;
   margin-left: 0.5rem;
@@ -453,7 +453,7 @@ p code, li code {
 /* ── CALLOUT BOXES ── */
 .callout {
   border-left: 3px solid var(--accent);
-  background: rgba(255,255,255,.04);
+  background: rgba(0,0,0,.04);
   padding: 0.9rem 1.25rem;
   margin: 1.25rem 0;
   border-radius: 0 var(--radius) var(--radius) 0;
@@ -469,8 +469,8 @@ p code, li code {
 .callout p { margin: 0; }
 .callout.warning { border-color: var(--gr12); }
 .callout.warning .callout-title { color: var(--gr12); }
-.callout.tip { border-color: #4ade80; }
-.callout.tip .callout-title { color: #4ade80; }
+.callout.tip { border-color: #15803d; }
+.callout.tip .callout-title { color: #15803d; }
 
 /* ── TABLE ── */
 .tbl-wrap { overflow-x: auto; margin: 1.25rem 0; }
@@ -495,7 +495,7 @@ td {
   vertical-align: top;
 }
 tr:last-child td { border-bottom: none; }
-tr:hover td { background: rgba(255,255,255,.02); }
+tr:hover td { background: rgba(0,0,0,.03); }
 td code, th code { font-size: 0.95em; color: var(--gr10); }
 
 /* ── DEFINITION LIST ── */
@@ -523,10 +523,10 @@ td code, th code { font-size: 0.95em; color: var(--gr10); }
   text-transform: uppercase;
   letter-spacing: .06em;
 }
-.badge-blue   { background: rgba(34,211,238,.15); color: var(--gr10); }
-.badge-purple { background: rgba(167,139,250,.15); color: var(--gr11); }
-.badge-amber  { background: rgba(251,191,36,.15);  color: var(--gr12); }
-.badge-green  { background: rgba(74,222,128,.15);  color: #4ade80; }
+.badge-blue   { background: rgba(8,145,178,.15); color: var(--gr10); }
+.badge-purple { background: rgba(109,40,217,.15); color: var(--gr11); }
+.badge-amber  { background: rgba(180,83,9,.15);   color: var(--gr12); }
+.badge-green  { background: rgba(22,163,74,.15);  color: #15803d; }
 
 /* ── HOME PAGE ── */
 .home-hero {
@@ -783,15 +783,15 @@ td code, th code { font-size: 0.95em; color: var(--gr10); }
 }
 
 /* ── SYNTAX highlighting (Delphi keywords) ── */
-.kw   { color: #569cd6; font-weight: 600; }     /* keyword */
-.kw2  { color: #c586c0; font-weight: 600; }     /* type keyword */
-.str  { color: #ce9178; }                       /* string */
-.num  { color: #b5cea8; }                       /* number */
-.cmt  { color: #6a9955; font-style: italic; }   /* comment */
-.fn   { color: #dcdcaa; }                       /* function */
-.cls  { color: #4ec9b0; }                       /* class/type */
-.sql-kw { color: #569cd6; font-weight: 600; }   /* SQL keywords */
-.sql-fn { color: #dcdcaa; }                     /* SQL functions */
+.kw   { color: #1d4ed8; font-weight: 600; }     /* keyword */
+.kw2  { color: #7e22ce; font-weight: 600; }     /* type keyword */
+.str  { color: #b45309; }                       /* string */
+.num  { color: #166534; }                       /* number */
+.cmt  { color: #4d7c0f; font-style: italic; }   /* comment */
+.fn   { color: #854d0e; }                       /* function */
+.cls  { color: #0f766e; }                       /* class/type */
+.sql-kw { color: #1d4ed8; font-weight: 600; }   /* SQL keywords */
+.sql-fn { color: #854d0e; }                     /* SQL functions */
 
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
