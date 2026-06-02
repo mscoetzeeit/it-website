@@ -1,0 +1,57 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" viewBox="0 0 640 220" style="width:100%;max-width:640px" width="640.0" height="220.0" xmlns="http://www.w3.org/2000/svg">
+      
+      <ns0:rect x="20" y="10" width="260" height="200" rx="6" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+      <ns0:rect x="20" y="10" width="260" height="34" rx="6" fill="#ffffff" opacity="0.2" />
+      <ns0:rect x="20" y="10" width="260" height="34" fill="none" stroke="#333333" stroke-width="1.5" rx="6" />
+      <ns0:text x="150" y="33" text-anchor="middle" font-size="13" font-weight="700" fill="#111111" font-family="Consolas,monospace">tblStudents</ns0:text>
+      
+      <ns0:rect x="21" y="44" width="258" height="24" fill="#ffffff" />
+      <ns0:text x="35" y="61" font-size="11" fill="#111111" font-family="Consolas,monospace">StudentID</ns0:text>
+      <ns0:text x="120" y="61" font-size="11" fill="#111111" font-family="Consolas,monospace">Name</ns0:text>
+      <ns0:text x="200" y="61" font-size="11" fill="#111111" font-family="Consolas,monospace">ClassID</ns0:text>
+      
+      <ns0:text x="22" y="61" font-size="11" fill="#111111">🔑</ns0:text>
+      
+      <ns0:line x1="21" y1="68" x2="279" y2="68" stroke="#333333" />
+      <ns0:text x="35" y="83" font-size="11" fill="#111111" font-family="Consolas,monospace">1</ns0:text>
+      <ns0:text x="120" y="83" font-size="11" fill="#111111" font-family="Consolas,monospace">Alice</ns0:text>
+      <ns0:text x="200" y="83" font-size="11" fill="#111111" font-family="Consolas,monospace">C01</ns0:text>
+      
+      <ns0:line x1="21" y1="91" x2="279" y2="91" stroke="#333333" />
+      <ns0:text x="35" y="106" font-size="11" fill="#111111" font-family="Consolas,monospace">2</ns0:text>
+      <ns0:text x="120" y="106" font-size="11" fill="#111111" font-family="Consolas,monospace">Bob</ns0:text>
+      <ns0:text x="200" y="106" font-size="11" fill="#111111" font-family="Consolas,monospace">C02</ns0:text>
+      
+      <ns0:line x1="21" y1="114" x2="279" y2="114" stroke="#333333" />
+      <ns0:text x="35" y="129" font-size="11" fill="#111111" font-family="Consolas,monospace">3</ns0:text>
+      <ns0:text x="120" y="129" font-size="11" fill="#111111" font-family="Consolas,monospace">Carol</ns0:text>
+      <ns0:text x="200" y="129" font-size="11" fill="#111111" font-family="Consolas,monospace">C01</ns0:text>
+      <ns0:text x="35" y="185" font-size="10" fill="#111111" font-family="sans-serif">PK: StudentID</ns0:text>
+      <ns0:text x="35" y="200" font-size="10" fill="#111111" font-family="sans-serif">FK: ClassID → tblClasses</ns0:text>
+
+      
+      <ns0:line x1="200" y1="106" x2="360" y2="106" stroke="#333333" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr)" />
+      <ns0:defs>
+        <ns0:marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <ns0:path d="M0,0 L0,6 L8,3 z" fill="#333333" />
+        </ns0:marker>
+      </ns0:defs>
+      <ns0:text x="290" y="100" font-size="10" fill="#111111" font-family="sans-serif">FK links to PK</ns0:text>
+
+      
+      <ns0:rect x="360" y="10" width="260" height="200" rx="6" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+      <ns0:rect x="360" y="10" width="260" height="34" rx="6" fill="#ffffff" opacity="0.2" />
+      <ns0:rect x="360" y="10" width="260" height="34" fill="none" stroke="#333333" stroke-width="1.5" rx="6" />
+      <ns0:text x="490" y="33" text-anchor="middle" font-size="13" font-weight="700" fill="#111111" font-family="Consolas,monospace">tblClasses</ns0:text>
+      <ns0:rect x="361" y="44" width="258" height="24" fill="#ffffff" />
+      <ns0:text x="375" y="61" font-size="11" fill="#111111" font-family="Consolas,monospace">ClassID</ns0:text>
+      <ns0:text x="450" y="61" font-size="11" fill="#111111" font-family="Consolas,monospace">ClassName</ns0:text>
+      <ns0:text x="362" y="61" font-size="11" fill="#111111">🔑</ns0:text>
+      <ns0:line x1="361" y1="68" x2="619" y2="68" stroke="#333333" />
+      <ns0:text x="375" y="83" font-size="11" fill="#111111" font-family="Consolas,monospace">C01</ns0:text>
+      <ns0:text x="450" y="83" font-size="11" fill="#111111" font-family="Consolas,monospace">12A</ns0:text>
+      <ns0:line x1="361" y1="91" x2="619" y2="91" stroke="#333333" />
+      <ns0:text x="375" y="106" font-size="11" fill="#111111" font-family="Consolas,monospace">C02</ns0:text>
+      <ns0:text x="450" y="106" font-size="11" fill="#111111" font-family="Consolas,monospace">12B</ns0:text>
+      <ns0:text x="375" y="185" font-size="10" fill="#111111" font-family="sans-serif">PK: ClassID</ns0:text>
+    </ns0:svg>

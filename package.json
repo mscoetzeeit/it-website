@@ -1,0 +1,26 @@
+{
+  "name": "it_website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mscoetzeeit/it-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mscoetzeeit/it-website/issues"
+  },
+  "homepage": "https://github.com/mscoetzeeit/it-website#readme",
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "docx": "^9.7.1",
+    "image-size": "^2.0.2"
+  }
+}

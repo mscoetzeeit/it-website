@@ -1,0 +1,32 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" viewBox="0 0 680 180" width="680.0" height="180.0" style="max-width:100%;font-family:inherit" xmlns="http://www.w3.org/2000/svg">
+    <ns0:rect width="680" height="180" rx="8" fill="#ffffff" stroke="#333333" stroke-width="1" />
+    <ns0:text x="340" y="20" text-anchor="middle" fill="#111111" font-size="12" font-weight="700">Parallel Arrays — Same Index, Different Data</ns0:text>
+
+    
+    <ns0:text x="8" y="54" fill="#111111" font-size="10" font-weight="600">arrNames</ns0:text>
+    <ns0:rect x="90" y="38" width="80" height="30" rx="3" fill="#ffffff" stroke="#333333" stroke-width="1.5" /><ns0:text x="130" y="57" text-anchor="middle" fill="#111111" font-size="11">'Alice'</ns0:text>
+    <ns0:rect x="190" y="38" width="80" height="30" rx="3" fill="#ffffff" stroke="#333333" stroke-width="1.5" /><ns0:text x="230" y="57" text-anchor="middle" fill="#111111" font-size="11">'Bob'</ns0:text>
+    <ns0:rect x="290" y="38" width="80" height="30" rx="3" fill="#ffffff" stroke="#333333" stroke-width="1.5" /><ns0:text x="330" y="57" text-anchor="middle" fill="#111111" font-size="11">'Callie'</ns0:text>
+    <ns0:rect x="390" y="38" width="80" height="30" rx="3" fill="#ffffff" stroke="#333333" stroke-width="1.5" /><ns0:text x="430" y="57" text-anchor="middle" fill="#111111" font-size="11">'David'</ns0:text>
+    <ns0:rect x="490" y="38" width="80" height="30" rx="3" fill="#ffffff" stroke="#333333" stroke-width="1.5" /><ns0:text x="530" y="57" text-anchor="middle" fill="#111111" font-size="11">'Eve'</ns0:text>
+    
+    <ns0:text x="130" y="80" text-anchor="middle" fill="#111111" font-size="9">[1]</ns0:text>
+    <ns0:text x="230" y="80" text-anchor="middle" fill="#111111" font-size="9">[2]</ns0:text>
+    <ns0:text x="330" y="80" text-anchor="middle" fill="#111111" font-size="9">[3]</ns0:text>
+    <ns0:text x="430" y="80" text-anchor="middle" fill="#111111" font-size="9">[4]</ns0:text>
+    <ns0:text x="530" y="80" text-anchor="middle" fill="#111111" font-size="9">[5]</ns0:text>
+    
+    <ns0:line x1="130" y1="82" x2="130" y2="108" stroke="#333333" stroke-width="1" stroke-dasharray="3,2" />
+    <ns0:line x1="230" y1="82" x2="230" y2="108" stroke="#333333" stroke-width="1" stroke-dasharray="3,2" />
+    <ns0:line x1="330" y1="82" x2="330" y2="108" stroke="#333333" stroke-width="1" stroke-dasharray="3,2" />
+    <ns0:line x1="430" y1="82" x2="430" y2="108" stroke="#333333" stroke-width="1" stroke-dasharray="3,2" />
+    <ns0:line x1="530" y1="82" x2="530" y2="108" stroke="#333333" stroke-width="1" stroke-dasharray="3,2" />
+    
+    <ns0:text x="8" y="130" fill="#111111" font-size="10" font-weight="600">arrMarks</ns0:text>
+    <ns0:rect x="90" y="110" width="80" height="30" rx="3" fill="#ffffff" stroke="#333333" stroke-width="1.5" /><ns0:text x="130" y="129" text-anchor="middle" fill="#111111" font-size="11">78</ns0:text>
+    <ns0:rect x="190" y="110" width="80" height="30" rx="3" fill="#ffffff" stroke="#333333" stroke-width="1.5" /><ns0:text x="230" y="129" text-anchor="middle" fill="#111111" font-size="11">65</ns0:text>
+    <ns0:rect x="290" y="110" width="80" height="30" rx="3" fill="#ffffff" stroke="#333333" stroke-width="1.5" /><ns0:text x="330" y="129" text-anchor="middle" fill="#111111" font-size="11">91</ns0:text>
+    <ns0:rect x="390" y="110" width="80" height="30" rx="3" fill="#ffffff" stroke="#333333" stroke-width="1.5" /><ns0:text x="430" y="129" text-anchor="middle" fill="#111111" font-size="11">54</ns0:text>
+    <ns0:rect x="490" y="110" width="80" height="30" rx="3" fill="#ffffff" stroke="#333333" stroke-width="1.5" /><ns0:text x="530" y="129" text-anchor="middle" fill="#111111" font-size="11">88</ns0:text>
+    <ns0:text x="340" y="165" text-anchor="middle" fill="#111111" font-size="9">arrNames[3] = 'Callie'  linked to  arrMarks[3] = 91 — same student, same index</ns0:text>
+  </ns0:svg>

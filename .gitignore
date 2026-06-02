@@ -1,1 +1,4 @@
 .claude/
+
+# Regenerable npm packages (restore with: npm install)
+node_modules/

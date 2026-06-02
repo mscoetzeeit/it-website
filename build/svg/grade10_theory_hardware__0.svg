@@ -1,0 +1,48 @@
+<svg viewBox="0 0 720 230" width="720.0" style="max-width:720px; display:block; margin:0 auto" aria-label="Computer system diagram showing input, processing, memory, storage and output categories" height="230.0" xmlns="http://www.w3.org/2000/svg">
+        <rect width="720" height="230" fill="#ffffff" rx="10" />
+
+        
+        <rect x="20" y="70" width="110" height="70" rx="6" fill="#ffffff" stroke="#333333" stroke-width="2" />
+        <text x="75" y="101" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">INPUT</text>
+        <text x="75" y="118" text-anchor="middle" fill="#111111" font-size="10" font-family="sans-serif">Keyboard, Mouse</text>
+        <text x="75" y="131" text-anchor="middle" fill="#111111" font-size="10" font-family="sans-serif">Scanner, Webcam</text>
+
+        
+        <line x1="130" y1="105" x2="195" y2="105" stroke="#333333" stroke-width="2" />
+        <polygon points="193,99 205,105 193,111" fill="#ffffff" />
+
+        
+        <rect x="205" y="55" width="130" height="100" rx="6" fill="#ffffff" stroke="#333333" stroke-width="2" />
+        <text x="270" y="85" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">PROCESSING</text>
+        <text x="270" y="102" text-anchor="middle" fill="#111111" font-size="10" font-family="sans-serif">CPU, GPU</text>
+        <text x="270" y="117" text-anchor="middle" fill="#111111" font-size="10" font-family="sans-serif">Executes instructions</text>
+        <text x="270" y="132" text-anchor="middle" fill="#111111" font-size="10" font-family="sans-serif">Performs calculations</text>
+
+        
+        <line x1="335" y1="105" x2="395" y2="105" stroke="#333333" stroke-width="2" />
+        <polygon points="393,99 405,105 393,111" fill="#ffffff" />
+
+        
+        <rect x="405" y="70" width="110" height="70" rx="6" fill="#ffffff" stroke="#333333" stroke-width="2" />
+        <text x="460" y="101" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">OUTPUT</text>
+        <text x="460" y="118" text-anchor="middle" fill="#111111" font-size="10" font-family="sans-serif">Monitor, Printer</text>
+        <text x="460" y="131" text-anchor="middle" fill="#111111" font-size="10" font-family="sans-serif">Speakers, Projector</text>
+
+        
+        <rect x="215" y="10" width="110" height="38" rx="6" fill="#ffffff" stroke="#333333" stroke-width="2" />
+        <text x="270" y="30" text-anchor="middle" fill="#111111" font-size="12" font-family="sans-serif" font-weight="bold">MEMORY (RAM)</text>
+        <line x1="270" y1="48" x2="270" y2="55" stroke="#333333" stroke-width="1.5" stroke-dasharray="4,2" />
+
+        
+        <rect x="210" y="162" width="120" height="40" rx="6" fill="#ffffff" stroke="#333333" stroke-width="2" />
+        <text x="270" y="179" text-anchor="middle" fill="#111111" font-size="12" font-family="sans-serif" font-weight="bold">STORAGE</text>
+        <text x="270" y="194" text-anchor="middle" fill="#111111" font-size="10" font-family="sans-serif">HDD, SSD, USB</text>
+        <line x1="270" y1="162" x2="270" y2="155" stroke="#333333" stroke-width="1.5" stroke-dasharray="4,2" />
+
+        
+        <rect x="560" y="70" width="135" height="70" rx="6" fill="#ffffff" stroke="#333333" stroke-width="2" />
+        <text x="628" y="97" text-anchor="middle" fill="#111111" font-size="12" font-family="sans-serif" font-weight="bold">COMMUNICATION</text>
+        <text x="628" y="113" text-anchor="middle" fill="#111111" font-size="10" font-family="sans-serif">NIC, Modem</text>
+        <text x="628" y="126" text-anchor="middle" fill="#111111" font-size="10" font-family="sans-serif">Router, Wi-Fi card</text>
+        <line x1="560" y1="105" x2="515" y2="105" stroke="#333333" stroke-width="1.5" stroke-dasharray="4,2" />
+      </svg>

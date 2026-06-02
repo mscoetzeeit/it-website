@@ -1,0 +1,36 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" viewBox="0 0 720 200" width="720.0" height="200.0" style="max-width:100%;font-family:inherit" xmlns="http://www.w3.org/2000/svg">
+    <ns0:rect width="720" height="200" rx="8" fill="#ffffff" stroke="#333333" stroke-width="1" />
+
+    
+    <ns0:rect x="30" y="40" width="220" height="120" rx="6" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+    <ns0:rect x="30" y="40" width="220" height="26" rx="6" fill="#ffffff" opacity="0.2" />
+    <ns0:text x="140" y="57" text-anchor="middle" fill="#111111" font-size="11" font-weight="700">tblClasses</ns0:text>
+    <ns0:text x="40" y="78" fill="#111111" font-size="10">ClassID (PK)</ns0:text>
+    <ns0:text x="40" y="96" fill="#111111" font-size="10">ClassName</ns0:text>
+    <ns0:text x="40" y="114" fill="#111111" font-size="10">TeacherName</ns0:text>
+    <ns0:text x="40" y="132" fill="#111111" font-size="10">RoomNumber</ns0:text>
+
+    
+    
+    <ns0:line x1="250" y1="100" x2="470" y2="100" stroke="#333333" stroke-width="2" />
+    
+    <ns0:line x1="250" y1="88" x2="250" y2="112" stroke="#333333" stroke-width="2" />
+    
+    <ns0:line x1="470" y1="100" x2="456" y2="88" stroke="#333333" stroke-width="2" />
+    <ns0:line x1="470" y1="100" x2="456" y2="112" stroke="#333333" stroke-width="2" />
+    <ns0:line x1="470" y1="100" x2="456" y2="100" stroke="#333333" stroke-width="2" />
+    <ns0:text x="360" y="88" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">1 : MANY</ns0:text>
+    <ns0:text x="265" y="88" fill="#111111" font-size="9">1</ns0:text>
+    <ns0:text x="455" y="86" fill="#111111" font-size="9">M</ns0:text>
+    <ns0:text x="360" y="118" text-anchor="middle" fill="#111111" font-size="9">One class can have many students</ns0:text>
+
+    
+    <ns0:rect x="470" y="40" width="220" height="130" rx="6" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+    <ns0:rect x="470" y="40" width="220" height="26" rx="6" fill="#ffffff" opacity="0.2" />
+    <ns0:text x="580" y="57" text-anchor="middle" fill="#111111" font-size="11" font-weight="700">tblStudents</ns0:text>
+    <ns0:text x="480" y="78" fill="#111111" font-size="10">StudentID (PK)</ns0:text>
+    <ns0:text x="480" y="96" fill="#111111" font-size="10">Name</ns0:text>
+    <ns0:text x="480" y="114" fill="#111111" font-size="10">Grade</ns0:text>
+    <ns0:text x="480" y="132" fill="#111111" font-size="10">ClassID (FK)</ns0:text>
+    <ns0:text x="480" y="150" fill="#111111" font-size="10">Email</ns0:text>
+  </ns0:svg>

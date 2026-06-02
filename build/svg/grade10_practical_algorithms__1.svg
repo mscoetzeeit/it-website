@@ -1,0 +1,41 @@
+<svg viewBox="0 0 300 560" width="300.0" style="max-width:100%;display:block" aria-label="Flowchart: is a colour blue?" height="560.0" xmlns="http://www.w3.org/2000/svg">
+        <rect width="300" height="560" fill="#ffffff" rx="10" />
+        
+        <ellipse cx="150" cy="42" rx="58" ry="24" fill="#ffffff" stroke="#333333" stroke-width="2.5" />
+        <text x="150" y="48" text-anchor="middle" fill="#111111" font-size="15" font-family="sans-serif" font-weight="bold">BEGIN</text>
+        <line x1="150" y1="66" x2="150" y2="92" stroke="#333333" stroke-width="2" />
+        <polygon points="144,90 150,102 156,90" fill="#ffffff" />
+        
+        <polygon points="34,102 266,102 248,148 52,148" fill="#ffffff" stroke="#333333" stroke-width="2.5" />
+        <text x="150" y="130" text-anchor="middle" fill="#111111" font-size="14" font-family="sans-serif" font-weight="bold">INPUT colour</text>
+        <line x1="150" y1="148" x2="150" y2="174" stroke="#333333" stroke-width="2" />
+        <polygon points="144,172 150,184 156,172" fill="#ffffff" />
+        
+        <polygon points="150,184 238,228 150,272 62,228" fill="#ffffff" stroke="#333333" stroke-width="2.5" />
+        <text x="150" y="223" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">Is colour</text>
+        <text x="150" y="240" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">blue?</text>
+        
+        <text x="38" y="220" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">Yes</text>
+        <line x1="62" y1="228" x2="22" y2="228" stroke="#333333" stroke-width="2" />
+        <line x1="22" y1="228" x2="22" y2="346" stroke="#333333" stroke-width="2" />
+        <polygon points="16,344 22,356 28,344" fill="#ffffff" />
+        <rect x="2" y="356" width="134" height="50" rx="4" fill="#ffffff" stroke="#333333" stroke-width="2.5" />
+        <text x="69" y="378" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">Show "colour</text>
+        <text x="69" y="395" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">is blue"</text>
+        <line x1="69" y1="406" x2="69" y2="448" stroke="#333333" stroke-width="2" />
+        <polygon points="63,446 69,458 75,446" fill="#ffffff" />
+        <ellipse cx="69" cy="480" rx="52" ry="22" fill="#ffffff" stroke="#333333" stroke-width="2.5" />
+        <text x="69" y="486" text-anchor="middle" fill="#111111" font-size="14" font-family="sans-serif" font-weight="bold">END</text>
+        
+        <text x="262" y="220" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">No</text>
+        <line x1="238" y1="228" x2="278" y2="228" stroke="#333333" stroke-width="2" />
+        <line x1="278" y1="228" x2="278" y2="346" stroke="#333333" stroke-width="2" />
+        <polygon points="272,344 278,356 284,344" fill="#ffffff" />
+        <rect x="164" y="356" width="134" height="50" rx="4" fill="#ffffff" stroke="#333333" stroke-width="2.5" />
+        <text x="231" y="378" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">Show "colour</text>
+        <text x="231" y="395" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">is NOT blue"</text>
+        <line x1="231" y1="406" x2="231" y2="448" stroke="#333333" stroke-width="2" />
+        <polygon points="225,446 231,458 237,446" fill="#ffffff" />
+        <ellipse cx="231" cy="480" rx="52" ry="22" fill="#ffffff" stroke="#333333" stroke-width="2.5" />
+        <text x="231" y="486" text-anchor="middle" fill="#111111" font-size="14" font-family="sans-serif" font-weight="bold">END</text>
+      </svg>

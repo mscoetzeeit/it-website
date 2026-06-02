@@ -1,0 +1,38 @@
+<svg viewBox="0 0 360 420" width="360.0" style="max-width:100%;display:block;margin:0 auto" aria-label="Flowchart symbols: oval, parallelogram, rectangle, diamond" height="420.0" xmlns="http://www.w3.org/2000/svg">
+        <rect width="360" height="420" fill="#ffffff" rx="10" />
+        <text x="180" y="28" text-anchor="middle" fill="#111111" font-size="15" font-family="sans-serif" font-weight="bold">Flowchart Symbols</text>
+        
+        <rect x="10" y="42" width="160" height="150" rx="8" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+        <ellipse cx="90" cy="92" rx="62" ry="28" fill="#ffffff" stroke="#333333" stroke-width="2.5" />
+        <text x="90" y="97" text-anchor="middle" fill="#111111" font-size="14" font-family="sans-serif" font-weight="bold">Start / End</text>
+        <text x="90" y="140" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">Oval</text>
+        <text x="90" y="158" text-anchor="middle" fill="#111111" font-size="12" font-family="sans-serif">Marks the start</text>
+        <text x="90" y="175" text-anchor="middle" fill="#111111" font-size="12" font-family="sans-serif">or end of a program</text>
+        
+        <rect x="190" y="42" width="160" height="150" rx="8" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+        <polygon points="210,68 330,68 310,116 190,116" fill="#ffffff" stroke="#333333" stroke-width="2.5" />
+        <text x="263" y="93" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">Input /</text>
+        <text x="263" y="110" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">Output</text>
+        <text x="270" y="140" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">Parallelogram</text>
+        <text x="270" y="158" text-anchor="middle" fill="#111111" font-size="12" font-family="sans-serif">Read input from user</text>
+        <text x="270" y="175" text-anchor="middle" fill="#111111" font-size="12" font-family="sans-serif">or display a result</text>
+        
+        <rect x="10" y="206" width="160" height="150" rx="8" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+        <rect x="28" y="228" width="124" height="52" rx="4" fill="#ffffff" stroke="#333333" stroke-width="2.5" />
+        <text x="90" y="258" text-anchor="middle" fill="#111111" font-size="14" font-family="sans-serif" font-weight="bold">Process</text>
+        <text x="90" y="304" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">Rectangle</text>
+        <text x="90" y="322" text-anchor="middle" fill="#111111" font-size="12" font-family="sans-serif">A calculation or</text>
+        <text x="90" y="339" text-anchor="middle" fill="#111111" font-size="12" font-family="sans-serif">assignment step</text>
+        
+        <rect x="190" y="206" width="160" height="150" rx="8" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+        <polygon points="270,222 330,258 270,294 210,258" fill="#ffffff" stroke="#333333" stroke-width="2.5" />
+        <text x="270" y="254" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">Decision</text>
+        <text x="270" y="270" text-anchor="middle" fill="#111111" font-size="12" font-family="sans-serif">Yes / No</text>
+        <text x="270" y="304" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">Diamond</text>
+        <text x="270" y="322" text-anchor="middle" fill="#111111" font-size="12" font-family="sans-serif">A question with two</text>
+        <text x="270" y="339" text-anchor="middle" fill="#111111" font-size="12" font-family="sans-serif">possible paths (Yes/No)</text>
+        
+        <line x1="20" y1="390" x2="60" y2="390" stroke="#333333" stroke-width="2" />
+        <polygon points="58,386 70,390 58,394" fill="#ffffff" />
+        <text x="78" y="395" fill="#111111" font-size="12" font-family="sans-serif">Arrows show direction of flow</text>
+      </svg>

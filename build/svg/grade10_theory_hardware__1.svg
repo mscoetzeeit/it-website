@@ -1,0 +1,39 @@
+<svg viewBox="0 0 360 110" width="360.0" style="max-width:360px; display:block" aria-label="Keyboard diagram" height="110.0" xmlns="http://www.w3.org/2000/svg">
+        <rect width="360" height="110" fill="#ffffff" rx="6" />
+        <rect x="10" y="15" width="340" height="80" rx="8" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+        
+        <g fill="#ffffff" stroke="#333333" stroke-width="1">
+          <rect x="20" y="22" width="22" height="16" rx="2" fill="#ffffff" /><rect x="46" y="22" width="22" height="16" rx="2" fill="#ffffff" />
+          <rect x="72" y="22" width="22" height="16" rx="2" fill="#ffffff" /><rect x="98" y="22" width="22" height="16" rx="2" fill="#ffffff" />
+          <rect x="124" y="22" width="22" height="16" rx="2" fill="#ffffff" /><rect x="150" y="22" width="22" height="16" rx="2" fill="#ffffff" />
+          <rect x="176" y="22" width="22" height="16" rx="2" fill="#ffffff" /><rect x="202" y="22" width="22" height="16" rx="2" fill="#ffffff" />
+          <rect x="228" y="22" width="22" height="16" rx="2" fill="#ffffff" /><rect x="254" y="22" width="22" height="16" rx="2" fill="#ffffff" />
+          <rect x="280" y="22" width="22" height="16" rx="2" fill="#ffffff" /><rect x="306" y="22" width="22" height="16" rx="2" fill="#ffffff" />
+        </g>
+        
+        <g fill="#ffffff" stroke="#333333" stroke-width="1">
+          <rect x="20" y="42" width="22" height="16" rx="2" fill="#ffffff" /><rect x="46" y="42" width="22" height="16" rx="2" fill="#ffffff" />
+          <rect x="72" y="42" width="22" height="16" rx="2" fill="#ffffff" /><rect x="98" y="42" width="22" height="16" rx="2" fill="#ffffff" />
+          <rect x="124" y="42" width="22" height="16" rx="2" fill="#ffffff" /><rect x="150" y="42" width="22" height="16" rx="2" fill="#ffffff" />
+          <rect x="176" y="42" width="22" height="16" rx="2" fill="#ffffff" /><rect x="202" y="42" width="22" height="16" rx="2" fill="#ffffff" />
+          <rect x="228" y="42" width="22" height="16" rx="2" fill="#ffffff" /><rect x="254" y="42" width="22" height="16" rx="2" fill="#ffffff" />
+          <rect x="280" y="42" width="60" height="16" rx="2" fill="#ffffff" />
+        </g>
+        
+        <g fill="#ffffff" stroke="#333333" stroke-width="1">
+          <rect x="20" y="62" width="34" height="16" rx="2" fill="#ffffff" /><rect x="58" y="62" width="22" height="16" rx="2" fill="#ffffff" />
+          <rect x="84" y="62" width="22" height="16" rx="2" fill="#ffffff" /><rect x="110" y="62" width="22" height="16" rx="2" fill="#ffffff" />
+          <rect x="136" y="62" width="22" height="16" rx="2" fill="#ffffff" /><rect x="162" y="62" width="22" height="16" rx="2" fill="#ffffff" />
+          <rect x="188" y="62" width="22" height="16" rx="2" fill="#ffffff" /><rect x="214" y="62" width="22" height="16" rx="2" fill="#ffffff" />
+          <rect x="240" y="62" width="22" height="16" rx="2" fill="#ffffff" /><rect x="266" y="62" width="22" height="16" rx="2" fill="#ffffff" />
+          <rect x="292" y="62" width="48" height="16" rx="2" fill="#ffffff" />
+        </g>
+        
+        <g fill="#ffffff" stroke="#333333" stroke-width="1">
+          <rect x="20" y="82" width="40" height="16" rx="2" fill="#ffffff" />
+          <rect x="64" y="82" width="180" height="16" rx="2" fill="#ffffff" />
+          <rect x="248" y="82" width="40" height="16" rx="2" fill="#ffffff" />
+          <rect x="294" y="82" width="46" height="16" rx="2" fill="#ffffff" />
+        </g>
+        <text x="180" y="105" text-anchor="middle" fill="#111111" font-size="11" font-family="sans-serif">Keyboard — most common input device</text>
+      </svg>

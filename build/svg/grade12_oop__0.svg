@@ -1,0 +1,51 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" viewBox="0 0 720 180" width="720.0" height="180.0" style="max-width:100%;font-family:inherit" xmlns="http://www.w3.org/2000/svg">
+        <ns0:rect width="720" height="180" rx="8" fill="#ffffff" stroke="#333333" stroke-width="1" />
+
+        
+        <ns0:rect x="20" y="30" width="180" height="120" rx="6" fill="#ffffff" stroke="#333333" stroke-width="2" stroke-dasharray="6,3" />
+        <ns0:rect x="20" y="30" width="180" height="26" rx="6" fill="#ffffff" opacity="0.2" />
+        <ns0:text x="110" y="47" text-anchor="middle" fill="#111111" font-size="11" font-weight="700">TCat  (CLASS)</ns0:text>
+        <ns0:text x="30" y="68" fill="#111111" font-size="9">Blueprint / Template</ns0:text>
+        <ns0:text x="30" y="84" fill="#111111" font-size="9">- fName : String</ns0:text>
+        <ns0:text x="30" y="98" fill="#111111" font-size="9">- fAge  : Integer</ns0:text>
+        <ns0:text x="30" y="112" fill="#111111" font-size="9">+ Create(sName, iAge)</ns0:text>
+        <ns0:text x="30" y="126" fill="#111111" font-size="9">+ GetName : String</ns0:text>
+        <ns0:text x="30" y="140" fill="#111111" font-size="9">+ ToString : String</ns0:text>
+
+        
+        <ns0:line x1="200" y1="90" x2="270" y2="56" stroke="#333333" stroke-width="1.5" marker-end="url(#arr2)" />
+        <ns0:line x1="200" y1="90" x2="270" y2="90" stroke="#333333" stroke-width="1.5" marker-end="url(#arr2)" />
+        <ns0:line x1="200" y1="90" x2="270" y2="124" stroke="#333333" stroke-width="1.5" marker-end="url(#arr2)" />
+        <ns0:defs>
+          <ns0:marker id="arr2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <ns0:polygon points="0 0, 8 3, 0 6" fill="#333333" />
+          </ns0:marker>
+        </ns0:defs>
+        <ns0:text x="232" y="85" fill="#111111" font-size="9">Create</ns0:text>
+
+        
+        <ns0:rect x="270" y="20" width="130" height="72" rx="5" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+        <ns0:rect x="270" y="20" width="130" height="22" rx="5" fill="#ffffff" opacity="0.2" />
+        <ns0:text x="335" y="35" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">objCat1 (Object)</ns0:text>
+        <ns0:text x="280" y="52" fill="#111111" font-size="9">fName = 'Whiskers'</ns0:text>
+        <ns0:text x="280" y="66" fill="#111111" font-size="9">fAge  = 3</ns0:text>
+        <ns0:text x="280" y="80" fill="#111111" font-size="8">objCat1 := TCat.Create('Whiskers', 3);</ns0:text>
+
+        
+        <ns0:rect x="420" y="20" width="130" height="72" rx="5" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+        <ns0:rect x="420" y="20" width="130" height="22" rx="5" fill="#ffffff" opacity="0.2" />
+        <ns0:text x="485" y="35" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">objCat2 (Object)</ns0:text>
+        <ns0:text x="430" y="52" fill="#111111" font-size="9">fName = 'Felix'</ns0:text>
+        <ns0:text x="430" y="66" fill="#111111" font-size="9">fAge  = 5</ns0:text>
+        <ns0:text x="430" y="80" fill="#111111" font-size="8">objCat2 := TCat.Create('Felix', 5);</ns0:text>
+
+        
+        <ns0:rect x="570" y="20" width="132" height="72" rx="5" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+        <ns0:rect x="570" y="20" width="132" height="22" rx="5" fill="#ffffff" opacity="0.2" />
+        <ns0:text x="636" y="35" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">objCat3 (Object)</ns0:text>
+        <ns0:text x="580" y="52" fill="#111111" font-size="9">fName = 'Shadow'</ns0:text>
+        <ns0:text x="580" y="66" fill="#111111" font-size="9">fAge  = 1</ns0:text>
+        <ns0:text x="580" y="80" fill="#111111" font-size="8">objCat3 := TCat.Create('Shadow', 1);</ns0:text>
+
+        <ns0:text x="360" y="165" text-anchor="middle" fill="#111111" font-size="9">Same class TCat — three different objects with different data. The class defines the structure; objects hold the actual values.</ns0:text>
+      </ns0:svg>

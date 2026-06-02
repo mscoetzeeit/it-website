@@ -1,0 +1,44 @@
+<svg viewBox="0 0 620 120" width="620.0" style="max-width:620px; display:block; margin:0 auto" aria-label="Binary place value table: powers of 2 from 128 down to 1" height="120.0" xmlns="http://www.w3.org/2000/svg">
+    <rect width="620" height="120" fill="#ffffff" rx="10" />
+    <text x="310" y="22" text-anchor="middle" fill="#111111" font-size="13" font-family="sans-serif" font-weight="bold">Binary Place Values (8-bit)</text>
+
+    
+    
+    <text x="48" y="45" text-anchor="middle" fill="#111111" font-size="11" font-family="sans-serif">2⁷</text>
+    <text x="120" y="45" text-anchor="middle" fill="#111111" font-size="11" font-family="sans-serif">2⁶</text>
+    <text x="192" y="45" text-anchor="middle" fill="#111111" font-size="11" font-family="sans-serif">2⁵</text>
+    <text x="264" y="45" text-anchor="middle" fill="#111111" font-size="11" font-family="sans-serif">2⁴</text>
+    <text x="336" y="45" text-anchor="middle" fill="#111111" font-size="11" font-family="sans-serif">2³</text>
+    <text x="408" y="45" text-anchor="middle" fill="#111111" font-size="11" font-family="sans-serif">2²</text>
+    <text x="480" y="45" text-anchor="middle" fill="#111111" font-size="11" font-family="sans-serif">2¹</text>
+    <text x="552" y="45" text-anchor="middle" fill="#111111" font-size="11" font-family="sans-serif">2⁰</text>
+
+    
+    <g fill="#ffffff">
+      <rect x="14" y="52" width="68" height="30" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+      <text x="48" y="72" text-anchor="middle" fill="#111111" font-size="14" font-family="monospace" font-weight="bold">128</text>
+
+      <rect x="86" y="52" width="68" height="30" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+      <text x="120" y="72" text-anchor="middle" fill="#111111" font-size="14" font-family="monospace" font-weight="bold">64</text>
+
+      <rect x="158" y="52" width="68" height="30" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+      <text x="192" y="72" text-anchor="middle" fill="#111111" font-size="14" font-family="monospace" font-weight="bold">32</text>
+
+      <rect x="230" y="52" width="68" height="30" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+      <text x="264" y="72" text-anchor="middle" fill="#111111" font-size="14" font-family="monospace" font-weight="bold">16</text>
+
+      <rect x="302" y="52" width="68" height="30" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+      <text x="336" y="72" text-anchor="middle" fill="#111111" font-size="14" font-family="monospace" font-weight="bold">8</text>
+
+      <rect x="374" y="52" width="68" height="30" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+      <text x="408" y="72" text-anchor="middle" fill="#111111" font-size="14" font-family="monospace" font-weight="bold">4</text>
+
+      <rect x="446" y="52" width="68" height="30" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+      <text x="480" y="72" text-anchor="middle" fill="#111111" font-size="14" font-family="monospace" font-weight="bold">2</text>
+
+      <rect x="518" y="52" width="68" height="30" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+      <text x="552" y="72" text-anchor="middle" fill="#111111" font-size="14" font-family="monospace" font-weight="bold">1</text>
+    </g>
+
+    <text x="310" y="108" text-anchor="middle" fill="#111111" font-size="10" font-family="sans-serif">← Most significant bit (MSB)                     Least significant bit (LSB) →</text>
+  </svg>

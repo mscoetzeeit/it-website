@@ -1,0 +1,8 @@
+<svg viewBox="0 0 200 140" width="200.0" style="max-width:200px; display:block" aria-label="Mouse diagram" height="140.0" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="140" fill="#ffffff" rx="6" />
+        <ellipse cx="100" cy="80" rx="45" ry="58" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+        <line x1="100" y1="30" x2="100" y2="95" stroke="#333333" stroke-width="1.5" />
+        <ellipse cx="100" cy="55" rx="10" ry="14" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+        <text x="100" y="55" text-anchor="middle" fill="#111111" font-size="9" font-family="sans-serif">scroll</text>
+        <text x="100" y="130" text-anchor="middle" fill="#111111" font-size="11" font-family="sans-serif">Mouse</text>
+      </svg>

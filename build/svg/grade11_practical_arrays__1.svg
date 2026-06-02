@@ -1,0 +1,43 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" viewBox="0 0 740 160" width="740.0" height="160.0" style="max-width:100%;font-family:inherit" xmlns="http://www.w3.org/2000/svg">
+    <ns0:rect width="740" height="160" rx="8" fill="#ffffff" stroke="#333333" stroke-width="1" />
+    <ns0:text x="370" y="22" text-anchor="middle" fill="#111111" font-size="12" font-weight="700">arrNames : array[1..7] of String</ns0:text>
+    
+    <ns0:text x="56" y="48" text-anchor="middle" fill="#111111" font-size="10">Index [1]</ns0:text>
+    <ns0:text x="162" y="48" text-anchor="middle" fill="#111111" font-size="10">Index [2]</ns0:text>
+    <ns0:text x="268" y="48" text-anchor="middle" fill="#111111" font-size="10">Index [3]</ns0:text>
+    <ns0:text x="374" y="48" text-anchor="middle" fill="#111111" font-size="10">Index [4]</ns0:text>
+    <ns0:text x="480" y="48" text-anchor="middle" fill="#111111" font-size="10">Index [5]</ns0:text>
+    <ns0:text x="586" y="48" text-anchor="middle" fill="#111111" font-size="10">Index [6]</ns0:text>
+    <ns0:text x="692" y="48" text-anchor="middle" fill="#111111" font-size="10">Index [7]</ns0:text>
+    
+    <ns0:rect x="10" y="56" width="92" height="50" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+    <ns0:rect x="116" y="56" width="92" height="50" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+    <ns0:rect x="222" y="56" width="92" height="50" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+    <ns0:rect x="328" y="56" width="92" height="50" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+    <ns0:rect x="434" y="56" width="92" height="50" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+    <ns0:rect x="540" y="56" width="92" height="50" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+    <ns0:rect x="646" y="56" width="92" height="50" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+    
+    <ns0:text x="56" y="86" text-anchor="middle" fill="#111111" font-size="11" font-weight="600">'Alice'</ns0:text>
+    <ns0:text x="162" y="86" text-anchor="middle" fill="#111111" font-size="11" font-weight="600">'Bob'</ns0:text>
+    <ns0:text x="268" y="86" text-anchor="middle" fill="#111111" font-size="11" font-weight="600">'Callie'</ns0:text>
+    <ns0:text x="374" y="86" text-anchor="middle" fill="#111111" font-size="11" font-weight="600">'David'</ns0:text>
+    <ns0:text x="480" y="86" text-anchor="middle" fill="#111111" font-size="11" font-weight="600">'Eve'</ns0:text>
+    <ns0:text x="586" y="86" text-anchor="middle" fill="#111111" font-size="11" font-weight="600">'Farai'</ns0:text>
+    <ns0:text x="692" y="86" text-anchor="middle" fill="#111111" font-size="11" font-weight="600">'Gio'</ns0:text>
+    
+    <ns0:circle cx="102" cy="81" r="3" fill="#ffffff" />
+    <ns0:circle cx="116" cy="81" r="3" fill="#ffffff" />
+    <ns0:circle cx="208" cy="81" r="3" fill="#ffffff" />
+    <ns0:circle cx="222" cy="81" r="3" fill="#ffffff" />
+    <ns0:circle cx="314" cy="81" r="3" fill="#ffffff" />
+    <ns0:circle cx="328" cy="81" r="3" fill="#ffffff" />
+    <ns0:circle cx="420" cy="81" r="3" fill="#ffffff" />
+    <ns0:circle cx="434" cy="81" r="3" fill="#ffffff" />
+    <ns0:circle cx="526" cy="81" r="3" fill="#ffffff" />
+    <ns0:circle cx="540" cy="81" r="3" fill="#ffffff" />
+    <ns0:circle cx="632" cy="81" r="3" fill="#ffffff" />
+    <ns0:circle cx="646" cy="81" r="3" fill="#ffffff" />
+    
+    <ns0:text x="370" y="135" text-anchor="middle" fill="#111111" font-size="10">arrNames[3] = 'Callie'   ·   arrNames[1] = 'Alice'   ·   To access last: arrNames[7]</ns0:text>
+  </ns0:svg>

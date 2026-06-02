@@ -1,0 +1,69 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" viewBox="0 0 720 300" width="720.0" height="300.0" style="max-width:100%;font-family:inherit" xmlns="http://www.w3.org/2000/svg">
+    <ns0:rect width="720" height="300" rx="8" fill="#ffffff" stroke="#333333" stroke-width="1" />
+    <ns0:text x="360" y="22" text-anchor="middle" fill="#111111" font-size="12" font-weight="700">Binary Search — searching for 23</ns0:text>
+
+    
+    
+    <ns0:text x="10" y="46" fill="#111111" font-size="9">idx:</ns0:text>
+    <ns0:text x="62" y="46" text-anchor="middle" fill="#111111" font-size="9">[1]</ns0:text>
+    <ns0:text x="130" y="46" text-anchor="middle" fill="#111111" font-size="9">[2]</ns0:text>
+    <ns0:text x="198" y="46" text-anchor="middle" fill="#111111" font-size="9">[3]</ns0:text>
+    <ns0:text x="266" y="46" text-anchor="middle" fill="#111111" font-size="9">[4]</ns0:text>
+    <ns0:text x="334" y="46" text-anchor="middle" fill="#111111" font-size="9">[5]</ns0:text>
+    <ns0:text x="402" y="46" text-anchor="middle" fill="#111111" font-size="9">[6]</ns0:text>
+    <ns0:text x="470" y="46" text-anchor="middle" fill="#111111" font-size="9">[7]</ns0:text>
+    <ns0:text x="538" y="46" text-anchor="middle" fill="#111111" font-size="9">[8]</ns0:text>
+    <ns0:text x="606" y="46" text-anchor="middle" fill="#111111" font-size="9">[9]</ns0:text>
+    <ns0:text x="674" y="46" text-anchor="middle" fill="#111111" font-size="9">[10]</ns0:text>
+    
+    <ns0:text x="10" y="70" fill="#111111" font-size="9">val:</ns0:text>
+    <ns0:text x="62" y="70" text-anchor="middle" fill="#111111" font-size="11" font-weight="600">2</ns0:text>
+    <ns0:text x="130" y="70" text-anchor="middle" fill="#111111" font-size="11" font-weight="600">5</ns0:text>
+    <ns0:text x="198" y="70" text-anchor="middle" fill="#111111" font-size="11" font-weight="600">8</ns0:text>
+    <ns0:text x="266" y="70" text-anchor="middle" fill="#111111" font-size="11" font-weight="600">12</ns0:text>
+    <ns0:text x="334" y="70" text-anchor="middle" fill="#111111" font-size="11" font-weight="600">16</ns0:text>
+    <ns0:text x="402" y="70" text-anchor="middle" fill="#111111" font-size="11" font-weight="700">23</ns0:text>
+    <ns0:text x="470" y="70" text-anchor="middle" fill="#111111" font-size="11" font-weight="600">38</ns0:text>
+    <ns0:text x="538" y="70" text-anchor="middle" fill="#111111" font-size="11" font-weight="600">56</ns0:text>
+    <ns0:text x="606" y="70" text-anchor="middle" fill="#111111" font-size="11" font-weight="600">72</ns0:text>
+    <ns0:text x="674" y="70" text-anchor="middle" fill="#111111" font-size="11" font-weight="600">91</ns0:text>
+
+    
+    <ns0:rect x="10" y="90" width="700" height="22" rx="4" fill="#ffffff" />
+    <ns0:text x="80" y="105" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">Step</ns0:text>
+    <ns0:text x="200" y="105" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">iLow</ns0:text>
+    <ns0:text x="320" y="105" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">iHigh</ns0:text>
+    <ns0:text x="450" y="105" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">iMid</ns0:text>
+    <ns0:text x="600" y="105" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">arrNums[iMid]</ns0:text>
+    
+    <ns0:rect x="10" y="112" width="700" height="26" rx="2" fill="#ffffff" />
+    <ns0:text x="80" y="129" text-anchor="middle" fill="#111111" font-size="10">1</ns0:text>
+    <ns0:text x="200" y="129" text-anchor="middle" fill="#111111" font-size="10">1</ns0:text>
+    <ns0:text x="320" y="129" text-anchor="middle" fill="#111111" font-size="10">10</ns0:text>
+    <ns0:text x="450" y="129" text-anchor="middle" fill="#111111" font-size="10">5  (1+10) div 2</ns0:text>
+    <ns0:text x="600" y="129" text-anchor="middle" fill="#111111" font-size="10">16  &lt; 23 → iLow = 6</ns0:text>
+    
+    <ns0:rect x="10" y="138" width="700" height="26" rx="2" fill="#ffffff" />
+    <ns0:text x="80" y="155" text-anchor="middle" fill="#111111" font-size="10">2</ns0:text>
+    <ns0:text x="200" y="155" text-anchor="middle" fill="#111111" font-size="10">6</ns0:text>
+    <ns0:text x="320" y="155" text-anchor="middle" fill="#111111" font-size="10">10</ns0:text>
+    <ns0:text x="450" y="155" text-anchor="middle" fill="#111111" font-size="10">8  (6+10) div 2</ns0:text>
+    <ns0:text x="600" y="155" text-anchor="middle" fill="#111111" font-size="10">56  &gt; 23 → iHigh = 7</ns0:text>
+    
+    <ns0:rect x="10" y="164" width="700" height="26" rx="2" fill="#ffffff" />
+    <ns0:text x="80" y="181" text-anchor="middle" fill="#111111" font-size="10">3</ns0:text>
+    <ns0:text x="200" y="181" text-anchor="middle" fill="#111111" font-size="10">6</ns0:text>
+    <ns0:text x="320" y="181" text-anchor="middle" fill="#111111" font-size="10">7</ns0:text>
+    <ns0:text x="450" y="181" text-anchor="middle" fill="#111111" font-size="10">6  (6+7) div 2</ns0:text>
+    <ns0:text x="600" y="181" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">23  = 23 → FOUND!</ns0:text>
+    
+    <ns0:rect x="10" y="200" width="700" height="28" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1" />
+    <ns0:text x="360" y="218" text-anchor="middle" fill="#111111" font-size="10">Found 23 at position 6 in just 3 steps! Linear search would have taken 6 steps.</ns0:text>
+    
+    <ns0:rect x="10" y="238" width="700" height="50" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1" />
+    <ns0:text x="20" y="256" fill="#111111" font-size="9">iLow := 1;  iHigh := Length(arrNums);  bFound := False;</ns0:text>
+    <ns0:text x="20" y="269" fill="#111111" font-size="9">while (iLow &lt;= iHigh) and not bFound do begin</ns0:text>
+    <ns0:text x="30" y="282" fill="#111111" font-size="9">iMid := (iLow + iHigh) div 2;</ns0:text>
+    <ns0:text x="200" y="282" fill="#111111" font-size="9">if arrNums[iMid] = iTarget then bFound := True</ns0:text>
+    <ns0:text x="30" y="282" fill="#111111" font-size="9" />
+  </ns0:svg>

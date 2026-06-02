@@ -1,0 +1,20 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" viewBox="0 0 580 180" style="width:100%;max-width:580px" width="580.0" height="180.0" xmlns="http://www.w3.org/2000/svg">
+      <ns0:rect width="580" height="180" rx="8" fill="#ffffff" />
+      
+      <ns0:rect x="200" y="15" width="180" height="36" rx="6" fill="#ffffff" stroke="#333333" stroke-width="2" />
+      <ns0:text x="290" y="38" text-anchor="middle" font-size="14" font-weight="700" fill="#111111" font-family="sans-serif">SOFTWARE</ns0:text>
+      
+      <ns0:line x1="290" y1="51" x2="120" y2="90" stroke="#333333" stroke-width="1.5" />
+      <ns0:line x1="290" y1="51" x2="460" y2="90" stroke="#333333" stroke-width="1.5" />
+      
+      <ns0:rect x="20" y="90" width="200" height="36" rx="6" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+      <ns0:text x="120" y="113" text-anchor="middle" font-size="12" font-weight="600" fill="#111111" font-family="sans-serif">System Software</ns0:text>
+      
+      <ns0:rect x="360" y="90" width="200" height="36" rx="6" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+      <ns0:text x="460" y="113" text-anchor="middle" font-size="12" font-weight="600" fill="#111111" font-family="sans-serif">Application Software</ns0:text>
+      
+      <ns0:line x1="120" y1="126" x2="120" y2="148" stroke="#333333" stroke-width="1" />
+      <ns0:text x="120" y="162" text-anchor="middle" font-size="10" fill="#111111" font-family="sans-serif">Windows, Linux, iOS, Android</ns0:text>
+      <ns0:line x1="460" y1="126" x2="460" y2="148" stroke="#333333" stroke-width="1" />
+      <ns0:text x="460" y="162" text-anchor="middle" font-size="10" fill="#111111" font-family="sans-serif">Word, Chrome, WhatsApp, Minecraft</ns0:text>
+    </ns0:svg>

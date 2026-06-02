@@ -1,0 +1,82 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" viewBox="0 0 780 460" width="780.0" height="460.0" style="max-width:100%;font-family:inherit" xmlns="http://www.w3.org/2000/svg">
+        
+        <ns0:rect x="0" y="0" width="780" height="460" rx="10" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+        
+        <ns0:rect x="0" y="0" width="780" height="30" rx="10" fill="#ffffff" stroke="#333333" stroke-width="1" />
+        <ns0:text x="390" y="19" text-anchor="middle" fill="#111111" font-size="12" font-weight="600">Delphi IDE</ns0:text>
+        
+        <ns0:rect x="8" y="38" width="764" height="26" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1" />
+        <ns0:text x="20" y="55" fill="#111111" font-size="10" font-weight="600">MENU BAR</ns0:text>
+        <ns0:text x="140" y="55" fill="#111111" font-size="10">File  Edit  View  Project  Run  Component  Tools  Help</ns0:text>
+
+        
+        <ns0:rect x="8" y="72" width="140" height="170" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1" />
+        <ns0:rect x="8" y="72" width="140" height="22" rx="4" fill="#ffffff" opacity="0.18" />
+        <ns0:text x="78" y="87" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">STRUCTURE PANEL</ns0:text>
+        <ns0:text x="16" y="106" fill="#111111" font-size="9">Form1</ns0:text>
+        <ns0:text x="24" y="120" fill="#111111" font-size="9">btnCalculate</ns0:text>
+        <ns0:text x="24" y="134" fill="#111111" font-size="9">lblResult</ns0:text>
+        <ns0:text x="24" y="148" fill="#111111" font-size="9">edtInput</ns0:text>
+        <ns0:text x="24" y="162" fill="#111111" font-size="9">memOutput</ns0:text>
+        <ns0:text x="16" y="176" fill="#111111" font-size="9">imgLogo</ns0:text>
+
+        
+        <ns0:rect x="156" y="72" width="462" height="240" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+        <ns0:rect x="156" y="72" width="462" height="22" rx="4" fill="#ffffff" opacity="0.18" />
+        <ns0:text x="387" y="87" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">FORM / DESIGN AREA</ns0:text>
+        
+        <ns0:rect x="180" y="102" width="320" height="190" rx="3" fill="#ffffff" stroke="#333333" stroke-width="1" />
+        <ns0:rect x="180" y="102" width="320" height="20" rx="3" fill="#ffffff" />
+        <ns0:text x="340" y="116" text-anchor="middle" fill="#111111" font-size="9">Form1</ns0:text>
+        
+        <ns0:rect x="200" y="135" width="80" height="18" rx="2" fill="#ffffff" stroke="#333333" stroke-width="1" />
+        <ns0:text x="240" y="147" text-anchor="middle" fill="#111111" font-size="8">TLabel — lblTitle</ns0:text>
+        <ns0:rect x="200" y="162" width="160" height="18" rx="2" fill="#ffffff" stroke="#333333" stroke-width="1" />
+        <ns0:text x="280" y="174" text-anchor="middle" fill="#111111" font-size="8">TEdit — edtInput</ns0:text>
+        <ns0:rect x="200" y="190" width="80" height="20" rx="3" fill="#ffffff" opacity="0.7" />
+        <ns0:text x="240" y="204" text-anchor="middle" fill="#111111" font-size="8" font-weight="700">TButton</ns0:text>
+        <ns0:rect x="200" y="220" width="240" height="50" rx="2" fill="#ffffff" stroke="#333333" stroke-width="1" />
+        <ns0:text x="320" y="248" text-anchor="middle" fill="#111111" font-size="8">TMemo — memOutput</ns0:text>
+        
+        <ns0:text x="387" y="305" text-anchor="middle" fill="#111111" font-size="11" font-weight="700">Press F12 to toggle Code View</ns0:text>
+
+        
+        <ns0:rect x="626" y="72" width="146" height="240" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1" />
+        <ns0:rect x="626" y="72" width="146" height="22" rx="4" fill="#ffffff" opacity="0.22" />
+        <ns0:text x="699" y="87" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">TOOL PALETTE</ns0:text>
+        <ns0:text x="634" y="106" fill="#111111" font-size="9">Standard</ns0:text>
+        <ns0:rect x="634" y="110" width="130" height="14" rx="2" fill="#ffffff" />
+        <ns0:text x="634" y="122" fill="#111111" font-size="8">  TLabel  TButton  TEdit</ns0:text>
+        <ns0:text x="634" y="136" fill="#111111" font-size="9">Additional</ns0:text>
+        <ns0:rect x="634" y="140" width="130" height="14" rx="2" fill="#ffffff" />
+        <ns0:text x="634" y="152" fill="#111111" font-size="8">  TMemo  TImage  TPanel</ns0:text>
+        <ns0:text x="634" y="166" fill="#111111" font-size="9">Win32</ns0:text>
+        <ns0:rect x="634" y="170" width="130" height="14" rx="2" fill="#ffffff" />
+        <ns0:text x="634" y="182" fill="#111111" font-size="8">  TDateTimePicker</ns0:text>
+        <ns0:text x="634" y="196" fill="#111111" font-size="9">Dialogs</ns0:text>
+        <ns0:rect x="634" y="200" width="130" height="14" rx="2" fill="#ffffff" />
+        <ns0:text x="634" y="212" fill="#111111" font-size="8">  TOpenDialog</ns0:text>
+
+        
+        <ns0:rect x="626" y="320" width="146" height="132" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1" />
+        <ns0:rect x="626" y="320" width="146" height="22" rx="4" fill="#ffffff" opacity="0.18" />
+        <ns0:text x="699" y="335" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">OBJECT INSPECTOR</ns0:text>
+        <ns0:text x="634" y="352" fill="#111111" font-size="8">btnCalculate : TButton</ns0:text>
+        <ns0:line x1="626" y1="357" x2="772" y2="357" stroke="#333333" stroke-width="1" />
+        <ns0:text x="634" y="370" fill="#111111" font-size="8">Caption</ns0:text><ns0:text x="720" y="370" fill="#111111" font-size="8">'Calculate'</ns0:text>
+        <ns0:text x="634" y="382" fill="#111111" font-size="8">Name</ns0:text><ns0:text x="720" y="382" fill="#111111" font-size="8">btnCalculate</ns0:text>
+        <ns0:text x="634" y="394" fill="#111111" font-size="8">Enabled</ns0:text><ns0:text x="720" y="394" fill="#111111" font-size="8">True</ns0:text>
+        <ns0:text x="634" y="406" fill="#111111" font-size="8">Font.Size</ns0:text><ns0:text x="720" y="406" fill="#111111" font-size="8">10</ns0:text>
+        <ns0:text x="634" y="418" fill="#111111" font-size="8">Properties | Events</ns0:text>
+
+        
+        <ns0:rect x="8" y="320" width="610" height="132" rx="4" fill="#ffffff" stroke="#333333" stroke-width="1" />
+        <ns0:rect x="8" y="320" width="610" height="22" rx="4" fill="#ffffff" />
+        <ns0:text x="200" y="335" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">CODE VIEW</ns0:text>
+        <ns0:text x="560" y="335" fill="#111111" font-size="10" font-weight="700">F12</ns0:text>
+        <ns0:text x="18" y="355" fill="#111111" font-size="9">1</ns0:text><ns0:text x="30" y="355" fill="#111111" font-size="9">procedure</ns0:text><ns0:text x="100" y="355" fill="#111111" font-size="9"> TForm1.btnCalculateClick(Sender: TObject);</ns0:text>
+        <ns0:text x="18" y="368" fill="#111111" font-size="9">2</ns0:text><ns0:text x="30" y="368" fill="#111111" font-size="9">begin</ns0:text>
+        <ns0:text x="18" y="381" fill="#111111" font-size="9">3</ns0:text><ns0:text x="42" y="381" fill="#111111" font-size="9">  ShowMessage(</ns0:text><ns0:text x="154" y="381" fill="#111111" font-size="9">'Hello!'</ns0:text><ns0:text x="196" y="381" fill="#111111" font-size="9">);</ns0:text>
+        <ns0:text x="18" y="394" fill="#111111" font-size="9">4</ns0:text><ns0:text x="30" y="394" fill="#111111" font-size="9">end</ns0:text><ns0:text x="54" y="394" fill="#111111" font-size="9">;</ns0:text>
+        <ns0:text x="18" y="430" fill="#111111" font-size="9" font-style="italic">← Write your code between begin and end</ns0:text>
+      </ns0:svg>

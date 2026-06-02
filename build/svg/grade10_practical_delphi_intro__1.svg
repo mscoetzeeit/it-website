@@ -1,0 +1,73 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" viewBox="0 0 760 260" width="760.0" height="260.0" style="max-width:100%;font-family:inherit" xmlns="http://www.w3.org/2000/svg">
+        <ns0:rect width="760" height="260" rx="8" fill="#ffffff" stroke="#333333" stroke-width="1" />
+        
+        <ns0:rect x="16" y="20" width="100" height="70" rx="3" fill="#ffffff" stroke="#333333" stroke-width="1" />
+        <ns0:rect x="16" y="20" width="100" height="16" rx="3" fill="#ffffff" />
+        <ns0:text x="66" y="31" text-anchor="middle" fill="#111111" font-size="8">Form1</ns0:text>
+        <ns0:text x="66" y="108" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">TForm</ns0:text>
+        <ns0:text x="66" y="120" text-anchor="middle" fill="#111111" font-size="8">The window itself</ns0:text>
+
+        
+        <ns0:rect x="136" y="35" width="90" height="22" rx="2" fill="none" />
+        <ns0:text x="181" y="50" text-anchor="middle" fill="#111111" font-size="11">Your Label Here</ns0:text>
+        <ns0:text x="181" y="108" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">TLabel</ns0:text>
+        <ns0:text x="181" y="120" text-anchor="middle" fill="#111111" font-size="8">Displays text</ns0:text>
+
+        
+        <ns0:rect x="250" y="33" width="90" height="26" rx="4" fill="#ffffff" opacity="0.75" />
+        <ns0:text x="295" y="50" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">Click Me</ns0:text>
+        <ns0:text x="295" y="108" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">TButton</ns0:text>
+        <ns0:text x="295" y="120" text-anchor="middle" fill="#111111" font-size="8">Triggers code</ns0:text>
+
+        
+        <ns0:rect x="364" y="33" width="100" height="24" rx="2" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+        <ns0:text x="372" y="48" fill="#111111" font-size="9">user types here</ns0:text>
+        <ns0:text x="414" y="108" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">TEdit</ns0:text>
+        <ns0:text x="414" y="120" text-anchor="middle" fill="#111111" font-size="8">Single-line input</ns0:text>
+
+        
+        <ns0:rect x="488" y="20" width="100" height="70" rx="2" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+        <ns0:text x="496" y="34" fill="#111111" font-size="8">Line 1</ns0:text>
+        <ns0:text x="496" y="46" fill="#111111" font-size="8">Line 2</ns0:text>
+        <ns0:text x="496" y="58" fill="#111111" font-size="8">Line 3</ns0:text>
+        <ns0:rect x="579" y="20" width="9" height="70" fill="#ffffff" stroke="#333333" stroke-width="1" />
+        <ns0:text x="538" y="108" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">TMemo</ns0:text>
+        <ns0:text x="538" y="120" text-anchor="middle" fill="#111111" font-size="8">Multi-line text</ns0:text>
+
+        
+        <ns0:rect x="612" y="20" width="100" height="70" rx="2" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+        <ns0:rect x="628" y="30" width="68" height="50" rx="2" fill="#ffffff" stroke="#333333" stroke-width="1" />
+        <ns0:text x="662" y="58" text-anchor="middle" fill="#111111" font-size="9">[ image ]</ns0:text>
+        <ns0:text x="662" y="108" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">TImage</ns0:text>
+        <ns0:text x="662" y="120" text-anchor="middle" fill="#111111" font-size="8">Displays a picture</ns0:text>
+
+        
+        <ns0:rect x="16" y="150" width="110" height="80" rx="3" fill="#ffffff" stroke="#333333" stroke-width="1" />
+        <ns0:text x="71" y="165" text-anchor="middle" fill="#111111" font-size="8">RadioGroup</ns0:text>
+        <ns0:circle cx="32" cy="178" r="5" fill="none" stroke="#333333" stroke-width="1.5" />
+        <ns0:circle cx="32" cy="178" r="2.5" fill="#ffffff" />
+        <ns0:text x="42" y="181" fill="#111111" font-size="8">Option A</ns0:text>
+        <ns0:circle cx="32" cy="193" r="5" fill="none" stroke="#333333" stroke-width="1.5" />
+        <ns0:text x="42" y="196" fill="#111111" font-size="8">Option B</ns0:text>
+        <ns0:circle cx="32" cy="208" r="5" fill="none" stroke="#333333" stroke-width="1.5" />
+        <ns0:text x="42" y="211" fill="#111111" font-size="8">Option C</ns0:text>
+        <ns0:text x="71" y="245" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">TRadioGroup</ns0:text>
+
+        <ns0:rect x="148" y="155" width="18" height="18" rx="2" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+        <ns0:text x="149" y="168" fill="#111111" font-size="12" font-weight="700">✓</ns0:text>
+        <ns0:text x="172" y="167" fill="#111111" font-size="9">Accept terms</ns0:text>
+        <ns0:rect x="148" y="183" width="18" height="18" rx="2" fill="#ffffff" stroke="#333333" stroke-width="1.5" />
+        <ns0:text x="172" y="195" fill="#111111" font-size="9">Subscribe</ns0:text>
+        <ns0:text x="196" y="245" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">TCheckBox</ns0:text>
+
+        <ns0:rect x="320" y="150" width="130" height="80" rx="3" fill="#ffffff" stroke="#333333" stroke-width="1" stroke-dasharray="4,2" />
+        <ns0:text x="385" y="165" text-anchor="middle" fill="#111111" font-size="8">Panel1</ns0:text>
+        <ns0:text x="385" y="197" text-anchor="middle" fill="#111111" font-size="9">Groups components</ns0:text>
+        <ns0:text x="385" y="245" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">TPanel</ns0:text>
+
+        <ns0:rect x="490" y="150" width="100" height="30" rx="3" fill="#ffffff" stroke="#333333" stroke-width="1" />
+        <ns0:rect x="498" y="158" width="84" height="14" rx="2" fill="#ffffff" />
+        <ns0:text x="540" y="169" text-anchor="middle" fill="#111111" font-size="8">scroll down ...</ns0:text>
+        <ns0:text x="540" y="245" text-anchor="middle" fill="#111111" font-size="10" font-weight="700">TListBox</ns0:text>
+        <ns0:text x="540" y="255" text-anchor="middle" fill="#111111" font-size="8">List of items</ns0:text>
+      </ns0:svg>
