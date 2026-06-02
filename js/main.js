@@ -182,7 +182,7 @@ const PAGES = [
   { title: 'Grade 10 — Study by Term',         url: 'terms-gr10.html',                            grade: 'Study Tools',          tags: 'term planner grade 10 what to study term 1 2 3 4 schedule' },
   { title: 'Grade 11 — Study by Term',         url: 'terms-gr11.html',                            grade: 'Study Tools',          tags: 'term planner grade 11 what to study term 1 2 3 4 schedule' },
   { title: 'Grade 12 — Study by Term',         url: 'terms-gr12.html',                            grade: 'Study Tools',          tags: 'term planner grade 12 what to study term 1 2 3 schedule matric' },
-  { title: 'Exam Extras (Out-of-CAPS)',         url: 'exam-extras.html',                           grade: 'Study Tools',          tags: 'exam extras out of caps blockchain ai deep fake dark web steganography stringreplace format random trycatch popia' },
+  { title: 'Exam Extras (Out-of-CAPS)',         url: 'exam-extras.html',                           grade: 'Study Tools',          tags: 'exam extras out of caps blockchain ai deep fake dark web steganography stringreplace format random trycatch popia mesh bus topology raid ipv6' },
 ];
 
 function getRoot() {
