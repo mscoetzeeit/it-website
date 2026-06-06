@@ -72,6 +72,31 @@
   <span class="kw">else</span>
     ShowMessage(<span class="str">'File not found!'</span>);
 <span class="kw">end</span>;</code></pre></div>
+<h2>Checking a File Exists with <code>try..except</code></h2>
+<p>Using <code>FileExists</code> is the simplest way to avoid a crash. A second method is to <em>try</em> to open the file and <strong>catch the error</strong> if it is missing. A <code>try..except</code> block runs the risky code in the <code>try</code> part; if an exception happens (for example the file does not exist, so <code>Reset</code> fails), control jumps straight to the <code>except</code> part instead of crashing the program.</p>
+<div class="code-block"><span class="code-label">Delphi — try..except when reading</span>
+<pre><code><span class="kw">var</span>
+  F: TextFile;
+  S: <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  AssignFile(F, <span class="str">'Data.txt'</span>);
+  <span class="kw">try</span>
+    Reset(F);                          <span class="cmt">// raises an error if the file is missing</span>
+    <span class="kw">while not</span> EOF(F) <span class="kw">do</span>
+    <span class="kw">begin</span>
+      ReadLn(F, S);
+      memOut.Lines.Add(S);
+    <span class="kw">end</span>;
+    CloseFile(F);
+  <span class="kw">except</span>
+    <span class="kw">on</span> E: EInOutError <span class="kw">do</span>
+      ShowMessage(<span class="str">'Could not open the file: '</span> + E.Message);
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</code></pre></div>
+<div class="callout tip">
+  <div class="callout-title">FileExists vs try..except</div>
+  <p><code>FileExists</code> checks <em>before</em> opening and lets you avoid the problem; <code>try..except</code> reacts <em>after</em> an error occurs. <code>try..except</code> also catches other I/O problems (e.g. a corrupt or locked file), so the two are often combined: test with <code>FileExists</code>, then wrap the file operations in <code>try..except</code> as a safety net. The exception type for file errors is <code>EInOutError</code>.</p>
+</div>
 <h2>Writing to a Text File (Overwrite)</h2>
 <div class="code-block"><span class="code-label">Delphi — create / overwrite</span>
 <pre><code><span class="kw">var</span>
