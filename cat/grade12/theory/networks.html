@@ -27,6 +27,31 @@
     <h1>Networks &amp; WAN <span class="grade-badge">Grade 12</span></h1>
     <p class="page-intro">Grade 12 network coverage focuses on Wide Area Networks (WANs), Internet services, connection types and ISP considerations including throttling, CAPs and informed buying decisions.</p>
 
+    <figure class="figure">
+      <svg viewBox="0 0 600 220" width="600" aria-label="A WAN linking branch LANs across cities through the internet">
+        <text x="300" y="18" fill="#e6edf3" font-family="Segoe UI" font-size="13" font-weight="bold" text-anchor="middle">A WAN Links Separate LANs Across Large Distances</text>
+        <!-- central internet/WAN cloud -->
+        <ellipse cx="300" cy="110" rx="80" ry="42" fill="#60a5fa22" stroke="#60a5fa"/>
+        <text x="300" y="106" fill="#60a5fa" font-family="Segoe UI" font-size="13" font-weight="bold" text-anchor="middle">INTERNET</text>
+        <text x="300" y="124" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">(the largest WAN)</text>
+        <!-- branch LAN 1 -->
+        <line x1="225" y1="95" x2="110" y2="55" stroke="#34d399" stroke-width="2"/>
+        <rect x="20" y="35" width="120" height="44" rx="6" fill="#34d39922" stroke="#34d399"/>
+        <text x="80" y="55" fill="#34d399" font-family="Segoe UI" font-size="11" font-weight="bold" text-anchor="middle">LAN — Cape Town</text>
+        <text x="80" y="70" fill="#8b949e" font-family="Segoe UI" font-size="8" text-anchor="middle">branch office</text>
+        <!-- branch LAN 2 -->
+        <line x1="375" y1="95" x2="490" y2="55" stroke="#fb923c" stroke-width="2"/>
+        <rect x="460" y="35" width="120" height="44" rx="6" fill="#fb923c22" stroke="#fb923c"/>
+        <text x="520" y="55" fill="#fb923c" font-family="Segoe UI" font-size="11" font-weight="bold" text-anchor="middle">LAN — Durban</text>
+        <text x="520" y="70" fill="#8b949e" font-family="Segoe UI" font-size="8" text-anchor="middle">branch office</text>
+        <!-- branch LAN 3 -->
+        <line x1="300" y1="152" x2="300" y2="180" stroke="#f472b6" stroke-width="2"/>
+        <rect x="240" y="180" width="120" height="34" rx="6" fill="#f472b622" stroke="#f472b6"/>
+        <text x="300" y="201" fill="#f472b6" font-family="Segoe UI" font-size="11" font-weight="bold" text-anchor="middle">LAN — Head Office</text>
+      </svg>
+      <figcaption>A <strong>WAN</strong> connects geographically separate <strong>LANs</strong> using leased infrastructure (ISPs/telecoms). The <strong>internet</strong> is the largest WAN of all, linking billions of devices worldwide.</figcaption>
+    </figure>
+
     <h2>Wide Area Networks (WAN)</h2>
     <div class="callout">
       <div class="callout-title">DEFINITION</div>
@@ -50,7 +75,7 @@
       <div class="def-term">Government services</div><div class="def-desc">Online ID/passport renewal, NSFAS applications, traffic fine payments, e-Citizen portals</div>
       <div class="def-term">Streaming</div><div class="def-desc">Receiving and playing media continuously in real time (Netflix, YouTube, Spotify) — no download needed</div>
       <div class="def-term">Downloading</div><div class="def-desc">Saving a complete copy of media/file to your device before using it</div>
-    </table></div>
+    </div>
 
     <h2>Internet Connection Types</h2>
     <div class="tbl-wrap"><table>
@@ -75,7 +100,7 @@
       <div class="def-term">Throttling</div><div class="def-desc">ISP deliberately slows your connection speed after you exceed your data cap or during peak times</div>
       <div class="def-term">Traffic Shaping</div><div class="def-desc">ISP prioritises certain types of traffic (e.g. slows streaming but keeps browsing fast) to manage network congestion</div>
       <div class="def-term">Fair Use Policy (FUP)</div><div class="def-desc">Rules about "uncapped" plans — excessive use may still be throttled; "uncapped" does not mean unlimited at full speed</div>
-    </table></div>
+    </div>
 
     <h2>Making Informed Buying Decisions — Internet</h2>
     <h3>Factors to Consider</h3>
@@ -100,6 +125,16 @@
     <div class="callout exam">
       <div class="callout-title">EXAM TIP — Throttling vs Traffic Shaping</div>
       <p><strong>Throttling</strong>: slows ALL your Internet speed after you reach your data cap. <strong>Traffic shaping</strong>: selectively slows specific traffic types (e.g. slows YouTube but keeps WhatsApp fast) — used during peak hours to manage congestion. Both are used by ISPs to manage network load.</p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">BITS vs BYTES — a classic catch</div>
+      <p>Connection <strong>speed</strong> is in <strong>bits</strong> per second (Mb<strong>ps</strong>), but file <strong>size</strong> is in <strong>bytes</strong> (MB). Since <strong>8 bits = 1 byte</strong>, a 80&nbsp;Mbps line downloads at most about <strong>10&nbsp;MB per second</strong> (80 ÷ 8). Watch the small "b" vs big "B".</p>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">Test yourself</div>
+      <p>Try the WAN &amp; ISP questions in the <a href="../../exam-practice/grade12.html#networks">Grade 12 Exam Practice</a> and mark yourself with the memo.</p>
     </div>
 
     <div class="page-nav">

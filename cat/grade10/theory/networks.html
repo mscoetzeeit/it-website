@@ -28,6 +28,38 @@
     <h1>Networks <span class="grade-badge">Grade 10</span></h1>
     <p class="page-intro">A network connects computers and devices so they can communicate and share resources. This topic covers types of networks, devices, communication media and how to obtain Internet access.</p>
 
+    <figure class="figure">
+      <svg viewBox="0 0 600 240" width="600" aria-label="A typical home network">
+        <text x="300" y="20" fill="#e6edf3" font-family="Segoe UI" font-size="13" font-weight="bold" text-anchor="middle">A Typical Home Network</text>
+        <!-- internet cloud -->
+        <ellipse cx="70" cy="120" rx="55" ry="34" fill="#60a5fa22" stroke="#60a5fa"/>
+        <text x="70" y="118" fill="#60a5fa" font-family="Segoe UI" font-size="12" font-weight="bold" text-anchor="middle">INTERNET</text>
+        <text x="70" y="134" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">(via ISP)</text>
+        <!-- line to router -->
+        <line x1="125" y1="120" x2="190" y2="120" stroke="#8b949e" stroke-width="2"/>
+        <!-- router/modem -->
+        <rect x="190" y="92" width="120" height="56" rx="6" fill="#34d39922" stroke="#34d399"/>
+        <text x="250" y="116" fill="#34d399" font-family="Segoe UI" font-size="12" font-weight="bold" text-anchor="middle">ROUTER</text>
+        <text x="250" y="132" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">+ modem</text>
+        <!-- wired branch -->
+        <line x1="310" y1="110" x2="430" y2="60" stroke="#34d399" stroke-width="2"/>
+        <rect x="430" y="38" width="140" height="46" rx="6" fill="#21262d" stroke="#34d399"/>
+        <text x="500" y="58" fill="#e6edf3" font-family="Segoe UI" font-size="11" font-weight="bold" text-anchor="middle">Desktop / PC</text>
+        <text x="500" y="74" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">wired — UTP cable</text>
+        <!-- wireless branch 1 -->
+        <line x1="310" y1="125" x2="430" y2="125" stroke="#fb923c" stroke-width="2" stroke-dasharray="4"/>
+        <rect x="430" y="103" width="140" height="46" rx="6" fill="#21262d" stroke="#fb923c"/>
+        <text x="500" y="123" fill="#e6edf3" font-family="Segoe UI" font-size="11" font-weight="bold" text-anchor="middle">Laptop / Tablet</text>
+        <text x="500" y="139" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">wireless — Wi-Fi</text>
+        <!-- wireless branch 2 -->
+        <line x1="310" y1="140" x2="430" y2="190" stroke="#fb923c" stroke-width="2" stroke-dasharray="4"/>
+        <rect x="430" y="168" width="140" height="46" rx="6" fill="#21262d" stroke="#fb923c"/>
+        <text x="500" y="188" fill="#e6edf3" font-family="Segoe UI" font-size="11" font-weight="bold" text-anchor="middle">Phone / Smart TV</text>
+        <text x="500" y="204" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">wireless — Wi-Fi</text>
+      </svg>
+      <figcaption>The <strong>router/modem</strong> connects the home to the <strong>internet</strong> through the ISP. Devices then join the network either by <strong>cable (UTP)</strong> — solid line — or <strong>wirelessly (Wi-Fi)</strong> — dashed line.</figcaption>
+    </figure>
+
     <h2>What is a Network?</h2>
     <p>A <strong>computer network</strong> is two or more computing devices connected together to share resources and communicate. Networks can be wired (using cables) or wireless.</p>
     <h3>Aims and Objectives of Networks</h3>
@@ -74,6 +106,31 @@
       <div class="def-term">NFC</div><div class="def-desc">Near Field Communication; very short range (~4 cm); used for tap-to-pay, access cards</div>
     </div>
 
+    <h2>Wired vs Wireless — which is better?</h2>
+    <p>A favourite exam question. There is no single "best" — it depends on the situation. Learn at least two points for each side.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>&nbsp;</th><th>Wired (UTP/fibre)</th><th>Wireless (Wi-Fi)</th></tr>
+      <tr><td><strong>Speed</strong></td><td>Faster &amp; more consistent</td><td>Usually slower; drops with distance/walls</td></tr>
+      <tr><td><strong>Reliability</strong></td><td>Very reliable — no interference</td><td>Can suffer interference &amp; signal loss</td></tr>
+      <tr><td><strong>Mobility</strong></td><td>Tied to a cable/port</td><td>Move freely in the coverage area</td></tr>
+      <tr><td><strong>Setup &amp; cost</strong></td><td>Cables to run — more effort to install</td><td>Quick &amp; easy; cheaper to add devices</td></tr>
+      <tr><td><strong>Security</strong></td><td>Harder to intercept</td><td>Signal can be intercepted if not encrypted</td></tr>
+    </table></div>
+    <div class="callout exam">
+      <div class="callout-title">EXAM TIP — apply it to the scenario</div>
+      <p>Recommend <strong>wired</strong> for a fixed PC that needs speed/stability (e.g. a school server or gaming PC), and <strong>wireless</strong> for devices that move around (e.g. a laptop, phone or tablet). Always justify your choice with a reason from the question.</p>
+    </div>
+
+    <h2>Ways of Connecting to the Internet</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Method</th><th>How it works</th><th>Best for</th></tr>
+      <tr><td><strong>Fibre</strong></td><td>Light through glass cables to the home (FTTH)</td><td>Fast, reliable home internet where fibre is available</td></tr>
+      <tr><td><strong>ADSL</strong></td><td>Over old telephone copper lines</td><td>Areas without fibre (slower; being phased out)</td></tr>
+      <tr><td><strong>Mobile (3G/4G/5G)</strong></td><td>Cellular data via a SIM card &amp; cell towers</td><td>On-the-go access; areas with good signal</td></tr>
+      <tr><td><strong>Wi-Fi hotspot</strong></td><td>Connect to a shared Wi-Fi point (mall, café)</td><td>Free/public access (watch security on open hotspots)</td></tr>
+      <tr><td><strong>Satellite</strong></td><td>Signal to/from a satellite dish</td><td>Remote/rural areas with no cables (e.g. Starlink)</td></tr>
+    </table></div>
+
     <h2>Pairing Devices</h2>
     <p><strong>Pairing</strong> is the process of connecting two Bluetooth devices so they can communicate. Steps: enable Bluetooth on both devices → make one device discoverable → select it on the other device → confirm the pairing code.</p>
 
@@ -101,6 +158,11 @@
       <div class="callout-title">EXAM TIP — Advantages vs Disadvantages of Networks</div>
       <p><strong>Advantages:</strong> resource sharing, communication, centralised data storage, easy software updates.<br>
       <strong>Disadvantages:</strong> expensive to set up, security risks (hacking, viruses spread across network), dependent on server (if server fails, everyone is affected), requires technical support.</p>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">Test yourself</div>
+      <p>Try the networks questions in the <a href="../../exam-practice/grade10.html#networks">Grade 10 Exam Practice</a> and mark yourself with the memo.</p>
     </div>
 
     <div class="page-nav">
