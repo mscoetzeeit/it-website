@@ -8,7 +8,8 @@
   var hasSubfolder = /^(practical|theory)$/.test(segs[segs.length - 2] || '');
   var hasGradeFolder = /^grade\d+$/.test(segs[segs.length - 2] || '') ||
                        /^grade\d+$/.test(segs[segs.length - 3] || '') ||
-                       (segs[segs.length - 2] || '') === 'exam-practice';
+                       (segs[segs.length - 2] || '') === 'exam-practice' ||
+                       (segs[segs.length - 2] || '') === 'skills';
   var depth = 0;
   if (hasSubfolder) depth = 2;
   else if (hasGradeFolder) depth = 1;
@@ -78,6 +79,14 @@
     + '<a href="' + r + 'exam-practice/grade11.html">&#9999;&#65039; Grade 11 Questions</a>'
     + '<a href="' + r + 'exam-practice/grade12.html">&#9999;&#65039; Grade 12 Questions</a>'
     + '<a href="' + r + 'exam-practice/exam-skills.html">&#127919; Exam Technique &amp; Verbs</a>'
+    + '</div></li>'
+
+    // ── SKILLS & PAT ──
+    + '<li><button class="nav-dropdown-btn" style="color:#60a5fa">Skills &amp; PAT <span class="chevron"></span></button>'
+    + '<div class="dropdown">'
+    + '<div class="dropdown-section">Core Skills</div>'
+    + '<a href="' + r + 'skills/file-management.html">&#128193; File &amp; Data Management</a>'
+    + '<a href="' + r + 'skills/information-management.html">&#128202; Information Management (PAT)</a>'
     + '</div></li>'
 
     // ── STUDY TOOLS ──

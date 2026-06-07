@@ -121,6 +121,9 @@ const PAGES = [
   { title: 'Grade 11 — Exam Questions & Memos', url: 'exam-practice/grade11.html', grade: 'Exam Practice', tags: 'exam practice grade 11 questions memo past paper theory practical database IF COUNTIF LAN IoT 4IR malware answers' },
   { title: 'Grade 12 — Exam Questions & Memos', url: 'exam-practice/grade12.html', grade: 'Exam Practice', tags: 'exam practice grade 12 questions memo past paper matric theory practical VLOOKUP nested IF WAN cybercrime answers final' },
   { title: 'Exam Technique & Question Verbs', url: 'exam-practice/exam-skills.html', grade: 'Exam Practice', tags: 'exam technique question verbs command words name state explain discuss motivate distinguish list give two reasons mark allocation how to answer scenario' },
+  // Skills & PAT
+  { title: 'File & Data Management', url: 'skills/file-management.html', grade: 'Skills & PAT', tags: 'file management folder directory copy move rename delete file extension type compress zip extract archive search wildcard attributes read-only hidden backup file path naming convention recycle bin' },
+  { title: 'Information Management (PAT)', url: 'skills/information-management.html', grade: 'Skills & PAT', tags: 'information management PAT practical assessment task research process task definition questions sources evaluate reliability bias process data spreadsheet findings conclusions recommendations report bibliography referencing plagiarism survey questionnaire' },
 ];
 
 function getRoot() {
@@ -130,6 +133,7 @@ function getRoot() {
   if (/^(practical|theory)$/.test(parent)) return '../../';
   if (/^grade\d+$/.test(parent)) return '../';
   if (parent === 'exam-practice') return '../';
+  if (parent === 'skills') return '../';
   return './';
 }
 
