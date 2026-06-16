@@ -115,6 +115,15 @@ const PAGES = [
   { title: 'Grade 10 — Study by Term', url: 'terms-gr10.html', grade: 'Study Tools', tags: 'term planner grade 10 what to study schedule word spreadsheet html theory hardware software' },
   { title: 'Grade 11 — Study by Term', url: 'terms-gr11.html', grade: 'Study Tools', tags: 'term planner grade 11 what to study schedule database mail merge IF function LAN' },
   { title: 'Grade 12 — Study by Term', url: 'terms-gr12.html', grade: 'Study Tools', tags: 'term planner grade 12 what to study schedule matric WAN nested IF VLOOKUP advanced' },
+  // Exam Practice
+  { title: 'Exam Practice — Home', url: 'exam-practice/index.html', grade: 'Exam Practice', tags: 'exam practice past papers questions memo answers paper 1 paper 2 revision how to study' },
+  { title: 'Grade 10 — Exam Questions & Memos', url: 'exam-practice/grade10.html', grade: 'Exam Practice', tags: 'exam practice grade 10 questions memo past paper theory practical hardware software networks internet social spreadsheet word html answers' },
+  { title: 'Grade 11 — Exam Questions & Memos', url: 'exam-practice/grade11.html', grade: 'Exam Practice', tags: 'exam practice grade 11 questions memo past paper theory practical database IF COUNTIF LAN IoT 4IR malware answers' },
+  { title: 'Grade 12 — Exam Questions & Memos', url: 'exam-practice/grade12.html', grade: 'Exam Practice', tags: 'exam practice grade 12 questions memo past paper matric theory practical VLOOKUP nested IF WAN cybercrime answers final' },
+  { title: 'Exam Technique & Question Verbs', url: 'exam-practice/exam-skills.html', grade: 'Exam Practice', tags: 'exam technique question verbs command words name state explain discuss motivate distinguish list give two reasons mark allocation how to answer scenario' },
+  // Skills & PAT
+  { title: 'File & Data Management', url: 'skills/file-management.html', grade: 'Skills & PAT', tags: 'file management folder directory copy move rename delete file extension type compress zip extract archive search wildcard attributes read-only hidden backup file path naming convention recycle bin' },
+  { title: 'Information Management (PAT)', url: 'skills/information-management.html', grade: 'Skills & PAT', tags: 'information management PAT practical assessment task research process task definition questions sources evaluate reliability bias process data spreadsheet findings conclusions recommendations report bibliography referencing plagiarism survey questionnaire' },
 ];
 
 function getRoot() {
@@ -123,6 +132,8 @@ function getRoot() {
   const parent = segs[segs.length - 2] || '';
   if (/^(practical|theory)$/.test(parent)) return '../../';
   if (/^grade\d+$/.test(parent)) return '../';
+  if (parent === 'exam-practice') return '../';
+  if (parent === 'skills') return '../';
   return './';
 }
 

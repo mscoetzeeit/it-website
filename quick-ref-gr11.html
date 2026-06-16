@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 11 Programming — Quick Reference · Ms Coetzee IT</title>
+<link rel="stylesheet" href="css/style.css">
+<style>:root { --grade-color: var(--gr11); --qr-band: #5b21b6; }</style>
+</head>
+<body>
+<div id="topnav"></div>
+
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Quick Reference</div>
+    <a href="quick-reference.html">All grades</a>
+    <a href="quick-ref-gr10.html">Grade 10 — Programming</a>
+    <a href="quick-ref-gr11.html">Grade 11 — Programming</a>
+    <a href="quick-ref-gr12.html">Grade 12 — Programming</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Full Topics</div>
+    <a href="grade11/practical/arrays.html">1D Arrays</a>
+    <a href="grade11/practical/text-files.html">Text Files</a>
+    <a href="grade11/practical/methods.html">Procedures &amp; Functions</a>
+    <a href="grade11/practical/databases-delphi.html">Databases in Delphi</a>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><a href="quick-reference.html">Quick Reference</a><span class="breadcrumb-sep">›</span><span>Grade 11 — Programming</span></div>
+
+    <div class="qr-hero gr11">
+      <div>
+        <h1>Grade 11 — Programming Recap</h1>
+        <p>1D arrays · searching &amp; sorting · text files · methods · dates · databases in Delphi.</p>
+      </div>
+      <span class="qr-badge">Delphi · Paper 1</span>
+    </div>
+
+    <!-- ── 1D ARRAYS ── -->
+    <h2>1D Arrays</h2>
+    <div class="qr-two">
+      <div class="qr-card">
+        <p class="qr-card-title">Declare &amp; use</p>
+        <div class="qr-row">
+          <span class="qr-label">Fixed-size array</span>
+          <div class="qr-code"><span class="kw">var</span> arrMarks : <span class="kw">array</span>[<span class="num">1</span>..<span class="num">30</span>] <span class="kw">of</span> <span class="kw2">Integer</span>;</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Assign / read one element</span>
+          <div class="qr-code">arrMarks[<span class="num">3</span>] := <span class="num">75</span>;
+iX := arrMarks[<span class="num">3</span>];</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Display all elements</span>
+          <div class="qr-code"><span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> iCount <span class="kw">do</span>
+  redOut.Lines.Add(<span class="fn">IntToStr</span>(arrMarks[i]));</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Sum &amp; average</span>
+          <div class="qr-code">iSum := <span class="num">0</span>;
+<span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> iCount <span class="kw">do</span>
+  iSum := iSum + arrMarks[i];
+rAvg := iSum / iCount;</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Find the maximum</span>
+          <div class="qr-code">iMax := arrMarks[<span class="num">1</span>];
+<span class="kw">for</span> i := <span class="num">2</span> <span class="kw">to</span> iCount <span class="kw">do</span>
+  <span class="kw">if</span> arrMarks[i] &gt; iMax <span class="kw">then</span> iMax := arrMarks[i];</div>
+        </div>
+        <div class="qr-tip"><strong>Index from 1</strong> when you declare <code>[1..n]</code>. Keep a separate <code>iCount</code> for how many slots are really used.</div>
+      </div>
+
+      <div class="qr-card">
+        <p class="qr-card-title">Dynamic arrays &amp; facts</p>
+        <table class="qr-table">
+          <tr><td>SetLength(arr,n)</td><td>Set / change size to n</td></tr>
+          <tr><td>Length(arr)</td><td>Number of elements</td></tr>
+          <tr><td>Low(arr)</td><td>First index (0 for dynamic)</td></tr>
+          <tr><td>High(arr)</td><td>Last index (Length − 1)</td></tr>
+        </table>
+        <div class="qr-row" style="margin-top:.6rem">
+          <span class="qr-label">Dynamic array — size set at runtime</span>
+          <div class="qr-code"><span class="kw">var</span> arrNum : <span class="kw">array</span> <span class="kw">of</span> <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  <span class="fn">SetLength</span>(arrNum, <span class="num">5</span>);   <span class="cmt">// index 0..4</span>
+  <span class="kw">for</span> i := <span class="fn">Low</span>(arrNum) <span class="kw">to</span> <span class="fn">High</span>(arrNum) <span class="kw">do</span>
+    arrNum[i] := i * <span class="num">2</span>;</div>
+        </div>
+        <div class="qr-tip"><strong>Watch the base:</strong> <code>[1..n]</code> starts at 1, but a dynamic array always starts at 0.</div>
+      </div>
+    </div>
+
+    <div class="qr-two">
+      <div class="qr-card">
+        <p class="qr-card-title">Linear search (any array)</p>
+        <div class="qr-code">bFound := <span class="kw2">False</span>;
+<span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> iCount <span class="kw">do</span>
+  <span class="kw">if</span> arrNames[i] = sTarget <span class="kw">then</span>
+  <span class="kw">begin</span>
+    bFound := <span class="kw2">True</span>;
+    <span class="fn">Break</span>;
+  <span class="kw">end</span>;</div>
+        <div class="qr-tip"><strong>Use when</strong> the array is unsorted. Checks every item until found.</div>
+      </div>
+      <div class="qr-card">
+        <p class="qr-card-title">Binary search (sorted array)</p>
+        <div class="qr-code">iLow := <span class="num">1</span>; iHigh := iCount; bFound := <span class="kw2">False</span>;
+<span class="kw">while</span> (iLow &lt;= iHigh) <span class="kw">and not</span> bFound <span class="kw">do</span>
+<span class="kw">begin</span>
+  iMid := (iLow + iHigh) <span class="kw">div</span> <span class="num">2</span>;
+  <span class="kw">if</span> arr[iMid] = iTarget <span class="kw">then</span> bFound := <span class="kw2">True</span>
+  <span class="kw">else if</span> arr[iMid] &lt; iTarget <span class="kw">then</span> iLow := iMid+<span class="num">1</span>
+  <span class="kw">else</span> iHigh := iMid-<span class="num">1</span>;
+<span class="kw">end</span>;</div>
+        <div class="qr-tip"><strong>Array must be sorted first.</strong> Halves the range each step — much faster.</div>
+      </div>
+    </div>
+
+    <div class="qr-full">
+      <p class="qr-card-title">Sorting — bubble &amp; selection</p>
+      <div class="qr-two" style="margin-bottom:0">
+        <div>
+          <span class="qr-label">Bubble sort (ascending)</span>
+          <div class="qr-code"><span class="kw">for</span> i := iCount-<span class="num">1</span> <span class="kw">downto</span> <span class="num">1</span> <span class="kw">do</span>
+  <span class="kw">for</span> j := <span class="num">1</span> <span class="kw">to</span> i <span class="kw">do</span>
+    <span class="kw">if</span> arr[j] &gt; arr[j+<span class="num">1</span>] <span class="kw">then</span>
+    <span class="kw">begin</span>
+      iTemp := arr[j];
+      arr[j] := arr[j+<span class="num">1</span>];
+      arr[j+<span class="num">1</span>] := iTemp;
+    <span class="kw">end</span>;</div>
+          <div class="qr-tip" style="margin-top:.4rem"><strong>Descending:</strong> change <code>&gt;</code> to <code>&lt;</code>.</div>
+        </div>
+        <div>
+          <span class="qr-label">Selection sort (ascending)</span>
+          <div class="qr-code"><span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> iCount-<span class="num">1</span> <span class="kw">do</span>
+  <span class="kw">for</span> j := i+<span class="num">1</span> <span class="kw">to</span> iCount <span class="kw">do</span>
+    <span class="kw">if</span> arr[j] &lt; arr[i] <span class="kw">then</span>
+    <span class="kw">begin</span>
+      iTemp := arr[i];
+      arr[i] := arr[j];
+      arr[j] := iTemp;
+    <span class="kw">end</span>;</div>
+          <span class="qr-label" style="margin-top:.5rem">One pass of [5, 3, 8, 1] → bubble</span>
+          <div class="qr-cells">
+            <div class="qr-cell">3</div><div class="qr-cell">5</div><div class="qr-cell">1</div><div class="qr-cell">8</div>
+          </div>
+          <span class="qr-label">Sorted</span>
+          <div class="qr-cells">
+            <div class="qr-cell done">1</div><div class="qr-cell done">3</div><div class="qr-cell done">5</div><div class="qr-cell done">8</div>
+          </div>
+        </div>
+      </div>
+      <div class="qr-tip"><strong>Parallel arrays:</strong> when you swap <code>arrNames[i]</code> you must swap <code>arrMarks[i]</code> at the same time so the two stay in sync.</div>
+    </div>
+
+    <!-- ── TEXT FILES ── -->
+    <h2>Text Files</h2>
+    <div class="qr-two">
+      <div class="qr-card">
+        <p class="qr-card-title">The commands</p>
+        <table class="qr-table">
+          <tr><td>AssignFile(F,'d.txt')</td><td>Link variable F to the file on disk</td></tr>
+          <tr><td>Reset(F)</td><td>Open existing file for reading</td></tr>
+          <tr><td>Rewrite(F)</td><td>Create / overwrite for writing</td></tr>
+          <tr><td>Append(F)</td><td>Open &amp; add to the end</td></tr>
+          <tr><td>ReadLn(F,s)</td><td>Read one line into s</td></tr>
+          <tr><td>WriteLn(F,s)</td><td>Write s as one line</td></tr>
+          <tr><td>EOF(F)</td><td>True at end of file</td></tr>
+          <tr><td>CloseFile(F)</td><td>Save &amp; close — never forget!</td></tr>
+          <tr><td>FileExists('d.txt')</td><td>True if the file exists</td></tr>
+        </table>
+        <div class="qr-tip"><strong>Rewrite warning:</strong> it wipes the old contents. Use <code>Append</code> to keep them.</div>
+      </div>
+
+      <div class="qr-card">
+        <p class="qr-card-title">Read · write · append</p>
+        <div class="qr-row">
+          <span class="qr-label">Read every line</span>
+          <div class="qr-code"><span class="kw">if</span> <span class="fn">FileExists</span>(<span class="str">'Data.txt'</span>) <span class="kw">then</span>
+<span class="kw">begin</span>
+  <span class="fn">AssignFile</span>(F, <span class="str">'Data.txt'</span>);
+  <span class="fn">Reset</span>(F);
+  <span class="kw">while not</span> <span class="fn">EOF</span>(F) <span class="kw">do</span>
+  <span class="kw">begin</span>
+    <span class="fn">ReadLn</span>(F, sLine);
+    redOut.Lines.Add(sLine);
+  <span class="kw">end</span>;
+  <span class="fn">CloseFile</span>(F);
+<span class="kw">end</span>;</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Write (new) / append (add)</span>
+          <div class="qr-code"><span class="fn">AssignFile</span>(F, <span class="str">'Out.txt'</span>);
+<span class="fn">Rewrite</span>(F);    <span class="cmt">// or Append(F);</span>
+<span class="fn">WriteLn</span>(F, sName + <span class="str">','</span> + <span class="fn">IntToStr</span>(iAge));
+<span class="fn">CloseFile</span>(F);</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PROCEDURES & FUNCTIONS ── -->
+    <h2>Procedures &amp; Functions</h2>
+    <div class="qr-grid">
+      <div class="qr-card">
+        <p class="qr-card-title">Procedure vs function</p>
+        <table class="qr-table">
+          <tr><td>Procedure</td><td>Does a task — returns nothing</td></tr>
+          <tr><td>Function</td><td>Calculates &amp; returns one value</td></tr>
+          <tr><td>Call procedure</td><td>Write its name as a statement</td></tr>
+          <tr><td>Call function</td><td>Use it in an assignment / expression</td></tr>
+        </table>
+        <div class="qr-tip"><strong>Result</strong> is the special variable a function returns. Always set it before the function ends.</div>
+      </div>
+      <div class="qr-card">
+        <p class="qr-card-title">Examples</p>
+        <div class="qr-row">
+          <span class="qr-label">Procedure (no return)</span>
+          <div class="qr-code"><span class="kw">procedure</span> ShowGreeting(sName: <span class="kw2">String</span>);
+<span class="kw">begin</span>
+  <span class="fn">ShowMessage</span>(<span class="str">'Hi '</span> + sName);
+<span class="kw">end</span>;</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Function (returns Real)</span>
+          <div class="qr-code"><span class="kw">function</span> CalcVAT(rPrice: <span class="kw2">Real</span>): <span class="kw2">Real</span>;
+<span class="kw">begin</span>
+  Result := rPrice * <span class="num">0.15</span>;
+<span class="kw">end</span>;</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Calling them</span>
+          <div class="qr-code">ShowGreeting(<span class="str">'Sam'</span>);
+rVAT := CalcVAT(rPrice);</div>
+        </div>
+      </div>
+      <div class="qr-card">
+        <p class="qr-card-title">Parameters &amp; scope</p>
+        <div class="qr-row">
+          <span class="qr-label">By value — a copy (original safe)</span>
+          <div class="qr-code"><span class="kw">procedure</span> Demo(iNum: <span class="kw2">Integer</span>);</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">By reference — original changes</span>
+          <div class="qr-code"><span class="kw">procedure</span> Demo(<span class="kw">var</span> iNum: <span class="kw2">Integer</span>);</div>
+        </div>
+        <table class="qr-table" style="margin-top:.5rem">
+          <tr><td>Local</td><td>Declared inside — visible there only</td></tr>
+          <tr><td>Global</td><td>Declared above — visible everywhere</td></tr>
+          <tr><td>Parameter</td><td>Placeholder in the header</td></tr>
+          <tr><td>Argument</td><td>Actual value you pass in</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── DATES ── -->
+    <h2>Date &amp; Time Functions</h2>
+    <div class="qr-two">
+      <div class="qr-card">
+        <p class="qr-card-title">Functions</p>
+        <table class="qr-table">
+          <tr><td>Now</td><td>Current date &amp; time</td></tr>
+          <tr><td>Date</td><td>Today's date</td></tr>
+          <tr><td>DateToStr(d)</td><td>Date → text</td></tr>
+          <tr><td>StrToDate(s)</td><td>Text → date</td></tr>
+          <tr><td>YearOf(d) / MonthOf / DayOf</td><td>Pull out the part you need</td></tr>
+          <tr><td>IsLeapYear(y)</td><td>True / False</td></tr>
+        </table>
+      </div>
+      <div class="qr-card">
+        <p class="qr-card-title">Examples</p>
+        <div class="qr-code">lblToday.Caption := <span class="fn">DateToStr</span>(Now);
+<span class="cmt">// 2026/06/02</span>
+
+iAge := <span class="fn">YearOf</span>(Now) - <span class="fn">YearOf</span>(dtpBirth.Date);
+
+<span class="kw">if</span> <span class="fn">IsLeapYear</span>(<span class="num">2024</span>) <span class="kw">then</span>
+  <span class="fn">ShowMessage</span>(<span class="str">'Leap year'</span>);</div>
+        <div class="qr-tip"><strong>Units:</strong> <code>YearOf</code>, <code>MonthOf</code> and <code>IsLeapYear</code> need <code>DateUtils</code> in the uses clause.</div>
+      </div>
+    </div>
+
+    <!-- ── DATABASES (NO SQL) ── -->
+    <h2>Databases in Delphi <span class="grade-badge" style="background:rgba(109,40,217,.15)">No SQL — that's Grade 12</span></h2>
+    <div class="qr-two">
+      <div class="qr-card">
+        <p class="qr-card-title">The components</p>
+        <table class="qr-table">
+          <tr><td>TADOConnection</td><td>Links the project to the .accdb file</td></tr>
+          <tr><td>TADOTable</td><td>One table — needs the connection</td></tr>
+          <tr><td>TDataSource</td><td>The pipe between data &amp; controls</td></tr>
+          <tr><td>TDBGrid</td><td>Shows records on the form</td></tr>
+          <tr><td>TDBNavigator</td><td>First/prev/next/last/add/delete</td></tr>
+        </table>
+        <div class="qr-tip"><strong>Chain:</strong> ADOConnection → ADOTable → DataSource → DBGrid.</div>
+      </div>
+      <div class="qr-card">
+        <p class="qr-card-title">Navigate &amp; read fields</p>
+        <div class="qr-row">
+          <span class="qr-label">Move through records</span>
+          <div class="qr-code">tblStud.First;  tblStud.Next;
+tblStud.Prior; tblStud.Last;</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Read a field of the current record</span>
+          <div class="qr-code">sName := tblStud[<span class="str">'Name'</span>];
+iMark := tblStud[<span class="str">'Mark'</span>];</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Loop through ALL records</span>
+          <div class="qr-code">tblStud.First;
+<span class="kw">while not</span> tblStud.Eof <span class="kw">do</span>
+<span class="kw">begin</span>
+  redOut.Lines.Add(tblStud[<span class="str">'Name'</span>]);
+  tblStud.Next;   <span class="cmt">// never forget this!</span>
+<span class="kw">end</span>;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="qr-full">
+      <p class="qr-card-title">Add · edit · delete a record</p>
+      <div class="qr-two" style="margin-bottom:0">
+        <div>
+          <span class="qr-label">Insert a new record</span>
+          <div class="qr-code">tblStud.Insert;        <span class="cmt">// 1. blank record</span>
+tblStud[<span class="str">'Name'</span>] := edtName.Text;
+tblStud[<span class="str">'Mark'</span>] := sedMark.Value;
+tblStud.Post;          <span class="cmt">// 2. save it</span></div>
+        </div>
+        <div>
+          <span class="qr-label">Edit the current record</span>
+          <div class="qr-code">tblStud.Edit;
+tblStud[<span class="str">'Mark'</span>] := <span class="num">90</span>;
+tblStud.Post;</div>
+          <span class="qr-label" style="margin-top:.5rem">Delete · sort</span>
+          <div class="qr-code">tblStud.Delete;
+tblStud.Sort := <span class="str">'Surname ASC'</span>;</div>
+        </div>
+      </div>
+      <div class="qr-tip"><strong>Edit/Insert → Post</strong> to save, or <strong>Cancel</strong> to undo. Always confirm before <code>Delete</code> — there is no undo.</div>
+    </div>
+
+    <div class="page-nav">
+      <a href="quick-ref-gr10.html"><span class="page-nav-label">← Previous</span>Grade 10 — Programming</a>
+      <a class="next" href="quick-ref-gr12.html"><span class="page-nav-label">Next →</span>Grade 12 — Programming</a>
+    </div>
+  </main>
+</div>
+
+<script src="./js/nav.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

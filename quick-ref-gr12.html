@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 12 Programming — Quick Reference · Ms Coetzee IT</title>
+<link rel="stylesheet" href="css/style.css">
+<style>:root { --grade-color: var(--gr12); --qr-band: #92400e; }</style>
+</head>
+<body>
+<div id="topnav"></div>
+
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Quick Reference</div>
+    <a href="quick-reference.html">All grades</a>
+    <a href="quick-ref-gr10.html">Grade 10 — Programming</a>
+    <a href="quick-ref-gr11.html">Grade 11 — Programming</a>
+    <a href="quick-ref-gr12.html">Grade 12 — Programming</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Full Topics</div>
+    <a href="grade12/sql.html">SQL</a>
+    <a href="grade12/sql-join.html">SQL — Joining Tables</a>
+    <a href="grade12/oop.html">OOP</a>
+    <a href="grade12/arrays-2d.html">2D Arrays</a>
+    <a href="grade12/recursion.html">Recursion</a>
+  </aside>
+
+  <main class="content">
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">›</span><a href="quick-reference.html">Quick Reference</a><span class="breadcrumb-sep">›</span><span>Grade 12 — Programming</span></div>
+
+    <div class="qr-hero gr12">
+      <div>
+        <h1>Grade 12 — Programming Recap</h1>
+        <p>SQL queries &amp; joins · 2D arrays · object-oriented programming · recursion.</p>
+      </div>
+      <span class="qr-badge">Delphi · Paper 1</span>
+    </div>
+
+    <!-- ── SQL ── -->
+    <h2>SQL</h2>
+    <div class="qr-full">
+      <p class="qr-card-title">SELECT queries (run with ADOQuery → Open)</p>
+      <div class="qr-two" style="margin-bottom:0">
+        <div>
+          <div class="qr-row">
+            <span class="qr-label">All / specific fields</span>
+            <div class="qr-code"><span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblStudents
+<span class="sql-kw">SELECT</span> Name, Mark <span class="sql-kw">FROM</span> tblStudents</div>
+          </div>
+          <div class="qr-row">
+            <span class="qr-label">Filter rows</span>
+            <div class="qr-code"><span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblStudents
+<span class="sql-kw">WHERE</span> Mark &gt;= <span class="num">50</span> <span class="sql-kw">AND</span> Grade = <span class="num">12</span></div>
+          </div>
+          <div class="qr-row">
+            <span class="qr-label">Sort the result</span>
+            <div class="qr-code"><span class="sql-kw">ORDER BY</span> Surname <span class="sql-kw">ASC</span>
+<span class="sql-kw">ORDER BY</span> Mark <span class="sql-kw">DESC</span></div>
+          </div>
+          <div class="qr-row">
+            <span class="qr-label">Partial text match</span>
+            <div class="qr-code"><span class="sql-kw">WHERE</span> Name <span class="sql-kw">LIKE</span> <span class="str">'R%'</span>   <span class="cmt">-- starts with R</span>
+<span class="sql-kw">WHERE</span> Name <span class="sql-kw">LIKE</span> <span class="str">'%an%'</span> <span class="cmt">-- contains an</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="qr-row">
+            <span class="qr-label">Aggregate functions</span>
+            <div class="qr-code"><span class="sql-kw">SELECT</span> <span class="sql-fn">COUNT</span>(*) <span class="sql-kw">FROM</span> tblStudents
+<span class="sql-kw">SELECT</span> <span class="sql-fn">AVG</span>(Mark) <span class="sql-kw">FROM</span> tblStudents
+<span class="sql-fn">SUM</span>(Mark)  <span class="sql-fn">MAX</span>(Mark)  <span class="sql-fn">MIN</span>(Mark)</div>
+          </div>
+          <div class="qr-row">
+            <span class="qr-label">Group &amp; filter groups</span>
+            <div class="qr-code"><span class="sql-kw">SELECT</span> Grade, <span class="sql-fn">AVG</span>(Mark)
+<span class="sql-kw">FROM</span> tblStudents
+<span class="sql-kw">GROUP BY</span> Grade
+<span class="sql-kw">HAVING</span> <span class="sql-fn">AVG</span>(Mark) &gt; <span class="num">60</span></div>
+          </div>
+          <div class="qr-row">
+            <span class="qr-label">Number range / unique values</span>
+            <div class="qr-code"><span class="sql-kw">WHERE</span> Mark <span class="sql-kw">BETWEEN</span> <span class="num">40</span> <span class="sql-kw">AND</span> <span class="num">60</span>
+<span class="sql-kw">SELECT DISTINCT</span> Grade <span class="sql-kw">FROM</span> tblStudents</div>
+          </div>
+        </div>
+      </div>
+      <div class="qr-tip"><strong>Order matters:</strong> SELECT → FROM → WHERE → GROUP BY → HAVING → ORDER BY. Wrap text values in single quotes: <code>WHERE Name = 'Ana'</code>.</div>
+    </div>
+
+    <div class="qr-two">
+      <div class="qr-card">
+        <p class="qr-card-title">Joining two tables</p>
+        <div class="qr-code"><span class="sql-kw">SELECT</span> tblStudents.Name, tblClass.Teacher
+<span class="sql-kw">FROM</span> tblStudents, tblClass
+<span class="sql-kw">WHERE</span> tblStudents.ClassID =
+      tblClass.ClassID</div>
+        <div class="qr-tip"><strong>Always</strong> join on the matching key in the WHERE clause — leave it out and you get every combination (a Cartesian product).</div>
+      </div>
+      <div class="qr-card">
+        <p class="qr-card-title">Action queries &amp; running SQL</p>
+        <div class="qr-row">
+          <span class="qr-label">Insert / update / delete</span>
+          <div class="qr-code"><span class="sql-kw">INSERT INTO</span> tblStudents (Name, Mark)
+<span class="sql-kw">VALUES</span> (<span class="str">'Ana'</span>, <span class="num">85</span>)
+
+<span class="sql-kw">UPDATE</span> tblStudents <span class="sql-kw">SET</span> Mark = <span class="num">90</span>
+<span class="sql-kw">WHERE</span> Name = <span class="str">'Ana'</span>
+
+<span class="sql-kw">DELETE FROM</span> tblStudents <span class="sql-kw">WHERE</span> Mark &lt; <span class="num">30</span></div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">In Delphi code</span>
+          <div class="qr-code">qry.Close;
+qry.SQL.Clear;
+qry.SQL.Add(<span class="str">'SELECT * FROM tblStudents'</span>);
+qry.Open;     <span class="cmt">// SELECT → Open</span>
+qry.ExecSQL;  <span class="cmt">// INSERT/UPDATE/DELETE → ExecSQL</span></div>
+        </div>
+        <div class="qr-tip"><strong>Always</strong> use WHERE in UPDATE / DELETE — without it every record is changed.</div>
+      </div>
+    </div>
+
+    <!-- ── 2D ARRAYS ── -->
+    <h2>2D Arrays</h2>
+    <div class="qr-two">
+      <div class="qr-card">
+        <p class="qr-card-title">Declare &amp; fill</p>
+        <div class="qr-row">
+          <span class="qr-label">Declare (rows × columns)</span>
+          <div class="qr-code"><span class="kw">var</span> grid : <span class="kw">array</span>[<span class="num">1</span>..<span class="num">3</span>,<span class="num">1</span>..<span class="num">4</span>] <span class="kw">of</span> <span class="kw2">Integer</span>;</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Assign one cell (row, col)</span>
+          <div class="qr-code">grid[<span class="num">2</span>,<span class="num">3</span>] := <span class="num">99</span>;</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Fill with nested loops</span>
+          <div class="qr-code"><span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> <span class="num">3</span> <span class="kw">do</span>
+  <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> <span class="num">4</span> <span class="kw">do</span>
+    grid[r,c] := <span class="num">0</span>;</div>
+        </div>
+        <div class="qr-tip"><strong>Always:</strong> first index = row, second = column. Outer loop = rows, inner loop = columns.</div>
+      </div>
+      <div class="qr-card">
+        <p class="qr-card-title">Display &amp; totals</p>
+        <div class="qr-row">
+          <span class="qr-label">Display row by row</span>
+          <div class="qr-code"><span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> <span class="num">3</span> <span class="kw">do</span>
+<span class="kw">begin</span>
+  sLine := <span class="str">''</span>;
+  <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> <span class="num">4</span> <span class="kw">do</span>
+    sLine := sLine + <span class="fn">IntToStr</span>(grid[r,c]) + #<span class="num">9</span>;
+  redOut.Lines.Add(sLine);
+<span class="kw">end</span>;</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Total of one column</span>
+          <div class="qr-code">iSum := <span class="num">0</span>;
+<span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> <span class="num">3</span> <span class="kw">do</span>
+  iSum := iSum + grid[r,<span class="num">2</span>];</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── OOP ── -->
+    <h2>Object-Oriented Programming</h2>
+    <div class="qr-full">
+      <p class="qr-card-title">Class structure</p>
+      <div class="qr-two" style="margin-bottom:0">
+        <div>
+          <span class="qr-label">Define the class (type section)</span>
+          <div class="qr-code"><span class="kw">type</span>
+  TStudent = <span class="kw">class</span>
+    <span class="kw">private</span>
+      fName : <span class="kw2">String</span>;
+      fMark : <span class="kw2">Integer</span>;
+    <span class="kw">public</span>
+      <span class="kw">constructor</span> Create(sN: <span class="kw2">String</span>; iM: <span class="kw2">Integer</span>);
+      <span class="kw">function</span> GetName: <span class="kw2">String</span>;
+      <span class="kw">procedure</span> SetMark(iM: <span class="kw2">Integer</span>);
+      <span class="kw">function</span> ToString: <span class="kw2">String</span>;
+  <span class="kw">end</span>;</div>
+        </div>
+        <div>
+          <span class="qr-label">Implement the methods</span>
+          <div class="qr-code"><span class="kw">constructor</span> TStudent.Create(sN: <span class="kw2">String</span>; iM: <span class="kw2">Integer</span>);
+<span class="kw">begin</span>
+  fName := sN;
+  fMark := iM;
+<span class="kw">end</span>;
+
+<span class="kw">function</span> TStudent.GetName: <span class="kw2">String</span>;
+<span class="kw">begin</span>
+  Result := fName;
+<span class="kw">end</span>;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="qr-grid">
+      <div class="qr-card">
+        <p class="qr-card-title">Create &amp; use an object</p>
+        <div class="qr-code"><span class="kw">var</span> objStud : TStudent;
+<span class="kw">begin</span>
+  objStud := TStudent.Create(<span class="str">'Ana'</span>, <span class="num">80</span>);
+  objStud.SetMark(<span class="num">90</span>);
+  sName := objStud.GetName;
+  objStud.Free;   <span class="cmt">// free what you Create</span></div>
+        <div class="qr-tip"><strong>Always Free</strong> an object you Create. Declare it at form level if it must survive between button clicks.</div>
+      </div>
+      <div class="qr-card">
+        <p class="qr-card-title">Access modifiers</p>
+        <table class="qr-table">
+          <tr><td>private</td><td>Inside the class only — fields go here</td></tr>
+          <tr><td>public</td><td>Anywhere — constructor &amp; methods here</td></tr>
+          <tr><td>constructor</td><td>Create — sets up the object</td></tr>
+          <tr><td>field (f…)</td><td>Data belonging to the object</td></tr>
+          <tr><td>accessor / getter</td><td>Function returning a private field</td></tr>
+          <tr><td>mutator / setter</td><td>Procedure changing a private field</td></tr>
+        </table>
+        <div class="qr-tip"><strong>Encapsulation:</strong> fields are private; the outside world reads/writes them only through public methods.</div>
+      </div>
+      <div class="qr-card">
+        <p class="qr-card-title">Key terms</p>
+        <table class="qr-table">
+          <tr><td>Class</td><td>Blueprint — fields + methods</td></tr>
+          <tr><td>Object</td><td>An instance made from a class</td></tr>
+          <tr><td>Method</td><td>Procedure/function in a class</td></tr>
+          <tr><td>Inheritance</td><td>Child class extends a parent</td></tr>
+          <tr><td>inherited</td><td>Calls the parent's version</td></tr>
+        </table>
+        <div class="qr-code">TLearner = <span class="kw">class</span>(TStudent)
+  <span class="cmt">// inherits all of TStudent</span></div>
+      </div>
+    </div>
+
+    <!-- ── RECURSION ── -->
+    <h2>Recursion</h2>
+    <div class="qr-two">
+      <div class="qr-card">
+        <p class="qr-card-title">What it is</p>
+        <p style="font-size:.82rem;margin:0 0 .5rem">A <strong>recursive</strong> method calls <em>itself</em> on a smaller version of the problem until it reaches a <strong>base case</strong> that stops it.</p>
+        <table class="qr-table">
+          <tr><td>Base case</td><td>The stopping condition (no more calls)</td></tr>
+          <tr><td>Recursive case</td><td>Calls itself with a smaller value</td></tr>
+        </table>
+        <div class="qr-tip"><strong>Without a base case</strong> the method never stops — a stack overflow crash.</div>
+      </div>
+      <div class="qr-card">
+        <p class="qr-card-title">Factorial &amp; Fibonacci</p>
+        <div class="qr-row">
+          <span class="qr-label">Factorial — 5! = 120</span>
+          <div class="qr-code"><span class="kw">function</span> Factorial(n: <span class="kw2">Integer</span>): <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  <span class="kw">if</span> n &lt;= <span class="num">1</span> <span class="kw">then</span>
+    Result := <span class="num">1</span>          <span class="cmt">// base case</span>
+  <span class="kw">else</span>
+    Result := n * Factorial(n-<span class="num">1</span>);
+<span class="kw">end</span>;</div>
+        </div>
+        <div class="qr-row">
+          <span class="qr-label">Fibonacci term</span>
+          <div class="qr-code"><span class="kw">if</span> n &lt;= <span class="num">2</span> <span class="kw">then</span> Result := <span class="num">1</span>
+<span class="kw">else</span> Result := Fib(n-<span class="num">1</span>) + Fib(n-<span class="num">2</span>);</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-nav">
+      <a href="quick-ref-gr11.html"><span class="page-nav-label">← Previous</span>Grade 11 — Programming</a>
+      <a class="next" href="quick-reference.html"><span class="page-nav-label">Done →</span>All Quick References</a>
+    </div>
+  </main>
+</div>
+
+<script src="./js/nav.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

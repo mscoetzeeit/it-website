@@ -173,11 +173,16 @@ const PAGES = [
   { title: 'Cybercrime & Safeguards',          url: 'grade12/cybercrime.html',                    grade: 'Grade 12',             tags: 'cybercrime hacker cracker ransomware phishing identity theft sql injection ddos popia cybercrimes act safeguards' },
   { title: 'Recursion (Delphi)',               url: 'grade12/recursion.html',                     grade: 'Grade 12',             tags: 'recursion recursive function factorial fibonacci base case stack overflow divide conquer' },
   { title: 'Social Implications (Gr 12)',      url: 'grade12/social-gr12.html',                   grade: 'Grade 12',             tags: 'big data social media privacy digital footprint globalisation 4ir cookies anonymity guid' },
+  // Quick Reference
+  { title: 'Quick Reference (all grades)',     url: 'quick-reference.html',                       grade: 'Quick Reference',      tags: 'quick reference recap revision cheat sheet summary programming delphi sql one page' },
+  { title: 'Grade 10 — Programming Recap',     url: 'quick-ref-gr10.html',                        grade: 'Quick Reference',      tags: 'recap revision cheat sheet data types operators bodmas functions if case loops for while repeat strings formatting errors delphi grade 10' },
+  { title: 'Grade 11 — Programming Recap',     url: 'quick-ref-gr11.html',                        grade: 'Quick Reference',      tags: 'recap revision cheat sheet 1d arrays linear binary search bubble selection sort parallel dynamic setlength text files procedures functions dates database adotable grade 11' },
+  { title: 'Grade 12 — Programming Recap',     url: 'quick-ref-gr12.html',                        grade: 'Quick Reference',      tags: 'recap revision cheat sheet sql select join group by having aggregate 2d arrays oop class object inheritance encapsulation recursion factorial fibonacci grade 12' },
   // Study Tools
   { title: 'Grade 10 — Study by Term',         url: 'terms-gr10.html',                            grade: 'Study Tools',          tags: 'term planner grade 10 what to study term 1 2 3 4 schedule' },
   { title: 'Grade 11 — Study by Term',         url: 'terms-gr11.html',                            grade: 'Study Tools',          tags: 'term planner grade 11 what to study term 1 2 3 4 schedule' },
   { title: 'Grade 12 — Study by Term',         url: 'terms-gr12.html',                            grade: 'Study Tools',          tags: 'term planner grade 12 what to study term 1 2 3 schedule matric' },
-  { title: 'Exam Extras (Out-of-CAPS)',         url: 'exam-extras.html',                           grade: 'Study Tools',          tags: 'exam extras out of caps blockchain ai deep fake dark web steganography stringreplace format random trycatch popia' },
+  { title: 'Exam Extras (Out-of-CAPS)',         url: 'exam-extras.html',                           grade: 'Study Tools',          tags: 'exam extras out of caps blockchain ai deep fake dark web steganography stringreplace format random trycatch popia mesh bus topology raid ipv6' },
 ];
 
 function getRoot() {
