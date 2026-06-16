@@ -107,6 +107,32 @@
       <div class="def-term">Input Mask</div><div class="def-desc">Controls how data is entered (e.g. phone number format: 000-000-0000)</div>
     </table></div>
 
+    <h2>Input Masks — Controlling How Data Is Typed</h2>
+    <p>Think about a cellphone number field. Without any guidance, one person might type <code>0821234567</code>, another <code>082 123 4567</code>, and another <code>(082) 123-4567</code> — all the same number, three different formats. An <strong>input mask</strong> forces everyone to type data the same way by deciding, character by character, what's allowed in each position.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Mask Character</th><th>Meaning</th></tr>
+      <tr><td><code>0</code></td><td>A digit (0–9) is required</td></tr>
+      <tr><td><code>9</code></td><td>A digit is optional</td></tr>
+      <tr><td><code>L</code></td><td>A letter is required</td></tr>
+      <tr><td><code>?</code></td><td>A letter is optional</td></tr>
+      <tr><td><code>&gt;</code></td><td>Converts the following characters to UPPERCASE</td></tr>
+      <tr><td><code>&lt;</code></td><td>Converts the following characters to lowercase</td></tr>
+      <tr><td><code>\</code></td><td>The next character is shown as-is (a literal symbol, not a rule)</td></tr>
+    </table></div>
+    <div class="steps-box">
+      <div class="steps-title">Step-by-step: Add an input mask to a field</div>
+      <ol class="steps">
+        <li>Open the table in <strong>Design View</strong> and click the field that needs the mask.</li>
+        <li>In the Field Properties panel at the bottom, click into the <strong>Input Mask</strong> row.</li>
+        <li>Type the mask using the characters above. For example, <code>000-000-0000</code> forces exactly 10 digits with dashes already in place.</li>
+        <li>Save the table (<kbd>Ctrl</kbd>+<kbd>S</kbd>) and switch to Datasheet View to test it — try typing in the field and watch how it guides you.</li>
+      </ol>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title">INPUT MASK vs VALIDATION RULE</div>
+      <p>An input mask controls the <em>shape</em> of what's typed (how many digits, where the dashes go) as you type it. A validation rule checks the <em>value</em> after it's typed (e.g. is the mark between 0 and 100). Exams sometimes test both on the same field — read carefully which one is being asked for.</p>
+    </div>
+
     <h2>Creating Tables</h2>
     <div class="steps-box">
       <div class="steps-title">Step-by-step: Create a new table in Design View</div>
@@ -203,6 +229,23 @@
 =<span class="fn">Max</span>([Score])     <span class="hcmt">&lt;-- highest score</span>
 =<span class="fn">Min</span>([Score])     <span class="hcmt">&lt;-- lowest score</span></pre>
     </div>
+
+    <h2>Designing a Database for a Specific Purpose</h2>
+    <p>Before opening Access at all, a good database starts on paper: what information needs to be stored, and how is it split into separate, sensible tables? A common mistake is cramming everything into one table — e.g. storing a learner's name AND every subject they take in the same row, which forces you to repeat the learner's name once per subject. Splitting into a Learners table and a Subjects table, linked by a shared LearnerID, avoids that repetition.</p>
+    <div class="def-grid">
+      <div class="def-term">One table, one topic</div><div class="def-desc">Each table should describe one type of "thing" — Learners, Subjects, Results — not a mix</div>
+      <div class="def-term">Avoid repeating data</div><div class="def-desc">If you find yourself typing the same name or address over and over, that data belongs in its own table, linked by an ID</div>
+      <div class="def-term">Link tables with a common field</div><div class="def-desc">Usually the primary key of one table appears in the other as a "foreign key"</div>
+    </div>
+
+    <h2>Troubleshooting a Database</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Problem</th><th>Likely cause / fix</th></tr>
+      <tr><td>Can't type a record into a table</td><td>Check whether a required field was left blank, or whether a validation rule is rejecting the value</td></tr>
+      <tr><td>Query returns no results</td><td>Check criteria spelling, check AND/OR rows are placed correctly, check for extra spaces in typed criteria</td></tr>
+      <tr><td>Report shows "#Error" in a calculation</td><td>Check the field name inside the calculation matches the actual field name exactly, including spelling</td></tr>
+      <tr><td>Can't delete a record</td><td>The record may be linked to data in another table (referential integrity) — delete the related records first</td></tr>
+    </table></div>
 
     <div class="callout exam">
       <div class="callout-title">EXAM TIP — Database Terminology</div>

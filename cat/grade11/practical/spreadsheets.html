@@ -152,6 +152,18 @@
       <tr><td><code>=</code></td><td>Equal to (for text)</td><td><code>"Pass"</code> or <code>"=Pass"</code></td></tr>
     </table></div>
 
+    <h2>Circular Reference and #NULL! Errors</h2>
+    <p>A <strong>circular reference</strong> happens when a formula refers back to its own cell, directly or indirectly — like trying to weigh yourself while standing on the scale you're holding. Excel can't calculate it because the answer depends on itself.</p>
+    <div class="code-block">
+      <div class="code-label">Example circular reference (in cell A1)</div>
+      <pre>=<span class="fn">SUM</span>(<span class="ref">A1:A5</span>)  <span class="hcmt">&lt;-- A1 is trying to include itself in the sum</span></pre>
+    </div>
+    <p>Excel shows a warning when this happens and displays <code class="err">0</code> in the cell until the formula's range is corrected to exclude its own cell.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Error</th><th>Cause</th></tr>
+      <tr><td><code class="err">#NULL!</code></td><td>A formula uses a space (which means "intersection") between two ranges that don't actually overlap, e.g. <code>=SUM(A1:A5 C1:C5)</code></td></tr>
+    </table></div>
+
     <h2>Charts and Graphs — Extended</h2>
     <p>Build on Grade 10 chart knowledge with proper formatting:</p>
     <ul>

@@ -25,12 +25,12 @@
   <main class="content">
     <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Grade 12 Practical</span><span class="breadcrumb-sep">›</span><span>Spreadsheets</span></div>
     <h1>Spreadsheets <span class="grade-badge">Grade 12</span></h1>
-    <p class="page-intro">Grade 12 adds complex functions (Nested IF, AND/OR, VLOOKUP/HLOOKUP, COUNTIFS/SUMIFS, text functions, date/time functions) and advanced charts including stacked graphs and trendlines.</p>
+    <p class="page-intro">Grade 12 adds complex functions (Nested IF, AND/OR, VLOOKUP/HLOOKUP, COUNTIFS/SUMIFS, text functions, date/time functions), freezing multiple rows/columns, custom conditional formatting rules, the Subtotal tool, and advanced charts including stacked graphs and trendlines.</p>
 
     <h2>Complex Functions</h2>
 
     <h3>Nested IF</h3>
-    <p>A nested IF places one IF inside another to test multiple conditions:</p>
+    <p>A plain IF can only sort data into two outcomes — true or false. But what if there are three or more possible results, like turning a mark into "Distinction", "Merit", "Pass" or "Fail"? You solve this by putting a second IF function <em>inside</em> the "false" part of the first one, like a chain of yes/no questions: "Is it 80+? If not, is it 60+? If not, is it 50+? If not, it must be a Fail." That's a nested IF.</p>
     <div class="code-block">
       <div class="code-label">Nested IF — Grade classification</div>
       <pre>=<span class="fn">IF</span>(<span class="ref">B2</span>&gt;=80, <span class="str">"Distinction"</span>,
@@ -57,6 +57,7 @@
     </div>
 
     <h3>LOOKUP Functions</h3>
+    <p>Imagine a school office with a printed list: ID number on the left, learner's surname on the right. If you know someone's ID and want their surname, you'd run your finger down the ID column until you find a match, then read across to the surname column. VLOOKUP does exactly that — it searches down the first column of a table for a value, then "reads across" to grab a value from another column in the same row.</p>
     <div class="code-block">
       <div class="code-label">VLOOKUP — looks up values in a vertical table</div>
       <pre>=<span class="fn">VLOOKUP</span>(lookup_value, table_array, col_index_num, [range_lookup])
@@ -145,8 +146,49 @@
 =<span class="fn">DAYS</span>(<span class="fn">TODAY</span>(), <span class="ref">B2</span>) / 365.25  <span class="hcmt">&lt;-- more precise age</span></pre>
     </div>
 
+    <h2>Combining Text Functions</h2>
+    <p>LEFT, RIGHT and MID become far more useful once you combine two of them to build a brand-new code out of pieces of other data — for example, a "family code" made from the first 3 letters of a surname plus the last 3 characters of an admission number.</p>
+    <div class="code-block">
+      <div class="code-label">Building a combined code</div>
+      <pre><span class="hcmt">Surname in A2 = "Adams", Admission number in B2 = "SC2024112"</span>
+=<span class="fn">LEFT</span>(<span class="ref">A2</span>,3) &amp; <span class="fn">RIGHT</span>(<span class="ref">B2</span>,3)
+<span class="hcmt">&lt;-- LEFT(A2,3) grabs "Ada", RIGHT(B2,3) grabs "112", the &amp; glues them together → "Ada112"</span></pre>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title">READ THE INSTRUCTION IN ORDER</div>
+      <p>Build these formulas piece by piece exactly in the order the question describes ("first 3 letters of surname, combined with the last 3 characters of admission number") — write down what each piece should produce before joining them with <code>&amp;</code>, so you can spot which half is wrong if the result looks off.</p>
+    </div>
+
+    <h2>Freezing Multiple Rows or Columns</h2>
+    <p>Freeze Panes keeps certain rows or columns locked in place on screen while you scroll through a large sheet — like keeping the column headings of a printed table visible at the top of every page. Freezing more than one row works the same way as freezing one, you just need to click in the right place first.</p>
+    <div class="steps-box">
+      <div class="steps-title">Step-by-step: Freeze the top 3 rows</div>
+      <ol class="steps">
+        <li>Click on cell <strong>A4</strong> — i.e. the cell in column A of the row directly <em>below</em> the rows you want frozen. (To freeze rows 1–3, you click into row 4.)</li>
+        <li>Go to <span class="ribbon-path"><span class="rp">View</span><span class="rp-arrow">→</span><span class="rp">Freeze Panes</span><span class="rp-arrow">→</span><span class="rp">Freeze Panes</span></span>.</li>
+        <li>Rows 1–3 now stay visible at the top no matter how far down you scroll. A thin grey line marks the frozen boundary.</li>
+      </ol>
+    </div>
+    <p>The same idea works for columns: click in the first cell of the column you want unfrozen (e.g. C1, to freeze columns A and B), then use the same Freeze Panes command.</p>
+
+    <h2>Conditional Formatting with Custom Rules</h2>
+    <p>Conditional formatting changes how a cell <em>looks</em> automatically, based on what's inside it — so instead of scanning a long column by eye, the spreadsheet highlights the values that matter for you. A common exam task: make every cell containing a specific word (e.g. "No") stand out in bold red.</p>
+    <div class="steps-box">
+      <div class="steps-title">Step-by-step: Highlight cells containing specific text</div>
+      <ol class="steps">
+        <li>Select the range of cells to check (e.g. D2:D20).</li>
+        <li>Go to <span class="ribbon-path"><span class="rp">Home</span><span class="rp-arrow">→</span><span class="rp">Conditional Formatting</span><span class="rp-arrow">→</span><span class="rp">Highlight Cells Rules</span><span class="rp-arrow">→</span><span class="rp">Equal To…</span></span> (or <strong>Text that Contains…</strong> if it isn't an exact match).</li>
+        <li>Type the word to match, e.g. <code>No</code>.</li>
+        <li>Click the format dropdown and choose <strong>Custom Format…</strong> to set both a font style (Bold) and a fill colour (red), then click <strong>OK</strong> twice.</li>
+      </ol>
+    </div>
+    <div class="callout exam">
+      <div class="callout-title">EXAM TIP — Conditional Formatting vs typing the format by hand</div>
+      <p>Never select the matching cells manually and apply bold/colour yourself — markers check that the rule is still attached to the cell. If new data is typed in later and it also says "No", it must automatically turn red too. That only happens with a real conditional formatting rule, not manual formatting.</p>
+    </div>
+
     <h2>Subtotal Feature</h2>
-    <p>Subtotal creates grouped summaries within filtered data (unlike SUM which includes hidden rows):</p>
+    <p>The Subtotal tool automatically inserts summary rows into a list wherever a chosen column's value changes — for example, a sub-total of marks at the end of every grade, without you manually inserting rows or typing SUM formulas yourself. It only works on a sorted, plain list of data (not inside a table object), so sort by the grouping column first.</p>
     <ul>
       <li>Data → Subtotal → choose column to group by, function (SUM/AVG/COUNT) and column to calculate</li>
       <li>Creates outline levels — click 1, 2, 3 buttons to expand/collapse groups</li>

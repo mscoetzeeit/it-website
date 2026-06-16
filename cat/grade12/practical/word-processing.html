@@ -25,11 +25,54 @@
   <main class="content">
     <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Grade 12 Practical</span><span class="breadcrumb-sep">›</span><span>Word Processing</span></div>
     <h1>Word Processing <span class="grade-badge">Grade 12</span></h1>
-    <p class="page-intro">Grade 12 reinforces all Grade 10 and 11 Word skills and adds: advanced mail merge (multiple data sources), tracking changes, bookmarks, cross-references, advanced linking/embedding and professional document production.</p>
+    <p class="page-intro">Grade 12 reinforces all Grade 10 and 11 Word skills and adds: document metadata, signature lines, content controls (drop-down lists, restricted text, date pickers), advanced mail merge (multiple data sources), tracking changes, bookmarks, cross-references, custom page setup, advanced linking/embedding and professional document production.</p>
 
     <div class="callout">
       <div class="callout-title">GRADE 12 APPROACH</div>
       <p>Grade 12 exams include ALL Grade 10 and 11 Word skills, so revise those pages too. New Grade 12 content focuses on problem-solving and integration — applying skills in unfamiliar scenarios.</p>
+    </div>
+
+    <h2>Document Properties &amp; Status</h2>
+    <p>Every Word file quietly stores a set of facts about itself in the background — who wrote it, when, how many words it has, and a "status" you can set yourself. This hidden information is called <strong>metadata</strong> (literally "data about data"). Exams often ask you to change the document's <em>Status</em> property to something like <code>Final</code> or <code>Draft</code> — this is just a label, similar to writing "DRAFT" in pencil on a paper document, except it's stored as a property instead of typed into the text.</p>
+    <div class="steps-box">
+      <div class="steps-title">Step-by-step: Set the document Status</div>
+      <ol class="steps">
+        <li>Click <strong>File</strong> → <strong>Info</strong>. This screen shows the document's properties on the right.</li>
+        <li>Look for the <strong>Status</strong> field (you may need to click <strong>Show All Properties</strong> at the bottom to see it).</li>
+        <li>Click in the empty space next to Status and type the required word, e.g. <code>Final</code>.</li>
+        <li>Click back into the document (or press Esc) to save the change.</li>
+      </ol>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title">WHY THIS MATTERS</div>
+      <p>Metadata properties (Author, Status, Title, Subject) don't appear on the printed page — they're for organising and searching files, e.g. a school office filtering for all "Final" exam papers before printing. Don't confuse this with typing the word "Final" into the document text — the exam wants the actual property changed.</p>
+    </div>
+
+    <h2>Signature Lines</h2>
+    <p>A signature line is a placeholder that shows where someone should sign a printed document — like the dotted line and "Sign here" you'd see at the bottom of a letter, except Word generates it for you with a name, title and date automatically lined up underneath.</p>
+    <div class="steps-box">
+      <div class="steps-title">Step-by-step: Insert a signature line</div>
+      <ol class="steps">
+        <li>Click where the signature should appear, then go to <span class="ribbon-path"><span class="rp">Insert</span><span class="rp-arrow">→</span><span class="rp">Signature Line</span></span> (in the Text group) → <strong>Microsoft Office Signature Line…</strong></li>
+        <li>A "Signature Setup" box opens. Fill in the <strong>Suggested signer</strong> (their name), <strong>Suggested signer's title</strong> (their job, e.g. Headmaster) and, if asked, their <strong>e-mail address</strong>.</li>
+        <li>If the question gives you "Instructions to the signer" text, type it into that box exactly as given.</li>
+        <li>Tick or untick <strong>Show sign date in signature line</strong> depending on what's required.</li>
+        <li>Click <strong>OK</strong>. A signature box appears in your document with an X, the name and title printed underneath.</li>
+      </ol>
+    </div>
+
+    <h2>Content Controls &amp; Form Fields</h2>
+    <p>Sometimes a document needs to behave a bit like an app — restricting what someone can type, or giving them a list to choose from instead of free typing. Word calls these <strong>content controls</strong>, and you insert them from the <strong>Developer</strong> tab. (If you don't see Developer in the ribbon: File → Options → Customize Ribbon → tick <strong>Developer</strong> in the right-hand list.)</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Control</th><th>What it's for</th><th>Where to set its options</th></tr>
+      <tr><td><strong>Plain Text Content Control</strong></td><td>A box where someone types text — you can limit how many characters fit (e.g. "Itemkode" restricted to 3 characters)</td><td>Select the control → Developer → Properties → tick Plain Text → set Maximum length, or use Properties dialog depending on Word version</td></tr>
+      <tr><td><strong>Drop-Down List Content Control</strong></td><td>Forces the user to pick one option from a fixed list instead of typing anything (e.g. Grade 8–12)</td><td>Select the control → Developer → Properties → Add… → type each list entry, click OK after each one</td></tr>
+      <tr><td><strong>Date Picker Content Control</strong></td><td>Shows a little calendar so the user can click a date instead of typing it, and forces a consistent date format</td><td>Select the control → Developer → Properties → choose a Display Date format (e.g. dd MMMM yyyy)</td></tr>
+      <tr><td><strong>Combo Box Content Control</strong></td><td>Like a drop-down, but the user may also type their own value if it's not in the list</td><td>Same as Drop-Down List, via Developer → Properties</td></tr>
+    </table></div>
+    <div class="callout tip">
+      <div class="callout-title">READ THE ORDER OF OPTIONS CAREFULLY</div>
+      <p>For a Drop-Down List, the order you click <strong>Add…</strong> is the order the items appear in the list — if the question says "in descending order" (e.g. Grade 12 down to Grade 8), add them in that order, or use <strong>Modify</strong> to move an entry up/down afterwards.</p>
     </div>
 
     <h2>Advanced Mail Merge — Multiple Data Sources</h2>
@@ -119,6 +162,17 @@
       <li><strong>Keep lines together</strong>: prevents a paragraph from being split across pages</li>
       <li><strong>Page break before</strong>: forces paragraph to start on a new page</li>
     </ul>
+
+    <h2>Page Setup, Borders &amp; Splitting Tables</h2>
+    <p>These are small, easy-to-lose marks on a document — but they come up constantly because they're quick to test and easy to get wrong if you're rushing.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Task</th><th>How</th></tr>
+      <tr><td>Change paper size (e.g. A5 instead of A4)</td><td><span class="ribbon-path"><span class="rp">Layout</span><span class="rp-arrow">→</span><span class="rp">Size</span></span> → choose A5 from the list, or <strong>More Paper Sizes…</strong> for a custom size</td></tr>
+      <tr><td>Set specific margins (e.g. top &amp; bottom = 3 cm)</td><td>Layout → Margins → Custom Margins → type the values into Top / Bottom / Left / Right</td></tr>
+      <tr><td>Add a decorative page border ("art border")</td><td>Design → Page Borders → in the Borders and Shading box, open the <strong>Art</strong> dropdown and pick a pattern</td></tr>
+      <tr><td>Apply a border to only the top &amp; bottom of the page</td><td>In the same Page Border dialog, use the preview diagram — click directly on the left/right border lines in the diagram to remove them, leaving only top and bottom</td></tr>
+      <tr><td>Split a table into two separate tables</td><td>Click in the row where the new table should start, then <strong>Table Tools → Layout → Split Table</strong>. Everything from that row downward becomes a new, separate table — type a heading above it if one is required</td></tr>
+    </table></div>
 
     <h2>Integration Techniques</h2>
     <h3>Linking and Embedding Objects</h3>

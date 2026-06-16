@@ -25,7 +25,7 @@
   <main class="content">
     <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Grade 12 Practical</span><span class="breadcrumb-sep">›</span><span>Databases (Access)</span></div>
     <h1>Databases (Access) <span class="grade-badge">Grade 12</span></h1>
-    <p class="page-intro">Grade 12 extends Access to advanced queries (calculated fields, totals, wildcards, IS Null), grouped reports with calculations, and designing complete database solutions for specific scenarios.</p>
+    <p class="page-intro">Grade 12 extends Access to advanced queries (calculated fields, totals, wildcards, IS Null), input masks, attachment fields for photos, lookup fields from a typed list vs. another table, grouped reports with calculations, and designing complete database solutions for specific scenarios.</p>
 
     <h2>Advanced Queries</h2>
 
@@ -126,7 +126,7 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
     </ol>
 
     <h2>Data Validation in Tables</h2>
-    <p>Validation ensures only correct data can be entered:</p>
+    <p>Validation ensures only correct data can be entered. Think of it as a bouncer at the door of each field — the <strong>Validation Rule</strong> decides what's allowed in, and the <strong>Validation Text</strong> is the message shown to anyone turned away:</p>
     <div class="tbl-wrap"><table>
       <tr><th>Property</th><th>Example</th><th>Effect</th></tr>
       <tr><td>Validation Rule</td><td>&gt;=0 And &lt;=100</td><td>Marks must be between 0 and 100</td></tr>
@@ -134,6 +134,70 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <tr><td>Required = Yes</td><td>(tick Yes)</td><td>Field cannot be left empty</td></tr>
       <tr><td>Input Mask</td><td>000-0000000</td><td>Forces phone number format</td></tr>
     </table></div>
+    <div class="callout exam">
+      <div class="callout-title">EXAM TIP — Rule and Text must match</div>
+      <p>Always write the Validation Text so it actually describes the Validation Rule. If the rule is <code>&gt;=0 And &lt;=100</code> but the text says "must be a positive number", a mark of -5 and a mark of 500 would both fail the rule, but the message wouldn't make sense for the second case. Read the rule back to yourself in plain English, then write the text to match it.</p>
+    </div>
+
+    <h2>Input Masks — Controlling Exactly What Can Be Typed</h2>
+    <p>An input mask is stricter than a validation rule: instead of checking data <em>after</em> it's typed, it controls what you're allowed to type <em>as you type it</em> — similar to how a cellphone number field on a website only lets you type digits, automatically adding the dashes for you. Each position in the mask is built from special characters that mean "a digit must go here", "a letter must go here", and so on.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Character</th><th>Meaning</th></tr>
+      <tr><td><code>0</code></td><td>A digit — <strong>required</strong> (0–9 only, no + or −)</td></tr>
+      <tr><td><code>9</code></td><td>A digit or blank — optional</td></tr>
+      <tr><td><code>L</code></td><td>A letter A–Z — <strong>required</strong></td></tr>
+      <tr><td><code>?</code></td><td>A letter A–Z — optional</td></tr>
+      <tr><td><code>A</code></td><td>A letter or digit — required</td></tr>
+      <tr><td><code>a</code></td><td>A letter or digit — optional</td></tr>
+      <tr><td><code>&amp;</code></td><td>Any character — required</td></tr>
+      <tr><td><code>&gt;</code></td><td>Forces every letter that follows to CAPITALS</td></tr>
+      <tr><td><code>&lt;</code></td><td>Forces every letter that follows to lowercase</td></tr>
+      <tr><td><code>\</code></td><td>Shows the next character literally (e.g. <code>\A</code> always displays the letter "A", it's not a placeholder)</td></tr>
+      <tr><td>"text"</td><td>Anything inside quotes is displayed exactly as typed, every time (useful for a fixed prefix)</td></tr>
+    </table></div>
+    <div class="steps-box">
+      <div class="steps-title">Worked example: a code that must read "NED26" + 2 capital letters + 3 digits</div>
+      <ol class="steps">
+        <li>The fixed part "NED26" never changes, so it's typed literally in quotes: <code>"NED26"</code></li>
+        <li>Two required capital letters next: each letter is <code>L</code>, and <code>&gt;</code> beforehand forces capitals, so that's <code>&gt;LL</code></li>
+        <li>Three required digits at the end: <code>000</code></li>
+        <li>Joined together, the full input mask is: <code>"NED26"&gt;LL000</code></li>
+      </ol>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title">BUILD IT PIECE BY PIECE</div>
+      <p>Don't try to write the whole mask in one go. Break the required pattern into chunks exactly as the question lists them, write the mask character for each chunk separately, then join the chunks in order. This is the same "piece by piece" approach used for nested IFs and combined text formulas above.</p>
+    </div>
+
+    <h2>Lookup Fields — Two Different Sources</h2>
+    <p>A lookup field shows a drop-down list when entering data, but that list can come from two different places — and exams test both, so it's worth knowing which is which.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Type</th><th>Where the list comes from</th><th>When to use it</th></tr>
+      <tr><td><strong>Value List</strong></td><td>You type the exact list of options yourself (e.g. <code>Yes;No;Expires Soon</code>) when setting up the lookup</td><td>Fixed options that will basically never change, like Yes/No fields</td></tr>
+      <tr><td><strong>Table/Query lookup</strong></td><td>The list pulls live from another table or query (e.g. a Products table)</td><td>Options that already exist as records elsewhere and might be added to later, like product names or class lists</td></tr>
+    </table></div>
+    <div class="steps-box">
+      <div class="steps-title">Step-by-step: Create a typed Value List lookup</div>
+      <ol class="steps">
+        <li>Open the table in Design View, click the field, and open the <strong>Lookup</strong> tab of the Field Properties.</li>
+        <li>Set <strong>Display Control</strong> to <strong>Combo Box</strong>.</li>
+        <li>Set <strong>Row Source Type</strong> to <strong>Value List</strong>.</li>
+        <li>In <strong>Row Source</strong>, type each option separated by a semicolon, e.g. <code>Yes;No;Expires Soon</code>.</li>
+        <li>If users must only pick from this list (no typing their own value), set <strong>Limit To List</strong> to <strong>Yes</strong>.</li>
+      </ol>
+    </div>
+
+    <h2>Storing Photos — Attachment Fields</h2>
+    <p>A normal text field can't hold a photo. To let a table store an actual image file against each record (e.g. a passport photo per learner), you need a field with the <strong>Attachment</strong> data type — Access then keeps the picture inside the database itself.</p>
+    <div class="steps-box">
+      <div class="steps-title">Step-by-step: Add a field that stores a photo</div>
+      <ol class="steps">
+        <li>In Design View, click into a new empty row below the field you want it after, and type the field name (e.g. <code>Photo</code>).</li>
+        <li>Click into the Data Type column and choose <strong>Attachment</strong> from the dropdown.</li>
+        <li>If a description is required, type it in the <strong>Description</strong> column — this text shows in the status bar when the field is selected in Datasheet View, helping anyone entering data understand what's expected.</li>
+        <li>In Datasheet View, double-click the small paperclip icon in that field to browse to and attach the actual image file.</li>
+      </ol>
+    </div>
 
     <h2>Import and Export</h2>
     <ul>
