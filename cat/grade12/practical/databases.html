@@ -10,224 +10,224 @@
 <div id="topnav"></div>
 <div class="page-wrapper">
   <aside class="sidebar">
-    <div class="sidebar-grade">Grade 12 · Practical</div>
-    <a href="../../grade12/practical/word-processing.html">Word Processing</a>
-    <a href="../../grade12/practical/spreadsheets.html">Spreadsheets</a>
-    <a href="../../grade12/practical/databases.html">Databases (Access)</a>
-    <a href="../../grade12/practical/html.html">HTML &amp; Web Design</a>
-    <div class="sidebar-grade" style="margin-top:1rem">Grade 12 · Theory</div>
-    <a href="../../grade12/theory/hardware.html">Hardware &amp; Buying Decisions</a>
-    <a href="../../grade12/theory/software.html">Software &amp; File Management</a>
-    <a href="../../grade12/theory/networks.html">Networks &amp; WAN</a>
-    <a href="../../grade12/theory/internet.html">Internet &amp; E-Communication</a>
-    <a href="../../grade12/theory/social.html">Social Implications</a>
+    <div class="sidebar-grade"><span class="i18n" data-af="Graad 12 · Prakties">Grade 12 · Practical</span></div>
+    <a href="../../grade12/practical/word-processing.html"><span class="i18n" data-af="Woordverwerking">Word Processing</span></a>
+    <a href="../../grade12/practical/spreadsheets.html"><span class="i18n" data-af="Sigblaaie">Spreadsheets</span></a>
+    <a href="../../grade12/practical/databases.html"><span class="i18n" data-af="Databasisse (Access)">Databases (Access)</span></a>
+    <a href="../../grade12/practical/html.html"><span class="i18n" data-af="HTML &amp; Webontwerp">HTML &amp; Web Design</span></a>
+    <div class="sidebar-grade" style="margin-top:1rem"><span class="i18n" data-af="Graad 12 · Teorie">Grade 12 · Theory</span></div>
+    <a href="../../grade12/theory/hardware.html"><span class="i18n" data-af="Hardeware &amp; Aankoopbesluite">Hardware &amp; Buying Decisions</span></a>
+    <a href="../../grade12/theory/software.html"><span class="i18n" data-af="Sagteware &amp; Lêerbestuur">Software &amp; File Management</span></a>
+    <a href="../../grade12/theory/networks.html"><span class="i18n" data-af="Netwerke &amp; WAN">Networks &amp; WAN</span></a>
+    <a href="../../grade12/theory/internet.html"><span class="i18n" data-af="Internet &amp; E-Kommunikasie">Internet &amp; E-Communication</span></a>
+    <a href="../../grade12/theory/social.html"><span class="i18n" data-af="Maatskaplike Implikasies">Social Implications</span></a>
   </aside>
   <main class="content">
-    <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Grade 12 Practical</span><span class="breadcrumb-sep">›</span><span>Databases (Access)</span></div>
-    <h1>Databases (Access) <span class="grade-badge">Grade 12</span></h1>
-    <p class="page-intro">Grade 12 extends Access to advanced queries (calculated fields, totals, wildcards, IS Null), input masks, attachment fields for photos, lookup fields from a typed list vs. another table, grouped reports with calculations, and designing complete database solutions for specific scenarios.</p>
+    <div class="breadcrumb"><a href="../../index.html"><span class="i18n" data-af="Tuis">Home</span></a><span class="breadcrumb-sep">›</span><span class="i18n" data-af="Graad 12 Prakties">Grade 12 Practical</span><span class="breadcrumb-sep">›</span><span class="i18n" data-af="Databasisse (Access)">Databases (Access)</span></div>
+    <h1><span class="i18n" data-af="Databasisse (Access)">Databases (Access)</span> <span class="grade-badge"><span class="i18n" data-af="Graad 12">Grade 12</span></span></h1>
+    <p class="page-intro"><span class="i18n" data-af="Graad 12 brei Access uit na gevorderde navrae (berekende velde, totale, plekhouertekens, IS Null), invoermaskers, aanhegselvelde vir foto's, opsoekvelde vanaf 'n getikte lys teenoor 'n ander tabel, gegroepeerde verslae met berekeninge, en die ontwerp van volledige databasisoplossings vir spesifieke scenario's.">Grade 12 extends Access to advanced queries (calculated fields, totals, wildcards, IS Null), input masks, attachment fields for photos, lookup fields from a typed list vs. another table, grouped reports with calculations, and designing complete database solutions for specific scenarios.</span></p>
 
-    <h2>Advanced Queries</h2>
+    <h2><span class="i18n" data-af="Gevorderde Navrae">Advanced Queries</span></h2>
 
-    <h3>Calculated Fields in Queries</h3>
-    <p>You can add a new column in a query that calculates a result based on other fields:</p>
+    <h3><span class="i18n" data-af="Berekende Velde in Navrae">Calculated Fields in Queries</span></h3>
+    <p><span class="i18n" data-af="Jy kan 'n nuwe kolom in 'n navraag byvoeg wat 'n resultaat bereken op grond van ander velde:">You can add a new column in a query that calculates a result based on other fields:</span></p>
     <div class="code-block">
-      <div class="code-label">Calculated field syntax in query design</div>
-      <pre><span class="hcmt">In the Field row of a blank column, type:</span>
+      <div class="code-label"><span class="i18n" data-af="Berekende veld-sintaks in navraagontwerp">Calculated field syntax in query design</span></div>
+      <pre><span class="hcmt"><span class="i18n" data-af="In die Field-ry van 'n leë kolom, tik:">In the Field row of a blank column, type:</span></span>
 FieldName: [Field1] * [Field2]
 
-<span class="hcmt">Examples:</span>
+<span class="hcmt"><span class="i18n" data-af="Voorbeelde:">Examples:</span></span>
 TotalPrice: [UnitPrice] * [Quantity]
 Discount: [Price] * 0.1
 FullName: [FirstName] &amp; " " &amp; [LastName]
 Age: Year(Now()) - Year([DateOfBirth])</pre>
     </div>
 
-    <h3>Totals / Group By in Queries</h3>
-    <p>The Totals row allows you to perform aggregate calculations grouped by a field:</p>
+    <h3><span class="i18n" data-af="Totale / Groepeer Volgens in Navrae">Totals / Group By in Queries</span></h3>
+    <p><span class="i18n" data-af="Die Totals-ry laat jou toe om aggregate berekeninge te doen, gegroepeer volgens 'n veld:">The Totals row allows you to perform aggregate calculations grouped by a field:</span></p>
     <ul>
-      <li>Query Design → Design tab → Totals (Σ) button</li>
-      <li>A <strong>Total</strong> row appears under each field</li>
-      <li>Set it to <strong>Group By</strong> for the grouping field</li>
-      <li>Set it to a function (<strong>Sum, Avg, Count, Max, Min</strong>) for calculated fields</li>
+      <li><span class="i18n" data-af="Query Design → Design-tab → Totals (Σ)-knoppie">Query Design → Design tab → Totals (Σ) button</span></li>
+      <li><span class="i18n" data-af="'n"> A</span> <strong>Total</strong> <span class="i18n" data-af="ry verskyn onder elke veld"> row appears under each field</span></li>
+      <li><span class="i18n" data-af="Stel dit op"> Set it to</span> <strong>Group By</strong> <span class="i18n" data-af="vir die groeperingsveld"> for the grouping field</span></li>
+      <li><span class="i18n" data-af="Stel dit op 'n funksie ("> Set it to a function (</span><strong>Sum, Avg, Count, Max, Min</strong><span class="i18n" data-af=") vir berekende velde">) for calculated fields</span></li>
     </ul>
     <div class="tbl-wrap"><table>
-      <tr><th>Function in Total row</th><th>Effect</th></tr>
-      <tr><td>Group By</td><td>Groups records by unique values in this field</td></tr>
-      <tr><td>Sum</td><td>Adds all values in the field for each group</td></tr>
-      <tr><td>Avg</td><td>Average value for each group</td></tr>
-      <tr><td>Count</td><td>Number of records in each group</td></tr>
-      <tr><td>Max</td><td>Largest value in each group</td></tr>
-      <tr><td>Min</td><td>Smallest value in each group</td></tr>
-      <tr><td>Where</td><td>Used to filter records before grouping (criteria applies to ungrouped data)</td></tr>
+      <tr><th><span class="i18n" data-af="Funksie in Total-ry">Function in Total row</span></th><th><span class="i18n" data-af="Effek">Effect</span></th></tr>
+      <tr><td>Group By</td><td><span class="i18n" data-af="Groepeer rekords volgens unieke waardes in hierdie veld">Groups records by unique values in this field</span></td></tr>
+      <tr><td>Sum</td><td><span class="i18n" data-af="Tel alle waardes in die veld op vir elke groep">Adds all values in the field for each group</span></td></tr>
+      <tr><td>Avg</td><td><span class="i18n" data-af="Gemiddelde waarde vir elke groep">Average value for each group</span></td></tr>
+      <tr><td>Count</td><td><span class="i18n" data-af="Aantal rekords in elke groep">Number of records in each group</span></td></tr>
+      <tr><td>Max</td><td><span class="i18n" data-af="Grootste waarde in elke groep">Largest value in each group</span></td></tr>
+      <tr><td>Min</td><td><span class="i18n" data-af="Kleinste waarde in elke groep">Smallest value in each group</span></td></tr>
+      <tr><td>Where</td><td><span class="i18n" data-af="Gebruik om rekords te filter voor groepering (kriteria geld vir ongegroepeerde data)">Used to filter records before grouping (criteria applies to ungrouped data)</span></td></tr>
     </table></div>
 
-    <h3>Wildcard Characters</h3>
+    <h3><span class="i18n" data-af="Plekhouertekens">Wildcard Characters</span></h3>
     <div class="tbl-wrap"><table>
-      <tr><th>Wildcard</th><th>Matches</th><th>Example</th><th>Finds</th></tr>
-      <tr><td><code>*</code></td><td>Any number of characters</td><td>Like "S*"</td><td>Smith, Sarah, SA</td></tr>
-      <tr><td><code>?</code></td><td>Any single character</td><td>Like "B?g"</td><td>Big, Bag, Bug</td></tr>
-      <tr><td><code>#</code></td><td>Any single digit</td><td>Like "200#"</td><td>2001, 2002, 2009</td></tr>
+      <tr><th><span class="i18n" data-af="Plekhouerteken">Wildcard</span></th><th><span class="i18n" data-af="Stem ooreen met">Matches</span></th><th><span class="i18n" data-af="Voorbeeld">Example</span></th><th><span class="i18n" data-af="Vind">Finds</span></th></tr>
+      <tr><td><code>*</code></td><td><span class="i18n" data-af="Enige aantal karakters">Any number of characters</span></td><td>Like "S*"</td><td>Smith, Sarah, SA</td></tr>
+      <tr><td><code>?</code></td><td><span class="i18n" data-af="Enige enkele karakter">Any single character</span></td><td>Like "B?g"</td><td>Big, Bag, Bug</td></tr>
+      <tr><td><code>#</code></td><td><span class="i18n" data-af="Enige enkele syfer">Any single digit</span></td><td>Like "200#"</td><td>2001, 2002, 2009</td></tr>
     </table></div>
 
     <h3>IS Null / IS Not Null</h3>
     <ul>
-      <li><code>Is Null</code> — finds records where the field is empty (no data entered)</li>
-      <li><code>Is Not Null</code> — finds records where the field has any value</li>
+      <li><code>Is Null</code> <span class="i18n" data-af="— vind rekords waar die veld leeg is (geen data ingetik nie)"> — finds records where the field is empty (no data entered)</span></li>
+      <li><code>Is Not Null</code> <span class="i18n" data-af="— vind rekords waar die veld enige waarde het"> — finds records where the field has any value</span></li>
     </ul>
 
-    <h3>AND / OR / NOT in Queries</h3>
+    <h3>AND / OR / NOT <span class="i18n" data-af="in Navrae">in Queries</span></h3>
     <div class="tbl-wrap"><table>
-      <tr><th>Logic</th><th>How to enter in query grid</th></tr>
-      <tr><td>AND</td><td>Put criteria for BOTH fields in the <strong>same Criteria row</strong></td></tr>
-      <tr><td>OR</td><td>Put one criterion in Criteria row, the other in the <strong>Or row below</strong></td></tr>
-      <tr><td>NOT</td><td>Use <code>Not "value"</code> or <code>&lt;&gt;"value"</code> in the criteria</td></tr>
+      <tr><th><span class="i18n" data-af="Logika">Logic</span></th><th><span class="i18n" data-af="Hoe om in die navraagrooster in te tik">How to enter in query grid</span></th></tr>
+      <tr><td>AND</td><td><span class="i18n" data-af="Plaas kriteria vir BEIDE velde in die"> Put criteria for BOTH fields in the</span> <strong><span class="i18n" data-af="dieselfde Criteria-ry">same Criteria row</span></strong></td></tr>
+      <tr><td>OR</td><td><span class="i18n" data-af="Plaas een kriterium in Criteria-ry, die ander in die"> Put one criterion in Criteria row, the other in the</span> <strong><span class="i18n" data-af="Or-ry daaronder">Or row below</span></strong></td></tr>
+      <tr><td>NOT</td><td><span class="i18n" data-af="Gebruik"> Use</span> <code>Not "value"</code> <span class="i18n" data-af="of"> or</span> <code>&lt;&gt;"value"</code> <span class="i18n" data-af="in die kriteria"> in the criteria</span></td></tr>
     </table></div>
 
-    <h2>Advanced Reports — Grouped Reports</h2>
+    <h2><span class="i18n" data-af="Gevorderde Verslae — Gegroepeerde Verslae">Advanced Reports — Grouped Reports</span></h2>
     <div class="steps-box">
-      <div class="steps-title">Step-by-step: Create a grouped report with subtotals</div>
+      <div class="steps-title"><span class="i18n" data-af="Stap-vir-stap: Skep 'n gegroepeerde verslag met subtotale">Step-by-step: Create a grouped report with subtotals</span></div>
       <ol class="steps">
-        <li>Click the <span class="ribbon-path"><span class="rp">Create</span><span class="rp-arrow">→</span><span class="rp">Report Wizard</span></span> button.</li>
-        <li>Choose the table or query, then move the fields you want into the report (click each field, then click the <code>&gt;</code> button). Click <strong>Next</strong>.</li>
-        <li>Now choose what to <strong>group by</strong>: click the field (e.g. "Grade"), then click the <code>&gt;</code> button to add it as a grouping level. Click <strong>Next</strong>.</li>
-        <li>Choose how to sort the records inside each group (e.g. by Surname). Then click the <strong>Summary Options…</strong> button.</li>
-        <li>Tick the boxes for the calculations you want per group — <strong>Sum, Avg, Count, Min</strong> or <strong>Max</strong>. Click <strong>OK</strong>, then <strong>Next</strong>.</li>
-        <li>Choose a layout (e.g. "Stepped") and orientation, click <strong>Next</strong>, give the report a name, and click <strong>Finish</strong>.</li>
+        <li><span class="i18n" data-af="Klik die"> Click the</span> <span class="ribbon-path"><span class="rp">Create</span><span class="rp-arrow">→</span><span class="rp">Report Wizard</span></span> <span class="i18n" data-af="-knoppie."> button.</span></li>
+        <li><span class="i18n" data-af="Kies die tabel of navraag, beweeg dan die velde wat jy wil hê na die verslag (klik elke veld, klik dan die"> Choose the table or query, then move the fields you want into the report (click each field, then click the</span> <code>&gt;</code> <span class="i18n" data-af="-knoppie). Klik"> button). Click</span> <strong>Next</strong>.</li>
+        <li><span class="i18n" data-af="Kies nou waarvolgens om te"> Now choose what to</span> <strong><span class="i18n" data-af="groepeer">group by</span></strong><span class="i18n" data-af=": klik die veld (bv. &quot;Grade&quot;), klik dan die"> : click the field (e.g. "Grade"), then click the</span> <code>&gt;</code> <span class="i18n" data-af="-knoppie om dit as 'n groeperingsvlak by te voeg. Klik"> button to add it as a grouping level. Click</span> <strong>Next</strong>.</li>
+        <li><span class="i18n" data-af="Kies hoe om die rekords binne elke groep te sorteer (bv. volgens Van). Klik dan die"> Choose how to sort the records inside each group (e.g. by Surname). Then click the</span> <strong>Summary Options…</strong> <span class="i18n" data-af="-knoppie."> button.</span></li>
+        <li><span class="i18n" data-af="Merk die blokkies vir die berekeninge wat jy per groep wil hê — "> Tick the boxes for the calculations you want per group — </span><strong>Sum, Avg, Count, Min</strong> <span class="i18n" data-af="of"> or</span> <strong>Max</strong><span class="i18n" data-af=". Klik"> . Click</span> <strong>OK</strong><span class="i18n" data-af=", dan">, then</span> <strong>Next</strong>.</li>
+        <li><span class="i18n" data-af="Kies 'n uitleg (bv. &quot;Stepped&quot;) en oriëntasie, klik"> Choose a layout (e.g. "Stepped") and orientation, click</span> <strong>Next</strong><span class="i18n" data-af=", gee die verslag 'n naam, en klik">, give the report a name, and click</span> <strong>Finish</strong>.</li>
       </ol>
     </div>
-    <h3>Report Structure with Groups</h3>
+    <h3><span class="i18n" data-af="Verslagstruktuur met Groepe">Report Structure with Groups</span></h3>
     <div class="tbl-wrap"><table>
-      <tr><th>Section</th><th>Appears</th><th>Used for</th></tr>
-      <tr><td>Report Header</td><td>Top of report (once)</td><td>Report title, logo, date</td></tr>
-      <tr><td>Page Header</td><td>Top of each page</td><td>Column headings</td></tr>
-      <tr><td>[Group] Header</td><td>Start of each group</td><td>Group name/label</td></tr>
-      <tr><td>Detail</td><td>Each individual record</td><td>Row data</td></tr>
-      <tr><td>[Group] Footer</td><td>End of each group</td><td>Group subtotals</td></tr>
-      <tr><td>Page Footer</td><td>Bottom of each page</td><td>Page number</td></tr>
-      <tr><td>Report Footer</td><td>Bottom of report (once)</td><td>Grand totals</td></tr>
+      <tr><th><span class="i18n" data-af="Afdeling">Section</span></th><th><span class="i18n" data-af="Verskyn">Appears</span></th><th><span class="i18n" data-af="Gebruik vir">Used for</span></th></tr>
+      <tr><td>Report Header</td><td><span class="i18n" data-af="Boonste van verslag (een keer)">Top of report (once)</span></td><td><span class="i18n" data-af="Verslagtitel, logo, datum">Report title, logo, date</span></td></tr>
+      <tr><td>Page Header</td><td><span class="i18n" data-af="Boonste van elke bladsy">Top of each page</span></td><td><span class="i18n" data-af="Kolomopskrifte">Column headings</span></td></tr>
+      <tr><td>[Group] Header</td><td><span class="i18n" data-af="Begin van elke groep">Start of each group</span></td><td><span class="i18n" data-af="Groepnaam/-etiket">Group name/label</span></td></tr>
+      <tr><td>Detail</td><td><span class="i18n" data-af="Elke individuele rekord">Each individual record</span></td><td><span class="i18n" data-af="Rydata">Row data</span></td></tr>
+      <tr><td>[Group] Footer</td><td><span class="i18n" data-af="Einde van elke groep">End of each group</span></td><td><span class="i18n" data-af="Groepsubtotale">Group subtotals</span></td></tr>
+      <tr><td>Page Footer</td><td><span class="i18n" data-af="Onderkant van elke bladsy">Bottom of each page</span></td><td><span class="i18n" data-af="Bladsynommer">Page number</span></td></tr>
+      <tr><td>Report Footer</td><td><span class="i18n" data-af="Onderkant van verslag (een keer)">Bottom of report (once)</span></td><td><span class="i18n" data-af="Groottotale">Grand totals</span></td></tr>
     </table></div>
 
-    <h3>Calculations in Group Footer</h3>
+    <h3><span class="i18n" data-af="Berekeninge in Groep-voetskrif">Calculations in Group Footer</span></h3>
     <div class="code-block">
-      <div class="code-label">Group footer calculated text boxes</div>
-      <pre>=<span class="fn">Sum</span>([Price])    <span class="hcmt">&lt;-- subtotal for this group</span>
-=<span class="fn">Avg</span>([Mark])     <span class="hcmt">&lt;-- group average</span>
-=<span class="fn">Count</span>([ID])     <span class="hcmt">&lt;-- number of records in group</span>
-=<span class="fn">Max</span>([Score])    <span class="hcmt">&lt;-- highest score in group</span></pre>
+      <div class="code-label"><span class="i18n" data-af="Groep-voetskrif berekende teksblokkies">Group footer calculated text boxes</span></div>
+      <pre>=<span class="fn">Sum</span>([Price])    <span class="hcmt">&lt;-- <span class="i18n" data-af="subtotaal vir hierdie groep">subtotal for this group</span></span>
+=<span class="fn">Avg</span>([Mark])     <span class="hcmt">&lt;-- <span class="i18n" data-af="groepgemiddelde">group average</span></span>
+=<span class="fn">Count</span>([ID])     <span class="hcmt">&lt;-- <span class="i18n" data-af="aantal rekords in groep">number of records in group</span></span>
+=<span class="fn">Max</span>([Score])    <span class="hcmt">&lt;-- <span class="i18n" data-af="hoogste telling in groep">highest score in group</span></span></pre>
     </div>
 
-    <h3>Changing a Report's Source</h3>
-    <p>To change which table or query a report is based on:</p>
+    <h3><span class="i18n" data-af="Verandering van 'n Verslag se Bron">Changing a Report's Source</span></h3>
+    <p><span class="i18n" data-af="Om te verander welke tabel of navraag 'n verslag op gebaseer is:">To change which table or query a report is based on:</span></p>
     <ol>
-      <li>Open report in Design View</li>
-      <li>View the Property Sheet: Design → Property Sheet (F4)</li>
-      <li>On the Data tab, find <strong>Record Source</strong> → click dropdown → choose different table or query</li>
+      <li><span class="i18n" data-af="Open verslag in Design View">Open report in Design View</span></li>
+      <li><span class="i18n" data-af="Kyk na die Property Sheet: Design → Property Sheet (F4)">View the Property Sheet: Design → Property Sheet (F4)</span></li>
+      <li><span class="i18n" data-af="Op die Data-tab, vind"> On the Data tab, find</span> <strong>Record Source</strong> <span class="i18n" data-af="→ klik aftrekmenu → kies ander tabel of navraag"> → click dropdown → choose different table or query</span></li>
     </ol>
 
-    <h2>Data Validation in Tables</h2>
-    <p>Validation ensures only correct data can be entered. Think of it as a bouncer at the door of each field — the <strong>Validation Rule</strong> decides what's allowed in, and the <strong>Validation Text</strong> is the message shown to anyone turned away:</p>
+    <h2><span class="i18n" data-af="Datavalidering in Tabelle">Data Validation in Tables</span></h2>
+    <p><span class="i18n" data-af="Validering verseker dat slegs korrekte data ingetik kan word. Dink daaraan as 'n uitsmyter by die deur van elke veld — die"> Validation ensures only correct data can be entered. Think of it as a bouncer at the door of each field — the</span> <strong><span class="i18n" data-af="Validation Rule">Validation Rule</span></strong> <span class="i18n" data-af="besluit wat toegelaat word, en die"> decides what's allowed in, and the</span> <strong>Validation Text</strong> <span class="i18n" data-af="is die boodskap wat aan enigeen gewys word wat afgewys word:"> is the message shown to anyone turned away:</span></p>
     <div class="tbl-wrap"><table>
-      <tr><th>Property</th><th>Example</th><th>Effect</th></tr>
-      <tr><td>Validation Rule</td><td>&gt;=0 And &lt;=100</td><td>Marks must be between 0 and 100</td></tr>
-      <tr><td>Validation Text</td><td>"Mark must be 0–100"</td><td>Error message shown when rule is broken</td></tr>
-      <tr><td>Required = Yes</td><td>(tick Yes)</td><td>Field cannot be left empty</td></tr>
-      <tr><td>Input Mask</td><td>000-0000000</td><td>Forces phone number format</td></tr>
+      <tr><th><span class="i18n" data-af="Eienskap">Property</span></th><th><span class="i18n" data-af="Voorbeeld">Example</span></th><th><span class="i18n" data-af="Effek">Effect</span></th></tr>
+      <tr><td>Validation Rule</td><td>&gt;=0 And &lt;=100</td><td><span class="i18n" data-af="Punte moet tussen 0 en 100 wees">Marks must be between 0 and 100</span></td></tr>
+      <tr><td>Validation Text</td><td>"Mark must be 0–100"</td><td><span class="i18n" data-af="Foutboodskap gewys wanneer reël oortree word">Error message shown when rule is broken</span></td></tr>
+      <tr><td>Required = Yes</td><td>(<span class="i18n" data-af="merk Yes">tick Yes</span>)</td><td><span class="i18n" data-af="Veld kan nie leeg gelaat word nie">Field cannot be left empty</span></td></tr>
+      <tr><td>Input Mask</td><td>000-0000000</td><td><span class="i18n" data-af="Dwing telefoonnommerformaat af">Forces phone number format</span></td></tr>
     </table></div>
     <div class="callout exam">
-      <div class="callout-title">EXAM TIP — Rule and Text must match</div>
-      <p>Always write the Validation Text so it actually describes the Validation Rule. If the rule is <code>&gt;=0 And &lt;=100</code> but the text says "must be a positive number", a mark of -5 and a mark of 500 would both fail the rule, but the message wouldn't make sense for the second case. Read the rule back to yourself in plain English, then write the text to match it.</p>
+      <div class="callout-title"><span class="i18n" data-af="EKSAMENWENK — Reël en Teks moet ooreenstem">EXAM TIP — Rule and Text must match</span></div>
+      <p><span class="i18n" data-af="Skryf altyd die Validation Text sodat dit werklik die Validation Rule beskryf. As die reël"> Always write the Validation Text so it actually describes the Validation Rule. If the rule is</span> <code>&gt;=0 And &lt;=100</code> <span class="i18n" data-af="is maar die teks sê &quot;moet 'n positiewe getal wees&quot;, sal 'n punt van -5 en 'n punt van 500 beide die reël oortree, maar die boodskap sal nie sin maak vir die tweede geval nie. Lees die reël vir jouself terug in eenvoudige Engels (of Afrikaans), skryf dan die teks om daarby te pas."> but the text says "must be a positive number", a mark of -5 and a mark of 500 would both fail the rule, but the message wouldn't make sense for the second case. Read the rule back to yourself in plain English, then write the text to match it.</span></p>
     </div>
 
-    <h2>Input Masks — Controlling Exactly What Can Be Typed</h2>
-    <p>An input mask is stricter than a validation rule: instead of checking data <em>after</em> it's typed, it controls what you're allowed to type <em>as you type it</em> — similar to how a cellphone number field on a website only lets you type digits, automatically adding the dashes for you. Each position in the mask is built from special characters that mean "a digit must go here", "a letter must go here", and so on.</p>
+    <h2><span class="i18n" data-af="Invoermaskers — Beheer Presies Wat Ingetik Kan Word">Input Masks — Controlling Exactly What Can Be Typed</span></h2>
+    <p><span class="i18n" data-af="'n Invoermasker is strenger as 'n valideringsreël: in plaas daarvan om data te kontroleer"> An input mask is stricter than a validation rule: instead of checking data</span> <em><span class="i18n" data-af="nadat">after</span></em> <span class="i18n" data-af="dit ingetik is, beheer dit wat jy mag intik"> it's typed, it controls what you're allowed to type</span> <em><span class="i18n" data-af="terwyl jy dit intik">as you type it</span></em> <span class="i18n" data-af="— soortgelyk aan hoe 'n selfoonnommerveld op 'n webwerf jou net laat syfers intik, terwyl dit outomaties die strepies vir jou byvoeg. Elke posisie in die masker word gebou uit spesiale karakters wat beteken &quot;'n syfer moet hier gaan&quot;, &quot;'n letter moet hier gaan&quot;, ensovoorts."> — similar to how a cellphone number field on a website only lets you type digits, automatically adding the dashes for you. Each position in the mask is built from special characters that mean "a digit must go here", "a letter must go here", and so on.</span></p>
     <div class="tbl-wrap"><table>
-      <tr><th>Character</th><th>Meaning</th></tr>
-      <tr><td><code>0</code></td><td>A digit — <strong>required</strong> (0–9 only, no + or −)</td></tr>
-      <tr><td><code>9</code></td><td>A digit or blank — optional</td></tr>
-      <tr><td><code>L</code></td><td>A letter A–Z — <strong>required</strong></td></tr>
-      <tr><td><code>?</code></td><td>A letter A–Z — optional</td></tr>
-      <tr><td><code>A</code></td><td>A letter or digit — required</td></tr>
-      <tr><td><code>a</code></td><td>A letter or digit — optional</td></tr>
-      <tr><td><code>&amp;</code></td><td>Any character — required</td></tr>
-      <tr><td><code>&gt;</code></td><td>Forces every letter that follows to CAPITALS</td></tr>
-      <tr><td><code>&lt;</code></td><td>Forces every letter that follows to lowercase</td></tr>
-      <tr><td><code>\</code></td><td>Shows the next character literally (e.g. <code>\A</code> always displays the letter "A", it's not a placeholder)</td></tr>
-      <tr><td>"text"</td><td>Anything inside quotes is displayed exactly as typed, every time (useful for a fixed prefix)</td></tr>
+      <tr><th><span class="i18n" data-af="Karakter">Character</span></th><th><span class="i18n" data-af="Betekenis">Meaning</span></th></tr>
+      <tr><td><code>0</code></td><td><span class="i18n" data-af="'n Syfer — "> A digit — </span><strong><span class="i18n" data-af="vereis">required</span></strong> <span class="i18n" data-af="(slegs 0–9, geen + of −)"> (0–9 only, no + or −)</span></td></tr>
+      <tr><td><code>9</code></td><td><span class="i18n" data-af="'n Syfer of blanko — opsioneel">A digit or blank — optional</span></td></tr>
+      <tr><td><code>L</code></td><td><span class="i18n" data-af="'n Letter A–Z — "> A letter A–Z — </span><strong><span class="i18n" data-af="vereis">required</span></strong></td></tr>
+      <tr><td><code>?</code></td><td><span class="i18n" data-af="'n Letter A–Z — opsioneel">A letter A–Z — optional</span></td></tr>
+      <tr><td><code>A</code></td><td><span class="i18n" data-af="'n Letter of syfer — vereis">A letter or digit — required</span></td></tr>
+      <tr><td><code>a</code></td><td><span class="i18n" data-af="'n Letter of syfer — opsioneel">A letter or digit — optional</span></td></tr>
+      <tr><td><code>&amp;</code></td><td><span class="i18n" data-af="Enige karakter — vereis">Any character — required</span></td></tr>
+      <tr><td><code>&gt;</code></td><td><span class="i18n" data-af="Dwing elke letter wat volg na HOOFLETTERS">Forces every letter that follows to CAPITALS</span></td></tr>
+      <tr><td><code>&lt;</code></td><td><span class="i18n" data-af="Dwing elke letter wat volg na kleinletters">Forces every letter that follows to lowercase</span></td></tr>
+      <tr><td><code>\</code></td><td><span class="i18n" data-af="Wys die volgende karakter letterlik (bv."> Shows the next character literally (e.g.</span> <code>\A</code> <span class="i18n" data-af="vertoon altyd die letter &quot;A&quot;, dit is nie 'n plekhouer nie)"> always displays the letter "A", it's not a placeholder)</span></td></tr>
+      <tr><td>"text"</td><td><span class="i18n" data-af="Enigiets binne aanhalingstekens word presies vertoon soos ingetik, elke keer (nuttig vir 'n vaste voorvoegsel)">Anything inside quotes is displayed exactly as typed, every time (useful for a fixed prefix)</span></td></tr>
     </table></div>
     <div class="steps-box">
-      <div class="steps-title">Worked example: a code that must read "NED26" + 2 capital letters + 3 digits</div>
+      <div class="steps-title"><span class="i18n" data-af="Uitgewerkte voorbeeld: 'n kode wat &quot;NED26&quot; + 2 hoofletters + 3 syfers moet lees">Worked example: a code that must read "NED26" + 2 capital letters + 3 digits</span></div>
       <ol class="steps">
-        <li>The fixed part "NED26" never changes, so it's typed literally in quotes: <code>"NED26"</code></li>
-        <li>Two required capital letters next: each letter is <code>L</code>, and <code>&gt;</code> beforehand forces capitals, so that's <code>&gt;LL</code></li>
-        <li>Three required digits at the end: <code>000</code></li>
-        <li>Joined together, the full input mask is: <code>"NED26"&gt;LL000</code></li>
+        <li><span class="i18n" data-af="Die vaste deel &quot;NED26&quot; verander nooit nie, dus word dit letterlik in aanhalingstekens ingetik:"> The fixed part "NED26" never changes, so it's typed literally in quotes:</span> <code>"NED26"</code></li>
+        <li><span class="i18n" data-af="Twee vereiste hoofletters volgende: elke letter is"> Two required capital letters next: each letter is</span> <code>L</code><span class="i18n" data-af=", en"> , and</span> <code>&gt;</code> <span class="i18n" data-af="van voor dwing hoofletters af, so dit is"> beforehand forces capitals, so that's</span> <code>&gt;LL</code></li>
+        <li><span class="i18n" data-af="Drie vereiste syfers aan die einde:"> Three required digits at the end:</span> <code>000</code></li>
+        <li><span class="i18n" data-af="Saamgevoeg, is die volledige invoermasker:"> Joined together, the full input mask is:</span> <code>"NED26"&gt;LL000</code></li>
       </ol>
     </div>
     <div class="callout tip">
-      <div class="callout-title">BUILD IT PIECE BY PIECE</div>
-      <p>Don't try to write the whole mask in one go. Break the required pattern into chunks exactly as the question lists them, write the mask character for each chunk separately, then join the chunks in order. This is the same "piece by piece" approach used for nested IFs and combined text formulas above.</p>
+      <div class="callout-title"><span class="i18n" data-af="BOU DIT STUK VIR STUK">BUILD IT PIECE BY PIECE</span></div>
+      <p><span class="i18n" data-af="Moet nie probeer om die hele masker in een slag te skryf nie. Breek die vereiste patroon in stukke presies soos die vraag dit lys, skryf die maskerkarakter vir elke stuk afsonderlik, voeg dan die stukke in volgorde saam. Dit is dieselfde &quot;stuk-vir-stuk&quot;-benadering wat hierbo gebruik word vir geneste IF's en gekombineerde teksformules.">Don't try to write the whole mask in one go. Break the required pattern into chunks exactly as the question lists them, write the mask character for each chunk separately, then join the chunks in order. This is the same "piece by piece" approach used for nested IFs and combined text formulas above.</span></p>
     </div>
 
-    <h2>Lookup Fields — Two Different Sources</h2>
-    <p>A lookup field shows a drop-down list when entering data, but that list can come from two different places — and exams test both, so it's worth knowing which is which.</p>
+    <h2><span class="i18n" data-af="Soekvelde — Twee Verskillende Bronne">Lookup Fields — Two Different Sources</span></h2>
+    <p><span class="i18n" data-af="'n Soekveld wys 'n aftreklys wanneer data ingetik word, maar daardie lys kan van twee verskillende plekke kom — en eksamens toets beide, so dit is die moeite werd om te weet welke is welke.">A lookup field shows a drop-down list when entering data, but that list can come from two different places — and exams test both, so it's worth knowing which is which.</span></p>
     <div class="tbl-wrap"><table>
-      <tr><th>Type</th><th>Where the list comes from</th><th>When to use it</th></tr>
-      <tr><td><strong>Value List</strong></td><td>You type the exact list of options yourself (e.g. <code>Yes;No;Expires Soon</code>) when setting up the lookup</td><td>Fixed options that will basically never change, like Yes/No fields</td></tr>
-      <tr><td><strong>Table/Query lookup</strong></td><td>The list pulls live from another table or query (e.g. a Products table)</td><td>Options that already exist as records elsewhere and might be added to later, like product names or class lists</td></tr>
+      <tr><th><span class="i18n" data-af="Tipe">Type</span></th><th><span class="i18n" data-af="Waar die lys vandaan kom">Where the list comes from</span></th><th><span class="i18n" data-af="Wanneer om dit te gebruik">When to use it</span></th></tr>
+      <tr><td><strong>Value List</strong></td><td><span class="i18n" data-af="Jy tik self die presiese lys opsies (bv."> You type the exact list of options yourself (e.g.</span> <code>Yes;No;Expires Soon</code><span class="i18n" data-af=") wanneer jy die soekveld opstel"> ) when setting up the lookup</span></td><td><span class="i18n" data-af="Vaste opsies wat eintlik nooit verander nie, soos Yes/No-velde">Fixed options that will basically never change, like Yes/No fields</span></td></tr>
+      <tr><td><strong>Table/Query lookup</strong></td><td><span class="i18n" data-af="Die lys trek regstreeks van 'n ander tabel of navraag (bv. 'n Products-tabel)">The list pulls live from another table or query (e.g. a Products table)</span></td><td><span class="i18n" data-af="Opsies wat reeds elders as rekords bestaan en later byvoeg kan word, soos produknaam of klaslyste">Options that already exist as records elsewhere and might be added to later, like product names or class lists</span></td></tr>
     </table></div>
     <div class="steps-box">
-      <div class="steps-title">Step-by-step: Create a typed Value List lookup</div>
+      <div class="steps-title"><span class="i18n" data-af="Stap-vir-stap: Skep 'n getikte Value List-soekveld">Step-by-step: Create a typed Value List lookup</span></div>
       <ol class="steps">
-        <li>Open the table in Design View, click the field, and open the <strong>Lookup</strong> tab of the Field Properties.</li>
-        <li>Set <strong>Display Control</strong> to <strong>Combo Box</strong>.</li>
-        <li>Set <strong>Row Source Type</strong> to <strong>Value List</strong>.</li>
-        <li>In <strong>Row Source</strong>, type each option separated by a semicolon, e.g. <code>Yes;No;Expires Soon</code>.</li>
-        <li>If users must only pick from this list (no typing their own value), set <strong>Limit To List</strong> to <strong>Yes</strong>.</li>
+        <li><span class="i18n" data-af="Open die tabel in Design View, klik die veld, en open die"> Open the table in Design View, click the field, and open the</span> <strong>Lookup</strong> <span class="i18n" data-af="-tab van die Field Properties."> tab of the Field Properties.</span></li>
+        <li><span class="i18n" data-af="Stel"> Set</span> <strong>Display Control</strong> <span class="i18n" data-af="op"> to</span> <strong>Combo Box</strong>.</li>
+        <li><span class="i18n" data-af="Stel"> Set</span> <strong>Row Source Type</strong> <span class="i18n" data-af="op"> to</span> <strong>Value List</strong>.</li>
+        <li><span class="i18n" data-af="In"> In</span> <strong>Row Source</strong><span class="i18n" data-af=", tik elke opsie geskei deur 'n kommapunt, bv.">, type each option separated by a semicolon, e.g.</span> <code>Yes;No;Expires Soon</code>.</li>
+        <li><span class="i18n" data-af="As gebruikers slegs uit hierdie lys mag kies (geen eie waarde intik nie), stel"> If users must only pick from this list (no typing their own value), set</span> <strong>Limit To List</strong> <span class="i18n" data-af="op"> to</span> <strong>Yes</strong>.</li>
       </ol>
     </div>
 
-    <h2>Storing Photos — Attachment Fields</h2>
-    <p>A normal text field can't hold a photo. To let a table store an actual image file against each record (e.g. a passport photo per learner), you need a field with the <strong>Attachment</strong> data type — Access then keeps the picture inside the database itself.</p>
+    <h2><span class="i18n" data-af="Stoor van Foto's — Aanhegselvelde">Storing Photos — Attachment Fields</span></h2>
+    <p><span class="i18n" data-af="'n Gewone teksveld kan nie 'n foto hou nie. Om 'n tabel toe te laat om 'n werklike beeldlêer teen elke rekord te stoor (bv. 'n paspoortfoto per leerder), benodig jy 'n veld met die"> A normal text field can't hold a photo. To let a table store an actual image file against each record (e.g. a passport photo per learner), you need a field with the</span> <strong>Attachment</strong> <span class="i18n" data-af="datatipe — Access hou dan die prentjie binne die databasis self."> data type — Access then keeps the picture inside the database itself.</span></p>
     <div class="steps-box">
-      <div class="steps-title">Step-by-step: Add a field that stores a photo</div>
+      <div class="steps-title"><span class="i18n" data-af="Stap-vir-stap: Voeg 'n veld by wat 'n foto stoor">Step-by-step: Add a field that stores a photo</span></div>
       <ol class="steps">
-        <li>In Design View, click into a new empty row below the field you want it after, and type the field name (e.g. <code>Photo</code>).</li>
-        <li>Click into the Data Type column and choose <strong>Attachment</strong> from the dropdown.</li>
-        <li>If a description is required, type it in the <strong>Description</strong> column — this text shows in the status bar when the field is selected in Datasheet View, helping anyone entering data understand what's expected.</li>
-        <li>In Datasheet View, double-click the small paperclip icon in that field to browse to and attach the actual image file.</li>
+        <li><span class="i18n" data-af="In Design View, klik in 'n nuwe leë ry onder die veld waarna jy dit wil hê, en tik die veldnaam (bv."> In Design View, click into a new empty row below the field you want it after, and type the field name (e.g.</span> <code>Photo</code>).</li>
+        <li><span class="i18n" data-af="Klik in die Data Type-kolom en kies"> Click into the Data Type column and choose</span> <strong>Attachment</strong> <span class="i18n" data-af="uit die aftreklys."> from the dropdown.</span></li>
+        <li><span class="i18n" data-af="As 'n beskrywing vereis word, tik dit in die"> If a description is required, type it in the</span> <strong>Description</strong> <span class="i18n" data-af="-kolom — hierdie teks wys in die statusbalk wanneer die veld in Datasheet View gekies word, en help enigeen wat data intik om te verstaan wat verwag word."> column — this text shows in the status bar when the field is selected in Datasheet View, helping anyone entering data understand what's expected.</span></li>
+        <li><span class="i18n" data-af="In Datasheet View, dubbelklik die klein skuifspeldikoon in daardie veld om na die werklike beeldlêer te blaai en dit aan te heg."> In Datasheet View, double-click the small paperclip icon in that field to browse to and attach the actual image file.</span></li>
       </ol>
     </div>
 
-    <h2>Import and Export</h2>
+    <h2><span class="i18n" data-af="Invoer en Uitvoer">Import and Export</span></h2>
     <ul>
-      <li><strong>Import Excel</strong>: External Data → Excel → choose file → map columns to fields</li>
-      <li><strong>Import CSV</strong>: External Data → Text File → follow wizard</li>
-      <li><strong>Export to Excel</strong>: right-click table/query → Export → Excel</li>
-      <li><strong>Export to CSV</strong>: right-click → Export → Text File</li>
-      <li><strong>Linking</strong>: External Data → Excel → Link to data source (live link — changes in Excel reflect in Access)</li>
+      <li><strong><span class="i18n" data-af="Voer Excel in">Import Excel</span></strong><span class="i18n" data-af=": External Data → Excel → kies lêer → koppel kolomme aan velde">: External Data → Excel → choose file → map columns to fields</span></li>
+      <li><strong><span class="i18n" data-af="Voer CSV in">Import CSV</span></strong><span class="i18n" data-af=": External Data → Text File → volg die assistent">: External Data → Text File → follow wizard</span></li>
+      <li><strong><span class="i18n" data-af="Voer uit na Excel">Export to Excel</span></strong><span class="i18n" data-af=": regsklik tabel/navraag → Export → Excel">: right-click table/query → Export → Excel</span></li>
+      <li><strong><span class="i18n" data-af="Voer uit na CSV">Export to CSV</span></strong><span class="i18n" data-af=": regsklik → Export → Text File">: right-click → Export → Text File</span></li>
+      <li><strong><span class="i18n" data-af="Koppeling">Linking</span></strong><span class="i18n" data-af=": External Data → Excel → Link to data source (lewendige skakel — veranderinge in Excel reflekteer in Access)">: External Data → Excel → Link to data source (live link — changes in Excel reflect in Access)</span></li>
     </ul>
 
-    <h2>Integration with Other Applications</h2>
+    <h2><span class="i18n" data-af="Integrasie met Ander Toepassings">Integration with Other Applications</span></h2>
     <ul>
-      <li>Use an Access query as a data source for Excel (Data → Get Data → From Database)</li>
-      <li>Use an Access table as a mail merge data source in Word</li>
-      <li>Export a report to PDF: right-click report → Export → PDF or XPS</li>
+      <li><span class="i18n" data-af="Gebruik 'n Access-navraag as 'n databron vir Excel (Data → Get Data → From Database)">Use an Access query as a data source for Excel (Data → Get Data → From Database)</span></li>
+      <li><span class="i18n" data-af="Gebruik 'n Access-tabel as 'n posvoeg-databron in Word">Use an Access table as a mail merge data source in Word</span></li>
+      <li><span class="i18n" data-af="Voer 'n verslag uit na PDF: regsklik verslag → Export → PDF of XPS">Export a report to PDF: right-click report → Export → PDF or XPS</span></li>
     </ul>
 
     <div class="callout exam">
-      <div class="callout-title">EXAM TIP — Designing a Database for a Scenario</div>
-      <p>You may be asked to design a database from scratch for a given scenario. Steps: (1) Identify the entities (what needs to be stored — e.g. Students, Courses). (2) List the fields for each table. (3) Identify the primary key. (4) Identify calculated fields. (5) Plan queries and reports needed. Always think: "What data do I need to capture? What reports will be generated?"</p>
+      <div class="callout-title"><span class="i18n" data-af="EKSAMENWENK — Ontwerp van 'n Databasis vir 'n Scenario">EXAM TIP — Designing a Database for a Scenario</span></div>
+      <p><span class="i18n" data-af="Jy kan gevra word om 'n databasis van nuuts af te ontwerp vir 'n gegewe scenario. Stappe: (1) Identifiseer die entiteite (wat moet gestoor word — bv. Studente, Kursusse). (2) Lys die velde vir elke tabel. (3) Identifiseer die primêre sleutel. (4) Identifiseer berekende velde. (5) Beplan die navrae en verslae wat nodig is. Dink altyd: &quot;Welke data moet ek vasvang? Welke verslae sal gegenereer word?&quot;">You may be asked to design a database from scratch for a given scenario. Steps: (1) Identify the entities (what needs to be stored — e.g. Students, Courses). (2) List the fields for each table. (3) Identify the primary key. (4) Identify calculated fields. (5) Plan queries and reports needed. Always think: "What data do I need to capture? What reports will be generated?"</span></p>
     </div>
 
     <div class="callout tip">
-      <div class="callout-title">Test yourself</div>
-      <p>Try the advanced-query tasks in the <a href="../../exam-practice/grade12.html#practical">Grade 12 Exam Practice</a>.</p>
+      <div class="callout-title"><span class="i18n" data-af="Toets jouself">Test yourself</span></div>
+      <p><span class="i18n" data-af="Probeer die gevorderde-navraag-take in die"> Try the advanced-query tasks in the</span> <a href="../../exam-practice/grade12.html#practical"><span class="i18n" data-af="Graad 12 Eksamenoefening">Grade 12 Exam Practice</span></a>.</p>
     </div>
 
     <div class="page-nav">
-      <a href="spreadsheets.html"><span class="page-nav-label">← Previous</span>Spreadsheets</a>
-      <a class="next" href="html.html"><span class="page-nav-label">Next →</span>HTML &amp; Web Design</a>
+      <a href="spreadsheets.html"><span class="page-nav-label i18n" data-af="← Vorige">← Previous</span><span class="i18n" data-af="Sigblaaie">Spreadsheets</span></a>
+      <a class="next" href="html.html"><span class="page-nav-label i18n" data-af="Volgende →">Next →</span><span class="i18n" data-af="HTML &amp; Webontwerp">HTML &amp; Web Design</span></a>
     </div>
   </main>
 </div>

@@ -1,6 +1,12 @@
 /* ── Ms Coetzee CAT — dynamic navigation ──
    Injected into every page via <div id="topnav"></div>. */
 
+/* Apply saved theme immediately to avoid flash */
+(function () {
+  var saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+})();
+
 (function () {
   var path = window.location.pathname.replace(/\\/g, '/');
   var segs = path.split('/').filter(Boolean);
@@ -16,96 +22,130 @@
 
   var r = depth === 0 ? './' : depth === 1 ? '../' : '../../';
 
+  /* Helper: wraps a label so the language toggle can swap it without
+     touching sibling icons/chevrons. */
+  function t(en, af) {
+    return '<span class="i18n" data-af="' + af + '">' + en + '</span>';
+  }
+
   var html = '<nav class="topnav">'
     + '<button class="menu-toggle" id="menu-toggle">&#9776;</button>'
     + '<a class="topnav-brand" href="' + r + 'index.html">Ms Coetzee <span>CAT</span></a>'
     + '<ul class="topnav-links">'
 
     // ── GRADE 10 ──
-    + '<li><button class="nav-dropdown-btn gr10">Grade 10 <span class="chevron"></span></button>'
+    + '<li><button class="nav-dropdown-btn gr10">' + t('Grade 10', 'Graad 10') + ' <span class="chevron"></span></button>'
     + '<div class="dropdown">'
-    + '<div class="dropdown-section">Practical (P1)</div>'
-    + '<a href="' + r + 'grade10/practical/word-processing.html">Word Processing</a>'
-    + '<a href="' + r + 'grade10/practical/spreadsheets.html">Spreadsheets</a>'
-    + '<a href="' + r + 'grade10/practical/html.html">HTML &amp; Web Design</a>'
-    + '<a href="' + r + 'grade10/practical/presentations.html">Presentations (PAT)</a>'
-    + '<div class="dropdown-section">Theory (P2)</div>'
-    + '<a href="' + r + 'grade10/theory/concepts.html">Concepts of Computing</a>'
-    + '<a href="' + r + 'grade10/theory/hardware.html">Hardware</a>'
-    + '<a href="' + r + 'grade10/theory/software.html">Software &amp; Licensing</a>'
-    + '<a href="' + r + 'grade10/theory/networks.html">Networks</a>'
-    + '<a href="' + r + 'grade10/theory/internet.html">Internet &amp; E-Communication</a>'
-    + '<a href="' + r + 'grade10/theory/social.html">Social Implications</a>'
+    + '<div class="dropdown-section">' + t('Practical (P1)', 'Prakties (V1)') + '</div>'
+    + '<a href="' + r + 'grade10/practical/word-processing.html">' + t('Word Processing', 'Woordverwerking') + '</a>'
+    + '<a href="' + r + 'grade10/practical/spreadsheets.html">' + t('Spreadsheets', 'Sigblaaie') + '</a>'
+    + '<a href="' + r + 'grade10/practical/html.html">' + t('HTML &amp; Web Design', 'HTML &amp; Webontwerp') + '</a>'
+    + '<a href="' + r + 'grade10/practical/presentations.html">' + t('Presentations (PAT)', 'Aanbiedinge (PAT)') + '</a>'
+    + '<div class="dropdown-section">' + t('Theory (P2)', 'Teorie (V2)') + '</div>'
+    + '<a href="' + r + 'grade10/theory/concepts.html">' + t('Concepts of Computing', 'Konsepte van Rekenaars') + '</a>'
+    + '<a href="' + r + 'grade10/theory/hardware.html">' + t('Hardware', 'Hardeware') + '</a>'
+    + '<a href="' + r + 'grade10/theory/software.html">' + t('Software &amp; Licensing', 'Sagteware &amp; Lisensiëring') + '</a>'
+    + '<a href="' + r + 'grade10/theory/networks.html">' + t('Networks', 'Netwerke') + '</a>'
+    + '<a href="' + r + 'grade10/theory/internet.html">' + t('Internet &amp; E-Communication', 'Internet &amp; E-Kommunikasie') + '</a>'
+    + '<a href="' + r + 'grade10/theory/social.html">' + t('Social Implications', 'Maatskaplike Implikasies') + '</a>'
     + '</div></li>'
 
     // ── GRADE 11 ──
-    + '<li><button class="nav-dropdown-btn gr11">Grade 11 <span class="chevron"></span></button>'
+    + '<li><button class="nav-dropdown-btn gr11">' + t('Grade 11', 'Graad 11') + ' <span class="chevron"></span></button>'
     + '<div class="dropdown">'
-    + '<div class="dropdown-section">Practical (P1)</div>'
-    + '<a href="' + r + 'grade11/practical/word-processing.html">Word Processing</a>'
-    + '<a href="' + r + 'grade11/practical/spreadsheets.html">Spreadsheets</a>'
-    + '<a href="' + r + 'grade11/practical/databases.html">Databases (Access)</a>'
-    + '<a href="' + r + 'grade11/practical/html.html">HTML &amp; Web Design</a>'
-    + '<div class="dropdown-section">Theory (P2)</div>'
-    + '<a href="' + r + 'grade11/theory/hardware.html">Hardware &amp; Processing</a>'
-    + '<a href="' + r + 'grade11/theory/software.html">Software &amp; Cloud</a>'
-    + '<a href="' + r + 'grade11/theory/networks.html">Networks (LAN/WLAN)</a>'
-    + '<a href="' + r + 'grade11/theory/internet.html">Internet, IoT &amp; 4IR</a>'
-    + '<a href="' + r + 'grade11/theory/social.html">Social Implications</a>'
+    + '<div class="dropdown-section">' + t('Practical (P1)', 'Prakties (V1)') + '</div>'
+    + '<a href="' + r + 'grade11/practical/word-processing.html">' + t('Word Processing', 'Woordverwerking') + '</a>'
+    + '<a href="' + r + 'grade11/practical/spreadsheets.html">' + t('Spreadsheets', 'Sigblaaie') + '</a>'
+    + '<a href="' + r + 'grade11/practical/databases.html">' + t('Databases (Access)', 'Databasisse (Access)') + '</a>'
+    + '<a href="' + r + 'grade11/practical/html.html">' + t('HTML &amp; Web Design', 'HTML &amp; Webontwerp') + '</a>'
+    + '<div class="dropdown-section">' + t('Theory (P2)', 'Teorie (V2)') + '</div>'
+    + '<a href="' + r + 'grade11/theory/hardware.html">' + t('Hardware &amp; Processing', 'Hardeware &amp; Verwerking') + '</a>'
+    + '<a href="' + r + 'grade11/theory/software.html">' + t('Software &amp; Cloud', 'Sagteware &amp; Wolkdiens') + '</a>'
+    + '<a href="' + r + 'grade11/theory/networks.html">' + t('Networks (LAN/WLAN)', 'Netwerke (LAN/WLAN)') + '</a>'
+    + '<a href="' + r + 'grade11/theory/internet.html">' + t('Internet, IoT &amp; 4IR', 'Internet, IoT &amp; 4IR') + '</a>'
+    + '<a href="' + r + 'grade11/theory/social.html">' + t('Social Implications', 'Maatskaplike Implikasies') + '</a>'
     + '</div></li>'
 
     // ── GRADE 12 ──
-    + '<li><button class="nav-dropdown-btn gr12">Grade 12 <span class="chevron"></span></button>'
+    + '<li><button class="nav-dropdown-btn gr12">' + t('Grade 12', 'Graad 12') + ' <span class="chevron"></span></button>'
     + '<div class="dropdown">'
-    + '<div class="dropdown-section">Practical (P1)</div>'
-    + '<a href="' + r + 'grade12/practical/word-processing.html">Word Processing</a>'
-    + '<a href="' + r + 'grade12/practical/spreadsheets.html">Spreadsheets</a>'
-    + '<a href="' + r + 'grade12/practical/databases.html">Databases (Access)</a>'
-    + '<a href="' + r + 'grade12/practical/html.html">HTML &amp; Web Design</a>'
-    + '<div class="dropdown-section">Theory (P2)</div>'
-    + '<a href="' + r + 'grade12/theory/hardware.html">Hardware &amp; Buying Decisions</a>'
-    + '<a href="' + r + 'grade12/theory/software.html">Software &amp; File Management</a>'
-    + '<a href="' + r + 'grade12/theory/networks.html">Networks &amp; WAN</a>'
-    + '<a href="' + r + 'grade12/theory/internet.html">Internet &amp; E-Communication</a>'
-    + '<a href="' + r + 'grade12/theory/social.html">Social Implications</a>'
+    + '<div class="dropdown-section">' + t('Practical (P1)', 'Prakties (V1)') + '</div>'
+    + '<a href="' + r + 'grade12/practical/word-processing.html">' + t('Word Processing', 'Woordverwerking') + '</a>'
+    + '<a href="' + r + 'grade12/practical/spreadsheets.html">' + t('Spreadsheets', 'Sigblaaie') + '</a>'
+    + '<a href="' + r + 'grade12/practical/databases.html">' + t('Databases (Access)', 'Databasisse (Access)') + '</a>'
+    + '<a href="' + r + 'grade12/practical/html.html">' + t('HTML &amp; Web Design', 'HTML &amp; Webontwerp') + '</a>'
+    + '<div class="dropdown-section">' + t('Theory (P2)', 'Teorie (V2)') + '</div>'
+    + '<a href="' + r + 'grade12/theory/hardware.html">' + t('Hardware &amp; Buying Decisions', 'Hardeware &amp; Aankoopbesluite') + '</a>'
+    + '<a href="' + r + 'grade12/theory/software.html">' + t('Software &amp; File Management', 'Sagteware &amp; Lêerbestuur') + '</a>'
+    + '<a href="' + r + 'grade12/theory/networks.html">' + t('Networks &amp; WAN', 'Netwerke &amp; WAN') + '</a>'
+    + '<a href="' + r + 'grade12/theory/internet.html">' + t('Internet &amp; E-Communication', 'Internet &amp; E-Kommunikasie') + '</a>'
+    + '<a href="' + r + 'grade12/theory/social.html">' + t('Social Implications', 'Maatskaplike Implikasies') + '</a>'
     + '</div></li>'
 
     // ── EXAM PRACTICE ──
-    + '<li><button class="nav-dropdown-btn" style="color:#fbbf24">Exam Practice <span class="chevron"></span></button>'
+    + '<li><button class="nav-dropdown-btn" style="color:#fbbf24">' + t('Exam Practice', 'Eksamenoefening') + ' <span class="chevron"></span></button>'
     + '<div class="dropdown">'
-    + '<div class="dropdown-section">Question Banks &amp; Memos</div>'
-    + '<a href="' + r + 'exam-practice/index.html">&#128221; Exam Practice Home</a>'
-    + '<a href="' + r + 'exam-practice/grade10.html">&#9999;&#65039; Grade 10 Questions</a>'
-    + '<a href="' + r + 'exam-practice/grade11.html">&#9999;&#65039; Grade 11 Questions</a>'
-    + '<a href="' + r + 'exam-practice/grade12.html">&#9999;&#65039; Grade 12 Questions</a>'
-    + '<a href="' + r + 'exam-practice/exam-skills.html">&#127919; Exam Technique &amp; Verbs</a>'
+    + '<div class="dropdown-section">' + t('Question Banks &amp; Memos', 'Vraebanke &amp; Memorandums') + '</div>'
+    + '<a href="' + r + 'exam-practice/index.html">&#128221; ' + t('Exam Practice Home', 'Eksamenoefening Tuisblad') + '</a>'
+    + '<a href="' + r + 'exam-practice/grade10.html">&#9999;&#65039; ' + t('Grade 10 Questions', 'Graad 10 Vrae') + '</a>'
+    + '<a href="' + r + 'exam-practice/grade11.html">&#9999;&#65039; ' + t('Grade 11 Questions', 'Graad 11 Vrae') + '</a>'
+    + '<a href="' + r + 'exam-practice/grade12.html">&#9999;&#65039; ' + t('Grade 12 Questions', 'Graad 12 Vrae') + '</a>'
+    + '<a href="' + r + 'exam-practice/exam-skills.html">&#127919; ' + t('Exam Technique &amp; Verbs', 'Eksamentegniek &amp; Werkwoorde') + '</a>'
     + '</div></li>'
 
     // ── SKILLS & PAT ──
-    + '<li><button class="nav-dropdown-btn" style="color:#60a5fa">Skills &amp; PAT <span class="chevron"></span></button>'
+    + '<li><button class="nav-dropdown-btn" style="color:#60a5fa">' + t('Skills &amp; PAT', 'Vaardighede &amp; PAT') + ' <span class="chevron"></span></button>'
     + '<div class="dropdown">'
-    + '<div class="dropdown-section">Core Skills</div>'
-    + '<a href="' + r + 'skills/file-management.html">&#128193; File &amp; Data Management</a>'
-    + '<a href="' + r + 'skills/information-management.html">&#128202; Information Management (PAT)</a>'
+    + '<div class="dropdown-section">' + t('Core Skills', 'Kernvaardighede') + '</div>'
+    + '<a href="' + r + 'skills/file-management.html">&#128193; ' + t('File &amp; Data Management', 'Lêer- &amp; Databestuur') + '</a>'
+    + '<a href="' + r + 'skills/information-management.html">&#128202; ' + t('Information Management (PAT)', 'Inligtingsbestuur (PAT)') + '</a>'
     + '</div></li>'
 
     // ── STUDY TOOLS ──
-    + '<li><button class="nav-dropdown-btn" style="color:#4ade80">Study Tools <span class="chevron"></span></button>'
+    + '<li><button class="nav-dropdown-btn" style="color:#4ade80">' + t('Study Tools', 'Studiehulpmiddels') + ' <span class="chevron"></span></button>'
     + '<div class="dropdown">'
-    + '<div class="dropdown-section">Term Planners</div>'
-    + '<a href="' + r + 'terms-gr10.html">&#128197; Grade 10 &mdash; By Term</a>'
-    + '<a href="' + r + 'terms-gr11.html">&#128197; Grade 11 &mdash; By Term</a>'
-    + '<a href="' + r + 'terms-gr12.html">&#128197; Grade 12 &mdash; By Term</a>'
+    + '<div class="dropdown-section">' + t('Term Planners', 'Kwartaalbeplanners') + '</div>'
+    + '<a href="' + r + 'terms-gr10.html">&#128197; ' + t('Grade 10 &mdash; By Term', 'Graad 10 &mdash; Volgens Kwartaal') + '</a>'
+    + '<a href="' + r + 'terms-gr11.html">&#128197; ' + t('Grade 11 &mdash; By Term', 'Graad 11 &mdash; Volgens Kwartaal') + '</a>'
+    + '<a href="' + r + 'terms-gr12.html">&#128197; ' + t('Grade 12 &mdash; By Term', 'Graad 12 &mdash; Volgens Kwartaal') + '</a>'
     + '</div></li>'
 
     + '</ul>'
     + '<div class="topnav-search">'
     + '<span class="search-icon">&#128269;</span>'
-    + '<input type="text" id="search-input" placeholder="Search topics&hellip;">'
+    + '<input type="text" id="search-input" placeholder="Search topics&hellip;" data-af-placeholder="Soek onderwerpe&hellip;">'
     + '<div id="search-results"></div>'
     + '</div>'
+    + '<button class="lang-toggle" id="lang-toggle" title="Wissel na Afrikaans / Switch to English">AF</button>'
+    + '<button class="theme-toggle" id="theme-toggle" title="Toggle dark / light mode"></button>'
     + '</nav>';
 
   var el = document.getElementById('topnav');
   if (el) el.outerHTML = html;
+
+  /* Theme toggle logic */
+  document.addEventListener('DOMContentLoaded', function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+
+    function isDark() {
+      var th = document.documentElement.getAttribute('data-theme');
+      if (th === 'dark') return true;
+      if (th === 'light') return false;
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    function updateBtn() {
+      btn.textContent = isDark() ? '☀' : '☽';  /* ☀ sun / ☽ crescent */
+      btn.title = isDark() ? 'Switch to light mode' : 'Switch to dark mode';
+    }
+    updateBtn();
+
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateBtn();
+    });
+  });
 })();

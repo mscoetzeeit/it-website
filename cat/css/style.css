@@ -15,6 +15,53 @@
   --radius:    6px;
 }
 
+/* ── LIGHT THEME ── applied via [data-theme="light"] on <html> */
+[data-theme="light"] {
+  --bg:        #efe9dc;
+  --surface:   #e5ddd0;
+  --surface2:  #d9d1c4;
+  --border:    #c4b9a8;
+  --text:      #1a1614;
+  --muted:     #6b5f52;
+  --gr10:      #0d9467;
+  --gr11:      #c2660f;
+  --gr12:      #c0397d;
+}
+
+/* ── THEME TOGGLE BUTTON ── */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 20px;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color .15s, border-color .15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.theme-toggle:hover { color: var(--text); border-color: var(--muted); }
+
+/* ── LANGUAGE TOGGLE BUTTON ── */
+.lang-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 20px;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  cursor: pointer;
+  line-height: 1;
+  transition: color .15s, border-color .15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.lang-toggle:hover { color: var(--text); border-color: var(--muted); }
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; scroll-behavior: smooth; }
 body {

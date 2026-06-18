@@ -1,5 +1,41 @@
 /* ── Ms Coetzee CAT ── shared JS ── */
 
+/* ---------- LANGUAGE TOGGLE (EN / AF) ----------
+   Any element with a data-af="..." attribute can be flipped between its
+   original (English) content and the Afrikaans version stored in that
+   attribute. Elements with data-af-placeholder swap their placeholder text
+   instead (used for the search box). Preference is remembered per browser. */
+(function () {
+  function applyLang(lang) {
+    document.querySelectorAll('[data-af]').forEach(function (el) {
+      if (el.dataset.enText === undefined) el.dataset.enText = el.innerHTML;
+      el.innerHTML = lang === 'af' ? el.getAttribute('data-af') : el.dataset.enText;
+    });
+    document.querySelectorAll('[data-af-placeholder]').forEach(function (el) {
+      if (el.dataset.enPlaceholder === undefined) el.dataset.enPlaceholder = el.getAttribute('placeholder') || '';
+      el.setAttribute('placeholder', lang === 'af' ? el.getAttribute('data-af-placeholder') : el.dataset.enPlaceholder);
+    });
+    document.documentElement.setAttribute('lang', lang === 'af' ? 'af' : 'en');
+    var btn = document.getElementById('lang-toggle');
+    if (btn) {
+      btn.textContent = lang === 'af' ? 'EN' : 'AF';
+      btn.title = lang === 'af' ? 'Switch to English' : 'Wissel na Afrikaans';
+    }
+  }
+
+  var saved = localStorage.getItem('lang') || 'en';
+  applyLang(saved);
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('#lang-toggle');
+    if (!btn) return;
+    var current = localStorage.getItem('lang') === 'af' ? 'af' : 'en';
+    var next = current === 'af' ? 'en' : 'af';
+    localStorage.setItem('lang', next);
+    applyLang(next);
+  });
+})();
+
 /* ---------- DROPDOWN MENUS ---------- */
 document.querySelectorAll('.nav-dropdown-btn').forEach(btn => {
   btn.addEventListener('click', e => {
