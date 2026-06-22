@@ -26,8 +26,10 @@ if os.path.exists(_extra):
         if not key:
             continue
         drop = {key}
-        if e.get('override'):
-            drop.add(_norm_key(e['override']))
+        ov = e.get('override')
+        if ov:
+            for o in ([ov] if isinstance(ov, str) else ov):
+                drop.add(_norm_key(o))
         data = [d for d in data if d['sort'] not in drop]
         data.append({'term': e['term'], 'definition': e['definition'],
                      'grades': e['grades'], 'kinds': e.get('kinds', ['Curated']),
@@ -77,7 +79,10 @@ for L in letters:
     rows = []
     for e in items:
         term = esc(e['term'])
-        defn = esc(e['definition'])
+        _d = e['definition'].strip()
+        if _d:
+            _d = _d[0].upper() + _d[1:]      # sentence-case the definition
+        defn = esc(_d)
         grades = ' '.join(e['grades'])
         search = esc((e['term'] + ' ' + e['definition']).lower())
         src = e.get('source', '')

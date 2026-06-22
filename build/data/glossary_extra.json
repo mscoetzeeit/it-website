@@ -7,6 +7,12 @@
   "source": "correction"
  },
  {
+  "term": "artificial intelligence (AI)",
+  "definition": "The ability of a computer or machine to mimic human intelligence - for example to learn, reason, solve problems and make decisions.",
+  "grades": ["Gr10", "Gr12"],
+  "source": "correction"
+ },
+ {
   "term": "join (SQL)",
   "definition": "An SQL operation that combines rows from two or more related tables into a single result set, matching them on a common field - typically a foreign key linked to a primary key (e.g. an INNER JOIN).",
   "grades": ["Gr12"],
@@ -67,9 +73,10 @@
   "source": "NSC P2 Nov 2024"
  },
  {
-  "term": "primary memory (RAM)",
-  "definition": "Memory used to store data temporarily while it is actively being used by the CPU, making it easily accessible for quick processing.",
-  "grades": ["Gr10"],
+  "term": "RAM (random access memory)",
+  "definition": "Fast, temporary (volatile) memory that stores data and instructions while they are actively being used by the CPU, giving quick access for processing. Its contents are lost when the power is switched off. Also called primary memory.",
+  "grades": ["Gr10", "Gr11"],
+  "override": ["random access memory (RAM)", "primary memory (RAM)"],
   "source": "NSC P2 Nov 2024"
  },
  {
@@ -90,5 +97,96 @@
   "definition": "A protocol that secures data sent over the internet by encrypting it with a linked key pair: the public key encrypts the data and the matching private key decrypts it.",
   "grades": ["Gr12"],
   "source": "NSC P2 Nov 2024"
+ },
+ {
+  "term": "kilobyte (KB)",
+  "definition": "The smallest unit of data measurement greater than a byte; one kilobyte is technically 1 000 bytes.",
+  "grades": ["Gr10", "Gr11"],
+  "override": "KB (Kilobyte)",
+  "source": "merged"
+ },
+ {
+  "term": "local area network (LAN)",
+  "definition": "A computer network that covers a small area such as a home, office or building, usually connecting a limited number of computers.",
+  "grades": ["Gr10", "Gr11"],
+  "override": "LAN (Local area network)",
+  "source": "merged"
+ },
+ {
+  "term": "mobile network provider (MNP)",
+  "definition": "A telecommunications company that provides wireless voice and data services to its subscribed mobile users.",
+  "grades": ["Gr10", "Gr11"],
+  "override": "MNP (mobile network provider)",
+  "source": "merged"
+ },
+ {
+  "term": "wireless access point (WAP)",
+  "definition": "A device that lets users connect wirelessly to a network or the internet.",
+  "grades": ["Gr10", "Gr11", "Gr12"],
+  "override": "WAP (wireless access point)",
+  "source": "merged"
+ },
+ {
+  "term": "CSS (cascading style sheets)",
+  "definition": "A web language used to control the layout and visual appearance of web pages.",
+  "grades": ["Gr10", "Gr12"],
+  "override": "cascading style sheets (CSS)",
+  "source": "merged"
+ },
+ {
+  "term": "CPU (central processing unit)",
+  "definition": "The part of the computer that processes (carries out) instructions; often called the 'brain' of the computer.",
+  "grades": ["Gr10", "Gr11"],
+  "override": "central processing unit (CPU)",
+  "source": "merged"
+ },
+ {
+  "term": "VoIP (voice over internet protocol)",
+  "definition": "Technology (a set of rules) that makes it possible to make telephone and video calls over the internet.",
+  "grades": ["Gr10", "Gr11"],
+  "override": "voice over internet protocol (VOIP)",
+  "source": "merged"
+ },
+ {
+  "term": "operating system (OS)",
+  "definition": "System software that manages the computer's hardware and resources and lets the user communicate with the computer.",
+  "grades": ["Gr10", "Gr11"],
+  "override": "OS (operating system)",
+  "source": "merged"
+ },
+ {
+  "term": "synchronous communication",
+  "definition": "Real-time communication where the participants take part at the same time, such as a live chat, phone call or video call.",
+  "grades": ["Gr10", "Gr11"],
+  "override": "synchronous (communication)",
+  "source": "merged"
+ },
+ {
+  "term": "hexadecimal",
+  "definition": "A numbering system that uses 16 unique digits: 0-9 and A to F.",
+  "grades": ["Gr10", "Gr11"],
+  "override": "hexadecimal system",
+  "source": "merged"
+ },
+ {
+  "term": "Notepad",
+  "definition": "A basic text-editor application in Microsoft Windows used to open and create plain text files.",
+  "grades": ["Gr10", "Gr11"],
+  "override": "notepad application",
+  "source": "merged"
+ },
+ {
+  "term": "disk drive",
+  "definition": "A device that stores data and allows the computer to read from and write to storage media.",
+  "grades": ["Gr11"],
+  "override": "directories disk drive",
+  "source": "correction"
+ },
+ {
+  "term": "Power (Delphi function)",
+  "definition": "A Delphi function that raises a base number to a given exponent (power) and returns a real result.",
+  "grades": ["Gr11", "Gr12"],
+  "override": "POWER",
+  "source": "correction"
  }
 ]

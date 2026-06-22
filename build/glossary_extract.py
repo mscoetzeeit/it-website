@@ -49,6 +49,7 @@ def clean(t):
     t = t.replace('“', '"').replace('”', '"')
     t = t.replace('–', '-').replace('—', '-')
     t = re.sub(r'\s+', ' ', t).strip()
+    t = re.sub(r'(\w)- (\w)', r'\1-\2', t)   # rejoin hyphenated words split by layout (e.g. "real- time")
     return t
 
 FOOTER = re.compile(r'(IT-(Theory|Practical)-LB|\.indb|INFORMATION TECHNOLOGY|GRADE 1[012])', re.I)
