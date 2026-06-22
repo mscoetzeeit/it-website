@@ -188,5 +188,49 @@
   "grades": ["Gr11", "Gr12"],
   "override": "POWER",
   "source": "correction"
+ },
+ {
+  "term": "bit (b)",
+  "definition": "The smallest unit of data in computing - a single binary digit that is either 0 or 1. Its symbol is a lowercase 'b'. Eight bits make up one byte.",
+  "grades": ["Gr10"],
+  "override": "bit",
+  "source": "correction"
+ },
+ {
+  "term": "byte (B)",
+  "definition": "A group of 8 bits treated as a single unit, used to measure file size and storage. Its symbol is a capital 'B' (e.g. MB = megabytes). One byte = 8 bits.",
+  "grades": ["Gr10"],
+  "override": "byte",
+  "source": "correction"
+ },
+ {
+  "term": "data transfer rate",
+  "definition": "The speed at which data is moved between devices or across a network. It is measured in bits per second - bps, Kbps, Mbps or Gbps - using a lowercase 'b' (bits), not a capital 'B' (bytes).",
+  "grades": ["Gr10", "Gr11"],
+  "source": "curated"
+ },
+ {
+  "term": "bps (bits per second)",
+  "definition": "The basic unit for measuring data transfer rate, or network speed: the number of bits sent per second. The 'b' is lowercase because it counts bits, not bytes.",
+  "grades": ["Gr10", "Gr11"],
+  "source": "curated"
+ },
+ {
+  "term": "Kbps (kilobits per second)",
+  "definition": "A unit of network speed equal to one thousand (1 000) bits per second. Lowercase 'b' means bits.",
+  "grades": ["Gr10", "Gr11"],
+  "source": "curated"
+ },
+ {
+  "term": "Mbps (megabits per second)",
+  "definition": "A unit of network or internet speed equal to one million bits per second. The lowercase 'b' means bits - Mbps measures how fast data travels over a network. Do NOT confuse it with MBps (capital 'B' = megabytes per second), which is 8 times larger and is used for file sizes, not connection speed. Because 1 byte = 8 bits, a 16 Mbps line downloads at roughly 2 MB per second.",
+  "grades": ["Gr10", "Gr11"],
+  "source": "curated"
+ },
+ {
+  "term": "Gbps (gigabits per second)",
+  "definition": "A unit of network speed equal to one billion (1 000 000 000) bits per second. Lowercase 'b' means bits, not bytes.",
+  "grades": ["Gr11", "Gr12"],
+  "source": "curated"
  }
 ]

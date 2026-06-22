@@ -166,7 +166,7 @@ PAGE = f'''<!DOCTYPE html>
 <div class="gloss-wrap">
   <div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">&rsaquo;</span><span>IT Glossary</span></div>
   <h1>IT Glossary</h1>
-  <p class="gloss-intro">Every term defined in the official DBE/MTN Information Technology learner books (Grades 10&ndash;12, Theory &amp; Practical), gathered into one searchable list of <strong>{total}</strong> terms. Grade badges show where each term is introduced. Type to filter, or jump by letter.</p>
+  <p class="gloss-intro">Key Information Technology terms from the official DBE/MTN learner books (Grades 10&ndash;12, Theory &amp; Practical), refined and expanded with wording from NSC exam memos, in one searchable list of <strong>{total}</strong> terms. Grade badges show where a term is introduced; a green <span class="gsrc">NSC</span> tag marks definitions taken from national marking guidelines. Type to filter, or jump by letter.</p>
 
   <div class="gloss-toolbar">
     <div class="gloss-search">
