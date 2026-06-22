@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam Practice &middot; Ms Coetzee IT</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>:root{--grade-color:#4ade80;}
+.ep-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1.5rem 0}
+.ep-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.4rem;text-decoration:none;transition:border-color .15s,transform .15s}
+.ep-card:hover{transform:translateY(-2px)}
+.ep-card .epn{font-size:2rem;font-weight:800;line-height:1}
+.ep-card h3{margin:.4rem 0 .3rem;color:var(--text)}
+.ep-card p{font-size:.85rem;color:var(--muted);margin:0}
+.ep-card.g10{border-top:3px solid var(--gr10)}.ep-card.g10 .epn{color:var(--gr10)}
+.ep-card.g11{border-top:3px solid var(--gr11)}.ep-card.g11 .epn{color:var(--gr11)}
+.ep-card.g12{border-top:3px solid var(--gr12)}.ep-card.g12 .epn{color:var(--gr12)}
+</style>
+</head>
+<body>
+<div id="topnav"></div>
+<main style="flex:1">
+<div style="max-width:900px;margin:0 auto;padding:2.5rem 2rem 4rem;width:100%">
+  <div class="breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb-sep">&rsaquo;</span><span>Exam Practice</span></div>
+  <h1>Exam Practice</h1>
+  <p class="page-intro">Mixed questions modelled on past NSC Information Technology papers (Paper 1 practical &amp; Paper 2 theory), grouped by grade and topic. Answer each one first, then click <strong>Show memo</strong> to reveal the marking guideline and tick off every <span class="tick">✓</span>.</p>
+  <div class="topic-chips"><span>Section A short questions</span><span>Hardware &amp; software</span><span>Networks</span><span>Databases &amp; SQL</span><span>Delphi programming</span><span>Social implications</span></div>
+
+  <div class="ep-cards">
+    <a class="ep-card g10" href="grade10.html"><div class="epn">10</div><h3>Grade 10</h3><p>Delphi basics, data representation, hardware, software, networks &amp; e-communication.</p></a>
+    <a class="ep-card g11" href="grade11.html"><div class="epn">11</div><h3>Grade 11</h3><p>Arrays, text files, SQL basics, processing techniques, databases, networks &amp; social implications.</p></a>
+    <a class="ep-card g12" href="grade12.html"><div class="epn">12</div><h3>Grade 12</h3><p>SQL, OOP, 2D arrays, recursion, normalisation, data management, cybercrime &amp; emerging tech.</p></a>
+  </div>
+
+  <div class="callout exam">
+    <div class="callout-title">How to use this</div>
+    <p>Treat each card like the real thing: write your answer on paper <em>before</em> opening the memo. In <strong>Paper 2</strong>, match the <strong>verb</strong> (state / explain / discuss) and give as many facts as there are marks. In <strong>Paper 1</strong>, make sure your code compiles and produces the right output.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">Want the full glossary?</div>
+    <p>Every term you might meet in an exam, with definitions, is on the <a href="../glossary.html">IT Glossary</a> page.</p>
+  </div>
+</div>
+</main>
+<script src="../js/nav.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

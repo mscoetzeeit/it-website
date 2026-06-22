@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 12 Exam Practice &middot; Ms Coetzee IT</title>
+<link rel="stylesheet" href="../css/style.css">
+<style>:root{--grade-color:var(--gr12);}</style>
+</head>
+<body>
+<div id="topnav"></div>
+<div class="page-wrapper">
+  <aside class="sidebar">
+    <div class="sidebar-grade">Exam Practice</div>
+    <a href="index.html">Overview</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Grade 12 &middot; On this page</div>
+    <a href="#mcq">Section A — Short questions</a>
+    <a href="#systems">Systems Technologies</a>
+    <a href="#networks">Networks &amp; Communication</a>
+    <a href="#data">Data &amp; Databases</a>
+    <a href="#social">Internet &amp; Social Implications</a>
+    <a href="#sql">Practical — SQL</a>
+    <a href="#prog">Practical — OOP, Arrays &amp; Recursion</a>
+    <div class="sidebar-grade" style="margin-top:1rem">Other Grades</div>
+    <a href="grade10.html">Grade 10</a>
+    <a href="grade11.html">Grade 11</a>
+  </aside>
+  <main class="content">
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb-sep">&rsaquo;</span><a href="index.html">Exam Practice</a><span class="breadcrumb-sep">&rsaquo;</span><span>Grade 12</span></div>
+    <h1>Grade 12 — Questions &amp; Memos <span class="grade-badge">Grade 12</span></h1>
+    <p class="page-intro">Matric-level questions across the whole NSC syllabus, with memo wording taken from real marking guidelines. Answer first, then click <strong>Show memo</strong> and mark each <span class="tick">✓</span>.</p>
+
+    <h2 id="mcq">Section A — Short Questions</h2>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">A1 · Multiple choice</span><span class="q-marks">5</span></div>
+      <p class="q-text">1.1 The variation in the delay of packets arriving over a network is called … &nbsp;A) bandwidth &nbsp;B) latency &nbsp;C) jitter &nbsp;D) throttling</p>
+      <p class="q-text">1.2 A distributed ledger of tamper-resistant linked records is a … &nbsp;A) data warehouse &nbsp;B) blockchain &nbsp;C) botnet &nbsp;D) cache</p>
+      <p class="q-text">1.3 Which key uniquely identifies each record in a table? &nbsp;A) foreign key &nbsp;B) candidate key &nbsp;C) primary key &nbsp;D) sort key</p>
+      <p class="q-text">1.4 Software whose source code is freely available to view and modify is … &nbsp;A) freeware &nbsp;B) shareware &nbsp;C) proprietary &nbsp;D) open-source</p>
+      <p class="q-text">1.5 Examining large datasets to discover patterns and new information is called … &nbsp;A) data mining &nbsp;B) data capturing &nbsp;C) normalisation &nbsp;D) mirroring</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>1.1 <strong>C) jitter</strong> <span class="tick">✓</span></li>
+          <li>1.2 <strong>B) blockchain</strong> <span class="tick">✓</span></li>
+          <li>1.3 <strong>C) primary key</strong> <span class="tick">✓</span></li>
+          <li>1.4 <strong>D) open-source</strong> <span class="tick">✓</span></li>
+          <li>1.5 <strong>A) data mining</strong> <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">A2 · True / False (correct if false)</span><span class="q-marks">3</span></div>
+      <p class="q-text">2.1 RAM is non-volatile memory that keeps its contents when the power is switched off.<br>2.2 A script kiddie is an amateur who modifies existing malware code written by others.<br>2.3 Mbps (with a small b) measures network speed in megabytes per second.</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>2.1 <strong>FALSE</strong> — RAM is <em>volatile</em>; its contents are lost when the power is switched off <span class="tick">✓</span></li>
+          <li>2.2 <strong>TRUE</strong> <span class="tick">✓</span></li>
+          <li>2.3 <strong>FALSE</strong> — Mbps = mega<em>bits</em> per second (a capital B would mean bytes) <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <h2 id="systems">Systems Technologies</h2>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q1 · Memory</span><span class="q-marks">6</span></div>
+      <p class="q-text">1.1 Explain the function of RAM (primary memory). (2)<br>1.2 Discuss what cache memory is and how it improves performance. (3)<br>1.3 Why does heavy use of virtual memory slow a computer down? (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>1.1 Fast, temporary memory that stores data/instructions <span class="tick">✓</span> while they are actively being used by the CPU <span class="tick">✓</span></li>
+          <li>1.2 A small amount of high-speed memory on/near the CPU <span class="tick">✓</span> that stores frequently/previously used data and instructions <span class="tick">✓</span> so a slower medium does not bottleneck a faster one <span class="tick">✓</span></li>
+          <li>1.3 Virtual memory is on slower secondary storage, so constant swapping with RAM (thrashing) wastes time <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q2 · Virtualisation &amp; the cloud</span><span class="q-marks">4</span></div>
+      <p class="q-text">2.1 Define cloud computing. (2)<br>2.2 Give ONE benefit of running several virtual machines on one physical server. (2)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>2.1 The use of shared resources offered as services over the internet <span class="tick">✓</span> to store, manage and process data <span class="tick">✓</span></li>
+          <li>2.2 One server does the work of many <span class="tick">✓</span> → saves money/electricity/space, or lets you test risky software safely in isolation <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <h2 id="networks">Networks &amp; Communication</h2>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q3 · Connection</span><span class="q-marks">5</span></div>
+      <p class="q-text">3.1 Define the term bandwidth. (2)<br>3.2 Distinguish between shaping and throttling. (2)<br>3.3 A learner writes their line speed as "20 MBps". Why is this notation wrong? (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>3.1 The amount of data that can be sent over a network <span class="tick">✓</span> in a specific amount of time <span class="tick">✓</span></li>
+          <li>3.2 Shaping = the ISP prioritises certain traffic over others <span class="tick">✓</span>; throttling = the ISP deliberately slows the connection (e.g. after a cap) <span class="tick">✓</span></li>
+          <li>3.3 Speed is measured in bits per second (lowercase b); a capital B means bytes, which is for file size <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q4 · Security</span><span class="q-marks">5</span></div>
+      <p class="q-text">4.1 Explain the term spoofing. (2)<br>4.2 Describe how data is encrypted and decrypted using SSL (public/private keys). (3)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>4.1 An email/website/source that appears to be from a legitimate organisation but is a replica <span class="tick">✓</span> created to collect personal information <span class="tick">✓</span></li>
+          <li>4.2 The public key encrypts the data <span class="tick">✓</span>; the encrypted data is sent over the internet <span class="tick">✓</span>; the matching private key decrypts it <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <h2 id="data">Data &amp; Databases</h2>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q5 · Data management</span><span class="q-marks">5</span></div>
+      <p class="q-text">5.1 What is meant by data mining? (2)<br>5.2 Explain what physical data integrity refers to. (2)<br>5.3 Define disk mirroring. (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>5.1 Examining large datasets in databases/data warehouses <span class="tick">✓</span> to discover patterns and generate new information <span class="tick">✓</span></li>
+          <li>5.2 Guarding stored data against physical threats (power failure, disasters, theft of hardware) <span class="tick">✓</span> to protect its accuracy/completeness <span class="tick">✓</span></li>
+          <li>5.3 Keeping identical copies of the data/database so a duplicate is always available <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q6 · Normalisation &amp; keys</span><span class="q-marks">5</span></div>
+      <p class="q-text">6.1 What is a primary key? (1)<br>6.2 What is a foreign key? (1)<br>6.3 State ONE goal of normalising a database. (1)<br>6.4 Give ONE problem caused by data redundancy. (2)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>6.1 A field (or fields) that uniquely identifies each record in a table <span class="tick">✓</span></li>
+          <li>6.2 A field in one table that refers to the primary key of another table (creating the link) <span class="tick">✓</span></li>
+          <li>6.3 Remove/reduce data redundancy (duplication) / avoid anomalies <span class="tick">✓</span></li>
+          <li>6.4 Wasted storage <span class="tick">✓</span>; risk of inconsistent data when one copy is updated but others are not <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <h2 id="social">Internet &amp; Social Implications</h2>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q7 · Cybercrime</span><span class="q-marks">5</span></div>
+      <p class="q-text">7.1 Define the term ransomware. (2)<br>7.2 What is a DDoS attack and its effect on a business? (2)<br>7.3 Name ONE South African law that protects personal information. (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>7.1 Malware that locks or encrypts a user's data/device <span class="tick">✓</span> until a ransom is paid to restore access <span class="tick">✓</span></li>
+          <li>7.2 Many computers flood a server with traffic until it is overloaded and goes offline <span class="tick">✓</span>; customers cannot access the site → lost sales/reputation <span class="tick">✓</span></li>
+          <li>7.3 <strong>POPIA</strong> (Protection of Personal Information Act) <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q8 · Emerging technology</span><span class="q-marks">4</span></div>
+      <p class="q-text">8.1 Define virtual reality. (2)<br>8.2 What is convergence? Give ONE example. (2)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>8.1 An artificial, computer-generated environment created with software <span class="tick">✓</span> that appears as a 3D space the user interacts with using VR equipment <span class="tick">✓</span></li>
+          <li>8.2 When separate technologies/functions are combined into a single multi-purpose device <span class="tick">✓</span>; e.g. a smartphone that is also a camera, GPS and music player <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <h2 id="sql">Practical — SQL</h2>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">P1 · SELECT &amp; WHERE</span><span class="q-marks">5</span></div>
+      <p class="q-text">Table <strong>tblLearner</strong>(LearnerID, Name, Grade, Average, Town).</p>
+      <p class="q-text">P1.1 List the names of all learners in Grade 12. (2)<br>P1.2 List all learners with an average of 80 or more, highest first. (3)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo">
+<pre class="no-label">SELECT Name FROM tblLearner WHERE Grade = 12;
+
+SELECT * FROM tblLearner
+WHERE Average &gt;= 80
+ORDER BY Average DESC;</pre>
+        <ul>
+          <li>P1.1 correct SELECT field + FROM table <span class="tick">✓</span>; correct WHERE condition <span class="tick">✓</span></li>
+          <li>P1.2 WHERE Average &gt;= 80 <span class="tick">✓</span>; ORDER BY Average <span class="tick">✓</span>; DESC <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">P2 · Aggregate &amp; JOIN</span><span class="q-marks">5</span></div>
+      <p class="q-text">Tables <strong>tblLearner</strong>(LearnerID, Name, TownID) and <strong>tblTown</strong>(TownID, TownName).</p>
+      <p class="q-text">P2.1 Count how many learners there are. (1)<br>P2.2 Show the average mark per grade. (2)<br>P2.3 List each learner's Name together with their TownName. (2)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo">
+<pre class="no-label">SELECT COUNT(*) FROM tblLearner;
+
+SELECT Grade, AVG(Average) FROM tblLearner
+GROUP BY Grade;
+
+SELECT Name, TownName
+FROM tblLearner INNER JOIN tblTown
+ON tblLearner.TownID = tblTown.TownID;</pre>
+        <ul>
+          <li>P2.1 COUNT(*) <span class="tick">✓</span></li>
+          <li>P2.2 AVG(Average) <span class="tick">✓</span>; GROUP BY Grade <span class="tick">✓</span></li>
+          <li>P2.3 correct JOIN of the two tables <span class="tick">✓</span>; correct ON condition (matching TownID) <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <h2 id="prog">Practical — OOP, 2D Arrays &amp; Recursion</h2>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">P3 · OOP concepts</span><span class="q-marks">4</span></div>
+      <p class="q-text">P3.1 Distinguish between a <strong>class</strong> and an <strong>object</strong>. (2)<br>P3.2 What is <strong>encapsulation</strong>? (1)<br>P3.3 What is the purpose of a <strong>constructor</strong>? (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>P3.1 A class is a blueprint/template that defines attributes and methods <span class="tick">✓</span>; an object is an actual instance created from that class <span class="tick">✓</span></li>
+          <li>P3.2 Grouping attributes and the methods that work on them in one unit, and hiding the data (private) so it is accessed only through methods <span class="tick">✓</span></li>
+          <li>P3.3 A method that runs when an object is created, used to initialise its attributes <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">P4 · 2D array (Delphi)</span><span class="q-marks">4</span></div>
+      <p class="q-text">An array <code>arrM : array[1..5, 1..4] of Integer</code> holds 5 learners' marks for 4 subjects. Write code to calculate and display the total for learner 3 (row 3).</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo">
+<pre class="no-label">iTotal := 0;
+for c := 1 to 4 do
+  iTotal := iTotal + arrM[3, c];
+ShowMessage(IntToStr(iTotal));</pre>
+        <ul>
+          <li>Initialise total to 0 <span class="tick">✓</span></li>
+          <li>Loop through the 4 columns <span class="tick">✓</span></li>
+          <li>Add arrM[3, c] each time (fixed row 3) <span class="tick">✓</span></li>
+          <li>Display the result <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">P5 · Recursion</span><span class="q-marks">4</span></div>
+      <p class="q-text">P5.1 What is recursion? (1)<br>P5.2 Why must every recursive method have a base case? (1)<br>P5.3 Complete the recursive factorial function:</p>
+      <pre class="no-label">function Factorial(n : Integer) : Integer;
+begin
+  if n &lt;= 1 then
+    Factorial := ____
+  else
+    Factorial := ____;
+end;</pre>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>P5.1 A method that calls itself to solve a smaller version of the same problem <span class="tick">✓</span></li>
+          <li>P5.2 To stop the recursion; without it the method calls itself forever (stack overflow) <span class="tick">✓</span></li>
+          <li>P5.3 base case <code>Factorial := 1</code> <span class="tick">✓</span>; recursive case <code>Factorial := n * Factorial(n - 1)</code> <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <div class="callout exam">
+      <div class="callout-title">Paper 2 reminder</div>
+      <p>Paper 2 is cumulative across Grades 10–12. Match the verb and give as many facts as there are marks. Definitions are best learned word-for-word from the <a href="../glossary.html">IT Glossary</a>.</p>
+    </div>
+
+    <div class="page-nav">
+      <a href="grade11.html"><span class="page-nav-label">&larr; Previous</span>Grade 11</a>
+      <a class="next" href="index.html"><span class="page-nav-label">Back to &rarr;</span>Exam Practice Home</a>
+    </div>
+  </main>
+</div>
+<script src="../js/nav.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

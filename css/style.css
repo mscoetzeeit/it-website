@@ -1142,3 +1142,48 @@ td code, th code { font-size: 0.95em; color: var(--gr10); }
   .qr-card, .qr-full, .qr-code, .qr-table tr { break-inside: avoid; }
   .qr-num { background: #000 !important; }
 }
+
+/* ── EXAM PRACTICE — QUESTION CARDS ── */
+.callout.exam { border-color: #b45309; }
+.callout.exam .callout-title { color: #b45309; }
+[data-theme="dark"] .callout.exam, html:not([data-theme="light"]) .callout.exam { border-color: #fbbf24; }
+[data-theme="dark"] .callout.exam .callout-title, html:not([data-theme="light"]) .callout.exam .callout-title { color: #fbbf24; }
+.qcard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.1rem 0;
+}
+.q-meta { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.q-num { font-weight: 700; color: var(--accent); font-size: 0.9rem; }
+.q-marks {
+  margin-left: auto; font-size: 0.8rem; font-weight: 700; color: var(--muted);
+  background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 0.05rem 0.6rem;
+}
+.q-text { margin-bottom: 0.4rem !important; }
+.q-text + .q-text { margin-top: -0.1rem; }
+details.answer { margin-top: 0.6rem; border-top: 1px dashed var(--border); padding-top: 0.5rem; }
+details.answer > summary {
+  cursor: pointer; list-style: none; font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .05em; color: #15803d; display: inline-flex; align-items: center; gap: 0.4rem; user-select: none;
+}
+[data-theme="dark"] details.answer > summary, html:not([data-theme="light"]) details.answer > summary { color: #4ade80; }
+details.answer > summary::-webkit-details-marker { display: none; }
+details.answer > summary::before { content: "▸"; transition: transform .15s; display: inline-block; }
+details.answer[open] > summary::before { transform: rotate(90deg); }
+details.answer[open] > summary { margin-bottom: 0.5rem; }
+.memo {
+  font-size: 0.9rem; background: rgba(74,222,128,.08); border-left: 3px solid #4ade80;
+  border-radius: 0 var(--radius) var(--radius) 0; padding: 0.75rem 1rem;
+}
+.memo ul, .memo ol { margin: 0.25rem 0 0.25rem 1.25rem; }
+.memo li { margin-bottom: 0.3rem; }
+.memo p:last-child { margin-bottom: 0; }
+.tick { color: #15803d; font-weight: 700; }
+[data-theme="dark"] .tick, html:not([data-theme="light"]) .tick { color: #4ade80; }
+.topic-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0 1.25rem; }
+.topic-chips span {
+  font-size: 0.78rem; background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 14px; padding: 0.2rem 0.7rem; color: var(--muted);
+}

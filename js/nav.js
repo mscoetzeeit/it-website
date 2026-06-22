@@ -111,6 +111,7 @@
     + '<div class="dropdown-section">Reference</div>'
     + '<a href="' + r + 'glossary.html">&#128214; IT Glossary (A&ndash;Z)</a>'
     + '<div class="dropdown-section">Exam Resources</div>'
+    + '<a href="' + r + 'exam-practice/index.html">&#128221; Exam Practice (Q &amp; memos)</a>'
     + '<a href="' + r + 'exam-extras.html">&#9889; Exam Extras (Out-of-CAPS)</a>'
     + '</div></li>'
 
