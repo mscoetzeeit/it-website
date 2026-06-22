@@ -108,6 +108,8 @@
     + '<a href="' + r + 'terms-gr10.html">&#128197; Grade 10 — By Term</a>'
     + '<a href="' + r + 'terms-gr11.html">&#128197; Grade 11 — By Term</a>'
     + '<a href="' + r + 'terms-gr12.html">&#128197; Grade 12 — By Term</a>'
+    + '<div class="dropdown-section">Reference</div>'
+    + '<a href="' + r + 'glossary.html">&#128214; IT Glossary (A&ndash;Z)</a>'
     + '<div class="dropdown-section">Exam Resources</div>'
     + '<a href="' + r + 'exam-extras.html">&#9889; Exam Extras (Out-of-CAPS)</a>'
     + '</div></li>'

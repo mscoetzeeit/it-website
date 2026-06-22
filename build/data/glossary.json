@@ -1,0 +1,4793 @@
+[
+ {
+  "term": "abstracting",
+  "definition": "to create an object and assign it to an object name",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "abstracting"
+ },
+ {
+  "term": "access control",
+  "definition": "any system designed to prevent and restrict access to users",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "access control"
+ },
+ {
+  "term": "access specifiers",
+  "definition": "is a defining code element that can be determine which elements of a program are allowed to access a specific variable or other piece of data",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "access specifiers"
+ },
+ {
+  "term": "accessory",
+  "definition": "any device or program added to a computer to perform an additional function, that is not required",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "accessory"
+ },
+ {
+  "term": "active window",
+  "definition": "the currently selected window",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "active window"
+ },
+ {
+  "term": "ad blocker",
+  "definition": "a program that will remove different kinds of advertising from a web user's experience online",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "ad blocker"
+ },
+ {
+  "term": "adware",
+  "definition": "a type of virus that creates unwanted advertisements all over a user's computer",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "adware"
+ },
+ {
+  "term": "aggregator",
+  "definition": "a website that provides you with the headlines and links to stories you might be interested in",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "aggregator"
+ },
+ {
+  "term": "algorithm",
+  "definition": "an ordered list of steps used to accomplish a task or solve a problem",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical",
+   "Theory"
+  ],
+  "sort": "algorithm"
+ },
+ {
+  "term": "algorithmic structures",
+  "definition": "different structures and techniques that you can use to improve and simplify an algorithm",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "algorithmic structures"
+ },
+ {
+  "term": "anomaly",
+  "definition": "something that deviates from what is standard, normal, or expected",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "anomaly"
+ },
+ {
+  "term": "API (application programming interface)",
+  "definition": "a set of routines, protocols, and tools for building software applications",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "api"
+ },
+ {
+  "term": "append",
+  "definition": "to open an existing file for writing, set the file pointer to the end of the file and allows you to add data to the file",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "append"
+ },
+ {
+  "term": "AR (augmented reality)",
+  "definition": "sound, images and text are added (superimposed) into our natural world to create an enhanced user experience",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "ar"
+ },
+ {
+  "term": "archive",
+  "definition": "a term used to describe a file that contains multiple files that are usually compressed files",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "archive"
+ },
+ {
+  "term": "array",
+  "definition": "an array is a sequence of data items of the same type. It is made up of a list of other variables, such as strings or integers",
+  "grades": [
+   "Gr10",
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "array"
+ },
+ {
+  "term": "artificial intelligence (AI)",
+  "definition": "the ability of a computer to act like a human being",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "artificial intelligence"
+ },
+ {
+  "term": "ascii",
+  "definition": "American Standard Code for Information Interchange provides a standard way to represent characters using numeric codes",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "ascii"
+ },
+ {
+  "term": "assume",
+  "definition": "supposed to be the case, without proof",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "assume"
+ },
+ {
+  "term": "asynchronous communication",
+  "definition": "a transmission technique commonly used by personal computers to connect to modems, printers, fax machines, modems, etc",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "asynchronous communication"
+ },
+ {
+  "term": "atomic (database transaction)",
+  "definition": "atomic means data which cannot be divided further",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "atomic"
+ },
+ {
+  "term": "attributes",
+  "definition": "the data fields of the class",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "attributes"
+ },
+ {
+  "term": "automation",
+  "definition": "refers to the use of automatic equipment to complete a job in a manufacturing business",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "automation"
+ },
+ {
+  "term": "bandwidth",
+  "definition": "it refers to the amount of data that can be transferred over a network in a specific amount of time",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "bandwidth"
+ },
+ {
+  "term": "behaviour",
+  "definition": "the code that provides the interaction with the attributes",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "behaviour"
+ },
+ {
+  "term": "benchmark",
+  "definition": "a test that measures the performance of hardware, software or the computer",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "benchmark"
+ },
+ {
+  "term": "binary",
+  "definition": "it describes a numbering scheme in which there are only two possible values for each digit: 0 and 1",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "binary"
+ },
+ {
+  "term": "binary search",
+  "definition": "is an algorithm used in computer science to locate a specified value (key) within an array",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "binary search"
+ },
+ {
+  "term": "BIOS (basic input/output system)",
+  "definition": "a set of computer instructions which control input and output operations",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "bios"
+ },
+ {
+  "term": "bit",
+  "definition": "a small piece, part, or quantity of something. With regards to ICT, it refers to a single switch that can only chose (or be told) to turn on or off",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "bit"
+ },
+ {
+  "term": "bitcoins",
+  "definition": "digital money, used on the Internet for various services",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "bitcoins"
+ },
+ {
+  "term": "BODMAS",
+  "definition": "Brackets, Orders, Division, Multiplication, Addition and Subtraction",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "bodmas"
+ },
+ {
+  "term": "Boolean variable",
+  "definition": "contains only one of two values: TRUE or FALSE",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "boolean variable"
+ },
+ {
+  "term": "boot",
+  "definition": "the computer loads the operating system and checks that all the components of the computer are in good order",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "boot"
+ },
+ {
+  "term": "browse",
+  "definition": "refers to reading and scanning through data",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "browse"
+ },
+ {
+  "term": "bubble sort",
+  "definition": "to compare adjacent elements",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "bubble sort"
+ },
+ {
+  "term": "bus",
+  "definition": "a communication system transferring data between components inside a computer, or between computers",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "bus"
+ },
+ {
+  "term": "byte",
+  "definition": "a group of binary digits or bits (usually eight) operated on as a unit",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "byte"
+ },
+ {
+  "term": "caching",
+  "definition": "a small, temporary form of storage that is created in a fast form of memory so that the data can be accessed more quickly",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "caching"
+ },
+ {
+  "term": "Caesar cipher",
+  "definition": "a substitution cipher on which each letter in plaintext is 'shifted' a certain number of places down the alphabet",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "caesar cipher"
+ },
+ {
+  "term": "calculated field",
+  "definition": "the field that is calculated each time you run your query",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "calculated field"
+ },
+ {
+  "term": "capacitive (touchscreen)",
+  "definition": "it senses the conductive properties of an object, usually the skin on your fingertip. a capacitive screen or smartphone usually have a glass face and does not rely on pressure. this makes it more responsive than a resistive screen when it comes to gestures such as swiping and pinching",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "capacitive"
+ },
+ {
+  "term": "cardiovascular system",
+  "definition": "a part of the larger circulatory system which circulates fluids throughout the body",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "cardiovascular system"
+ },
+ {
+  "term": "cascading style sheets (CSS)",
+  "definition": "a specification that allows web developers to change the layout and appearance of their web pages",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "cascading style sheets"
+ },
+ {
+  "term": "catfishing",
+  "definition": "when someone creates a fake online profile with the intention of deceiving someone else",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "catfishing"
+ },
+ {
+  "term": "Ceil",
+  "definition": "to round a real number up to the highest integer value",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "ceil"
+ },
+ {
+  "term": "central processing unit (CPU)",
+  "definition": "the part of a computer responsible for processing general instructions",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "central processing unit"
+ },
+ {
+  "term": "CHR",
+  "definition": "to return the corresponding character of an ASCII code",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "chr"
+ },
+ {
+  "term": "circular dependency",
+  "definition": "to cause an application to crash",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "circular dependency"
+ },
+ {
+  "term": "client-server network",
+  "definition": "a network setup that uses both clients and servers",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "clientserver network"
+ },
+ {
+  "term": "clipboard",
+  "definition": "a space designed specifically to store items that have been copied for a short time",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "clipboard"
+ },
+ {
+  "term": "clone",
+  "definition": "a computer that operates in a very similar way to the one that it was copied from",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "clone"
+ },
+ {
+  "term": "codec",
+  "definition": "used to compress and decompress a video where the video files are too big",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "codec"
+ },
+ {
+  "term": "coding",
+  "definition": "the process of assigning a code to something for classification or identification",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "coding"
+ },
+ {
+  "term": "communication device",
+  "definition": "any device that allows a computer to connect to a network and communicate with other computers on the network",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "communication device"
+ },
+ {
+  "term": "CompareText",
+  "definition": "to compare two strings for equality, ignoring case",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "comparetext"
+ },
+ {
+  "term": "compiler",
+  "definition": "it takes the entire source code and translates it into machine code before sending the instructions to the CPU",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "compiler"
+ },
+ {
+  "term": "compiling",
+  "definition": "converting (a program) into a machine- code or lower-level form in which the program can be executed",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "compiling"
+ },
+ {
+  "term": "compression",
+  "definition": "data compression is a method used to reduce the size of one or more files",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "compression"
+ },
+ {
+  "term": "computer virus",
+  "definition": "a program, script or macro designed to cause damage, steal personal information, modify data, send emails, display messages or any combination of these",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "computer virus"
+ },
+ {
+  "term": "concatenates",
+  "definition": "to joins strings together into one result string",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "concatenates"
+ },
+ {
+  "term": "concise",
+  "definition": "giving a lot of information clearly and in a few words",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "concise"
+ },
+ {
+  "term": "conditional",
+  "definition": "to put its condition first before executing the looping back",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "conditional"
+ },
+ {
+  "term": "conditionals",
+  "definition": "tell a program to execute different actions depending on whether a condition is true or false",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "conditionals"
+ },
+ {
+  "term": "container",
+  "definition": "a set of files that stores information about the digital file",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "container"
+ },
+ {
+  "term": "contrast ratio",
+  "definition": "a figure used to measure the difference in light intensity between the brightest white and the darkest black",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "contrast ratio"
+ },
+ {
+  "term": "convert",
+  "definition": "the process of changing or causing one data format into another",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "convert"
+ },
+ {
+  "term": "cookie",
+  "definition": "a small amount of text-only data saved on your computer while you browse a certain website to help create custom pages for you upon your return visits or save session information",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "cookie"
+ },
+ {
+  "term": "copyright",
+  "definition": "protection for any published work that helps to prevent that work from being used without prior authorisation",
+  "grades": [
+   "Gr10",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "copyright"
+ },
+ {
+  "term": "core",
+  "definition": "the processing unit that receives instructions and performs calculations or actions based on those instructions",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "core"
+ },
+ {
+  "term": "CPU (central processing unit)",
+  "definition": "the processing unit responsible for processing general instructions",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "cpu"
+ },
+ {
+  "term": "crowdfunding",
+  "definition": "the practice of funding a project or venture by raising money from a large number of people who each contribute a relatively small amount, typically via the internet",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "crowdfunding"
+ },
+ {
+  "term": "CSS (or cascading style sheets)",
+  "definition": "it allows web developers to change the layout and appearance of their web pages",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "css"
+ },
+ {
+  "term": "data cap",
+  "definition": "a term used to describe the data limit",
+  "grades": [
+   "Gr10",
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "data cap"
+ },
+ {
+  "term": "data module",
+  "definition": "a sealed, removable storage module containing magnetic disks and their associated access arms and read/write heads",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "data module"
+ },
+ {
+  "term": "data type",
+  "definition": "a particular kind of data item, as defined by the value it can take, the programming language used, or the operations that can be performed on it.",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "data type"
+ },
+ {
+  "term": "debug",
+  "definition": "to identify and remove errors from computer hardware or software",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "debug"
+ },
+ {
+  "term": "DEC",
+  "definition": "to decrement an ordinal type variable",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "dec"
+ },
+ {
+  "term": "decremental",
+  "definition": "the act or process of decreasing or becoming gradually less",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "decremental"
+ },
+ {
+  "term": "default settings",
+  "definition": "controls of computer hardware or software (or of a device, equipment, or machine) as preset by its manufacturer",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "default settings"
+ },
+ {
+  "term": "Delete",
+  "definition": "to delete a number of characters from a string starting from a start position",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "delete"
+ },
+ {
+  "term": "delimiters",
+  "definition": "to show the start and ends of individual pieces of data",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "delimiters"
+ },
+ {
+  "term": "dependency",
+  "definition": "when one field's value depends on another field's value. When one field's value changes, the other field's value needs to change as well",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "dependency"
+ },
+ {
+  "term": "digit",
+  "definition": "a single character in a numeric system",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "digit"
+ },
+ {
+  "term": "digital divide",
+  "definition": "a term which refers to inequality between one or more groups in terms of access to, use of, or knowledge about information and communication technologies",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "digital divide"
+ },
+ {
+  "term": "directories",
+  "definition": "a directory is another name for a folder. File systems use directories to organise files within a storage device",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "directories"
+ },
+ {
+  "term": "directories disk drive",
+  "definition": "an important component that helps you store and retrieve data from the computer",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "directories disk drive"
+ },
+ {
+  "term": "divisible",
+  "definition": "capable of being divided",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "divisible"
+ },
+ {
+  "term": "domain",
+  "definition": "the location of a website",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "domain"
+ },
+ {
+  "term": "domain name system (DNS)",
+  "definition": "an internet or network server that helps to point domain names or hostnames to their associated IP address",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "domain name system"
+ },
+ {
+  "term": "DOS (distributed operating system)",
+  "definition": "a network that consists of autonomous computers that are connected using a distribution software",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "dos"
+ },
+ {
+  "term": "double variable",
+  "definition": "contains any positive and/or negative numbers (including decimal numbers)",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "double variable"
+ },
+ {
+  "term": "DPI (dots per inch)",
+  "definition": "a measure of the sharpness that is the density of illuminated points on a display screen",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "dpi"
+ },
+ {
+  "term": "drive letter",
+  "definition": "indicates on which storage device the file is saved",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "drive letter"
+ },
+ {
+  "term": "driver",
+  "definition": "a set of instructions that tells your operating system how to communicate with a specific piece of hardware",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "driver"
+ },
+ {
+  "term": "dynamic instantiation",
+  "definition": "when a component or object is created during run-time",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "dynamic instantiation"
+ },
+ {
+  "term": "eBooks",
+  "definition": "short for electronic book, which is a digital publication that can be read on a computer, e-reader, or other electronic device",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "ebooks"
+ },
+ {
+  "term": "embedded devices",
+  "definition": "a device that contains a special-purpose computing system",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "embedded devices"
+ },
+ {
+  "term": "embedded operating system",
+  "definition": "a term used to describe an object, software or hardware that is independent and does not need an external program or device to run it",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "embedded operating system"
+ },
+ {
+  "term": "encapsulation",
+  "definition": "the grouping of attributes and behaviour in one entity",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "encapsulation"
+ },
+ {
+  "term": "encoder",
+  "definition": "a hardware device or software program used to convert or encode data from one format into another",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "encoder"
+ },
+ {
+  "term": "encrypt",
+  "definition": "to conceal data in (something) by converting it into a code",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "encrypt"
+ },
+ {
+  "term": "encrypted message",
+  "definition": "to encode information to prevent anyone other than its intended recipient from viewing it",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "encrypted message"
+ },
+ {
+  "term": "end of file <eof>",
+  "definition": "to indicate the end of a file when the file is saved",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "end of file eof"
+ },
+ {
+  "term": "end of line <eoln>",
+  "definition": "to indicate the end of the line when the [Enter] button is pressed",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "end of line eoln"
+ },
+ {
+  "term": "entity",
+  "definition": "something that is distinct or on its own, like a table",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "entity"
+ },
+ {
+  "term": "Entity Relationship Diagram",
+  "definition": "to show the relationships of entity sets stored in a database",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "entity relationship diagram"
+ },
+ {
+  "term": "entry-level (model)",
+  "definition": "the most basic or affordable version of something",
+  "grades": [
+   "Gr10",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "entrylevel"
+ },
+ {
+  "term": "ergonomics",
+  "definition": "the study of people's efficiency in their working environment",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "ergonomics"
+ },
+ {
+  "term": "e-sport",
+  "definition": "a multiplayer video game played competitively for spectators, typically by professional gamers",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "esport"
+ },
+ {
+  "term": "ethernet",
+  "definition": "a way of connecting computers together in a local area network",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "ethernet"
+ },
+ {
+  "term": "ethernet cables",
+  "definition": "cables that are used to connect a computer to a local area network or one network to another network",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "ethernet cables"
+ },
+ {
+  "term": "ethernet hub",
+  "definition": "a device with more than one ethernet port which allows you to connect multiple computers to the same network",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "ethernet hub"
+ },
+ {
+  "term": "ethical (question)",
+  "definition": "means relating to beliefs about right and wrong",
+  "grades": [
+   "Gr10",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "ethical"
+ },
+ {
+  "term": "event",
+  "definition": "an occurrence of something",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "event"
+ },
+ {
+  "term": "event-driven",
+  "definition": "an event-driven program is one that largely responds to user events or other similar input",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "eventdriven"
+ },
+ {
+  "term": "exception",
+  "definition": "is generally an error condition or event that interrupts the flow of your program",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "exception"
+ },
+ {
+  "term": "Exception Handling",
+  "definition": "a way to prevent a program from crashing when a file does not exist",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "exception handling"
+ },
+ {
+  "term": "executable file",
+  "definition": "a file that is used to perform various functions or operations on a computer",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "executable file"
+ },
+ {
+  "term": "execute",
+  "definition": "a term that describes the process of running a computer software program or command",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "execute"
+ },
+ {
+  "term": "expansion cards",
+  "definition": "a circuit board that can be inserted in a computer to give extra facilities or memory",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "expansion cards"
+ },
+ {
+  "term": "exponentially",
+  "definition": "more and more rapidly",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "exponentially"
+ },
+ {
+  "term": "extension",
+  "definition": "the suffix at the end of a filename that indicates what type of file it is",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "extension"
+ },
+ {
+  "term": "factor",
+  "definition": "any number that can be divided into another number (the multiple) without leaving a remainder",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "factor"
+ },
+ {
+  "term": "fair-usage policy (FUP)",
+  "definition": "a data limit placed on uncapped internet accounts. According to this policy, an internet account will not be capped or limited unless the user uses too much data, in which case their internet access may be slowed to the point where it is unusable",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "fairusage policy"
+ },
+ {
+  "term": "feedback",
+  "definition": "whenever a user interacts with an application, they should receive feedback that acknowledges the interaction and informs them of what's happening",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical",
+   "Theory"
+  ],
+  "sort": "feedback"
+ },
+ {
+  "term": "file",
+  "definition": "a container in a computer system for storing information",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "file"
+ },
+ {
+  "term": "file path",
+  "definition": "the location that a file or folder is saved in a computer's file system",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "file path"
+ },
+ {
+  "term": "file transfer protocol (FTP)",
+  "definition": "a file transfer protocol used to send and receive files",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "file transfer protocol"
+ },
+ {
+  "term": "FileExists",
+  "definition": "to determine whether a file exists or not",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "fileexists"
+ },
+ {
+  "term": "first argument",
+  "definition": "is a string that holds instructions for formatting",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "first argument"
+ },
+ {
+  "term": "Floor",
+  "definition": "to round a real number down to the lowest integer value",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "floor"
+ },
+ {
+  "term": "flow chart",
+  "definition": "a tool that is used to show visually how an algorithm works",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "flow chart"
+ },
+ {
+  "term": "folder",
+  "definition": "a digital folder stores and organises data within the file system of a storage device",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "folder"
+ },
+ {
+  "term": "formal parameter",
+  "definition": "to declare variable(s) next to the procedure name",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "formal parameter"
+ },
+ {
+  "term": "format",
+  "definition": "prepare to receive data",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "format"
+ },
+ {
+  "term": "Frac",
+  "definition": "to return the decimal part of a real number",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "frac"
+ },
+ {
+  "term": "freemium",
+  "definition": "a business model, especially on the Internet, whereby basic services are provided free of charge while more advanced features must be paid for",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "freemium"
+ },
+ {
+  "term": "freeware",
+  "definition": "software that is completely free to use for as long as you want to use it",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "freeware"
+ },
+ {
+  "term": "FTTH (fibre to the home)",
+  "definition": "the installation and use of optical fibre from a central point directly to individual buildings such as residences, apartment buildings and businesses to provide unprecedented high- speed internet access",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "ftth"
+ },
+ {
+  "term": "function",
+  "definition": "the operation of something in a particular way",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "function"
+ },
+ {
+  "term": "gigabyte (GB)",
+  "definition": "it is a multiple of the unit byte for digital information. a gigabyte is 1 000 000 000 bytes",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "gigabyte"
+ },
+ {
+  "term": "global",
+  "definition": "is a programming language construct, a variable that is declared outside and function and is accessible to all the functions throughout the program",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "global"
+ },
+ {
+  "term": "GPS (global positioning satellite)",
+  "definition": "a system of satellites, computers, and receivers that allows land-, sea-, and airborne users to determine their exact location, velocity and time 24 hours a day in all weather conditions, anywhere in the world",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "gps"
+ },
+ {
+  "term": "graphical interface element",
+  "definition": "elements used by the gui to make it easier to interact with a computer, for example checkboxes, buttons, drop lists, icons, menu bars, etc.",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "graphical interface element"
+ },
+ {
+  "term": "graphics processing unit (GPU)",
+  "definition": "the part of a computer responsible for processing the instructions that create a picture on the screen",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "graphics processing unit"
+ },
+ {
+  "term": "green computing",
+  "definition": "the environmentally responsible and eco-friendly use of computers and their resources",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "green computing"
+ },
+ {
+  "term": "greenhouse gases",
+  "definition": "a gas that contributes to the greenhouse effect by absorbing infrared radiation",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "greenhouse gases"
+ },
+ {
+  "term": "GUI (graphical user interface)",
+  "definition": "an interface through which a user interacts with electronic devices such as computers, handheld devices and other appliances",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "gui"
+ },
+ {
+  "term": "hacker",
+  "definition": "a person who uses computers to gain unauthorised access to data",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "hacker"
+ },
+ {
+  "term": "HAN (home area network)",
+  "definition": "a network within a user's home that connects a person's digital devices",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "han"
+ },
+ {
+  "term": "hard coded",
+  "definition": "data or parameters fixed in a program in such a way that they cannot be changed without modifying the program",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "hard coded"
+ },
+ {
+  "term": "hardware",
+  "definition": "the collection of physical parts of a computer system",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "hardware"
+ },
+ {
+  "term": "hexadecimal",
+  "definition": "a numbering system that has 16 unique numbers",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "hexadecimal"
+ },
+ {
+  "term": "hexadecimal system",
+  "definition": "a numbering system that has 16 unique numbers",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "hexadecimal system"
+ },
+ {
+  "term": "hierarchy",
+  "definition": "refers to the organisation of data and program files in a top-to-bottom structure wherein access to the data starts at the top and proceeds downward throughout the levels of the hierarchy",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "hierarchy"
+ },
+ {
+  "term": "high-level programming language",
+  "definition": "a programming language that enables a programmer to write programs that are more or less independent of a particular type of computer and that are closer to human languages and further from machine languages",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "highlevel programming language"
+ },
+ {
+  "term": "homing pigeon",
+  "definition": "a pigeon trained to fly home from a great distance away",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "homing pigeon"
+ },
+ {
+  "term": "homogenous",
+  "definition": "elements of the same type",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "homogenous"
+ },
+ {
+  "term": "hotkey",
+  "definition": "one or more keys used to perform a menu function or other common functions in an application",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Practical",
+   "Theory"
+  ],
+  "sort": "hotkey"
+ },
+ {
+  "term": "hotlinking",
+  "definition": "the action of linking to an object on another server",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "hotlinking"
+ },
+ {
+  "term": "HREF attribute",
+  "definition": "hypertext reference sets the target location for a link",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "href attribute"
+ },
+ {
+  "term": "hypertext transfer protocol secure (HTTPS)",
+  "definition": "adds a layer of security on the data in transit and enables encrypted communication and secure connection between a remote user and the primary web server",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "hypertext transfer protocol secure"
+ },
+ {
+  "term": "icon",
+  "definition": "a picture that shows a file, folder or a program",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "icon"
+ },
+ {
+  "term": "ICQ",
+  "definition": "ICQ (\"I Seek You\") is a program you can download that will let you know when friends and contacts are also online on the Internet. ICQ allows you to page them, chat with them, and initiate and participate in PC-to-PC calls, PC-to-phone and phone-to-phone calling cards calls",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "icq"
+ },
+ {
+  "term": "immersive (websites)",
+  "definition": "a version of the online world that incorporates advanced technologies to enhance user engagement and blur the line between the user's physical reality and the digital environment",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "immersive"
+ },
+ {
+  "term": "implementation plan",
+  "definition": "step-by-step guide, describing how to solve the problem",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "implementation plan"
+ },
+ {
+  "term": "INC",
+  "definition": "to increment the ordinal type variable passed to it",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "inc"
+ },
+ {
+  "term": "incremental",
+  "definition": "relating to or denoting an increase or addition",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "incremental"
+ },
+ {
+  "term": "independent",
+  "definition": "to run on its own",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "independent"
+ },
+ {
+  "term": "index",
+  "definition": "the position of the element in an array",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "index"
+ },
+ {
+  "term": "influencers",
+  "definition": "people who have built a reputation for their knowledge and expertise on a particular topic",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "influencers"
+ },
+ {
+  "term": "information and communication technology (ICT)",
+  "definition": "a wide range of technological tools and resources used to communicate and create, spread, store and manage information",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "information and communication technology"
+ },
+ {
+  "term": "infringe",
+  "definition": "the violation of a law or a right",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "infringe"
+ },
+ {
+  "term": "infringement",
+  "definition": "the action of breaking the terms of a law or agreement",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "infringement"
+ },
+ {
+  "term": "inner loop",
+  "definition": "the inner part of a nested loop",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "inner loop"
+ },
+ {
+  "term": "input device",
+  "definition": "any hardware or peripheral device that allows you to enter data into a computer or interact with a computer",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "input device"
+ },
+ {
+  "term": "input validation",
+  "definition": "a technique used by programmers to check the user's input before processing it",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "input validation"
+ },
+ {
+  "term": "Insert",
+  "definition": "to add an empty row at the current position of your database table",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "insert"
+ },
+ {
+  "term": "instance",
+  "definition": "an example or single occurrence of something",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "instance"
+ },
+ {
+  "term": "instances of the class",
+  "definition": "a data type that describes the attributes and behaviour of the object to be model electronically",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "instances of the class"
+ },
+ {
+  "term": "instantiate",
+  "definition": "represent as or by an instant",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "instantiate"
+ },
+ {
+  "term": "integer",
+  "definition": "contains any positive or negative whole number (i.e. a number without a decimal)",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "integer"
+ },
+ {
+  "term": "integrated development environment",
+  "definition": "(or IDE) a programming environment integrated into a software application that provides a GUI builder, a text or code editor, a compiler and/or interpreter and a debugger",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "integrated development environment"
+ },
+ {
+  "term": "intellectual property (IP)",
+  "definition": "a term that describes the application of the mind to develop something new or original",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "intellectual property"
+ },
+ {
+  "term": "internet protocol (IP)",
+  "definition": "the fundamental protocol for communications on the internet",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "internet protocol"
+ },
+ {
+  "term": "internet relay chat (IRC)",
+  "definition": "a system for chatting that involves a set of rules and conventions and client/server software",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "internet relay chat"
+ },
+ {
+  "term": "internet service provider (ISP)",
+  "definition": "a company that provides internet access to users or subscribers of its service",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "internet service provider"
+ },
+ {
+  "term": "interpreter",
+  "definition": "a computer program that reads the first language of the code, interprets it into machine code and sends it to the CPU, before reading the next line of code",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "interpreter"
+ },
+ {
+  "term": "IP address",
+  "definition": "a unique string of numbers separated by full stops that identifies each computer using the internet protocol to communicate over a network",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "ip address"
+ },
+ {
+  "term": "IPS (in-plane switching) panel",
+  "definition": "a type of LED display panel technology characterised by the crystal molecules moving parallel to the panel plane instead of perpendicular to it",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "ips panel"
+ },
+ {
+  "term": "iris and retina scanners",
+  "definition": "scanners that rely on unique physiological characteristics of the eye to identify an individual",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "iris and retina scanners"
+ },
+ {
+  "term": "iteration",
+  "definition": "repetition",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "iteration"
+ },
+ {
+  "term": "KB (Kilobyte)",
+  "definition": "the smallest unit of measurement greater than a byte. one kilobyte is technically 1 000 bytes",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "kb"
+ },
+ {
+  "term": "key",
+  "definition": "a field used to uniquely identify records in a table",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "key"
+ },
+ {
+  "term": "keyboarding",
+  "definition": "refers to a set of skills required to operate a keyboard smoothly while typing. this includes understanding the computer keyboard layout and its functions",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "keyboarding"
+ },
+ {
+  "term": "keylogger",
+  "definition": "a software program or hardware device that is used to monitor and log each of the keys a user types into a computer keyboard",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "keylogger"
+ },
+ {
+  "term": "kilobyte (KB)",
+  "definition": "the smallest unit of measurement greater than a byte. One kilobyte is technically 1 000 bytes",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "kilobyte"
+ },
+ {
+  "term": "laggy",
+  "definition": "slow to react",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "laggy"
+ },
+ {
+  "term": "LAN (Local area network)",
+  "definition": "a computer network that covers a fairly small area like a home, office or building. the network usually has a limited number of computers on it (between 2 and 25), although there is no absolute limit",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "lan"
+ },
+ {
+  "term": "LAN party",
+  "definition": "describes a get together of individuals and their computers. These parties are held to play network games with other individuals and to share files",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "lan party"
+ },
+ {
+  "term": "latency",
+  "definition": "a term to describe the total time it takes a data packet to travel from one node to another",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "latency"
+ },
+ {
+  "term": "LED",
+  "definition": "light-emitting diode is a semiconductor that illuminates when an electrical charge passes through it",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "led"
+ },
+ {
+  "term": "linear search",
+  "definition": "is a process that checks every element in the list sequentially until the desired element is found",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "linear search"
+ },
+ {
+  "term": "link",
+  "definition": "on the internet, a link is more appropriately referred to as a hyperlink and is what connects web pages to other web pages",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "link"
+ },
+ {
+  "term": "list",
+  "definition": "allows you to store a large number of elements which can be accessed using an index and which must all be of the same type",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "list"
+ },
+ {
+  "term": "local area network (LAN)",
+  "definition": "a computer network that covers a small area like a home, office or building. The network usually has a limited number of computers on it (between 2 and 25), although there is no absolute limit",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "local area network"
+ },
+ {
+  "term": "local variable",
+  "definition": "variables that have a local scope",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "local variable"
+ },
+ {
+  "term": "location-based computing",
+  "definition": "it refers to a number of different technologies that use a person's location as part of a computer program",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "locationbased computing"
+ },
+ {
+  "term": "log on screen",
+  "definition": "the screen that allows authorised users access to the computer",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "log on screen"
+ },
+ {
+  "term": "logic error",
+  "definition": "these errors occur when there is a logical error or design problem in your program",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "logic error"
+ },
+ {
+  "term": "logical file",
+  "definition": "is a variable (in RAM) that points to the physical file on your storage medium",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "logical file"
+ },
+ {
+  "term": "loop",
+  "definition": "a sequence of an instruction that is continually repeated until a certain condition is reached",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "loop"
+ },
+ {
+  "term": "LowerCase",
+  "definition": "to converts uppercase characters in a string to lowercase",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "lowercase"
+ },
+ {
+  "term": "Luhn algorithm",
+  "definition": "is a simple checksum formula used t validate a variety of identification numbers, such as credit card numbers, IMEI numbers, and Canadian Social Insurance Numbers",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "luhn algorithm"
+ },
+ {
+  "term": "lumens",
+  "definition": "the SI measurement for brightness.",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "lumens"
+ },
+ {
+  "term": "machine code",
+  "definition": "the executable instruction code provided by all running computer system programs and applications",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "machine code"
+ },
+ {
+  "term": "malicious (application)/malware",
+  "definition": "any application/software that is designed to change your settings, delete software, cause errors, watch browsing habits, or open the computer to attacks",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "malicious malware"
+ },
+ {
+  "term": "mathematical operators",
+  "definition": "the symbols used to tell Delphi to add, subtract, multiply or divide two numbers",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "mathematical operators"
+ },
+ {
+  "term": "mediated search",
+  "definition": "a specific website's search being completed by a general search engine",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "mediated search"
+ },
+ {
+  "term": "megabyte (MB)",
+  "definition": "One megabyte is equal to 1 000 000 bytes, 1 000 kilobytes and precedes the gigabyte unit of measurement. It is often used to measure the size of large files",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "megabyte"
+ },
+ {
+  "term": "menu",
+  "definition": "a list of options or commands for the user can select to execute the proper application function",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "menu"
+ },
+ {
+  "term": "mesh",
+  "definition": "a type of network in which a device (node) transmits its own data as well as serves as a relay for other devices (nodes)",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "mesh"
+ },
+ {
+  "term": "method (Delphi)",
+  "definition": "a method is a function that is programmed into an object (such as a label or a string) by the creators of Delphi",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "method"
+ },
+ {
+  "term": "method overloading",
+  "definition": "to have more than one method with the same name",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "method overloading"
+ },
+ {
+  "term": "method signature",
+  "definition": "to name a method and its formal parameters list",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "method signature"
+ },
+ {
+  "term": "methods",
+  "definition": "predefined instructions",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "methods"
+ },
+ {
+  "term": "MHz (megaherz)",
+  "definition": "used to measure the transmission speed of electronic devices, including channels, buses and the computer's internal clock",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "mhz"
+ },
+ {
+  "term": "Microsoft WordPad",
+  "definition": "a basic word processor that is included with almost all versions of Microsoft Windows from Windows 95 onwards",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "microsoft wordpad"
+ },
+ {
+  "term": "mnemonic",
+  "definition": "a tool to help remember facts or a large amount of information",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "mnemonic"
+ },
+ {
+  "term": "MNP (mobile network provider)",
+  "definition": "a telecommunications service provider organisation that provides wireless voice and data communication for its subscribed mobile users",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "mnp"
+ },
+ {
+  "term": "mobile network provider (MNP)",
+  "definition": "a provider of wireless communications services that owns or controls all the elements necessary to deliver services to end-users",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "mobile network provider"
+ },
+ {
+  "term": "mobility",
+  "definition": "the ability to move or be moved freely and easily",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "mobility"
+ },
+ {
+  "term": "modular",
+  "definition": "a software engineering approach geared toward developing software applications in terms of modules or components",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "modular"
+ },
+ {
+  "term": "msn messenger",
+  "definition": "the instant messaging (IM) service that was part of Microsoft's online offerings launched in the mid-1990s",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "msn messenger"
+ },
+ {
+  "term": "multimedia",
+  "definition": "the integration of multiple forms of media such as text, graphics, audio, video, etc.",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "multimedia"
+ },
+ {
+  "term": "multiprocessing",
+  "definition": "the use of two or more CPUs within a single computer system",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "multiprocessing"
+ },
+ {
+  "term": "multithreading",
+  "definition": "a technique by which a single set of code can be used by several processors at different stages of execution",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "multithreading"
+ },
+ {
+  "term": "naming convention",
+  "definition": "to name things (generally agreed scheme)",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "naming convention"
+ },
+ {
+  "term": "nanometre",
+  "definition": "a unit of length in the metric system, equal to one billionth of a metre",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "nanometre"
+ },
+ {
+  "term": "NAS (network attached storage)",
+  "definition": "a dedicated server, also referred to as an appliance, used for file storage and sharing.",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "nas"
+ },
+ {
+  "term": "navigation bar",
+  "definition": "a graphical bar located at the top of a page that links users to other main portions of the page",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "navigation bar"
+ },
+ {
+  "term": "netiquette",
+  "definition": "a term used to describe the unwritten rules of internet courtesy and good manners",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "netiquette"
+ },
+ {
+  "term": "network adapter/dongle",
+  "definition": "a piece of hardware that can be added to a computer which allows it to connect to a network",
+  "grades": [
+   "Gr10",
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "network adapter dongle"
+ },
+ {
+  "term": "network administrator",
+  "definition": "a person responsible for keeping an organisation's computer network up-to-date and operating as intended",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "network administrator"
+ },
+ {
+  "term": "network architecture",
+  "definition": "the overall structure of how a network is laid out",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "network architecture"
+ },
+ {
+  "term": "network cable",
+  "definition": "see ethernet cables",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "network cable"
+ },
+ {
+  "term": "network medium",
+  "definition": "communication channels used to interconnect nodes on a computer network",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "network medium"
+ },
+ {
+  "term": "network or server operating system",
+  "definition": "an operating system that is designed to help other computers on a network.",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "network or server operating system"
+ },
+ {
+  "term": "NFC (near field communications)",
+  "definition": "a wireless technology that allows a device to collect and interpret data from another closely located NFC device or tag.",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "nfc"
+ },
+ {
+  "term": "NIC (network interface controller)",
+  "definition": "a computer hardware component that connects a computer to a computer network",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "nic"
+ },
+ {
+  "term": "niche field",
+  "definition": "a specialised field or area",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "niche field"
+ },
+ {
+  "term": "noise",
+  "definition": "refers to random data that can either accidentally be sent with a signal or join a signal automatically which hides the actual data you meant to send.",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "noise"
+ },
+ {
+  "term": "non-local",
+  "definition": "is a variable that is not defined within the local scope",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "nonlocal"
+ },
+ {
+  "term": "nonverbal communication",
+  "definition": "communication without the use of spoken language including gestures, facial expressions and body positions",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "nonverbal communication"
+ },
+ {
+  "term": "normalise",
+  "definition": "the action of converting a database to a standardised form",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "normalise"
+ },
+ {
+  "term": "Notepad",
+  "definition": "an application in Microsoft Windows used for opening and creating text files",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "notepad"
+ },
+ {
+  "term": "notepad application",
+  "definition": "a word processing program, which allows changing of text in a computer file",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "notepad application"
+ },
+ {
+  "term": "notification tray",
+  "definition": "it contains miniature icons for easy access to system functions such as antivirus settings, printer, modem, sound volume, battery status, and more",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "notification tray"
+ },
+ {
+  "term": "noun-verb analysis",
+  "definition": "a planning technique used to analyse a problem statement",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "nounverb analysis"
+ },
+ {
+  "term": "null",
+  "definition": "to represent an empty value",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "null"
+ },
+ {
+  "term": "obesity",
+  "definition": "being significantly overweight",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "obesity"
+ },
+ {
+  "term": "object-oriented",
+  "definition": "a software programming model constructed around objects",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "objectoriented"
+ },
+ {
+  "term": "Object-Oriented Programming (OOP)",
+  "definition": "refers to a type of computer programming (software design) in which programmers define not only the data type of a data structure, but also the types of operations (functions) that can be applied to the data structure",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "objectoriented programming"
+ },
+ {
+  "term": "OCR",
+  "definition": "optical character recognition software converts the text on a picture to text that can be used in a word processing application",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "ocr"
+ },
+ {
+  "term": "ONT (optical network terminal) device",
+  "definition": "optical network termination device refers to the consumer end equipment in an optical fibre to the home (FTTH) link",
+  "grades": [
+   "Gr10",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "ont device"
+ },
+ {
+  "term": "open-source software",
+  "definition": "software that is not only free to use, but the source code is also free, which means anyone can download the code, use it and change it",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "opensource software"
+ },
+ {
+  "term": "operating system",
+  "definition": "the low-level software that supports a computer's basic operations",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "operating system"
+ },
+ {
+  "term": "optical (sensor)",
+  "definition": "it converts light rays into an electronic signal",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "optical"
+ },
+ {
+  "term": "ORD",
+  "definition": "to return the ordinal value of a character",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "ord"
+ },
+ {
+  "term": "OS (operating system)",
+  "definition": "the system software allowing a user to communicate with a computer",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "os"
+ },
+ {
+  "term": "outer loop",
+  "definition": "the outer part of a nested loop",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "outer loop"
+ },
+ {
+  "term": "output device",
+  "definition": "any device used to send data from a computer to another device or user",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "output device"
+ },
+ {
+  "term": "overclocking",
+  "definition": "the process of running a computer component at a faster clock rate than the manufacturer's specifications",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "overclocking"
+ },
+ {
+  "term": "packet loss",
+  "definition": "it refers to the amount of data (number of packets) that fails to arrive at its intended destination",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "packet loss"
+ },
+ {
+  "term": "Pagefile",
+  "definition": "a reserved portion of a hard disk that is used as an extension of random access memory (RAM) for data in RAM that has not been used recently",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "pagefile"
+ },
+ {
+  "term": "PAN (personal area network)",
+  "definition": "a network built for a single person and contains all the devices connected to this network",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "pan"
+ },
+ {
+  "term": "partial dependency",
+  "definition": "a database dependency in which a field is only dependent on some items within the same record",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "partial dependency"
+ },
+ {
+  "term": "password",
+  "definition": "a basic security mechanism that consists of a secret phrase created using alphabetic (abc), numeric (123), alphanumeric (a14b) and symbolic characters ($%*), or a combination thereof",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "password"
+ },
+ {
+  "term": "PCB (Printed circuit board)",
+  "definition": "an electronic circuit used in devices to provide mechanical support and a pathway to its electronic components",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "pcb"
+ },
+ {
+  "term": "PCI (Peripheral Component Interconnect)",
+  "definition": "an interconnection system between a microprocessor and attached devices in which expansion slots are spaced closely for high speed operation",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "pci"
+ },
+ {
+  "term": "peer-to-peer network",
+  "definition": "a network that does not have a central computer or dedicated server; i.e., all computers are independent",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "peertopeer network"
+ },
+ {
+  "term": "peripheral",
+  "definition": "hardware input device or output device that gives a computer additional functionality",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "peripheral"
+ },
+ {
+  "term": "physical file",
+  "definition": "to name an external file name found on a storage device and contains the actual data",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "physical file"
+ },
+ {
+  "term": "Pi",
+  "definition": "is a predefined constant that returns a real number giving a useful approximation of the value Pi",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "pi"
+ },
+ {
+  "term": "piracy",
+  "definition": "the unauthorised use or reproduction of another's work",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "piracy"
+ },
+ {
+  "term": "pixel",
+  "definition": "short for picture element. These small little dots are what make up the images on computer displays",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "pixel"
+ },
+ {
+  "term": "plain text",
+  "definition": "text that has no special formatting such as fonts, font sizes or images",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "plain text"
+ },
+ {
+  "term": "plug-in applications",
+  "definition": "extra applications that can be installed inside software to increase its functionality",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "plugin applications"
+ },
+ {
+  "term": "podcast",
+  "definition": "a digital recording of music, news or other media that can be downloaded from the internet to a portable media player",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "podcast"
+ },
+ {
+  "term": "Pos",
+  "definition": "to return to the start position of one string within another string as an integer",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "pos"
+ },
+ {
+  "term": "POST (Power-on self test)",
+  "definition": "a diagnostic testing sequence that a computer's basic input/ output system runs to determine if the computer keyboard, RAM, disk drives, and other hardware are working correctly",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "post"
+ },
+ {
+  "term": "post command",
+  "definition": "to permanently save the values to the database table",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "post command"
+ },
+ {
+  "term": "POWER",
+  "definition": "to raise a base to a power and returns a real answer",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "power"
+ },
+ {
+  "term": "prefrontal",
+  "definition": "the foremost part of the brain",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "prefrontal"
+ },
+ {
+  "term": "privacy",
+  "definition": "refers to information shared with visiting sites, how that information is used, who that information is shared with, or if that information is used to track users",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "privacy"
+ },
+ {
+  "term": "problem solving",
+  "definition": "problem solving refers to the process through which a solution is found to a complex problem",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "problem solving"
+ },
+ {
+  "term": "problem statement",
+  "definition": "a concise description of an issue to be addressed or a condition to be improved upon",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "problem statement"
+ },
+ {
+  "term": "procedure",
+  "definition": "an official way of doing something",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "procedure"
+ },
+ {
+  "term": "processing device",
+  "definition": "any device that receives the data, performs a set of instructions, and then returns information to the user",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "processing device"
+ },
+ {
+  "term": "processor multitasking",
+  "definition": "when a single processor splits its time between different processes",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "processor multitasking"
+ },
+ {
+  "term": "programmer",
+  "definition": "a person who writes computer programs",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "programmer"
+ },
+ {
+  "term": "properties",
+  "definition": "the components or building blocks",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "properties"
+ },
+ {
+  "term": "proprietary (connection)",
+  "definition": "a term used to describe a connection that is only compatible with specific hardware, software, computer or manufacturer",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "proprietary"
+ },
+ {
+  "term": "proprietary software",
+  "definition": "copyrighted software that prohibits the redistribution or modification of its program",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "proprietary software"
+ },
+ {
+  "term": "protocol",
+  "definition": "a standard used to define a method of exchanging data over a computer network, such as LAN, Internet, Intranet, etc.",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "protocol"
+ },
+ {
+  "term": "QR (quick response code)",
+  "definition": "a two-dimensional barcode installed on a smartphone, allowing the user to scan the QR Code and view the data stored in it",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "qr"
+ },
+ {
+  "term": "query",
+  "definition": "a field or option used to locate information within a database or other location",
+  "grades": [
+   "Gr10",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "query"
+ },
+ {
+  "term": "Random",
+  "definition": "to generate a random number from 0 to less than 1",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "random"
+ },
+ {
+  "term": "random access memory (RAM)",
+  "definition": "a very fast storage device that can only store a small amount of information at a time",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "random access memory"
+ },
+ {
+  "term": "RandomRange",
+  "definition": "to generate a random integer number from Num1 to one less than Num2",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "randomrange"
+ },
+ {
+  "term": "ransomware",
+  "definition": "a malicious program that infects a computer and then locks some part of it, preventing the user access to their computer or data",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "ransomware"
+ },
+ {
+  "term": "rapid application development (RAD)",
+  "definition": "a programming system that enables programmers to build working programs quickly",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "rapid application development"
+ },
+ {
+  "term": "read-only memory (ROM)",
+  "definition": "type of computer memory that keeps its contents even when the computer or device is turned off",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "readonly memory"
+ },
+ {
+  "term": "refresh rate",
+  "definition": "determines how quickly the image on the monitor can be updated with the newest information",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "refresh rate"
+ },
+ {
+  "term": "related information",
+  "definition": "information belonging in the same group",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "related information"
+ },
+ {
+  "term": "relational database",
+  "definition": "a database structured to recognise relations between stored items of information",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "relational database"
+ },
+ {
+  "term": "rendering",
+  "definition": "the process of taking a computer image or file and convert it into another format or apply a modification such as shading or shadows",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "rendering"
+ },
+ {
+  "term": "resistive (touchscreen)",
+  "definition": "a resistive screen consists of a number of layers. when the screen is pressed, the outer layer is pushed onto the next layer and the technology senses that pressure is being applied and registers input",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "resistive"
+ },
+ {
+  "term": "resolution",
+  "definition": "it refers to the clarity of the text and images displayed on the computer screen",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "resolution"
+ },
+ {
+  "term": "reusability",
+  "definition": "is an important OOP principle",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "reusability"
+ },
+ {
+  "term": "revolutions per minute (RPM)",
+  "definition": "the number of turns in one minute",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "revolutions per minute"
+ },
+ {
+  "term": "Round",
+  "definition": "to round a real number to an integer value",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "round"
+ },
+ {
+  "term": "runtime error",
+  "definition": "this occurs when you ask your program to do a task that is either impossible or is impossible under certain circumstances",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "runtime error"
+ },
+ {
+  "term": "sandbox",
+  "definition": "a security mechanism for separating running programs to prevent system failures or software vulnerabilities from spreading",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "sandbox"
+ },
+ {
+  "term": "sanitise",
+  "definition": "the act of cleaning data and removing problems from it",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "sanitise"
+ },
+ {
+  "term": "scraper",
+  "definition": "a program that scans through websites, saving the visible information to a database",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "scraper"
+ },
+ {
+  "term": "screenshot",
+  "definition": "an image of a computer desktop that can be saved as a graphics file",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "screenshot"
+ },
+ {
+  "term": "search engine",
+  "definition": "a program that uses a database to search for keywords or key terms specified by the user",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "search engine"
+ },
+ {
+  "term": "second argument",
+  "definition": "holds the values that needs to be converted into a formatted string",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "second argument"
+ },
+ {
+  "term": "selection sort",
+  "definition": "to select the element that should go in each array position either in ascending or descending order sequence",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "selection sort"
+ },
+ {
+  "term": "Serial AT Attachment (SATA)",
+  "definition": "a computer bus interface used to connect host bus adapters with mass storage devices like optical drives and hard drives",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "serial at attachment"
+ },
+ {
+  "term": "server",
+  "definition": "computers that provide (or serve) information to other computers (like webpages)",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "server"
+ },
+ {
+  "term": "SETLENGTH",
+  "definition": "to change the size of a string",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "setlength"
+ },
+ {
+  "term": "shape (the connection)",
+  "definition": "a technique used to reduce the amount of traffic on a network by limiting the speed of applications that use the most bandwidth",
+  "grades": [
+   "Gr10",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "shape"
+ },
+ {
+  "term": "shared library files",
+  "definition": "files that contain several very useful instructions that programs may wish to use",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "shared library files"
+ },
+ {
+  "term": "shareware",
+  "definition": "software that you get to use for free at the beginning, but after a while you must pay to continue using the software",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "shareware"
+ },
+ {
+  "term": "shortcuts",
+  "definition": "an alternative way to do something that is shorter than the one usually taken",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "shortcuts"
+ },
+ {
+  "term": "SIM (subscriber identity module)",
+  "definition": "a microchip in a mobile phone that connects it to a particular phone network",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "sim"
+ },
+ {
+  "term": "simulation",
+  "definition": "a way to model random events, such that simulated outcomes closely match real-world outcomes",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "simulation"
+ },
+ {
+  "term": "SMART scan",
+  "definition": "a powerful QR reader and barcode scanner that supports all kinds of major barcode formats",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "smart scan"
+ },
+ {
+  "term": "sneakernet",
+  "definition": "the method of transmitting electronic information by personally carrying it from one place to another on a removable medium such as hard drives, flash drives and optical disks",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "sneakernet"
+ },
+ {
+  "term": "snopes",
+  "definition": "one of the first online fact-checking websites",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "snopes"
+ },
+ {
+  "term": "social media",
+  "definition": "a form of electronic communication through which users create online communities to share information, ideas, personal messages, and other content",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "social media"
+ },
+ {
+  "term": "social network",
+  "definition": "a website (or other application) dedicated to allowing users to communicate and interact with each other using messages, comments, images, etc.",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "social network"
+ },
+ {
+  "term": "software",
+  "definition": "the set of instructions a computer uses to complete any task",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "software"
+ },
+ {
+  "term": "software engineer",
+  "definition": "a person who designs and creates system level software like operating systems and database management systems",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "software engineer"
+ },
+ {
+  "term": "software interface",
+  "definition": "it allows either two pieces of software to communicate with each other (software-software interface), or to for software to communicate with a hardware device",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "software interface"
+ },
+ {
+  "term": "solid-state drives (or SSDS)",
+  "definition": "a type of internal hard drive that, unlike normal hard drives, does not have any moving parts. This makes them many times faster",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "solidstate drives"
+ },
+ {
+  "term": "sorted",
+  "definition": "to sort an element in numerical order",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "sorted"
+ },
+ {
+  "term": "source code",
+  "definition": "a term used to describe text that is written using the protocol of a particular language",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "source code"
+ },
+ {
+  "term": "source code files",
+  "definition": "files containing instructions that are created when a computer program is created",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "source code files"
+ },
+ {
+  "term": "spam",
+  "definition": "refers to the use of electronic messaging systems to send out unrequested or unwanted messages in bulk",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "spam"
+ },
+ {
+  "term": "SQRT",
+  "definition": "to return the square root of a number",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "sqrt"
+ },
+ {
+  "term": "stand-alone operating systems",
+  "definition": "a complete operating system that works directly on a computer (or smartphone) to make sure that the tasks of the operating system are completed",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "standalone operating systems"
+ },
+ {
+  "term": "star topology",
+  "definition": "all devices are connected to a central router which manages all the communication on the network",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "star topology"
+ },
+ {
+  "term": "static",
+  "definition": "fixed or unchanging",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "static"
+ },
+ {
+  "term": "step through",
+  "definition": "to step through means that you are working through a program line by line",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "step through"
+ },
+ {
+  "term": "storage device",
+  "definition": "any computing hardware that is used for storing, porting and extracting data files and objects",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "storage device"
+ },
+ {
+  "term": "STR",
+  "definition": "to convert an integer or real number into a string, with optional basic formatting",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "str"
+ },
+ {
+  "term": "stream(-ing)",
+  "definition": "data streaming is when a multimedia file can be played back without being completely downloaded first",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "stream"
+ },
+ {
+  "term": "streaming",
+  "definition": "is when a multimedia file can be played back without being completely downloaded first",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "streaming"
+ },
+ {
+  "term": "string",
+  "definition": "variable made up of a sequence of numbers, letters and symbols",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "string"
+ },
+ {
+  "term": "subjective",
+  "definition": "based on or influenced by personal feelings, tastes or opinions",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "subjective"
+ },
+ {
+  "term": "subwoofer",
+  "definition": "a complete loudspeaker or loudspeaker component designed to reproduce low-pitched audio frequencies known as bass",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "subwoofer"
+ },
+ {
+  "term": "surround sound",
+  "definition": "a technique for enriching the quality of the sound from an audio source with additional audio channels from speakers that surround the listener",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "surround sound"
+ },
+ {
+  "term": "switch (hub)",
+  "definition": "works in the same way as an ethernet hub with one difference, it is more intelligent. Rather than sending information to all ports, it sends the information only to the correct computer",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "switch"
+ },
+ {
+  "term": "synchronous (communication)",
+  "definition": "real- time communication between two people",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "synchronous"
+ },
+ {
+  "term": "synchronous communication",
+  "definition": "a transmission technique referring to events and processes that occur simultaneously or have dependencies relating to time or another event that relies on time",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "synchronous communication"
+ },
+ {
+  "term": "syntax",
+  "definition": "refers to the specific rules of a language",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "syntax"
+ },
+ {
+  "term": "syntax error",
+  "definition": "occurs when you break the rules of the programming language",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "syntax error"
+ },
+ {
+  "term": "system software",
+  "definition": "a type of computer program that is designed to run a computer's hardware and application programs",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "system software"
+ },
+ {
+  "term": "tags",
+  "definition": "elements that tell the web browser how to interpret the information inside these elements, determining what it displays in any section",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "tags"
+ },
+ {
+  "term": "taskbar",
+  "definition": "the bar at the bottom of the screen that contains the start button on the left side and the systray on the right. it also includes the current time on the far-right side and can hold shortcuts to programs directly to the right of the start button",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "taskbar"
+ },
+ {
+  "term": "telecommunications",
+  "definition": "the technology involved in sending information over long distances using electronic equipment like radios and telephones",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "telecommunications"
+ },
+ {
+  "term": "tendonitis",
+  "definition": "a painful inflammation of the tendons that often results from overuse. A tendon is tissue that attaches muscle to the bone",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "tendonitis"
+ },
+ {
+  "term": "terabyte (TB)",
+  "definition": "a terabyte is a unit of information equal to one million million (1012) bytes",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "terabyte"
+ },
+ {
+  "term": "thread",
+  "definition": "a way for a program to split itself into two or more simultaneously running tasks",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "thread"
+ },
+ {
+  "term": "throttle (the connection)",
+  "definition": "throttling refers to limiting the speed of an internet connection, usually for a short period of time, under specific circumstances",
+  "grades": [
+   "Gr10",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "throttle"
+ },
+ {
+  "term": "toggle",
+  "definition": "to swap between two stages (ON/OFF)",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "toggle"
+ },
+ {
+  "term": "touch typing",
+  "definition": "typing without looking at the keys",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "touch typing"
+ },
+ {
+  "term": "trace table",
+  "definition": "a technique that can be used to test an algorithm. It helps you to find out if your answer is correct",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "trace table"
+ },
+ {
+  "term": "transitive dependency",
+  "definition": "a dependency in which a field is dependent on a single, specific field within a table, rather than on the whole a record",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "transitive dependency"
+ },
+ {
+  "term": "transmit",
+  "definition": "the process of sending digital or analogue data over a communication medium to one or more computing, network, communication or electronic devices",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "transmit"
+ },
+ {
+  "term": "troubleshoot",
+  "definition": "the process of solving a problem or determining a problem to an issue",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "troubleshoot"
+ },
+ {
+  "term": "Trunc",
+  "definition": "to remove or chop off the decimal part of the real number. It returns an integer after the truncation",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "trunc"
+ },
+ {
+  "term": "typography",
+  "definition": "the style and appearance of printed matter",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "typography"
+ },
+ {
+  "term": "ultrabook",
+  "definition": "a type of laptop that falls in the thin and lightweight laptop category",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "ultrabook"
+ },
+ {
+  "term": "unambiguous",
+  "definition": "not open to more than one interpretation",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "unambiguous"
+ },
+ {
+  "term": "unbiased",
+  "definition": "showing no prejudice for or against something",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "unbiased"
+ },
+ {
+  "term": "uniform resource locator (URL)",
+  "definition": "a standardised naming convention for addressing documents accessible over the internet",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "uniform resource locator"
+ },
+ {
+  "term": "Upcase",
+  "definition": "to convert a single letter character to uppercase",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "upcase"
+ },
+ {
+  "term": "UpperCase",
+  "definition": "to converts lowercase characters in a string to uppercase",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "uppercase"
+ },
+ {
+  "term": "USB (Universal serial bus)",
+  "definition": "a common interface that enables communication between devices and a host controller such as a personal computer",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "usb"
+ },
+ {
+  "term": "user interface (or UI)",
+  "definition": "the way in which people interact with computer programs or a website",
+  "grades": [
+   "Gr10",
+   "Gr11"
+  ],
+  "kinds": [
+   "Practical",
+   "Theory"
+  ],
+  "sort": "user interface"
+ },
+ {
+  "term": "user-defined",
+  "definition": "is methods written by programmers themselves",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "userdefined"
+ },
+ {
+  "term": "username",
+  "definition": "a username is a word, phrase, number or combination of characters that uniquely identifies a user on any computing device or related service that requires user authentication",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "username"
+ },
+ {
+  "term": "utilities",
+  "definition": "small programs which help users to maintain their computers",
+  "grades": [
+   "Gr10",
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "utilities"
+ },
+ {
+  "term": "VAL",
+  "definition": "to convert a string to a numeric value",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "val"
+ },
+ {
+  "term": "validate",
+  "definition": "to try and lessen the number of errors during the process of data input in programming",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "validate"
+ },
+ {
+  "term": "value parameter",
+  "definition": "when a procedure is called, memory locations are created for each of the formal parameters and the values of the arguments are assigned to the corresponding formal parameters. Changes made to a value parameter will not affect its corresponding argument. When the procedure is exited, the memory locations of the formal parameters 'die' away",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "value parameter"
+ },
+ {
+  "term": "variable",
+  "definition": "a value that can change, depending on conditions or on information passed to the program",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "variable"
+ },
+ {
+  "term": "variable scope",
+  "definition": "the scope of a variable refers to the sections of a program in which that variable is available",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "variable scope"
+ },
+ {
+  "term": "virtual memory",
+  "definition": "a method of using the computer hard drive to provide extra memory for the computer",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "virtual memory"
+ },
+ {
+  "term": "virtualisation",
+  "definition": "it refers to the act of creating a virtual (rather than actual) version of something",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "virtualisation"
+ },
+ {
+  "term": "virus",
+  "definition": "a program, script or macro designed to cause damage, steal personal information, modify data, send e-mail, display messages or any combination of these",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "virus"
+ },
+ {
+  "term": "visual cues",
+  "definition": "a visual signal and reminder of something. It helps users to understand where they are in the application, what they are doing, how the application works and what is expected of them next",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "visual cues"
+ },
+ {
+  "term": "vlogging",
+  "definition": "a blog in which the postings are mostly in video form",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "vlogging"
+ },
+ {
+  "term": "voice over internet protocol (VOIP)",
+  "definition": "the set of rules that makes it possible to use the internet for telephone or videophone communication",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "voice over internet protocol"
+ },
+ {
+  "term": "VOIP (voice over internet protocol)",
+  "definition": "the set of rules that makes it possible to use the internet for telephone or videophone communication",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "voip"
+ },
+ {
+  "term": "VPN (virtual private network)",
+  "definition": "an encrypted connection over the internet from a device to a network",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "vpn"
+ },
+ {
+  "term": "wallpaper",
+  "definition": "the picture or pattern you see on the main screen after the computer has booted up",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "wallpaper"
+ },
+ {
+  "term": "WAN (wide area network)",
+  "definition": "a network that covers a large area. this could include all the people in a suburb or city, but it is most often used to refer to the internet, the world's largest WAN",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "wan"
+ },
+ {
+  "term": "WAP (wireless access point)",
+  "definition": "a wireless receiver which enables a user to connect wirelessly to a network or the internet",
+  "grades": [
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "wap"
+ },
+ {
+  "term": "web crawler",
+  "definition": "a program or script written to browse the World Wide Web in a systematic manner for the purpose of indexing websites",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "web crawler"
+ },
+ {
+  "term": "whistleblow",
+  "definition": "to inform on a person or organisation regarded as doing something unlawful or immoral",
+  "grades": [
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "whistleblow"
+ },
+ {
+  "term": "white space",
+  "definition": "any section of a document that is unused or spaced around an object",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "white space"
+ },
+ {
+  "term": "wide area network (wans)",
+  "definition": "a network that covers a large area. This could include all the people in a suburb or city, but it is most often used to refer to the internet, the world's largest WAN",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "wide area network"
+ },
+ {
+  "term": "window",
+  "definition": "an area on the screen that displays information for a specific program",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "window"
+ },
+ {
+  "term": "wireless access point (WAP)",
+  "definition": "a wireless receiver which enables a user to connect wirelessly to a network or the internet",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "wireless access point"
+ },
+ {
+  "term": "wizard",
+  "definition": "a dialogue box that instructs you step by step what information it needs to create a shortcut",
+  "grades": [
+   "Gr11"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "wizard"
+ },
+ {
+  "term": "work in place",
+  "definition": "algorithms that do all their calculations without taking up any additional space in memory",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "work in place"
+ },
+ {
+  "term": "work out-of-place",
+  "definition": "algorithms that need to make copies of the items they are working with in memory",
+  "grades": [
+   "Gr10"
+  ],
+  "kinds": [
+   "Practical"
+  ],
+  "sort": "work outofplace"
+ },
+ {
+  "term": "world wide web",
+  "definition": "it refers to the millions of websites that are hosted on the internet",
+  "grades": [
+   "Gr10",
+   "Gr11",
+   "Gr12"
+  ],
+  "kinds": [
+   "Theory"
+  ],
+  "sort": "world wide web"
+ }
+]
