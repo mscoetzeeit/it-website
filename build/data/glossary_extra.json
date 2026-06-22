@@ -286,5 +286,67 @@
   "definition": "Examining large datasets in existing databases and data warehouses to discover patterns and generate new information or findings.",
   "grades": ["Gr12"],
   "source": "NSC P2 Nov 2019"
+ },
+ {
+  "term": "phishing",
+  "definition": "A cyberattack that uses fake official-looking emails or websites to trick users into revealing personal information such as passwords or banking details.",
+  "grades": ["Gr11", "Gr12"],
+  "source": "curated"
+ },
+ {
+  "term": "pharming",
+  "definition": "Redirecting a user from a legitimate website to a fake copy (often by tampering with DNS) in order to steal their personal information.",
+  "grades": ["Gr11", "Gr12"],
+  "source": "curated"
+ },
+ {
+  "term": "firewall",
+  "definition": "Hardware or software that monitors incoming and outgoing network traffic and blocks unauthorised connections.",
+  "grades": ["Gr10", "Gr11", "Gr12"],
+  "source": "curated"
+ },
+ {
+  "term": "malware",
+  "definition": "Malicious software designed to damage, disrupt or gain unauthorised access to a computer system - for example viruses, worms, trojans, ransomware and spyware.",
+  "grades": ["Gr10", "Gr11"],
+  "source": "curated"
+ },
+ {
+  "term": "encryption",
+  "definition": "Scrambling data using a key so that only authorised parties who have the matching key can read it.",
+  "grades": ["Gr10", "Gr11", "Gr12"],
+  "source": "curated"
+ },
+ {
+  "term": "DDoS (Distributed Denial of Service) attack",
+  "definition": "An attack in which many computers flood a server or website with traffic until it is overloaded and goes offline, so legitimate users cannot access it.",
+  "grades": ["Gr12"],
+  "source": "curated"
+ },
+ {
+  "term": "recursion",
+  "definition": "A programming technique where a method calls itself to solve a smaller version of the same problem, until it reaches a base case that stops the calls.",
+  "grades": ["Gr12"],
+  "source": "curated"
+ },
+ {
+  "term": "foreign key",
+  "definition": "A field in one table that refers to the primary key of another table, creating a link (relationship) between the two tables.",
+  "grades": ["Gr11", "Gr12"],
+  "source": "curated"
+ },
+ {
+  "term": "ASCII (American Standard Code for Information Interchange)",
+  "definition": "A standard that represents text characters as numeric codes so they can be stored and processed by a computer.",
+  "grades": ["Gr10", "Gr11"],
+  "override": "ascii",
+  "source": "correction"
+ },
+ {
+  "term": "Snopes",
+  "definition": "A well-known fact-checking website used to verify whether information, claims or stories found online are true.",
+  "grades": ["Gr11"],
+  "override": "snopes",
+  "source": "correction"
  }
 ]
