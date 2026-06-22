@@ -104,10 +104,10 @@
     // ── STUDY TOOLS ──
     + '<li><button class="nav-dropdown-btn" style="color:#4ade80">' + t('Study Tools', 'Studiehulpmiddels') + ' <span class="chevron"></span></button>'
     + '<div class="dropdown">'
-    + '<div class="dropdown-section">' + t('Term Planners', 'Kwartaalbeplanners') + '</div>'
-    + '<a href="' + r + 'terms-gr10.html">&#128197; ' + t('Grade 10 &mdash; By Term', 'Graad 10 &mdash; Volgens Kwartaal') + '</a>'
-    + '<a href="' + r + 'terms-gr11.html">&#128197; ' + t('Grade 11 &mdash; By Term', 'Graad 11 &mdash; Volgens Kwartaal') + '</a>'
-    + '<a href="' + r + 'terms-gr12.html">&#128197; ' + t('Grade 12 &mdash; By Term', 'Graad 12 &mdash; Volgens Kwartaal') + '</a>'
+    + '<div class="dropdown-section">' + t('Year Planner', 'Jaarbeplanner') + '</div>'
+    + '<a href="' + r + 'terms-gr10.html">&#128197; ' + t('Grade 10 &mdash; Year Planner', 'Graad 10 &mdash; Jaarbeplanner') + '</a>'
+    + '<a href="' + r + 'terms-gr11.html">&#128197; ' + t('Grade 11 &mdash; Year Planner', 'Graad 11 &mdash; Jaarbeplanner') + '</a>'
+    + '<a href="' + r + 'terms-gr12.html">&#128197; ' + t('Grade 12 &mdash; Year Planner', 'Graad 12 &mdash; Jaarbeplanner') + '</a>'
     + '</div></li>'
 
     + '</ul>'
