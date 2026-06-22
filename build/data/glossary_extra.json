@@ -232,5 +232,59 @@
   "definition": "A unit of network speed equal to one billion (1 000 000 000) bits per second. Lowercase 'b' means bits, not bytes.",
   "grades": ["Gr11", "Gr12"],
   "source": "curated"
+ },
+ {
+  "term": "convergence",
+  "definition": "When separate technologies and functions are combined into a single multi-purpose device (e.g. a smartphone that is also a camera, GPS and music player).",
+  "grades": ["Gr10", "Gr11"],
+  "source": "NSC P2 Nov 2019"
+ },
+ {
+  "term": "hot swappable",
+  "definition": "Describes hardware that can be added or removed while the computer is still switched on and running.",
+  "grades": ["Gr11", "Gr12"],
+  "source": "NSC P2 Nov 2019"
+ },
+ {
+  "term": "mobile office",
+  "definition": "A setup where you carry the portable tools and communication equipment needed to do your work and stay reachable from anywhere, rather than working from a fixed office.",
+  "grades": ["Gr12"],
+  "source": "NSC P2 Nov 2019"
+ },
+ {
+  "term": "ransomware",
+  "definition": "Malware that locks or encrypts a user's data or device until a ransom (money) is paid to restore access.",
+  "grades": ["Gr11", "Gr12"],
+  "source": "NSC P2 Nov 2019"
+ },
+ {
+  "term": "script kiddie",
+  "definition": "An amateur programmer who uses or modifies existing virus or malware code written by others, rather than creating their own.",
+  "grades": ["Gr11", "Gr12"],
+  "source": "NSC P2 Nov 2019"
+ },
+ {
+  "term": "multithreading",
+  "definition": "When a program is divided into smaller tasks called threads that can be run at the same time, as if they were separate independent programs.",
+  "grades": ["Gr11"],
+  "source": "NSC P2 Nov 2019"
+ },
+ {
+  "term": "mirroring",
+  "definition": "Keeping identical copies of data (or a database) so that an up-to-date duplicate is always available if the original fails.",
+  "grades": ["Gr12"],
+  "source": "NSC P2 Nov 2019"
+ },
+ {
+  "term": "invisible data capturing",
+  "definition": "Collecting private or unrelated information about a user without their knowledge or consent.",
+  "grades": ["Gr11", "Gr12"],
+  "source": "NSC P2 Nov 2019"
+ },
+ {
+  "term": "data mining",
+  "definition": "Examining large datasets in existing databases and data warehouses to discover patterns and generate new information or findings.",
+  "grades": ["Gr12"],
+  "source": "NSC P2 Nov 2019"
  }
 ]
