@@ -1,0 +1,22 @@
+[
+ {
+  "term": "join (SQL)",
+  "definition": "An SQL operation that combines rows from two or more related tables into a single result set, matching them on a common field - typically a foreign key linked to a primary key (e.g. an INNER JOIN).",
+  "grades": ["Gr12"]
+ },
+ {
+  "term": "JavaScript",
+  "definition": "A client-side scripting language that runs in the web browser to make web pages interactive and dynamic, for example validating form input, responding to clicks, or updating content without reloading the page.",
+  "grades": ["Gr12"]
+ },
+ {
+  "term": "JPEG",
+  "definition": "A widely used lossy compression format for digital photographs and images (.jpg / .jpeg). It reduces file size by discarding some detail the human eye is unlikely to notice.",
+  "grades": ["Gr10"]
+ },
+ {
+  "term": "jitter",
+  "definition": "The variation in the delay (latency) of data packets arriving across a network. High jitter degrades real-time services such as VoIP calls and video streaming, causing choppy or out-of-sync audio and video.",
+  "grades": ["Gr12"]
+ }
+]

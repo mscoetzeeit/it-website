@@ -1,8 +1,30 @@
 #!/usr/bin/env python
 # Generate glossary.html (root level) from build/data/glossary.json
-import json, html, string
+# plus hand-curated supplements in build/data/glossary_extra.json (terms not in
+# the textbook glossaries, e.g. SQL join, JavaScript). Curated terms only fill
+# gaps - an extracted term of the same key always wins.
+import json, html, string, os, re
 
 data = json.load(open('build/data/glossary.json', encoding='utf-8'))
+
+def _norm_key(term):
+    k = term.lower()
+    k = re.sub(r'\(.*?\)', '', k)
+    k = k.replace('/', ' ')
+    k = re.sub(r'[^a-z0-9 ]', '', k)
+    return re.sub(r'\s+', ' ', k).strip()
+
+_extra = 'build/data/glossary_extra.json'
+if os.path.exists(_extra):
+    _have = {e['sort'] for e in data}
+    for e in json.load(open(_extra, encoding='utf-8')):
+        key = _norm_key(e['term'])
+        if key and key not in _have:
+            data.append({'term': e['term'], 'definition': e['definition'],
+                         'grades': e['grades'], 'kinds': e.get('kinds', ['Curated']),
+                         'sort': key})
+            _have.add(key)
+    data.sort(key=lambda e: e['sort'])
 
 # Bucket by first character of the sort key (A-Z, else '#')
 def bucket(e):
