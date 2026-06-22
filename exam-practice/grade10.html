@@ -19,6 +19,9 @@
     <a href="#networks">Networks &amp; Internet</a>
     <a href="#mgmt">Management &amp; Security</a>
     <a href="#prog">Practical — Delphi</a>
+    <a href="#digital">Digital Technologies &amp; ICT</a>
+    <a href="#web">Internet &amp; WWW</a>
+    <a href="#prog2">More Delphi</a>
     <div class="sidebar-grade" style="margin-top:1rem">Other Grades</div>
     <a href="grade11.html">Grade 11</a>
     <a href="grade12.html">Grade 12</a>
@@ -159,6 +162,85 @@ ShowMessage(IntToStr(iSum));</pre>
           <li>P3.1 <code>Length(sName)</code> <span class="tick">✓</span></li>
           <li>P3.2 <code>UpperCase(sName)</code> <span class="tick">✓</span></li>
           <li>P3.3 <code>Copy(sName, 1, 3)</code> <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <h2 id="digital">Digital Technologies &amp; ICT</h2>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q7 · Data &amp; information</span><span class="q-marks">4</span></div>
+      <p class="q-text">7.1 Distinguish between data and information, with ONE example each. (2)<br>7.2 Distinguish between ICT and IT. (2)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>7.1 Data = raw, unprocessed facts (e.g. 3, 5, 7) <span class="tick">✓</span>; information = processed data that has meaning (e.g. "the average is 5") <span class="tick">✓</span></li>
+          <li>7.2 ICT = all technology that captures, transmits and displays data (incl. people, procedures, data) <span class="tick">✓</span>; IT = a subset — the computer systems, software and networks used to process data <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q8 · Society</span><span class="q-marks">3</span></div>
+      <p class="q-text">8.1 What is the digital divide? (1)<br>8.2 Give ONE benefit and ONE negative impact of ICT on society. (2)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>8.1 The gap between people who have access to digital technology and those who do not <span class="tick">✓</span></li>
+          <li>8.2 Benefit: better communication / access to information / remote work <span class="tick">✓</span>; negative: cyberbullying / job losses / addiction / privacy risks <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q9 · Memory &amp; storage</span><span class="q-marks">4</span></div>
+      <p class="q-text">9.1 Distinguish between RAM and ROM. (2)<br>9.2 Give ONE difference between an HDD and an SSD. (1)<br>9.3 Distinguish freeware, shareware and open-source software. (3)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>9.1 RAM is volatile, temporary working memory <span class="tick">✓</span>; ROM is non-volatile and holds permanent start-up instructions <span class="tick">✓</span></li>
+          <li>9.2 HDD has spinning magnetic platters (cheaper, larger); an SSD has no moving parts (faster, more durable) <span class="tick">✓</span></li>
+          <li>9.3 Freeware = free to use, source not shared <span class="tick">✓</span>; shareware = free trial then pay <span class="tick">✓</span>; open-source = source code freely available to view/modify <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <h2 id="web">Internet &amp; WWW</h2>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q10 · The web</span><span class="q-marks">5</span></div>
+      <p class="q-text">10.1 Distinguish between the Internet and the World Wide Web. (2)<br>10.2 What is a web browser? (1)<br>10.3 What does a search engine do? (1)<br>10.4 What is an ISP? (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>10.1 The Internet is the global network of connected computers <span class="tick">✓</span>; the WWW is the collection of websites/pages accessed over the internet <span class="tick">✓</span></li>
+          <li>10.2 Software used to find, retrieve and view web pages <span class="tick">✓</span></li>
+          <li>10.3 A website that searches for and lists web pages matching your keywords <span class="tick">✓</span></li>
+          <li>10.4 Internet Service Provider — a company that provides access to the internet <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <h2 id="prog2">More Delphi</h2>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">P4 · CASE statement</span><span class="q-marks">3</span></div>
+      <p class="q-text">A number 1–7 is in <code>iDay</code>. Use a CASE statement to show the day name (1 = Monday, 2 = Tuesday …) and "Invalid" for anything else. Show the first two cases and the else.</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo">
+<pre class="no-label">case iDay of
+  1: ShowMessage('Monday');
+  2: ShowMessage('Tuesday');
+  // 3..7 ...
+else
+  ShowMessage('Invalid');
+end;</pre>
+        <ul>
+          <li>Correct <code>case iDay of</code> structure <span class="tick">✓</span></li>
+          <li>Case labels with their outputs <span class="tick">✓</span></li>
+          <li><code>else</code> for invalid + <code>end;</code> <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">P5 · Components &amp; events</span><span class="q-marks">3</span></div>
+      <p class="q-text">P5.1 Which event runs when a button is clicked? (1)<br>P5.2 Which property holds the text the user types into an Edit box? (1)<br>P5.3 How do you convert that text to an integer? (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>P5.1 <code>OnClick</code> <span class="tick">✓</span></li>
+          <li>P5.2 The <code>.Text</code> property (e.g. <code>edtAge.Text</code>) <span class="tick">✓</span></li>
+          <li>P5.3 <code>StrToInt(edtAge.Text)</code> <span class="tick">✓</span></li>
         </ul></div>
       </details>
     </div>
