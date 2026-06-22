@@ -1,22 +1,94 @@
 [
  {
+  "term": "primary key",
+  "definition": "A field (or combination of fields) whose value uniquely identifies each record in a table.",
+  "grades": ["Gr11", "Gr12"],
+  "override": "key",
+  "source": "correction"
+ },
+ {
   "term": "join (SQL)",
   "definition": "An SQL operation that combines rows from two or more related tables into a single result set, matching them on a common field - typically a foreign key linked to a primary key (e.g. an INNER JOIN).",
-  "grades": ["Gr12"]
+  "grades": ["Gr12"],
+  "source": "curated"
  },
  {
   "term": "JavaScript",
   "definition": "A client-side scripting language that runs in the web browser to make web pages interactive and dynamic, for example validating form input, responding to clicks, or updating content without reloading the page.",
-  "grades": ["Gr12"]
+  "grades": ["Gr12"],
+  "source": "curated"
  },
  {
   "term": "JPEG",
   "definition": "A widely used lossy compression format for digital photographs and images (.jpg / .jpeg). It reduces file size by discarding some detail the human eye is unlikely to notice.",
-  "grades": ["Gr10"]
+  "grades": ["Gr10"],
+  "source": "curated"
  },
  {
   "term": "jitter",
   "definition": "The variation in the delay (latency) of data packets arriving across a network. High jitter degrades real-time services such as VoIP calls and video streaming, causing choppy or out-of-sync audio and video.",
-  "grades": ["Gr12"]
+  "grades": ["Gr12"],
+  "source": "curated"
+ },
+ {
+  "term": "bandwidth",
+  "definition": "The amount of data that can be sent over a network in a specific amount of time.",
+  "grades": ["Gr11"],
+  "source": "NSC P2 Nov 2024"
+ },
+ {
+  "term": "cookie",
+  "definition": "A small text file saved on a user's device by a website, used to track the user's activities, preferences, settings and the browsing history of websites visited.",
+  "grades": ["Gr12"],
+  "source": "NSC P2 Nov 2024"
+ },
+ {
+  "term": "cloud computing",
+  "definition": "The use of shared resources that are offered as services over the internet to store, manage and process data.",
+  "grades": ["Gr12"],
+  "source": "NSC P2 Nov 2024"
+ },
+ {
+  "term": "virtual reality (VR)",
+  "definition": "An artificial, computer-generated environment created with software that appears as a 3D space, which the user interacts with using VR equipment.",
+  "grades": ["Gr12"],
+  "source": "NSC P2 Nov 2024"
+ },
+ {
+  "term": "spoofing",
+  "definition": "An email, website or source that appears to be from a legitimate organisation but is only a replica, created with the intent to collect personal information.",
+  "grades": ["Gr11"],
+  "source": "NSC P2 Nov 2024"
+ },
+ {
+  "term": "cache memory",
+  "definition": "A small amount of high-speed memory located close to or on the CPU that stores frequently or previously accessed data and instructions, preventing a slower medium from slowing down a faster one.",
+  "grades": ["Gr11"],
+  "source": "NSC P2 Nov 2024"
+ },
+ {
+  "term": "primary memory (RAM)",
+  "definition": "Memory used to store data temporarily while it is actively being used by the CPU, making it easily accessible for quick processing.",
+  "grades": ["Gr10"],
+  "source": "NSC P2 Nov 2024"
+ },
+ {
+  "term": "physical data integrity",
+  "definition": "Guarding stored data against physical threats such as power failure, natural disasters and theft of hardware; protecting the accuracy and completeness of data while it is stored, retrieved and transmitted.",
+  "grades": ["Gr12"],
+  "source": "NSC P2 Nov 2024"
+ },
+ {
+  "term": "GPS (Global Positioning System)",
+  "definition": "Technology that uses signals from satellites to determine a device's location, enabling accurate tracking and mapping.",
+  "grades": ["Gr11"],
+  "override": "gps",
+  "source": "NSC P2 Nov 2024"
+ },
+ {
+  "term": "SSL (Secure Sockets Layer)",
+  "definition": "A protocol that secures data sent over the internet by encrypting it with a linked key pair: the public key encrypts the data and the matching private key decrypts it.",
+  "grades": ["Gr12"],
+  "source": "NSC P2 Nov 2024"
  }
 ]

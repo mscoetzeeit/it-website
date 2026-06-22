@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 # Generate glossary.html (root level) from build/data/glossary.json
-# plus hand-curated supplements in build/data/glossary_extra.json (terms not in
-# the textbook glossaries, e.g. SQL join, JavaScript). Curated terms only fill
-# gaps - an extracted term of the same key always wins.
+# plus hand-curated / NSC-memo supplements in build/data/glossary_extra.json.
+# A curated entry ALWAYS wins over the textbook entry of the same key (the owner
+# trusts NSC memo wording over the textbooks). An optional "override" field names
+# a differently-spelled textbook term to remove (e.g. rename "key" -> "primary
+# key"). An optional "source" field records provenance (e.g. "NSC P2 2023").
 import json, html, string, os, re
 
 data = json.load(open('build/data/glossary.json', encoding='utf-8'))
@@ -14,16 +16,22 @@ def _norm_key(term):
     k = re.sub(r'[^a-z0-9 ]', '', k)
     return re.sub(r'\s+', ' ', k).strip()
 
+for d in data:
+    d.setdefault('source', 'textbook')
+
 _extra = 'build/data/glossary_extra.json'
 if os.path.exists(_extra):
-    _have = {e['sort'] for e in data}
     for e in json.load(open(_extra, encoding='utf-8')):
         key = _norm_key(e['term'])
-        if key and key not in _have:
-            data.append({'term': e['term'], 'definition': e['definition'],
-                         'grades': e['grades'], 'kinds': e.get('kinds', ['Curated']),
-                         'sort': key})
-            _have.add(key)
+        if not key:
+            continue
+        drop = {key}
+        if e.get('override'):
+            drop.add(_norm_key(e['override']))
+        data = [d for d in data if d['sort'] not in drop]
+        data.append({'term': e['term'], 'definition': e['definition'],
+                     'grades': e['grades'], 'kinds': e.get('kinds', ['Curated']),
+                     'sort': key, 'source': e.get('source', 'curated')})
     data.sort(key=lambda e: e['sort'])
 
 # Bucket by first character of the sort key (A-Z, else '#')
@@ -72,9 +80,12 @@ for L in letters:
         defn = esc(e['definition'])
         grades = ' '.join(e['grades'])
         search = esc((e['term'] + ' ' + e['definition']).lower())
+        src = e.get('source', '')
+        srcpill = (f'<span class="gsrc" title="Definition based on {esc(src)}">NSC</span>'
+                   if src.startswith('NSC') else '')
         rows.append(
             f'<div class="gentry" data-s="{search}" data-g="{grades}">'
-            f'<dt class="gterm">{term}<span class="gbs">{badges(e["grades"])}</span></dt>'
+            f'<dt class="gterm">{term}<span class="gbs">{badges(e["grades"])}{srcpill}</span></dt>'
             f'<dd class="gdef">{defn}</dd></div>'
         )
     sections.append(
@@ -130,6 +141,9 @@ PAGE = f'''<!DOCTYPE html>
 .gb{{font-size:.62rem;font-weight:700;border-radius:3px;padding:.05rem .3rem;
   border:1px solid currentColor;line-height:1.4}}
 .gb.gb10{{color:var(--gr10)}}.gb.gb11{{color:var(--gr11)}}.gb.gb12{{color:var(--gr12)}}
+.gsrc{{font-size:.58rem;font-weight:700;letter-spacing:.04em;border-radius:3px;
+  padding:.05rem .3rem;color:#15803d;border:1px solid #15803d}}
+[data-theme="dark"] .gsrc,html:not([data-theme="light"]) .gsrc{{color:#4ade80;border-color:#4ade80}}
 .gloss-none{{color:var(--muted);font-style:italic;padding:2rem 0}}
 :root{{--grade-color:#4ade80}}
 @media print{{
@@ -137,7 +151,7 @@ PAGE = f'''<!DOCTYPE html>
   .gloss-wrap{{max-width:none;padding:0}}
   .gentry{{break-inside:avoid}}
   *{{color:#000!important;background:#fff!important}}
-  .gb{{border:1px solid #000!important}}
+  .gb,.gsrc{{border:1px solid #000!important}}
 }}
 </style>
 </head>

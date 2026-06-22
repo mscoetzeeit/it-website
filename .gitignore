@@ -2,3 +2,7 @@
 
 # Regenerable npm packages (restore with: npm install)
 node_modules/
+
+# Past exam papers (copyrighted DBE material) and their text dumps — local only
+build/past_papers/
+build/papers_txt/
