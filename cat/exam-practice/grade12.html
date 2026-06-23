@@ -21,6 +21,7 @@
     <a href="#internet"><span class="i18n" data-af="Internet &amp; E-Kommunikasie">Internet &amp; E-Communication</span></a>
     <a href="#social"><span class="i18n" data-af="Maatskaplike Implikasies">Social Implications</span></a>
     <a href="#practical"><span class="i18n" data-af="Prakties (Excel/Access/Word/HTML)">Practical (Excel/Access/Word/HTML)</span></a>
+    <a href="#soldev"><span class="i18n" data-af="Oplossingsontwikkeling (V8)">Solution Development (Q8)</span></a>
     <div class="sidebar-grade" style="margin-top:1rem"><span class="i18n" data-af="Ander Grade">Other Grades</span></div>
     <a href="grade10.html"><span class="i18n" data-af="Graad 10">Grade 10</span></a>
     <a href="grade11.html"><span class="i18n" data-af="Graad 11">Grade 11</span></a>
@@ -251,6 +252,61 @@
           <li>(Row span equivalent: <code>rowspan</code>; space between cells: <code>cellspacing</code>) <span class="tick">✓</span></li>
         </ul></div>
       </details>
+    </div>
+
+    <h2 id="soldev">Solution Development <span style="font-size:.7rem;color:var(--muted)">(Paper 2, Question 8 — theory about practical features)</span></h2>
+    <p>The real P2 has a <strong>Solution Development</strong> question that asks about Word, Excel, Access and HTML <em>features</em> in writing — you must know the feature names, not just how to click them.</p>
+
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">SD1 · Word</span><span class="q-marks">5</span></div>
+      <p class="q-text">SD1.1 Which feature lets you format all the headings in a document at once? (1)<br>SD1.2 Name the decorative feature that enlarges the first letter of a paragraph over two or more lines. (1)<br>SD1.3 Name TWO ways to set tab stops. (2)<br>SD1.4 Why would you add a leader line to a tab stop? (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>SD1.1 <strong>Styles</strong> (e.g. Heading 1) <span class="tick">✓</span></li>
+          <li>SD1.2 <strong>Drop Cap</strong> <span class="tick">✓</span></li>
+          <li>SD1.3 Click on the <strong>ruler</strong>; or use the <strong>Tabs dialog</strong> (Paragraph → Tabs) <span class="tick">✓</span><span class="tick">✓</span></li>
+          <li>SD1.4 A leader line draws dots/dashes to <strong>visually connect</strong> the text to the tabbed value (e.g. a table of contents linking heading to page number) <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">SD2 · HTML</span><span class="q-marks">3</span></div>
+      <p class="q-text">SD2.1 Explain the difference between the <code>&lt;th&gt;</code> and <code>&lt;td&gt;</code> tags. (2)<br>SD2.2 Which tag AND attribute creates a link to an order form? (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>SD2.1 <code>&lt;th&gt;</code> = a table <strong>heading</strong> cell (bold &amp; centred by default) <span class="tick">✓</span>; <code>&lt;td&gt;</code> = an ordinary table <strong>data</strong> cell <span class="tick">✓</span></li>
+          <li>SD2.2 The <code>&lt;a&gt;</code> tag with the <code>href</code> attribute <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">SD3 · Access</span><span class="q-marks">3</span></div>
+      <p class="q-text">SD3.1 When would an <strong>OLE Object</strong> data type be used? (1)<br>SD3.2 Name TWO data types that can store text in a table. (2)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>SD3.1 To store/embed an <strong>object from another program</strong> in a field — e.g. an image, document or spreadsheet <span class="tick">✓</span></li>
+          <li>SD3.2 <strong>Short Text</strong> and <strong>Long Text</strong> (Memo) <span class="tick">✓</span><span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">SD4 · Excel</span><span class="q-marks">5</span></div>
+      <p class="q-text">SD4.1 An email address is in <code>A2</code>. Which functions extract the username (the text before the <code>@</code>)? Give the formula. (2)<br>SD4.2 A participant code = the name in B2 followed by a random integer. Which TWO functions generate it? (2)<br>SD4.3 Name the feature that moves spreadsheet data into a database <em>without opening</em> the database. (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>SD4.1 <code>LEFT</code> and <code>FIND</code> (or <code>SEARCH</code>): <code>=LEFT(A2,FIND("@",A2)-1)</code> <span class="tick">✓</span><span class="tick">✓</span></li>
+          <li>SD4.2 <code>CONCAT</code> / <code>&amp;</code> with <code>RANDBETWEEN</code>: <code>=B2&amp;RANDBETWEEN(1,999)</code> <span class="tick">✓</span><span class="tick">✓</span></li>
+          <li>SD4.3 <strong>Export</strong> (from Excel) — or <strong>Import</strong> from within Access <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <div class="callout exam">
+      <div class="callout-title">How Paper 2 is actually structured</div>
+      <p><strong>Section A</strong> (25): Q1 multiple-choice, Q2 matching, Q3 true/false. <strong>Section B</strong> (75): Q4 Systems Technologies, Q5 Internet &amp; Network, Q6 Information Management, Q7 Social Implications, Q8 Solution Development. <strong>Section C</strong> (50): Q9 &amp; Q10 integrated scenarios. Use the topic sets above to drill each part.</p>
     </div>
 
     <div class="callout exam">
