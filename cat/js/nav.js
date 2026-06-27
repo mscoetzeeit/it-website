@@ -91,6 +91,7 @@
     + '<a href="' + r + 'exam-practice/grade11.html">&#9999;&#65039; ' + t('Grade 11 Questions', 'Graad 11 Vrae') + '</a>'
     + '<a href="' + r + 'exam-practice/grade12.html">&#9999;&#65039; ' + t('Grade 12 Questions', 'Graad 12 Vrae') + '</a>'
     + '<a href="' + r + 'exam-practice/exam-skills.html">&#127919; ' + t('Exam Technique &amp; Verbs', 'Eksamentegniek &amp; Werkwoorde') + '</a>'
+    + '<a href="' + r + 'exam-practice/common-mistakes.html">&#10060; ' + t('Common Exam Mistakes', 'Algemene Eksamenfoute') + '</a>'
     + '</div></li>'
 
     // ── SKILLS & PAT ──
