@@ -30,6 +30,22 @@
     <h1>Object-Oriented Programming (OOP) <span class="grade-badge">Grade 12</span></h1>
     <p class="page-intro">OOP lets you model real-world things as <strong>objects</strong> in code. Think of a <strong>class</strong> as a blueprint (like architectural plans for a house) and an <strong>object</strong> as the actual building made from that plan. One blueprint, many buildings — one class, many objects.</p>
 
+    <div class="callout">
+      <div class="callout-title">ANALOGY — OOP is a taxi</div>
+      <p>Every part of OOP maps neatly onto a <strong>taxi</strong>:</p>
+      <ul>
+        <li><strong>Class</strong> = the <em>design</em> of a taxi — the plans that say what every taxi has and can do. There is only one design.</li>
+        <li><strong>Object (instance)</strong> = one <em>actual</em> taxi on the road, e.g. the one with registration CA&nbsp;123&#8209;456. From the one design you can build many taxis.</li>
+        <li><strong>Attributes</strong> = what a taxi <em>has</em>: make, registration, colour, number of seats, fuel level, current speed.</li>
+        <li><strong>Methods</strong> = what a taxi <em>does</em>: <code>StartEngine</code>, <code>Drive</code>, <code>Stop</code>, <code>PickUp</code>, <code>DropOff</code>, <code>Hoot</code>.</li>
+        <li><strong>Constructor (Create)</strong> = <em>building</em> a brand-new taxi at the factory and giving it its starting details (make, registration).</li>
+        <li><strong>Encapsulation</strong> = you drive with the <em>steering wheel and pedals</em> (public methods); you never reach into the engine (private attributes). The engine is hidden under the bonnet — and that keeps it safe.</li>
+        <li><strong>Accessor (getter)</strong> = the <em>fuel gauge</em> lets you read the fuel level without touching the tank. <strong>Mutator (setter)</strong> = filling up at the <em>petrol station</em> changes the fuel level in a controlled way.</li>
+        <li><strong>Inheritance</strong> = a taxi <em>is&#8209;a</em> vehicle: it inherits "drive" and "stop" from a general <code>TVehicle</code>, then adds its own meter and passenger seats.</li>
+        <li><strong>Polymorphism</strong> = tell any vehicle to <code>Hoot</code> and each does it its own way — a sedan taxi beeps, a minibus blares.</li>
+      </ul>
+    </div>
+
     <figure class="img-center">
       <img src="../images/oop-class-code.png" alt="TCat class structure in Delphi's code view" class="img-center">
       <figcaption class="img-caption">TCat class structure in Delphi's code view</figcaption>
