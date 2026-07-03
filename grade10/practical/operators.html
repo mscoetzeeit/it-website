@@ -47,6 +47,27 @@
       <strong>Last digit:</strong> <code>n MOD 10</code> → last digit of n</p>
     </div>
 
+    <h3>Worked Example — Isolating the Digits of a Number</h3>
+    <p>A favourite exam task: pull a number apart digit by digit. The trick is the pair <code>MOD&nbsp;10</code> (gives the <strong>last</strong> digit) and <code>DIV&nbsp;10</code> (chops the last digit <strong>off</strong>). Repeat in a loop until nothing is left. Here we add up the digits, e.g. <code>1234 → 1+2+3+4 = 10</code>.</p>
+    <div class="code-block"><span class="code-label">Delphi — sum the digits</span>
+<pre><code><span class="kw">var</span>
+  iNum, iDigit, iSum : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iNum := StrToInt(edtNum.Text);   <span class="cmt">// e.g. 1234</span>
+  iSum := <span class="num">0</span>;
+  <span class="kw">while</span> iNum &gt; <span class="num">0</span> <span class="kw">do</span>
+  <span class="kw">begin</span>
+    iDigit := iNum <span class="kw">mod</span> <span class="num">10</span>;   <span class="cmt">// MOD 10 grabs the LAST digit  (1234 -> 4)</span>
+    iSum   := iSum + iDigit;
+    iNum   := iNum <span class="kw">div</span> <span class="num">10</span>;   <span class="cmt">// DIV 10 chops it off          (1234 -> 123)</span>
+  <span class="kw">end</span>;
+  lblSum.Caption := <span class="str">'Digit sum: '</span> + IntToStr(iSum);
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">Same trick, many questions</div>
+      <p>The <code>MOD 10</code> / <code>DIV 10</code> loop is the key to counting digits, reversing a number, checking for a palindrome, or building the Luhn check digit of an ID. Swap what you do with <code>iDigit</code> and you have solved a whole family of questions.</p>
+    </div>
+
     <h2>Operator Precedence (Order of Operations)</h2>
     <div class="tbl-wrap"><table>
       <tr><th>Priority</th><th>Operators</th></tr>
