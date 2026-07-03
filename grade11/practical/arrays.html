@@ -41,6 +41,11 @@
 <!-- ═══════ 1D ARRAY SVG ═══════ -->
 <h2>What is a 1D Array?</h2>
 <p>A <strong>one-dimensional array</strong> holds an ordered list of values. Think of it like a train — each carriage (box) holds one value and has a number (index). The index tells you where to find the value.</p>
+<div class="callout">
+  <div class="callout-title">ANALOGY — an array is a dinner set</div>
+  <p>Remember a single variable is one <strong>cup</strong>. An <strong>array</strong> is a whole matching <strong>dinner set</strong> — say 6 cups — that all share one name and are numbered: <code>arrCups[1]</code>, <code>arrCups[2]</code> … <code>arrCups[6]</code>. Every item is the same type (all cups), just at a different <strong>index</strong> (place-setting number).</p>
+  <p>So instead of naming 30 separate cups <code>cup1, cup2, …</code>, you keep one name and pick the one you want by its number: <code>arrMarks[7]</code> is simply "the mark at place setting 7".</p>
+</div>
 
 <div style="margin:1.25rem 0;overflow-x:auto">
   <svg viewBox="0 0 740 160" width="740" height="160" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
@@ -421,6 +426,11 @@ bFound := <span class="kw">False</span>;
 <!-- ═══════ PARALLEL ARRAYS ═══════ -->
 <h2>Parallel Arrays</h2>
 <p>Two arrays are <strong>parallel</strong> when the same index refers to the same "record" — e.g. <code>arrNames[3]</code> and <code>arrMarks[3]</code> both belong to the same student. When you sort one, you must sort both to keep them in sync.</p>
+<div class="callout">
+  <div class="callout-title">ANALOGY — your things move with you</div>
+  <p>At a table, each person has their own <strong>cup, plate and bowl</strong> — three parallel dinner sets, where place setting <code>[3]</code> in each belongs to the same person. If that person moves to a different seat, they take <em>all three</em> of their things with them — you never leave their cup behind while their plate moves.</p>
+  <p>Sorting parallel arrays works exactly the same way: whenever the sort <strong>swaps</strong> two items in <code>arrNames</code>, you must swap the <em>same</em> two indexes in <code>arrMarks</code> (and every other parallel array) — so each student keeps their own name <em>and</em> their own mark together.</p>
+</div>
 
 <div style="margin:1.25rem 0;overflow-x:auto">
   <svg viewBox="0 0 680 180" width="680" height="180" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
