@@ -141,6 +141,106 @@
   <div class="callout-title">Always CloseFile!</div>
   <p>Forgetting <code>CloseFile(F)</code> means the file remains locked and data may not be saved properly.</p>
 </div>
+
+<h2>Worked Example — Putting It All Together</h2>
+<p>Exam questions rarely test one skill on its own. A typical Paper 1 question gives you a <strong>text file</strong>, asks you to <strong>extract and manipulate</strong> each line, store the parts in <strong>parallel arrays</strong>, and then <strong>process</strong> them. Here is that whole pattern in one example.</p>
+<div class="callout">
+  <div class="callout-title">The scenario</div>
+  <p>A text file <code>marks.txt</code> stores one learner per line as <code>Surname,Name,Mark</code>:</p>
+</div>
+<div class="code-block"><span class="code-label">marks.txt</span>
+<pre><code>Coetzee,Mari,72
+Naidoo,Priya,88
+Botha,Jan,64
+Khumalo,Sipho,91</code></pre></div>
+<p><strong>Task:</strong> read the file into parallel arrays, then (a) display each learner as <code>M. Coetzee: 72%</code>, (b) show the class average, and (c) find the top learner.</p>
+
+<h3>Step 0 — Declare the parallel arrays</h3>
+<div class="code-block"><span class="code-label">Delphi — global declarations</span>
+<pre><code><span class="kw">const</span>
+  MAX = <span class="num">100</span>;                 <span class="cmt">// most learners the arrays can hold</span>
+<span class="kw">var</span>
+  arrSurname : <span class="kw">array</span>[<span class="num">1</span>..MAX] <span class="kw">of</span> <span class="kw2">string</span>;
+  arrName    : <span class="kw">array</span>[<span class="num">1</span>..MAX] <span class="kw">of</span> <span class="kw2">string</span>;
+  arrMark    : <span class="kw">array</span>[<span class="num">1</span>..MAX] <span class="kw">of</span> <span class="kw2">integer</span>;
+  iCount     : <span class="kw2">integer</span>;          <span class="cmt">// how many learners were actually read</span></code></pre></div>
+<p>The three arrays are <strong>parallel</strong>: index <code>[2]</code> in each one belongs to the same learner (Priya Naidoo, 88).</p>
+
+<h3>Step 1 — Read the file &amp; split each line</h3>
+<p>Read one line at a time. Use <code>Pos</code> to find each comma, then <code>Copy</code> and <code>Delete</code> to chop the line into its three fields.</p>
+<div class="code-block"><span class="code-label">Delphi — read into parallel arrays</span>
+<pre><code><span class="kw">var</span>
+  F     : TextFile;
+  sLine : <span class="kw2">string</span>;
+  iPos  : <span class="kw2">integer</span>;
+<span class="kw">begin</span>
+  iCount := <span class="num">0</span>;
+  <span class="kw">if not</span> FileExists(<span class="str">'marks.txt'</span>) <span class="kw">then</span>
+  <span class="kw">begin</span>
+    ShowMessage(<span class="str">'File not found!'</span>);
+    Exit;
+  <span class="kw">end</span>;
+  AssignFile(F, <span class="str">'marks.txt'</span>);
+  Reset(F);
+  <span class="kw">while not</span> EOF(F) <span class="kw">do</span>
+  <span class="kw">begin</span>
+    ReadLn(F, sLine);                      <span class="cmt">// e.g. 'Coetzee,Mari,72'</span>
+    Inc(iCount);
+    <span class="cmt">// field 1 - surname (up to the first comma)</span>
+    iPos := Pos(<span class="str">','</span>, sLine);
+    arrSurname[iCount] := Copy(sLine, <span class="num">1</span>, iPos - <span class="num">1</span>);   <span class="cmt">// 'Coetzee'</span>
+    Delete(sLine, <span class="num">1</span>, iPos);                          <span class="cmt">// -&gt; 'Mari,72'</span>
+    <span class="cmt">// field 2 - first name (up to the next comma)</span>
+    iPos := Pos(<span class="str">','</span>, sLine);
+    arrName[iCount] := Copy(sLine, <span class="num">1</span>, iPos - <span class="num">1</span>);      <span class="cmt">// 'Mari'</span>
+    Delete(sLine, <span class="num">1</span>, iPos);                          <span class="cmt">// -&gt; '72'</span>
+    <span class="cmt">// field 3 - whatever remains is the mark</span>
+    arrMark[iCount] := StrToInt(sLine);                <span class="cmt">// 72</span>
+  <span class="kw">end</span>;
+  CloseFile(F);
+<span class="kw">end</span>;</code></pre></div>
+
+<h3>Step 2 — Manipulate the strings for display</h3>
+<p>Build the initial from the first letter of the first name with <code>Copy(name, 1, 1)</code>.</p>
+<div class="code-block"><span class="code-label">Delphi — display "M. Surname: 72%"</span>
+<pre><code><span class="kw">var</span>
+  i        : <span class="kw2">integer</span>;
+  sInitial : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> iCount <span class="kw">do</span>
+  <span class="kw">begin</span>
+    sInitial := Copy(arrName[i], <span class="num">1</span>, <span class="num">1</span>);            <span class="cmt">// 'M'</span>
+    memOut.Lines.Add(sInitial + <span class="str">'. '</span> + arrSurname[i]
+                     + <span class="str">': '</span> + IntToStr(arrMark[i]) + <span class="str">'%'</span>);
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</code></pre></div>
+<p>Output: <code>M. Coetzee: 72%</code>, <code>P. Naidoo: 88%</code>, <code>J. Botha: 64%</code>, <code>S. Khumalo: 91%</code></p>
+
+<h3>Step 3 — Class average</h3>
+<p>(Assume <code>iTotal : integer</code> and <code>rAverage : real</code> are declared.)</p>
+<div class="code-block"><span class="code-label">Delphi — average of the mark array</span>
+<pre><code>iTotal := <span class="num">0</span>;
+<span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> iCount <span class="kw">do</span>
+  iTotal := iTotal + arrMark[i];
+rAverage := iTotal / iCount;
+ShowMessage(<span class="str">'Class average: '</span> +
+            FloatToStrF(rAverage, ffFixed, <span class="num">4</span>, <span class="num">1</span>) + <span class="str">'%'</span>);</code></pre></div>
+
+<h3>Step 4 — Find the top learner</h3>
+<p>Search <code>arrMark</code> for the highest value, remembering its <strong>index</strong>. Because the arrays are parallel, that same index gives you the winner's name and surname too.</p>
+<div class="code-block"><span class="code-label">Delphi — highest mark via parallel arrays</span>
+<pre><code>iTopPos := <span class="num">1</span>;
+<span class="kw">for</span> i := <span class="num">2</span> <span class="kw">to</span> iCount <span class="kw">do</span>
+  <span class="kw">if</span> arrMark[i] &gt; arrMark[iTopPos] <span class="kw">then</span>
+    iTopPos := i;
+ShowMessage(<span class="str">'Top learner: '</span> + arrName[iTopPos] + <span class="str">' '</span> + arrSurname[iTopPos]
+            + <span class="str">' ('</span> + IntToStr(arrMark[iTopPos]) + <span class="str">'%)'</span>);</code></pre></div>
+
+<div class="callout tip">
+  <div class="callout-title">What this one question tests</div>
+  <p>In a single question you have used <strong>text file</strong> handling (FileExists, Reset, ReadLn, EOF, CloseFile), <strong>string manipulation</strong> (Pos, Copy, Delete), <strong>parallel arrays</strong> (three arrays sharing one index), and <strong>processing</strong> (an aggregate and finding a maximum). Remember the dinner-set rule: the winning <em>index</em> carries the name, surname and mark together.</p>
+</div>
+
 <div class="page-nav">
   <span></span>
   <a class="next" href="methods.html"><span class="page-nav-label">Next →</span>Procedures &amp; Functions</a>
