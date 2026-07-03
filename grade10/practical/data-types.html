@@ -105,6 +105,14 @@ iNumber := sedNum.Value;         <span class="cmt">// from a spin edit</span>
 bFlag   := <span class="kw">True</span>;</code></pre>
     </div>
 
+    <div class="callout">
+      <div class="callout-title">ANALOGY — why we assign to the LEFT</div>
+      <p>The <code>:=</code> operator always works <strong>right → left</strong>: it takes the value on the <strong>right</strong> and stores it in the variable on the <strong>left</strong>.</p>
+      <p>Think of pouring coffee. You put the <strong>coffee</strong> (the value) <em>into</em> the <strong>cup</strong> (the variable) — you would never put the cup into the coffee! So the container always goes on the left.</p>
+      <p>In <code>sName := 'Jannie';</code> the <strong>coffee</strong> is <code>'Jannie'</code> (on the right) and the <strong>cup</strong> is <code>sName</code> (on the left). Read it backwards: <em>"take 'Jannie' and pour it into sName"</em>.</p>
+      <p>It works the same with a calculation: <code>iTotal := iPrice * iQty;</code> — work out the answer (the coffee) on the right first, then pour it into <code>iTotal</code> (the cup) on the left. This is also why <code>5 := iAge;</code> is impossible — you cannot pour a variable into a plain number.</p>
+    </div>
+
     <h3>Initialising Variables</h3>
     <div class="callout tip">
       <div class="callout-title">Always Initialise</div>
