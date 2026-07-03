@@ -192,6 +192,46 @@
       <tr><td>Result</td><td><code>mrYes</code>, <code>mrNo</code>, <code>mrOK</code>, <code>mrCancel</code></td></tr>
     </table></div>
 
+    <h2>Worked Example — Validate, Grade &amp; Decide</h2>
+    <p>A typical question chains several decisions together: first <strong>validate</strong> the input with an <code>if</code>, then use a <code>case</code> to map the mark to a symbol, then a final <code>if</code> to decide pass/fail. This shows exactly when to reach for <code>if</code> and when for <code>case</code>.</p>
+    <div class="code-block"><span class="code-label">Delphi — mark → symbol → result</span>
+<pre><code><span class="kw">procedure</span> TForm1.<span class="fn">btnGradeClick</span>(Sender: TObject);
+<span class="kw">var</span>
+  iMark   : <span class="kw2">Integer</span>;
+  sSymbol : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  iMark := StrToInt(edtMark.Text);
+
+  <span class="cmt">// 1. Validate first — reject impossible marks (IF with OR)</span>
+  <span class="kw">if</span> (iMark &lt; <span class="num">0</span>) <span class="kw">or</span> (iMark &gt; <span class="num">100</span>) <span class="kw">then</span>
+  <span class="kw">begin</span>
+    ShowMessage(<span class="str">'A mark must be between 0 and 100.'</span>);
+    Exit;                       <span class="cmt">// stop here — don't grade an invalid mark</span>
+  <span class="kw">end</span>;
+
+  <span class="cmt">// 2. Map the mark to a symbol — CASE handles the many bands neatly</span>
+  <span class="kw">case</span> iMark <span class="kw">of</span>
+    <span class="num">80</span>..<span class="num">100</span>: sSymbol := <span class="str">'7'</span>;
+    <span class="num">70</span>..<span class="num">79</span>:  sSymbol := <span class="str">'6'</span>;
+    <span class="num">60</span>..<span class="num">69</span>:  sSymbol := <span class="str">'5'</span>;
+    <span class="num">50</span>..<span class="num">59</span>:  sSymbol := <span class="str">'4'</span>;
+    <span class="num">40</span>..<span class="num">49</span>:  sSymbol := <span class="str">'3'</span>;
+    <span class="num">30</span>..<span class="num">39</span>:  sSymbol := <span class="str">'2'</span>;
+  <span class="kw">else</span>
+    sSymbol := <span class="str">'1'</span>;
+  <span class="kw">end</span>;
+
+  <span class="cmt">// 3. A final pass/fail decision (IF)</span>
+  <span class="kw">if</span> iMark &gt;= <span class="num">50</span> <span class="kw">then</span>
+    lblResult.Caption := <span class="str">'Symbol '</span> + sSymbol + <span class="str">' - PASS'</span>
+  <span class="kw">else</span>
+    lblResult.Caption := <span class="str">'Symbol '</span> + sSymbol + <span class="str">' - needs improvement'</span>;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">IF or CASE — how to choose</div>
+      <p>Use <strong>CASE</strong> when <em>one</em> variable maps to <em>many</em> ranges or values (the mark → symbol step). Use <strong>IF</strong> for a true/false test or when conditions combine different variables (the validation and the pass/fail steps). The pattern <strong>validate → work out → decide</strong> appears in almost every practical question.</p>
+    </div>
+
     <div class="page-nav">
       <a href="operators.html"><span class="page-nav-label">← Previous</span>Operators &amp; Functions</a>
       <a class="next" href="loops.html"><span class="page-nav-label">Next →</span>Loops</a>

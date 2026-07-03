@@ -168,6 +168,42 @@
   <span class="kw">until</span> (iMark >= <span class="num">0</span>) <span class="kw">AND</span> (iMark &lt;= <span class="num">100</span>);
 <span class="kw">end</span>;</code></pre></div>
 
+    <h2>Worked Example — Count, Average &amp; Highest</h2>
+    <p>One loop can gather several answers at once. Here we read marks until the user enters <code>-1</code>, and while looping we keep a <strong>counter</strong>, a <strong>running total</strong> and the <strong>highest so far</strong> — then work out the average at the end.</p>
+    <div class="code-block"><span class="code-label">Delphi — statistics from a loop</span>
+<pre><code><span class="kw">var</span>
+  iMark, iCount, iTotal, iHighest : <span class="kw2">Integer</span>;
+  rAverage : <span class="kw2">Real</span>;
+<span class="kw">begin</span>
+  iCount   := <span class="num">0</span>;      <span class="cmt">// initialise all three trackers before the loop</span>
+  iTotal   := <span class="num">0</span>;
+  iHighest := <span class="num">0</span>;
+
+  iMark := StrToInt(InputBox(<span class="str">'Marks'</span>, <span class="str">'Enter a mark (-1 to stop):'</span>, <span class="str">''</span>));
+  <span class="kw">while</span> iMark &lt;&gt; -<span class="num">1</span> <span class="kw">do</span>
+  <span class="kw">begin</span>
+    Inc(iCount);                 <span class="cmt">// how many so far</span>
+    iTotal := iTotal + iMark;    <span class="cmt">// running total</span>
+    <span class="kw">if</span> iMark &gt; iHighest <span class="kw">then</span>    <span class="cmt">// track the maximum</span>
+      iHighest := iMark;
+    iMark := StrToInt(InputBox(<span class="str">'Marks'</span>, <span class="str">'Enter a mark (-1 to stop):'</span>, <span class="str">''</span>));
+  <span class="kw">end</span>;
+
+  <span class="kw">if</span> iCount &gt; <span class="num">0</span> <span class="kw">then</span>            <span class="cmt">// guard against dividing by zero</span>
+  <span class="kw">begin</span>
+    rAverage := iTotal / iCount;
+    memOut.Lines.Add(<span class="str">'Count:   '</span> + IntToStr(iCount));
+    memOut.Lines.Add(<span class="str">'Average: '</span> + FloatToStrF(rAverage, ffFixed, <span class="num">4</span>, <span class="num">1</span>));
+    memOut.Lines.Add(<span class="str">'Highest: '</span> + IntToStr(iHighest));
+  <span class="kw">end</span>
+  <span class="kw">else</span>
+    ShowMessage(<span class="str">'No marks were entered.'</span>);
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">The pattern</div>
+      <p><strong>Initialise</strong> your trackers <em>before</em> the loop, <strong>update</strong> them <em>inside</em> it (add to the total, compare for the highest), and <strong>report</strong> <em>after</em> it. Always check <code>iCount &gt; 0</code> before dividing, or an empty run will crash with a divide-by-zero.</p>
+    </div>
+
     <h2>Comparison: Which Loop to Use?</h2>
     <div class="tbl-wrap"><table>
       <tr><th>Situation</th><th>Best Loop</th></tr>
