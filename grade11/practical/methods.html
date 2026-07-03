@@ -112,6 +112,46 @@ lblResult.Caption := IntToStr(AddNumbers(iA, iB));</code></pre></div>
 <span class="cmt">// Use it</span>
 rAvg := CalcAverage(iSum, iNumStudents);
 lblAvg.Caption := FloatToStr(rAvg);</code></pre></div>
+<h2>Worked Example — Validate &amp; Grade a Mark</h2>
+<p>A real button click usually calls several methods together. Here two <strong>functions</strong> (each returning a value) and one <strong>procedure</strong> (which just does a job) work as a team: one function checks the input is valid, another turns a mark into a symbol, and the procedure prints a line.</p>
+<div class="code-block"><span class="code-label">Delphi — two functions and a procedure</span>
+<pre><code><span class="cmt">// FUNCTION — returns True/False (used to make a decision)</span>
+<span class="kw">function</span> <span class="fn">IsValidMark</span>(iMark: <span class="kw2">Integer</span>): <span class="kw2">Boolean</span>;
+<span class="kw">begin</span>
+  Result := (iMark &gt;= <span class="num">0</span>) <span class="kw">and</span> (iMark &lt;= <span class="num">100</span>);
+<span class="kw">end</span>;
+
+<span class="cmt">// FUNCTION — returns a string (used inside an expression)</span>
+<span class="kw">function</span> <span class="fn">GetSymbol</span>(iMark: <span class="kw2">Integer</span>): <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  <span class="kw">if</span> iMark &gt;= <span class="num">80</span> <span class="kw">then</span> Result := <span class="str">'A'</span>
+  <span class="kw">else if</span> iMark &gt;= <span class="num">70</span> <span class="kw">then</span> Result := <span class="str">'B'</span>
+  <span class="kw">else if</span> iMark &gt;= <span class="num">50</span> <span class="kw">then</span> Result := <span class="str">'C'</span>
+  <span class="kw">else</span> Result := <span class="str">'F'</span>;
+<span class="kw">end</span>;
+
+<span class="cmt">// PROCEDURE — does a job, returns nothing</span>
+<span class="kw">procedure</span> TForm1.<span class="fn">AddLine</span>(sText: <span class="kw2">string</span>);
+<span class="kw">begin</span>
+  memOut.Lines.Add(sText);
+<span class="kw">end</span>;
+
+<span class="cmt">// BUTTON — ties them together</span>
+<span class="kw">procedure</span> TForm1.<span class="fn">btnProcessClick</span>(Sender: TObject);
+<span class="kw">var</span>
+  iMark: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iMark := StrToInt(edtMark.Text);
+  <span class="kw">if</span> IsValidMark(iMark) <span class="kw">then</span>              <span class="cmt">// function used AS the condition</span>
+    AddLine(IntToStr(iMark) + <span class="str">' = symbol '</span> + GetSymbol(iMark))  <span class="cmt">// function inside an expression, then procedure prints</span>
+  <span class="kw">else</span>
+    ShowMessage(<span class="str">'Enter a mark between 0 and 100.'</span>);
+<span class="kw">end</span>;</code></pre></div>
+<div class="callout tip">
+  <div class="callout-title">Function or procedure — how to choose</div>
+  <p>Notice that <code>IsValidMark</code> and <code>GetSymbol</code> <strong>hand a value back</strong> that you use (in the <code>if</code> and inside the message), while <code>AddLine</code> just <strong>does the job</strong> of printing. That is the whole rule: if you need an answer back, write a <strong>function</strong>; if you only need something done, write a <strong>procedure</strong>.</p>
+</div>
+
 <h2>Why Use Procedures and Functions?</h2>
 <p>To bring it all together, here are the practical benefits you gain every time you reach for a method instead of writing one long block of code:</p>
 <ul>

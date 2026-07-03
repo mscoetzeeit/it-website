@@ -167,6 +167,57 @@ sResult := <span class="fn">LowerCase</span>(sSourceText);
   lblOut.Caption := <span class="str">'Name: '</span> + sName + <span class="str">'  Surname: '</span> + sSurname;
 <span class="kw">end</span>;</code></pre></div>
 
+    <h2>Worked Example — Reading a South African ID Number</h2>
+    <p>A South African ID number is a 13-digit string that packs several pieces of information into fixed positions — a favourite exam question because it uses <code>Length</code>, <code>Copy</code> and the index <code>[ ]</code> all at once.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Positions</th><th>Meaning</th><th>Example (<code>8801235111088</code>)</th></tr>
+      <tr><td>1–2</td><td>Year of birth (YY)</td><td><code>88</code></td></tr>
+      <tr><td>3–4</td><td>Month (MM)</td><td><code>01</code></td></tr>
+      <tr><td>5–6</td><td>Day (DD)</td><td><code>23</code></td></tr>
+      <tr><td>7–10</td><td>Gender sequence (5000+ = male)</td><td><code>5111</code> → Male</td></tr>
+      <tr><td>11</td><td>Citizenship (0 = SA citizen, 1 = resident)</td><td><code>0</code></td></tr>
+      <tr><td>13</td><td>Check digit (Luhn algorithm)</td><td><code>8</code></td></tr>
+    </table></div>
+    <div class="code-block"><span class="code-label">Delphi — extract information from an ID</span>
+<pre><code><span class="kw">var</span>
+  sID, sDOB, sGender, sStatus : <span class="kw2">string</span>;
+  iSeq : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  sID := edtID.Text;
+
+  <span class="cmt">// 1. Validate — an ID must be exactly 13 characters long</span>
+  <span class="kw">if</span> Length(sID) &lt;&gt; <span class="num">13</span> <span class="kw">then</span>
+  <span class="kw">begin</span>
+    ShowMessage(<span class="str">'An ID number must be exactly 13 digits.'</span>);
+    Exit;
+  <span class="kw">end</span>;
+
+  <span class="cmt">// 2. Date of birth — YY at 1, MM at 3, DD at 5 (rebuild as DD/MM/YY)</span>
+  sDOB := Copy(sID, <span class="num">5</span>, <span class="num">2</span>) + <span class="str">'/'</span> + Copy(sID, <span class="num">3</span>, <span class="num">2</span>) + <span class="str">'/'</span> + Copy(sID, <span class="num">1</span>, <span class="num">2</span>);
+
+  <span class="cmt">// 3. Gender — the 4 digits at positions 7-10; 5000 and up = male</span>
+  iSeq := StrToInt(Copy(sID, <span class="num">7</span>, <span class="num">4</span>));
+  <span class="kw">if</span> iSeq &gt;= <span class="num">5000</span> <span class="kw">then</span>
+    sGender := <span class="str">'Male'</span>
+  <span class="kw">else</span>
+    sGender := <span class="str">'Female'</span>;
+
+  <span class="cmt">// 4. Citizenship — the single character at position 11</span>
+  <span class="kw">if</span> sID[<span class="num">11</span>] = <span class="str">'0'</span> <span class="kw">then</span>
+    sStatus := <span class="str">'SA citizen'</span>
+  <span class="kw">else</span>
+    sStatus := <span class="str">'Permanent resident'</span>;
+
+  <span class="cmt">// 5. Show the result</span>
+  memOut.Lines.Add(<span class="str">'Date of birth: '</span> + sDOB);
+  memOut.Lines.Add(<span class="str">'Gender: '</span> + sGender);
+  memOut.Lines.Add(<span class="str">'Status: '</span> + sStatus);
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">The check digit (Grade 11/12 extension)</div>
+      <p>The 13th digit is a <strong>check digit</strong> worked out from the other 12 using the <strong>Luhn algorithm</strong>. A program can recalculate it and compare — if it does not match, the ID was mistyped. That step adds a loop and some arithmetic on top of the string work shown here.</p>
+    </div>
+
     <div class="page-nav">
       <a href="loops.html"><span class="page-nav-label">← Previous</span>Loops</a>
       <a class="next" href="../../grade11/practical/arrays.html"><span class="page-nav-label">Next →</span>1D Arrays</a>
