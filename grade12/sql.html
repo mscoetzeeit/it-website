@@ -214,6 +214,49 @@ qryStudents.First;
   qryStudents.Next;
 <span class="kw">end</span>;</code></pre></div>
 
+  <h2>Worked Example — A Search Screen</h2>
+  <p>A classic Paper 1 task: the user types (part of) a surname into <code>edtSearch</code> and clicks a button. The program must build a <strong>parameterised query</strong> from that input, run it, list every match in <code>memOut</code>, and report how many were found. This combines user input, SQL, looping a dataset and string output.</p>
+  <div class="code-block"><span class="code-label">Delphi — search button click</span>
+<pre><code><span class="kw">procedure</span> TfrmMain.<span class="fn">btnSearchClick</span>(Sender: TObject);
+<span class="kw">var</span>
+  iFound : <span class="kw2">integer</span>;
+<span class="kw">begin</span>
+  memOut.Clear;
+  iFound := <span class="num">0</span>;
+
+  <span class="cmt">// 1. Build a parameterised query from the user's input</span>
+  qryStudents.Close;
+  qryStudents.SQL.Clear;
+  qryStudents.SQL.Add(<span class="str">'SELECT Name, Surname, Grade, Average'</span>);
+  qryStudents.SQL.Add(<span class="str">'FROM tblStudents'</span>);
+  qryStudents.SQL.Add(<span class="str">'WHERE Surname LIKE :pName'</span>);
+  qryStudents.SQL.Add(<span class="str">'ORDER BY Surname ASC'</span>);
+  <span class="cmt">// add a wildcard so 'coe' matches 'Coetzee'</span>
+  qryStudents.Parameters.ParamByName(<span class="str">'pName'</span>).Value := edtSearch.Text + <span class="str">'%'</span>;
+  qryStudents.Open;
+
+  <span class="cmt">// 2. Loop through the result set and display each record</span>
+  qryStudents.First;
+  <span class="kw">while not</span> qryStudents.Eof <span class="kw">do</span>
+  <span class="kw">begin</span>
+    memOut.Lines.Add(qryStudents[<span class="str">'Name'</span>] + <span class="str">' '</span> + qryStudents[<span class="str">'Surname'</span>]
+                     + <span class="str">'  (Gr '</span> + IntToStr(qryStudents[<span class="str">'Grade'</span>])
+                     + <span class="str">', '</span> + FloatToStrF(qryStudents[<span class="str">'Average'</span>], ffFixed, <span class="num">4</span>, <span class="num">1</span>) + <span class="str">'%)'</span>);
+    Inc(iFound);
+    qryStudents.Next;
+  <span class="kw">end</span>;
+
+  <span class="cmt">// 3. Report how many were found</span>
+  <span class="kw">if</span> iFound = <span class="num">0</span> <span class="kw">then</span>
+    ShowMessage(<span class="str">'No learner found starting with "'</span> + edtSearch.Text + <span class="str">'".'</span>)
+  <span class="kw">else</span>
+    lblCount.Caption := IntToStr(iFound) + <span class="str">' learner(s) found'</span>;
+<span class="kw">end</span>;</code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">Why a parameter, not string-joining?</div>
+    <p>Using <code>:pName</code> and <code>ParamByName</code> is safer and cleaner than gluing the user's text straight into the SQL string — it avoids quote/type errors and blocks <strong>SQL injection</strong> (see <a href="cybercrime.html">Cybercrime</a>). The wildcard <code>'%'</code> is added to the <em>value</em>, so a partial surname still matches.</p>
+  </div>
+
   <div class="page-nav">
     <a href="../grade11/practical/databases-delphi.html"><span class="page-nav-label">&larr; Previous</span>Databases in Delphi</a>
     <a class="next" href="sql-join.html"><span class="page-nav-label">Next &rarr;</span>SQL &mdash; Joining Tables</a>

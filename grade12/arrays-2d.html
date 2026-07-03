@@ -82,6 +82,66 @@ myArray[<span class="num">2</span>,<span class="num">1</span>] := <span class="n
 <span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> <span class="num">3</span> <span class="kw">do</span>
   <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> <span class="num">4</span> <span class="kw">do</span>
     iTotal := iTotal + myArray[r, c];</code></pre></div>
+
+<h2>Worked Example — Class Register Report</h2>
+<p>A full exam question ties the pieces together: a 2D array of marks, a <strong>parallel 1D array</strong> of names, nested loops, and both a row and a column calculation. Here the grid <code>arrMark</code> holds marks for each learner (rows) across 4 subjects (columns), and <code>arrName</code> holds the matching learner names.</p>
+<div class="code-block"><span class="code-label">Delphi — global declarations</span>
+<pre><code><span class="kw">const</span>
+  LEARNERS = <span class="num">5</span>;
+  SUBJECTS = <span class="num">4</span>;
+<span class="kw">var</span>
+  arrMark : <span class="kw">array</span>[<span class="num">1</span>..LEARNERS, <span class="num">1</span>..SUBJECTS] <span class="kw">of</span> <span class="kw2">Integer</span>;   <span class="cmt">// the grid: row = learner, col = subject</span>
+  arrName : <span class="kw">array</span>[<span class="num">1</span>..LEARNERS] <span class="kw">of</span> <span class="kw2">string</span>;              <span class="cmt">// parallel to the rows</span></code></pre></div>
+<p><code>arrName[r]</code> is the name of the learner whose marks are in <code>arrMark[r, 1..SUBJECTS]</code> — the name array runs parallel to the <em>rows</em> of the grid.</p>
+
+<h3>Part (a) — Each learner's average (a row calculation)</h3>
+<p>Fix the row (one learner) and loop across the columns to total their subjects, then divide.</p>
+<div class="code-block"><span class="code-label">Delphi — print name + average per learner</span>
+<pre><code><span class="kw">var</span>
+  r, c, iRowTotal : <span class="kw2">Integer</span>;
+  rAvg            : <span class="kw2">Real</span>;
+<span class="kw">begin</span>
+  <span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> LEARNERS <span class="kw">do</span>
+  <span class="kw">begin</span>
+    iRowTotal := <span class="num">0</span>;
+    <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> SUBJECTS <span class="kw">do</span>
+      iRowTotal := iRowTotal + arrMark[r, c];
+    rAvg := iRowTotal / SUBJECTS;
+    memOut.Lines.Add(arrName[r] + <span class="str">': '</span> +
+                     FloatToStrF(rAvg, ffFixed, <span class="num">4</span>, <span class="num">1</span>) + <span class="str">'%'</span>);
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</code></pre></div>
+
+<h3>Part (b) — The best subject (a column calculation + finding a max)</h3>
+<p>Now fix each column (one subject) and loop <em>down</em> the rows to average that subject across all learners, keeping track of the highest.</p>
+<div class="code-block"><span class="code-label">Delphi — subject with the highest class average</span>
+<pre><code><span class="kw">var</span>
+  r, c, iColTotal, iBestCol : <span class="kw2">Integer</span>;
+  rColAvg, rBestAvg         : <span class="kw2">Real</span>;
+<span class="kw">begin</span>
+  iBestCol := <span class="num">1</span>;
+  rBestAvg := <span class="num">0</span>;
+  <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> SUBJECTS <span class="kw">do</span>
+  <span class="kw">begin</span>
+    iColTotal := <span class="num">0</span>;
+    <span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> LEARNERS <span class="kw">do</span>
+      iColTotal := iColTotal + arrMark[r, c];
+    rColAvg := iColTotal / LEARNERS;
+    <span class="kw">if</span> rColAvg &gt; rBestAvg <span class="kw">then</span>
+    <span class="kw">begin</span>
+      rBestAvg := rColAvg;
+      iBestCol := c;               <span class="cmt">// remember WHICH subject</span>
+    <span class="kw">end</span>;
+  <span class="kw">end</span>;
+  ShowMessage(<span class="str">'Best subject: column '</span> + IntToStr(iBestCol) +
+              <span class="str">' (average '</span> + FloatToStrF(rBestAvg, ffFixed, <span class="num">4</span>, <span class="num">1</span>) + <span class="str">'%)'</span>);
+<span class="kw">end</span>;</code></pre></div>
+
+<div class="callout tip">
+  <div class="callout-title">The pattern to remember</div>
+  <p><strong>Row calculation</strong> → fix the row, loop the columns (one learner across all subjects). <strong>Column calculation</strong> → fix the column, loop the rows (one subject down all learners). To find a "best/worst", store the <em>index</em> as you go — that index links straight back to the parallel <code>arrName</code>.</p>
+</div>
+
 <div class="page-nav">
   <a href="sql.html"><span class="page-nav-label">← Previous</span>SQL</a>
   <a class="next" href="hardware-gr12.html"><span class="page-nav-label">Next →</span>Motherboard &amp; Hardware (Theory)</a>

@@ -241,6 +241,28 @@ ShowMessage(<span class="str">'Top learner: '</span> + arrName[iTopPos] + <span 
   <p>In a single question you have used <strong>text file</strong> handling (FileExists, Reset, ReadLn, EOF, CloseFile), <strong>string manipulation</strong> (Pos, Copy, Delete), <strong>parallel arrays</strong> (three arrays sharing one index), and <strong>processing</strong> (an aggregate and finding a maximum). Remember the dinner-set rule: the winning <em>index</em> carries the name, surname and mark together.</p>
 </div>
 
+<h3>And back out — writing the results to a new file</h3>
+<p>Often the last step is to write your processed results to a <em>new</em> text file. Use <code>Rewrite</code> to create it, <code>WriteLn</code> to add each line, and <code>CloseFile</code> to save. Here we write a pass/fail report from the arrays built above.</p>
+<div class="code-block"><span class="code-label">Delphi — write report.txt</span>
+<pre><code><span class="kw">var</span>
+  Fout    : TextFile;
+  i       : <span class="kw2">integer</span>;
+  sResult : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  AssignFile(Fout, <span class="str">'report.txt'</span>);
+  Rewrite(Fout);                         <span class="cmt">// creates (or overwrites) the file</span>
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> iCount <span class="kw">do</span>
+  <span class="kw">begin</span>
+    <span class="kw">if</span> arrMark[i] &gt;= <span class="num">50</span> <span class="kw">then</span>
+      sResult := <span class="str">'PASS'</span>
+    <span class="kw">else</span>
+      sResult := <span class="str">'FAIL'</span>;
+    WriteLn(Fout, arrSurname[i] + <span class="str">','</span> + IntToStr(arrMark[i]) + <span class="str">','</span> + sResult);
+  <span class="kw">end</span>;
+  CloseFile(Fout);                       <span class="cmt">// saves and closes the file</span>
+<span class="kw">end</span>;</code></pre></div>
+<p>That completes the full <strong>read → process → write</strong> cycle: read the data in, work with it in arrays, then save the results back out to a new file.</p>
+
 <div class="page-nav">
   <span></span>
   <a class="next" href="methods.html"><span class="page-nav-label">Next →</span>Procedures &amp; Functions</a>
