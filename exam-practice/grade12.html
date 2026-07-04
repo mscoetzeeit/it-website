@@ -26,6 +26,7 @@
     <a href="#ai">AI, 4IR &amp; Ethics</a>
     <a href="#sql2">More SQL</a>
     <a href="#oop2">More OOP &amp; Arrays</a>
+    <a href="#more">Section B — Mixed</a>
     <div class="sidebar-grade" style="margin-top:1rem">Other Grades</div>
     <a href="grade10.html">Grade 10</a>
     <a href="grade11.html">Grade 11</a>
@@ -380,6 +381,95 @@ ShowMessage(IntToStr(iCount));</pre>
           <li>Nested loop over all rows and columns <span class="tick">✓</span></li>
           <li>Correct condition <code>arrM[r, c] &gt;= 50</code> <span class="tick">✓</span></li>
           <li>Increment counter and display <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <h2 id="more">Section B — Mixed Exam Questions</h2>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q9 · Data management</span><span class="q-marks">4</span></div>
+      <p class="q-text">9.1 Distinguish between a database and a data warehouse. (2)<br>9.2 Name TWO methods of automated data collection. (2)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>9.1 A database handles current, day-to-day transactions (read + write); a data warehouse stores historical data from many sources for analysis and reporting (mostly read) <span class="tick">✓</span><span class="tick">✓</span></li>
+          <li>9.2 Any two: online forms, RFID/digital sensors, invisible online collection (browsing/cookies), transaction/loyalty-card tracking, location data <span class="tick">✓</span><span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q10 · Normalisation</span><span class="q-marks">5</span></div>
+      <p class="q-text">10.1 State ONE goal of normalisation. (1)<br>10.2 A table is not in 1NF because one cell holds several phone numbers. How do you fix it? (1)<br>10.3 What is referential integrity? (2)<br>10.4 What is a composite key? (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>10.1 Remove/reduce data redundancy (duplication) and avoid anomalies <span class="tick">✓</span></li>
+          <li>10.2 Split the repeating values so each cell holds a single value (put phone numbers in their own rows/table) <span class="tick">✓</span></li>
+          <li>10.3 A rule that a foreign key must match an existing primary key in the linked table <span class="tick">✓</span>, so you cannot link to a record that does not exist <span class="tick">✓</span></li>
+          <li>10.4 A primary key made of two or more fields combined <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q11 · Internet technologies</span><span class="q-marks">4</span></div>
+      <p class="q-text">11.1 Distinguish between a static and a dynamic website. (2)<br>11.2 What is a cookie used for? (1)<br>11.3 What does SEO stand for? (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>11.1 A static site shows the same fixed content to everyone; a dynamic site generates content that can change (from a database, per user, interactive) <span class="tick">✓</span><span class="tick">✓</span></li>
+          <li>11.2 A small text file that stores information about the user (preferences, login, browsing) between visits <span class="tick">✓</span></li>
+          <li>11.3 Search Engine Optimisation <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q12 · Security</span><span class="q-marks">4</span></div>
+      <p class="q-text">12.1 What is encryption? (1)<br>12.2 What is the purpose of a firewall? (1)<br>12.3 Give TWO ways to protect your online identity. (2)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>12.1 Scrambling data with a key so only authorised parties with the matching key can read it <span class="tick">✓</span></li>
+          <li>12.2 To monitor and control network traffic and block unauthorised connections <span class="tick">✓</span></li>
+          <li>12.3 Any two: strong unique passwords, two-factor authentication, don't share sensitive info, beware phishing links, keep software updated <span class="tick">✓</span><span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">P10 · SQL — join with a count</span><span class="q-marks">4</span></div>
+      <p class="q-text">Tables <strong>tblLearner</strong>(LearnerID, Name, ClassID) and <strong>tblClass</strong>(ClassID, ClassName). Show each class name with how many learners are in it, most learners first.</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo">
+<pre class="no-label">SELECT tblClass.ClassName, COUNT(tblLearner.LearnerID) AS Total
+FROM tblLearner, tblClass
+WHERE tblLearner.ClassID = tblClass.ClassID
+GROUP BY tblClass.ClassName
+ORDER BY Total DESC;</pre>
+        <ul>
+          <li>Both tables in FROM + WHERE join condition (no Cartesian product) <span class="tick">✓</span></li>
+          <li>COUNT with an alias <span class="tick">✓</span></li>
+          <li>GROUP BY the class name <span class="tick">✓</span></li>
+          <li>ORDER BY Total DESC <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">P11 · OOP — a full class</span><span class="q-marks">5</span></div>
+      <p class="q-text">Write the interface (class declaration) for a <code>TProduct</code> class with private fields <code>fName</code> (string) and <code>fPrice</code> (real), a constructor, an accessor for each field, a mutator for the price, and a <code>ToString</code>.</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo">
+<pre class="no-label">TProduct = class
+private
+  fName  : string;
+  fPrice : real;
+public
+  constructor Create(sName: string; rPrice: real);
+  function  GetName  : string;
+  function  GetPrice : real;
+  procedure SetPrice(rNew: real);
+  function  ToString : string;
+end;</pre>
+        <ul>
+          <li>Private fields fName and fPrice <span class="tick">✓</span></li>
+          <li>Constructor with parameters <span class="tick">✓</span></li>
+          <li>Accessor (getter) for each field <span class="tick">✓</span></li>
+          <li>Mutator (setter) for the price <span class="tick">✓</span></li>
+          <li>ToString function declared <span class="tick">✓</span></li>
         </ul></div>
       </details>
     </div>

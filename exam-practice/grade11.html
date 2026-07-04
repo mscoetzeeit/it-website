@@ -25,6 +25,7 @@
     <a href="#emerging">Emerging Technologies</a>
     <a href="#valid">Data Validation</a>
     <a href="#prog2">More Delphi &amp; SQL</a>
+    <a href="#more">Section B — Mixed</a>
     <div class="sidebar-grade" style="margin-top:1rem">Other Grades</div>
     <a href="grade10.html">Grade 10</a>
     <a href="grade12.html">Grade 12</a>
@@ -293,6 +294,70 @@ GROUP BY Grade;</pre>
           <li>COUNT(*) and AVG(Average) <span class="tick">✓</span></li>
           <li>GROUP BY Grade <span class="tick">✓</span></li>
           <li>correct table/fields <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <h2 id="more">Section B — Mixed Exam Questions</h2>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q8 · Motherboard &amp; memory</span><span class="q-marks">4</span></div>
+      <p class="q-text">8.1 What is the purpose of the motherboard? (1)<br>8.2 Distinguish between RAM and ROM. (2)<br>8.3 Where is cache memory located and why does that help? (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>8.1 It connects and provides power to all the components; the central hub through which data flows <span class="tick">✓</span></li>
+          <li>8.2 RAM is volatile, temporary working memory; ROM is non-volatile and holds permanent start-up instructions <span class="tick">✓</span><span class="tick">✓</span></li>
+          <li>8.3 On or very close to the CPU, so frequently used data is fetched quickly without waiting for slower RAM <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q9 · Software &amp; virtualisation</span><span class="q-marks">4</span></div>
+      <p class="q-text">9.1 Distinguish between a compiler and an interpreter. (2)<br>9.2 What is virtualisation, and give ONE benefit. (2)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>9.1 A compiler translates the whole program to machine code at once (before running); an interpreter translates and runs it one line at a time <span class="tick">✓</span><span class="tick">✓</span></li>
+          <li>9.2 Using software to run one or more "virtual" computers on one physical machine <span class="tick">✓</span>; benefit: saves cost/space/electricity, or lets you test risky software safely <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q10 · Databases</span><span class="q-marks">4</span></div>
+      <p class="q-text">10.1 What does DBMS stand for and do? (2)<br>10.2 Distinguish between a desktop/personal database and a server/centralised database. (2)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>10.1 Database Management System <span class="tick">✓</span> — software used to create, manage and query a database <span class="tick">✓</span></li>
+          <li>10.2 A personal database is on one computer for a single user; a centralised database is stored on a server and shared by many users over a network <span class="tick">✓</span><span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q11 · Social implications</span><span class="q-marks">3</span></div>
+      <p class="q-text">11.1 What is crowdsourcing? Give ONE example. (2)<br>11.2 What is the digital divide? (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>11.1 Getting ideas, content, services or funding from a large group of people online <span class="tick">✓</span>; e.g. Wikipedia, crowdfunding (BackaBuddy), map/review contributions <span class="tick">✓</span></li>
+          <li>11.2 The gap between people who have access to digital technology and those who do not <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">P7 · Parallel-array sort</span><span class="q-marks">4</span></div>
+      <p class="q-text"><code>arrName</code> and <code>arrMark</code> are parallel arrays of N learners. Explain — and show with a swap — how to sort them from highest mark to lowest while keeping each name with its mark.</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo">
+<pre class="no-label">for i := 1 to N - 1 do
+  for j := i + 1 to N do
+    if arrMark[j] > arrMark[i] then
+    begin
+      // swap BOTH arrays at the same index
+      iTemp := arrMark[i]; arrMark[i] := arrMark[j]; arrMark[j] := iTemp;
+      sTemp := arrName[i]; arrName[i] := arrName[j]; arrName[j] := sTemp;
+    end;</pre>
+        <ul>
+          <li>Compare marks with <code>&gt;</code> for descending order <span class="tick">✓</span></li>
+          <li>Swap <code>arrMark</code> at i and j using a temp <span class="tick">✓</span></li>
+          <li>Swap <code>arrName</code> at the <em>same</em> index so the name stays with its mark <span class="tick">✓</span></li>
+          <li>Correct nested-loop structure <span class="tick">✓</span></li>
         </ul></div>
       </details>
     </div>

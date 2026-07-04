@@ -22,6 +22,7 @@
     <a href="#digital">Digital Technologies &amp; ICT</a>
     <a href="#web">Internet &amp; WWW</a>
     <a href="#prog2">More Delphi</a>
+    <a href="#more">Section B — Mixed</a>
     <div class="sidebar-grade" style="margin-top:1rem">Other Grades</div>
     <a href="grade11.html">Grade 11</a>
     <a href="grade12.html">Grade 12</a>
@@ -241,6 +242,69 @@ end;</pre>
           <li>P5.1 <code>OnClick</code> <span class="tick">✓</span></li>
           <li>P5.2 The <code>.Text</code> property (e.g. <code>edtAge.Text</code>) <span class="tick">✓</span></li>
           <li>P5.3 <code>StrToInt(edtAge.Text)</code> <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <h2 id="more">Section B — Mixed Exam Questions</h2>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q11 · Storage</span><span class="q-marks">4</span></div>
+      <p class="q-text">11.1 Arrange these from smallest to largest: GB, KB, TB, MB. (2)<br>11.2 How many bits are there in one byte? (1)<br>11.3 Suggest a suitable device to back up 500 GB of data. (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>11.1 KB &rarr; MB &rarr; GB &rarr; TB <span class="tick">✓</span><span class="tick">✓</span></li>
+          <li>11.2 8 bits <span class="tick">✓</span></li>
+          <li>11.3 An external hard drive, large flash drive, or cloud storage <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q12 · Data representation</span><span class="q-marks">4</span></div>
+      <p class="q-text">12.1 Convert the binary number <code>1101</code> to decimal. (2)<br>12.2 Why is hexadecimal used instead of long binary strings? (1)<br>12.3 What does ASCII store? (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>12.1 8 + 4 + 0 + 1 = <strong>13</strong> <span class="tick">✓</span><span class="tick">✓</span></li>
+          <li>12.2 It is much shorter and easier for people to read than a long string of 0s and 1s <span class="tick">✓</span></li>
+          <li>12.3 A numeric code for each text character <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q13 · Internet &amp; email</span><span class="q-marks">4</span></div>
+      <p class="q-text">Given the URL <code>https://www.school.co.za/marks.html</code>:</p>
+      <p class="q-text">13.1 Identify the protocol, the domain name and the web page/file. (3)<br>13.2 Give ONE netiquette rule for writing an email. (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>13.1 Protocol = <code>https</code>; domain = <code>www.school.co.za</code>; page/file = <code>marks.html</code> <span class="tick">✓</span><span class="tick">✓</span><span class="tick">✓</span></li>
+          <li>13.2 Any one: use a clear subject line, don't type in ALL CAPS, include a greeting/signature, proofread before sending <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">Q14 · Social &amp; safety</span><span class="q-marks">3</span></div>
+      <p class="q-text">14.1 What is green computing? Give ONE example. (2)<br>14.2 What does POPIA protect? (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>14.1 Reducing the environmental impact of using computers <span class="tick">✓</span>; e.g. power-saving mode, recycling e-waste, or reducing printing <span class="tick">✓</span></li>
+          <li>14.2 Personal information (your right to data privacy) <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">P6 · Delphi — even check &amp; last digit</span><span class="q-marks">3</span></div>
+      <p class="q-text">A number is in <code>iNum</code>. Write code that shows "Even" or "Odd" in <code>lblParity</code>, and shows the number's last digit in <code>lblDigit</code>.</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo">
+<pre class="no-label">if iNum mod 2 = 0 then
+  lblParity.Caption := 'Even'
+else
+  lblParity.Caption := 'Odd';
+
+lblDigit.Caption := IntToStr(iNum mod 10);</pre>
+        <ul>
+          <li><code>iNum mod 2 = 0</code> for even, else odd <span class="tick">✓</span></li>
+          <li><code>iNum mod 10</code> gives the last digit <span class="tick">✓</span></li>
+          <li>Displayed correctly with IntToStr <span class="tick">✓</span></li>
         </ul></div>
       </details>
     </div>
