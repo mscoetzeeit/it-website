@@ -105,6 +105,8 @@
     // ── STUDY TOOLS ──
     + '<li><button class="nav-dropdown-btn" style="color:#4ade80">' + t('Study Tools', 'Studiehulpmiddels') + ' <span class="chevron"></span></button>'
     + '<div class="dropdown">'
+    + '<div class="dropdown-section">' + t('Reference', 'Verwysing') + '</div>'
+    + '<a href="' + r + 'glossary.html">&#128218; ' + t('Glossary &amp; Acronyms', 'Woordelys &amp; Akronieme') + '</a>'
     + '<div class="dropdown-section">' + t('Year Planner', 'Jaarbeplanner') + '</div>'
     + '<a href="' + r + 'terms-gr10.html">&#128197; ' + t('Grade 10 &mdash; Year Planner', 'Graad 10 &mdash; Jaarbeplanner') + '</a>'
     + '<a href="' + r + 'terms-gr11.html">&#128197; ' + t('Grade 11 &mdash; Year Planner', 'Graad 11 &mdash; Jaarbeplanner') + '</a>'

@@ -596,6 +596,46 @@ details.answer[open] > summary { margin-bottom: 0.5rem; }
 }
 .mistake .right strong { color: var(--text); }
 
+/* ── GLOSSARY ── */
+.gloss-controls {
+  position: sticky; top: 56px; z-index: 5;
+  background: var(--bg);
+  padding: 0.75rem 0 0.6rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.5rem;
+}
+.gloss-filter {
+  width: 100%;
+  background: var(--surface2); border: 1px solid var(--border);
+  color: var(--text); padding: 0.55rem 0.9rem;
+  border-radius: 20px; font-size: 0.95rem; outline: none;
+  transition: border-color .2s;
+}
+.gloss-filter:focus { border-color: var(--accent); }
+.gloss-filter::placeholder { color: var(--muted); }
+.az-nav { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.6rem; }
+.az-nav a {
+  font-size: 0.78rem; font-weight: 600;
+  min-width: 1.5rem; text-align: center;
+  padding: 0.15rem 0.35rem; border-radius: 4px;
+  color: var(--muted); background: var(--surface2); border: 1px solid var(--border);
+}
+.az-nav a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+.gloss-letter {
+  font-size: 1.35rem; font-weight: 700; color: var(--accent);
+  border-bottom: 1px solid var(--border); padding-bottom: 0.25rem;
+  margin: 1.75rem 0 0.5rem; scroll-margin-top: 130px;
+}
+.gloss-item { padding: 0.55rem 0; border-bottom: 1px solid var(--border); }
+.gloss-item:last-child { border-bottom: none; }
+.gloss-term { font-weight: 600; color: var(--text); }
+.gloss-term .abbr { color: var(--accent); font-weight: 700; }
+.gloss-def { color: var(--muted); font-size: 0.9rem; margin-top: 0.15rem; }
+.gloss-item.hidden, .gloss-letter.hidden { display: none; }
+.gloss-empty { color: var(--muted); font-size: 0.9rem; padding: 1rem 0; display: none; }
+.gloss-empty.show { display: block; }
+mark { background: rgba(251,191,36,.35); color: inherit; border-radius: 2px; }
+
 /* topic chips on exam-practice hub */
 .topic-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0 1.25rem; }
 .topic-chips span {
