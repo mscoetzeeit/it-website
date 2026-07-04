@@ -23,6 +23,7 @@
     <a href="#social"><span class="i18n" data-af="Maatskaplike Implikasies">Social Implications</span></a>
     <a href="#practical"><span class="i18n" data-af="Prakties (Excel/Access/Word/HTML)">Practical (Excel/Access/Word/HTML)</span></a>
     <a href="#soldev"><span class="i18n" data-af="Oplossingsontwikkeling (V8)">Solution Development (Q8)</span></a>
+    <a href="#scenario"><span class="i18n" data-af="Geïntegreerde Scenario (V9/V10)">Integrated Scenario (Q9/Q10)</span></a>
     <div class="sidebar-grade" style="margin-top:1rem"><span class="i18n" data-af="Ander Grade">Other Grades</span></div>
     <a href="grade10.html"><span class="i18n" data-af="Graad 10">Grade 10</span></a>
     <a href="grade11.html"><span class="i18n" data-af="Graad 11">Grade 11</span></a>
@@ -303,6 +304,68 @@
           <li>SD4.3 <strong>Export</strong> (from Excel) — or <strong>Import</strong> from within Access <span class="tick">✓</span></li>
         </ul></div>
       </details>
+    </div>
+
+    <h2 id="scenario">Section C — Integrated Scenario <span style="font-size:.7rem;color:var(--muted)">(Q9/Q10 style — apply many topics to one situation)</span></h2>
+    <div class="callout">
+      <div class="callout-title">Scenario: GreenLeaf Nursery goes online</div>
+      <p><strong>GreenLeaf Nursery</strong> is a small family plant business. The owner, Thabo, wants to computerise the shop, take card payments, sell online, and keep records of stock and customers. Answer the sub-questions using everything you know — this is how Section C works.</p>
+    </div>
+
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">SC1 · Hardware &amp; setup</span><span class="q-marks">6</span></div>
+      <p class="q-text">SC1.1 Thabo will photograph every plant for the website. Besides resolution, name TWO camera specifications that affect photo quality. (2)<br>SC1.2 He wants a device at the counter that reads the price of a plant when its tag is scanned. Name it. (1)<br>SC1.3 The counter PC must not lose the day's sales if the power trips. Name the device that prevents this and say what it does. (2)<br>SC1.4 Recommend ONE way to connect the counter PC to the printer without cables. (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>SC1.1 Any two: optical zoom, sensor size, aperture/lens quality, ISO range, image stabilisation <span class="tick">✓</span><span class="tick">✓</span></li>
+          <li>SC1.2 A barcode scanner / barcode reader <span class="tick">✓</span></li>
+          <li>SC1.3 A <strong>UPS</strong> (uninterruptible power supply) <span class="tick">✓</span> — a battery backup that keeps the PC running briefly so work can be saved and the PC shut down safely <span class="tick">✓</span></li>
+          <li>SC1.4 Bluetooth (or Wi-Fi) <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">SC2 · Network &amp; internet</span><span class="q-marks">5</span></div>
+      <p class="q-text">SC2.1 Thabo is choosing between a capped and an uncapped internet account for the shop. Give ONE reason uncapped may suit an online store. (1)<br>SC2.2 Explain why fibre would be a better choice than mobile data for the shop's fixed connection. (2)<br>SC2.3 He lets customers use the shop's Wi-Fi. State TWO risks of an open public hotspot. (2)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>SC2.1 An online store uploads images and handles orders all day; uncapped means it won't run out of data / be cut off mid-month <span class="tick">✓</span></li>
+          <li>SC2.2 Fibre is faster and more stable / has lower latency <span class="tick">✓</span>, and isn't affected by signal strength like mobile data <span class="tick">✓</span></li>
+          <li>SC2.3 Any two: others can intercept data on the open network; criminals can set up fake hotspots; bandwidth is shared/slowed; malware could spread <span class="tick">✓</span><span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">SC3 · Social, security &amp; data</span><span class="q-marks">6</span></div>
+      <p class="q-text">SC3.1 GreenLeaf stores customer names, phone numbers and addresses. Name the SA law that requires this data to be protected. (1)<br>SC3.2 Thabo receives an email that looks like it's from his bank asking him to confirm his password. Name this type of attack and give ONE clue that it is fake. (2)<br>SC3.3 Give TWO ways Thabo can protect the shop's data against ransomware. (2)<br>SC3.4 Give ONE green-computing action the nursery can take with its old, broken computers. (1)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>SC3.1 <strong>POPIA</strong> (Protection of Personal Information Act) <span class="tick">✓</span></li>
+          <li>SC3.2 <strong>Phishing</strong> <span class="tick">✓</span>; clue: suspicious sender address, urgent threat, spelling errors, asks for a password/banking details, a link to a fake site <span class="tick">✓</span></li>
+          <li>SC3.3 Any two: keep regular backups (3-2-1), run updated antivirus, keep software patched, don't open unknown attachments/links <span class="tick">✓</span><span class="tick">✓</span></li>
+          <li>SC3.4 Take them to a registered e-waste recycler / donate working parts — don't dump them (they contain toxic materials) <span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <div class="qcard">
+      <div class="q-meta"><span class="q-num">SC4 · Info management &amp; practical</span><span class="q-marks">7</span></div>
+      <p class="q-text">SC4.1 Thabo keeps stock in a database table. Which field would be the best <strong>primary key</strong>: PlantName or PlantCode? Give a reason. (2)<br>SC4.2 In a query, what criterion shows only plants with fewer than 5 in stock? (1)<br>SC4.3 In a spreadsheet, prices are in <code>C2:C40</code> and a 15% discount is in cell <code>F1</code>. Write a formula for the discounted price of the plant in C2 that can be copied down. (2)<br>SC4.4 The website links to an online order form. Name the HTML tag AND attribute used to create that link. (2)</p>
+      <details class="answer"><summary>Show memo</summary>
+        <div class="memo"><ul>
+          <li>SC4.1 <strong>PlantCode</strong> <span class="tick">✓</span> — it is unique for every plant, while two plants could share a name <span class="tick">✓</span></li>
+          <li>SC4.2 <code>&lt;5</code> (in the stock/quantity field) <span class="tick">✓</span></li>
+          <li>SC4.3 <code>=C2*(1-$F$1)</code> — note the absolute reference <code>$F$1</code> <span class="tick">✓</span><span class="tick">✓</span></li>
+          <li>SC4.4 The <code>&lt;a&gt;</code> tag with the <code>href</code> attribute <span class="tick">✓</span><span class="tick">✓</span></li>
+        </ul></div>
+      </details>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">Why Section C feels hard</div>
+      <p>Each sub-question jumps to a different topic, so you must switch gears fast. The facts are the same ones you already know — the trick is to <strong>read what the scenario needs</strong> and apply the fact to <em>Thabo's nursery</em>, not answer in general.</p>
     </div>
 
     <div class="callout exam">
