@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ms Coetzee IT - Study Reference (Printable Booklet)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Before writing a single line of code, good programmers plan their solution. This page covers algorithms, pseudocode, flowcharts, IPO tables and trace tables...">
+<title>Ms Coetzee IT - Study Reference (Printable Booklet)</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230891b2'/%3E%3Ctext x='16' y='22' font-family='Arial,Helvetica,sans-serif' font-size='14' font-weight='700' fill='%23fff' text-anchor='middle'%3EIT%3C/text%3E%3C/svg%3E">
 <style>
 /* ============ B&W PRINTABLE BOOKLET ============ */
 :root{ --ink:#111; --soft:#333; --faint:#555; --line:#888; --rule:#ccc; --panel:#f4f4f4; --head:#eaeaea; }
@@ -2316,7 +2316,7 @@ sResult := <span class="fn">LowerCase</span>(sSourceText);
 
     <div class="tbl-wrap"><table>
       <tr><th>Device</th><th>Technology</th><th>Speed</th><th>Notes</th></tr>
-      <tr><td><strong>HDD</strong></td><td>Magnetic spinning platters — a read/write head moves over them like a vinyl record</td><td>Slow (~120 MB/s)</td><td>Cheap per GB, large capacities (1–20 TB), fragile (moving parts)</td></tr>
+      <tr><td><strong>HDD</strong></td><td>Magnetic spinning platters — a read/write head hovers just above them on a cushion of air, without touching, to read and write data</td><td>Slow (~120 MB/s)</td><td>Cheap per GB, large capacities (1–20 TB), fragile (moving parts; contact = "head crash")</td></tr>
       <tr><td><strong>SSD</strong></td><td>Flash memory chips — no moving parts, like a giant USB drive</td><td>Very fast (~500 MB/s+)</td><td>Durable, silent, faster boot times, more expensive per GB</td></tr>
       <tr><td><strong>NVMe SSD</strong></td><td>SSD connected directly to CPU via PCIe slot</td><td>Extremely fast (~3500 MB/s)</td><td>Found in high-end laptops and desktops</td></tr>
       <tr><td><strong>USB flash drive</strong></td><td>Flash memory in a portable stick</td><td>Moderate</td><td>Easy to carry, easy to lose; 8 GB–512 GB common</td></tr>
@@ -3296,7 +3296,7 @@ cUpper := Chr(Ord(cLower) - <span class="num">32</span>);
   <li>Sit upright; monitor at eye level</li>
   <li>Keyboard and mouse at comfortable arm height</li>
   <li>Take breaks every 30–60 minutes</li>
-  <li>Use the 20-20-20 rule: every 20 min, look 20m away for 20 seconds</li>
+  <li>Use the 20-20-20 rule: every 20 min, look at something 20 feet (~6m) away for 20 seconds</li>
 </ul>
 <h2>Social Issues</h2>
 <ul>
@@ -3817,13 +3817,18 @@ bFound := <span class="kw">False</span>;
 
 <div class="code-block"><span class="code-label">Delphi — Selection Sort</span>
 <pre><code><span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(arrNums) - <span class="num">1</span> <span class="kw">do</span>
+<span class="kw">begin</span>
+  iMin := i;
   <span class="kw">for</span> j := i + <span class="num">1</span> <span class="kw">to</span> Length(arrNums) <span class="kw">do</span>
-    <span class="kw">if</span> arrNums[j] &lt; arrNums[i] <span class="kw">then</span>
-    <span class="kw">begin</span>
-      iTemp := arrNums[i];
-      arrNums[i] := arrNums[j];
-      arrNums[j] := iTemp;
-    <span class="kw">end</span>;</code></pre></div>
+    <span class="kw">if</span> arrNums[j] &lt; arrNums[iMin] <span class="kw">then</span>
+      iMin := j;
+  <span class="kw">if</span> iMin &lt;&gt; i <span class="kw">then</span>
+  <span class="kw">begin</span>
+    iTemp := arrNums[i];
+    arrNums[i] := arrNums[iMin];
+    arrNums[iMin] := iTemp;
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</code></pre></div>
 
 <!-- ═══════ PARALLEL ARRAYS ═══════ -->
 <h2>Parallel Arrays</h2>
@@ -5024,7 +5029,7 @@ dm.tblStudents.Sort := <span class="str">'Grade ASC, Surname ASC'</span>; <span 
   <tr><th>Form</th><th>Description</th><th>Examples</th></tr>
   <tr><td><strong>Blogging</strong></td><td>Online journal; one-way content; new posts appear at top</td><td>WordPress, Blogger, Medium</td></tr>
   <tr><td><strong>Microblogging</strong></td><td>Very short posts (text/image/video) shared with followers</td><td>X/Twitter (280 chars)</td></tr>
-  <tr><td><strong>SMS</strong></td><td>140-char text via mobile network; no internet needed</td><td>Cell provider; bank OTPs</td></tr>
+  <tr><td><strong>SMS</strong></td><td>160-char text via mobile network; no internet needed</td><td>Cell provider; bank OTPs</td></tr>
   <tr><td><strong>Instant Messaging</strong></td><td>Free real-time text/media over internet; group chats</td><td>WhatsApp, Telegram, Signal</td></tr>
   <tr><td><strong>Vlogging / Videocasting</strong></td><td>Video content; pre-recorded or live-streamed</td><td>YouTube, TikTok</td></tr>
   <tr><td><strong>Podcasting</strong></td><td>Audio-only series; downloadable for offline listening</td><td>Spotify Podcasts, Apple Podcasts</td></tr>
@@ -5579,7 +5584,7 @@ qryData.Open;</code></pre></div>
         <text x="335" y="35" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">objCat1 (Object)</text>
         <text x="280" y="52" fill="#e6edf3" font-size="9">fName = 'Whiskers'</text>
         <text x="280" y="66" fill="#e6edf3" font-size="9">fAge  = 3</text>
-        <text x="280" y="80" fill="#8b949e" font-size="8">objCat1 := TCat.Create('Whiskers', 3);</text>
+        <text x="280" y="80" fill="#8b949e" font-size="8">objCat1 := TCat.Create('Whiskers', 3, 4.2);</text>
 
         <!-- Object 2 -->
         <rect x="420" y="20" width="130" height="72" rx="5" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
@@ -5587,7 +5592,7 @@ qryData.Open;</code></pre></div>
         <text x="485" y="35" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">objCat2 (Object)</text>
         <text x="430" y="52" fill="#e6edf3" font-size="9">fName = 'Felix'</text>
         <text x="430" y="66" fill="#e6edf3" font-size="9">fAge  = 5</text>
-        <text x="430" y="80" fill="#8b949e" font-size="8">objCat2 := TCat.Create('Felix', 5);</text>
+        <text x="430" y="80" fill="#8b949e" font-size="8">objCat2 := TCat.Create('Felix', 5, 5.0);</text>
 
         <!-- Object 3 -->
         <rect x="570" y="20" width="132" height="72" rx="5" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
@@ -5595,7 +5600,7 @@ qryData.Open;</code></pre></div>
         <text x="636" y="35" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">objCat3 (Object)</text>
         <text x="580" y="52" fill="#e6edf3" font-size="9">fName = 'Shadow'</text>
         <text x="580" y="66" fill="#e6edf3" font-size="9">fAge  = 1</text>
-        <text x="580" y="80" fill="#8b949e" font-size="8">objCat3 := TCat.Create('Shadow', 1);</text>
+        <text x="580" y="80" fill="#8b949e" font-size="8">objCat3 := TCat.Create('Shadow', 1, 3.5);</text>
 
         <text x="360" y="165" text-anchor="middle" fill="#8b949e" font-size="9">Same class TCat — three different objects with different data. The class defines the structure; objects hold the actual values.</text>
       </svg>
@@ -6014,7 +6019,7 @@ lblName.Caption := objCat.GetName;           <span class="cmt">// 'Felix'</span>
 
 <section class="chapter" id="ch34">
   <div class="chapter-tag">Grade 12 &middot; Practical</div>
-<h1>2D Arrays <span class="grade-badge">Grade 11</span></h1>
+<h1>2D Arrays <span class="grade-badge">Grade 12</span></h1>
 <p class="page-intro">A two-dimensional array stores data in a grid of rows and columns — like a table or spreadsheet. Each element is accessed using two indices: [row, column].</p>
 <h2>What is a 2D Array?</h2>
 <p>A <strong>two-dimensional (2D) array</strong> is a single variable that stores many values arranged in a grid of rows and columns. Where an ordinary (one-dimensional) array is like a single shopping list running down the page, a 2D array is like a whole spreadsheet — a block of cells where every value sits at the crossing point of a row and a column.</p>

@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Databases in Delphi (Grade 11) &#x00B7; Ms Coetzee IT</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="In Grade 11 you learn how to connect a Delphi program to a Microsoft Access database, display its data on screen, and add, edit or delete records using code...">
+<title>Databases in Delphi (Grade 11) &#x00B7; Ms Coetzee IT</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230891b2'/%3E%3Ctext x='16' y='22' font-family='Arial,Helvetica,sans-serif' font-size='14' font-weight='700' fill='%23fff' text-anchor='middle'%3EIT%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="../../css/style.css">
 <style>:root{--grade-color:var(--gr11);}</style>
 </head>
@@ -97,9 +97,13 @@
     <p>Place <code>TADOConnection</code> on a <strong>Data Module</strong> (a special form-like container for database components). Go to <em>File &rarr; New &rarr; Data Module</em> to create one.</p>
   </div>
   <div class="code-block"><span class="code-label">Key properties to set in Object Inspector</span>
-<pre><code>ConnectionString  → Build... → Choose "Microsoft Jet 4.0 OLE DB Provider"
+<pre><code>ConnectionString  → Build... → Choose "Microsoft Office 12.0 Access Database Engine OLE DB Provider"
                              → Browse to your .accdb file
 LoginPrompt       → False   (stops the "Enter password" popup appearing)</code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">Which provider?</div>
+    <p>Newer <code>.accdb</code> files need the <strong>ACE</strong> provider ("Microsoft Office 12.0 Access Database Engine", also shown as <code>Microsoft.ACE.OLEDB.12.0</code>). The older <strong>Jet 4.0</strong> provider only works with legacy <code>.mdb</code> files.</p>
+  </div>
 
   <h3>TADOTable &mdash; One Table from the Database</h3>
   <p>A database can have many tables (Students, Subjects, Classes…). A <code>TADOTable</code> represents <em>one</em> of those tables. You need one <code>TADOTable</code> for each table you want to work with.</p>

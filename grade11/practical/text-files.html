@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Text Files &#x00B7; Ms Coetzee IT</title><link rel="stylesheet" href="../../css/style.css"><style>:root{--grade-color:var(--gr11);}</style></head><body><div id="topnav"></div><div class="page-wrapper"><aside class="sidebar"><div class="sidebar-grade">Grade 11 Practical</div><a href="../../grade11/practical/text-files.html">Text Files</a><a href="../../grade11/practical/methods.html">Procedures &amp; Functions</a><a href="../../grade11/practical/databases-delphi.html">Databases in Delphi</a><div class="sidebar-grade" style="margin-top:1rem">Grade 11 Theory</div><a href="../../grade11/theory/hardware-gr11.html">Motherboard &amp; Hardware</a><a href="../../grade11/theory/processing.html">Processing</a><a href="../../grade11/theory/databases.html">Databases</a><a href="../../grade11/theory/networks-gr11.html">Networks</a><a href="../../grade11/theory/mobile-tech.html">Mobile Tech</a><a href="../../grade11/theory/social-gr11.html">Social Implications</a></aside><main class="content"><div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Text Files</span></div>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Text files allow your Delphi program to save and load data that persists between runs. Learn the four operations: reading, writing, appending, and checking e..."><title>Text Files &#x00B7; Ms Coetzee IT</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230891b2'/%3E%3Ctext x='16' y='22' font-family='Arial,Helvetica,sans-serif' font-size='14' font-weight='700' fill='%23fff' text-anchor='middle'%3EIT%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="../../css/style.css"><style>:root{--grade-color:var(--gr11);}</style></head><body><div id="topnav"></div><div class="page-wrapper"><aside class="sidebar"><div class="sidebar-grade">Grade 11 Practical</div><a href="../../grade11/practical/text-files.html">Text Files</a><a href="../../grade11/practical/methods.html">Procedures &amp; Functions</a><a href="../../grade11/practical/databases-delphi.html">Databases in Delphi</a><div class="sidebar-grade" style="margin-top:1rem">Grade 11 Theory</div><a href="../../grade11/theory/hardware-gr11.html">Motherboard &amp; Hardware</a><a href="../../grade11/theory/processing.html">Processing</a><a href="../../grade11/theory/databases.html">Databases</a><a href="../../grade11/theory/networks-gr11.html">Networks</a><a href="../../grade11/theory/mobile-tech.html">Mobile Tech</a><a href="../../grade11/theory/social-gr11.html">Social Implications</a></aside><main class="content"><div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Text Files</span></div>
 <h1>Text Files <span class="grade-badge">Grade 11</span></h1>
 <p class="page-intro">Text files allow your Delphi program to save and load data that persists between runs. Learn the four operations: reading, writing, appending, and checking existence.</p>
 
@@ -36,7 +36,7 @@
   <li><strong>ReadLn(F, S)</strong> – reads one whole line from the file into the variable <code>S</code>, then moves on to the next line.</li>
   <li><strong>WriteLn(F, S)</strong> – writes the contents of <code>S</code> into the file as one line.</li>
   <li><strong>CloseFile(F)</strong> – saves and properly closes the file. Like shutting and locking the postbox so nothing is lost.</li>
-  <li><strong>Eof(F)</strong> – short for "End Of File". Returns <code>True</code> once you have read the last line, so your loop knows when to stop.</li>
+  <li><strong>EOF(F)</strong> – short for "End Of File". Returns <code>True</code> once you have read the last line, so your loop knows when to stop.</li>
 </ul>
 
 <h2>Key Procedures and Functions</h2>
@@ -158,7 +158,7 @@ Khumalo,Sipho,91</code></pre></div>
 <h3>Step 0 — Declare the parallel arrays</h3>
 <div class="code-block"><span class="code-label">Delphi — global declarations</span>
 <pre><code><span class="kw">const</span>
-  MAX = <span class="num">100</span>;                 <span class="cmt">// most learners the arrays can hold</span>
+  Max = <span class="num">100</span>;                 <span class="cmt">// most learners the arrays can hold</span>
 <span class="kw">var</span>
   arrSurname : <span class="kw">array</span>[<span class="num">1</span>..MAX] <span class="kw">of</span> <span class="kw2">string</span>;
   arrName    : <span class="kw">array</span>[<span class="num">1</span>..MAX] <span class="kw">of</span> <span class="kw2">string</span>;

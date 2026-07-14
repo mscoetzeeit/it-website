@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HTML — Web Design &#x00B7; Ms Coetzee IT</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="HTML (HyperText Markup Language) is the coding language used to build web pages. In IT CAPS, you create basic static web pages using HTML tags.">
+<title>HTML — Web Design &#x00B7; Ms Coetzee IT</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230891b2'/%3E%3Ctext x='16' y='22' font-family='Arial,Helvetica,sans-serif' font-size='14' font-weight='700' fill='%23fff' text-anchor='middle'%3EIT%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="../../css/style.css">
 <style>:root{--grade-color:var(--gr10);}</style>
 </head>
@@ -175,6 +175,17 @@
   &lt;/body&gt;
 &lt;/html&gt;</code></pre></div>
 
+<h2>Grouping Content — div and span</h2>
+<p>Sometimes you need to group elements together to style or position them as a unit, even though there's no tag for "that specific group." <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> exist for exactly this — they add no meaning or default appearance of their own, they're just containers.</p>
+<div class="code-block"><span class="code-label">Block vs inline container</span>
+<pre><code><span class="ht">&lt;div&gt;</span>
+  <span class="ht">&lt;p&gt;</span>This paragraph and the next one are grouped inside a &lt;div&gt;.<span class="ht">&lt;/p&gt;</span>
+  <span class="ht">&lt;p&gt;</span>A &lt;div&gt; always starts on its own new line (block-level).<span class="ht">&lt;/p&gt;</span>
+<span class="ht">&lt;/div&gt;</span>
+
+<span class="ht">&lt;p&gt;</span>Just one word in this sentence is <span class="ht">&lt;span&gt;</span>highlighted<span class="ht">&lt;/span&gt;</span> using a span, which does not start a new line (inline).<span class="ht">&lt;/p&gt;</span></code></pre></div>
+<p><code>&lt;div&gt;</code> is <strong>block-level</strong> (stacks vertically, takes the full width available) and is used to group larger sections. <code>&lt;span&gt;</code> is <strong>inline</strong> (sits within a line of text) and is used to mark a small piece of text. Both are usually combined with CSS classes or IDs to apply styling.</p>
+
 <h2>Common HTML Tag Reference</h2>
 <div class="tbl-wrap"><table>
   <tr><th>Tag</th><th>Purpose</th></tr>
@@ -194,7 +205,7 @@
 </table></div>
 
 <div class="page-nav">
-  <a href="../../grade11/practical/arrays.html"><span class="page-nav-label">← Previous</span>1D Arrays</a>
+  <a href="strings.html"><span class="page-nav-label">← Previous</span>String Manipulation</a>
   <a class="next" href="../theory/digital-tech.html"><span class="page-nav-label">Next →</span>Digital Technologies (Theory)</a>
 </div>
 </main>

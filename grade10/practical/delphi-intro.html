@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Introduction to Delphi – IT CAPS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Delphi is a visual programming environment — you design the screen AND write the code. You drag components onto a form to build the interface, then write Pas...">
+<title>Introduction to Delphi – IT CAPS</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230891b2'/%3E%3Ctext x='16' y='22' font-family='Arial,Helvetica,sans-serif' font-size='14' font-weight='700' fill='%23fff' text-anchor='middle'%3EIT%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="../../css/style.css">
 <style>:root { --grade-color: var(--gr10); }</style>
 </head>
@@ -15,12 +15,13 @@
     <div class="sidebar-grade">Grade 10 · Practical</div>
     <a href="algorithms.html">Algorithms &amp; Problem Solving</a>
     <a href="delphi-intro.html">Introduction to Delphi</a>
+    <a href="delphi-components.html">Components &amp; Events</a>
     <a href="data-types.html">Data Types &amp; Variables</a>
     <a href="operators.html">Operators &amp; Functions</a>
     <a href="decisions.html">Decision Making (IF / CASE)</a>
     <a href="loops.html">Loops</a>
     <a href="strings.html">String Manipulation</a>
-    
+    <a href="html.html">HTML — Web Design</a>
     <div class="sidebar-grade" style="margin-top:1rem">Grade 10 · Theory</div>
     <a href="../theory/digital-tech.html">Digital Technologies &amp; ICT</a>
     <a href="../theory/hardware.html">Hardware</a>
@@ -28,6 +29,7 @@
     <a href="../theory/data-representation.html">Data Representation</a>
     <a href="../theory/networks.html">Networks</a>
     <a href="../theory/internet.html">Internet &amp; WWW</a>
+    <a href="../theory/internet-services.html">Internet Services</a>
     <a href="../theory/e-communication.html">E-Communication</a>
     <a href="../theory/management.html">Computer Management &amp; Security</a>
   </aside>
@@ -180,7 +182,7 @@
 
     <div class="callout warning">
       <div class="callout-title">Save in its own folder — always!</div>
-      <p>Each project <strong>must</strong> be saved in its own dedicated folder. Save the Unit file as <code>FileName_u.pas</code> and the Project file as <code>FileName_p.dproj</code>. Never mix two projects in one folder.</p>
+      <p>Each project <strong>must</strong> be saved in its own dedicated folder. Save the Unit file as <code>FileName_u.pas</code> and the Project file as <code>FileName_p.dpr</code>. Never mix two projects in one folder.</p>
     </div>
 
     <!-- ═══════════════════════════════════════════════════ -->
@@ -276,7 +278,7 @@
         <tr><td><code>mem</code></td><td>TMemo</td><td><code>memOutput</code></td></tr>
         <tr><td><code>img</code></td><td>TImage</td><td><code>imgLogo</code></td></tr>
         <tr><td><code>pnl</code></td><td>TPanel</td><td><code>pnlHeader</code></td></tr>
-        <tr><td><code>sed</code></td><td>TScrolledEdit</td><td><code>sedNotes</code></td></tr>
+        <tr><td><code>sed</code></td><td>TSpinEdit</td><td><code>sedNotes</code></td></tr>
         <tr><td><code>cbo</code></td><td>TComboBox</td><td><code>cboGrade</code></td></tr>
         <tr><td><code>lst</code></td><td>TListBox</td><td><code>lstNames</code></td></tr>
         <tr><td><code>rgp</code></td><td>TRadioGroup</td><td><code>rgpGender</code></td></tr>
@@ -443,9 +445,9 @@ Shape1.Left         := <span class="num">20</span>;</code></pre>
         <span class="page-nav-label">← Previous</span>
         Algorithms &amp; Problem Solving
       </a>
-      <a class="next" href="data-types.html">
+      <a class="next" href="delphi-components.html">
         <span class="page-nav-label">Next →</span>
-        Data Types &amp; Variables
+        Components &amp; Events
       </a>
     </div>
   </main>

@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Operators & Functions – IT CAPS</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Operators perform calculations. Delphi also has a rich library of built-in functions for maths, string handling, and more.">
+<title>Operators & Functions – IT CAPS</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230891b2'/%3E%3Ctext x='16' y='22' font-family='Arial,Helvetica,sans-serif' font-size='14' font-weight='700' fill='%23fff' text-anchor='middle'%3EIT%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="../../css/style.css">
 <style>:root { --grade-color: var(--gr10); }</style>
 </head>
@@ -12,9 +12,9 @@
 <div class="page-wrapper">
   <aside class="sidebar">
     <div class="sidebar-grade">Grade 10 · Practical</div>
-    <a href="algorithms.html">Algorithms &amp; Problem Solving</a><a href="delphi-intro.html">Introduction to Delphi</a><a href="data-types.html">Data Types &amp; Variables</a><a href="operators.html">Operators &amp; Functions</a><a href="decisions.html">Decision Making (IF / CASE)</a><a href="loops.html">Loops</a><a href="strings.html">String Manipulation</a>
+    <a href="algorithms.html">Algorithms &amp; Problem Solving</a><a href="delphi-intro.html">Introduction to Delphi</a><a href="delphi-components.html">Components &amp; Events</a><a href="data-types.html">Data Types &amp; Variables</a><a href="operators.html">Operators &amp; Functions</a><a href="decisions.html">Decision Making (IF / CASE)</a><a href="loops.html">Loops</a><a href="strings.html">String Manipulation</a><a href="html.html">HTML — Web Design</a>
     <div class="sidebar-grade" style="margin-top:1rem">Grade 10 · Theory</div>
-    <a href="../theory/digital-tech.html">Digital Technologies &amp; ICT</a><a href="../theory/hardware.html">Hardware</a><a href="../theory/software.html">Software &amp; Licensing</a><a href="../theory/data-representation.html">Data Representation</a><a href="../theory/networks.html">Networks</a><a href="../theory/internet.html">Internet &amp; WWW</a><a href="../theory/e-communication.html">E-Communication</a><a href="../theory/management.html">Computer Management &amp; Security</a>
+    <a href="../theory/digital-tech.html">Digital Technologies &amp; ICT</a><a href="../theory/hardware.html">Hardware</a><a href="../theory/software.html">Software &amp; Licensing</a><a href="../theory/data-representation.html">Data Representation</a><a href="../theory/networks.html">Networks</a><a href="../theory/internet.html">Internet &amp; WWW</a><a href="../theory/internet-services.html">Internet Services</a><a href="../theory/e-communication.html">E-Communication</a><a href="../theory/management.html">Computer Management &amp; Security</a>
   </aside>
   <main class="content">
     <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><a href="#">Grade 10</a><span class="breadcrumb-sep">›</span><span>Operators &amp; Functions</span></div>
@@ -126,9 +126,14 @@ result := <span class="num">10</span> <span class="kw">DIV</span> <span class="n
   iShift := StrToInt(InputBox(<span class="str">'Shift'</span>, <span class="str">'Enter shift (1-25):'</span>, <span class="str">'3'</span>));
   sOutput := <span class="str">''</span>;
   <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sInput) <span class="kw">do</span>
-    sOutput := sOutput + Chr(Ord(sInput[i]) + iShift);
-  ShowMessage(<span class="str">'Shifted: '</span> + sOutput);  <span class="cmt">// ABC → DEF</span>
+    <span class="cmt">// wrap back to 'A' after 'Z' using MOD 26</span>
+    sOutput := sOutput + Chr(Ord(<span class="str">'A'</span>) + (Ord(sInput[i]) - Ord(<span class="str">'A'</span>) + iShift) <span class="kw">mod</span> <span class="num">26</span>);
+  ShowMessage(<span class="str">'Shifted: '</span> + sOutput);  <span class="cmt">// ABC → DEF, XYZ → ABC</span>
 <span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">Why the MOD 26?</div>
+      <p>Without it, shifting a letter near the end of the alphabet (like 'X', 'Y' or 'Z') pushes past 'Z' into punctuation characters instead of wrapping back to 'A'. Subtracting <code>Ord('A')</code> first converts the letter to a 0–25 range, <code>MOD 26</code> wraps it, and adding <code>Ord('A')</code> back converts it to a real letter again.</p>
+    </div>
 
     <h2>Upcase and Trim</h2>
     <div class="tbl-wrap"><table>

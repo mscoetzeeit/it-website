@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grade 11 Exam Practice &middot; Ms Coetzee IT</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Questions covering the Grade 11 syllabus. Answer first, then click Show memo and mark each ✓.">
+<title>Grade 11 Exam Practice &middot; Ms Coetzee IT</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230891b2'/%3E%3Ctext x='16' y='22' font-family='Arial,Helvetica,sans-serif' font-size='14' font-weight='700' fill='%23fff' text-anchor='middle'%3EIT%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="../css/style.css">
 <style>:root{--grade-color:var(--gr11);}</style>
 </head>
@@ -19,12 +19,12 @@
     <a href="#mgmt">Computer Management</a>
     <a href="#data">Databases</a>
     <a href="#social">Social Implications</a>
-    <a href="#prog">Practical — Delphi &amp; SQL</a>
+    <a href="#prog">Practical — Delphi &amp; Databases</a>
     <a href="#topology">Topologies &amp; Media</a>
     <a href="#internet">Internet &amp; Multimedia</a>
     <a href="#emerging">Emerging Technologies</a>
     <a href="#valid">Data Validation</a>
-    <a href="#prog2">More Delphi &amp; SQL</a>
+    <a href="#prog2">More Delphi &amp; Databases</a>
     <a href="#more">Section B — Mixed</a>
     <div class="sidebar-grade" style="margin-top:1rem">Other Grades</div>
     <a href="grade10.html">Grade 10</a>
@@ -129,16 +129,16 @@
     <h2 id="social">Social Implications</h2>
     <div class="qcard">
       <div class="q-meta"><span class="q-num">Q7 · IoT &amp; Big Data</span><span class="q-marks">4</span></div>
-      <p class="q-text">7.1 What is the Internet of Things (IoT)? (2)<br>7.2 Name the THREE characteristics ("V"s) of Big Data. (2)</p>
+      <p class="q-text">7.1 What is the Internet of Things (IoT)? (2)<br>7.2 Name the FOUR characteristics ("V"s) of Big Data. (2)</p>
       <details class="answer"><summary>Show memo</summary>
         <div class="memo"><ul>
           <li>7.1 A network of physical devices with sensors and internet connectivity <span class="tick">✓</span> that collect and exchange data automatically <span class="tick">✓</span></li>
-          <li>7.2 Volume, Velocity and Variety <span class="tick">✓</span><span class="tick">✓</span></li>
+          <li>7.2 Volume, Velocity, Variety and Value <span class="tick">✓</span><span class="tick">✓</span></li>
         </ul></div>
       </details>
     </div>
 
-    <h2 id="prog">Practical — Delphi &amp; SQL</h2>
+    <h2 id="prog">Practical — Delphi &amp; Databases</h2>
     <div class="qcard">
       <div class="q-meta"><span class="q-num">P1 · 1D array</span><span class="q-marks">4</span></div>
       <p class="q-text">An array <code>arrAge : array[1..N] of Integer</code> holds N ages. Write code to find and display the largest age.</p>
@@ -170,17 +170,18 @@ ShowMessage(IntToStr(iMax));</pre>
       </details>
     </div>
     <div class="qcard">
-      <div class="q-meta"><span class="q-num">P3 · SQL basics</span><span class="q-marks">4</span></div>
-      <p class="q-text">Table <strong>tblBook</strong>(BookID, Title, Author, Price, Year).</p>
-      <p class="q-text">P3.1 List the titles of all books published after 2015. (2)<br>P3.2 List all books sorted by price from cheapest to most expensive. (2)</p>
+      <div class="q-meta"><span class="q-num">P3 · Filtering &amp; sorting records</span><span class="q-marks">4</span></div>
+      <p class="q-text">Table <strong>tblBook</strong>(BookID, Title, Author, Price, Year) is connected via a <code>TADOTable</code> named <code>dmBooks.tblBook</code>.</p>
+      <p class="q-text">P3.1 Write the Delphi code to filter tblBook so only books published after 2015 are shown. (2)<br>P3.2 Write the Delphi code to sort tblBook by price from cheapest to most expensive. (2)</p>
       <details class="answer"><summary>Show memo</summary>
         <div class="memo">
-<pre class="no-label">SELECT Title FROM tblBook WHERE Year &gt; 2015;
+<pre class="no-label">dmBooks.tblBook.Filter := 'Year > 2015';
+dmBooks.tblBook.Filtered := True;
 
-SELECT * FROM tblBook ORDER BY Price ASC;</pre>
+dmBooks.tblBook.Sort := 'Price ASC';</pre>
         <ul>
-          <li>P3.1 SELECT Title … WHERE Year &gt; 2015 <span class="tick">✓</span><span class="tick">✓</span></li>
-          <li>P3.2 SELECT * … ORDER BY Price <span class="tick">✓</span>; ASC (ascending) <span class="tick">✓</span></li>
+          <li>P3.1 <code>Filter := 'Year &gt; 2015'</code> <span class="tick">✓</span>; <code>Filtered := True</code> <span class="tick">✓</span></li>
+          <li>P3.2 <code>Sort := 'Price ASC'</code> <span class="tick">✓</span>; ASC = ascending, cheapest first <span class="tick">✓</span></li>
         </ul></div>
       </details>
     </div>
@@ -255,7 +256,7 @@ SELECT * FROM tblBook ORDER BY Price ASC;</pre>
       </details>
     </div>
 
-    <h2 id="prog2">More Delphi &amp; SQL</h2>
+    <h2 id="prog2">More Delphi &amp; Databases</h2>
     <div class="qcard">
       <div class="q-meta"><span class="q-num">P4 · Searching &amp; methods</span><span class="q-marks">4</span></div>
       <p class="q-text">P4.1 Distinguish between a linear search and a binary search. (2)<br>P4.2 What must be true of an array before a binary search will work? (1)<br>P4.3 Distinguish between a procedure and a function. (1)</p>
@@ -283,17 +284,29 @@ iMark := StrToInt(Copy(sLine, iPos + 1, Length(sLine)));</pre>
       </details>
     </div>
     <div class="qcard">
-      <div class="q-meta"><span class="q-num">P6 · SQL aggregate</span><span class="q-marks">3</span></div>
-      <p class="q-text">Table <strong>tblLearner</strong>(LearnerID, Name, Grade, Average). Show each grade together with the number of learners and the average mark for that grade.</p>
+      <div class="q-meta"><span class="q-num">P6 · Looping through records</span><span class="q-marks">3</span></div>
+      <p class="q-text">Table <strong>tblLearner</strong>(LearnerID, Name, Grade, Average) is connected via <code>dm.tblLearner</code>. Write Delphi code that loops through every record and works out the number of Grade 11 learners and their average mark.</p>
       <details class="answer"><summary>Show memo</summary>
         <div class="memo">
-<pre class="no-label">SELECT Grade, COUNT(*) AS Learners, AVG(Average) AS AvgMark
-FROM tblLearner
-GROUP BY Grade;</pre>
+<pre class="no-label">iCount := 0;
+rTotal := 0;
+dm.tblLearner.First;
+while not dm.tblLearner.Eof do
+begin
+  if dm.tblLearner['Grade'] = 11 then
+  begin
+    iCount := iCount + 1;
+    rTotal := rTotal + dm.tblLearner['Average'];
+  end;
+  dm.tblLearner.Next;
+end;
+if iCount > 0 then
+  ShowMessage('Grade 11 learners: ' + IntToStr(iCount) +
+    ', Average: ' + FloatToStrF(rTotal / iCount, ffFixed, 6, 1));</pre>
         <ul>
-          <li>COUNT(*) and AVG(Average) <span class="tick">✓</span></li>
-          <li>GROUP BY Grade <span class="tick">✓</span></li>
-          <li>correct table/fields <span class="tick">✓</span></li>
+          <li>Loop from <code>First</code> to <code>Eof</code>, advancing with <code>Next</code> <span class="tick">✓</span></li>
+          <li>Only count/sum records where Grade = 11 <span class="tick">✓</span></li>
+          <li>Divide total by count for the average, guarding against division by zero <span class="tick">✓</span></li>
         </ul></div>
       </details>
     </div>
