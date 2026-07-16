@@ -414,13 +414,18 @@ bFound := <span class="kw">False</span>;
 
 <div class="code-block"><span class="code-label">Delphi — Selection Sort</span>
 <pre><code><span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(arrNums) - <span class="num">1</span> <span class="kw">do</span>
+<span class="kw">begin</span>
+  iMin := i;
   <span class="kw">for</span> j := i + <span class="num">1</span> <span class="kw">to</span> Length(arrNums) <span class="kw">do</span>
-    <span class="kw">if</span> arrNums[j] &lt; arrNums[i] <span class="kw">then</span>
-    <span class="kw">begin</span>
-      iTemp := arrNums[i];
-      arrNums[i] := arrNums[j];
-      arrNums[j] := iTemp;
-    <span class="kw">end</span>;</code></pre></div>
+    <span class="kw">if</span> arrNums[j] &lt; arrNums[iMin] <span class="kw">then</span>
+      iMin := j;
+  <span class="kw">if</span> iMin &lt;&gt; i <span class="kw">then</span>
+  <span class="kw">begin</span>
+    iTemp := arrNums[i];
+    arrNums[i] := arrNums[iMin];
+    arrNums[iMin] := iTemp;
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</code></pre></div>
 
 <!-- ═══════ PARALLEL ARRAYS ═══════ -->
 <h2>Parallel Arrays</h2>

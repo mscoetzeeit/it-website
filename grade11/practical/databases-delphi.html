@@ -218,6 +218,18 @@ dm.tblStudents.Delete;   <span class="cmt">// removes the current record permane
     <p>There is no undo. Always confirm with the user before deleting: <code>if MessageDlg('Delete this record?', mtConfirmation, mbYesNo, 0) = mrYes then dm.tblStudents.Delete;</code></p>
   </div>
 
+  <h2>Filtering Records</h2>
+  <p>A <code>TADOTable</code> can also show only the records that match a condition, without writing any SQL. Set <code>Filter</code> to a condition string, then set <code>Filtered</code> to <code>True</code> to apply it.</p>
+  <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>dm.tblStudents.Filter := <span class="str">'Grade = 11'</span>;         <span class="cmt">// only Grade 11 records</span>
+dm.tblStudents.Filtered := <span class="kw">True</span>;               <span class="cmt">// switch the filter on</span>
+...
+dm.tblStudents.Filtered := <span class="kw">False</span>;              <span class="cmt">// switch it off again — shows all records</span></code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">Filter vs Sort</div>
+    <p><code>Filter</code> hides records that don't match &mdash; it changes <em>which</em> records you see. <code>Sort</code> changes the <em>order</em> of the records you see. You can use both together.</p>
+  </div>
+
   <h2>Sorting Records</h2>
   <div class="code-block"><span class="code-label">Delphi</span>
 <pre><code>dm.tblStudents.Sort := <span class="str">'Surname ASC'</span>;         <span class="cmt">// A to Z by surname</span>

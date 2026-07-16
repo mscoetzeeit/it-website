@@ -128,7 +128,6 @@ const PAGES = [
   { title: 'Decision Making (IF/CASE)',       url: 'grade10/practical/decisions.html',           grade: 'Grade 10 · Practical', tags: 'if else case in operator boolean and or not messagedlg radiogroup checkbox' },
   { title: 'Loops',                           url: 'grade10/practical/loops.html',               grade: 'Grade 10 · Practical', tags: 'for while repeat until loop counter increment downto sentinel' },
   { title: 'String Manipulation',             url: 'grade10/practical/strings.html',             grade: 'Grade 10 · Practical', tags: 'string pos copy insert delete length uppercase lowercase trim reverse vowel' },
-  { title: '1D Arrays',                       url: 'grade10/practical/arrays.html',              grade: 'Grade 10 · Practical', tags: 'array index sort search bubble selection parallel dynamic setlength' },
   { title: 'HTML — Web Design',               url: 'grade10/practical/html.html',                grade: 'Grade 10 · Practical', tags: 'html web design tags heading paragraph list link image table body head doctype href src' },
   // Grade 10 Theory
   { title: 'Digital Technologies & ICT',      url: 'grade10/theory/digital-tech.html',           grade: 'Grade 10 · Theory',    tags: 'digital ict computer data information processing cycle digital divide' },
@@ -171,7 +170,6 @@ const PAGES = [
   { title: 'Networks & Remote Access (Gr 12)', url: 'grade12/networks-gr12.html',                 grade: 'Grade 12',             tags: 'adsl fibre wimax 4g 5g vpn remote access sharing bittorrent cloud storage permission' },
   { title: 'Communication Technologies',       url: 'grade12/communication-tech.html',            grade: 'Grade 12',             tags: 'adsl wimax 5g vpn encryption ssl otp mfa security token firewall bittorrent remote access' },
   { title: 'Cybercrime & Safeguards',          url: 'grade12/cybercrime.html',                    grade: 'Grade 12',             tags: 'cybercrime hacker cracker ransomware phishing identity theft sql injection ddos popia cybercrimes act safeguards' },
-  { title: 'Recursion (Delphi)',               url: 'grade12/recursion.html',                     grade: 'Grade 12',             tags: 'recursion recursive function factorial fibonacci base case stack overflow divide conquer' },
   { title: 'Social Implications (Gr 12)',      url: 'grade12/social-gr12.html',                   grade: 'Grade 12',             tags: 'big data social media privacy digital footprint globalisation 4ir cookies anonymity guid' },
   // Quick Reference
   { title: 'Quick Reference (all grades)',     url: 'quick-reference.html',                       grade: 'Quick Reference',      tags: 'quick reference recap revision cheat sheet summary programming delphi sql one page' },
