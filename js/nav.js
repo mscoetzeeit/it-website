@@ -18,10 +18,11 @@
   // index.html                 → 0 levels deep  → root = './'
   var hasSubfolder = /^(practical|theory)$/.test(segs[segs.length - 2] || '');
   var hasGradeFolder = /^grade\d+$/.test(segs[segs.length - 2] || '') ||
-                       /^grade\d+$/.test(segs[segs.length - 3] || '');
+                       /^grade\d+$/.test(segs[segs.length - 3] || '') ||
+                       (segs[segs.length - 2] || '') === 'exam-practice';
   var depth = 0;
   if (hasSubfolder) depth = 2;
-  else if (hasGradeFolder || /^grade\d+$/.test(segs[segs.length - 2] || '')) depth = 1;
+  else if (hasGradeFolder) depth = 1;
 
   var r = depth === 0 ? './' : depth === 1 ? '../' : '../../';
 
