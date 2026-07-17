@@ -167,7 +167,8 @@
   </div>
 
   <h2>Normalisation — The Three Normal Forms</h2>
-  <div class="callout"><div class="callout-title">ANALOGY — tidying a messy address book</div><p>Imagine one giant spreadsheet where every order repeats the customer's full name, address and phone number. If a customer moves house you must change it in <em>dozens</em> of rows — and if you miss one, the data disagrees with itself. <strong>Normalisation</strong> is like splitting that mess into tidy, single-topic tables: one <strong>Customers</strong> table (each customer stored <em>once</em>) and one <strong>Orders</strong> table that just points back with the customer's ID (a <strong>foreign key</strong>). Now a change is made in one place only. The three normal forms are simply three tidy-up rules you apply in order.</p></div>
+  <p><strong>Normalisation</strong> is the systematic process of organising the fields and tables of a relational database, by applying a set of rules called <strong>normal forms</strong>, in order to reduce data redundancy and prevent insertion, deletion and modification anomalies.</p>
+  <div class="callout"><div class="callout-title">Think of it this way</div><p>Imagine one giant spreadsheet where every order repeats the customer's full name, address and phone number. If a customer moves house you must change it in <em>dozens</em> of rows — and if you miss one, the data disagrees with itself. <strong>Normalisation</strong> is like splitting that mess into tidy, single-topic tables: one <strong>Customers</strong> table (each customer stored <em>once</em>) and one <strong>Orders</strong> table that just points back with the customer's ID (a <strong>foreign key</strong>). Now a change is made in one place only. The three normal forms are simply three tidy-up rules you apply in order.</p></div>
 
   <h3>First Normal Form (1NF)</h3>
   <p>A table is in 1NF when:</p>

@@ -91,7 +91,11 @@
   <h2>Understanding Each Component</h2>
 
   <h3>TADOConnection &mdash; The Door to the Database</h3>
-  <p>Imagine the database file (<code>.accdb</code>) is locked inside a room. The <code>TADOConnection</code> is the key that unlocks the door so Delphi can get in. You tell it <em>where</em> the file is on your computer.</p>
+  <p>A <code>TADOConnection</code> is a non-visual Delphi component that establishes and manages the connection between your program and an external database file (such as a Microsoft Access <code>.accdb</code> file), using a <strong>connection string</strong> that specifies the file's location and the database provider (driver) to use.</p>
+  <div class="callout">
+    <div class="callout-title">Think of it this way</div>
+    <p>Imagine the database file (<code>.accdb</code>) is locked inside a room. The <code>TADOConnection</code> is the key that unlocks the door so Delphi can get in. You tell it <em>where</em> the file is on your computer.</p>
+  </div>
   <div class="callout">
     <div class="callout-title">Where it goes</div>
     <p>Place <code>TADOConnection</code> on a <strong>Data Module</strong> (a special form-like container for database components). Go to <em>File &rarr; New &rarr; Data Module</em> to create one.</p>
@@ -114,8 +118,11 @@ Active      → True   (this "opens" the table so data loads)</code></pre></div>
 
   <h3>TDataSource &mdash; The Go-Between</h3>
   <p>This is the part students find confusing. Why do we need it?</p>
-  <p>Think of it this way: your <code>TADOTable</code> is like a water tank (holds all the data). Your <code>DBGrid</code> is the tap (where the data comes out on screen). The <code>TDataSource</code> is the pipe connecting the tank to the tap. Without the pipe, no water flows.</p>
-  <p>You cannot connect a <code>DBGrid</code> directly to a <code>TADOTable</code>. Every visual display component (<code>DBGrid</code>, <code>DBEdit</code>, <code>DBLabel</code>) must connect through a <code>TDataSource</code>. These display components are called <strong>data-aware controls</strong> &mdash; controls that are aware of database data.</p>
+  <p>A <code>TDataSource</code> is a non-visual Delphi component that links a dataset (such as a <code>TADOTable</code>) to one or more <strong>data-aware controls</strong> &mdash; visual components, such as <code>DBGrid</code>, <code>DBEdit</code> or <code>DBLabel</code>, that are aware of and can display database data. You cannot connect a <code>DBGrid</code> directly to a <code>TADOTable</code>: every data-aware control must connect through a <code>TDataSource</code>.</p>
+  <div class="callout">
+    <div class="callout-title">Think of it this way</div>
+    <p>Your <code>TADOTable</code> is like a water tank (holds all the data). Your <code>DBGrid</code> is the tap (where the data comes out on screen). The <code>TDataSource</code> is the pipe connecting the tank to the tap. Without the pipe, no water flows.</p>
+  </div>
   <div class="code-block"><span class="code-label">Key property</span>
 <pre><code>DataSet → select your TADOTable (dm.tblStudents)</code></pre></div>
 
