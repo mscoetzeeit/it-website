@@ -121,7 +121,7 @@ document.querySelectorAll('pre').forEach(pre => {
 const PAGES = [
   // Grade 10 Practical
   { title: 'Algorithms & Problem Solving',    url: 'grade10/practical/algorithms.html',         grade: 'Grade 10 · Practical', tags: 'algorithm pseudocode flowchart ipo table problem solving' },
-  { title: 'Introduction to Delphi',          url: 'grade10/practical/delphi-intro.html',        grade: 'Grade 10 · Practical', tags: 'delphi ide components properties events form button label showmessage inputbox' },
+  { title: 'Introduction to Delphi',          url: 'grade10/practical/delphi-intro.html',        grade: 'Grade 10 · Practical', tags: 'delphi ide components properties events form button label showmessage inputbox assignment statement component.property' },
   { title: 'Delphi Components & Events',      url: 'grade10/practical/delphi-components.html',   grade: 'Grade 10 · Practical', tags: 'combobox listbox spinedit pagecontrol tabsheet timer image progressbar panel radiogroup checkbox' },
   { title: 'Data Types & Variables',          url: 'grade10/practical/data-types.html',          grade: 'Grade 10 · Practical', tags: 'integer real string boolean char variable declaration constant strToInt floatToStr val procedure conversion error code overflow' },
   { title: 'Operators & Functions',           url: 'grade10/practical/operators.html',           grade: 'Grade 10 · Practical', tags: 'mod div arithmetic operators math functions sqrt power round ord chr upcase trim' },

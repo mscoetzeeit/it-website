@@ -174,6 +174,26 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════════ -->
+    <h2>Basic Format of Statements</h2>
+    <p>An <strong>assignment statement</strong> stores a value in a property or variable using the assignment operator <code>:=</code>. We use code in Delphi to assign values to properties of components in the following format:</p>
+    <div class="code-block"><span class="code-label">Delphi — general format</span>
+<pre><code>Component.Property := Value;</code></pre></div>
+    <p>All the properties a component has can be seen in the Object Inspector when that component is selected — the same properties you set visually at design time can also be set in code.</p>
+    <div class="callout warning">
+      <div class="callout-title">Two rules every statement follows</div>
+      <ul style="margin:0;padding-left:1.2rem">
+        <li>Always assign <strong>TO</strong> the component/property on the <strong>left</strong> side of <code>:=</code> — never the other way round.</li>
+        <li>Every statement ends with a <strong>semicolon</strong> <code>;</code></li>
+      </ul>
+    </div>
+    <div class="code-block"><span class="code-label">Delphi &mdash; examples</span>
+<pre><code>Form1.Height := <span class="num">500</span>;
+Form1.Width := <span class="num">700</span>;
+Button1.Caption := <span class="str">'Register'</span>;
+Shape1.Top := <span class="num">20</span>;
+Shape1.Left := <span class="num">20</span>;</code></pre></div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
     <h2>Step-by-Step: Creating Your First Project</h2>
     <ol>
       <li><strong>File → New → Windows VCL Application</strong> — creates a blank Form (TForm).</li>
@@ -409,16 +429,12 @@ cClass  := InputBox(<span class="str">'Class'</span>, <span class="str">'Enter c
       </table>
     </div>
 
-    <h3>Setting Properties in Code</h3>
-    <p>Format: <code>ComponentName.Property := Value;</code></p>
+    <h3>More Properties in Code</h3>
+    <p>The same <code>Component.Property := Value;</code> format works for every property, including nested ones like <code>Font.Color</code>:</p>
     <div class="code-block">
       <span class="code-label">Delphi</span>
-      <pre><code>Form1.Height        := <span class="num">500</span>;
-Button1.Caption     := <span class="str">'Register'</span>;
-Label1.Font.Color   := clGreen;
-Shape1.Brush.Color  := clRed;
-Shape1.Top          := <span class="num">20</span>;
-Shape1.Left         := <span class="num">20</span>;</code></pre>
+      <pre><code>Label1.Font.Color   := clGreen;
+Shape1.Brush.Color  := clRed;</code></pre>
     </div>
 
     <!-- ═══════════════════════════════════════════════════ -->
@@ -441,7 +457,7 @@ Shape1.Left         := <span class="num">20</span>;</code></pre>
     <h2>Syntax Rules</h2>
     <div class="callout warning">
       <div class="callout-title">Syntax Errors</div>
-      <p>Every statement ends with a <strong>semicolon</strong> <code>;</code>. Missing one causes a syntax error. There is <strong>never</strong> a semicolon before <code>else</code>. Begin/end pairs must always match.</p>
+      <p>Forgetting the closing <strong>semicolon</strong> <code>;</code> on a statement causes a syntax error. There is <strong>never</strong> a semicolon before <code>else</code>. Begin/end pairs must always match.</p>
     </div>
 
     <div class="page-nav">
