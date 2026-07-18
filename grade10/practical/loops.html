@@ -58,6 +58,53 @@
       <div class="callout-title">WHEN TO USE</div>
       <p>Reach for a FOR loop whenever you can finish the sentence "do this exactly ___ times" with a number — printing 1 to 10, working through all 30 learners in a class, or drawing 12 rows of a table.</p>
     </div>
+
+    <div style="margin:1.25rem 0;overflow-x:auto">
+      <svg viewBox="0 0 760 240" width="760" height="240" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+        <rect width="760" height="240" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+        <text x="380" y="24" text-anchor="middle" fill="#a78bfa" font-size="12" font-weight="700">THE FOR LOOP</text>
+
+        <!-- Top-left: for keyword -->
+        <text x="115" y="48" text-anchor="middle" fill="#8b949e" font-size="11">Keyword &mdash; starts</text>
+        <text x="115" y="62" text-anchor="middle" fill="#8b949e" font-size="11">the loop</text>
+        <line x1="150" y1="68" x2="175" y2="128" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrowFOR)"/>
+
+        <!-- Top-right: do keyword -->
+        <text x="650" y="48" text-anchor="middle" fill="#8b949e" font-size="11">Keyword &mdash; leads into</text>
+        <text x="650" y="62" text-anchor="middle" fill="#8b949e" font-size="11">the repeated code</text>
+        <line x1="615" y1="68" x2="520" y2="128" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrowFOR)"/>
+
+        <!-- Code line -->
+        <text x="150" y="155" fill="#fbbf24" font-family="Consolas,monospace" font-size="34" font-weight="700">for</text>
+        <text x="255" y="155" fill="#22d3ee" font-family="Consolas,monospace" font-size="34" font-weight="700">i</text>
+        <text x="285" y="155" fill="#e6edf3" font-family="Consolas,monospace" font-size="34" font-weight="700">:=</text>
+        <text x="340" y="155" fill="#4ade80" font-family="Consolas,monospace" font-size="34" font-weight="700">1</text>
+        <text x="380" y="155" fill="#fbbf24" font-family="Consolas,monospace" font-size="34" font-weight="700">to</text>
+        <text x="440" y="155" fill="#4ade80" font-family="Consolas,monospace" font-size="34" font-weight="700">5</text>
+        <text x="490" y="155" fill="#fbbf24" font-family="Consolas,monospace" font-size="34" font-weight="700">do</text>
+
+        <!-- Bottom: counter -->
+        <line x1="180" y1="205" x2="252" y2="172" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrowFOR)"/>
+        <text x="150" y="222" text-anchor="middle" fill="#8b949e" font-size="11">Counter &mdash; created and</text>
+        <text x="150" y="236" text-anchor="middle" fill="#8b949e" font-size="11">incremented automatically</text>
+
+        <!-- Bottom: start value -->
+        <line x1="380" y1="205" x2="348" y2="172" stroke="#4ade80" stroke-width="1.5" marker-end="url(#arrowFOR)"/>
+        <text x="390" y="222" text-anchor="middle" fill="#8b949e" font-size="11">Start value</text>
+
+        <!-- Bottom: end value -->
+        <line x1="600" y1="205" x2="452" y2="172" stroke="#4ade80" stroke-width="1.5" marker-end="url(#arrowFOR)"/>
+        <text x="620" y="222" text-anchor="middle" fill="#8b949e" font-size="11">End value &mdash; loop stops</text>
+        <text x="620" y="236" text-anchor="middle" fill="#8b949e" font-size="11">once this is reached</text>
+
+        <defs>
+          <marker id="arrowFOR" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#8b949e"/>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+
     <div class="code-block"><span class="code-label">Syntax — counting UP</span>
 <pre><code><span class="kw">for</span> counter := lowest <span class="kw">to</span> highest <span class="kw">do</span>
 <span class="kw">begin</span>

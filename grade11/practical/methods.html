@@ -93,6 +93,46 @@ DisplayGreeting(<span class="str">'Good morning'</span>, <span class="str">'Ms C
 <span class="cmt">// Must be assigned</span>
 iVal := GetAnswer;</code></pre></div>
 <h3>With Parameters</h3>
+<div style="margin:1.25rem 0;overflow-x:auto">
+  <svg viewBox="0 0 920 310" width="920" height="310" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+    <rect width="920" height="310" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="460" y="24" text-anchor="middle" fill="#a78bfa" font-size="12" font-weight="700">FUNCTION HEADER ANATOMY</text>
+
+    <!-- Top labels -->
+    <text x="110" y="54" text-anchor="middle" fill="#8b949e" font-size="11">Keyword</text>
+    <line x1="110" y1="62" x2="115" y2="125" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrowFH)"/>
+    <text x="300" y="54" text-anchor="middle" fill="#8b949e" font-size="11">Function name &mdash; used to call it</text>
+    <line x1="300" y1="62" x2="300" y2="125" stroke="#e6edf3" stroke-width="1.5" marker-end="url(#arrowFH)"/>
+
+    <!-- Line 1: header up to the colon -->
+    <text x="40" y="145" fill="#fbbf24" font-family="Consolas,monospace" font-size="28" font-weight="700">function</text>
+    <text x="220" y="145" fill="#e6edf3" font-family="Consolas,monospace" font-size="28" font-weight="700">AddNumbers</text>
+    <text x="430" y="145" fill="#22d3ee" font-family="Consolas,monospace" font-size="28" font-weight="700">(num1, num2: Integer)</text>
+    <text x="830" y="145" fill="#a78bfa" font-family="Consolas,monospace" font-size="28" font-weight="700">:</text>
+
+    <!-- Parameter list label -->
+    <line x1="630" y1="185" x2="610" y2="158" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrowFH)"/>
+    <text x="660" y="200" text-anchor="middle" fill="#8b949e" font-size="11">Parameter list &mdash;</text>
+    <text x="660" y="214" text-anchor="middle" fill="#8b949e" font-size="11">names &amp; data types</text>
+
+    <!-- Line 2: return type (wraps here since the full header is long) -->
+    <text x="100" y="245" fill="#4ade80" font-family="Consolas,monospace" font-size="28" font-weight="700">Integer</text>
+    <text x="250" y="245" fill="#fbbf24" font-family="Consolas,monospace" font-size="28" font-weight="700">;</text>
+
+    <!-- Return type label -->
+    <line x1="160" y1="285" x2="145" y2="225" stroke="#4ade80" stroke-width="1.5" marker-end="url(#arrowFH)"/>
+    <text x="160" y="282" text-anchor="middle" fill="#8b949e" font-size="11">Return type &mdash; the data</text>
+    <text x="160" y="296" text-anchor="middle" fill="#8b949e" font-size="11">type sent back to the caller</text>
+
+    <defs>
+      <marker id="arrowFH" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L8,3 z" fill="#8b949e"/>
+      </marker>
+    </defs>
+  </svg>
+</div>
+<p style="font-size:.85rem;color:var(--muted);margin-top:-.5rem">In one line: <code>function AddNumbers(num1, num2: Integer): Integer;</code></p>
+
 <div class="code-block"><span class="code-label">Delphi</span>
 <pre><code><span class="kw">function</span> <span class="fn">AddNumbers</span>(num1, num2: <span class="kw2">Integer</span>): <span class="kw2">Integer</span>;
 <span class="kw">begin</span>

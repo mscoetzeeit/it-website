@@ -158,7 +158,47 @@
     </div>
 
     <h3>Populating (Assigning) Variables</h3>
-    <p>Use the assignment operator <code>:=</code> to put a value into a variable.</p>
+    <p>Use the assignment operator <code>:=</code> to put a value into a variable that has already been declared.</p>
+
+    <div style="margin:1.25rem 0;overflow-x:auto">
+      <svg viewBox="0 0 760 300" width="760" height="300" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+        <rect width="760" height="300" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+        <text x="380" y="24" text-anchor="middle" fill="#a78bfa" font-size="12" font-weight="700">POPULATING (ASSIGNING) A VARIABLE</text>
+
+        <!-- Top-left: variable -->
+        <text x="115" y="50" text-anchor="middle" fill="#8b949e" font-size="11">Variable being</text>
+        <text x="115" y="64" text-anchor="middle" fill="#8b949e" font-size="11">populated</text>
+        <line x1="150" y1="70" x2="195" y2="132" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrowPV)"/>
+
+        <!-- Top-right: semicolon -->
+        <text x="655" y="50" text-anchor="middle" fill="#8b949e" font-size="11">Semicolon to end</text>
+        <text x="655" y="64" text-anchor="middle" fill="#8b949e" font-size="11">statement</text>
+        <line x1="618" y1="70" x2="570" y2="132" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrowPV)"/>
+
+        <!-- Code line -->
+        <text x="160" y="165" fill="#e6edf3" font-family="Consolas,monospace" font-size="36" font-weight="700">sName</text>
+        <text x="292" y="165" fill="#a78bfa" font-family="Consolas,monospace" font-size="36" font-weight="700">:=</text>
+        <text x="362" y="165" fill="#4ade80" font-family="Consolas,monospace" font-size="36" font-weight="700">'Jannie'</text>
+        <text x="563" y="165" fill="#fbbf24" font-family="Consolas,monospace" font-size="36" font-weight="700">;</text>
+
+        <!-- Bottom: assignment operator -->
+        <line x1="308" y1="180" x2="290" y2="212" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrowPV)"/>
+        <text x="260" y="230" text-anchor="middle" fill="#8b949e" font-size="11">Assignment operator</text>
+        <text x="260" y="244" text-anchor="middle" fill="#8b949e" font-size="11">&mdash; "becomes equal to"</text>
+
+        <!-- Bottom: value -->
+        <line x1="440" y1="180" x2="460" y2="212" stroke="#4ade80" stroke-width="1.5" marker-end="url(#arrowPV)"/>
+        <text x="495" y="230" text-anchor="middle" fill="#8b949e" font-size="11">Value being stored &mdash;</text>
+        <text x="495" y="244" text-anchor="middle" fill="#8b949e" font-size="11">quotes mean it's a String</text>
+
+        <defs>
+          <marker id="arrowPV" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#8b949e"/>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+
     <div class="code-block">
       <span class="code-label">Delphi</span>
       <pre><code>sName   := <span class="str">'Jannie'</span>;

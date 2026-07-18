@@ -36,8 +36,41 @@
     </ul>
 
     <h2>The IF Statement</h2>
-    <p>Evaluates a condition (true/false) and executes code accordingly.</p>
-    <p>The IF statement is the most common decision in programming. In plain words it says: "<em>If</em> this is true, <em>then</em> do that; otherwise (<em>else</em>) do something else." <strong>Everyday analogy:</strong> "If it is raining, take an umbrella, else wear a cap." The "if it is raining" part is the condition that is checked first.</p>
+    <p>The <strong>IF statement</strong> evaluates a condition that must resolve to <code>True</code> or <code>False</code>, and executes a statement only when that condition is <code>True</code>.</p>
+    <p>In plain words it says: "<em>If</em> this is true, <em>then</em> do that; otherwise (<em>else</em>) do something else." <strong>Everyday analogy:</strong> "If it is raining, take an umbrella, else wear a cap." The "if it is raining" part is the condition that is checked first.</p>
+
+    <div style="margin:1.25rem 0;overflow-x:auto">
+      <svg viewBox="0 0 760 240" width="760" height="240" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+        <rect width="760" height="240" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+        <text x="380" y="24" text-anchor="middle" fill="#a78bfa" font-size="12" font-weight="700">THE IF STATEMENT</text>
+
+        <!-- Top-left: if keyword -->
+        <text x="115" y="48" text-anchor="middle" fill="#8b949e" font-size="11">Keyword &mdash; starts</text>
+        <text x="115" y="62" text-anchor="middle" fill="#8b949e" font-size="11">every decision</text>
+        <line x1="150" y1="68" x2="190" y2="128" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrowIF)"/>
+
+        <!-- Top-right: then keyword -->
+        <text x="650" y="48" text-anchor="middle" fill="#8b949e" font-size="11">Keyword &mdash; leads</text>
+        <text x="650" y="62" text-anchor="middle" fill="#8b949e" font-size="11">into the action</text>
+        <line x1="613" y1="68" x2="558" y2="128" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arrowIF)"/>
+
+        <!-- Code line -->
+        <text x="175" y="155" fill="#fbbf24" font-family="Consolas,monospace" font-size="36" font-weight="700">if</text>
+        <text x="240" y="155" fill="#22d3ee" font-family="Consolas,monospace" font-size="36" font-weight="700">iAge &gt;= 18</text>
+        <text x="510" y="155" fill="#fbbf24" font-family="Consolas,monospace" font-size="36" font-weight="700">then</text>
+
+        <!-- Bottom: condition -->
+        <line x1="380" y1="205" x2="345" y2="172" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrowIF)"/>
+        <text x="400" y="222" text-anchor="middle" fill="#8b949e" font-size="11">Condition &mdash; must evaluate</text>
+        <text x="400" y="236" text-anchor="middle" fill="#8b949e" font-size="11">to True or False</text>
+
+        <defs>
+          <marker id="arrowIF" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#8b949e"/>
+          </marker>
+        </defs>
+      </svg>
+    </div>
 
     <h3>IF … THEN (one-way)</h3>
     <div class="code-block"><span class="code-label">Syntax</span>
