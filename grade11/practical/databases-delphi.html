@@ -47,10 +47,10 @@
     <svg viewBox="0 0 640 130" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:640px">
       <rect width="640" height="130" rx="8" fill="#161b22"/>
 
-      <!-- Box 1: .accdb file -->
+      <!-- Box 1: .mdb file -->
       <rect x="10" y="30" width="110" height="50" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1.5"/>
       <text x="65" y="52" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24" font-family="sans-serif">Database</text>
-      <text x="65" y="68" text-anchor="middle" font-size="10" fill="#8b949e" font-family="sans-serif">(.accdb file)</text>
+      <text x="65" y="68" text-anchor="middle" font-size="10" fill="#8b949e" font-family="sans-serif">(.mdb file)</text>
       <!-- Arrow 1 -->
       <line x1="120" y1="55" x2="145" y2="55" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrowV)"/>
       <!-- Box 2: TADOConnection -->
@@ -91,23 +91,19 @@
   <h2>Understanding Each Component</h2>
 
   <h3>TADOConnection &mdash; The Door to the Database</h3>
-  <p>A <code>TADOConnection</code> is a non-visual Delphi component that establishes and manages the connection between your program and an external database file (such as a Microsoft Access <code>.accdb</code> file), using a <strong>connection string</strong> that specifies the file's location and the database provider (driver) to use.</p>
+  <p>A <code>TADOConnection</code> is a non-visual Delphi component that establishes and manages the connection between your program and an external database file (such as a Microsoft Access <code>.mdb</code> file), using a <strong>connection string</strong> that specifies the file's location and the database provider (driver) to use.</p>
   <div class="callout">
     <div class="callout-title">Think of it this way</div>
-    <p>Imagine the database file (<code>.accdb</code>) is locked inside a room. The <code>TADOConnection</code> is the key that unlocks the door so Delphi can get in. You tell it <em>where</em> the file is on your computer.</p>
+    <p>Imagine the database file (<code>.mdb</code>) is locked inside a room. The <code>TADOConnection</code> is the key that unlocks the door so Delphi can get in. You tell it <em>where</em> the file is on your computer.</p>
   </div>
   <div class="callout">
     <div class="callout-title">Where it goes</div>
     <p>Place <code>TADOConnection</code> on a <strong>Data Module</strong> (a special form-like container for database components). Go to <em>File &rarr; New &rarr; Data Module</em> to create one.</p>
   </div>
   <div class="code-block"><span class="code-label">Key properties to set in Object Inspector</span>
-<pre><code>ConnectionString  → Build... → Choose "Microsoft Office 12.0 Access Database Engine OLE DB Provider"
-                             → Browse to your .accdb file
+<pre><code>ConnectionString  → Build... → Choose "Microsoft Jet 4.0 OLE DB Provider"
+                             → Browse to your .mdb file
 LoginPrompt       → False   (stops the "Enter password" popup appearing)</code></pre></div>
-  <div class="callout tip">
-    <div class="callout-title">Which provider?</div>
-    <p>Newer <code>.accdb</code> files need the <strong>ACE</strong> provider ("Microsoft Office 12.0 Access Database Engine", also shown as <code>Microsoft.ACE.OLEDB.12.0</code>). The older <strong>Jet 4.0</strong> provider only works with legacy <code>.mdb</code> files.</p>
-  </div>
 
   <h3>TADOTable &mdash; One Table from the Database</h3>
   <p>A database can have many tables (Students, Subjects, Classes…). A <code>TADOTable</code> represents <em>one</em> of those tables. You need one <code>TADOTable</code> for each table you want to work with.</p>
@@ -139,7 +135,7 @@ Active      → True   (this "opens" the table so data loads)</code></pre></div>
   <h2>Step-by-Step Setup</h2>
   <ol>
     <li><strong>Create a Data Module</strong>: File &rarr; New &rarr; Data Module. Save it as <code>DataModule_u.pas</code>.</li>
-    <li><strong>Drop TADOConnection</strong> onto the Data Module. Set up the connection string (browse to your .accdb file). Set <code>LoginPrompt = False</code>.</li>
+    <li><strong>Drop TADOConnection</strong> onto the Data Module. Set up the connection string (browse to your .mdb file). Set <code>LoginPrompt = False</code>.</li>
     <li><strong>Drop TADOTable</strong> onto the Data Module. Set <code>Connection</code> to the ADOConnection. Set <code>TableName</code>. Set <code>Active = True</code>.</li>
     <li><strong>Drop TDataSource</strong> onto the Data Module. Set <code>DataSet</code> to the TADOTable.</li>
     <li><strong>On your main form</strong>: add the Data Module name to the <code>uses</code> clause at the top of your unit.</li>
@@ -284,8 +280,8 @@ dm.tblStudents.Sort := <span class="str">'Grade ASC, Surname ASC'</span>; <span 
   conDB := TADOConnection.Create(Self);
   conDB.LoginPrompt := <span class="kw">False</span>;        <span class="cmt">// don't ask for a password</span>
   conDB.ConnectionString :=
-    <span class="str">'Provider=Microsoft.ACE.OLEDB.12.0;'</span> +
-    <span class="str">'Data Source='</span> + ExtractFilePath(Application.ExeName) + <span class="str">'Students.accdb;'</span>;
+    <span class="str">'Provider=Microsoft.Jet.OLEDB.4.0;'</span> +
+    <span class="str">'Data Source='</span> + ExtractFilePath(Application.ExeName) + <span class="str">'Students.mdb;'</span>;
   conDB.Connected := <span class="kw">True</span>;
 
   <span class="cmt">// 2. Create the table and link it to the connection</span>
@@ -307,10 +303,6 @@ dm.tblStudents.Sort := <span class="str">'Grade ASC, Surname ASC'</span>; <span 
   <div class="callout warning">
     <div class="callout-title">Why FormShow and not FormCreate?</div>
     <p>The Data Module is usually created <strong>after</strong> the main form. If you try to link the grid in the main form's <code>OnCreate</code> event, the Data Module does not exist yet and you get an <strong>access violation</strong> error. Use <code>OnShow</code>, which fires later, once everything exists.</p>
-  </div>
-  <div class="callout tip">
-    <div class="callout-title">Older .mdb files</div>
-    <p>For older Access <code>.mdb</code> databases the provider is <code>Microsoft Jet 4.0 OLE DB Provider</code> (<code>Provider=Microsoft.Jet.OLEDB.4.0;</code>). Newer <code>.accdb</code> files use the ACE provider shown above.</p>
   </div>
 
   <div class="page-nav">
