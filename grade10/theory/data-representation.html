@@ -154,18 +154,24 @@
 
 <div class="code-block">
   <span class="code-label">Example: 00101101 in binary → decimal</span>
-  <pre><code>Place value:  128   64   32   16    8    4    2    1
-Bit:            0    0    1    0    1    1    0    1
-Calculation:    0 +  0 + 32 +  0 +  8 +  4 +  0 +  1
-                                                   = 45</code></pre>
+  <pre><code>(0 × 2⁷) + (0 × 2⁶) + (1 × 2⁵) + (0 × 2⁴) + (1 × 2³) + (1 × 2²) + (0 × 2¹) + (1 × 2⁰)
+
+= (0 × 128) + (0 × 64) + (1 × 32) + (0 × 16) + (1 × 8) + (1 × 4) + (0 × 2) + (1 × 1)
+
+= 0 + 0 + 32 + 0 + 8 + 4 + 0 + 1
+
+= 45</code></pre>
 </div>
 
 <div class="code-block">
   <span class="code-label">Example: 10110 in binary → decimal</span>
-  <pre><code>Place value:   16    8    4    2    1
-Bit:            1    0    1    1    0
-Calculation:   16 +  0 +  4 +  2 +  0
-                                    = 22</code></pre>
+  <pre><code>(1 × 2⁴) + (0 × 2³) + (1 × 2²) + (1 × 2¹) + (0 × 2⁰)
+
+= (1 × 16) + (0 × 8) + (1 × 4) + (1 × 2) + (0 × 1)
+
+= 16 + 0 + 4 + 2 + 0
+
+= 22</code></pre>
 </div>
 
 <h3>Decimal → Binary (Divide by 2 Method)</h3>
@@ -227,22 +233,28 @@ Verify:  8 + 4 + 0 + 1 = 13 ✓</code></pre>
 
 <div class="code-block">
   <span class="code-label">Example: 2A (hex) → decimal</span>
-  <pre><code>2A₁₆  has two digits:  2  and  A
+  <pre><code>2A₁₆ has two digits: 2 and A (=10)
 
-Position:   16¹    16⁰
-Digit:        2      A (=10)
-Value:     2×16  + 10×1
-         =   32  +   10
-         =       42₁₀</code></pre>
+(2 × 16¹) + (A × 16⁰)
+
+= (2 × 16) + (10 × 1)
+
+= 32 + 10
+
+= 42₁₀</code></pre>
 </div>
 
 <div class="code-block">
   <span class="code-label">Example: 3F (hex) → decimal</span>
-  <pre><code>3F₁₆:
-  3 × 16¹ = 3 × 16 = 48
-  F × 16⁰ = 15 × 1 = 15
-                     ----
-                      63₁₀</code></pre>
+  <pre><code>3F₁₆ has two digits: 3 and F (=15)
+
+(3 × 16¹) + (F × 16⁰)
+
+= (3 × 16) + (15 × 1)
+
+= 48 + 15
+
+= 63₁₀</code></pre>
 </div>
 
 <h3>Decimal → Hex Conversion (Divide by 16)</h3>
