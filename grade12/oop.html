@@ -313,6 +313,27 @@
       <tr><td><strong>Auxiliary</strong></td><td><code>private</code></td><td>Internal helper methods used by other methods, not accessible from outside.</td></tr>
     </table></div>
 
+    <div class="callout tip">
+      <div class="callout-title">What does an auxiliary method actually do?</div>
+      <p>An <strong>auxiliary method</strong> is a private helper that does one small job for an accessor or mutator, so that method doesn't get cluttered with extra logic. It takes the data it's given, processes it, and returns the result — it never changes the object's attributes itself. Using auxiliary methods reduces complexity inside a class and keeps each method focused on a single task.</p>
+      <div class="code-block"><span class="code-label">Delphi — an auxiliary method used by ToString</span>
+<pre><code><span class="kw">private</span>
+  <span class="kw">function</span> FormatWeight(rWeight: <span class="kw2">real</span>): <span class="kw2">string</span>;  <span class="cmt">// auxiliary — helper only, not called from outside the class</span>
+<span class="kw">public</span>
+  <span class="kw">function</span> ToString: <span class="kw2">string</span>;
+
+<span class="cmt">// ...</span>
+<span class="kw">function</span> <span class="cls">TCat</span>.FormatWeight(rWeight: <span class="kw2">real</span>): <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  Result := FloatToStrF(rWeight, ffFixed, <span class="num">4</span>, <span class="num">1</span>) + <span class="str">'kg'</span>;  <span class="cmt">// just formats — doesn't change fWeight</span>
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TCat</span>.ToString: <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  Result := fName + <span class="str">', '</span> + FormatWeight(fWeight);  <span class="cmt">// ToString calls the auxiliary method</span>
+<span class="kw">end</span>;</code></pre></div>
+    </div>
+
     <!-- ═══════ HOW TO CREATE A CLASS ═══════ -->
     <h2>How to Create a Class in Delphi</h2>
     <ol>

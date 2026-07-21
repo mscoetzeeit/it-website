@@ -339,6 +339,15 @@ cUpper := Chr(Ord(cLower) - <span class="num">32</span>);
   <p>Computers work in binary (powers of 2). 2<sup>10</sup> = 1 024, which is close to 1 000 but not equal. So 1 KB = 1 024 bytes (not 1 000). Hard drive manufacturers sometimes use 1 000 to make drives sound bigger — that's why a "500 GB" drive shows as ~465 GB in Windows.</p>
 </div>
 
+<!-- COMPRESSION -->
+<h2>File Compression</h2>
+<p><strong>Compression</strong> reduces the amount of disk space a file uses. <strong>Decompression</strong> restores a compressed file back to a usable form. Higher compression means a smaller file size and faster download/streaming, but too much compression can reduce quality (pixelation in images, distortion in audio).</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>How it works</th><th>Trade-off</th><th>Example formats</th></tr>
+  <tr><td><strong>Lossless</strong></td><td>Removes redundant data in a way that can be perfectly reversed — no information is lost</td><td>Smaller file, but not as small as lossy</td><td>PNG (images), ZIP (any file), FLAC (audio)</td></tr>
+  <tr><td><strong>Lossy</strong></td><td>Permanently discards some data that is hard for humans to notice is missing</td><td>Much smaller file, but quality cannot be fully restored</td><td>JPEG (images), MP3 (audio), MPEG-4 (video)</td></tr>
+</table></div>
+
 <div class="page-nav">
   <a href="software.html"><span class="page-nav-label">← Previous</span>Software &amp; Licensing</a>
   <a class="next" href="networks.html"><span class="page-nav-label">Next →</span>Networks</a>

@@ -14,6 +14,44 @@
   <tr><td><strong>Star</strong></td><td>All devices connect to a central switch</td><td>One failure doesn't affect others; easy to add devices</td><td>If switch fails, entire network fails</td></tr>
   <tr><td><strong>Ring</strong></td><td>Devices in a closed loop</td><td>Equal opportunity to transmit; no collision</td><td>One break can down the whole network</td></tr>
 </table></div>
+
+<h3>Ring Topology in Detail</h3>
+<p>In a <strong>ring topology</strong>, every device connects to exactly two neighbours, forming a closed loop. Data travels in a single direction around the ring, passing through each device in turn — every node acts as a <strong>repeater</strong>, regenerating the signal and passing it on to the next node until it reaches its destination.</p>
+
+<div style="margin:1.25rem 0;overflow-x:auto">
+  <svg viewBox="0 0 400 320" width="400" height="320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit;display:block;margin:0 auto">
+    <rect width="400" height="320" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="200" y="26" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="700">Ring Topology</text>
+    <circle cx="200" cy="175" r="105" fill="none" stroke="#4ade80" stroke-width="2"/>
+    <!-- Nodes -->
+    <rect x="170" y="52" width="60" height="34" rx="5" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="200" y="73" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">PC 1</text>
+    <rect x="292" y="140" width="60" height="34" rx="5" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="322" y="161" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">PC 2</text>
+    <rect x="248" y="252" width="60" height="34" rx="5" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="278" y="273" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">PC 3</text>
+    <rect x="92" y="252" width="60" height="34" rx="5" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="122" y="273" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">PC 4</text>
+    <rect x="48" y="140" width="60" height="34" rx="5" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="78" y="161" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">PC 5</text>
+    <!-- Direction arrow -->
+    <path d="M 296 100 A 105 105 0 0 1 320 140" fill="none" stroke="#fbbf24" stroke-width="2" marker-end="url(#ringarrow)"/>
+    <defs>
+      <marker id="ringarrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#fbbf24"/>
+      </marker>
+    </defs>
+    <text x="200" y="300" text-anchor="middle" fill="#8b949e" font-size="9">Data travels one direction; each PC repeats the signal to the next</text>
+  </svg>
+</div>
+
+<div class="tbl-wrap"><table>
+  <tr><th>Advantages</th><th>Disadvantages</th></tr>
+  <tr><td>Organised and efficient — each node gets an equal opportunity to transmit, and one-way flow reduces data collisions</td><td>Single point of failure — one broken cable or dead device can bring the whole ring down (unless it's a dual-ring setup)</td></tr>
+  <tr><td>No central server required to control connectivity between workstations</td><td>Hard to troubleshoot — difficult to identify exactly where a fault occurred</td></tr>
+  <tr><td></td><td>Reliability depends on every single connection in the loop working</td></tr>
+</table></div>
+
 <h2>Thin vs Thick Client</h2>
 <div class="tbl-wrap"><table>
   <tr><th></th><th>Thin Client</th><th>Thick (Fat) Client</th></tr>

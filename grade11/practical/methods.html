@@ -52,6 +52,43 @@
   <p>A value parameter is like giving someone a <strong>photocopy</strong> of a document. They can scribble all over their copy, but your original is safe at home.</p>
 </div>
 
+<h2>Local vs Global Variables</h2>
+<p>Where you declare a variable decides <strong>which parts of your program are allowed to see it</strong>. This is called the variable's <strong>scope</strong>.</p>
+<ul>
+  <li><strong>Local variable</strong> — declared inside a procedure or function's own <code>var</code> block (between the method header and its <code>begin</code>). It can only be used <em>inside that method</em>. As soon as the method ends, the variable and its value disappear.</li>
+  <li><strong>Global variable</strong> — declared at <strong>unit level</strong>, in the main <code>var</code> block near the top of the unit (below the form's <code>type ... end;</code> block, alongside <code>Form1: TForm1;</code>). It can be used and changed by <em>any</em> procedure or function in the whole program, and it keeps its value for as long as the program runs.</li>
+</ul>
+<div class="callout">
+  <div class="callout-title">ANALOGY</div>
+  <p>A <strong>local variable</strong> is like a note you scribble on a scrap of paper during one phone call — useful while you're on the call, but you throw it away the moment you hang up, and nobody in the next room ever sees it. A <strong>global variable</strong> is like a whiteboard on the office wall — anyone in any room can walk up, read it, or write on it, and what's written stays there until someone deliberately changes it.</p>
+</div>
+<div class="code-block"><span class="code-label">Delphi — local declaration (inside a method)</span>
+<pre><code><span class="kw">procedure</span> TForm1.<span class="fn">btnClick</span>(Sender: TObject);
+<span class="kw">var</span>
+  sName   : <span class="kw2">string</span>;    <span class="cmt">// local — only exists inside this procedure</span>
+  iNumber : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  ...
+<span class="kw">end</span>;</code></pre></div>
+<div class="code-block"><span class="code-label">Delphi — global declaration (unit level, above all procedures)</span>
+<pre><code><span class="kw">type</span>
+  TForm1 = <span class="kw">class</span>(TForm)
+    <span class="kw">procedure</span> <span class="fn">FormCreate</span>(Sender: TObject);
+  <span class="kw">private</span>
+    { Private declarations }
+  <span class="kw">public</span>
+    { Public declarations }
+  <span class="kw">end</span>;
+
+<span class="kw">var</span>
+  Form1   : TForm1;
+  sName   : <span class="kw2">string</span>;    <span class="cmt">// global — every procedure in this unit can see and change it</span>
+  iNumber : <span class="kw2">Integer</span>;</code></pre></div>
+<div class="callout warning">
+  <div class="callout-title">Prefer local variables and parameters</div>
+  <p>It is tempting to make everything global so you never have to worry about passing values around — but this makes bugs much harder to find, because <em>any</em> method could be the one that changed the value. Rather keep variables local and use <strong>parameters</strong> to pass values into a method and <strong>Result</strong> (or a var parameter) to pass values back out. Save global variables for values that genuinely need to be shared everywhere, such as settings used across the whole form.</p>
+</div>
+
 <h2>Procedures vs Functions</h2>
 <div class="tbl-wrap"><table>
   <tr><th></th><th>Procedure</th><th>Function</th></tr>

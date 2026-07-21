@@ -34,6 +34,23 @@
   <tr><td><strong>Internal bus</strong></td><td>Links CPU and main memory</td></tr>
   <tr><td><strong>External bus</strong></td><td>Interface for peripherals (USB, SATA, PCIe)</td></tr>
 </table></div>
+<h3>Bus vs Point-to-Point Connections</h3>
+<p>Not every connection on the motherboard is a shared bus. A <strong>bus</strong> is a shared pathway — several devices can use the same lines to send and receive data (e.g. multiple USB devices sharing one USB controller). A <strong>point-to-point connection</strong> is a direct, dedicated link between exactly two components, with no other device sharing the line — this makes it faster and more efficient because there is no waiting for the line to be free.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Connection type</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>Bus</strong></td><td>Shared pathway — multiple devices can use it</td><td>USB devices sharing a USB bus</td></tr>
+  <tr><td><strong>Point-to-point</strong></td><td>Direct dedicated link between two components only</td><td>CPU ↔ RAM via a dedicated memory channel; GPU ↔ VRAM inside a graphics card; NVMe SSD ↔ CPU via PCIe lanes</td></tr>
+</table></div>
+<h2>Expansion Cards</h2>
+<p>An <strong>expansion card</strong> plugs into a PCI or PCIe slot to add extra functionality that the motherboard does not already provide.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Expansion card</th><th>Adds</th></tr>
+  <tr><td><strong>Graphics card (GPU)</strong></td><td>Faster, dedicated graphics rendering</td></tr>
+  <tr><td><strong>Sound card</strong></td><td>Improved sound quality or surround sound</td></tr>
+  <tr><td><strong>Network / Wi-Fi card</strong></td><td>Wired or wireless network connectivity</td></tr>
+  <tr><td><strong>TV capture card</strong></td><td>Captures and stores video from a TV signal</td></tr>
+  <tr><td><strong>Storage controller card</strong></td><td>Adds extra or faster hard-drive connections</td></tr>
+</table></div>
 <h2>Data Flow Between Components</h2>
 <p><strong>Storage → RAM → CPU:</strong> Data is loaded from slow storage into fast RAM, then the CPU fetches from RAM for processing.</p>
 <p><strong>RAM → VRAM → GPU:</strong> Graphics data is moved from RAM to VRAM so the GPU can render images without burdening the CPU.</p>

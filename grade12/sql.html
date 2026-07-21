@@ -99,6 +99,30 @@ qryStudents.Open;</code></pre></div>
 <span class="sql-kw">WHERE</span> Genre = <span class="str">"Pop"</span> <span class="sql-kw">AND</span> Price &lt; <span class="num">100</span>       <span class="cmt">-- both must be true</span>
 <span class="sql-kw">WHERE</span> Genre = <span class="str">"Pop"</span> <span class="sql-kw">OR</span> Genre = <span class="str">"Rock"</span>     <span class="cmt">-- either can be true</span></code></pre></div>
 
+  <h3>Operator Precedence in Compound Conditions</h3>
+  <p>When a <code>WHERE</code> clause mixes <code>AND</code> and <code>OR</code>, SQL doesn't just evaluate left to right — it follows a fixed order of precedence, same as in maths:</p>
+  <div class="tbl-wrap"><table>
+    <tr><th>Order</th><th>Operator(s)</th></tr>
+    <tr><td>1 (first)</td><td>Parentheses <code>( )</code></td></tr>
+    <tr><td>2</td><td>Multiplication, division</td></tr>
+    <tr><td>3</td><td>Subtraction, addition</td></tr>
+    <tr><td>4</td><td><code>NOT</code></td></tr>
+    <tr><td>5</td><td><code>AND</code></td></tr>
+    <tr><td>6 (last)</td><td><code>OR</code></td></tr>
+  </table></div>
+  <p><code>AND</code> is evaluated before <code>OR</code>, so a mixed condition may not filter the way you expect unless you add brackets to force the order you want.</p>
+  <div class="code-block"><span class="code-label">SQL &mdash; AND evaluates before OR</span>
+<pre><code><span class="sql-kw">WHERE</span> Genre = <span class="str">"Pop"</span> <span class="sql-kw">OR</span> Genre = <span class="str">"Rock"</span> <span class="sql-kw">AND</span> Price &lt; <span class="num">100</span>
+<span class="cmt">-- reads as: Genre = "Pop"  OR  (Genre = "Rock" AND Price &lt; 100)</span>
+<span class="cmt">-- ALL Pop CDs are included, regardless of price!</span>
+
+<span class="cmt">-- To make BOTH genres respect the price limit, use brackets:</span>
+<span class="sql-kw">WHERE</span> (Genre = <span class="str">"Pop"</span> <span class="sql-kw">OR</span> Genre = <span class="str">"Rock"</span>) <span class="sql-kw">AND</span> Price &lt; <span class="num">100</span></code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">When in doubt, add brackets</div>
+    <p>You don't have to memorise the precedence table if you always wrap OR conditions in brackets when combining them with AND. Brackets make your intention explicit and remove any ambiguity — for the reader and for the database.</p>
+  </div>
+
   <h2>Special WHERE Operators</h2>
   <div class="tbl-wrap"><table>
     <tr><th>Operator</th><th>Meaning</th><th>Example</th></tr>
@@ -109,6 +133,10 @@ qryStudents.Open;</code></pre></div>
     <tr><td><code>IS NOT NULL</code></td><td>Field has a value</td><td><code>WHERE CellNo IS NOT NULL</code></td></tr>
     <tr><td><code>#date#</code></td><td>Date values use # symbols</td><td><code>WHERE OrderDate = #2024-05-01#</code></td></tr>
   </table></div>
+  <div class="callout warning">
+    <div class="callout-title">Dates can be misread — use yyyy/mm/dd</div>
+    <p>Access SQL can misinterpret a date written as <code>dd/mm/yyyy</code>, reading it as month/day/year instead. Writing the year first removes the ambiguity: prefer <code>#2024/05/01#</code> (yyyy/mm/dd) over <code>#01/05/2024#</code>.</p>
+  </div>
   <div class="code-block"><span class="code-label">LIKE wildcard examples</span>
 <pre><code><span class="sql-kw">WHERE</span> CDName <span class="sql-kw">LIKE</span> <span class="str">"S%"</span>        <span class="cmt">-- starts with S</span>
 <span class="sql-kw">WHERE</span> CDName <span class="sql-kw">LIKE</span> <span class="str">"%love%"</span>    <span class="cmt">-- contains the word "love"</span>
@@ -187,6 +215,18 @@ qryStudents.Open;</code></pre></div>
   <div class="callout warning">
     <div class="callout-title">Always use WHERE with UPDATE and DELETE</div>
     <p>Without a WHERE clause, UPDATE changes <em>every</em> record and DELETE removes <em>every</em> record in the table. Always double-check your condition.</p>
+  </div>
+
+  <h3>Building an INSERT String with QuotedStr</h3>
+  <p>Instead of a parameterised query, you will sometimes build the whole SQL statement as one string by joining Delphi variables onto it directly. Text values need <strong>quotes around them</strong> in the final SQL string — the <code>QuotedStr</code> function wraps a string value in quotes for you, so you don't have to type them by hand.</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; INSERT built with string concatenation + QuotedStr</span>
+<pre><code>qryStudents.Close;
+qryStudents.SQL.Text := <span class="str">'INSERT INTO tblStudents (Name, Surname) VALUES ('</span> +
+  QuotedStr(edtName.Text) + <span class="str">', '</span> + QuotedStr(edtSurname.Text) + <span class="str">')'</span>;
+qryStudents.ExecSQL;   <span class="cmt">// use ExecSQL (not Open) for INSERT/UPDATE/DELETE — they don't return records</span></code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">QuotedStr vs parameters</div>
+    <p><code>QuotedStr</code> is a quick way to build a query from a string variable, but a <strong>parameterised query</strong> (below) is the safer, preferred technique — it avoids manually matching quotes and is more resistant to SQL injection.</p>
   </div>
 
   <h2>Parameterised Queries</h2>
