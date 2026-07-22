@@ -1,7 +1,8 @@
 ﻿<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Beyond buttons and labels — these components are used in most IT practical exams. Know each one's key property and how to use it in code."><title>Delphi Components &amp; Events &#x00B7; Ms Coetzee IT</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230891b2'/%3E%3Ctext x='16' y='22' font-family='Arial,Helvetica,sans-serif' font-size='14' font-weight='700' fill='%23fff' text-anchor='middle'%3EIT%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="../../css/style.css"><style>:root{--grade-color:var(--gr10);}</style></head><body><div id="topnav"></div><div class="page-wrapper"><aside class="sidebar"><div class="sidebar-grade">Grade 10 &middot; Practical</div><a href="algorithms.html">Algorithms &amp; Problem Solving</a><a href="delphi-intro.html">Introduction to Delphi</a><a href="delphi-components.html">Delphi Components &amp; Events</a><a href="data-types.html">Data Types &amp; Variables</a><a href="operators.html">Operators &amp; Functions</a><a href="decisions.html">Decision Making</a><a href="loops.html">Loops</a><a href="strings.html">String Manipulation</a><a href="html.html">HTML &mdash; Web Design</a><div class="sidebar-grade" style="margin-top:1rem">Grade 10 &middot; Theory</div><a href="../theory/digital-tech.html">Digital Technologies &amp; ICT</a><a href="../theory/hardware.html">Hardware</a><a href="../theory/software.html">Software &amp; Licensing</a><a href="../theory/data-representation.html">Data Representation</a><a href="../theory/networks.html">Networks</a><a href="../theory/internet.html">Internet &amp; WWW</a><a href="../theory/internet-services.html">Internet Services</a><a href="../theory/e-communication.html">E-Communication</a><a href="../theory/management.html">Computer Management &amp; Security</a></aside><main class="content"><div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><a href="#">Grade 10</a><span class="breadcrumb-sep">›</span><span>Delphi Components &amp; Events</span></div>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Beyond buttons and labels — these components are used in most IT practical exams. Know each one's key property and how to use it in code."><title>Delphi Components &amp; Events &#x00B7; Ms Coetzee IT</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230891b2'/%3E%3Ctext x='16' y='22' font-family='Arial,Helvetica,sans-serif' font-size='14' font-weight='700' fill='%23fff' text-anchor='middle'%3EIT%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="../../css/style.css"><style>:root{--grade-color:var(--gr10);}</style></head><body><div id="topnav"></div><div class="page-wrapper"><aside class="sidebar"><div class="sidebar-grade">Grade 10 &middot; Practical</div><a href="algorithms.html">Algorithms &amp; Problem Solving (T1)</a><a href="delphi-intro.html">Introduction to Delphi (T1)</a><a href="delphi-components.html">Delphi Components &amp; Events (T2&ndash;T3)</a><a href="data-types.html">Data Types &amp; Variables (T1)</a><a href="operators.html">Operators &amp; Functions (T1&ndash;T3)</a><a href="decisions.html">Decision Making (T1&ndash;T2)</a><a href="loops.html">Loops (T3)</a><a href="strings.html">String Manipulation (T2&ndash;T3)</a><a href="html.html">HTML &mdash; Web Design</a><div class="sidebar-grade" style="margin-top:1rem">Grade 10 &middot; Theory</div><a href="../theory/digital-tech.html">Digital Technologies &amp; ICT (T1)</a><a href="../theory/hardware.html">Hardware (T2)</a><a href="../theory/software.html">Software &amp; Licensing (T1&ndash;T2)</a><a href="../theory/data-representation.html">Data Representation (T1)</a><a href="../theory/networks.html">Networks (T2)</a><a href="../theory/internet.html">Internet &amp; WWW (T3)</a><a href="../theory/internet-services.html">Internet Services (T4)</a><a href="../theory/e-communication.html">E-Communication (T2)</a><a href="../theory/management.html">Computer Management &amp; Security (T3)</a></aside><main class="content"><div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><a href="#">Grade 10</a><span class="breadcrumb-sep">›</span><span>Delphi Components &amp; Events</span></div>
 <h1>Delphi Components &amp; Events <span class="grade-badge">Grade 10</span></h1>
 <p class="page-intro">Beyond buttons and labels — these components are used in most IT practical exams. Know each one's key property and how to use it in code.</p>
+<div class="term-divider"><span class="term-divider-badge">T2</span><span class="term-divider-label">Term 2 &middot; Core Components &amp; Events</span></div>
 <h2>Input Components</h2>
 <div class="tbl-wrap"><table>
   <tr><th>Component</th><th>Key Property/Event</th><th>How to use in code</th></tr>
@@ -25,47 +26,6 @@
   <tr><td><strong>TProgressBar</strong></td><td><code>.Position</code></td><td><code>pbrLoad.Position := 75;</code></td></tr>
   <tr><td><strong>TPanel</strong></td><td><code>.Caption</code>, <code>.Color</code></td><td><code>pnlInfo.Caption := 'Ready';</code></td></tr>
 </table></div>
-<h2>PageControl (Tabbed Forms)</h2>
-<p>A <code>TPageControl</code> creates tabbed pages on a form. Each tab is a <code>TTabSheet</code>.</p>
-<h3>Creating tabs</h3>
-<ol>
-  <li>Add <code>TPageControl</code> to the form</li>
-  <li>Right-click → <strong>New Page</strong> to add tabs</li>
-  <li>Set each <code>TTabSheet.Caption</code> in the Object Inspector</li>
-  <li>Drop other components onto each tab — they belong to that tab</li>
-</ol>
-<h3>Controlling tabs in code</h3>
-<div class="code-block"><span class="code-label">Delphi</span>
-<pre><code><span class="cmt">// Show a tab</span>
-TabSheet2.TabVisible := <span class="kw">True</span>;
-
-<span class="cmt">// Hide a tab</span>
-TabSheet2.TabVisible := <span class="kw">False</span>;
-
-<span class="cmt">// Jump to a specific tab</span>
-pgcMain.ActivePage := TabSheet3;</code></pre></div>
-<h2>Timer Component</h2>
-<p>A <code>TTimer</code> fires its <code>OnTimer</code> event at regular intervals without user input.</p>
-<div class="tbl-wrap"><table>
-  <tr><th>Property</th><th>Meaning</th></tr>
-  <tr><td><code>Interval</code></td><td>Milliseconds between triggers (1000 = 1 second)</td></tr>
-  <tr><td><code>Enabled</code></td><td>True/False — starts or stops the timer</td></tr>
-</table></div>
-<div class="code-block"><span class="code-label">Delphi — countdown timer</span>
-<pre><code><span class="kw">var</span>
-  iSeconds: <span class="kw2">Integer</span>;  <span class="cmt">// global variable</span>
-
-<span class="cmt">// OnTimer event (fires every 1000ms)</span>
-<span class="kw">procedure</span> TForm1.<span class="fn">tmrCountTimer</span>(Sender: TObject);
-<span class="kw">begin</span>
-  Dec(iSeconds);
-  lblTime.Caption := IntToStr(iSeconds) + <span class="str">' seconds left'</span>;
-  <span class="kw">if</span> iSeconds &lt;= <span class="num">0</span> <span class="kw">then</span>
-  <span class="kw">begin</span>
-    tmrCount.Enabled := <span class="kw">False</span>;
-    ShowMessage(<span class="str">'Time is up!'</span>);
-  <span class="kw">end</span>;
-<span class="kw">end</span>;</code></pre></div>
 <h2>ComboBox — Adding Items</h2>
 <div class="code-block"><span class="code-label">Delphi</span>
 <pre><code><span class="cmt">// At design time: use Items property in Object Inspector
@@ -119,7 +79,49 @@ lstNames.ItemIndex  := <span class="num">-1</span>;   <span class="cmt">// ListB
   <tr><td><code>tmr</code></td><td>TTimer</td></tr>
   <tr><td><code>img</code></td><td>TImage</td></tr>
 </table></div>
+<div class="term-divider"><span class="term-divider-badge">T3</span><span class="term-divider-label">Term 3 &middot; Timer &amp; PageControl (PAT)</span></div>
+<h2>PageControl (Tabbed Forms)</h2>
+<p>A <code>TPageControl</code> creates tabbed pages on a form. Each tab is a <code>TTabSheet</code>.</p>
+<h3>Creating tabs</h3>
+<ol>
+  <li>Add <code>TPageControl</code> to the form</li>
+  <li>Right-click → <strong>New Page</strong> to add tabs</li>
+  <li>Set each <code>TTabSheet.Caption</code> in the Object Inspector</li>
+  <li>Drop other components onto each tab — they belong to that tab</li>
+</ol>
+<h3>Controlling tabs in code</h3>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="cmt">// Show a tab</span>
+TabSheet2.TabVisible := <span class="kw">True</span>;
+
+<span class="cmt">// Hide a tab</span>
+TabSheet2.TabVisible := <span class="kw">False</span>;
+
+<span class="cmt">// Jump to a specific tab</span>
+pgcMain.ActivePage := TabSheet3;</code></pre></div>
+<h2>Timer Component</h2>
+<p>A <code>TTimer</code> fires its <code>OnTimer</code> event at regular intervals without user input.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Property</th><th>Meaning</th></tr>
+  <tr><td><code>Interval</code></td><td>Milliseconds between triggers (1000 = 1 second)</td></tr>
+  <tr><td><code>Enabled</code></td><td>True/False — starts or stops the timer</td></tr>
+</table></div>
+<div class="code-block"><span class="code-label">Delphi — countdown timer</span>
+<pre><code><span class="kw">var</span>
+  iSeconds: <span class="kw2">Integer</span>;  <span class="cmt">// global variable</span>
+
+<span class="cmt">// OnTimer event (fires every 1000ms)</span>
+<span class="kw">procedure</span> TForm1.<span class="fn">tmrCountTimer</span>(Sender: TObject);
+<span class="kw">begin</span>
+  Dec(iSeconds);
+  lblTime.Caption := IntToStr(iSeconds) + <span class="str">' seconds left'</span>;
+  <span class="kw">if</span> iSeconds &lt;= <span class="num">0</span> <span class="kw">then</span>
+  <span class="kw">begin</span>
+    tmrCount.Enabled := <span class="kw">False</span>;
+    ShowMessage(<span class="str">'Time is up!'</span>);
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</code></pre></div>
 <div class="page-nav">
-  <a href="delphi-intro.html"><span class="page-nav-label">← Previous</span>Introduction to Delphi</a>
-  <a class="next" href="data-types.html"><span class="page-nav-label">Next →</span>Data Types &amp; Variables</a>
+  <a href="delphi-intro.html"><span class="page-nav-label">← Previous</span>Introduction to Delphi (T1)</a>
+  <a class="next" href="data-types.html"><span class="page-nav-label">Next →</span>Data Types &amp; Variables (T1)</a>
 </div></main></div><script src="../../js/nav.js"></script><script src="../../js/main.js"></script></body></html>

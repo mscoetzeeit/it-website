@@ -12,14 +12,16 @@
 <div class="page-wrapper">
   <aside class="sidebar">
     <div class="sidebar-grade">Grade 10 &middot; Practical</div>
-    <a href="algorithms.html">Algorithms &amp; Problem Solving</a><a href="delphi-intro.html">Introduction to Delphi</a><a href="delphi-components.html">Delphi Components &amp; Events</a><a href="data-types.html">Data Types &amp; Variables</a><a href="operators.html">Operators &amp; Functions</a><a href="decisions.html">Decision Making</a><a href="loops.html">Loops</a><a href="strings.html">String Manipulation</a><a href="html.html">HTML &mdash; Web Design</a>
+    <a href="algorithms.html">Algorithms &amp; Problem Solving (T1)</a><a href="delphi-intro.html">Introduction to Delphi (T1)</a><a href="delphi-components.html">Delphi Components &amp; Events (T2&ndash;T3)</a><a href="data-types.html">Data Types &amp; Variables (T1)</a><a href="operators.html">Operators &amp; Functions (T1&ndash;T3)</a><a href="decisions.html">Decision Making (T1&ndash;T2)</a><a href="loops.html">Loops (T3)</a><a href="strings.html">String Manipulation (T2&ndash;T3)</a><a href="html.html">HTML &mdash; Web Design</a>
     <div class="sidebar-grade" style="margin-top:1rem">Grade 10 &middot; Theory</div>
-    <a href="../theory/digital-tech.html">Digital Technologies &amp; ICT</a><a href="../theory/hardware.html">Hardware</a><a href="../theory/software.html">Software &amp; Licensing</a><a href="../theory/data-representation.html">Data Representation</a><a href="../theory/networks.html">Networks</a><a href="../theory/internet.html">Internet &amp; WWW</a><a href="../theory/internet-services.html">Internet Services</a><a href="../theory/e-communication.html">E-Communication</a><a href="../theory/management.html">Computer Management &amp; Security</a>
+    <a href="../theory/digital-tech.html">Digital Technologies &amp; ICT (T1)</a><a href="../theory/hardware.html">Hardware (T2)</a><a href="../theory/software.html">Software &amp; Licensing (T1&ndash;T2)</a><a href="../theory/data-representation.html">Data Representation (T1)</a><a href="../theory/networks.html">Networks (T2)</a><a href="../theory/internet.html">Internet &amp; WWW (T3)</a><a href="../theory/internet-services.html">Internet Services (T4)</a><a href="../theory/e-communication.html">E-Communication (T2)</a><a href="../theory/management.html">Computer Management &amp; Security (T3)</a>
   </aside>
   <main class="content">
     <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><a href="#">Grade 10</a><span class="breadcrumb-sep">›</span><span>Operators &amp; Functions</span></div>
     <h1>Operators &amp; Functions <span class="grade-badge">Grade 10</span></h1>
     <p class="page-intro">Operators perform calculations. Delphi also has a rich library of built-in functions for maths, string handling, and more.</p>
+
+    <div class="term-divider"><span class="term-divider-badge">T1</span><span class="term-divider-label">Term 1 &middot; Operators, Precedence &amp; Functions</span></div>
 
     <h2>Arithmetic Operators</h2>
     <div class="tbl-wrap"><table>
@@ -108,6 +110,17 @@ result := <span class="num">10</span> <span class="kw">DIV</span> <span class="n
       <tr><td><code>Dec(x, n)</code></td><td>Decrement by n</td><td><code>Dec(6, 4)</code></td><td><code>2</code></td></tr>
     </table></div>
 
+    <h2>Upcase and Trim</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Function</th><th>Description</th><th>Example</th><th>Result</th></tr>
+      <tr><td><code>UpCase(c)</code></td><td>Convert single char to uppercase</td><td><code>UpCase('a')</code></td><td><code>'A'</code></td></tr>
+      <tr><td><code>Trim(s)</code></td><td>Remove spaces from both ends</td><td><code>Trim('  Hello  ')</code></td><td><code>'Hello'</code></td></tr>
+      <tr><td><code>TrimLeft(s)</code></td><td>Remove leading spaces</td><td><code>TrimLeft('  Hi')</code></td><td><code>'Hi'</code></td></tr>
+      <tr><td><code>TrimRight(s)</code></td><td>Remove trailing spaces</td><td><code>TrimRight('Hi  ')</code></td><td><code>'Hi'</code></td></tr>
+    </table></div>
+
+    <div class="term-divider"><span class="term-divider-badge">T3</span><span class="term-divider-label">Term 3 &middot; Ord &amp; Chr Functions</span></div>
+
     <h2>Ord and Chr</h2>
     <p><code>Ord</code> and <code>Chr</code> convert between characters and their ASCII numeric codes.</p>
     <div class="tbl-wrap"><table>
@@ -135,18 +148,9 @@ result := <span class="num">10</span> <span class="kw">DIV</span> <span class="n
       <p>Without it, shifting a letter near the end of the alphabet (like 'X', 'Y' or 'Z') pushes past 'Z' into punctuation characters instead of wrapping back to 'A'. Subtracting <code>Ord('A')</code> first converts the letter to a 0–25 range, <code>MOD 26</code> wraps it, and adding <code>Ord('A')</code> back converts it to a real letter again.</p>
     </div>
 
-    <h2>Upcase and Trim</h2>
-    <div class="tbl-wrap"><table>
-      <tr><th>Function</th><th>Description</th><th>Example</th><th>Result</th></tr>
-      <tr><td><code>UpCase(c)</code></td><td>Convert single char to uppercase</td><td><code>UpCase('a')</code></td><td><code>'A'</code></td></tr>
-      <tr><td><code>Trim(s)</code></td><td>Remove spaces from both ends</td><td><code>Trim('  Hello  ')</code></td><td><code>'Hello'</code></td></tr>
-      <tr><td><code>TrimLeft(s)</code></td><td>Remove leading spaces</td><td><code>TrimLeft('  Hi')</code></td><td><code>'Hi'</code></td></tr>
-      <tr><td><code>TrimRight(s)</code></td><td>Remove trailing spaces</td><td><code>TrimRight('Hi  ')</code></td><td><code>'Hi'</code></td></tr>
-    </table></div>
-
     <div class="page-nav">
-      <a href="data-types.html"><span class="page-nav-label">← Previous</span>Data Types &amp; Variables</a>
-      <a class="next" href="decisions.html"><span class="page-nav-label">Next →</span>Decision Making</a>
+      <a href="data-types.html"><span class="page-nav-label">← Previous</span>Data Types &amp; Variables (T1)</a>
+      <a class="next" href="decisions.html"><span class="page-nav-label">Next →</span>Decision Making (T1&ndash;T2)</a>
     </div>
   </main>
 </div>

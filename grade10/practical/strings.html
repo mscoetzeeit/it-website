@@ -12,9 +12,9 @@
 <div class="page-wrapper">
   <aside class="sidebar">
     <div class="sidebar-grade">Grade 10 &middot; Practical</div>
-    <a href="algorithms.html">Algorithms &amp; Problem Solving</a><a href="delphi-intro.html">Introduction to Delphi</a><a href="delphi-components.html">Delphi Components &amp; Events</a><a href="data-types.html">Data Types &amp; Variables</a><a href="operators.html">Operators &amp; Functions</a><a href="decisions.html">Decision Making</a><a href="loops.html">Loops</a><a href="strings.html">String Manipulation</a><a href="html.html">HTML &mdash; Web Design</a>
+    <a href="algorithms.html">Algorithms &amp; Problem Solving (T1)</a><a href="delphi-intro.html">Introduction to Delphi (T1)</a><a href="delphi-components.html">Delphi Components &amp; Events (T2&ndash;T3)</a><a href="data-types.html">Data Types &amp; Variables (T1)</a><a href="operators.html">Operators &amp; Functions (T1&ndash;T3)</a><a href="decisions.html">Decision Making (T1&ndash;T2)</a><a href="loops.html">Loops (T3)</a><a href="strings.html">String Manipulation (T2&ndash;T3)</a><a href="html.html">HTML &mdash; Web Design</a>
     <div class="sidebar-grade" style="margin-top:1rem">Grade 10 &middot; Theory</div>
-    <a href="../theory/digital-tech.html">Digital Technologies &amp; ICT</a><a href="../theory/hardware.html">Hardware</a><a href="../theory/software.html">Software &amp; Licensing</a><a href="../theory/data-representation.html">Data Representation</a><a href="../theory/networks.html">Networks</a><a href="../theory/internet.html">Internet &amp; WWW</a><a href="../theory/internet-services.html">Internet Services</a><a href="../theory/e-communication.html">E-Communication</a><a href="../theory/management.html">Computer Management &amp; Security</a>
+    <a href="../theory/digital-tech.html">Digital Technologies &amp; ICT (T1)</a><a href="../theory/hardware.html">Hardware (T2)</a><a href="../theory/software.html">Software &amp; Licensing (T1&ndash;T2)</a><a href="../theory/data-representation.html">Data Representation (T1)</a><a href="../theory/networks.html">Networks (T2)</a><a href="../theory/internet.html">Internet &amp; WWW (T3)</a><a href="../theory/internet-services.html">Internet Services (T4)</a><a href="../theory/e-communication.html">E-Communication (T2)</a><a href="../theory/management.html">Computer Management &amp; Security (T3)</a>
   </aside>
   <main class="content">
     <div class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb-sep">›</span><a href="#">Grade 10</a><span class="breadcrumb-sep">›</span><span>String Manipulation</span></div>
@@ -51,6 +51,30 @@
       <tr><td><code>UpperCase</code></td><td>Function</td><td>Convert to all capitals</td><td>String</td></tr>
       <tr><td><code>LowerCase</code></td><td>Function</td><td>Convert to all lowercase</td><td>String</td></tr>
     </table></div>
+
+    <div class="term-divider"><span class="term-divider-badge">T2</span><span class="term-divider-label">Term 2 &middot; Basic String Methods (Length, UpperCase)</span></div>
+
+    <h2>Length — String Length</h2>
+    <div class="code-block"><span class="code-label">Syntax</span>
+<pre><code>IntegerVariable := <span class="fn">Length</span>(SourceText);</code></pre></div>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>iX := <span class="fn">Length</span>(sSourceText);   <span class="cmt">// = 13 (length of 'Andre is cute')</span>
+iX := <span class="fn">Length</span>(<span class="str">'Hello'</span>);       <span class="cmt">// = 5</span></code></pre></div>
+
+    <h2>Group 4 — Changing Case</h2>
+    <p><strong>Changing case</strong> means turning all the letters into capitals (<code>UpperCase</code>) or all into small letters (<code>LowerCase</code>). The most important reason we do this is to compare text <em>fairly</em>. The computer thinks <code>'YES'</code>, <code>'yes'</code> and <code>'Yes'</code> are three different strings, so if you force them all to lowercase first, they all match.</p>
+    <p><strong>Everyday analogy:</strong> Imagine a teacher marking a one-word answer. Whether a learner wrote "Cape Town", "CAPE TOWN" or "cape town", it is the same correct answer. Lowercasing both the answer and the memo before comparing is how you make sure capitals do not unfairly mark someone wrong.</p>
+    <p><strong>Important Rule:</strong> <code>UpperCase</code> and <code>LowerCase</code> return a <em>new</em> string — they do not change the original unless you store the result back into a variable.</p>
+
+    <h2>UpperCase and LowerCase</h2>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>sResult := <span class="fn">UpperCase</span>(sSourceText);
+<span class="cmt">// 'Andre is cute' → 'ANDRE IS CUTE'</span>
+
+sResult := <span class="fn">LowerCase</span>(sSourceText);
+<span class="cmt">// 'Andre is cute' → 'andre is cute'</span></code></pre></div>
+
+    <div class="term-divider"><span class="term-divider-badge">T3</span><span class="term-divider-label">Term 3 &middot; Full String Methods &amp; First Principles</span></div>
 
     <h2>Group 1 — Searching a String</h2>
     <p><strong>Searching</strong> means asking "is this smaller piece of text in there, and if so, where?" The answer you get back is a position number. This is the first thing you do before you can extract or change part of a string, because you usually need to know <em>where</em> something is first.</p>
@@ -104,26 +128,6 @@ sNewText := <span class="fn">Copy</span>(sSourceText, <span class="num">1</span>
     <div class="code-block"><span class="code-label">Delphi</span>
 <pre><code><span class="fn">Delete</span>(sSourceText, <span class="num">9</span>, <span class="num">5</span>);
 <span class="cmt">// sSourceText is now: 'Andre is' (removed ' cute')</span></code></pre></div>
-
-    <h2>Length — String Length</h2>
-    <div class="code-block"><span class="code-label">Syntax</span>
-<pre><code>IntegerVariable := <span class="fn">Length</span>(SourceText);</code></pre></div>
-    <div class="code-block"><span class="code-label">Delphi</span>
-<pre><code>iX := <span class="fn">Length</span>(sSourceText);   <span class="cmt">// = 13 (length of 'Andre is cute')</span>
-iX := <span class="fn">Length</span>(<span class="str">'Hello'</span>);       <span class="cmt">// = 5</span></code></pre></div>
-
-    <h2>Group 4 — Changing Case</h2>
-    <p><strong>Changing case</strong> means turning all the letters into capitals (<code>UpperCase</code>) or all into small letters (<code>LowerCase</code>). The most important reason we do this is to compare text <em>fairly</em>. The computer thinks <code>'YES'</code>, <code>'yes'</code> and <code>'Yes'</code> are three different strings, so if you force them all to lowercase first, they all match.</p>
-    <p><strong>Everyday analogy:</strong> Imagine a teacher marking a one-word answer. Whether a learner wrote "Cape Town", "CAPE TOWN" or "cape town", it is the same correct answer. Lowercasing both the answer and the memo before comparing is how you make sure capitals do not unfairly mark someone wrong.</p>
-    <p><strong>Important Rule:</strong> <code>UpperCase</code> and <code>LowerCase</code> return a <em>new</em> string — they do not change the original unless you store the result back into a variable.</p>
-
-    <h2>UpperCase and LowerCase</h2>
-    <div class="code-block"><span class="code-label">Delphi</span>
-<pre><code>sResult := <span class="fn">UpperCase</span>(sSourceText);
-<span class="cmt">// 'Andre is cute' → 'ANDRE IS CUTE'</span>
-
-sResult := <span class="fn">LowerCase</span>(sSourceText);
-<span class="cmt">// 'Andre is cute' → 'andre is cute'</span></code></pre></div>
 
     <h2>Practical Patterns</h2>
 
@@ -220,7 +224,7 @@ sResult := <span class="fn">LowerCase</span>(sSourceText);
     </div>
 
     <div class="page-nav">
-      <a href="loops.html"><span class="page-nav-label">← Previous</span>Loops</a>
+      <a href="loops.html"><span class="page-nav-label">← Previous</span>Loops (T3)</a>
       <a class="next" href="html.html"><span class="page-nav-label">Next →</span>HTML — Web Design</a>
     </div>
   </main>
