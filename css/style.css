@@ -248,6 +248,34 @@ a:hover { text-decoration: underline; }
 .term-links .tl-plain { width: 6px; height: 6px; border-radius: 50%; background: var(--border); flex-shrink: 0; }
 @media (max-width: 700px) { .term-body { grid-template-columns: 1fr; } .term-col:first-child { border-right: none; border-bottom: 1px solid var(--border); } }
 
+/* ── IN-PAGE TERM DIVIDER (splits a topic page's content by teaching term) ── */
+.term-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 2.75rem 0 0.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--border);
+}
+.content .term-divider:first-of-type { margin-top: 2rem; }
+.term-divider-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  flex-shrink: 0;
+  letter-spacing: .03em;
+}
+.term-divider-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  font-weight: 600;
+}
+
 /* ── EXTRAS PAGE ── */
 .extras-grid {
   display: grid;
