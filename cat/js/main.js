@@ -184,7 +184,7 @@ function buildSearchIndex() {
     const q = input.value.trim().toLowerCase();
     if (q.length < 2) { results.classList.remove('open'); return; }
     const matches = PAGES.filter(p =>
-      p.title.toLowerCase().includes(q) || p.tags.includes(q) || p.grade.toLowerCase().includes(q)
+      p.title.toLowerCase().includes(q) || p.tags.toLowerCase().includes(q) || p.grade.toLowerCase().includes(q)
     ).slice(0, 8);
     if (matches.length === 0) {
       results.innerHTML = '<div class="sr-empty">No results found</div>';
