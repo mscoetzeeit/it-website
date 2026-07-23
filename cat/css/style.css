@@ -261,6 +261,17 @@ td code, th code { font-size: 0.95em; color: var(--gr10); }
 .term-title { font-size: 1rem; font-weight: 600; color: var(--text); }
 .term-subtitle { font-size: 0.8rem; color: var(--muted); margin-top: 0.15rem; }
 .term-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+
+/* ── TERM TAGS — small badges before h2s on theory pages ── */
+.term-tag { display: inline-block; font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.15rem 0.55rem; border-radius: 3px; margin-bottom: 0.25rem; }
+.term-tag.t1 { background: #1e3a5f; color: #93c5fd; }
+.term-tag.t2 { background: #1a3e2e; color: #6ee7b7; }
+.term-tag.t3 { background: #3d2e00; color: #fcd34d; }
+.term-tag.t4 { background: #3d1a2e; color: #f9a8d4; }
+[data-theme="light"] .term-tag.t1 { background: #dbeafe; color: #1d4ed8; }
+[data-theme="light"] .term-tag.t2 { background: #d1fae5; color: #065f46; }
+[data-theme="light"] .term-tag.t3 { background: #fef3c7; color: #92400e; }
+[data-theme="light"] .term-tag.t4 { background: #fce7f3; color: #9d174d; }
 .term-col { padding: 1.25rem 1.5rem; }
 .term-col:first-child { border-right: 1px solid var(--border); }
 .term-col-title { font-size: 0.72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 0.75rem; font-weight: 600; }
