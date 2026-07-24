@@ -150,6 +150,39 @@ Active      → True   (this "opens" the table so data loads)</code></pre></div>
     <code>conStudents</code> (TADOConnection) &bull; <code>tblStudents</code> (TADOTable) &bull; <code>dsStudents</code> (TDataSource) &bull; <code>dbgStudents</code> (TDBGrid)</p>
   </div>
 
+  <h2>Editing Records Without Code &mdash; Data-Aware Controls</h2>
+  <p>Everything else on this page shows how to insert, edit and delete records <em>using code</em>. Delphi also provides <strong>data-aware controls</strong> that let a user browse and change records directly on the Form, with no code at all.</p>
+
+  <h3>TDBNavigator &mdash; A Toolbar for the Dataset</h3>
+  <p>A <code>TDBNavigator</code> (from the Data Controls tab) is a data-aware control with a row of buttons for moving through and maintaining a dataset. Set its <code>DataSource</code> property the same way you would for a <code>DBGrid</code>.</p>
+  <div class="tbl-wrap"><table>
+    <tr><th>Button</th><th>What it does</th></tr>
+    <tr><td>First / Prior / Next / Last</td><td>Move the pointer &mdash; the same as calling those methods in code.</td></tr>
+    <tr><td>Insert</td><td>Opens up a blank record (the dataset switches to <code>dsInsert</code> state) ready for the user to type into.</td></tr>
+    <tr><td>Delete</td><td>Removes the active record straight away &mdash; no confirmation unless you configure one.</td></tr>
+    <tr><td>Edit</td><td>Unlocks the active record for changes (the dataset switches to <code>dsEdit</code> state).</td></tr>
+    <tr><td>Post</td><td>Writes whatever was typed or changed back to the table.</td></tr>
+    <tr><td>Cancel</td><td>Throws away an in-progress edit or insert instead of saving it.</td></tr>
+    <tr><td>Refresh</td><td>Reloads the grid's data from the table &mdash; handy if something else may have changed the underlying records.</td></tr>
+  </table></div>
+  <div class="callout warning">
+    <div class="callout-title">Handle with care</div>
+    <p>The DBNavigator's Insert and Delete buttons act the instant they're clicked &mdash; there's no built-in step to check that what the user typed makes sense, or that a new primary key doesn't clash with one that already exists. That's exactly why the rest of this page prefers to add, edit and delete records through code: it gives you a chance to validate input and show your own confirmation messages first. A quick safety net if you do use the DBNavigator for deleting is to set its <code>ConfirmDelete</code> property to <code>True</code>, which pops up an "are you sure?" prompt before a record disappears.</p>
+  </div>
+
+  <h3>DBEdit, DBText and DBCheckBox &mdash; Single-Field Controls</h3>
+  <p>Sometimes a full grid is more than you need &mdash; you might just want one field of the current record shown somewhere on the Form, such as a name next to a photo. Each of these controls links to exactly one field, using the same two properties:</p>
+  <div class="code-block"><span class="code-label">Key properties</span>
+<pre><code>DataSource → select your TDataSource (dm.dsStudents)
+DataField  → choose the field from the dropdown (e.g. "Surname")</code></pre></div>
+  <div class="tbl-wrap"><table>
+    <tr><th>Control</th><th>Use for</th></tr>
+    <tr><td><code>DBEdit</code></td><td>Any text or numeric field you want the user to be able to change.</td></tr>
+    <tr><td><code>DBText</code></td><td>Showing a field's value without letting the user change it &mdash; useful for a read-only field such as a primary key.</td></tr>
+    <tr><td><code>DBCheckBox</code></td><td>A True/False field, shown as a tick box instead of text.</td></tr>
+  </table></div>
+  <p>Delphi doesn't write a change to the table the instant it's made &mdash; it sits in a buffer until something posts it. That happens automatically the moment the user moves to a different record, or you can trigger it sooner yourself, either in code or via a DBNavigator's Post button.</p>
+
   <h2>Accessing Field Values in Code</h2>
   <p>Once connected, you can read the value of any field in the <em>current</em> record using this syntax:</p>
   <div class="code-block"><span class="code-label">Syntax</span>
@@ -161,6 +194,10 @@ iGrade   := dm.tblStudents[<span class="str">'Grade'</span>];      <span class="
 
 <span class="cmt">// Display in a label</span>
 lblInfo.Caption := dm.tblStudents[<span class="str">'Name'</span>] + <span class="str">' '</span> + dm.tblStudents[<span class="str">'Surname'</span>];</code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">A second way to write the same thing</div>
+    <p>Delphi also lets you reach a field through <code>FieldByName</code>, e.g. <code>dm.tblStudents.FieldByName('Name').AsString</code> instead of <code>dm.tblStudents['Name']</code>. The two do the same job &mdash; this page sticks to the square-bracket version, but you'll come across <code>FieldByName</code> in other code and it's worth being able to recognise it.</p>
+  </div>
 
   <h2>Navigating Records</h2>
   <p>Think of records as pages in a book. These methods let you turn pages:</p>
@@ -197,6 +234,24 @@ lblInfo.Caption := dm.tblStudents[<span class="str">'Name'</span>] + <span class
   <span class="kw">end</span>;
   dm.tblStudents.Next;
 <span class="kw">end</span>;</code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">A built-in shortcut: Locate</div>
+    <p>Writing the loop above is a useful skill, but Delphi also gives you a method that does the same job in one line: <code>dm.tblStudents.Locate('Surname', edtSearch.Text, [loCaseInsensitive])</code> jumps straight to the first matching record and makes it the active one, returning <code>True</code> if a match existed. The <code>loCaseInsensitive</code> option means a search for "smith" will also match "Smith".</p>
+  </div>
+
+  <h2>Dataset States</h2>
+  <p>A <code>TADOTable</code> is always sitting in one of a small set of named states, and that state controls what you're allowed to do with the current record. You've actually been relying on these states already &mdash; calling <code>Edit</code> or <code>Insert</code> doesn't touch any data by itself, it just switches the dataset into a state where changing data is legal.</p>
+  <div class="tbl-wrap"><table>
+    <tr><th>State</th><th>What it means</th></tr>
+    <tr><td><code>dsInactive</code></td><td>The table is closed (<code>Active</code> is <code>False</code>). No reading or writing is possible until it's reopened.</td></tr>
+    <tr><td><code>dsBrowse</code></td><td>The normal resting state once a table is open. You can look at records and move between them, but the current record is locked against edits.</td></tr>
+    <tr><td><code>dsEdit</code></td><td>Entered by calling <code>Edit</code>. The active record can now be changed; <code>Post</code> saves it and drops the dataset back into <code>dsBrowse</code>.</td></tr>
+    <tr><td><code>dsInsert</code></td><td>Entered by calling <code>Insert</code>. A blank record is waiting to be filled in; <code>Post</code> adds it to the table and returns to <code>dsBrowse</code>.</td></tr>
+  </table></div>
+  <div class="callout tip">
+    <div class="callout-title">Why this matters</div>
+    <p>This is why trying to change a field's value without calling <code>Edit</code> or <code>Insert</code> first raises an error &mdash; the dataset is still sitting in <code>dsBrowse</code>, which doesn't allow it.</p>
+  </div>
 
   <h2>Inserting a New Record</h2>
   <p>Adding a new record is a 3-step process: prepare &rarr; fill in values &rarr; save.</p>
@@ -206,6 +261,25 @@ dm.tblStudents[<span class="str">'Name'</span>]    := edtName.Text;     <span cl
 dm.tblStudents[<span class="str">'Surname'</span>] := edtSurname.Text;
 dm.tblStudents[<span class="str">'Grade'</span>]   := sedGrade.Value;
 dm.tblStudents.Post;                      <span class="cmt">// Step 3: save to the database</span></code></pre></div>
+  <div class="callout warning">
+    <div class="callout-title">Keep primary keys unique</div>
+    <p><code>Post</code> will raise an error if you assign a primary-key value that another record already has. It's tempting to just use <code>tblStudents.RecordCount + 1</code> as the next number, but that scheme breaks the moment an earlier record has ever been deleted &mdash; you can end up reissuing a number that's already taken. The safer approach is to scan the table for whatever the highest existing value currently is, and add one to that:</p>
+  </div>
+  <div class="code-block"><span class="code-label">Delphi &mdash; generate a safe new primary key</span>
+<pre><code><span class="kw">function</span> <span class="fn">GetNewStudentNo</span>: <span class="kw2">Integer</span>;
+<span class="kw">var</span>
+  iLargest : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  dm.tblStudents.First;
+  iLargest := <span class="num">0</span>;
+  <span class="kw">while not</span> dm.tblStudents.Eof <span class="kw">do</span>
+  <span class="kw">begin</span>
+    <span class="kw">if</span> dm.tblStudents[<span class="str">'StudentNo'</span>] &gt; iLargest <span class="kw">then</span>
+      iLargest := dm.tblStudents[<span class="str">'StudentNo'</span>];
+    dm.tblStudents.Next;
+  <span class="kw">end</span>;
+  Result := iLargest + <span class="num">1</span>;
+<span class="kw">end</span>;</code></pre></div>
 
   <h2>Editing an Existing Record</h2>
   <div class="code-block"><span class="code-label">Delphi</span>
@@ -221,6 +295,25 @@ dm.tblStudents.Delete;   <span class="cmt">// removes the current record permane
   <div class="callout warning">
     <div class="callout-title">Deletion is permanent</div>
     <p>There is no undo. Always confirm with the user before deleting: <code>if MessageDlg('Delete this record?', mtConfirmation, mbYesNo, 0) = mrYes then dm.tblStudents.Delete;</code></p>
+  </div>
+
+  <h2>Changing a Field for All Records at Once</h2>
+  <p>Some tasks need to touch every record in a table, not just one &mdash; for example handing out 5 bonus marks to every student, or applying a fee discount to a whole grade. This is really the same "loop through all records" pattern used earlier, just with an <code>Edit</code> / <code>Post</code> pair added inside it:</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; add 5 bonus marks to every student</span>
+<pre><code>dm.tblStudents.First;
+dm.tblStudents.DisableControls;      <span class="cmt">// stop the DBGrid refreshing on every single record</span>
+<span class="kw">while not</span> dm.tblStudents.Eof <span class="kw">do</span>
+<span class="kw">begin</span>
+  dm.tblStudents.Edit;
+  dm.tblStudents[<span class="str">'Mark'</span>] := dm.tblStudents[<span class="str">'Mark'</span>] + <span class="num">5</span>;
+  dm.tblStudents.Post;
+  dm.tblStudents.Next;
+<span class="kw">end</span>;
+dm.tblStudents.First;
+dm.tblStudents.EnableControls;       <span class="cmt">// switch the grid's updates back on</span></code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">DisableControls and EnableControls</div>
+    <p>Without this pair of calls, a <code>DBGrid</code> linked to the same dataset would redraw and scroll on every single record while the loop runs &mdash; distracting to watch, and noticeably slower once a table has more than a handful of records. <code>DisableControls</code> tells linked data-aware controls to stop refreshing until <code>EnableControls</code> is called again.</p>
   </div>
 
   <h2>Filtering Records</h2>
