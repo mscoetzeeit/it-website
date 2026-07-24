@@ -12,20 +12,6 @@
   <p>Think of a method like a recipe card in a cookbook. The recipe is written down once. Whenever you want that dish, you don't rewrite the steps from scratch — you just fetch the card and follow it. A method works exactly the same way: write the steps once, then "fetch" them by name as often as you like.</p>
 </div>
 
-<h2>What Is a Procedure?</h2>
-<p>A <strong>procedure</strong> is a named block of code that <em>does</em> a task but does <strong>not</strong> send a value back to where it was called. It simply carries out its instructions — showing a message, clearing some boxes, drawing on a canvas — and then control returns to the program.</p>
-<div class="callout">
-  <div class="callout-title">ANALOGY</div>
-  <p>A procedure is like asking someone to "switch off the lights". They go and do the job. You don't expect them to hand you anything back — you just expect the task to be done.</p>
-</div>
-
-<h2>What Is a Function?</h2>
-<p>A <strong>function</strong> is a named block of code that does a task <strong>and then returns exactly one value</strong> back to where it was called. Inside the function you store the answer in the special variable <code>Result</code>, and that answer is handed back so you can use it — store it, display it, or calculate further with it.</p>
-<div class="callout">
-  <div class="callout-title">ANALOGY</div>
-  <p>A function is like asking someone "How much is the bread?" They go, check, and come <em>back with an answer</em> you can use. A function always brings something back; a procedure does not have to.</p>
-</div>
-
 <h2>Why Do We Break Code Into Methods?</h2>
 <p>When you are starting out it can feel like extra work to split your program into little named blocks. But experienced programmers do it for very good reasons:</p>
 <ul>
@@ -39,6 +25,36 @@
   <p>Each method should do <strong>only one job</strong>. If a method is trying to do several things at once, that is usually a sign it should be split into smaller methods.</p>
 </div>
 
+<h2>What Is a Procedure?</h2>
+<p>A <strong>procedure</strong> is a named block of code that <em>does</em> a task but does <strong>not</strong> send a value back to where it was called. It simply carries out its instructions — showing a message, clearing some boxes, drawing on a canvas — and then control returns to the program.</p>
+<div class="callout">
+  <div class="callout-title">ANALOGY</div>
+  <p>A procedure is like asking someone to "switch off the lights". They go and do the job. You don't expect them to hand you anything back — you just expect the task to be done.</p>
+</div>
+
+<h2>Procedures</h2>
+<h3>Without Parameters</h3>
+<div class="code-block"><span class="code-label">Delphi — declare and call</span>
+<pre><code><span class="cmt">// Declaration (above the event handlers)</span>
+<span class="kw">procedure</span> <span class="fn">ShowHello</span>;
+<span class="kw">begin</span>
+  ShowMessage(<span class="str">'Hello!'</span>);
+<span class="kw">end</span>;
+
+<span class="cmt">// Calling it</span>
+<span class="kw">procedure</span> TForm1.<span class="fn">btnShowClick</span>(Sender: TObject);
+<span class="kw">begin</span>
+  ShowHello;   <span class="cmt">// called alone</span>
+<span class="kw">end</span>;</code></pre></div>
+<h3>With Parameters</h3>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">procedure</span> <span class="fn">DisplayGreeting</span>(sMessage, sName: <span class="kw2">string</span>);
+<span class="kw">begin</span>
+  ShowMessage(sMessage + <span class="str">' '</span> + sName);
+<span class="kw">end</span>;
+
+<span class="cmt">// Call with arguments</span>
+DisplayGreeting(<span class="str">'Good morning'</span>, <span class="str">'Ms Coetzee'</span>);</code></pre></div>
 <h2>Parameters vs Arguments</h2>
 <p>A <strong>parameter</strong> is a placeholder name listed in the method's declaration — it stands for a value the method will receive. An <strong>argument</strong> is the actual value you pass <em>in</em> when you call the method. In short: parameters live in the declaration; arguments are the real values you supply at the call.</p>
 <div class="callout">
@@ -97,103 +113,13 @@ CheckAttendance(iPresent, iTotal, bOk, sMsg);
 lblStatus.Caption := sMsg;</code></pre></div>
 <p><code>iDaysPresent</code> and <code>iTotalDays</code> stay ordinary value parameters, since the procedure only needs to read them. <code>bMeetsRule</code> and <code>sNote</code> are VAR parameters, so after the call <code>bOk</code> holds whatever was assigned to <code>bMeetsRule</code>, and <code>sMsg</code> holds whatever was assigned to <code>sNote</code> — two results from one procedure call.</p>
 
-<h2>Local vs Global Variables</h2>
-<p>Where you declare a variable decides <strong>which parts of your program are allowed to see it</strong>. This is called the variable's <strong>scope</strong>.</p>
-<ul>
-  <li><strong>Local variable</strong> — declared inside a procedure or function's own <code>var</code> block (between the method header and its <code>begin</code>). It can only be used <em>inside that method</em>. As soon as the method ends, the variable and its value disappear.</li>
-  <li><strong>Global variable</strong> — declared at <strong>unit level</strong>, in the main <code>var</code> block near the top of the unit (below the form's <code>type ... end;</code> block, alongside <code>Form1: TForm1;</code>). It can be used and changed by <em>any</em> procedure or function in the whole program, and it keeps its value for as long as the program runs.</li>
-</ul>
+<h2>What Is a Function?</h2>
+<p>A <strong>function</strong> is a named block of code that does a task <strong>and then returns exactly one value</strong> back to where it was called. Inside the function you store the answer in the special variable <code>Result</code>, and that answer is handed back so you can use it — store it, display it, or calculate further with it.</p>
 <div class="callout">
   <div class="callout-title">ANALOGY</div>
-  <p>A <strong>local variable</strong> is like a note you scribble on a scrap of paper during one phone call — useful while you're on the call, but you throw it away the moment you hang up, and nobody in the next room ever sees it. A <strong>global variable</strong> is like a whiteboard on the office wall — anyone in any room can walk up, read it, or write on it, and what's written stays there until someone deliberately changes it.</p>
-</div>
-<div class="code-block"><span class="code-label">Delphi — local declaration (inside a method)</span>
-<pre><code><span class="kw">procedure</span> TForm1.<span class="fn">btnClick</span>(Sender: TObject);
-<span class="kw">var</span>
-  sName   : <span class="kw2">string</span>;    <span class="cmt">// local — only exists inside this procedure</span>
-  iNumber : <span class="kw2">Integer</span>;
-<span class="kw">begin</span>
-  ...
-<span class="kw">end</span>;</code></pre></div>
-<div class="code-block"><span class="code-label">Delphi — global declaration (unit level, above all procedures)</span>
-<pre><code><span class="kw">type</span>
-  TForm1 = <span class="kw">class</span>(TForm)
-    <span class="kw">procedure</span> <span class="fn">FormCreate</span>(Sender: TObject);
-  <span class="kw">private</span>
-    { Private declarations }
-  <span class="kw">public</span>
-    { Public declarations }
-  <span class="kw">end</span>;
-
-<span class="kw">var</span>
-  Form1   : TForm1;
-  sName   : <span class="kw2">string</span>;    <span class="cmt">// global — every procedure in this unit can see and change it</span>
-  iNumber : <span class="kw2">Integer</span>;</code></pre></div>
-<div class="callout warning">
-  <div class="callout-title">Prefer local variables and parameters</div>
-  <p>It is tempting to make everything global so you never have to worry about passing values around — but this makes bugs much harder to find, because <em>any</em> method could be the one that changed the value. Rather keep variables local and use <strong>parameters</strong> to pass values into a method and <strong>Result</strong> (or a var parameter) to pass values back out. Save global variables for values that genuinely need to be shared everywhere, such as settings used across the whole form.</p>
+  <p>A function is like asking someone "How much is the bread?" They go, check, and come <em>back with an answer</em> you can use. A function always brings something back; a procedure does not have to.</p>
 </div>
 
-<h2>Declaring a Method as Part of the Form's Class</h2>
-<p>Every procedure and function example so far has been a stand-alone routine, sitting in the unit above the event handlers. Delphi offers a second way to write your own methods: you can make a procedure or function <strong>part of the Form's own class</strong>, exactly like an event handler already is. To do this, add its declaration inside the Form's <code>class(TForm) ... end;</code> block — normally in the <code>private</code> section — and then write its full code down in the <code>implementation</code> section using the same <code>TForm1.MethodName</code> pattern you already recognise from event handlers.</p>
-<div class="callout tip">
-  <div class="callout-title">Let Delphi build the skeleton for you</div>
-  <p>Once a method is declared in the <code>private</code> section, click anywhere inside its name and press <strong>Ctrl+Shift+C</strong>. Delphi will generate an empty <code>procedure TForm1.MethodName; begin ... end;</code> skeleton in the implementation section for you to complete — the same shortcut you may already use to generate event handlers.</p>
-</div>
-<div class="code-block"><span class="code-label">Delphi — a method declared as part of TForm1</span>
-<pre><code><span class="kw">type</span>
-  TForm1 = <span class="kw">class</span>(TForm)
-    btnCalc: TButton;
-    <span class="kw">procedure</span> <span class="fn">btnCalcClick</span>(Sender: TObject);
-  <span class="kw">private</span>
-    { Private declarations }
-    <span class="kw">procedure</span> <span class="fn">ShowAverage</span>(iTotal, iCount: <span class="kw2">Integer</span>);   <span class="cmt">// declaration</span>
-  <span class="kw">public</span>
-    { Public declarations }
-  <span class="kw">end</span>;
-
-<span class="kw">var</span>
-  Form1: TForm1;
-
-<span class="kw">implementation</span>
-
-<span class="cmt">// definition — the class name TForm1 goes in front of the method name</span>
-<span class="kw">procedure</span> TForm1.<span class="fn">ShowAverage</span>(iTotal, iCount: <span class="kw2">Integer</span>);
-<span class="kw">begin</span>
-  lblAverage.Caption := FloatToStr(iTotal / iCount);
-<span class="kw">end</span>;</code></pre></div>
-<p>Both styles are valid Delphi and do exactly the same job. A stand-alone procedure is quick for a small helper needed in only one place; making a method part of the Form's class is the tidier choice once several event handlers need to share it, because every part of the Form's behaviour — its event handlers and its helper methods alike — is then declared together inside one class.</p>
-
-<h2>Procedures vs Functions</h2>
-<div class="tbl-wrap"><table>
-  <tr><th></th><th>Procedure</th><th>Function</th></tr>
-  <tr><td><strong>Returns a value?</strong></td><td>No (or modifies var parameters)</td><td>Yes — always returns exactly one value</td></tr>
-  <tr><td><strong>Called how?</strong></td><td>Alone as a statement</td><td>As part of another statement (assigned)</td></tr>
-  <tr><td><strong>Keyword</strong></td><td><code>procedure</code></td><td><code>function</code></td></tr>
-</table></div>
-<h2>Procedures</h2>
-<h3>Without Parameters</h3>
-<div class="code-block"><span class="code-label">Delphi — declare and call</span>
-<pre><code><span class="cmt">// Declaration (above the event handlers)</span>
-<span class="kw">procedure</span> <span class="fn">ShowHello</span>;
-<span class="kw">begin</span>
-  ShowMessage(<span class="str">'Hello!'</span>);
-<span class="kw">end</span>;
-
-<span class="cmt">// Calling it</span>
-<span class="kw">procedure</span> TForm1.<span class="fn">btnShowClick</span>(Sender: TObject);
-<span class="kw">begin</span>
-  ShowHello;   <span class="cmt">// called alone</span>
-<span class="kw">end</span>;</code></pre></div>
-<h3>With Parameters</h3>
-<div class="code-block"><span class="code-label">Delphi</span>
-<pre><code><span class="kw">procedure</span> <span class="fn">DisplayGreeting</span>(sMessage, sName: <span class="kw2">string</span>);
-<span class="kw">begin</span>
-  ShowMessage(sMessage + <span class="str">' '</span> + sName);
-<span class="kw">end</span>;
-
-<span class="cmt">// Call with arguments</span>
-DisplayGreeting(<span class="str">'Good morning'</span>, <span class="str">'Ms Coetzee'</span>);</code></pre></div>
 <h2>Functions</h2>
 <h3>Without Parameters</h3>
 <div class="code-block"><span class="code-label">Delphi</span>
@@ -271,6 +197,107 @@ lblResult.Caption := IntToStr(AddNumbers(iA, iB));</code></pre></div>
 <span class="cmt">// Use it</span>
 rAvg := CalcAverage(iSum, iNumStudents);
 lblAvg.Caption := FloatToStr(rAvg);</code></pre></div>
+<h2>Procedures vs Functions</h2>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Procedure</th><th>Function</th></tr>
+  <tr><td><strong>Returns a value?</strong></td><td>No (or modifies var parameters)</td><td>Yes — always returns exactly one value</td></tr>
+  <tr><td><strong>Called how?</strong></td><td>Alone as a statement</td><td>As part of another statement (assigned)</td></tr>
+  <tr><td><strong>Keyword</strong></td><td><code>procedure</code></td><td><code>function</code></td></tr>
+</table></div>
+<h2>Local vs Global Variables</h2>
+<p>Where you declare a variable decides <strong>which parts of your program are allowed to see it</strong>. This is called the variable's <strong>scope</strong>.</p>
+<ul>
+  <li><strong>Local variable</strong> — declared inside a procedure or function's own <code>var</code> block (between the method header and its <code>begin</code>). It can only be used <em>inside that method</em>. As soon as the method ends, the variable and its value disappear.</li>
+  <li><strong>Global variable</strong> — declared at <strong>unit level</strong>, in the main <code>var</code> block near the top of the unit (below the form's <code>type ... end;</code> block, alongside <code>Form1: TForm1;</code>). It can be used and changed by <em>any</em> procedure or function in the whole program, and it keeps its value for as long as the program runs.</li>
+</ul>
+<div class="callout">
+  <div class="callout-title">ANALOGY</div>
+  <p>A <strong>local variable</strong> is like a note you scribble on a scrap of paper during one phone call — useful while you're on the call, but you throw it away the moment you hang up, and nobody in the next room ever sees it. A <strong>global variable</strong> is like a whiteboard on the office wall — anyone in any room can walk up, read it, or write on it, and what's written stays there until someone deliberately changes it.</p>
+</div>
+<div class="code-block"><span class="code-label">Delphi — local declaration (inside a method)</span>
+<pre><code><span class="kw">procedure</span> TForm1.<span class="fn">btnClick</span>(Sender: TObject);
+<span class="kw">var</span>
+  sName   : <span class="kw2">string</span>;    <span class="cmt">// local — only exists inside this procedure</span>
+  iNumber : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  ...
+<span class="kw">end</span>;</code></pre></div>
+<div class="code-block"><span class="code-label">Delphi — global declaration (unit level, above all procedures)</span>
+<pre><code><span class="kw">type</span>
+  TForm1 = <span class="kw">class</span>(TForm)
+    <span class="kw">procedure</span> <span class="fn">FormCreate</span>(Sender: TObject);
+  <span class="kw">private</span>
+    { Private declarations }
+  <span class="kw">public</span>
+    { Public declarations }
+  <span class="kw">end</span>;
+
+<span class="kw">var</span>
+  Form1   : TForm1;
+  sName   : <span class="kw2">string</span>;    <span class="cmt">// global — every procedure in this unit can see and change it</span>
+  iNumber : <span class="kw2">Integer</span>;</code></pre></div>
+<div class="callout warning">
+  <div class="callout-title">Prefer local variables and parameters</div>
+  <p>It is tempting to make everything global so you never have to worry about passing values around — but this makes bugs much harder to find, because <em>any</em> method could be the one that changed the value. Rather keep variables local and use <strong>parameters</strong> to pass values into a method and <strong>Result</strong> (or a var parameter) to pass values back out. Save global variables for values that genuinely need to be shared everywhere, such as settings used across the whole form.</p>
+</div>
+
+<h2>Declaring a Method as Part of the Form's Class</h2>
+<p>Every procedure and function example so far has been a stand-alone routine, sitting in the unit above the event handlers. Delphi offers a second way to write your own methods: you can make a procedure or function <strong>part of the Form's own class</strong>, exactly like an event handler already is. To do this, add its declaration inside the Form's <code>class(TForm) ... end;</code> block — normally in the <code>private</code> section — and then write its full code down in the <code>implementation</code> section using the same <code>TForm1.MethodName</code> pattern you already recognise from event handlers.</p>
+<div class="callout tip">
+  <div class="callout-title">Let Delphi build the skeleton for you</div>
+  <p>Once a method is declared in the <code>private</code> section, click anywhere inside its name and press <strong>Ctrl+Shift+C</strong>. Delphi will generate an empty <code>procedure TForm1.MethodName; begin ... end;</code> skeleton in the implementation section for you to complete — the same shortcut you may already use to generate event handlers.</p>
+</div>
+<div class="code-block"><span class="code-label">Delphi — a method declared as part of TForm1</span>
+<pre><code><span class="kw">type</span>
+  TForm1 = <span class="kw">class</span>(TForm)
+    btnCalc: TButton;
+    <span class="kw">procedure</span> <span class="fn">btnCalcClick</span>(Sender: TObject);
+  <span class="kw">private</span>
+    { Private declarations }
+    <span class="kw">procedure</span> <span class="fn">ShowAverage</span>(iTotal, iCount: <span class="kw2">Integer</span>);   <span class="cmt">// declaration</span>
+  <span class="kw">public</span>
+    { Public declarations }
+  <span class="kw">end</span>;
+
+<span class="kw">var</span>
+  Form1: TForm1;
+
+<span class="kw">implementation</span>
+
+<span class="cmt">// definition — the class name TForm1 goes in front of the method name</span>
+<span class="kw">procedure</span> TForm1.<span class="fn">ShowAverage</span>(iTotal, iCount: <span class="kw2">Integer</span>);
+<span class="kw">begin</span>
+  lblAverage.Caption := FloatToStr(iTotal / iCount);
+<span class="kw">end</span>;</code></pre></div>
+<p>Both styles are valid Delphi and do exactly the same job. A stand-alone procedure is quick for a small helper needed in only one place; making a method part of the Form's class is the tidier choice once several event handlers need to share it, because every part of the Form's behaviour — its event handlers and its helper methods alike — is then declared together inside one class.</p>
+
+<h2>Passing an Array as a Parameter</h2>
+<p>An array can be passed into a procedure or function just like any other value — but Delphi won't let you type the array's size directly into a parameter list (writing something like <code>arrScores: array[1..5] of Integer</code> as a parameter is not allowed). Instead, declare the array as a <strong>named type</strong> above the Form's class first, and then use that type name wherever you need it — in the parameter list, and in any <code>var</code> block that needs a matching array.</p>
+<div class="code-block"><span class="code-label">Delphi — declaring an array type so it can be used as a parameter</span>
+<pre><code><span class="kw">type</span>
+  TQuizScores = <span class="kw">array</span>[<span class="num">1</span>..<span class="num">5</span>] <span class="kw">of</span> <span class="kw2">Integer</span>;   <span class="cmt">// declared above the Form's class</span>
+
+  TForm1 = <span class="kw">class</span>(TForm)
+    ...
+  <span class="kw">private</span>
+    <span class="kw">function</span> <span class="fn">CalcTotal</span>(arrScores: TQuizScores): <span class="kw2">Integer</span>;
+  <span class="kw">public</span>
+    ...
+  <span class="kw">end</span>;
+
+<span class="kw">implementation</span>
+
+<span class="kw">function</span> TForm1.<span class="fn">CalcTotal</span>(arrScores: TQuizScores): <span class="kw2">Integer</span>;
+<span class="kw">var</span>
+  i, iSum: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iSum := <span class="num">0</span>;
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> <span class="num">5</span> <span class="kw">do</span>
+    iSum := iSum + arrScores[i];
+  Result := iSum;
+<span class="kw">end</span>;</code></pre></div>
+<p>Any variable declared with <code>TQuizScores</code> — for example <code>arrQuiz1: TQuizScores;</code> inside an event handler's own <code>var</code> block — can now be passed as the argument, because the variable and the parameter are built from the exact same named type.</p>
+
 <h2>Worked Example — Validate &amp; Grade a Mark</h2>
 <p>A real button click usually calls several methods together. Here two <strong>functions</strong> (each returning a value) and one <strong>procedure</strong> (which just does a job) work as a team: one function checks the input is valid, another turns a mark into a symbol, and the procedure prints a line.</p>
 <div class="code-block"><span class="code-label">Delphi — two functions and a procedure</span>
@@ -313,33 +340,6 @@ lblAvg.Caption := FloatToStr(rAvg);</code></pre></div>
   <div class="callout-title">Function or procedure — how to choose</div>
   <p>Notice that <code>IsValidMark</code> and <code>GetSymbol</code> <strong>hand a value back</strong> that you use (in the <code>if</code> and inside the message), while <code>AddLine</code> just <strong>does the job</strong> of printing. That is the whole rule: if you need an answer back, write a <strong>function</strong>; if you only need something done, write a <strong>procedure</strong>.</p>
 </div>
-
-<h2>Passing an Array as a Parameter</h2>
-<p>An array can be passed into a procedure or function just like any other value — but Delphi won't let you type the array's size directly into a parameter list (writing something like <code>arrScores: array[1..5] of Integer</code> as a parameter is not allowed). Instead, declare the array as a <strong>named type</strong> above the Form's class first, and then use that type name wherever you need it — in the parameter list, and in any <code>var</code> block that needs a matching array.</p>
-<div class="code-block"><span class="code-label">Delphi — declaring an array type so it can be used as a parameter</span>
-<pre><code><span class="kw">type</span>
-  TQuizScores = <span class="kw">array</span>[<span class="num">1</span>..<span class="num">5</span>] <span class="kw">of</span> <span class="kw2">Integer</span>;   <span class="cmt">// declared above the Form's class</span>
-
-  TForm1 = <span class="kw">class</span>(TForm)
-    ...
-  <span class="kw">private</span>
-    <span class="kw">function</span> <span class="fn">CalcTotal</span>(arrScores: TQuizScores): <span class="kw2">Integer</span>;
-  <span class="kw">public</span>
-    ...
-  <span class="kw">end</span>;
-
-<span class="kw">implementation</span>
-
-<span class="kw">function</span> TForm1.<span class="fn">CalcTotal</span>(arrScores: TQuizScores): <span class="kw2">Integer</span>;
-<span class="kw">var</span>
-  i, iSum: <span class="kw2">Integer</span>;
-<span class="kw">begin</span>
-  iSum := <span class="num">0</span>;
-  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> <span class="num">5</span> <span class="kw">do</span>
-    iSum := iSum + arrScores[i];
-  Result := iSum;
-<span class="kw">end</span>;</code></pre></div>
-<p>Any variable declared with <code>TQuizScores</code> — for example <code>arrQuiz1: TQuizScores;</code> inside an event handler's own <code>var</code> block — can now be passed as the argument, because the variable and the parameter are built from the exact same named type.</p>
 
 <h2>Why Use Procedures and Functions?</h2>
 <p>To bring it all together, here are the practical benefits you gain every time you reach for a method instead of writing one long block of code:</p>
