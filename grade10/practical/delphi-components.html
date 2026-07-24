@@ -26,6 +26,20 @@
   <tr><td><strong>TProgressBar</strong></td><td><code>.Position</code></td><td><code>pbrLoad.Position := 75;</code></td></tr>
   <tr><td><strong>TPanel</strong></td><td><code>.Caption</code>, <code>.Color</code></td><td><code>pnlInfo.Caption := 'Ready';</code></td></tr>
 </table></div>
+<h2>Bitmap Buttons (TBitBtn)</h2>
+<p>A <code>TBitBtn</code> is a special type of button that can show a caption <strong>and</strong> a small picture (bitmap) on its face, making an interface look more professional. Its most useful property is <code>Kind</code> &mdash; setting it gives the button pre-programmed behaviour, so some Bitmap Buttons need <strong>no code at all</strong>.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Kind value</th><th>Built-in behaviour</th></tr>
+  <tr><td><code>bkClose</code></td><td>Closes the form/program &mdash; fully pre-programmed</td></tr>
+  <tr><td><code>bkOK</code></td><td>Closes a modal form and returns <code>mrOk</code></td></tr>
+  <tr><td><code>bkCancel</code></td><td>Closes a modal form and returns <code>mrCancel</code></td></tr>
+  <tr><td><code>bkYes</code> / <code>bkNo</code></td><td>Closes a modal form, returning <code>mrYes</code> / <code>mrNo</code></td></tr>
+  <tr><td><code>bkHelp</code></td><td>Triggers context help &mdash; the programmer adds the code</td></tr>
+</table></div>
+<div class="callout tip">
+  <div class="callout-title">Naming</div>
+  <p>Bitmap Buttons use the prefix <code>bmb</code>, e.g. <code>bmbClose</code>.</p>
+</div>
 <h2>ComboBox — Adding Items</h2>
 <div class="code-block"><span class="code-label">Delphi</span>
 <pre><code><span class="cmt">// At design time: use Items property in Object Inspector

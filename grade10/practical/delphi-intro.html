@@ -76,6 +76,11 @@
       <p>Think of the IDE as your workshop — every tool you need (editor, compiler, debugger) is laid out and ready to use, all in one place.</p>
     </div>
 
+    <div class="callout tip">
+      <div class="callout-title">Delphi is a RAD Tool</div>
+      <p>Delphi is described as a <strong>RAD (Rapid Application Development) tool</strong> — it lets a programmer build an impressive working application in a relatively short time. This is possible because Delphi provides a library of <strong>predesigned components</strong> (buttons, labels, edits, and more) that you drag onto the form instead of building the user interface from scratch in code.</p>
+    </div>
+
     <!-- IDE SVG Diagram -->
     <div style="margin:1.25rem 0;overflow-x:auto">
       <svg viewBox="0 0 780 460" width="780" height="460" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
@@ -169,11 +174,32 @@
         <tr><td><strong>Menu Bar</strong></td><td>Top menu — File, Edit, View, Project, Run, Tools etc.</td></tr>
         <tr><td><strong>Tool Palette</strong></td><td>All Delphi components grouped by category. Click a component, then click on the form to place it.</td></tr>
         <tr><td><strong>Object Inspector</strong></td><td>Sets the initial properties and events of a selected component.</td></tr>
-        <tr><td><strong>Structure Panel</strong></td><td>Quick reference showing all objects on the current form.</td></tr>
+        <tr><td><strong>Structure Panel</strong> <em>(Object TreeView)</em></td><td>Quick reference showing all objects on the current form, displayed in a hierarchical (tree) view.</td></tr>
         <tr><td><strong>Form / Design Area</strong></td><td>The visual canvas — drag and drop components here to build the UI.</td></tr>
         <tr><td><strong>Code View</strong></td><td>Where you write Delphi code. Toggle with <kbd>F12</kbd>.</td></tr>
       </table>
     </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <h2>Objects, Classes &amp; Components</h2>
+    <p>Delphi is an <strong>Object-Oriented Programming (OOP)</strong> language, so almost everything you place on a form is an <strong>object</strong>. To talk about objects precisely, three related terms are used:</p>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Term</th><th>Meaning</th></tr>
+        <tr><td><strong>Class</strong></td><td>The <em>plan</em> or blueprint for an object &mdash; for example <code>TButton</code> is the class that defines what every button can look like and do. Class names always start with a capital <code>T</code>.</td></tr>
+        <tr><td><strong>Object</strong></td><td>An <em>instance</em> of a class &mdash; an actual button, label or form that exists in your program, e.g. <code>btnCalculate</code> is an object (instantiation) of the class <code>TButton</code>.</td></tr>
+        <tr><td><strong>Component</strong></td><td>A particular type of object that can be placed on a form to build a user-friendly, interactive interface (e.g. a Button, Label or Edit).</td></tr>
+      </table>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title">Blueprint analogy</div>
+      <p>Before a house is built, an architect draws up plans &mdash; the <strong>class</strong>. Many houses can then be built from the same plan &mdash; each one is an <strong>object</strong> (an instantiation of the class). <code>TButton</code> is the plan; <code>btnCalculate</code> and <code>btnCancel</code> are two different objects built from that same plan.</p>
+    </div>
+    <p>Every object has:</p>
+    <ul>
+      <li><strong>Attributes</strong> &mdash; what it looks like and contains, described through its <strong>properties</strong> and <strong>events</strong>.</li>
+      <li><strong>Behaviour</strong> &mdash; what it can do, described through its <strong>methods</strong>.</li>
+    </ul>
 
     <!-- ═══════════════════════════════════════════════════ -->
     <h2>Basic Format of Statements</h2>
@@ -209,6 +235,21 @@ Shape1.Left := <span class="num">20</span>;</code></pre></div>
     <div class="callout warning">
       <div class="callout-title">Save in its own folder — always!</div>
       <p>Each project <strong>must</strong> be saved in its own dedicated folder. Save the Unit file as <code>FileName_u.pas</code> and the Project file as <code>FileName_p.dpr</code>. Never mix two projects in one folder.</p>
+    </div>
+
+    <h3>The Files Delphi Creates</h3>
+    <p>Delphi creates several files for every program, but you only ever need to save two of them yourself — Delphi regenerates the rest automatically when you run the program.</p>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>File</th><th>Extension</th><th>Contains</th><th>Save it yourself?</th></tr>
+        <tr><td>Unit file</td><td><code>.pas</code></td><td>The Delphi code you write (event handlers, class definition)</td><td>Yes</td></tr>
+        <tr><td>Project file</td><td><code>.dpr</code></td><td>Information that ties the units of a project together</td><td>Yes</td></tr>
+        <tr><td>Form file</td><td><code>.dfm</code></td><td>The visual layout of the form and its components</td><td>No &mdash; saved automatically with the Unit</td></tr>
+      </table>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title">Transferring a project to another computer</div>
+      <p>If you need to copy a project to another computer, copy the <code>.dpr</code>, <code>.dfm</code> and <code>.pas</code> files &mdash; Delphi will recreate every other file the next time you run the program.</p>
     </div>
 
     <!-- ═══════════════════════════════════════════════════ -->
@@ -312,6 +353,11 @@ Shape1.Left := <span class="num">20</span>;</code></pre></div>
         <tr><td><code>tmr</code></td><td>TTimer</td><td><code>tmrClock</code></td></tr>
       </table>
     </div>
+
+    <h3>Accelerator (Hot) Keys</h3>
+    <p>Placing an <code>&amp;</code> in front of a letter in a component's <code>Caption</code> underlines that letter and turns it into a keyboard shortcut. Pressing <kbd>Alt</kbd> + that letter clicks the component without using the mouse.</p>
+    <div class="code-block"><span class="code-label">Delphi — example</span>
+<pre><code>btnRed.Caption := <span class="str">'&amp;Red'</span>;   <span class="cmt">// underlines the R — press Alt+R to click the button</span></code></pre></div>
 
     <!-- ═══════════════════════════════════════════════════ -->
     <h2>Event-Driven Programming</h2>
