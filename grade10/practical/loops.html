@@ -137,6 +137,20 @@
   lblTotal.Caption := <span class="str">'Sum = '</span> + IntToStr(iTotal);
 <span class="kw">end</span>;</code></pre></div>
 
+    <h3>FOR Loop — the Counter Can Be Any Ordinal Type</h3>
+    <p>A FOR loop's counter does not have to be an <code>Integer</code> — it can be declared as <em>any</em> ordinal type, provided the start value, end value and the counter variable itself all agree on that type. A <code>Char</code> counter, for instance, steps through the alphabet one letter at a time instead of counting through numbers.</p>
+    <div class="code-block"><span class="code-label">Delphi — listing the letters 'B' to 'F'</span>
+<pre><code><span class="kw">var</span>
+  cLetter: <span class="kw2">char</span>;
+<span class="kw">begin</span>
+  <span class="kw">for</span> cLetter := <span class="str">'B'</span> <span class="kw">to</span> <span class="str">'F'</span> <span class="kw">do</span>
+    memOut.Lines.Add(cLetter);
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">Keep the case consistent</div>
+      <p>A start value in uppercase paired with an end value in lowercase (or the reverse) will not behave the way you expect — uppercase and lowercase letters occupy separate blocks in the ASCII table, so mixing them changes how far apart the two values actually are, and therefore how many times the loop runs. Pick one case and stick to it for both bounds.</p>
+    </div>
+
     <h2>WHILE … DO Loop (Pre-Conditional)</h2>
     <p>Checks the condition <strong>before</strong> each iteration. If the condition is false from the start, the loop body never runs.</p>
     <p>We call it <strong>pre-conditional</strong> ("pre" = before) because it tests the condition <em>first</em>, and only then decides whether to run the body. This makes it the safe choice when there is a chance the loop should not run at all.</p>
@@ -150,9 +164,18 @@
   <span class="cmt">// code</span>
 <span class="kw">end</span>;</code></pre></div>
 
+    <h3>The ITC-Principle</h3>
+    <p>A handy checklist for building a correct WHILE loop is the <strong>ITC-principle</strong> — three things that must all be true of your code, in this order:</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Step</th><th>What to check</th></tr>
+      <tr><td><strong>I</strong>nitialise</td><td>Has every variable used in the WHILE condition already been given a starting value <em>before</em> the loop is reached?</td></tr>
+      <tr><td><strong>T</strong>est</td><td>Is that condition re-checked at the top of every pass, deciding whether the body runs again?</td></tr>
+      <tr><td><strong>C</strong>hange</td><td>Does something inside the body actually update the variable(s) being tested? Without this step the condition can never turn False.</td></tr>
+    </table></div>
+
     <div class="callout warning">
       <div class="callout-title">Avoid Infinite Loops</div>
-      <p>The counter must be <strong>initialised before</strong> the loop and <strong>incremented inside</strong> the loop — otherwise it runs forever and crashes your program.</p>
+      <p>The counter must be <strong>initialised before</strong> the loop and <strong>incremented inside</strong> the loop — otherwise it runs forever and crashes your program. Also never put a <code>;</code> straight after the <code>do</code> keyword — <code>while condition do;</code> creates an empty loop body, so the statement that was meant to change the condition is skipped, and the loop runs forever.</p>
     </div>
 
     <div class="code-block"><span class="code-label">Delphi — while counter ≤ 5</span>
@@ -182,6 +205,36 @@
   lblTotal.Caption := <span class="str">'Total: '</span> + IntToStr(iTotal);
 <span class="kw">end</span>;</code></pre></div>
 
+    <h3>Letting the User Interrupt a Loop While It Runs</h3>
+    <p>A different situation arises when nobody knows how many times a loop should run until the user physically clicks a [Stop] Button partway through — a reaction game or a live counter are typical examples. This needs a Boolean variable that both the button that starts the loop and the button that stops it can share, so it must be declared in the <code>private</code> section of the form (giving it class scope) rather than inside a single procedure.</p>
+    <div class="code-block"><span class="code-label">Delphi — a running counter the user can interrupt</span>
+<pre><code><span class="kw">private</span>
+  bRunning : <span class="kw2">boolean</span>;   <span class="cmt">// shared by both button handlers below</span>
+
+<span class="kw">procedure</span> TForm1.<span class="fn">btnGoClick</span>(Sender: TObject);
+<span class="kw">var</span>
+  iTick : <span class="kw2">byte</span>;
+<span class="kw">begin</span>
+  bRunning := <span class="kw">True</span>;
+  iTick    := <span class="num">0</span>;
+  <span class="kw">while</span> bRunning <span class="kw">do</span>
+  <span class="kw">begin</span>
+    Inc(iTick);
+    memLog.Lines.Add(IntToStr(iTick));
+    Sleep(<span class="num">300</span>);                    <span class="cmt">// short pause so the numbers are readable</span>
+    Application.ProcessMessages;   <span class="cmt">// give the form a chance to react to the click</span>
+  <span class="kw">end</span>;
+<span class="kw">end</span>;
+
+<span class="kw">procedure</span> TForm1.<span class="fn">btnHaltClick</span>(Sender: TObject);
+<span class="kw">begin</span>
+  bRunning := <span class="kw">False</span>;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">Why Application.ProcessMessages matters here</div>
+      <p>A Delphi form normally deals with one event at a time, finishing the current event handler completely before looking at the next. While <code>btnGoClick</code> is stuck inside its loop, a click on [Halt] just waits in a queue rather than running immediately. <code>Application.ProcessMessages</code> is a command that tells the program to pause for a moment and clear that queue — handling any waiting clicks — before the loop carries on. Leave it out, and the [Halt] click is never processed until the loop finishes on its own, which defeats the purpose of having a stop button at all.</p>
+    </div>
+
     <h2>REPEAT … UNTIL Loop (Post-Conditional)</h2>
     <p>Runs the body <strong>first</strong>, then checks the condition. Guaranteed to run at least once. Loop continues while condition is <strong>false</strong>; stops when it becomes <strong>true</strong>.</p>
     <p>We call it <strong>post-conditional</strong> ("post" = after) because it does the work <em>first</em> and asks the question afterwards. That is the opposite of the WHILE loop, and it is exactly what you want when the action must happen at least one time no matter what.</p>
@@ -193,6 +246,18 @@
 <pre><code><span class="kw">repeat</span>
   <span class="cmt">// code</span>
 <span class="kw">until</span> condition;</code></pre></div>
+
+    <p>REPEAT follows the same three checks as the WHILE loop's ITC-principle, only in a swapped order — <strong>I</strong>nitialise, <strong>C</strong>hange, then <strong>T</strong>est — since the body always fires once before the condition is ever looked at. Lining the two loops up side by side shows how they really are opposites of each other:</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>While loop</th><th>Repeat loop</th></tr>
+      <tr><td>Suited to situations where it is fine for the loop to run <strong>zero</strong> times.</td><td>Suited to situations where the body <strong>must</strong> run at least once.</td></tr>
+      <tr><td>Keeps looping <strong>while</strong> the condition stays True.</td><td>Keeps looping <strong>until</strong> the condition finally becomes True.</td></tr>
+      <tr><td>Order of checks: <strong>ITC</strong> — Initialise, Test, Change.</td><td>Order of checks: <strong>ICT</strong> — Initialise, Change, Test.</td></tr>
+    </table></div>
+    <div class="callout tip">
+      <div class="callout-title">Prefer &gt;= over = in a termination test</div>
+      <p>Testing for an exact match can trap you in an infinite loop if the value ever skips straight past the target — for example a running score that jumps from 46 to 52 will never satisfy <code>until iScore = 50</code>. Writing <code>until iScore &gt;= 50</code> instead guarantees the loop will stop even if the value overshoots.</p>
+    </div>
 
     <div class="code-block"><span class="code-label">Delphi — repeat until i = 10</span>
 <pre><code><span class="kw">var</span>
@@ -262,6 +327,73 @@
       <tr><td>Unknown number of iterations</td><td><code>while</code> or <code>repeat</code></td></tr>
       <tr><td>Process each element in an array</td><td><code>for</code></td></tr>
     </table></div>
+
+    <h2>Loop Control — How a Loop Is Controlled</h2>
+    <p>Beyond picking FOR, WHILE or REPEAT, it is useful to describe <em>what</em> decides when a loop stops. This splits loops into two broad groups: <strong>definite repetition</strong>, where the number of passes can be worked out ahead of time, and <strong>indefinite repetition</strong>, where it cannot.</p>
+
+    <h3>Counter Controlled Loops (Definite Repetition)</h3>
+    <div class="callout">
+      <p>A <strong>counter controlled</strong> loop relies on a variable that starts at a known value, changes by a predictable amount on every pass, and is compared to a fixed target to decide whether to continue.</p>
+    </div>
+    <p>Because that change is predictable, you can always calculate in advance exactly how many times a counter controlled loop will run — a FOR loop is the most obvious example, but a WHILE or REPEAT loop built around a simple counter is counter controlled too.</p>
+    <div class="code-block"><span class="code-label">Delphi — counter controlled WHILE loop: 8 times table</span>
+<pre><code>iRow := <span class="num">1</span>;
+<span class="kw">while</span> iRow &lt;= <span class="num">10</span> <span class="kw">do</span>
+<span class="kw">begin</span>
+  iResult := iRow * <span class="num">8</span>;
+  memOut.Lines.Add(IntToStr(iRow) + <span class="str">' x 8 = '</span> + IntToStr(iResult));
+  iRow := iRow + <span class="num">1</span>;
+<span class="kw">end</span>; <span class="cmt">{while}</span></code></pre></div>
+
+    <h3>Sentinel Controlled Loops (Indefinite Repetition)</h3>
+    <div class="callout">
+      <p>A <strong>sentinel controlled</strong> loop watches for a special "stop" value — a <strong>sentinel</strong> — typed in by the user. That value is only ever compared, never used in a calculation, since its whole job is to signal "no more data."</p>
+    </div>
+    <p>The <em>"WHILE — Reading user input until sentinel"</em> example further up this page is a sentinel controlled loop: <code>0</code> is the signal that tells it to stop. Since nobody can predict how many real numbers the user will enter before typing that sentinel, the number of passes is unknown in advance — which is why sentinel controlled loops fall under indefinite repetition.</p>
+
+    <h3>Result Controlled Loops (Indefinite Repetition)</h3>
+    <div class="callout">
+      <p>A <strong>result controlled</strong> loop keeps going until a particular outcome has actually happened — it is not driven by a counter reaching a target or a user typing a sentinel, but by whatever condition the program is watching for finally becoming true.</p>
+    </div>
+    <div class="code-block"><span class="code-label">Delphi — spin a wheel of 8 prizes until the jackpot slot comes up</span>
+<pre><code>iSpins := <span class="num">0</span>;
+<span class="kw">repeat</span>
+  iSlot := Random(<span class="num">8</span>) + <span class="num">1</span>;
+  Inc(iSpins);
+<span class="kw">until</span> iSlot = <span class="num">8</span>;
+ShowMessage(<span class="str">'Jackpot landed after '</span> + IntToStr(iSpins) + <span class="str">' spins'</span>);</code></pre></div>
+    <p>Nothing here counts down towards a known number of repeats, and there is no value the user types to signal "stop" — the loop simply keeps spinning until the result it is watching for (slot 8) actually comes up.</p>
+
+    <h2>Nested Loops</h2>
+    <p>A <strong>nested loop</strong> is simply a loop placed inside the body of another loop. Each time the <em>outer</em> loop takes one step, the <em>inner</em> loop runs through its entire range from start to finish before the outer loop is allowed to take its next step. The inner and outer loops don't have to be the same kind — a FOR loop can quite happily sit inside a WHILE loop, or inside another FOR loop.</p>
+    <p>Suppose an exam venue needs a code for every seat: a block letter ('A' to 'C'), a row number (1 to 3) and a seat letter within the row ('a' to 'c'). Three nested FOR loops can generate the complete list in one go.</p>
+    <div class="code-block"><span class="code-label">Delphi — three nested FOR loops listing every seat code</span>
+<pre><code><span class="kw">procedure</span> TfrmVenue.<span class="fn">btnListSeatsClick</span>(Sender: TObject);
+<span class="kw">var</span>
+  iRow : <span class="kw2">integer</span>;
+  cBlock, cSeat : <span class="kw2">char</span>;
+  iSeatCount : <span class="kw2">integer</span>;
+  sSeatCode : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  iSeatCount := <span class="num">0</span>;
+  <span class="kw">for</span> cBlock := <span class="str">'A'</span> <span class="kw">to</span> <span class="str">'C'</span> <span class="kw">do</span>       <span class="cmt">// outer loop</span>
+  <span class="kw">begin</span>
+    <span class="kw">for</span> iRow := <span class="num">1</span> <span class="kw">to</span> <span class="num">3</span> <span class="kw">do</span>          <span class="cmt">// middle loop</span>
+    <span class="kw">begin</span>
+      <span class="kw">for</span> cSeat := <span class="str">'a'</span> <span class="kw">to</span> <span class="str">'c'</span> <span class="kw">do</span>       <span class="cmt">// inner loop</span>
+      <span class="kw">begin</span>
+        sSeatCode := cBlock + IntToStr(iRow) + cSeat;
+        Inc(iSeatCount);
+        memSeats.Lines.Add(sSeatCode);
+      <span class="kw">end</span>; <span class="cmt">// for cSeat</span>
+    <span class="kw">end</span>; <span class="cmt">// for iRow</span>
+  <span class="kw">end</span>; <span class="cmt">// for cBlock</span>
+  memSeats.Lines.Add(<span class="str">'Total seats = '</span> + IntToStr(iSeatCount));
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">Tracing the order the loops fire</div>
+      <p>Follow the innermost loop first: <code>cSeat</code> runs all the way through 'a', 'b', 'c' before <code>iRow</code> is even allowed to move on to its next value. Only once <code>iRow</code> has itself been through 1, 2 and 3 — meaning the middle loop has fully finished for the current block — does <code>cBlock</code> step forward to its next letter. The resulting list reads <code>A1a, A1b, A1c, A2a, A2b, A2c, A3a, A3b, A3c, B1a, …</code> and finishes at <code>Total seats = 27</code>, since 3 blocks &times; 3 rows &times; 3 seats gives 27 combinations in total.</p>
+    </div>
 
     <div class="page-nav">
       <a href="decisions.html"><span class="page-nav-label">← Previous</span>Decision Making (T1&ndash;T2)</a>
