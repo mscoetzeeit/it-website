@@ -162,60 +162,6 @@
 
     <p>Once the chart is finished, coding becomes close to mechanical: open one event handler for every distinct event you listed, and turn that row's task into a line or two of Delphi inside it.</p>
 
-    <!-- PSEUDOCODE -->
-    <h2>Pseudocode</h2>
-    <p>Pseudocode is <em>fake code</em> written in plain English that describes the logic of a program. It is not real Delphi code — it is for planning only. Anyone who understands programming should be able to read your pseudocode, even if they don't know Delphi.</p>
-
-    <h3>Pseudocode Rules</h3>
-    <ul>
-      <li>Use <strong>CAPITALS</strong> for keywords: <code>IF</code>, <code>THEN</code>, <code>ELSE</code>, <code>ENDIF</code>, <code>WHILE</code>, <code>FOR</code>, <code>INPUT</code>, <code>OUTPUT</code></li>
-      <li>Indent inside structures to show what is inside a block</li>
-      <li>Use <code>:=</code> or <code>=</code> for assignment (both are accepted)</li>
-      <li>Keep it short and clear — no Delphi syntax needed</li>
-      <li>Start with START and end with END</li>
-    </ul>
-
-    <div class="code-block">
-      <span class="code-label">Pseudocode – Basic Statements</span>
-      <pre><code>SET total TO 10          // assignment
-INPUT age                // get data from user
-OUTPUT total             // show result
-SET area TO length * width   // calculation
-
-IF age >= 18 THEN
-    OUTPUT "May vote"
-ELSE
-    OUTPUT "Too young to vote"
-ENDIF</code></pre>
-    </div>
-
-    <h3>Example: Find the Average of Three Marks</h3>
-    <div class="code-block">
-      <span class="code-label">Pseudocode</span>
-      <pre><code>START
-    INPUT mark1
-    INPUT mark2
-    INPUT mark3
-    SET total TO mark1 + mark2 + mark3
-    SET average TO total / 3
-    OUTPUT "Total: ", total
-    OUTPUT "Average: ", average
-END</code></pre>
-    </div>
-
-    <h3>Example: Even or Odd</h3>
-    <div class="code-block">
-      <span class="code-label">Pseudocode</span>
-      <pre><code>START
-    INPUT num
-    IF num MOD 2 = 0 THEN
-        OUTPUT num, " is Even"
-    ELSE
-        OUTPUT num, " is Odd"
-    ENDIF
-END</code></pre>
-    </div>
-
     <!-- FLOWCHARTS -->
     <h2>Flowcharts</h2>
     <p>A flowchart shows the steps of an algorithm as a <em>picture</em> using standard symbols connected by arrows. It is easier to spot errors in a diagram than in written text, which is why flowcharts are so useful.</p>
@@ -448,6 +394,60 @@ END</code></pre>
     <div class="callout">
       <div class="callout-title">TIP</div>
       <p>The <strong>diamond</strong> shape always asks a Yes/No question. The two arrows leaving the diamond are labelled <strong>YES</strong> and <strong>NO</strong>. Both paths must eventually reach the END oval.</p>
+    </div>
+
+    <!-- PSEUDOCODE -->
+    <h2>Pseudocode</h2>
+    <p>Pseudocode is <em>fake code</em> written in plain English that describes the logic of a program. It is not real Delphi code — it is for planning only. Anyone who understands programming should be able to read your pseudocode, even if they don't know Delphi.</p>
+
+    <h3>Pseudocode Rules</h3>
+    <ul>
+      <li>Use <strong>CAPITALS</strong> for keywords: <code>IF</code>, <code>THEN</code>, <code>ELSE</code>, <code>ENDIF</code>, <code>WHILE</code>, <code>FOR</code>, <code>INPUT</code>, <code>OUTPUT</code></li>
+      <li>Indent inside structures to show what is inside a block</li>
+      <li>Use <code>:=</code> or <code>=</code> for assignment (both are accepted)</li>
+      <li>Keep it short and clear — no Delphi syntax needed</li>
+      <li>Start with START and end with END</li>
+    </ul>
+
+    <div class="code-block">
+      <span class="code-label">Pseudocode – Basic Statements</span>
+      <pre><code>SET total TO 10          // assignment
+INPUT age                // get data from user
+OUTPUT total             // show result
+SET area TO length * width   // calculation
+
+IF age >= 18 THEN
+    OUTPUT "May vote"
+ELSE
+    OUTPUT "Too young to vote"
+ENDIF</code></pre>
+    </div>
+
+    <h3>Example: Find the Average of Three Marks</h3>
+    <div class="code-block">
+      <span class="code-label">Pseudocode</span>
+      <pre><code>START
+    INPUT mark1
+    INPUT mark2
+    INPUT mark3
+    SET total TO mark1 + mark2 + mark3
+    SET average TO total / 3
+    OUTPUT "Total: ", total
+    OUTPUT "Average: ", average
+END</code></pre>
+    </div>
+
+    <h3>Example: Even or Odd</h3>
+    <div class="code-block">
+      <span class="code-label">Pseudocode</span>
+      <pre><code>START
+    INPUT num
+    IF num MOD 2 = 0 THEN
+        OUTPUT num, " is Even"
+    ELSE
+        OUTPUT num, " is Odd"
+    ENDIF
+END</code></pre>
     </div>
 
     <!-- TRACE TABLES -->

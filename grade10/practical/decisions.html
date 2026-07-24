@@ -129,6 +129,19 @@
 
     <div class="term-divider"><span class="term-divider-badge">T2</span><span class="term-divider-label">Term 2 &middot; Full IF&hellip;ELSE, Nested IF, Boolean Operators &amp; CASE</span></div>
 
+    <h2>Nested IF</h2>
+    <p>An IF inside another IF.</p>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">if</span> iAge >= <span class="num">18</span> <span class="kw">then</span>
+<span class="kw">begin</span>
+  <span class="kw">if</span> bHasLicense = <span class="kw">True</span> <span class="kw">then</span>
+    bDrive := <span class="kw">True</span>
+  <span class="kw">else</span>
+    bDrive := <span class="kw">False</span>;
+<span class="kw">end</span>
+<span class="kw">else</span>
+  bDrive := <span class="kw">False</span>;</code></pre></div>
+
     <h2>Boolean Operators</h2>
     <p>Combine multiple conditions in one statement.</p>
     <p><strong>Boolean operators</strong> let you ask more than one question at the same time. <strong>Everyday analogy:</strong> to get into a club you might need to be 18 <em>AND</em> have an ID — <em>both</em> must be true. To qualify for a discount you might need to be a student <em>OR</em> a pensioner — <em>either one</em> is enough. <em>NOT</em> simply flips an answer around, like saying "if it is <em>not</em> a holiday, school is open".</p>
@@ -186,34 +199,6 @@ bPassed := iMark >= <span class="num">50</span>;</code></pre></div>
       <p>Each flag can be checked on its own, which makes it much easier to spot a mistake in one rule without untangling a single sprawling condition. The final decision then reads almost like plain English.</p>
     </div>
 
-    <h2>Nested IF</h2>
-    <p>An IF inside another IF.</p>
-    <div class="code-block"><span class="code-label">Delphi</span>
-<pre><code><span class="kw">if</span> iAge >= <span class="num">18</span> <span class="kw">then</span>
-<span class="kw">begin</span>
-  <span class="kw">if</span> bHasLicense = <span class="kw">True</span> <span class="kw">then</span>
-    bDrive := <span class="kw">True</span>
-  <span class="kw">else</span>
-    bDrive := <span class="kw">False</span>;
-<span class="kw">end</span>
-<span class="kw">else</span>
-  bDrive := <span class="kw">False</span>;</code></pre></div>
-
-    <h2>Decision Components</h2>
-    <h3>RadioGroup</h3>
-    <p>Uses an <code>ItemIndex</code> property — first item is index <code>0</code>.</p>
-    <div class="code-block"><span class="code-label">Delphi</span>
-<pre><code><span class="kw">if</span> rgpGender.ItemIndex = <span class="num">0</span> <span class="kw">then</span>
-  sGender := <span class="str">'Male'</span>
-<span class="kw">else</span>
-  sGender := <span class="str">'Female'</span>;</code></pre></div>
-
-    <h3>CheckBox</h3>
-    <p>Uses the <code>Checked</code> property — <code>True</code> or <code>False</code>.</p>
-    <div class="code-block"><span class="code-label">Delphi</span>
-<pre><code><span class="kw">if</span> chkInsurance.Checked = <span class="kw">True</span> <span class="kw">then</span>
-  rCost := rCost + rInsuranceAmount;</code></pre></div>
-
     <h2>The IN Operator</h2>
     <p>Tests if a value is in a set. Cleaner than multiple OR conditions.</p>
     <div class="code-block"><span class="code-label">Delphi</span>
@@ -242,6 +227,21 @@ bPassed := iMark >= <span class="num">50</span>;</code></pre></div>
       <div class="callout-title">Set limits</div>
       <p>A sub-range built from Integers can only test values between <strong>0 and 255</strong> — anything outside that band raises an error. A set is also capped at a maximum of 265 values in total.</p>
     </div>
+
+    <h2>Decision Components</h2>
+    <h3>RadioGroup</h3>
+    <p>Uses an <code>ItemIndex</code> property — first item is index <code>0</code>.</p>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">if</span> rgpGender.ItemIndex = <span class="num">0</span> <span class="kw">then</span>
+  sGender := <span class="str">'Male'</span>
+<span class="kw">else</span>
+  sGender := <span class="str">'Female'</span>;</code></pre></div>
+
+    <h3>CheckBox</h3>
+    <p>Uses the <code>Checked</code> property — <code>True</code> or <code>False</code>.</p>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">if</span> chkInsurance.Checked = <span class="kw">True</span> <span class="kw">then</span>
+  rCost := rCost + rInsuranceAmount;</code></pre></div>
 
     <h2>The CASE Statement</h2>
     <p>Cleaner alternative to multiple IF…ELSE when testing one variable against many values. Works with <strong>Integer</strong> and <strong>Char</strong> only.</p>
