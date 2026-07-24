@@ -54,6 +54,32 @@
   <p>A value parameter is like giving someone a <strong>photocopy</strong> of a document. They can scribble all over their copy, but your original is safe at home.</p>
 </div>
 
+<h3>Reference (VAR) Parameters</h3>
+<p>A <strong>reference parameter</strong> — Delphi calls it a <strong>VAR parameter</strong>, marked with the keyword <code>var</code> in the declaration — doesn't hand the method a copy of anything. It points the method straight at the caller's own variable, so any change made inside the method sticks after the method finishes and control returns to the caller.</p>
+<div class="callout">
+  <div class="callout-title">ANALOGY</div>
+  <p>A reference parameter is like handing someone your <strong>original</strong> document instead of a photocopy. Whatever they write on it is now permanently on your original — there's no separate copy shielding it.</p>
+</div>
+<div class="code-block"><span class="code-label">Delphi — declaring a VAR parameter</span>
+<pre><code><span class="kw">procedure</span> <span class="fn">DoubleIt</span>(<span class="kw">var</span> iNum: <span class="kw2">Integer</span>);
+<span class="kw">begin</span>
+  iNum := iNum * <span class="num">2</span>;   <span class="cmt">// changes the CALLER's variable directly</span>
+<span class="kw">end</span>;
+
+<span class="cmt">// Call — no assignment needed, iScore itself is changed</span>
+DoubleIt(iScore);</code></pre></div>
+<p>Several of Delphi's own built-in procedures rely on VAR parameters to hand back a result without being functions — <code>Inc</code> and <code>Dec</code> are everyday examples:</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Statement</th><th>Equivalent to</th></tr>
+  <tr><td><code>Inc(iScore, iBonus);</code></td><td><code>iScore := iScore + iBonus;</code></td></tr>
+  <tr><td><code>Dec(iScore, iPenalty);</code></td><td><code>iScore := iScore - iPenalty;</code></td></tr>
+</table></div>
+<p>Here <code>iScore</code> is the VAR parameter — it's the one actually overwritten with a new total — while <code>iBonus</code> (or <code>iPenalty</code>) is only ever a value parameter that Delphi reads once and then discards.</p>
+<div class="callout tip">
+  <div class="callout-title">Value or VAR — how to choose</div>
+  <p>Reach for a plain <strong>value</strong> parameter whenever a method only needs to look at the data. Switch to a <strong>VAR</strong> parameter the moment a method has to alter the caller's variable itself — a procedure that swaps two values around, or one that tops up a running total that lives outside the method, are both classic cases.</p>
+</div>
+
 <h2>Local vs Global Variables</h2>
 <p>Where you declare a variable decides <strong>which parts of your program are allowed to see it</strong>. This is called the variable's <strong>scope</strong>.</p>
 <ul>

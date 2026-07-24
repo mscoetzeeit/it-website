@@ -127,6 +127,41 @@
       <p>In exams you may be asked to complete an IPO table. Always write the Process column as a formula or decision — not just "calculate it". Show your working: <code>Area = Length × Width</code>, not just "work out the area".</p>
     </div>
 
+    <!-- TOE CHARTS -->
+    <h2>TOE Charts (Task – Object – Event)</h2>
+    <p>Once a program has several buttons and several jobs to do, an IPO table stops being enough on its own — it never says <em>which</em> component is responsible for a job, or what has to happen before that component springs into action. A <strong>TOE chart</strong> closes that gap: for every task the program must carry out, it records the <strong>object</strong> (component) that will handle it and the <strong>event</strong> that sets that component's code running.</p>
+
+    <div class="callout">
+      <div class="callout-title">Building a TOE Chart</div>
+      <ol>
+        <li>List out everything the program needs to do</li>
+        <li>Match each item on that list to the component that will handle it</li>
+        <li>Decide which event on that component should trigger the code</li>
+      </ol>
+    </div>
+
+    <h3>Worked Example: Tuck Shop Cooldrink Stand</h3>
+    <p>A cooldrink at the school tuck shop costs R12. A learner types in how many cooldrinks they want, clicks a button to see the total, types in the money they handed over, then clicks a second button to see their change. Breaking that down task by task produces the following TOE chart:</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Task</th><th>Object</th><th>Event</th></tr>
+        <tr><td>Read how many cooldrinks were ordered</td><td>sedQty</td><td>Exit</td></tr>
+        <tr><td>Work out the total cost</td><td>btnTotal</td><td>Click</td></tr>
+        <tr><td>Show the total on the receipt</td><td>btnTotal, memReceipt</td><td>Click, None</td></tr>
+        <tr><td>Read how much money was handed over</td><td>btnChange, edtPaid</td><td>Click, None</td></tr>
+        <tr><td>Work out the change owed</td><td>btnChange</td><td>Click</td></tr>
+        <tr><td>Show the change on the receipt</td><td>btnChange, memReceipt</td><td>Click, None</td></tr>
+      </table>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">Some Objects Never Trigger Anything</div>
+      <p>Notice that "Show the total on the receipt" lists two objects. Clicking <code>btnTotal</code> is what actually makes the display happen — <code>memReceipt</code> is only there to show the result, and has no event of its own. Whenever an object is just along for the ride like this, write <code>None</code> next to it in the Event column.</p>
+    </div>
+
+    <p>Once the chart is finished, coding becomes close to mechanical: open one event handler for every distinct event you listed, and turn that row's task into a line or two of Delphi inside it.</p>
+
     <!-- PSEUDOCODE -->
     <h2>Pseudocode</h2>
     <p>Pseudocode is <em>fake code</em> written in plain English that describes the logic of a program. It is not real Delphi code — it is for planning only. Anyone who understands programming should be able to read your pseudocode, even if they don't know Delphi.</p>
