@@ -74,6 +74,18 @@
   <span class="kw">else</span>
     ShowMessage(<span class="str">'File not found!'</span>);
 <span class="kw">end</span>;</code></pre></div>
+<h3>Quick Alternative &mdash; LoadFromFile and SaveToFile</h3>
+<p>A <code>Memo</code> or <code>RichEdit</code>'s <code>Lines</code> property has two built-in methods that skip the whole <code>AssignFile</code>/<code>Reset</code>/<code>ReadLn</code> loop when you just want to dump a text file straight onto the screen (or the screen straight into a file). One line does the job of the entire loop above.</p>
+<div class="code-block"><span class="code-label">Delphi &mdash; load and save a whole file in one line</span>
+<pre><code>memOutput.Lines.Clear;
+memOutput.Lines.LoadFromFile(<span class="str">'Data.txt'</span>);   <span class="cmt">// reads the whole file into the Memo</span>
+
+<span class="cmt">// ... later, to save the Memo's content back to a file:</span>
+memOutput.Lines.SaveToFile(<span class="str">'Output.txt'</span>);   <span class="cmt">// writes every line in the Memo to a file</span></code></pre></div>
+<div class="callout tip">
+  <div class="callout-title">When to use which method</div>
+  <p><code>LoadFromFile</code>/<code>SaveToFile</code> are fast and simple, but they give you no control over each line &mdash; you cannot validate, split or calculate anything while the file loads. Use them only when you want to display or save a file <em>as-is</em>. As soon as a question asks you to process the data (split fields, calculate a total, search for a value), you need the <code>AssignFile</code>/<code>Reset</code>/<code>ReadLn</code>/<code>EOF</code> loop instead.</p>
+</div>
 <h2>Checking a File Exists with <code>try..except</code></h2>
 <p>Using <code>FileExists</code> is the simplest way to avoid a crash. A second method is to <em>try</em> to open the file and <strong>catch the error</strong> if it is missing. A <code>try..except</code> block runs the risky code in the <code>try</code> part; if an exception happens (for example the file does not exist, so <code>Reset</code> fails), control jumps straight to the <code>except</code> part instead of crashing the program.</p>
 <div class="code-block"><span class="code-label">Delphi — try..except when reading</span>
@@ -264,6 +276,83 @@ ShowMessage(<span class="str">'Top learner: '</span> + arrName[iTopPos] + <span 
   CloseFile(Fout);                       <span class="cmt">// saves and closes the file</span>
 <span class="kw">end</span>;</code></pre></div>
 <p>That completes the full <strong>read → process → write</strong> cycle: read the data in, work with it in arrays, then save the results back out to a new file.</p>
+
+<h2>Working with More Than One Text File at a Time</h2>
+<p>A practical question will sometimes ask you to read from one existing file and, in the same pass, sort its lines into two or more new files depending on a condition. Reusing the <code>marks.txt</code> file from the worked example above, here is a program that reads it once and writes each learner's surname into either <code>Pass.txt</code> or <code>Fail.txt</code> depending on their mark. The file being read only ever needs <code>Reset</code>; every file being created or overwritten needs its own <code>Rewrite</code> call, and all three files stay open together inside a single <code>while not EOF</code> loop.</p>
+<div class="code-block"><span class="code-label">Delphi &mdash; split marks.txt into Pass.txt and Fail.txt</span>
+<pre><code><span class="kw">var</span>
+  Fin, FPass, FFail : TextFile;
+  sLine, sSurname     : <span class="kw2">string</span>;
+  iPos, iMark          : <span class="kw2">integer</span>;
+<span class="kw">begin</span>
+  AssignFile(Fin, <span class="str">'marks.txt'</span>);
+  AssignFile(FPass, <span class="str">'Pass.txt'</span>);
+  AssignFile(FFail, <span class="str">'Fail.txt'</span>);
+  <span class="kw">try</span>
+    Reset(Fin);                           <span class="cmt">// only the file being read needs a try..except</span>
+  <span class="kw">except</span>
+    ShowMessage(<span class="str">'marks.txt could not be opened'</span>);
+    Exit;
+  <span class="kw">end</span>;
+  Rewrite(FPass);                         <span class="cmt">// creates/overwrites the two output files</span>
+  Rewrite(FFail);
+
+  <span class="kw">while not</span> EOF(Fin) <span class="kw">do</span>
+  <span class="kw">begin</span>
+    ReadLn(Fin, sLine);                   <span class="cmt">// e.g. 'Coetzee,Mari,72'</span>
+    iPos := Pos(<span class="str">','</span>, sLine);
+    sSurname := Copy(sLine, <span class="num">1</span>, iPos - <span class="num">1</span>);
+    Delete(sLine, <span class="num">1</span>, iPos);
+    iPos := Pos(<span class="str">','</span>, sLine);
+    Delete(sLine, <span class="num">1</span>, iPos);           <span class="cmt">// discard the first name, keep the mark</span>
+    iMark := StrToInt(sLine);
+    <span class="kw">if</span> iMark &gt;= <span class="num">50</span> <span class="kw">then</span>
+      WriteLn(FPass, sSurname)
+    <span class="kw">else</span>
+      WriteLn(FFail, sSurname);
+  <span class="kw">end</span>;
+  CloseFile(Fin);
+  CloseFile(FPass);
+  CloseFile(FFail);
+<span class="kw">end</span>;</code></pre></div>
+<div class="callout warning">
+  <div class="callout-title">Rewrite wipes existing data</div>
+  <p>If a file with that name already exists, <code>Rewrite</code> does not simply open it &mdash; <strong>it empties it first.</strong> So if <code>Pass.txt</code> already held data from a previous run, that data is gone the instant <code>Rewrite(FPass)</code> executes. Point <code>Rewrite</code> only at the files you genuinely intend to (re)create; call it on the wrong variable by mistake and there is no way to get the lost data back. The file you are reading from should only ever be opened with <code>Reset</code>.</p>
+</div>
+<div class="callout tip">
+  <div class="callout-title">Building a filename at runtime</div>
+  <p>A physical filename does not have to be a fixed string &mdash; it can be assembled from user input or a variable, which is useful when every record needs its own file. If the user types a computer number into <code>edtNumber</code>, for example, build the filename before linking it with <code>AssignFile</code>:</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; dynamic filename</span>
+<pre><code>sFilename := <span class="str">'Computer'</span> + edtNumber.Text + <span class="str">'.txt'</span>;   <span class="cmt">// e.g. 'Computer34.txt'</span>
+AssignFile(tCompFile, sFilename);</code></pre></div>
+</div>
+
+<h2>Writing Data to a Text File in Neat Columns</h2>
+<p>A <strong>field width indicator</strong> reserves a fixed number of character positions for a value and right-justifies it inside them, which is what makes data on separate lines line up into columns. Add a colon and a number straight after the value inside a <code>WriteLn</code> statement.</p>
+<div class="code-block"><span class="code-label">Delphi &mdash; field width indicator</span>
+<pre><code>sSurname := <span class="str">'Pillay'</span>;
+WriteLn(tFile, sSurname:<span class="num">10</span>);   <span class="cmt">// 'Pillay' padded with 4 leading spaces to fill 10 positions</span></code></pre></div>
+<p>A field width on its own only right-justifies. To <em>left</em>-align a value instead, pad an empty string out to whatever width is still needed (using <code>Length</code>) and write that padding before the next field:</p>
+<div class="code-block"><span class="code-label">Delphi &mdash; left-align with Length</span>
+<pre><code>sName := <span class="str">'Ayesha'</span>;
+sSurname := <span class="str">'Pillay'</span>;
+WriteLn(tFile, sName, <span class="str">' '</span>:<span class="num">10</span> - Length(sName), sSurname);   <span class="cmt">// surname always starts at column 11</span></code></pre></div>
+<p>To align <strong>decimal values</strong> so the decimal points line up under each other, use the <code>Format</code> function to first convert the number into a fixed-width string, then write that string with <code>WriteLn</code>.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Format code</th><th>Meaning</th></tr>
+  <tr><td><code>%</code></td><td>Marks the start of a formatting instruction (not normal text)</td></tr>
+  <tr><td><code>10</code></td><td>The final string must be 10 characters wide</td></tr>
+  <tr><td><code>2</code></td><td>Show 2 digits after the decimal point</td></tr>
+  <tr><td><code>f</code></td><td>The value is a floating-point (real) number</td></tr>
+  <tr><td><code>m</code></td><td>Same as <code>f</code>, but also adds a currency symbol (e.g. R)</td></tr>
+</table></div>
+<div class="code-block"><span class="code-label">Delphi &mdash; Format function</span>
+<pre><code>WriteLn(tFile, Format(<span class="str">'%10.2f'</span>, [rValue]));    <span class="cmt">// e.g. '     84.41'</span>
+WriteLn(tFile, Format(<span class="str">'%12.2m'</span>, [rPrice]));   <span class="cmt">// e.g. '      R14.60'</span></code></pre></div>
+<div class="callout tip">
+  <div class="callout-title">Use a fixed-width font to check your columns</div>
+  <p>Proportional fonts (like Arial) give each character a different width, so columns that line up perfectly in your code can look uneven when displayed. Set the output component's font to a <strong>fixed-width</strong> font such as <code>Courier New</code> so every character takes up exactly the same space and your columns line up visually.</p>
+</div>
 
 <div class="page-nav">
   <span></span>
