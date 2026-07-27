@@ -1,0 +1,2550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ms Coetzee IT - Grade 12 Study Reference (Printable Booklet)</title>
+<style>
+/* ============ B&W PRINTABLE BOOKLET - GRADE 12 ============ */
+:root{ --ink:#111; --soft:#333; --faint:#555; --line:#888; --rule:#ccc; --panel:#f4f4f4; --head:#eaeaea; --grade:#b45309; }
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ font-size:11.5pt; }
+body{
+  background:#fff; color:var(--ink);
+  font-family:'Segoe UI', system-ui, Arial, sans-serif;
+  line-height:1.55;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+a{ color:var(--ink); text-decoration:none; }
+
+/* ---- page geometry + footer page numbers (print) ---- */
+@page{
+  size:A4;
+  margin:18mm 16mm 16mm 16mm;
+  @bottom-center{ content:counter(page); font-family:Arial, sans-serif; font-size:9pt; color:#555; }
+}
+
+.sheet{ max-width:760px; margin:0 auto; padding:24px; }
+
+/* ---- COVER ---- */
+.cover{ text-align:center; padding-top:22vh; page-break-after:always; break-after:page; }
+.cover .brand{ font-size:14pt; letter-spacing:.25em; text-transform:uppercase; color:var(--faint); }
+.cover .gradenum{ font-size:64pt; font-weight:800; color:var(--grade); line-height:1; margin:.3em 0 .1em; }
+.cover h1{ font-size:30pt; font-weight:800; letter-spacing:-.02em; line-height:1.1; margin:.1em 0 .3em; }
+.cover .sub{ font-size:13pt; color:var(--soft); max-width:30em; margin:0 auto 2.5em; }
+.cover .grades{ font-size:11pt; color:var(--faint); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); display:inline-block; padding:.6em 1.4em; }
+.cover .foot{ margin-top:3em; font-size:9.5pt; color:var(--faint); }
+
+/* ---- TABLE OF CONTENTS (front of this grade's booklet) ---- */
+.toc{ page-break-after:always; break-after:page; }
+.toc h2{ font-size:20pt; border-bottom:2px solid var(--grade); padding-bottom:.3em; margin-bottom:1em; }
+.toc ul{ list-style:none; }
+.toc-sub{ font-weight:700; font-size:9.5pt; text-transform:uppercase; letter-spacing:.08em; color:var(--faint); margin:1em 0 .3em; border-bottom:1px solid var(--rule); padding-bottom:.2em; }
+.toc-item{ margin:.12em 0 .12em 1.2em; font-size:10.5pt; }
+.toc-item a{ color:var(--ink); }
+.toc-item a::before{ content:"\2022"; color:var(--line); margin-right:.6em; }
+
+/* ---- CHAPTER ---- */
+.chapter{ page-break-before:always; break-before:page; }
+.chapter-tag{ font-size:8.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--grade); margin-bottom:.4em; }
+
+/* ---- WIDOW/ORPHAN CONTROL FOR HEADINGS ----
+   A heading must never be left alone as the last line on a page with its
+   own content pushed to the next page. break-after:avoid-page forces the
+   heading to move down WITH whatever follows it, rather than being
+   orphaned. break-inside:avoid-page stops a heading's own text (when it
+   wraps to two lines) from being split across a page boundary either. */
+h1,h2,h3,h4,h5,h6{ break-after:avoid-page; break-inside:avoid-page; page-break-after:avoid; page-break-inside:avoid; }
+
+h1{ font-size:21pt; font-weight:800; letter-spacing:-.01em; line-height:1.15; margin-bottom:.35em; }
+h2{ font-size:15pt; font-weight:700; margin:1.4em 0 .5em; padding-bottom:.25em; border-bottom:1px solid var(--grade); }
+h3{ font-size:12.5pt; font-weight:700; margin:1em 0 .35em; }
+h4{ font-size:11pt; font-weight:700; margin:.9em 0 .3em; }
+
+/* General widow/orphan control for body text: never leave a single stray
+   line of a paragraph alone at the top or bottom of a printed page. */
+p,li,td{ orphans:3; widows:3; }
+
+ul,ol{ margin:.4em 0 .8em 1.4em; }
+li{ margin-bottom:.2em; }
+strong{ font-weight:700; }
+
+.grade-badge{ font-size:7.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.08em; border:1px solid var(--line); padding:.12em .45em; border-radius:3px; vertical-align:middle; margin-left:.4em; color:var(--soft); white-space:nowrap; }
+
+.page-intro{ font-size:11.5pt; color:var(--soft); margin-bottom:1.2em; padding-bottom:.8em; border-bottom:1px solid var(--rule); }
+
+/* ---- CALLOUTS ---- */
+.callout{ border:1px solid var(--rule); border-left:3px solid var(--grade); background:var(--panel); padding:.6em .9em; margin:.9em 0; border-radius:0 4px 4px 0; page-break-inside:avoid; break-inside:avoid-page; }
+.callout-title{ font-size:8.5pt; font-weight:800; text-transform:uppercase; letter-spacing:.07em; color:var(--soft); margin-bottom:.3em; }
+.callout p{ margin:0; }
+
+/* ---- TABLES ---- */
+.tbl-wrap{ margin:.9em 0; overflow:visible; }
+table{ width:100%; border-collapse:collapse; font-size:9.5pt; page-break-inside:avoid; break-inside:avoid-page; }
+th{ background:var(--head); text-align:left; padding:.4em .6em; font-size:8.5pt; text-transform:uppercase; letter-spacing:.04em; color:var(--soft); border:1px solid var(--rule); }
+td{ padding:.4em .6em; border:1px solid var(--rule); vertical-align:top; }
+
+/* ---- DEFINITION GRID ---- */
+.def-grid{ display:grid; grid-template-columns:max-content 1fr; gap:.3em 1.2em; margin:.8em 0; }
+.def-term{ font-weight:700; }
+
+/* ---- CODE ---- */
+.code-block{ margin:.9em 0; page-break-inside:avoid; break-inside:avoid-page; }
+.code-label{ display:inline-block; background:var(--head); border:1px solid var(--rule); border-bottom:none; padding:.18em .6em; font-size:8pt; color:var(--soft); border-radius:4px 4px 0 0; font-family:'Consolas','Courier New',monospace; }
+pre{ background:var(--panel); border:1px solid var(--rule); border-radius:0 4px 4px 4px; padding:.7em .9em; overflow:visible; white-space:pre-wrap; word-wrap:break-word; font-size:9pt; line-height:1.45; font-family:'Consolas','Courier New',monospace; }
+pre.no-label{ border-radius:4px; }
+code{ font-family:'Consolas','Courier New',monospace; }
+p code,li code,td code,th code{ background:var(--panel); border:1px solid var(--rule); padding:0 .25em; border-radius:3px; font-size:.92em; color:var(--ink); }
+/* syntax tokens -> monochrome */
+.kw,.kw2,.sql-kw{ color:var(--ink); font-weight:700; }
+.str,.num,.fn,.cls,.sql-fn{ color:var(--ink); }
+.cmt{ color:var(--faint); font-style:italic; }
+
+/* ---- BADGES / TAGS ---- */
+.badge,.extra-tag{ display:inline-block; font-size:7.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:.1em .45em; border:1px solid var(--line); border-radius:3px; color:var(--soft); }
+
+/* ---- IMAGES ---- */
+img{ max-width:100%; height:auto; }
+.img-float-right{ float:right; margin:0 0 .8em 1em; max-width:200px; border:1px solid var(--rule); padding:4px; border-radius:4px; }
+.img-float-left{ float:left; margin:0 1em .8em 0; max-width:200px; border:1px solid var(--rule); padding:4px; border-radius:4px; }
+.img-center{ display:block; margin:.8em auto; max-width:100%; border:1px solid var(--rule); padding:4px; border-radius:4px; }
+.img-caption{ text-align:center; font-size:8.5pt; color:var(--faint); margin:.2em 0 .9em; }
+
+.hw-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:.7em; margin:.9em 0; page-break-inside:avoid; }
+.hw-card{ border:1px solid var(--rule); border-radius:6px; padding:.5em; text-align:center; page-break-inside:avoid; break-inside:avoid-page; }
+.hw-card img{ width:100%; max-height:100px; object-fit:contain; margin-bottom:.3em; }
+.hw-card-name,.hw-card .hw-name{ font-size:9pt; font-weight:700; margin-bottom:.15em; }
+.hw-card-desc,.hw-card .hw-desc{ font-size:8pt; color:var(--faint); line-height:1.35; }
+
+.delphi-panel{ border:1px solid var(--rule); border-radius:6px; overflow:hidden; margin:.8em 0; page-break-inside:avoid; break-inside:avoid-page; }
+.delphi-panel img{ width:100%; display:block; }
+.delphi-panel .dp-label{ padding:.35em .6em; font-size:8.5pt; font-weight:700; color:var(--soft); background:var(--head); border-top:1px solid var(--rule); }
+.clearfix::after{ content:""; display:table; clear:both; }
+
+/* ---- TERM PLANNER PAGES ---- */
+.term-block{ border:1px solid var(--rule); border-radius:6px; margin-bottom:1.1em; overflow:hidden; page-break-inside:avoid; break-inside:avoid-page; }
+.term-header{ padding:.6em .9em; display:flex; align-items:center; gap:.8em; border-bottom:1px solid var(--rule); background:var(--panel); }
+.term-num{ font-size:15pt; font-weight:800; min-width:2em; color:var(--grade); }
+.term-title{ font-size:10.5pt; font-weight:700; }
+.term-subtitle{ font-size:8.5pt; color:var(--faint); margin-top:.1em; }
+.term-body{ display:grid; grid-template-columns:1fr 1fr; }
+.term-col{ padding:.7em .9em; }
+.term-col:first-child{ border-right:1px solid var(--rule); }
+.term-col-title{ font-size:8pt; text-transform:uppercase; letter-spacing:.07em; color:var(--faint); margin-bottom:.4em; font-weight:700; }
+.term-links{ list-style:none; margin:0; padding:0; }
+.term-links li{ margin-bottom:.2em; }
+.term-links a{ font-size:9pt; display:flex; align-items:center; gap:.4em; }
+.tl-dot,.tl-plain{ width:5px; height:5px; border-radius:50%; background:var(--ink); flex-shrink:0; }
+.tl-plain{ background:var(--line); }
+
+/* ---- EXAM EXTRAS ---- */
+.extras-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:.7em; margin:.9em 0; }
+.extra-card{ border:1px solid var(--rule); border-left:3px solid var(--grade); border-radius:0 4px 4px 0; padding:.6em .8em; page-break-inside:avoid; break-inside:avoid-page; }
+.extra-card h4{ font-size:9.5pt; margin:.25em 0 .3em; }
+.extra-card p{ font-size:8.5pt; color:var(--faint); margin:0; }
+
+/* ---- SVG DIAGRAMS -> dark-on-white ----
+   Flatten the dark-theme diagrams to white shapes, dark outlines, dark text.
+   Text is forced dark with !important so labels stay readable on the now-white
+   shapes (boxes, flowchart diamonds, pyramid levels are all <rect>/<polygon>). */
+svg{ max-width:100%; height:auto; }
+svg text{ fill:#111 !important; }
+svg [fill]{ fill:#fff; }
+svg [stroke]{ stroke:#222; }
+svg rect,svg polygon,svg ellipse,svg circle,svg path,svg line,svg polyline,svg g{ stroke:#333; }
+svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
+
+@media print{
+  .sheet{ max-width:none; padding:0; }
+  a{ color:var(--ink) !important; }
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- COVER -->
+  <section class="cover">
+    <div class="brand">Ms Coetzee &middot; Information Technology</div>
+    <div class="gradenum">12</div>
+    <h1>Grade 12 Study Reference</h1>
+    <p class="sub">A complete printable guide to Information Technology for Grade 12 - practical Delphi programming and theory.</p>
+    <div class="grades">Practical &nbsp;&bull;&nbsp; Theory &nbsp;&bull;&nbsp; Term Planner &nbsp;&bull;&nbsp; Exam Extras</div>
+    <div class="foot">CAPS-aligned &middot; Printable booklet edition</div>
+  </section>
+
+  <!-- TABLE OF CONTENTS (front of this grade's booklet) -->
+  <section class="toc">
+    <h2>Contents &mdash; Grade 12</h2>
+    <ul>
+<li class="toc-sub">Practical</li>
+<li class="toc-item"><a href="#ch00">SQL</a></li>
+<li class="toc-item"><a href="#ch01">SQL - Joining Tables</a></li>
+<li class="toc-item"><a href="#ch02">OOP</a></li>
+<li class="toc-item"><a href="#ch03">2D Arrays</a></li>
+<li class="toc-item"><a href="#ch04">Recursion</a></li>
+<li class="toc-sub">Theory</li>
+<li class="toc-item"><a href="#ch05">Data Collection & Warehousing</a></li>
+<li class="toc-item"><a href="#ch06">Relational Databases & Normalisation</a></li>
+<li class="toc-item"><a href="#ch07">Hardware & Performance</a></li>
+<li class="toc-item"><a href="#ch08">Cloud Computing, AI, VR & AR</a></li>
+<li class="toc-item"><a href="#ch09">Internet Technologies</a></li>
+<li class="toc-item"><a href="#ch10">Networks & Remote Access</a></li>
+<li class="toc-item"><a href="#ch11">Communication Technologies</a></li>
+<li class="toc-item"><a href="#ch12">Cybercrime & Safeguards</a></li>
+<li class="toc-item"><a href="#ch13">Social Implications</a></li>
+<li class="toc-sub">Term Planner</li>
+<li class="toc-item"><a href="#ch14">Grade 12 - By Term</a></li>
+<li class="toc-sub">Exam Resources</li>
+<li class="toc-item"><a href="#ch15">Exam Extras (Out-of-CAPS)</a></li>
+    </ul>
+  </section>
+
+  <!-- CHAPTERS -->
+<section class="chapter" id="ch00">
+  <div class="chapter-tag">Grade 12 &middot; Practical</div>
+<h1>SQL &mdash; Structured Query Language <span class="grade-badge">Grade 12</span></h1>
+  <p class="page-intro">SQL (pronounced "S-Q-L" or "sequel") is the language used to communicate with a database. It lets you retrieve, add, update and delete records. In Delphi, SQL is added to a <code>TADOQuery</code> component.</p>
+
+  <div class="term-divider"><span class="term-divider-badge">T1</span><span class="term-divider-label">Term 1 &middot; SQL Basics, SELECT &amp; WHERE Queries</span></div>
+
+  <div class="callout">
+    <div class="callout-title">What is SQL?</div>
+    <p>Think of a database as a massive spreadsheet with thousands of rows. SQL is how you <strong>ask the database a question</strong>: "Give me all students in Grade 12 with a mark above 80, sorted by surname." Without SQL, you would have to scroll through every row manually.</p>
+  </div>
+
+  <!-- ANATOMY DIAGRAM -->
+  <h2>Anatomy of a SQL Statement</h2>
+  <div style="margin:1.25rem 0;overflow-x:auto">
+    <svg viewBox="0 0 680 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px;font-family:Consolas,monospace">
+      <rect width="680" height="120" rx="8" fill="#161b22"/>
+      <!-- SQL text -->
+      <text x="24" y="52" font-size="17" fill="#e6edf3" font-weight="bold">
+        <tspan fill="#569cd6">SELECT</tspan>
+        <tspan fill="#e6edf3"> Name, Surname, Mark </tspan>
+        <tspan fill="#569cd6">FROM</tspan>
+        <tspan fill="#4ec9b0"> tblStudents </tspan>
+        <tspan fill="#569cd6">WHERE</tspan>
+        <tspan fill="#e6edf3"> Grade = 12 </tspan>
+        <tspan fill="#569cd6">ORDER BY</tspan>
+        <tspan fill="#e6edf3"> Surname</tspan>
+      </text>
+      <!-- Labels below -->
+      <line x1="42" y1="60" x2="42" y2="85" stroke="#569cd6" stroke-width="1.5"/>
+      <text x="10" y="100" font-size="11" fill="#569cd6">Which fields</text>
+      <line x1="290" y1="60" x2="290" y2="85" stroke="#4ec9b0" stroke-width="1.5"/>
+      <text x="255" y="100" font-size="11" fill="#4ec9b0">Which table</text>
+      <line x1="390" y1="60" x2="390" y2="85" stroke="#fbbf24" stroke-width="1.5"/>
+      <text x="360" y="100" font-size="11" fill="#fbbf24">Filter condition</text>
+      <line x1="570" y1="60" x2="570" y2="85" stroke="#4ade80" stroke-width="1.5"/>
+      <text x="538" y="100" font-size="11" fill="#4ade80">Sort order</text>
+    </svg>
+  </div>
+
+  <h2>Using SQL in Delphi</h2>
+  <p>SQL goes into the <code>SQL</code> property of a <code>TADOQuery</code> component. Always close the query before changing the SQL, then open it again.</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; two ways to run a query</span>
+<pre><code><span class="cmt">// Method 1: assign as one string</span>
+qryStudents.Close;
+qryStudents.SQL.Text := <span class="str">'SELECT * FROM tblStudents WHERE Grade = 12'</span>;
+qryStudents.Open;
+
+<span class="cmt">// Method 2: build line-by-line (easier to read for long queries)</span>
+qryStudents.Close;
+qryStudents.SQL.Clear;
+qryStudents.SQL.Add(<span class="str">'SELECT Name, Surname, Mark'</span>);
+qryStudents.SQL.Add(<span class="str">'FROM tblStudents'</span>);
+qryStudents.SQL.Add(<span class="str">'WHERE Grade = 12'</span>);
+qryStudents.SQL.Add(<span class="str">'ORDER BY Surname ASC'</span>);
+qryStudents.Open;</code></pre></div>
+
+  <h2>SELECT &mdash; Choosing What to Display</h2>
+  <div class="code-block"><span class="code-label">SQL</span>
+<pre><code><span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblCD;                      <span class="cmt">-- all fields, all records</span>
+<span class="sql-kw">SELECT</span> CDName, Artist <span class="sql-kw">FROM</span> tblCD;          <span class="cmt">-- only these two fields</span>
+<span class="sql-kw">SELECT DISTINCT</span> Genre <span class="sql-kw">FROM</span> tblCD;          <span class="cmt">-- each genre shown once only</span>
+<span class="sql-kw">SELECT TOP</span> <span class="num">5</span> * <span class="sql-kw">FROM</span> tblCD;               <span class="cmt">-- first 5 records only</span></code></pre></div>
+
+  <h2>WHERE &mdash; Filtering Records</h2>
+  <p>The <code>WHERE</code> clause is how you filter — like asking "show me only the records that match this condition."</p>
+  <div class="code-block"><span class="code-label">SQL &mdash; comparison operators</span>
+<pre><code><span class="sql-kw">WHERE</span> Genre = <span class="str">"Rock"</span>             <span class="cmt">-- exact match (text in double quotes)</span>
+<span class="sql-kw">WHERE</span> Price &lt; <span class="num">100</span>               <span class="cmt">-- numbers (no quotes)</span>
+<span class="sql-kw">WHERE</span> Grade &lt;&gt; <span class="num">11</span>              <span class="cmt">-- not equal</span>
+<span class="sql-kw">WHERE</span> Mark &gt;= <span class="num">50</span>              <span class="cmt">-- greater than or equal</span>
+<span class="sql-kw">WHERE</span> Genre = <span class="str">"Pop"</span> <span class="sql-kw">AND</span> Price &lt; <span class="num">100</span>       <span class="cmt">-- both must be true</span>
+<span class="sql-kw">WHERE</span> Genre = <span class="str">"Pop"</span> <span class="sql-kw">OR</span> Genre = <span class="str">"Rock"</span>     <span class="cmt">-- either can be true</span></code></pre></div>
+
+  <h3>Operator Precedence in Compound Conditions</h3>
+  <p>When a <code>WHERE</code> clause mixes <code>AND</code> and <code>OR</code>, SQL doesn't just evaluate left to right — it follows a fixed order of precedence, same as in maths:</p>
+  <div class="tbl-wrap"><table>
+    <tr><th>Order</th><th>Operator(s)</th></tr>
+    <tr><td>1 (first)</td><td>Parentheses <code>( )</code></td></tr>
+    <tr><td>2</td><td>Multiplication, division</td></tr>
+    <tr><td>3</td><td>Subtraction, addition</td></tr>
+    <tr><td>4</td><td><code>NOT</code></td></tr>
+    <tr><td>5</td><td><code>AND</code></td></tr>
+    <tr><td>6 (last)</td><td><code>OR</code></td></tr>
+  </table></div>
+  <p><code>AND</code> is evaluated before <code>OR</code>, so a mixed condition may not filter the way you expect unless you add brackets to force the order you want.</p>
+  <div class="code-block"><span class="code-label">SQL &mdash; AND evaluates before OR</span>
+<pre><code><span class="sql-kw">WHERE</span> Genre = <span class="str">"Pop"</span> <span class="sql-kw">OR</span> Genre = <span class="str">"Rock"</span> <span class="sql-kw">AND</span> Price &lt; <span class="num">100</span>
+<span class="cmt">-- reads as: Genre = "Pop"  OR  (Genre = "Rock" AND Price &lt; 100)</span>
+<span class="cmt">-- ALL Pop CDs are included, regardless of price!</span>
+
+<span class="cmt">-- To make BOTH genres respect the price limit, use brackets:</span>
+<span class="sql-kw">WHERE</span> (Genre = <span class="str">"Pop"</span> <span class="sql-kw">OR</span> Genre = <span class="str">"Rock"</span>) <span class="sql-kw">AND</span> Price &lt; <span class="num">100</span></code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">When in doubt, add brackets</div>
+    <p>You don't have to memorise the precedence table if you always wrap OR conditions in brackets when combining them with AND. Brackets make your intention explicit and remove any ambiguity — for the reader and for the database.</p>
+  </div>
+
+  <h2>Special WHERE Operators</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Operator</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td><code>LIKE</code></td><td>Pattern match. <code>%</code> = any chars, <code>_</code> = one char</td><td><code>WHERE Name LIKE "S%"</code> — starts with S</td></tr>
+    <tr><td><code>IN</code></td><td>Match any value in a list</td><td><code>WHERE Genre IN ("Rock","Pop","Jazz")</code></td></tr>
+    <tr><td><code>BETWEEN</code></td><td>Within a range (inclusive for numbers)</td><td><code>WHERE Price BETWEEN 50 AND 150</code></td></tr>
+    <tr><td><code>IS NULL</code></td><td>Field is empty/blank</td><td><code>WHERE CellNo IS NULL</code></td></tr>
+    <tr><td><code>IS NOT NULL</code></td><td>Field has a value</td><td><code>WHERE CellNo IS NOT NULL</code></td></tr>
+    <tr><td><code>#date#</code></td><td>Date values use # symbols</td><td><code>WHERE OrderDate = #2024-05-01#</code></td></tr>
+  </table></div>
+  <div class="callout warning">
+    <div class="callout-title">Dates can be misread — use yyyy/mm/dd</div>
+    <p>Access SQL can misinterpret a date written as <code>dd/mm/yyyy</code>, reading it as month/day/year instead. Writing the year first removes the ambiguity: prefer <code>#2024/05/01#</code> (yyyy/mm/dd) over <code>#01/05/2024#</code>.</p>
+  </div>
+  <div class="code-block"><span class="code-label">LIKE wildcard examples</span>
+<pre><code><span class="sql-kw">WHERE</span> CDName <span class="sql-kw">LIKE</span> <span class="str">"S%"</span>        <span class="cmt">-- starts with S</span>
+<span class="sql-kw">WHERE</span> CDName <span class="sql-kw">LIKE</span> <span class="str">"%love%"</span>    <span class="cmt">-- contains the word "love"</span>
+<span class="sql-kw">WHERE</span> CDName <span class="sql-kw">LIKE</span> <span class="str">"%s"</span>        <span class="cmt">-- ends with s</span>
+<span class="sql-kw">WHERE</span> Code   <span class="sql-kw">LIKE</span> <span class="str">"A__"</span>       <span class="cmt">-- starts with A followed by exactly 2 chars</span></code></pre></div>
+
+  <h2>ORDER BY &mdash; Sorting Results</h2>
+  <div class="code-block"><span class="code-label">SQL</span>
+<pre><code><span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblCD <span class="sql-kw">ORDER BY</span> Artist;             <span class="cmt">-- ascending (default)</span>
+<span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblCD <span class="sql-kw">ORDER BY</span> Price <span class="sql-kw">DESC</span>;        <span class="cmt">-- most expensive first</span>
+<span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblCD <span class="sql-kw">ORDER BY</span> Genre, CDName <span class="sql-kw">ASC</span>; <span class="cmt">-- sort by genre, then name</span></code></pre></div>
+
+  <h2>Calculated Fields &amp; Aliases</h2>
+  <p>You can do maths inside a SELECT and give the result a name using <code>AS</code>.</p>
+  <div class="code-block"><span class="code-label">SQL</span>
+<pre><code><span class="sql-kw">SELECT</span> Name, Price, Price * <span class="num">1.15</span> <span class="sql-kw">AS</span> PriceWithVAT <span class="sql-kw">FROM</span> tblProducts;
+<span class="sql-kw">SELECT</span> Name, Mark, <span class="sql-fn">ROUND</span>(Mark / <span class="num">2</span>, <span class="num">0</span>) <span class="sql-kw">AS</span> HalfMark <span class="sql-kw">FROM</span> tblStudents;</code></pre></div>
+
+  <h2>Aggregate Functions &mdash; Calculating Summaries</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Function</th><th>What it calculates</th><th>Example</th></tr>
+    <tr><td><code>COUNT(*)</code></td><td>Number of records</td><td><code>SELECT COUNT(*) FROM tblStudents</code></td></tr>
+    <tr><td><code>SUM(field)</code></td><td>Total of numeric field</td><td><code>SELECT SUM(Mark) FROM tblResults</code></td></tr>
+    <tr><td><code>AVG(field)</code></td><td>Average of numeric field</td><td><code>SELECT AVG(Mark) FROM tblResults</code></td></tr>
+    <tr><td><code>MIN(field)</code></td><td>Lowest value</td><td><code>SELECT MIN(Price) FROM tblProducts</code></td></tr>
+    <tr><td><code>MAX(field)</code></td><td>Highest value</td><td><code>SELECT MAX(Price) FROM tblProducts</code></td></tr>
+  </table></div>
+  <div class="code-block"><span class="code-label">SQL &mdash; GROUP BY and HAVING</span>
+<pre><code><span class="cmt">-- Count students per grade</span>
+<span class="sql-kw">SELECT</span> Grade, <span class="sql-fn">COUNT</span>(*) <span class="sql-kw">AS</span> Total
+<span class="sql-kw">FROM</span> tblStudents
+<span class="sql-kw">GROUP BY</span> Grade;
+
+<span class="cmt">-- Only show groups with more than 10 students</span>
+<span class="sql-kw">SELECT</span> Grade, <span class="sql-fn">COUNT</span>(*) <span class="sql-kw">AS</span> Total
+<span class="sql-kw">FROM</span> tblStudents
+<span class="sql-kw">GROUP BY</span> Grade
+<span class="sql-kw">HAVING</span> <span class="sql-fn">COUNT</span>(*) &gt; <span class="num">10</span>;</code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">WHERE vs HAVING</div>
+    <p><strong>WHERE</strong> filters individual records <em>before</em> grouping. <strong>HAVING</strong> filters groups <em>after</em> GROUP BY. If you have both, WHERE runs first.</p>
+  </div>
+
+  <h2>SQL String &amp; Math Functions</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Function</th><th>Returns</th><th>Example</th></tr>
+    <tr><td><code>LEN(field)</code></td><td>Character count</td><td><code>SELECT LEN(Name) FROM tblStudents</code></td></tr>
+    <tr><td><code>LEFT(field, n)</code></td><td>First n characters</td><td><code>LEFT(Surname, 3)</code> → first 3 letters</td></tr>
+    <tr><td><code>RIGHT(field, n)</code></td><td>Last n characters</td><td><code>RIGHT(IDNo, 4)</code></td></tr>
+    <tr><td><code>MID(field, start, n)</code></td><td>Substring from position</td><td><code>MID(IDNo, 3, 2)</code> → month of birth (position 1–2 is the year)</td></tr>
+    <tr><td><code>ROUND(field, dec)</code></td><td>Rounded value</td><td><code>ROUND(Avg, 2)</code> → 2 decimal places</td></tr>
+    <tr><td><code>INT(field)</code></td><td>Integer part (no decimal)</td><td><code>INT(75.8)</code> = 75</td></tr>
+    <tr><td><code>FORMAT(field, "0.00")</code></td><td>Formatted string</td><td><code>FORMAT(Price, "R0.00")</code></td></tr>
+  </table></div>
+
+  <h2>Date Functions</h2>
+  <div class="code-block"><span class="code-label">SQL &mdash; date examples</span>
+<pre><code><span class="sql-kw">SELECT</span> Name, <span class="sql-fn">YEAR</span>(BirthDate) <span class="sql-kw">AS</span> BirthYear <span class="sql-kw">FROM</span> tblStudents;
+<span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblOrders <span class="sql-kw">WHERE</span> <span class="sql-fn">MONTH</span>(OrderDate) = <span class="num">12</span>;     <span class="cmt">-- December orders</span>
+<span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblStudents <span class="sql-kw">WHERE</span> <span class="sql-fn">YEAR</span>(BirthDate) = <span class="num">2008</span>;</code></pre></div>
+
+  <h2>INSERT, UPDATE, DELETE</h2>
+  <div class="code-block"><span class="code-label">SQL &mdash; modifying data</span>
+<pre><code><span class="cmt">-- Add a new record</span>
+<span class="sql-kw">INSERT INTO</span> tblStudents (Name, Surname, Grade)
+<span class="sql-kw">VALUES</span> (<span class="str">"Alice"</span>, <span class="str">"Smith"</span>, <span class="num">12</span>);
+
+<span class="cmt">-- Change existing data</span>
+<span class="sql-kw">UPDATE</span> tblStudents
+<span class="sql-kw">SET</span> Grade = <span class="num">12</span>
+<span class="sql-kw">WHERE</span> StudentID = <span class="num">45</span>;
+
+<span class="cmt">-- Remove a record</span>
+<span class="sql-kw">DELETE FROM</span> tblStudents
+<span class="sql-kw">WHERE</span> StudentID = <span class="num">45</span>;</code></pre></div>
+  <div class="callout warning">
+    <div class="callout-title">Always use WHERE with UPDATE and DELETE</div>
+    <p>Without a WHERE clause, UPDATE changes <em>every</em> record and DELETE removes <em>every</em> record in the table. Always double-check your condition.</p>
+  </div>
+
+  <h3>Building an INSERT String with QuotedStr</h3>
+  <p>Instead of a parameterised query, you will sometimes build the whole SQL statement as one string by joining Delphi variables onto it directly. Text values need <strong>quotes around them</strong> in the final SQL string — the <code>QuotedStr</code> function wraps a string value in quotes for you, so you don't have to type them by hand.</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; INSERT built with string concatenation + QuotedStr</span>
+<pre><code>qryStudents.Close;
+qryStudents.SQL.Text := <span class="str">'INSERT INTO tblStudents (Name, Surname) VALUES ('</span> +
+  QuotedStr(edtName.Text) + <span class="str">', '</span> + QuotedStr(edtSurname.Text) + <span class="str">')'</span>;
+qryStudents.ExecSQL;   <span class="cmt">// use ExecSQL (not Open) for INSERT/UPDATE/DELETE — they don't return records</span></code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">QuotedStr vs parameters</div>
+    <p><code>QuotedStr</code> is a quick way to build a query from a string variable, but a <strong>parameterised query</strong> (below) is the safer, preferred technique — it avoids manually matching quotes and is more resistant to SQL injection.</p>
+  </div>
+
+  <h2>Parameterised Queries</h2>
+  <p>Instead of hardcoding a value, use a parameter that is filled in by the user at runtime.</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; parameterised query (by name method)</span>
+<pre><code>qryStudents.Close;
+qryStudents.SQL.Clear;
+qryStudents.SQL.Add(<span class="str">'SELECT * FROM tblStudents'</span>);
+qryStudents.SQL.Add(<span class="str">'WHERE Grade = :pGrade'</span>);   <span class="cmt">// :pGrade is the parameter</span>
+qryStudents.Parameters.ParamByName(<span class="str">'pGrade'</span>).Value := sedGrade.Value;
+qryStudents.Open;</code></pre></div>
+
+  <h2>SQL in Delphi &mdash; Reading Field Values</h2>
+  <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="cmt">// Read a field value from the current record</span>
+sName   := qryStudents[<span class="str">'Name'</span>];
+iGrade  := qryStudents[<span class="str">'Grade'</span>];
+rMark   := qryStudents[<span class="str">'Average'</span>];
+
+<span class="cmt">// Loop through all records</span>
+qryStudents.First;
+<span class="kw">while not</span> qryStudents.Eof <span class="kw">do</span>
+<span class="kw">begin</span>
+  memOut.Lines.Add(qryStudents[<span class="str">'Name'</span>] + <span class="str">' '</span> + qryStudents[<span class="str">'Surname'</span>]);
+  qryStudents.Next;
+<span class="kw">end</span>;</code></pre></div>
+
+  <h2>Worked Example — A Search Screen</h2>
+  <p>A classic Paper 1 task: the user types (part of) a surname into <code>edtSearch</code> and clicks a button. The program must build a <strong>parameterised query</strong> from that input, run it, list every match in <code>memOut</code>, and report how many were found. This combines user input, SQL, looping a dataset and string output.</p>
+  <div class="code-block"><span class="code-label">Delphi — search button click</span>
+<pre><code><span class="kw">procedure</span> TfrmMain.<span class="fn">btnSearchClick</span>(Sender: TObject);
+<span class="kw">var</span>
+  iFound : <span class="kw2">integer</span>;
+<span class="kw">begin</span>
+  memOut.Clear;
+  iFound := <span class="num">0</span>;
+
+  <span class="cmt">// 1. Build a parameterised query from the user's input</span>
+  qryStudents.Close;
+  qryStudents.SQL.Clear;
+  qryStudents.SQL.Add(<span class="str">'SELECT Name, Surname, Grade, Average'</span>);
+  qryStudents.SQL.Add(<span class="str">'FROM tblStudents'</span>);
+  qryStudents.SQL.Add(<span class="str">'WHERE Surname LIKE :pName'</span>);
+  qryStudents.SQL.Add(<span class="str">'ORDER BY Surname ASC'</span>);
+  <span class="cmt">// add a wildcard so 'coe' matches 'Coetzee'</span>
+  qryStudents.Parameters.ParamByName(<span class="str">'pName'</span>).Value := edtSearch.Text + <span class="str">'%'</span>;
+  qryStudents.Open;
+
+  <span class="cmt">// 2. Loop through the result set and display each record</span>
+  qryStudents.First;
+  <span class="kw">while not</span> qryStudents.Eof <span class="kw">do</span>
+  <span class="kw">begin</span>
+    memOut.Lines.Add(qryStudents[<span class="str">'Name'</span>] + <span class="str">' '</span> + qryStudents[<span class="str">'Surname'</span>]
+                     + <span class="str">'  (Gr '</span> + IntToStr(qryStudents[<span class="str">'Grade'</span>])
+                     + <span class="str">', '</span> + FloatToStrF(qryStudents[<span class="str">'Average'</span>], ffFixed, <span class="num">4</span>, <span class="num">1</span>) + <span class="str">'%)'</span>);
+    Inc(iFound);
+    qryStudents.Next;
+  <span class="kw">end</span>;
+
+  <span class="cmt">// 3. Report how many were found</span>
+  <span class="kw">if</span> iFound = <span class="num">0</span> <span class="kw">then</span>
+    ShowMessage(<span class="str">'No learner found starting with "'</span> + edtSearch.Text + <span class="str">'".'</span>)
+  <span class="kw">else</span>
+    lblCount.Caption := IntToStr(iFound) + <span class="str">' learner(s) found'</span>;
+<span class="kw">end</span>;</code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">Why a parameter, not string-joining?</div>
+    <p>Using <code>:pName</code> and <code>ParamByName</code> is safer and cleaner than gluing the user's text straight into the SQL string — it avoids quote/type errors and blocks <strong>SQL injection</strong> (see <a href="cybercrime.html">Cybercrime</a>). The wildcard <code>'%'</code> is added to the <em>value</em>, so a partial surname still matches.</p>
+  </div>
+</section>
+
+<section class="chapter" id="ch01">
+  <div class="chapter-tag">Grade 12 &middot; Practical</div>
+<h1>SQL &mdash; Joining Tables <span class="grade-badge">Grade 12</span></h1>
+  <p class="page-intro">In SA IT CAPS, joining two tables is done using the <strong>WHERE clause method</strong> &mdash; listing both tables in FROM and linking them with a matching condition in WHERE. This is the only join method required for CAPS.</p>
+
+  <div class="term-divider"><span class="term-divider-badge">T1</span><span class="term-divider-label">Term 1 &middot; Joining Tables With WHERE</span></div>
+
+  <div class="callout warning">
+    <div class="callout-title">CAPS Method: WHERE Clause &mdash; Not INNER JOIN</div>
+    <p>The official SA IT CAPS specifies the <strong>WHERE method</strong> for single joins. The CAPS document states: <em>&ldquo;Create a join query (single joins) using WHERE&rdquo;</em>. Do NOT use the INNER JOIN keyword in exams.</p>
+  </div>
+
+  <h2>Why Join Tables?</h2>
+  <p>A relational database splits related data across tables. For example, a student record stores a ClassID but the class name lives in a separate table. To display both together, you join the tables.</p>
+
+  <h2>Syntax</h2>
+  <div class="code-block"><span class="code-label">SQL &mdash; WHERE join syntax</span>
+<pre><code><span class="sql-kw">SELECT</span> TableA.Field1, TableB.Field2
+<span class="sql-kw">FROM</span> TableA, TableB
+<span class="sql-kw">WHERE</span> TableA.KeyField = TableB.KeyField;</code></pre></div>
+  <p>Both tables appear in <code>FROM</code>, separated by a comma. The <code>WHERE</code> clause links the tables on their shared key field.</p>
+
+  <h2>Examples</h2>
+
+  <h3>Example 1 &mdash; Students with their class names</h3>
+  <div class="code-block"><span class="code-label">SQL</span>
+<pre><code><span class="sql-kw">SELECT</span> tblStudents.Name, tblStudents.Surname, tblClasses.ClassName
+<span class="sql-kw">FROM</span> tblStudents, tblClasses
+<span class="sql-kw">WHERE</span> tblStudents.ClassID = tblClasses.ClassID;</code></pre></div>
+
+  <h3>Example 2 &mdash; With extra filtering and sorting</h3>
+  <div class="code-block"><span class="code-label">SQL</span>
+<pre><code><span class="sql-kw">SELECT</span> tblStudents.Name, tblStudents.Surname, tblClasses.ClassName
+<span class="sql-kw">FROM</span> tblStudents, tblClasses
+<span class="sql-kw">WHERE</span> tblStudents.ClassID = tblClasses.ClassID
+<span class="sql-kw">AND</span> tblStudents.Grade = <span class="num">12</span>
+<span class="sql-kw">ORDER BY</span> tblStudents.Surname <span class="sql-kw">ASC</span>;</code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">Adding extra conditions</div>
+    <p>Use <code>AND</code> after the join condition to filter results further. The join condition always comes first in WHERE.</p>
+  </div>
+
+  <h3>Example 3 &mdash; Join with GROUP BY and COUNT</h3>
+  <div class="code-block"><span class="code-label">SQL &mdash; count students per class</span>
+<pre><code><span class="sql-kw">SELECT</span> tblClasses.ClassName, <span class="sql-fn">COUNT</span>(tblStudents.StudentID) <span class="sql-kw">AS</span> Total
+<span class="sql-kw">FROM</span> tblStudents, tblClasses
+<span class="sql-kw">WHERE</span> tblStudents.ClassID = tblClasses.ClassID
+<span class="sql-kw">GROUP BY</span> tblClasses.ClassName
+<span class="sql-kw">ORDER BY</span> Total <span class="sql-kw">DESC</span>;</code></pre></div>
+
+  <h3>Example 4 &mdash; Using LIKE with a join</h3>
+  <div class="code-block"><span class="code-label">SQL</span>
+<pre><code><span class="sql-kw">SELECT</span> tblBooks.Title, tblAuthors.AuthorName, tblBooks.Price
+<span class="sql-kw">FROM</span> tblBooks, tblAuthors
+<span class="sql-kw">WHERE</span> tblBooks.AuthorID = tblAuthors.AuthorID
+<span class="sql-kw">AND</span> tblBooks.Title <span class="sql-kw">LIKE</span> <span class="str">"IT%"</span>
+<span class="sql-kw">ORDER BY</span> tblBooks.Price <span class="sql-kw">DESC</span>;</code></pre></div>
+
+  <h2>Using a Join in Delphi (TADOQuery)</h2>
+  <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>qryData.Close;
+qryData.SQL.Clear;
+qryData.SQL.Add(<span class="str">'SELECT tblStudents.Name, tblStudents.Surname, tblClasses.ClassName'</span>);
+qryData.SQL.Add(<span class="str">'FROM tblStudents, tblClasses'</span>);
+qryData.SQL.Add(<span class="str">'WHERE tblStudents.ClassID = tblClasses.ClassID'</span>);
+qryData.SQL.Add(<span class="str">'AND tblStudents.Grade = 12'</span>);
+qryData.Open;</code></pre></div>
+
+  <h2>Cartesian Product Warning</h2>
+  <div class="callout warning">
+    <div class="callout-title">Never forget the join condition</div>
+    <p>If you list two tables in FROM but omit the WHERE link condition, SQL returns every possible combination of rows (a <strong>Cartesian product</strong>). For two tables with 100 rows each, this produces 10,000 rows &mdash; all incorrect. Always include <code>WHERE TableA.Key = TableB.Key</code>.</p>
+  </div>
+
+  <h2>Common Mistakes</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Mistake</th><th>Effect</th><th>Fix</th></tr>
+    <tr><td>Missing join condition in WHERE</td><td>Cartesian product (massive wrong result)</td><td>Always link: <code>WHERE tblA.Key = tblB.Key</code></td></tr>
+    <tr><td>Ambiguous field name (e.g. just <code>Name</code> when both tables have it)</td><td>SQL error</td><td>Always prefix: <code>tblStudents.Name</code></td></tr>
+    <tr><td>Not calling <code>qryData.Close</code> before changing SQL</td><td>Runtime error</td><td>Always close first</td></tr>
+  </table></div>
+</section>
+
+<section class="chapter" id="ch02">
+  <div class="chapter-tag">Grade 12 &middot; Practical</div>
+<h1>Object-Oriented Programming (OOP) <span class="grade-badge">Grade 12</span></h1>
+    <p class="page-intro">OOP lets you model real-world things as <strong>objects</strong> in code. Think of a <strong>class</strong> as a blueprint (like architectural plans for a house) and an <strong>object</strong> as the actual building made from that plan. One blueprint, many buildings — one class, many objects.</p>
+
+    <div class="term-divider"><span class="term-divider-badge">T2</span><span class="term-divider-label">Term 2 &middot; Classes, Objects &amp; Core OOP Concepts</span></div>
+
+    <div class="callout">
+      <div class="callout-title">ANALOGY — OOP is a taxi</div>
+      <p>Every part of OOP maps neatly onto a <strong>taxi</strong>:</p>
+      <ul>
+        <li><strong>Class</strong> = the <em>design</em> of a taxi — the plans that say what every taxi has and can do. There is only one design.</li>
+        <li><strong>Object (instance)</strong> = one <em>actual</em> taxi on the road, e.g. the one with registration CA&nbsp;123&#8209;456. From the one design you can build many taxis.</li>
+        <li><strong>Attributes</strong> = what a taxi <em>has</em>: make, registration, colour, number of seats, fuel level, current speed.</li>
+        <li><strong>Methods</strong> = what a taxi <em>does</em>: <code>StartEngine</code>, <code>Drive</code>, <code>Stop</code>, <code>PickUp</code>, <code>DropOff</code>, <code>Hoot</code>.</li>
+        <li><strong>Constructor (Create)</strong> = <em>building</em> a brand-new taxi at the factory and giving it its starting details (make, registration).</li>
+        <li><strong>Encapsulation</strong> = you drive with the <em>steering wheel and pedals</em> (public methods); you never reach into the engine (private attributes). The engine is hidden under the bonnet — and that keeps it safe.</li>
+        <li><strong>Accessor (getter)</strong> = the <em>fuel gauge</em> lets you read the fuel level without touching the tank. <strong>Mutator (setter)</strong> = filling up at the <em>petrol station</em> changes the fuel level in a controlled way.</li>
+        <li><strong>Inheritance</strong> = a taxi <em>is&#8209;a</em> vehicle: it inherits "drive" and "stop" from a general <code>TVehicle</code>, then adds its own meter and passenger seats.</li>
+        <li><strong>Polymorphism</strong> = tell any vehicle to <code>Hoot</code> and each does it its own way — a sedan taxi beeps, a minibus blares.</li>
+      </ul>
+    </div>
+
+    <figure class="img-center">
+      <img src="images/oop-class-code.png" alt="TCat class structure in Delphi's code view" class="img-center">
+      <figcaption class="img-caption">TCat class structure in Delphi's code view</figcaption>
+    </figure>
+
+    <!-- ═══════ CORE CONCEPTS ═══════ -->
+    <h2>Core OOP Concepts</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Term</th><th>Definition</th></tr>
+      <tr><td><strong>Class</strong></td><td>A blueprint or template that describes what an object looks like and can do</td></tr>
+      <tr><td><strong>Object</strong></td><td>A specific instance of a class (like one particular cat — Whiskers)</td></tr>
+      <tr><td><strong>Attribute</strong></td><td>A variable that stores data about the object (e.g. fName, fAge)</td></tr>
+      <tr><td><strong>Method</strong></td><td>A procedure or function that belongs to the class (e.g. GetName, SetAge)</td></tr>
+      <tr><td><strong>Constructor</strong></td><td>Special method <code>Create</code> that creates an instance and sets initial values</td></tr>
+      <tr><td><strong>Encapsulation</strong></td><td>Hiding private data inside a class; only accessible through public methods</td></tr>
+      <tr><td><strong>Inheritance</strong></td><td>A new class inherits all attributes and methods of an existing (parent) class</td></tr>
+      <tr><td><strong>Polymorphism</strong></td><td>The same method name behaves differently in different classes</td></tr>
+    </table></div>
+
+    <div class="callout">
+      <div class="callout-title">You already use OOP!</div>
+      <p>In Delphi, every component is an object. <code>TButton</code> is a class; <code>btnOK</code> is an object. <code>TForm</code> is a class; <code>Form1</code> is an object. OOP lets you create your own custom classes.</p>
+    </div>
+
+    <!-- ═══════ CLASS = BLUEPRINT ═══════ -->
+    <h2>One Class, Many Objects</h2>
+    <p>A class is defined once. You can create as many objects (instances) from it as you need — each with its own data.</p>
+
+    <div style="margin:1.25rem 0;overflow-x:auto">
+      <svg viewBox="0 0 720 180" width="720" height="180" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+        <rect width="720" height="180" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+
+        <!-- Blueprint box (Class) -->
+        <rect x="20" y="30" width="180" height="120" rx="6" fill="#21262d" stroke="#fbbf24" stroke-width="2" stroke-dasharray="6,3"/>
+        <rect x="20" y="30" width="180" height="26" rx="6" fill="#fbbf24" opacity="0.2"/>
+        <text x="110" y="47" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">TCat  (CLASS)</text>
+        <text x="30" y="68" fill="#8b949e" font-size="9">Blueprint / Template</text>
+        <text x="30" y="84" fill="#e6edf3" font-size="9">- fName : String</text>
+        <text x="30" y="98" fill="#e6edf3" font-size="9">- fAge  : Integer</text>
+        <text x="30" y="112" fill="#e6edf3" font-size="9">+ Create(sName, iAge)</text>
+        <text x="30" y="126" fill="#e6edf3" font-size="9">+ GetName : String</text>
+        <text x="30" y="140" fill="#e6edf3" font-size="9">+ ToString : String</text>
+
+        <!-- Arrow -->
+        <line x1="200" y1="90" x2="270" y2="56" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr2)"/>
+        <line x1="200" y1="90" x2="270" y2="90" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr2)"/>
+        <line x1="200" y1="90" x2="270" y2="124" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr2)"/>
+        <defs>
+          <marker id="arr2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#22d3ee"/>
+          </marker>
+        </defs>
+        <text x="232" y="85" fill="#22d3ee" font-size="9">Create</text>
+
+        <!-- Object 1 -->
+        <rect x="270" y="20" width="130" height="72" rx="5" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
+        <rect x="270" y="20" width="130" height="22" rx="5" fill="#22d3ee" opacity="0.2"/>
+        <text x="335" y="35" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">objCat1 (Object)</text>
+        <text x="280" y="52" fill="#e6edf3" font-size="9">fName = 'Whiskers'</text>
+        <text x="280" y="66" fill="#e6edf3" font-size="9">fAge  = 3</text>
+        <text x="280" y="80" fill="#8b949e" font-size="8">objCat1 := TCat.Create('Whiskers', 3);</text>
+
+        <!-- Object 2 -->
+        <rect x="420" y="20" width="130" height="72" rx="5" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
+        <rect x="420" y="20" width="130" height="22" rx="5" fill="#22d3ee" opacity="0.2"/>
+        <text x="485" y="35" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">objCat2 (Object)</text>
+        <text x="430" y="52" fill="#e6edf3" font-size="9">fName = 'Felix'</text>
+        <text x="430" y="66" fill="#e6edf3" font-size="9">fAge  = 5</text>
+        <text x="430" y="80" fill="#8b949e" font-size="8">objCat2 := TCat.Create('Felix', 5);</text>
+
+        <!-- Object 3 -->
+        <rect x="570" y="20" width="132" height="72" rx="5" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
+        <rect x="570" y="20" width="132" height="22" rx="5" fill="#22d3ee" opacity="0.2"/>
+        <text x="636" y="35" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">objCat3 (Object)</text>
+        <text x="580" y="52" fill="#e6edf3" font-size="9">fName = 'Shadow'</text>
+        <text x="580" y="66" fill="#e6edf3" font-size="9">fAge  = 1</text>
+        <text x="580" y="80" fill="#8b949e" font-size="8">objCat3 := TCat.Create('Shadow', 1);</text>
+
+        <text x="360" y="165" text-anchor="middle" fill="#8b949e" font-size="9">Same class TCat — three different objects with different data. The class defines the structure; objects hold the actual values.</text>
+      </svg>
+    </div>
+
+    <!-- ═══════ UML DIAGRAM ═══════ -->
+    <h2>UML Class Diagram</h2>
+    <p>Before coding a class, design it using a <strong>UML (Unified Modeling Language)</strong> diagram — a rectangle divided into 3 sections.</p>
+
+    <div style="margin:1.25rem 0;overflow-x:auto">
+      <svg viewBox="0 0 400 260" width="400" height="260" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+        <rect width="400" height="260" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+
+        <!-- UML box -->
+        <rect x="60" y="20" width="280" height="222" rx="4" fill="#21262d" stroke="#22d3ee" stroke-width="2"/>
+
+        <!-- Section 1: Class name -->
+        <rect x="60" y="20" width="280" height="40" rx="4" fill="#22d3ee" opacity="0.25"/>
+        <text x="200" y="45" text-anchor="middle" fill="#22d3ee" font-size="14" font-weight="700">TCat</text>
+
+        <!-- Divider 1 -->
+        <line x1="60" y1="60" x2="340" y2="60" stroke="#22d3ee" stroke-width="1.5"/>
+
+        <!-- Section 2: Private attributes -->
+        <text x="70" y="78" fill="#8b949e" font-size="9">Private attributes (data)</text>
+        <text x="70" y="96" fill="#e6edf3" font-size="11">- fName   : String</text>
+        <text x="70" y="114" fill="#e6edf3" font-size="11">- fAge    : Integer</text>
+        <text x="70" y="132" fill="#e6edf3" font-size="11">- fWeight : Real</text>
+
+        <!-- Divider 2 -->
+        <line x1="60" y1="142" x2="340" y2="142" stroke="#22d3ee" stroke-width="1.5"/>
+
+        <!-- Section 3: Public methods -->
+        <text x="70" y="158" fill="#8b949e" font-size="9">Public methods (behaviour)</text>
+        <text x="70" y="174" fill="#e6edf3" font-size="11">+ Create(sName: String; iAge: Integer)</text>
+        <text x="70" y="190" fill="#e6edf3" font-size="11">+ GetName   : String</text>
+        <text x="70" y="206" fill="#e6edf3" font-size="11">+ SetName(sName: String)</text>
+        <text x="70" y="222" fill="#e6edf3" font-size="11">+ ToString  : String</text>
+
+        <!-- Legend -->
+        <text x="200" y="252" text-anchor="middle" fill="#8b949e" font-size="9">  -  = private (hidden)    +  = public (accessible)</text>
+      </svg>
+    </div>
+
+    <!-- ═══════ ENCAPSULATION ═══════ -->
+    <h2>Encapsulation</h2>
+    <p>Keep attributes <code>private</code> — hidden from the outside world. Only expose them through controlled <code>public</code> methods (getters and setters). This protects data from accidental or invalid changes.</p>
+
+    <div style="margin:1.25rem 0;overflow-x:auto">
+      <svg viewBox="0 0 560 180" width="560" height="180" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+        <rect width="560" height="180" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+
+        <!-- Outer PUBLIC ring -->
+        <rect x="20" y="20" width="520" height="142" rx="40" fill="none" stroke="#4ade80" stroke-width="2" stroke-dasharray="6,3"/>
+        <text x="280" y="148" text-anchor="middle" fill="#4ade80" font-size="11" font-weight="700">PUBLIC — accessible from outside the class</text>
+
+        <!-- GetName/SetName labels on sides -->
+        <rect x="36" y="52" width="110" height="26" rx="4" fill="#21262d" stroke="#4ade80" stroke-width="1"/>
+        <text x="91" y="68" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="600">GetName : String</text>
+        <rect x="36" y="88" width="110" height="26" rx="4" fill="#21262d" stroke="#4ade80" stroke-width="1"/>
+        <text x="91" y="104" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="600">SetName(s: String)</text>
+
+        <rect x="414" y="52" width="110" height="26" rx="4" fill="#21262d" stroke="#4ade80" stroke-width="1"/>
+        <text x="469" y="68" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="600">GetAge : Integer</text>
+        <rect x="414" y="88" width="110" height="26" rx="4" fill="#21262d" stroke="#4ade80" stroke-width="1"/>
+        <text x="469" y="104" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="600">ToString : String</text>
+
+        <!-- Inner PRIVATE box -->
+        <rect x="170" y="34" width="220" height="98" rx="8" fill="#21262d" stroke="#fbbf24" stroke-width="2"/>
+        <text x="280" y="52" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">PRIVATE — hidden inside class</text>
+        <text x="280" y="72" text-anchor="middle" fill="#e6edf3" font-size="11">- fName   : String</text>
+        <text x="280" y="90" text-anchor="middle" fill="#e6edf3" font-size="11">- fAge    : Integer</text>
+        <text x="280" y="108" text-anchor="middle" fill="#e6edf3" font-size="11">- fWeight : Real</text>
+
+        <!-- Arrows -->
+        <line x1="146" y1="65" x2="170" y2="72" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr3)"/>
+        <line x1="146" y1="101" x2="170" y2="94" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr3)"/>
+        <defs>
+          <marker id="arr3" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto">
+            <polygon points="0 0, 7 2.5, 0 5" fill="#22d3ee"/>
+          </marker>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="code-block"><span class="code-label">Delphi — encapsulation</span>
+<pre><code><span class="kw">private</span>
+  fName: <span class="kw2">string</span>;         <span class="cmt">// hidden from outside — direct access blocked</span>
+<span class="kw">public</span>
+  <span class="kw">procedure</span> SetName(s: <span class="kw2">string</span>);  <span class="cmt">// controlled write access (can include validation)</span>
+  <span class="kw">function</span>  GetName: <span class="kw2">string</span>;     <span class="cmt">// controlled read access</span></code></pre></div>
+
+    <!-- ═══════ INHERITANCE ═══════ -->
+    <h2>Inheritance</h2>
+    <p>A child class inherits all attributes and methods from a parent class, and can add or override its own. This avoids repeating code.</p>
+
+    <div style="margin:1.25rem 0;overflow-x:auto">
+      <svg viewBox="0 0 560 220" width="560" height="220" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+        <rect width="560" height="220" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+
+        <!-- TAnimal at top -->
+        <rect x="180" y="16" width="200" height="60" rx="5" fill="#21262d" stroke="#fbbf24" stroke-width="2"/>
+        <rect x="180" y="16" width="200" height="22" rx="5" fill="#fbbf24" opacity="0.2"/>
+        <text x="280" y="31" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="700">TAnimal</text>
+        <text x="190" y="50" fill="#e6edf3" font-size="10">- fName : String</text>
+        <text x="190" y="64" fill="#e6edf3" font-size="10">+ Speak  (virtual)</text>
+
+        <!-- Arrow to TDog -->
+        <line x1="230" y1="76" x2="140" y2="148" stroke="#22d3ee" stroke-width="1.5"/>
+        <polygon points="140,148 148,136 132,136" fill="#22d3ee"/>
+        <!-- Arrow to TCat -->
+        <line x1="330" y1="76" x2="420" y2="148" stroke="#22d3ee" stroke-width="1.5"/>
+        <polygon points="420,148 408,136 432,136" fill="#22d3ee"/>
+        <!-- "inherits" labels -->
+        <text x="162" y="118" fill="#8b949e" font-size="9">is-a</text>
+        <text x="368" y="118" fill="#8b949e" font-size="9">is-a</text>
+
+        <!-- TDog -->
+        <rect x="46" y="148" width="190" height="56" rx="5" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
+        <rect x="46" y="148" width="190" height="22" rx="5" fill="#22d3ee" opacity="0.2"/>
+        <text x="141" y="163" text-anchor="middle" fill="#22d3ee" font-size="12" font-weight="700">TDog</text>
+        <text x="56" y="182" fill="#e6edf3" font-size="10">inherits fName from TAnimal</text>
+        <text x="56" y="196" fill="#e6edf3" font-size="10">+ Speak (override) → 'Woof!'</text>
+
+        <!-- TCat -->
+        <rect x="324" y="148" width="190" height="56" rx="5" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
+        <rect x="324" y="148" width="190" height="22" rx="5" fill="#22d3ee" opacity="0.2"/>
+        <text x="419" y="163" text-anchor="middle" fill="#22d3ee" font-size="12" font-weight="700">TCat</text>
+        <text x="334" y="182" fill="#e6edf3" font-size="10">inherits fName from TAnimal</text>
+        <text x="334" y="196" fill="#e6edf3" font-size="10">+ Speak (override) → 'Meow!'</text>
+      </svg>
+    </div>
+
+    <div class="code-block"><span class="code-label">Delphi — inheritance</span>
+<pre><code><span class="kw">type</span>
+  <span class="cls">TAnimal</span> = <span class="kw">class</span>
+    <span class="kw">procedure</span> Speak; <span class="kw">virtual</span>;  <span class="cmt">// can be overridden in child classes</span>
+  <span class="kw">end</span>;
+
+  <span class="cls">TDog</span> = <span class="kw">class</span>(<span class="cls">TAnimal</span>)       <span class="cmt">// inherits everything from TAnimal</span>
+    <span class="kw">procedure</span> Speak; <span class="kw">override</span>;  <span class="cmt">// replaces TAnimal.Speak</span>
+  <span class="kw">end</span>;
+
+  <span class="cls">TCat</span> = <span class="kw">class</span>(<span class="cls">TAnimal</span>)
+    <span class="kw">procedure</span> Speak; <span class="kw">override</span>;
+  <span class="kw">end</span>;</code></pre></div>
+
+    <!-- ═══════ POLYMORPHISM ═══════ -->
+    <h2>Polymorphism</h2>
+    <p>The same method name (<code>Speak</code>) behaves differently depending on the type of object. "Many forms" — <em>poly</em> = many, <em>morph</em> = form.</p>
+
+    <div class="tbl-wrap"><table>
+      <tr><th>Object</th><th>Method Called</th><th>Result</th></tr>
+      <tr><td><code>objAnimal.Speak</code></td><td>TAnimal.Speak</td><td><code>'Animal sound...'</code></td></tr>
+      <tr><td><code>objDog.Speak</code></td><td>TDog.Speak (overridden)</td><td><code>'Woof!'</code></td></tr>
+      <tr><td><code>objCat.Speak</code></td><td>TCat.Speak (overridden)</td><td><code>'Meow!'</code></td></tr>
+    </table></div>
+
+    <div class="code-block"><span class="code-label">Delphi — polymorphism</span>
+<pre><code><span class="kw">procedure</span> <span class="cls">TAnimal</span>.Speak;
+<span class="kw">begin</span>
+  ShowMessage(<span class="str">'Animal sound...'</span>);
+<span class="kw">end</span>;
+
+<span class="kw">procedure</span> <span class="cls">TDog</span>.Speak;
+<span class="kw">begin</span>
+  ShowMessage(<span class="str">'Woof!'</span>);
+<span class="kw">end</span>;
+
+<span class="kw">procedure</span> <span class="cls">TCat</span>.Speak;
+<span class="kw">begin</span>
+  ShowMessage(<span class="str">'Meow!'</span>);
+<span class="kw">end</span>;</code></pre></div>
+
+    <!-- ═══════ TYPES OF METHODS ═══════ -->
+    <h2>Types of Methods</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Method Type</th><th>Keyword</th><th>Description</th></tr>
+      <tr><td><strong>Constructor</strong></td><td><code>constructor</code></td><td>Creates the object and sets initial attribute values. Called on the class name: <code>TCat.Create(...)</code></td></tr>
+      <tr><td><strong>Accessor (getter)</strong></td><td><code>function</code></td><td>Returns the value of a private attribute. Read-only access.</td></tr>
+      <tr><td><strong>Mutator (setter)</strong></td><td><code>procedure</code></td><td>Updates the value of a private attribute. Can include validation.</td></tr>
+      <tr><td><strong>ToString</strong></td><td><code>function</code></td><td>Returns a string representation of the object's state — used for display.</td></tr>
+      <tr><td><strong>Auxiliary</strong></td><td><code>private</code></td><td>Internal helper methods used by other methods, not accessible from outside.</td></tr>
+    </table></div>
+
+    <div class="callout tip">
+      <div class="callout-title">What does an auxiliary method actually do?</div>
+      <p>An <strong>auxiliary method</strong> is a private helper that does one small job for an accessor or mutator, so that method doesn't get cluttered with extra logic. It takes the data it's given, processes it, and returns the result — it never changes the object's attributes itself. Using auxiliary methods reduces complexity inside a class and keeps each method focused on a single task.</p>
+      <div class="code-block"><span class="code-label">Delphi — an auxiliary method used by ToString</span>
+<pre><code><span class="kw">private</span>
+  <span class="kw">function</span> FormatWeight(rWeight: <span class="kw2">real</span>): <span class="kw2">string</span>;  <span class="cmt">// auxiliary — helper only, not called from outside the class</span>
+<span class="kw">public</span>
+  <span class="kw">function</span> ToString: <span class="kw2">string</span>;
+
+<span class="cmt">// ...</span>
+<span class="kw">function</span> <span class="cls">TCat</span>.FormatWeight(rWeight: <span class="kw2">real</span>): <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  Result := FloatToStrF(rWeight, ffFixed, <span class="num">4</span>, <span class="num">1</span>) + <span class="str">'kg'</span>;  <span class="cmt">// just formats — doesn't change fWeight</span>
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TCat</span>.ToString: <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  Result := fName + <span class="str">', '</span> + FormatWeight(fWeight);  <span class="cmt">// ToString calls the auxiliary method</span>
+<span class="kw">end</span>;</code></pre></div>
+    </div>
+
+    <!-- ═══════ HOW TO CREATE A CLASS ═══════ -->
+    <h2>How to Create a Class in Delphi</h2>
+    <ol>
+      <li>Go to <strong>File → New → Unit – Delphi</strong> to create a new blank unit.</li>
+      <li>Save it in the <strong>same folder</strong> as your project (e.g. <code>UCar.pas</code>).</li>
+      <li>Type the class structure in the <code>interface</code> section (see template below).</li>
+      <li>Press <kbd>Ctrl+Shift+C</kbd> — Delphi auto-generates the method bodies in the <code>implementation</code> section.</li>
+      <li>Fill in the code inside each method body.</li>
+      <li>In your main form unit, add the unit name to the <code>uses</code> clause (e.g. <code>uses ..., UCar;</code>).</li>
+    </ol>
+
+    <div class="callout warning">
+      <div class="callout-title">Ctrl+Shift+C is your best friend!</div>
+      <p>After writing the class declaration in the <code>interface</code> section, press <kbd>Ctrl+Shift+C</kbd> and Delphi automatically creates all the empty method implementations in the <code>implementation</code> section. You just fill in the code.</p>
+    </div>
+
+    <!-- ═══════ TCat CLASS ═══════ -->
+    <h2>Complete Class Example — TCat</h2>
+    <div class="code-block"><span class="code-label">Delphi — TCat unit (UCat.pas)</span>
+<pre><code><span class="kw">unit</span> UCat;
+
+<span class="kw">interface</span>
+
+<span class="kw">type</span>
+  <span class="cls">TCat</span> = <span class="kw">class</span>
+  <span class="kw">private</span>
+    fName   : <span class="kw2">string</span>;
+    fAge    : <span class="kw2">integer</span>;
+    fWeight : <span class="kw2">real</span>;
+  <span class="kw">public</span>
+    <span class="kw">constructor</span> Create(sName: <span class="kw2">string</span>; iAge: <span class="kw2">integer</span>; rWeight: <span class="kw2">real</span>);
+    <span class="kw">function</span>    GetName   : <span class="kw2">string</span>;
+    <span class="kw">function</span>    GetAge    : <span class="kw2">integer</span>;
+    <span class="kw">function</span>    GetWeight : <span class="kw2">real</span>;
+    <span class="kw">procedure</span>   SetName(sNew: <span class="kw2">string</span>);
+    <span class="kw">function</span>    ToString  : <span class="kw2">string</span>;
+  <span class="kw">end</span>;
+
+<span class="kw">implementation</span>
+
+<span class="kw">constructor</span> <span class="cls">TCat</span>.Create(sName: <span class="kw2">string</span>; iAge: <span class="kw2">integer</span>; rWeight: <span class="kw2">real</span>);
+<span class="kw">begin</span>
+  fName   := sName;
+  fAge    := iAge;
+  fWeight := rWeight;
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TCat</span>.GetName : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  Result := fName;
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TCat</span>.GetAge : <span class="kw2">integer</span>;
+<span class="kw">begin</span>
+  Result := fAge;
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TCat</span>.GetWeight : <span class="kw2">real</span>;
+<span class="kw">begin</span>
+  Result := fWeight;
+<span class="kw">end</span>;
+
+<span class="kw">procedure</span> <span class="cls">TCat</span>.SetName(sNew: <span class="kw2">string</span>);
+<span class="kw">begin</span>
+  fName := sNew;
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TCat</span>.ToString : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  Result := fName + <span class="str">', Age: '</span> + IntToStr(fAge)
+          + <span class="str">', Weight: '</span> + FloatToStr(fWeight) + <span class="str">'kg'</span>;
+<span class="kw">end</span>;
+
+<span class="kw">end</span>.</code></pre></div>
+
+    <!-- ═══════ TCar CLASS ═══════ -->
+    <h2>Practice Example — TCar Class</h2>
+    <p>This is the kind of class you will write in a Grade 12 exam. Study the pattern carefully — constructor, accessors, mutator, ToString.</p>
+
+    <div class="code-block"><span class="code-label">Delphi — UCar.pas (complete working class)</span>
+<pre><code><span class="kw">unit</span> UCar;
+
+<span class="kw">interface</span>
+
+<span class="kw">type</span>
+  <span class="cls">TCar</span> = <span class="kw">class</span>
+  <span class="kw">private</span>
+    fMake  : <span class="kw2">string</span>;    <span class="cmt">// e.g. 'Toyota'</span>
+    fYear  : <span class="kw2">integer</span>;   <span class="cmt">// e.g. 2022</span>
+  <span class="kw">public</span>
+    <span class="kw">constructor</span> Create(sMake: <span class="kw2">string</span>; iYear: <span class="kw2">integer</span>);
+    <span class="kw">function</span>    GetMake  : <span class="kw2">string</span>;
+    <span class="kw">function</span>    GetYear  : <span class="kw2">integer</span>;
+    <span class="kw">procedure</span>   SetMake(sNewMake: <span class="kw2">string</span>);
+    <span class="kw">function</span>    ToString : <span class="kw2">string</span>;
+  <span class="kw">end</span>;
+
+<span class="kw">implementation</span>
+
+<span class="kw">constructor</span> <span class="cls">TCar</span>.Create(sMake: <span class="kw2">string</span>; iYear: <span class="kw2">integer</span>);
+<span class="kw">begin</span>
+  fMake := sMake;
+  fYear := iYear;
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TCar</span>.GetMake : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  Result := fMake;
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TCar</span>.GetYear : <span class="kw2">integer</span>;
+<span class="kw">begin</span>
+  Result := fYear;
+<span class="kw">end</span>;
+
+<span class="kw">procedure</span> <span class="cls">TCar</span>.SetMake(sNewMake: <span class="kw2">string</span>);
+<span class="kw">begin</span>
+  fMake := sNewMake;    <span class="cmt">// could add validation here (e.g. check not empty)</span>
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TCar</span>.ToString : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  Result := fMake + <span class="str">' ('</span> + IntToStr(fYear) + <span class="str">')'</span>;
+  <span class="cmt">// Output example: 'Toyota (2022)'</span>
+<span class="kw">end</span>;
+
+<span class="kw">end</span>.</code></pre></div>
+
+    <h3>Using TCar in the Main Form</h3>
+    <div class="code-block"><span class="code-label">Delphi — main form unit</span>
+<pre><code><span class="cmt">// 1. Add UCar to uses clause of the main form</span>
+<span class="kw">uses</span>
+  ..., UCar;
+
+<span class="cmt">// 2. Declare object variable (global or local)</span>
+<span class="kw">var</span>
+  objCar : <span class="cls">TCar</span>;
+
+<span class="cmt">// 3. Create the object — in a button click or FormCreate</span>
+objCar := <span class="cls">TCar</span>.Create(<span class="str">'Toyota'</span>, <span class="num">2022</span>);
+
+<span class="cmt">// 4. Read values using accessors</span>
+lblMake.Caption := objCar.GetMake;                 <span class="cmt">// 'Toyota'</span>
+lblYear.Caption := IntToStr(objCar.GetYear);       <span class="cmt">// '2022'</span>
+memOut.Lines.Add(objCar.ToString);                 <span class="cmt">// 'Toyota (2022)'</span>
+
+<span class="cmt">// 5. Update a value using mutator</span>
+objCar.SetMake(<span class="str">'Honda'</span>);
+lblMake.Caption := objCar.GetMake;                 <span class="cmt">// 'Honda'</span></code></pre></div>
+
+    <figure class="img-center">
+      <img src="images/oop-object-create.png" alt="Creating an object from the TCat class" class="img-center">
+      <figcaption class="img-caption">Creating an object from the TCat class</figcaption>
+    </figure>
+
+    <div class="callout warning">
+      <div class="callout-title">Always create before use!</div>
+      <p>Always call <code>Create</code> before using any other method. The object does not exist until it is created. Also make sure the class unit name is in the <code>uses</code> clause of your main form.</p>
+    </div>
+
+    <!-- ═══════ USING TCat IN FORM ═══════ -->
+    <h2>Using a Class in the Main Form</h2>
+    <div class="code-block"><span class="code-label">Delphi — main form (TCat example)</span>
+<pre><code><span class="kw">uses</span>
+  ..., UCat;
+
+<span class="kw">var</span>
+  objCat : <span class="cls">TCat</span>;
+
+<span class="cmt">// Create the object</span>
+objCat := <span class="cls">TCat</span>.Create(<span class="str">'Whiskers'</span>, <span class="num">3</span>, <span class="num">4.2</span>);
+
+<span class="cmt">// Use its accessors</span>
+lblName.Caption := objCat.GetName;           <span class="cmt">// 'Whiskers'</span>
+lblAge.Caption  := IntToStr(objCat.GetAge);  <span class="cmt">// '3'</span>
+memOut.Lines.Add(objCat.ToString);           <span class="cmt">// 'Whiskers, Age: 3, Weight: 4.2kg'</span>
+
+<span class="cmt">// Update via mutator</span>
+objCat.SetName(<span class="str">'Felix'</span>);
+lblName.Caption := objCat.GetName;           <span class="cmt">// 'Felix'</span></code></pre></div>
+
+    <!-- ═══════ DYNAMIC COMPONENTS ═══════ -->
+    <h2>Dynamic Components — Creating Controls at Runtime</h2>
+    <p>You already know that every Delphi control is an <strong>object of a class</strong> (a button is a <code>TButton</code>, a label is a <code>TLabel</code>). Because they are classes, you can <strong>create them in code while the program is running</strong> using the same <code>Create</code> constructor you use for your own classes &mdash; instead of dragging them onto the form at design time.</p>
+    <p>This is called creating a <strong>dynamic component</strong>. It is useful when you don't know in advance how many controls you need (e.g. one button per record loaded from a file).</p>
+
+    <h3>The Four Steps</h3>
+    <ol>
+      <li><strong>Create</strong> the object from its class, passing the <em>owner</em> (usually the form).</li>
+      <li><strong>Set the Parent</strong> so Delphi knows <em>where</em> to draw it (which form/panel).</li>
+      <li><strong>Set properties</strong> like position, size and caption.</li>
+      <li><strong>Assign an event handler</strong> so it actually does something when clicked.</li>
+    </ol>
+
+    <div class="code-block"><span class="code-label">Delphi — create a button at runtime</span>
+<pre><code><span class="kw">var</span>
+  btnDynamic : <span class="cls">TButton</span>;
+<span class="kw">begin</span>
+  <span class="cmt">// 1. Create the object (Form1 is the owner – frees it automatically)</span>
+  btnDynamic := <span class="cls">TButton</span>.Create(Form1);
+
+  <span class="cmt">// 2. Set the Parent so it appears on the form</span>
+  btnDynamic.Parent := Form1;
+
+  <span class="cmt">// 3. Set properties</span>
+  btnDynamic.Left    := <span class="num">50</span>;
+  btnDynamic.Top     := <span class="num">50</span>;
+  btnDynamic.Width   := <span class="num">100</span>;
+  btnDynamic.Height  := <span class="num">30</span>;
+  btnDynamic.Caption := <span class="str">'Click Me'</span>;
+
+  <span class="cmt">// 4. Assign an event handler (a procedure you wrote)</span>
+  btnDynamic.OnClick := btnDynamicClick;
+<span class="kw">end</span>;
+
+<span class="cmt">// The handler the button will run when clicked</span>
+<span class="kw">procedure</span> TForm1.<span class="fn">btnDynamicClick</span>(Sender: TObject);
+<span class="kw">begin</span>
+  ShowMessage(<span class="str">'Dynamic button clicked!'</span>);
+<span class="kw">end</span>;</code></pre></div>
+
+    <div class="callout tip">
+      <div class="callout-title">Owner vs Parent — what's the difference?</div>
+      <p><strong>Owner</strong> (the argument to <code>Create</code>) is responsible for <em>freeing</em> the component from memory when the form closes. <strong>Parent</strong> decides <em>where on screen</em> the component is drawn. They are usually the same form, but not always (e.g. Owner = Form, Parent = a Panel on that form).</p>
+    </div>
+    <div class="callout warning">
+      <div class="callout-title">Avoid memory leaks</div>
+      <p>If you create a component with <code>Create(nil)</code> (no owner), <strong>you</strong> must free it yourself with <code>btnDynamic.Free;</code> when you are done, otherwise it stays in memory. Passing the form as the owner lets Delphi clean up for you automatically.</p>
+    </div>
+</section>
+
+<section class="chapter" id="ch03">
+  <div class="chapter-tag">Grade 12 &middot; Practical</div>
+<h1>2D Arrays <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">A two-dimensional array stores data in a grid of rows and columns — like a table or spreadsheet. Each element is accessed using two indices: [row, column].</p>
+<div class="term-divider"><span class="term-divider-badge">T2</span><span class="term-divider-label">Term 2 &middot; 2D Arrays &mdash; Declaration &amp; Processing</span></div>
+<h2>What is a 2D Array?</h2>
+<p>A <strong>two-dimensional (2D) array</strong> is a single variable that stores many values arranged in a grid of rows and columns. Where an ordinary (one-dimensional) array is like a single shopping list running down the page, a 2D array is like a whole spreadsheet — a block of cells where every value sits at the crossing point of a row and a column.</p>
+<p><strong>Analogy:</strong> think of a spreadsheet such as Excel. To find a cell you give a column letter and a row number — for example C5. A 2D array works exactly the same way, except we use two numbers: the first for the row and the second for the column. So <code>myArray[2,3]</code> means "the value in row 2, column 3", just like clicking one cell in a grid.</p>
+<div class="callout"><div class="callout-title">PURPOSE</div><p>We use 2D arrays to store <strong>tables of data</strong> that naturally have rows and columns — for example a class register of marks where each row is a learner and each column is a subject, a seating plan, a noughts-and-crosses board, or temperatures recorded for each day across several weeks. One neat variable holds the whole table instead of dozens of separate variables.</p></div>
+<h2>Why Do We Use 2D Arrays?</h2>
+<ul>
+  <li><strong>Related data stays together</strong> – instead of <code>mark1</code>, <code>mark2</code>, <code>mark3</code> … you keep every mark in one organised grid.</li>
+  <li><strong>Rows and columns have meaning</strong> – a row can represent one learner and a column one subject, so the position itself tells you what the value is.</li>
+  <li><strong>Loops do the heavy lifting</strong> – because the data is regular, two nested loops can fill, display or total the entire table in a few lines.</li>
+</ul>
+<h2>Declaration</h2>
+<p>Before you can use a 2D array you must <strong>declare</strong> it, telling Delphi how many rows and columns it has and what type of data each cell holds. You give two ranges in the square brackets: the first range is the rows and the second is the columns.</p>
+<div class="code-block"><span class="code-label">Syntax</span>
+<pre><code><span class="kw">var</span>
+  arrName : <span class="kw">array</span> [rowStart..rowEnd, colStart..colEnd] <span class="kw">of</span> DataType;</code></pre></div>
+<div class="code-block"><span class="code-label">Delphi — 2x3 integer array</span>
+<pre><code><span class="kw">var</span>
+  myArray : <span class="kw">array</span> [<span class="num">1</span>..<span class="num">2</span>, <span class="num">1</span>..<span class="num">3</span>] <span class="kw">of</span> <span class="kw2">Integer</span>;</code></pre></div>
+<p>The example above creates a grid with 2 rows and 3 columns, giving 6 integer cells in total. <strong>Note:</strong> the ranges can start at any number, but in CAPS we almost always start at 1 so that "row 1" really is the first row.</p>
+<h2>Visualising a 2D Array</h2>
+<p>The table below shows how the index numbers map onto the grid. Read it like a spreadsheet: pick a row down the side and a column across the top, and the cell where they meet is the array element you are referring to.</p>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Col 1</th><th>Col 2</th><th>Col 3</th></tr>
+  <tr><td><strong>Row 1</strong></td><td>myArray[1,1]</td><td>myArray[1,2]</td><td>myArray[1,3]</td></tr>
+  <tr><td><strong>Row 2</strong></td><td>myArray[2,1]</td><td>myArray[2,2]</td><td>myArray[2,3]</td></tr>
+</table></div>
+<h2>Populating a 2D Array</h2>
+<p><strong>Populating</strong> means putting values into the cells. There are two common ways: assigning each cell one by one (fine for a few known values), or using nested loops to fill the whole grid quickly.</p>
+<h3>Fixed values</h3>
+<p>Here we set each cell directly by naming its row and column. This is clear but tedious — imagine doing it for a 30 × 6 register. Use it only when you have a handful of specific values to place.</p>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>myArray[<span class="num">1</span>,<span class="num">1</span>] := <span class="num">10</span>;  myArray[<span class="num">1</span>,<span class="num">2</span>] := <span class="num">20</span>;  myArray[<span class="num">1</span>,<span class="num">3</span>] := <span class="num">30</span>;
+myArray[<span class="num">2</span>,<span class="num">1</span>] := <span class="num">40</span>;  myArray[<span class="num">2</span>,<span class="num">2</span>] := <span class="num">50</span>;  myArray[<span class="num">2</span>,<span class="num">3</span>] := <span class="num">60</span>;</code></pre></div>
+<h3>Nested FOR loops (most common)</h3>
+<p>This is the technique you will use most often. The <strong>outer loop</strong> moves through the rows; for each row the <strong>inner loop</strong> moves through every column. The result is that the inner loop runs completely for each turn of the outer loop, so the code visits every cell, one full row at a time — exactly like reading a spreadsheet left-to-right, then dropping down to the next line.</p>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">var</span>
+  myArray : <span class="kw">array</span> [<span class="num">1</span>..<span class="num">3</span>, <span class="num">1</span>..<span class="num">4</span>] <span class="kw">of</span> <span class="kw2">Integer</span>;
+  r, c    : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  <span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> <span class="num">3</span> <span class="kw">do</span>
+    <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> <span class="num">4</span> <span class="kw">do</span>
+      myArray[r, c] := r * c;   <span class="cmt">// e.g. row 2, col 3 = 6</span>
+<span class="kw">end</span>;</code></pre></div>
+<h2>Displaying a 2D Array</h2>
+<p>To show the grid neatly we again use nested loops, but this time we build up one line of text per row. For each row we start with an empty string, add every column value to it (padding each so the columns line up), and only then add the finished line to the memo. <strong>Important Rule:</strong> the line is built inside the inner loop but written out in the outer loop — that is what keeps each row on its own line.</p>
+<div class="code-block"><span class="code-label">Delphi — display as table in memo</span>
+<pre><code><span class="kw">var</span>
+  sLine: <span class="kw2">string</span>;
+  r, c:  <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  memOut.Clear;
+  <span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> <span class="num">3</span> <span class="kw">do</span>
+  <span class="kw">begin</span>
+    sLine := <span class="str">''</span>;
+    <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> <span class="num">4</span> <span class="kw">do</span>
+      sLine := sLine + IntToStr(myArray[r,c]).PadLeft(<span class="num">5</span>);
+    memOut.Lines.Add(sLine);
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</code></pre></div>
+<h2>Calculations on 2D Arrays</h2>
+<p>A big reason for using a grid is to add things up. The trick is knowing which index to <strong>fix</strong> and which to <strong>vary</strong>. If you think of the class register again: a <strong>row total</strong> is one learner's marks added across all subjects, while a <strong>column total</strong> is one subject's marks added across all learners.</p>
+<h3>Row total</h3>
+<p>To total a single row we <strong>fix the row number</strong> (here row 1) and let the column index <code>c</code> change. The loop walks across that one row, adding each cell to a running total. This answers "what is everything in this row added together?" — for example one learner's total mark.</p>
+<div class="code-block"><span class="code-label">Delphi — total of row 1</span>
+<pre><code>iTotal := <span class="num">0</span>;
+<span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> <span class="num">4</span> <span class="kw">do</span>
+  iTotal := iTotal + myArray[<span class="num">1</span>, c];</code></pre></div>
+<h3>Column total</h3>
+<p>Now we do the opposite: we <strong>fix the column number</strong> (here column 2) and let the row index <code>r</code> change. The loop runs straight down that one column, adding each cell. This answers "what is everything in this column added together?" — for example the total of all learners' marks for one subject.</p>
+<div class="code-block"><span class="code-label">Delphi — total of column 2</span>
+<pre><code>iTotal := <span class="num">0</span>;
+<span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> <span class="num">3</span> <span class="kw">do</span>
+  iTotal := iTotal + myArray[r, <span class="num">2</span>];</code></pre></div>
+<h3>Grand total of all elements</h3>
+<p>To add up <strong>every</strong> cell in the whole grid we need nested loops again — the outer loop for rows, the inner loop for columns — so the running total picks up each cell exactly once. This is how you would work out the grand total of all marks for the entire class across all subjects.</p>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>iTotal := <span class="num">0</span>;
+<span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> <span class="num">3</span> <span class="kw">do</span>
+  <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> <span class="num">4</span> <span class="kw">do</span>
+    iTotal := iTotal + myArray[r, c];</code></pre></div>
+
+<h2>Worked Example — Class Register Report</h2>
+<p>A full exam question ties the pieces together: a 2D array of marks, a <strong>parallel 1D array</strong> of names, nested loops, and both a row and a column calculation. Here the grid <code>arrMark</code> holds marks for each learner (rows) across 4 subjects (columns), and <code>arrName</code> holds the matching learner names.</p>
+<div class="code-block"><span class="code-label">Delphi — global declarations</span>
+<pre><code><span class="kw">const</span>
+  LEARNERS = <span class="num">5</span>;
+  SUBJECTS = <span class="num">4</span>;
+<span class="kw">var</span>
+  arrMark : <span class="kw">array</span>[<span class="num">1</span>..LEARNERS, <span class="num">1</span>..SUBJECTS] <span class="kw">of</span> <span class="kw2">Integer</span>;   <span class="cmt">// the grid: row = learner, col = subject</span>
+  arrName : <span class="kw">array</span>[<span class="num">1</span>..LEARNERS] <span class="kw">of</span> <span class="kw2">string</span>;              <span class="cmt">// parallel to the rows</span></code></pre></div>
+<p><code>arrName[r]</code> is the name of the learner whose marks are in <code>arrMark[r, 1..SUBJECTS]</code> — the name array runs parallel to the <em>rows</em> of the grid.</p>
+
+<h3>Part (a) — Each learner's average (a row calculation)</h3>
+<p>Fix the row (one learner) and loop across the columns to total their subjects, then divide.</p>
+<div class="code-block"><span class="code-label">Delphi — print name + average per learner</span>
+<pre><code><span class="kw">var</span>
+  r, c, iRowTotal : <span class="kw2">Integer</span>;
+  rAvg            : <span class="kw2">Real</span>;
+<span class="kw">begin</span>
+  <span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> LEARNERS <span class="kw">do</span>
+  <span class="kw">begin</span>
+    iRowTotal := <span class="num">0</span>;
+    <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> SUBJECTS <span class="kw">do</span>
+      iRowTotal := iRowTotal + arrMark[r, c];
+    rAvg := iRowTotal / SUBJECTS;
+    memOut.Lines.Add(arrName[r] + <span class="str">': '</span> +
+                     FloatToStrF(rAvg, ffFixed, <span class="num">4</span>, <span class="num">1</span>) + <span class="str">'%'</span>);
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</code></pre></div>
+
+<h3>Part (b) — The best subject (a column calculation + finding a max)</h3>
+<p>Now fix each column (one subject) and loop <em>down</em> the rows to average that subject across all learners, keeping track of the highest.</p>
+<div class="code-block"><span class="code-label">Delphi — subject with the highest class average</span>
+<pre><code><span class="kw">var</span>
+  r, c, iColTotal, iBestCol : <span class="kw2">Integer</span>;
+  rColAvg, rBestAvg         : <span class="kw2">Real</span>;
+<span class="kw">begin</span>
+  iBestCol := <span class="num">1</span>;
+  rBestAvg := <span class="num">0</span>;
+  <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> SUBJECTS <span class="kw">do</span>
+  <span class="kw">begin</span>
+    iColTotal := <span class="num">0</span>;
+    <span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> LEARNERS <span class="kw">do</span>
+      iColTotal := iColTotal + arrMark[r, c];
+    rColAvg := iColTotal / LEARNERS;
+    <span class="kw">if</span> rColAvg &gt; rBestAvg <span class="kw">then</span>
+    <span class="kw">begin</span>
+      rBestAvg := rColAvg;
+      iBestCol := c;               <span class="cmt">// remember WHICH subject</span>
+    <span class="kw">end</span>;
+  <span class="kw">end</span>;
+  ShowMessage(<span class="str">'Best subject: column '</span> + IntToStr(iBestCol) +
+              <span class="str">' (average '</span> + FloatToStrF(rBestAvg, ffFixed, <span class="num">4</span>, <span class="num">1</span>) + <span class="str">'%)'</span>);
+<span class="kw">end</span>;</code></pre></div>
+
+<div class="callout tip">
+  <div class="callout-title">The pattern to remember</div>
+  <p><strong>Row calculation</strong> → fix the row, loop the columns (one learner across all subjects). <strong>Column calculation</strong> → fix the column, loop the rows (one subject down all learners). To find a "best/worst", store the <em>index</em> as you go — that index links straight back to the parallel <code>arrName</code>.</p>
+</div>
+</section>
+
+<section class="chapter" id="ch04">
+  <div class="chapter-tag">Grade 12 &middot; Practical</div>
+<h1>Recursion in Delphi <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">Recursion is when a function or procedure calls itself repeatedly until a base condition is met. It is a powerful technique for problems that can be broken down into smaller versions of the same problem.</p>
+<div class="term-divider"><span class="term-divider-badge">T3</span><span class="term-divider-label">Term 3 &middot; Recursive Functions &amp; Base Cases</span></div>
+<h2>What is Recursion?</h2>
+<p><strong>Recursion</strong> is when a function calls itself to solve a smaller version of the same problem, again and again, until the problem becomes so small it can be answered directly.</p>
+<p><strong>Analogy:</strong> picture a set of Russian nesting dolls. You open the biggest doll and find a smaller doll inside, open that and find a smaller one still, and you keep going until you reach the tiny doll that does not open. Recursion works the same way — each call opens up a slightly smaller version of the problem, and the smallest doll (the one that does not open) is the point where you stop.</p>
+<p>A <strong>recursive</strong> routine is one that calls itself. Every recursive solution must have two parts:</p>
+<ul>
+  <li><strong>Base case</strong> — the condition that stops the recursion (essential — without it you get infinite recursion)</li>
+  <li><strong>Recursive case</strong> — the part where the function calls itself with a simpler input</li>
+</ul>
+<div class="callout warning"><div class="callout-title">Always have a base case</div><p>A recursive function without a base case will call itself forever, causing a stack overflow error and crashing the program.</p></div>
+<h2>Example 1 — Factorial</h2>
+<p>Factorial of n (written n!) = n × (n-1) × (n-2) × … × 1. Example: 5! = 5 × 4 × 3 × 2 × 1 = 120</p>
+<div class="code-block"><span class="code-label">Delphi — recursive factorial</span>
+<pre><code><span class="kw">function</span> <span class="fn">Factorial</span>(n: <span class="kw2">Integer</span>): <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  <span class="kw">if</span> n &lt;= <span class="num">1</span> <span class="kw">then</span>           <span class="cmt">// base case: factorial of 0 or 1 is 1</span>
+    Result := <span class="num">1</span>
+  <span class="kw">else</span>                      <span class="cmt">// recursive case</span>
+    Result := n * Factorial(n - <span class="num">1</span>);
+<span class="kw">end</span>;
+
+<span class="cmt">// Calling it:</span>
+lblResult.Caption := IntToStr(Factorial(<span class="num">5</span>));  <span class="cmt">// = 120</span></code></pre></div>
+<h3>Trace — how Factorial(4) executes</h3>
+<div class="code-block"><span class="code-label">Trace</span>
+<pre><code>Factorial(4)
+  = 4 * Factorial(3)
+      = 3 * Factorial(2)
+          = 2 * Factorial(1)
+              = 1        ← base case reached
+          = 2 * 1 = 2
+      = 3 * 2 = 6
+  = 4 * 6 = 24</code></pre></div>
+<h2>Example 2 — Sum of 1 to N</h2>
+<div class="code-block"><span class="code-label">Delphi — recursive sum</span>
+<pre><code><span class="kw">function</span> <span class="fn">SumToN</span>(n: <span class="kw2">Integer</span>): <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  <span class="kw">if</span> n &lt;= <span class="num">0</span> <span class="kw">then</span>
+    Result := <span class="num">0</span>           <span class="cmt">// base case</span>
+  <span class="kw">else</span>
+    Result := n + SumToN(n - <span class="num">1</span>);  <span class="cmt">// recursive case</span>
+<span class="kw">end</span>;
+
+<span class="cmt">// SumToN(4) = 4 + 3 + 2 + 1 + 0 = 10</span></code></pre></div>
+<h2>Example 3 — Power (x to the power of n)</h2>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">function</span> <span class="fn">PowerOf</span>(base, exp: <span class="kw2">Integer</span>): <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  <span class="kw">if</span> exp = <span class="num">0</span> <span class="kw">then</span>
+    Result := <span class="num">1</span>                            <span class="cmt">// base case: x^0 = 1</span>
+  <span class="kw">else</span>
+    Result := base * PowerOf(base, exp - <span class="num">1</span>); <span class="cmt">// recursive</span>
+<span class="kw">end</span>;
+
+<span class="cmt">// PowerOf(2, 4) = 2*2*2*2 = 16</span></code></pre></div>
+<h2>Example 4 — Fibonacci Sequence</h2>
+<p>Each number is the sum of the previous two: 0, 1, 1, 2, 3, 5, 8, 13…</p>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">function</span> <span class="fn">Fibonacci</span>(n: <span class="kw2">Integer</span>): <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  <span class="kw">if</span> n &lt;= <span class="num">1</span> <span class="kw">then</span>
+    Result := n                            <span class="cmt">// base cases: F(0)=0, F(1)=1</span>
+  <span class="kw">else</span>
+    Result := Fibonacci(n - <span class="num">1</span>) + Fibonacci(n - <span class="num">2</span>);
+<span class="kw">end</span>;</code></pre></div>
+<h2>Recursion vs Iteration</h2>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Recursion</th><th>Iteration (loop)</th></tr>
+  <tr><td><strong>How it works</strong></td><td>Function calls itself</td><td>Loop repeats a block</td></tr>
+  <tr><td><strong>Code clarity</strong></td><td>Often more elegant for naturally recursive problems</td><td>Usually easier to trace and debug</td></tr>
+  <tr><td><strong>Memory use</strong></td><td>Uses call stack (risk of stack overflow for large n)</td><td>Constant memory use</td></tr>
+  <tr><td><strong>Speed</strong></td><td>Can be slower due to function call overhead</td><td>Generally faster</td></tr>
+  <tr><td><strong>Best for</strong></td><td>Tree traversal, divide-and-conquer algorithms</td><td>Simple counting and totalling</td></tr>
+</table></div>
+<h2>Key Rules for Writing Recursive Functions</h2>
+<ol>
+  <li><strong>Always define a base case</strong> that returns a value without calling itself</li>
+  <li><strong>Each recursive call must move toward the base case</strong> (e.g. decrease n by 1)</li>
+  <li><strong>Test with small values first</strong> — trace through manually</li>
+  <li><strong>Use a function</strong> (not procedure) so it can return a value</li>
+</ol>
+</section>
+
+<section class="chapter" id="ch05">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Data Collection &amp; Warehousing <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">Modern databases are fed by many automated data collection methods. Large organisations store historical data in warehouses for analysis and decision-making.</p>
+<div class="term-divider"><span class="term-divider-badge">T1</span><span class="term-divider-label">Term 1 &middot; Data Collection &amp; Warehousing</span></div>
+<h2>Methods of Data Collection</h2>
+<p><strong>Data collection</strong> is the process of gathering raw facts and figures from many different sources so that they can be stored, processed and turned into useful information. In the old days a person sat with a clipboard and wrote everything down by hand. Today most data is collected <strong>automatically</strong> — every time you swipe a card, drive under an e-toll gantry or tap a website, data is being captured about you without anyone writing a single thing.</p>
+<div class="callout"><div class="callout-title">WHY THIS MATTERS</div><p>A database is only as good as the data inside it. The more accurate, complete and up-to-date the collected data is, the better the decisions an organisation can make. Automated collection means more data, collected faster, with fewer human mistakes.</p></div>
+<p><strong>Example:</strong> When you scan your Pick n Pay Smart Shopper card at the till, the shop instantly records what you bought, when, where and for how much — that single swipe feeds a database that the shop later uses to send you targeted specials.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Method</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>Forms (manual)</strong></td><td>User types data directly into a form</td><td>School registration, job application</td></tr>
+  <tr><td><strong>Web forms</strong></td><td>Online interactive pages with GUI components (dropdowns, checkboxes)</td><td>Online survey, account sign-up</td></tr>
+  <tr><td><strong>RFID tags</strong></td><td>Wireless chips store ID data, read without contact</td><td>Library books, inventory, e-toll, access cards</td></tr>
+  <tr><td><strong>Digital sensors</strong></td><td>Gather environmental data automatically</td><td>Temperature sensors, motion detectors</td></tr>
+  <tr><td><strong>Cookies</strong></td><td>Small files stored by websites to record browsing behaviour and preferences</td><td>Login sessions, shopping carts, ad targeting</td></tr>
+  <tr><td><strong>Transaction tracking</strong></td><td>Records each purchase: date, time, location, product, amount</td><td>Credit card transactions, loyalty cards</td></tr>
+  <tr><td><strong>Mobile apps</strong></td><td>Collect app usage, location, device data</td><td>Uber location tracking, fitness app steps</td></tr>
+</table></div>
+<h2>Static vs Dynamic Location Data</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>Static</strong></td><td>Fixed, does not change once recorded</td><td>Address of a shop, GPS coordinates of a landmark</td></tr>
+  <tr><td><strong>Dynamic</strong></td><td>Changes as the object moves, updated continuously</td><td>Uber driver location, delivery truck tracking</td></tr>
+</table></div>
+<h2>Data Warehousing</h2>
+<p>A <strong>data warehouse</strong> is a large central storage system that collects and consolidates <strong>historical</strong> data from many separate source databases into one single place, so that it can be analysed for trends and decision-making.</p>
+<p>Think of it like this: a normal database is like the till at one Pick n Pay branch — it records today's sales as they happen. A data warehouse is like head office in Cape Town, where the sales from <em>every</em> branch in the country, going back many years, are all poured into one giant store. Head office does not use this to ring up a sale; they use it to spot the big picture — which products sell best in winter, which branches are growing, where to open the next store.</p>
+<div class="callout"><div class="callout-title">KEY CHARACTERISTICS</div><p><strong>Central</strong> – one single store that brings many sources together.<br><strong>Historical</strong> – it keeps years of old data, not just today's transactions.<br><strong>Read-mostly</strong> – data is loaded in and then read for reports; it is not constantly changed.<br><strong>Subject-oriented</strong> – organised around topics like "sales" or "customers" for easy analysis.</p></div>
+<p><strong>Note:</strong> Because a warehouse holds so much data from so many sources, the data must first be <em>cleaned</em> and put into a consistent format before it is loaded in — otherwise the same customer might appear three different ways and the analysis would be wrong.</p>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Database</th><th>Data Warehouse</th></tr>
+  <tr><td><strong>Purpose</strong></td><td>Day-to-day transactions</td><td>Historical analysis and reporting</td></tr>
+  <tr><td><strong>Data</strong></td><td>Current transactions only</td><td>Historical data from many sources</td></tr>
+  <tr><td><strong>Operations</strong></td><td>Read + write (INSERT, UPDATE, DELETE)</td><td>Mostly read (SELECT, reports)</td></tr>
+  <tr><td><strong>Used by</strong></td><td>Operational staff</td><td>Analysts, management, BI tools</td></tr>
+</table></div>
+<h2>Data Mining</h2>
+<p><strong>Data mining</strong> is the process of analysing very large datasets to discover hidden patterns, trends and useful relationships that a human could never spot by eye. The name is a good clue: just as a gold miner digs through tonnes of rock to find a few grams of gold, data mining digs through millions of records to find the valuable nuggets of knowledge buried inside.</p>
+<h3 id="why-mine">Why Do Companies Mine Data?</h3>
+<p>Companies collect enormous amounts of data, but raw data on its own is useless — it is just numbers and words. Data mining turns that raw data into <strong>insight</strong> they can act on. For example, Pick n Pay's Smart Shopper data might reveal that customers who buy nappies on a Friday evening also tend to buy snacks — so the shop places those products near each other and increases sales. Nobody told the computer to look for that link; the pattern was <em>mined</em> out of the data.</p>
+<h3>Process</h3>
+<ol>
+  <li><strong>Extract relevant data</strong> — use SQL to pull only the required subset</li>
+  <li><strong>Look for patterns</strong> — analyse for trends, correlations, anomalies</li>
+  <li><strong>Discover knowledge</strong> — turn patterns into actionable insights</li>
+</ol>
+<h3>Applications</h3>
+<ul>
+  <li><strong>Marketing</strong>: target campaigns based on customer age, interests, behaviour</li>
+  <li><strong>Healthcare</strong>: predict patient risk factors from historical data</li>
+  <li><strong>Government</strong>: determine social grant thresholds</li>
+  <li><strong>Social media</strong>: Facebook mines your likes to suggest friends and content</li>
+</ul>
+<h2>Caring for Data</h2>
+<p><strong>Caring for data</strong> means protecting the accuracy, security and availability of an organisation's data throughout its life. Data is one of the most valuable assets a company owns — often worth more than its buildings or equipment — because decisions, money and reputations all depend on it. Poor data leads to poor decisions, and lost data can shut a business down completely.</p>
+<div class="callout warning"><div class="callout-title">IMPORTANT RULE</div><p>"Garbage in, garbage out." If incorrect data goes into the system, only incorrect information can come out — no matter how clever your analysis is. This is why validation and verification at the point of capture are so important.</p></div>
+<p>Below are the main ways an organisation looks after its data. Notice how each one protects against a different danger — wrong data, lost data, or stolen data.</p>
+<ul>
+  <li><strong>Validation</strong> — ensure entered data meets rules (format, range, type)</li>
+  <li><strong>Verification</strong> — ensure data is correct and intentional (double entry, confirmation)</li>
+  <li><strong>Logging</strong> — audit trail recording who changed what and when</li>
+  <li><strong>Access control</strong> — passwords, user rights, encryption</li>
+  <li><strong>Parallel data sets</strong> — duplicate copies in separate locations for disaster recovery</li>
+</ul>
+</section>
+
+<section class="chapter" id="ch06">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Relational Databases &amp; Normalisation <span class="grade-badge">Grade 12</span></h1>
+  <p class="page-intro">A relational database stores data in structured tables linked together. Normalisation is the process of cleaning up a database design to remove repetition and prevent errors.</p>
+
+  <div class="term-divider"><span class="term-divider-badge">T1</span><span class="term-divider-label">Term 1 &middot; Relational Databases &amp; Normalisation</span></div>
+
+  <h2>What is a Relational Database?</h2>
+  <p>A relational database stores data in <strong>tables</strong> (also called relations). Each table represents one type of thing — for example, a table for students, a separate table for subjects. Tables are then <strong>linked</strong> together using key fields.</p>
+
+  <!-- TABLE DIAGRAM SVG -->
+  <div style="margin:1.5rem 0;overflow-x:auto">
+    <svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:640px">
+      <!-- tblStudents -->
+      <rect x="20" y="10" width="260" height="200" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+      <rect x="20" y="10" width="260" height="34" rx="6" fill="#fbbf24" opacity="0.2"/>
+      <rect x="20" y="10" width="260" height="34" fill="none" stroke="#fbbf24" stroke-width="1.5" rx="6"/>
+      <text x="150" y="33" text-anchor="middle" font-size="13" font-weight="700" fill="#fbbf24" font-family="Consolas,monospace">tblStudents</text>
+      <!-- headers -->
+      <rect x="21" y="44" width="258" height="24" fill="#21262d"/>
+      <text x="35" y="61" font-size="11" fill="#8b949e" font-family="Consolas,monospace">StudentID</text>
+      <text x="120" y="61" font-size="11" fill="#8b949e" font-family="Consolas,monospace">Name</text>
+      <text x="200" y="61" font-size="11" fill="#8b949e" font-family="Consolas,monospace">ClassID</text>
+      <!-- PK indicator -->
+      <text x="22" y="61" font-size="11" fill="#fbbf24">🔑</text>
+      <!-- row 1 -->
+      <line x1="21" y1="68" x2="279" y2="68" stroke="#30363d"/>
+      <text x="35" y="83" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">1</text>
+      <text x="120" y="83" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">Alice</text>
+      <text x="200" y="83" font-size="11" fill="#22d3ee" font-family="Consolas,monospace">C01</text>
+      <!-- row 2 -->
+      <line x1="21" y1="91" x2="279" y2="91" stroke="#30363d"/>
+      <text x="35" y="106" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">2</text>
+      <text x="120" y="106" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">Bob</text>
+      <text x="200" y="106" font-size="11" fill="#22d3ee" font-family="Consolas,monospace">C02</text>
+      <!-- row 3 -->
+      <line x1="21" y1="114" x2="279" y2="114" stroke="#30363d"/>
+      <text x="35" y="129" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">3</text>
+      <text x="120" y="129" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">Carol</text>
+      <text x="200" y="129" font-size="11" fill="#22d3ee" font-family="Consolas,monospace">C01</text>
+      <text x="35" y="185" font-size="10" fill="#4ade80" font-family="sans-serif">PK: StudentID</text>
+      <text x="35" y="200" font-size="10" fill="#22d3ee" font-family="sans-serif">FK: ClassID → tblClasses</text>
+
+      <!-- Arrow -->
+      <line x1="200" y1="106" x2="360" y2="106" stroke="#22d3ee" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#22d3ee"/>
+        </marker>
+      </defs>
+      <text x="290" y="100" font-size="10" fill="#22d3ee" font-family="sans-serif">FK links to PK</text>
+
+      <!-- tblClasses -->
+      <rect x="360" y="10" width="260" height="200" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+      <rect x="360" y="10" width="260" height="34" rx="6" fill="#fbbf24" opacity="0.2"/>
+      <rect x="360" y="10" width="260" height="34" fill="none" stroke="#fbbf24" stroke-width="1.5" rx="6"/>
+      <text x="490" y="33" text-anchor="middle" font-size="13" font-weight="700" fill="#fbbf24" font-family="Consolas,monospace">tblClasses</text>
+      <rect x="361" y="44" width="258" height="24" fill="#21262d"/>
+      <text x="375" y="61" font-size="11" fill="#8b949e" font-family="Consolas,monospace">ClassID</text>
+      <text x="450" y="61" font-size="11" fill="#8b949e" font-family="Consolas,monospace">ClassName</text>
+      <text x="362" y="61" font-size="11" fill="#fbbf24">🔑</text>
+      <line x1="361" y1="68" x2="619" y2="68" stroke="#30363d"/>
+      <text x="375" y="83" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">C01</text>
+      <text x="450" y="83" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">12A</text>
+      <line x1="361" y1="91" x2="619" y2="91" stroke="#30363d"/>
+      <text x="375" y="106" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">C02</text>
+      <text x="450" y="106" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">12B</text>
+      <text x="375" y="185" font-size="10" fill="#4ade80" font-family="sans-serif">PK: ClassID</text>
+    </svg>
+  </div>
+
+  <h2>Key Fields</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Key Type</th><th>Description</th><th>Example</th></tr>
+    <tr><td><strong>Primary Key (PK)</strong></td><td>Uniquely identifies each record. No duplicates, no blanks.</td><td><code>StudentID</code> in tblStudents</td></tr>
+    <tr><td><strong>Foreign Key (FK)</strong></td><td>A field that links to the primary key of another table. Creates the relationship.</td><td><code>ClassID</code> in tblStudents → links to tblClasses</td></tr>
+    <tr><td><strong>Composite Key</strong></td><td>Two or more fields combined to create a unique identifier</td><td><code>StudentID + SubjectID</code> in tblMarks</td></tr>
+    <tr><td><strong>Alternate Key</strong></td><td>Could be a primary key but wasn&apos;t chosen as one</td><td>Email address (also unique, but ID was chosen as PK)</td></tr>
+  </table></div>
+
+  <h2>Referential Integrity</h2>
+  <p>Referential integrity is a rule that ensures relationships between tables remain consistent. It means: <strong>a foreign key value must always match an existing primary key value</strong> in the related table.</p>
+  <div class="callout warning">
+    <div class="callout-title">Example of violating referential integrity</div>
+    <p>If ClassID <code>C03</code> doesn&apos;t exist in tblClasses, you cannot add a student with ClassID = <code>C03</code>. The database will reject this to prevent orphan records (records with no matching parent).</p>
+  </div>
+
+  <h2>Entity Relationship Diagram (ERD)</h2>
+  <p>An <strong>ERD</strong> is a diagram that shows the <strong>entities</strong> (tables) in a database and the <strong>relationships</strong> between them. Each box is a table; the line between boxes shows how they relate. You are often asked to <em>draw</em> one in the exam, so practise the crow's-foot notation below.</p>
+
+  <div style="margin:1.25rem 0;overflow-x:auto">
+    <svg viewBox="0 0 720 200" width="720" height="200" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+      <rect width="720" height="200" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+      <!-- tblBooks entity -->
+      <rect x="30" y="40" width="220" height="120" rx="6" fill="#21262d" stroke="#fbbf24" stroke-width="1.5"/>
+      <rect x="30" y="40" width="220" height="26" rx="6" fill="#fbbf24" opacity="0.2"/>
+      <text x="140" y="57" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">tblBooks</text>
+      <text x="40" y="78" fill="#fbbf24" font-size="10">BookID (PK)</text>
+      <text x="40" y="96" fill="#8b949e" font-size="10">Title</text>
+      <text x="40" y="114" fill="#8b949e" font-size="10">Author</text>
+      <text x="40" y="132" fill="#8b949e" font-size="10">Genre</text>
+      <!-- relationship line one-to-many -->
+      <line x1="250" y1="100" x2="470" y2="100" stroke="#4ade80" stroke-width="2"/>
+      <line x1="262" y1="88" x2="262" y2="112" stroke="#4ade80" stroke-width="2"/>
+      <text x="250" y="84" fill="#4ade80" font-size="11" font-weight="700">1</text>
+      <!-- crow's foot at many side -->
+      <line x1="470" y1="100" x2="456" y2="88" stroke="#4ade80" stroke-width="2"/>
+      <line x1="470" y1="100" x2="456" y2="100" stroke="#4ade80" stroke-width="2"/>
+      <line x1="470" y1="100" x2="456" y2="112" stroke="#4ade80" stroke-width="2"/>
+      <text x="430" y="84" fill="#4ade80" font-size="11" font-weight="700">&infin;</text>
+      <!-- tblLoans entity -->
+      <rect x="470" y="40" width="220" height="120" rx="6" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
+      <rect x="470" y="40" width="220" height="26" rx="6" fill="#22d3ee" opacity="0.2"/>
+      <text x="580" y="57" text-anchor="middle" fill="#22d3ee" font-size="11" font-weight="700">tblLoans</text>
+      <text x="480" y="78" fill="#22d3ee" font-size="10">LoanID (PK)</text>
+      <text x="480" y="96" fill="#a78bfa" font-size="10">BookID (FK)</text>
+      <text x="480" y="114" fill="#8b949e" font-size="10">DateBorrowed</text>
+      <text x="480" y="132" fill="#8b949e" font-size="10">DateReturned</text>
+    </svg>
+  </div>
+  <p>The relationship is created by putting the <strong>primary key</strong> of the "one" table into the "many" table as a <strong>foreign key</strong> (here <code>BookID</code> links <code>tblBooks</code> to <code>tblLoans</code>).</p>
+
+  <h3>Types of Relationships</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Relationship</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td><strong>One-to-One (1:1)</strong></td><td>One record links to exactly one record in the other table</td><td>One person &harr; one ID number</td></tr>
+    <tr><td><strong>One-to-Many (1:&infin;)</strong></td><td>One record links to many records in the other table</td><td>One book can appear in many loans</td></tr>
+    <tr><td><strong>Many-to-Many (&infin;:&infin;)</strong></td><td>Many records link to many records &mdash; resolved with a third "link" table</td><td>Students &harr; Activities (via a link table)</td></tr>
+  </table></div>
+  <div class="callout tip">
+    <div class="callout-title">Many-to-many needs a link table</div>
+    <p>A relational database can't store a many-to-many relationship directly. You break it into two one-to-many relationships using a <strong>junction/link table</strong> (e.g. <code>tblLoans</code> links books and borrowers).</p>
+  </div>
+
+  <h2>Physical vs Logical Integrity</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Type</th><th>What it protects</th><th>How it is ensured</th></tr>
+    <tr><td><strong>Physical integrity</strong></td><td>The data is not lost or damaged by hardware failure, power loss or disaster</td><td>RAID, UPS, regular backups, off-site storage</td></tr>
+    <tr><td><strong>Logical integrity</strong></td><td>The data stays correct, consistent and valid <em>within</em> the database</td><td>Validation rules, referential integrity, record locking</td></tr>
+  </table></div>
+  <div class="callout">
+    <div class="callout-title">Record locking</div>
+    <p><strong>Record locking</strong> temporarily "locks" a record while one user is editing it, so that a second user cannot change the same record at the same time. This prevents two users overwriting each other's changes and keeps the data consistent (a key way to protect <em>logical</em> integrity in a multi-user database).</p>
+  </div>
+
+  <h2>Database Anomalies</h2>
+  <p>When a database is poorly designed (not normalised), three types of errors can occur when working with data:</p>
+  <div class="tbl-wrap"><table>
+    <tr><th>Anomaly</th><th>When it happens</th><th>Example</th></tr>
+    <tr><td><strong>Insertion anomaly</strong></td><td>You can&apos;t add new data without first adding other unrelated data</td><td>Can&apos;t add a new class until at least one student enrols in it</td></tr>
+    <tr><td><strong>Deletion anomaly</strong></td><td>Deleting one record accidentally removes other important data</td><td>Deleting the only student in a class also deletes the class&apos;s information</td></tr>
+    <tr><td><strong>Modification anomaly</strong></td><td>Changing one value means updating many rows — and missing some creates inconsistency</td><td>A teacher&apos;s name appears in 50 student records; update one and the others are wrong</td></tr>
+  </table></div>
+  <div class="callout tip">
+    <div class="callout-title">The fix: Normalisation</div>
+    <p>Normalisation splits large, messy tables into smaller, focused tables and links them properly. This eliminates all three anomalies.</p>
+  </div>
+
+  <h2>Normalisation — The Three Normal Forms</h2>
+  <p><strong>Normalisation</strong> is the systematic process of organising the fields and tables of a relational database, by applying a set of rules called <strong>normal forms</strong>, in order to reduce data redundancy and prevent insertion, deletion and modification anomalies.</p>
+  <div class="callout"><div class="callout-title">Think of it this way</div><p>Imagine one giant spreadsheet where every order repeats the customer's full name, address and phone number. If a customer moves house you must change it in <em>dozens</em> of rows — and if you miss one, the data disagrees with itself. <strong>Normalisation</strong> is like splitting that mess into tidy, single-topic tables: one <strong>Customers</strong> table (each customer stored <em>once</em>) and one <strong>Orders</strong> table that just points back with the customer's ID (a <strong>foreign key</strong>). Now a change is made in one place only. The three normal forms are simply three tidy-up rules you apply in order.</p></div>
+
+  <h3>First Normal Form (1NF)</h3>
+  <p>A table is in 1NF when:</p>
+  <ul>
+    <li>Every cell contains a <strong>single value</strong> (no lists of values in one cell)</li>
+    <li>There are no <strong>repeating groups</strong> of columns</li>
+    <li>Every record is <strong>unique</strong> (has a primary key)</li>
+  </ul>
+  <h4>Not in 1NF:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID</th><th>Name</th><th>Subjects</th></tr>
+    <tr><td>1</td><td>Alice</td><td>Maths, IT, English</td></tr>
+  </table></div>
+  <p style="color:var(--muted);font-size:.875rem">❌ Problem: Three values in one cell (Subjects column)</p>
+  <h4>In 1NF:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID</th><th>Name</th><th>Subject</th></tr>
+    <tr><td>1</td><td>Alice</td><td>Maths</td></tr>
+    <tr><td>1</td><td>Alice</td><td>IT</td></tr>
+    <tr><td>1</td><td>Alice</td><td>English</td></tr>
+  </table></div>
+
+  <h3>Second Normal Form (2NF)</h3>
+  <p>A table is in 2NF when it is in 1NF <strong>AND</strong> every non-key field depends on the <em>whole</em> primary key (not just part of it). This only matters when the primary key is a composite key.</p>
+  <h4>Example violation:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID (PK)</th><th>SubjectID (PK)</th><th>StudentName</th><th>Mark</th></tr>
+    <tr><td>1</td><td>IT</td><td>Alice</td><td>85</td></tr>
+  </table></div>
+  <p style="color:var(--muted);font-size:.875rem">❌ Problem: StudentName only depends on StudentID, not on (StudentID + SubjectID) together</p>
+  <h4>In 2NF — split the table:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID (PK)</th><th>StudentName</th></tr>
+    <tr><td>1</td><td>Alice</td></tr>
+  </table></div>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID (PK+FK)</th><th>SubjectID (PK)</th><th>Mark</th></tr>
+    <tr><td>1</td><td>IT</td><td>85</td></tr>
+  </table></div>
+
+  <h3>Third Normal Form (3NF)</h3>
+  <p>A table is in 3NF when it is in 2NF <strong>AND</strong> no non-key field depends on another non-key field (no transitive dependency).</p>
+  <h4>Example violation:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID (PK)</th><th>Name</th><th>GradeLevel</th><th>GradeDescription</th></tr>
+    <tr><td>1</td><td>Alice</td><td>12</td><td>Matric</td></tr>
+  </table></div>
+  <p style="color:var(--muted);font-size:.875rem">❌ Problem: GradeDescription depends on GradeLevel (a non-key field), not on StudentID</p>
+  <h4>In 3NF — split it:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID (PK)</th><th>Name</th><th>GradeLevel (FK)</th></tr>
+    <tr><td>1</td><td>Alice</td><td>12</td></tr>
+  </table></div>
+  <div class="tbl-wrap"><table>
+    <tr><th>GradeLevel (PK)</th><th>GradeDescription</th></tr>
+    <tr><td>12</td><td>Matric</td></tr>
+  </table></div>
+
+  <h2>Quick Normalisation Checklist</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Normal Form</th><th>Check for</th><th>Fix by</th></tr>
+    <tr><td><strong>1NF</strong></td><td>Multiple values in one cell? Repeating columns?</td><td>Split into separate rows; add PK</td></tr>
+    <tr><td><strong>2NF</strong></td><td>Non-key field depends on only PART of the composite PK?</td><td>Move that field to its own table</td></tr>
+    <tr><td><strong>3NF</strong></td><td>Non-key field depends on another non-key field?</td><td>Move the dependency to its own table</td></tr>
+  </table></div>
+
+  <h2>Good Database Characteristics</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Characteristic</th><th>Meaning</th></tr>
+    <tr><td><strong>Data integrity</strong></td><td>Data is accurate, consistent and complete throughout its lifecycle</td></tr>
+    <tr><td><strong>Data independence</strong></td><td>Changing the database structure doesn&apos;t break the programs that use it</td></tr>
+    <tr><td><strong>Data redundancy</strong></td><td>Minimum — the same data should not be stored in multiple places</td></tr>
+    <tr><td><strong>Data security</strong></td><td>Only authorised users can access or modify data</td></tr>
+    <tr><td><strong>Ease of maintenance</strong></td><td>The database design makes it simple to insert, update and delete without causing problems</td></tr>
+  </table></div>
+</section>
+
+<section class="chapter" id="ch07">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Hardware &amp; Performance <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">Mobile device hardware, factors that affect computer performance, and choosing the right system for a user's needs.</p>
+<div class="term-divider"><span class="term-divider-badge">T1</span><span class="term-divider-label">Term 1 &middot; Mobile Hardware &amp; Performance Factors</span></div>
+<h2>Mobile Technology Hardware</h2>
+<p>Smartphones have similar hardware to desktops but in miniaturised form. Key differences:</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Component</th><th>Desktop</th><th>Smartphone</th></tr>
+  <tr><td>CPU</td><td>Separate chip; very powerful; many cores</td><td>SoC (System on a Chip) — CPU+GPU+modem+RAM in one chip</td></tr>
+  <tr><td>Input</td><td>Keyboard and mouse</td><td>Touchscreen; virtual keyboard</td></tr>
+  <tr><td>Display</td><td>Large external monitor</td><td>Small built-in touchscreen</td></tr>
+  <tr><td>Connectivity</td><td>Wired NIC or Wi-Fi card</td><td>Built-in Bluetooth, Wi-Fi, 4G/5G, GPS, NFC</td></tr>
+  <tr><td>Battery</td><td>Plugged in; no battery constraint</td><td>Limited battery; performance vs battery trade-off</td></tr>
+</table></div>
+<h2>Mobile Constraints</h2>
+<ul>
+  <li><strong>Battery life</strong>: limited capacity must last the whole day; processing power directly affects battery drain</li>
+  <li><strong>Form factor</strong>: miniaturised components mean less cooling and tighter power limits</li>
+  <li><strong>Screen size</strong>: limited display area affects usability for complex tasks</li>
+  <li><strong>Input limitations</strong>: touchscreen less precise than physical keyboard/mouse for complex input</li>
+</ul>
+<h2>Factors Influencing Computer Performance</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Factor</th><th>How it affects performance</th></tr>
+  <tr><td><strong>CPU clock speed (GHz)</strong></td><td>Higher = more instructions per second; faster processing</td></tr>
+  <tr><td><strong>CPU cores</strong></td><td>More cores = better multitasking and parallel processing</td></tr>
+  <tr><td><strong>RAM amount and speed</strong></td><td>More RAM = more programs running simultaneously; higher speed = faster data transfer to CPU</td></tr>
+  <tr><td><strong>Cache size (L1/L2/L3)</strong></td><td>Larger cache = CPU waits less for data from RAM</td></tr>
+  <tr><td><strong>GPU clock speed</strong></td><td>Higher GPU speed = faster graphics rendering; important for gaming and video</td></tr>
+  <tr><td><strong>Storage type (HDD vs SSD)</strong></td><td>SSD gives dramatically faster boot times and application loading</td></tr>
+  <tr><td><strong>NIC speed (Mbps)</strong></td><td>Faster NIC = faster downloads, streaming, network file transfers</td></tr>
+  <tr><td><strong>Operating system</strong></td><td>Outdated OS causes compatibility issues, security risks and slower operation</td></tr>
+</table></div>
+<h2>HDD vs SSD — Summary</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Feature</th><th>HDD</th><th>SSD</th></tr>
+  <tr><td>Speed</td><td>Slow (mechanical)</td><td>Very fast</td></tr>
+  <tr><td>Durability</td><td>Fragile (moving parts)</td><td>Durable (no moving parts)</td></tr>
+  <tr><td>Noise</td><td>Audible spinning</td><td>Silent</td></tr>
+  <tr><td>Cost per GB</td><td>Cheaper</td><td>More expensive</td></tr>
+  <tr><td>Boot time</td><td>Long (30–60 seconds)</td><td>Very short (5–15 seconds)</td></tr>
+</table></div>
+<h2>Motivating a Computer System for a User</h2>
+<p>When recommending a computer, match the components to the user's needs:</p>
+<div class="tbl-wrap"><table>
+  <tr><th>User type</th><th>Recommended specs</th></tr>
+  <tr><td>Office/admin worker</td><td>Moderate CPU, 8GB RAM, SSD, integrated graphics</td></tr>
+  <tr><td>Graphic designer / video editor</td><td>Fast multi-core CPU, 16–32GB RAM, dedicated GPU, large SSD</td></tr>
+  <tr><td>Gamer</td><td>Fast CPU, 16GB+ RAM, high-end dedicated GPU, fast SSD</td></tr>
+  <tr><td>Student</td><td>Mid-range CPU, 8GB RAM, SSD, Wi-Fi, long battery (laptop)</td></tr>
+  <tr><td>Server / database host</td><td>Many cores, large ECC RAM, RAID storage, redundant power</td></tr>
+</table></div>
+</section>
+
+<section class="chapter" id="ch08">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Cloud Computing, AI, VR &amp; AR <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">Grade 12 Term 2 theory: cloud computing, Artificial Intelligence, Virtual Reality, Augmented Reality, Mixed Reality and virtualisation — all new Software topics in the updated CAPS.</p>
+
+<div class="term-divider"><span class="term-divider-badge">T2</span><span class="term-divider-label">Term 2 &middot; Cloud Computing, AI, VR &amp; AR</span></div>
+
+<h2>Artificial Intelligence (AI)</h2>
+<p>AI refers to computer systems that can perform tasks that normally require human intelligence — such as learning, reasoning, decision-making and pattern recognition.</p>
+<h3>What is AI used for?</h3>
+<ul>
+  <li>Virtual assistants (Siri, Google Assistant, Alexa)</li>
+  <li>Recommendations (Netflix, Spotify, YouTube suggest content)</li>
+  <li>Fraud detection in banking</li>
+  <li>Medical diagnosis support</li>
+  <li>Autonomous vehicles (self-driving cars)</li>
+  <li>Chatbots for customer service</li>
+  <li>Image and facial recognition</li>
+</ul>
+<h3>Advantages of AI</h3>
+<ul>
+  <li>Processes vast amounts of data faster than humans</li>
+  <li>Works 24/7 without breaks or fatigue</li>
+  <li>Reduces human error in repetitive tasks</li>
+  <li>Enables automation of complex processes</li>
+</ul>
+<h3>Disadvantages and Limitations of AI</h3>
+<ul>
+  <li>Can be biased if trained on biased data</li>
+  <li>Job displacement — automating roles previously done by humans</li>
+  <li>No true understanding or common sense — only pattern matching</li>
+  <li>Security risks — AI can be used to create deepfakes or power cyberattacks</li>
+  <li>Expensive to develop and maintain</li>
+  <li>Privacy concerns with data collection required for AI training</li>
+</ul>
+<h2>Cloud Computing</h2>
+<p>Software, storage and computing power delivered as a service over the Internet, rather than installed locally.</p>
+<div class="callout"><div class="callout-title">ANALOGY — cloud computing is like electricity</div><p>You don't build a power station in your back yard — you just plug into the wall and pay for what you use, and someone else runs the generators. Cloud computing works the same way: instead of buying and maintaining your own servers, you rent storage and computing power from a provider (Google, Microsoft, Amazon) over the internet and pay only for what you use. It scales up when you need more and down when you don't, exactly like drawing more or less electricity from the grid.</p></div>
+<div class="tbl-wrap"><table>
+  <tr><th>Advantage</th><th>Disadvantage</th></tr>
+  <tr><td>Scalable — capacity grows automatically</td><td>Requires internet connection</td></tr>
+  <tr><td>Affordable — pay only for what you use</td><td>Downtime affects all users</td></tr>
+  <tr><td>Accessible from any device anywhere</td><td>Security and privacy concerns</td></tr>
+  <tr><td>Maintained by experts; always updated</td><td>Ongoing subscription costs</td></tr>
+  <tr><td>Easy collaboration between users</td><td>Limited control over infrastructure</td></tr>
+</table></div>
+<h3>SaaS — Software as a Service</h3>
+<p>Applications accessed via browser with no local installation. Examples: Google Docs, Microsoft 365, Gmail.</p>
+<h3>Effect on Hardware</h3>
+<p>Cloud reduces the need for powerful local hardware — thin clients and low-spec devices can run complex software via the cloud. Businesses no longer need to buy expensive servers.</p>
+<h2>Virtualisation</h2>
+<p>Running multiple <strong>virtual machines</strong> on a single physical computer. Each VM has its own OS, RAM, storage and apps, isolated from others.</p>
+<h3>Benefits</h3>
+<ul>
+  <li>Cost savings — fewer physical servers needed</li>
+  <li>Test operating systems safely without affecting main computer</li>
+  <li>Disaster recovery — VM images can be backed up and restored</li>
+  <li>Green IT — fewer machines, less power and cooling</li>
+</ul>
+<h2>Virtual Reality (VR)</h2>
+<p>A fully artificial, immersive 3D environment created by software. The user is completely cut off from the real world.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Use Case</th><th>Example</th></tr>
+  <tr><td>Training</td><td>Military simulations, surgical training</td></tr>
+  <tr><td>Education</td><td>Virtual field trips, interactive lessons</td></tr>
+  <tr><td>Entertainment</td><td>VR gaming, virtual cinemas</td></tr>
+  <tr><td>Healthcare</td><td>Phobia treatment, pain management</td></tr>
+  <tr><td>Engineering</td><td>Virtual prototypes, architectural walkthroughs</td></tr>
+</table></div>
+<h3>Hardware Requirements for VR</h3>
+<ul>
+  <li>VR headset (e.g. Meta Quest, PlayStation VR)</li>
+  <li>Powerful GPU for real-time 3D rendering</li>
+  <li>Motion controllers / tracking sensors</li>
+  <li>High-speed processor and sufficient RAM</li>
+  <li><strong>Input devices</strong>: joysticks, tracking balls, controller wands, data gloves, trackpads, motion trackers and treadmills — used to navigate and interact within the virtual environment</li>
+  <li><strong>Output devices</strong>: present VR content back to the user through visual (headset display), auditory (headphones) and even <strong>haptic</strong> (touch/vibration feedback) displays</li>
+</ul>
+<h3>Limitations of VR</h3>
+<ul>
+  <li><strong>Software constraints</strong> — VR software has limited flexibility beyond what it was originally built to do</li>
+  <li><strong>Cannot simulate dynamic environments well</strong> — VR struggles to replicate the constantly changing nature of a real classroom or real-world situation</li>
+  <li><strong>Potential for addiction and social detachment</strong> — excessive VR use can become addictive and reduce real-world social connection because the experience feels artificial but immersive</li>
+</ul>
+<h2>Augmented Reality (AR)</h2>
+<p>Overlays computer-generated content on the real world — you still see reality, with digital elements added.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Use Case</th><th>Example</th></tr>
+  <tr><td>Retail</td><td>Preview furniture in your room before buying</td></tr>
+  <tr><td>Training</td><td>Step-by-step repair instructions overlaid on equipment</td></tr>
+  <tr><td>Navigation</td><td>AR arrows overlaid on road view</td></tr>
+  <tr><td>Marketing</td><td>Interactive product advertisements</td></tr>
+</table></div>
+<h3>Hardware Requirements for AR</h3>
+<ul>
+  <li>Battery life sufficient for extended use</li>
+  <li>Bluetooth / Wi-Fi connectivity</li>
+  <li>Wide field of view for realistic 3D overlay</li>
+  <li>On-board storage capacity and an operating system or web browser to run the AR software</li>
+  <li>Inputs/outputs such as buttons, eye tracking and an accelerometer, plus a microphone and speakers</li>
+  <li>Visual tracking capabilities — so the device knows where to anchor digital objects in the real world</li>
+</ul>
+<h3>Limitations of AR</h3>
+<ul>
+  <li>Rendering meaningful, realistic graphics is challenging</li>
+  <li>Scaling digital objects to the correct perspective is difficult</li>
+  <li>Smartphones have limited storage, processing power and battery</li>
+</ul>
+</section>
+
+<section class="chapter" id="ch09">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Internet Technologies <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">How the web works under the hood — search technologies, web technologies, online applications, and how data is stored and processed online.</p>
+<div class="term-divider"><span class="term-divider-badge">T3</span><span class="term-divider-label">Term 3 &middot; Internet &amp; Web Technologies</span></div>
+<h2>Search Technologies</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Description</th></tr>
+  <tr><td><strong>Keyword search</strong></td><td>Matches exact words in the query</td></tr>
+  <tr><td><strong>Semantic search</strong></td><td>Understands meaning and context behind words — interprets user intent, not just keywords</td></tr>
+  <tr><td><strong>Mediated search</strong></td><td>A middleman system filters results for a specific database or organisation (e.g. Google Scholar)</td></tr>
+  <tr><td><strong>SEO</strong></td><td>Search Engine Optimisation — techniques to make websites rank higher in search results (keywords, speed, mobile-friendly, backlinks)</td></tr>
+</table></div>
+<h2>Static vs Dynamic Websites</h2>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Static</th><th>Dynamic</th></tr>
+  <tr><td>Content</td><td>Fixed HTML — changes only if developer edits files</td><td>Generated on demand from a database</td></tr>
+  <tr><td>Database</td><td>No</td><td>Yes</td></tr>
+  <tr><td>Examples</td><td>Simple portfolio, business info page</td><td>Online shop, social media, news sites</td></tr>
+  <tr><td>Security risk</td><td>Low</td><td>Higher (SQL injection, data breaches)</td></tr>
+</table></div>
+<h2>Web Technologies</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Technology</th><th>Role</th><th>Example</th></tr>
+  <tr><td><strong>HTML</strong></td><td>Structure and content of web pages</td><td>Headings, paragraphs, links, images</td></tr>
+  <tr><td><strong>CSS</strong></td><td>Visual styling — colours, fonts, layout</td><td>Blue buttons, responsive grid</td></tr>
+  <tr><td><strong>JavaScript</strong></td><td>Client-side interactivity; runs in the browser</td><td>Form validation, dropdown menus, AJAX</td></tr>
+  <tr><td><strong>PHP</strong></td><td>Server-side scripting; processes forms, talks to databases</td><td>Login authentication, database queries</td></tr>
+  <tr><td><strong>SQL</strong></td><td>Query and manage database data</td><td>SELECT user data, INSERT orders</td></tr>
+  <tr><td><strong>XML</strong></td><td>Structured data exchange between systems</td><td>Product data feeds between websites</td></tr>
+</table></div>
+<h2>Storing Data Online</h2>
+<ul>
+  <li><strong>Cookies</strong> — small text files stored on the user's device by a website. Remember preferences, login sessions, shopping carts.</li>
+  <li><strong>Online databases</strong> — data stored on remote servers. Examples: Gmail messages, your social media posts.</li>
+  <li><strong>Online applications</strong> — programs that run over the internet rather than being installed on your local computer; they store data, execute instructions and present output entirely through the browser or app. Examples: Google Docs, Gmail, internet banking apps.</li>
+</ul>
+<h2>Running Instructions</h2>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Client-side (browser)</th><th>Server-side (web server)</th></tr>
+  <tr><td><strong>Language</strong></td><td>JavaScript, AJAX</td><td>PHP, Python, Node.js</td></tr>
+  <tr><td><strong>Purpose</strong></td><td>Real-time page updates, validation, animations</td><td>Authentication, database access, processing</td></tr>
+  <tr><td><strong>AJAX</strong></td><td>Updates parts of a page without reloading</td><td>—</td></tr>
+</table></div>
+<h2>HTTP vs HTTPS</h2>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>HTTP</th><th>HTTPS</th></tr>
+  <tr><td>Encryption</td><td>None — data sent in plain text</td><td>SSL/TLS encryption</td></tr>
+  <tr><td>Padlock</td><td>No padlock in browser</td><td>Padlock icon shown</td></tr>
+  <tr><td>Use</td><td>Non-sensitive public pages</td><td>Login, banking, shopping — any sensitive data</td></tr>
+</table></div>
+</section>
+
+<section class="chapter" id="ch10">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Networks &amp; Remote Access <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">Essential network components, internet connection methods, file sharing, and remote access technologies.</p>
+<div class="term-divider"><span class="term-divider-badge">T3</span><span class="term-divider-label">Term 3 &middot; Networks &amp; Remote Access</span></div>
+<h2>Essential Network Hardware</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Component</th><th>Function</th></tr>
+  <tr><td><strong>NIC</strong></td><td>Network Interface Card — hardware that connects a device to a network (wired or wireless)</td></tr>
+  <tr><td><strong>Switch</strong></td><td>Connects devices on a LAN and forwards data only to the intended device (not broadcast like a hub)</td></tr>
+  <tr><td><strong>Router</strong></td><td>Connects different networks; routes packets; assigns IP addresses; acts as gateway to ISP</td></tr>
+  <tr><td><strong>Modem</strong></td><td>Converts digital signals to analogue for telephone lines (and back); connects to ISP</td></tr>
+  <tr><td><strong>Wireless access point</strong></td><td>Enables wireless devices to connect to a wired network via Wi-Fi</td></tr>
+  <tr><td><strong>All-in-one home router</strong></td><td>Combines modem + router + switch + Wi-Fi access point in one device</td></tr>
+</table></div>
+<h2>Wired Communication Media</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Medium</th><th>Speed</th><th>Range</th><th>Notes</th></tr>
+  <tr><td><strong>UTP cable</strong> (Ethernet)</td><td>Up to 10 Gbps</td><td>100m per segment</td><td>Common in offices and schools; easy to install</td></tr>
+  <tr><td><strong>Fibre optic</strong></td><td>Up to Tbps</td><td>Kilometres</td><td>Uses light; most secure; expensive to install</td></tr>
+  <tr><td><strong>Coaxial</strong></td><td>Moderate</td><td>Hundreds of meters</td><td>Older standard; still used in some broadband</td></tr>
+</table></div>
+<h2>Connecting to the Internet</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Technology</th><th>Description</th><th>Speed</th></tr>
+  <tr><td><strong>ADSL</strong></td><td>Uses telephone copper lines; download faster than upload</td><td>Up to ~20 Mbps</td></tr>
+  <tr><td><strong>Fibre</strong></td><td>Light through fibre optic cables; fastest and most reliable</td><td>100 Mbps–1 Gbps+</td></tr>
+  <tr><td><strong>WiMAX</strong></td><td>Long-range wireless; used in rural/remote areas</td><td>Moderate</td></tr>
+  <tr><td><strong>4G/LTE</strong></td><td>Mobile broadband; widely available</td><td>5–100 Mbps</td></tr>
+  <tr><td><strong>5G</strong></td><td>New generation mobile; very low latency; supports IoT</td><td>50 Mbps–10 Gbps</td></tr>
+</table></div>
+<h2>File and Folder Sharing</h2>
+<p>On a network, users can share resources. Access can be restricted by permission level:</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Permission Level</th><th>What the user can do</th></tr>
+  <tr><td><strong>No access</strong></td><td>Cannot see the shared resource</td></tr>
+  <tr><td><strong>Read-only</strong></td><td>Can view/copy files but not modify or delete</td></tr>
+  <tr><td><strong>Read/Write</strong></td><td>Can view, copy, modify files</td></tr>
+  <tr><td><strong>Full control (Admin)</strong></td><td>Can do everything including change permissions</td></tr>
+</table></div>
+<h2>Remote Access</h2>
+<p>Accessing a device or network from a physically different location.</p>
+<div class="callout"><div class="callout-title">ANALOGY — a VPN is an armoured van</div><p>Sending private data across the open internet is like carrying cash through a busy public street — anyone could grab it. A <strong>VPN</strong> is like an <strong>armoured van</strong> driving through that same street: it builds a sealed, encrypted "tunnel" so that, even though your data travels over the public internet, no one on the outside can see or reach what is inside. That is how an employee at home can safely reach the private company network.</p></div>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>LAN remote access</strong></td><td>Access another computer in the same building</td><td>Shared folder on school server</td></tr>
+  <tr><td><strong>Internet remote access</strong></td><td>Access home/work resources from anywhere</td><td>Google Drive, OneDrive, Remote Desktop</td></tr>
+  <tr><td><strong>VPN</strong></td><td>Encrypted tunnel over internet; secure remote access to private network</td><td>Employee working from home via company VPN</td></tr>
+</table></div>
+<h2>Cloud Storage and Sharing</h2>
+<ul>
+  <li>Store and access files from any device, anywhere</li>
+  <li>Automatic backup and version history</li>
+  <li>Collaboration: multiple users edit the same file simultaneously</li>
+  <li>Examples: Google Drive, OneDrive, Dropbox</li>
+</ul>
+<h2>BitTorrent (Peer-to-Peer Sharing)</h2>
+<p>Files are split into small pieces and downloaded simultaneously from many peers.</p>
+<ul>
+  <li><strong>Legal uses</strong>: distributing Linux distros, large software updates</li>
+  <li><strong>Risks</strong>: often used for piracy; your IP is visible to all peers</li>
+</ul>
+</section>
+
+<section class="chapter" id="ch11">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Communication Technologies <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">This page focuses on how data is kept safe as it travels across a network — VPNs, encryption, digital certificates and authentication. For network hardware, internet access technologies and general remote access, see <a href="networks-gr12.html">Networks &amp; Remote Access</a>.</p>
+<div class="term-divider"><span class="term-divider-badge">T3</span><span class="term-divider-label">Term 3 &middot; VPNs, Encryption &amp; Secure Communication</span></div>
+<h2>VPN — Virtual Private Network</h2>
+<p>A VPN creates an encrypted tunnel over the Internet, allowing secure remote access to a private network. (See <a href="networks-gr12.html#">Networks &amp; Remote Access</a> for the armoured-van analogy and a worked example.)</p>
+<ul>
+  <li>Hides your IP address and location</li>
+  <li>All data is encrypted — safe on public Wi-Fi</li>
+  <li>Used by companies for remote workers to securely access internal systems</li>
+</ul>
+<h2>Encryption &amp; Security</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Concept</th><th>Description</th></tr>
+  <tr><td><strong>Encryption</strong></td><td>Converts readable data into unreadable code. Only someone with the correct key can decrypt it.</td></tr>
+  <tr><td><strong>SSL/TLS</strong></td><td>Protocol securing communication between browser and server (HTTPS). Uses public/private key pairs.</td></tr>
+  <tr><td><strong>Digital certificate</strong></td><td>Issued by a trusted Certificate Authority. Verifies the website is legitimate.</td></tr>
+  <tr><td><strong>Firewall</strong></td><td>Filters incoming and outgoing traffic based on security rules</td></tr>
+  <tr><td><strong>MFA</strong></td><td>Multi-Factor Authentication — requires password + second factor (OTP, fingerprint)</td></tr>
+  <tr><td><strong>OTP</strong></td><td>One-Time PIN — valid for one login only; prevents replay attacks</td></tr>
+</table></div>
+<h2>Email &amp; Messaging Security</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Concept</th><th>Description</th></tr>
+  <tr><td><strong>Spam filtering</strong></td><td>Automatically detects and quarantines unsolicited/junk email before it reaches the inbox</td></tr>
+  <tr><td><strong>Email encryption</strong></td><td>Encrypts the message content so only the intended recipient's key can decrypt and read it</td></tr>
+  <tr><td><strong>End-to-end encryption</strong></td><td>Used by apps like WhatsApp/Signal — only the sender and recipient can read the message, not even the service provider</td></tr>
+  <tr><td><strong>Digital signature</strong></td><td>Confirms a message really came from the claimed sender and was not altered in transit</td></tr>
+</table></div>
+</section>
+
+<section class="chapter" id="ch12">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Cybercrime &amp; Safeguards <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">Types of cybercrime, the people who commit them, their effects on individuals and organisations, and the safeguards used to prevent them.</p>
+<div class="term-divider"><span class="term-divider-badge">T2</span><span class="term-divider-label">Term 2 &middot; Cybercrime Types &amp; Safeguards</span></div>
+<h2>Computer Criminals</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Description</th></tr>
+  <tr><td><strong>Hacker</strong></td><td>Gains unauthorised access to systems. White hat (ethical) vs Black hat (malicious).</td></tr>
+  <tr><td><strong>Cracker</strong></td><td>Breaks software protection or encryption for illegal access or distribution</td></tr>
+  <tr><td><strong>Script kiddie</strong></td><td>Uses pre-written tools without understanding them; less skilled</td></tr>
+  <tr><td><strong>Insider threat</strong></td><td>Current or former employee who misuses access privileges</td></tr>
+  <tr><td><strong>Cybercriminal</strong></td><td>Commits crime for financial gain (fraud, ransomware, identity theft)</td></tr>
+  <tr><td><strong>Cyber gang</strong></td><td>An organised group of criminals who work together to carry out large-scale cyberattacks</td></tr>
+  <tr><td><strong>Virus author</strong></td><td>A person who writes and releases malware such as viruses and worms</td></tr>
+</table></div>
+<h2>Types of Cybercrime</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Crime</th><th>Description</th></tr>
+  <tr><td><strong>Identity theft</strong></td><td>Stealing personal information to impersonate someone (open accounts, get loans)</td></tr>
+  <tr><td><strong>Phishing</strong></td><td>Fake emails that look official to steal credentials</td></tr>
+  <tr><td><strong>Pharming</strong></td><td>Redirecting users to fake websites to steal information</td></tr>
+  <tr><td><strong>Ransomware</strong></td><td>Encrypts victim's data; demands payment to restore access</td></tr>
+  <tr><td><strong>Business data theft</strong></td><td>Stealing trade secrets, customer databases, or financial records</td></tr>
+  <tr><td><strong>SQL Injection</strong></td><td>Inserting malicious SQL via web forms to manipulate or steal database data</td></tr>
+  <tr><td><strong>DDoS attack</strong></td><td>Distributed Denial of Service — overwhelming a server with traffic to take it offline</td></tr>
+  <tr><td><strong>Online fraud</strong></td><td>Scams, fake auctions, advance-fee fraud (419 scams)</td></tr>
+  <tr><td><strong>Cyberbullying</strong></td><td>Harassment, threats or humiliation via digital channels</td></tr>
+  <tr><td><strong>Piracy</strong></td><td>Illegally copying, distributing or using copyrighted software/media</td></tr>
+  <tr><td><strong>Bandwidth theft</strong></td><td>Using someone else's network/internet connection, or hotlinking their content, without permission</td></tr>
+  <tr><td><strong>Theft of time &amp; services</strong></td><td>Using an employer's computers, internet or work time for personal or unauthorised purposes</td></tr>
+  <tr><td><strong>Botnet / zombies</strong></td><td>A network of infected computers ("zombies") secretly controlled by an attacker, often used for DDoS attacks or spam</td></tr>
+  <tr><td><strong>Back door</strong></td><td>A hidden way to bypass normal security and gain remote access to a system</td></tr>
+</table></div>
+<h2>Effects of Cybercrime</h2>
+<h3>On Individuals</h3>
+<ul>
+  <li>Financial loss — stolen money or fraudulent accounts opened in your name</li>
+  <li>Emotional distress and reputational damage</li>
+  <li>Legal complications if identity is used for crimes</li>
+  <li>Loss of private data (photos, documents)</li>
+</ul>
+<h3>On Businesses</h3>
+<ul>
+  <li>Financial loss from stolen funds, ransom payments, or system recovery</li>
+  <li>Loss of competitive advantage if trade secrets are stolen</li>
+  <li>Reputational damage and loss of customer trust</li>
+  <li>Legal penalties for failing to protect customer data</li>
+  <li>Operational downtime while systems are restored</li>
+</ul>
+<h2>Safeguards Against Cybercrime</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Safeguard</th><th>How it protects</th></tr>
+  <tr><td><strong>Antivirus / Antimalware</strong></td><td>Detects and removes malicious software</td></tr>
+  <tr><td><strong>Firewall</strong></td><td>Filters unauthorised network traffic</td></tr>
+  <tr><td><strong>Encryption</strong></td><td>Scrambles data so intercepted data is unreadable</td></tr>
+  <tr><td><strong>Strong passwords + MFA</strong></td><td>Makes accounts much harder to compromise</td></tr>
+  <tr><td><strong>Regular backups</strong></td><td>Allows recovery after ransomware or data loss</td></tr>
+  <tr><td><strong>Software updates / patches</strong></td><td>Fixes known vulnerabilities before criminals exploit them</td></tr>
+  <tr><td><strong>User training / awareness</strong></td><td>Educated users are less likely to click phishing links</td></tr>
+  <tr><td><strong>Access control</strong></td><td>Least-privilege principle: users only access what they need</td></tr>
+  <tr><td><strong>Input validation</strong></td><td>Prevents SQL injection by sanitising user input</td></tr>
+  <tr><td><strong>Digital certificates + HTTPS</strong></td><td>Verifies website legitimacy; encrypts all data in transit</td></tr>
+</table></div>
+<h2>SA Legal Context</h2>
+<p>In South Africa, cybercrime is covered by:</p>
+<ul>
+  <li><strong>Cybercrimes Act, 2020</strong>: criminalises hacking, ransomware, online fraud, malicious communications</li>
+  <li><strong>POPIA (Protection of Personal Information Act)</strong>: governs how personal data must be collected, stored and protected</li>
+  <li><strong>Electronic Communications and Transactions (ECT) Act</strong>: regulates e-commerce and online transactions</li>
+</ul>
+</section>
+
+<section class="chapter" id="ch13">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Social Implications <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">How Big Data, data warehousing, globalisation and the 4IR affect society — privacy, employment, social media and the evolution of the web.</p>
+<div class="callout tip">
+  <div class="callout-title">This topic comes back all year</div>
+  <p>Social implications are revisited every term rather than taught once. The sections below are grouped by the term where each topic is <em>introduced</em> on the Year Planner — but all of it stays examinable afterwards. A few sections (globalisation, decision-making systems, protecting your identity) don't map to a single Year Planner bullet, so they are grouped with the closest related term.</p>
+</div>
+
+<div class="term-divider"><span class="term-divider-badge">T1</span><span class="term-divider-label">Term 1 &middot; Big Data, Mining &amp; Decision-Making</span></div>
+
+<h2>Social Implications of Big Data &amp; Data Mining</h2>
+<p><strong>Big Data</strong> is the term for datasets so enormous, fast-moving and varied that ordinary database tools cannot store or process them — think of every Facebook post, every WhatsApp message and every e-toll swipe in the country, all at once. When companies and governments <strong>mine</strong> this Big Data, the results affect real people's lives, and that brings both wonderful benefits and serious dangers.</p>
+<h3>Why Should We Care?</h3>
+<p>The same data that lets a hospital predict and prevent illness can also let an insurance company refuse you cover because your shopping habits suggest you eat unhealthily. The technology is neutral — it is <em>how</em> the data is used that creates the social problem. As IT students you must be able to argue both sides.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Positive</th><th>Negative</th></tr>
+  <tr><td>Healthcare: predict and prevent illness</td><td>Privacy erosion — habits tracked without full consent</td></tr>
+  <tr><td>Fraud detection in banking</td><td>Discrimination based on data profiles</td></tr>
+  <tr><td>Personalised education programmes</td><td>Security breaches expose millions of records</td></tr>
+  <tr><td>Better government services</td><td>Data sold to third parties without user knowledge</td></tr>
+  <tr><td>Precision agriculture: monitoring soil, weather and crop data to improve yields (e.g. a Free State maize farmer using sensor data to decide when to irrigate)</td><td>Small-scale farmers without access to this technology fall further behind larger commercial operations</td></tr>
+</table></div>
+<h2>Globalisation and the 4IR</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Aspect</th><th>Effect</th></tr>
+  <tr><td><strong>Globalisation</strong></td><td>World interconnected economically and culturally; faster trade; outsourcing; cultural exchange; increased competition</td></tr>
+  <tr><td><strong>4IR technologies</strong></td><td>AI, machine learning, IoT, robotics, automation, biotechnology, AR/VR, Big Data</td></tr>
+  <tr><td><strong>Jobs</strong></td><td>Routine jobs replaced by machines; new careers in data science, AI, cybersecurity</td></tr>
+  <tr><td><strong>Workers</strong></td><td>Must reskill constantly; digital literacy essential</td></tr>
+</table></div>
+<h2>Decision-making &amp; Knowledge Systems</h2>
+<p>As the amount of data in the world explodes, organisations increasingly rely on software not just to <em>store</em> data, but to help people <strong>make decisions</strong> with it. Two related kinds of system come up in the exam, and they are easy to confuse.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>System</th><th>What it does</th><th>Example</th></tr>
+  <tr><td><strong>Decision Support System (DSS)</strong></td><td>Analyses large amounts of data and presents it in a useful way (summaries, graphs, "what-if" models) so that a <em>human</em> can make a better-informed decision. It supports the decision — it does not make it.</td><td>A retail manager using sales dashboards to decide which stores to stock for winter</td></tr>
+  <tr><td><strong>Expert / knowledge-based system</strong></td><td>Captures the knowledge of human experts as a <strong>knowledge base</strong> of facts plus a set of rules (an <strong>inference engine</strong>), then uses them to give advice or a diagnosis — mimicking how an expert reasons.</td><td>A medical system that suggests likely diagnoses from a patient's symptoms</td></tr>
+</table></div>
+<div class="callout"><div class="callout-title">DSS vs Expert system</div><p>A <strong>DSS hands the data to a person</strong> to decide; an <strong>expert system tries to reach the conclusion itself</strong> using stored expert knowledge. Both rely on good-quality data — "garbage in, garbage out".</p></div>
+
+<div class="term-divider"><span class="term-divider-badge">T2</span><span class="term-divider-label">Term 2 &middot; Computer Management</span></div>
+
+<h2>Computer Management (Gr 12)</h2>
+<p>Key factors affecting computer performance and maintenance:</p>
+<ul>
+  <li><strong>Software</strong>: outdated software causes security risks and slower performance</li>
+  <li><strong>Security</strong>: antivirus, firewall, strong passwords</li>
+  <li><strong>Housekeeping</strong>: disk cleanup, defragmentation, archiving, compression</li>
+  <li><strong>Hard drive space</strong>: insufficient space causes performance issues (virtual memory relies on it)</li>
+  <li><strong>Corrupt files</strong>: use Disk Check (chkdsk) to detect and fix file-system errors; use S.M.A.R.T. to monitor drive health and predict failure before it happens</li>
+</ul>
+
+<div class="term-divider"><span class="term-divider-badge">T3</span><span class="term-divider-label">Term 3 &middot; Global Problem-Solving, Social Media &amp; Privacy</span></div>
+
+<h3>Distributed Computing Power — Solving Global Problems</h3>
+<p>Some problems are too big for any single computer — modelling climate change, searching for new medicines, or analysing astronomical data. <strong>Distributed computing</strong> splits one enormous task into many small pieces and shares them across thousands of computers (or cloud servers) that work on them at the same time, then combines the results.</p>
+<ul>
+  <li><strong>How it helps:</strong> harnesses spare processing power worldwide to tackle scientific and humanitarian problems no single organisation could afford alone.</li>
+  <li><strong>Examples:</strong> volunteer/grid projects where the public donate idle CPU time to disease, climate or space research; large cloud platforms renting out combined power on demand.</li>
+  <li><strong>Trade-offs:</strong> needs reliable network connectivity, raises questions about who controls the data, and the combined energy use can be significant.</li>
+</ul>
+<h2>Evolution of Social Media and its Effects</h2>
+<ul>
+  <li><strong>Information overload</strong>: constant exposure to content makes it hard to focus or verify facts</li>
+  <li><strong>Personal data exposure</strong>: users voluntarily share location, habits, preferences</li>
+  <li><strong>Social engineering</strong>: attackers use social platforms to manipulate users into revealing information</li>
+  <li><strong>Wikis</strong>: collaborative knowledge (e.g. Wikipedia) — useful but reliability varies</li>
+  <li><strong>Cultural effects</strong>: global connectivity promotes exchange but can dilute local traditions</li>
+</ul>
+<h2>Privacy and Information Sharing</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Concept</th><th>Privacy implication</th></tr>
+  <tr><td><strong>Cookies</strong></td><td>Track browsing behaviour; can be used for targeted advertising</td></tr>
+  <tr><td><strong>Anonymity</strong></td><td>Enables free expression; also enables cyberbullying and illegal activity</td></tr>
+  <tr><td><strong>GUIDs</strong></td><td>Globally Unique Identifiers track behaviour across websites and apps</td></tr>
+  <tr><td><strong>Location data</strong></td><td>Apps continuously track movement; risk of stalking and profiling</td></tr>
+  <tr><td><strong>File sharing</strong></td><td>Piracy is illegal and harms creators; but sharing also enables legal distribution</td></tr>
+</table></div>
+<h2>Protecting Your Online Identity</h2>
+<ul>
+  <li>Use strong, unique passwords for every account</li>
+  <li>Enable Two-Factor Authentication (2FA)</li>
+  <li>Avoid posting sensitive personal information publicly</li>
+  <li>Verify links before clicking — beware of phishing</li>
+  <li>Keep software and antivirus updated</li>
+  <li>Only connect to trusted Wi-Fi networks</li>
+  <li>Periodically search your own name to see your digital footprint</li>
+</ul>
+</section>
+
+<section class="chapter" id="ch14">
+  <div class="chapter-tag">Grade 12 &middot; Term Planner</div>
+<h1>Grade 12 &mdash; Year Planner <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">Based on the 2026 IT CAPS. Grade 12 introduces SQL (Term 1), OOP &amp; 2D arrays (Term 2). Paper 2 is cumulative across all Grades 10&ndash;12.</p>
+<div class="callout warning"><div class="callout-title">A year planner &mdash; not a test scope</div><p>This shows <strong>when</strong> each topic is taught during the year &mdash; it is <strong>not</strong> a list of what any single test covers. Any work done so far this year, plus the foundational work from earlier grades, can still be assessed, so don't study only the current term's topics.</p></div>
+<div class="callout warning"><div class="callout-title">Grade 12 Exam Structure</div><p><strong>Paper 1</strong> (3 hrs): Delphi programming &mdash; SQL, OOP, 2D arrays, recursion, file handling, arrays, general programming.<br><strong>Paper 2</strong> (3 hrs): All theory from Gr10&ndash;12.</p></div>
+
+<div class="term-block">
+  <div class="term-header"><div class="term-num">T1</div><div><div class="term-title">Term 1 &bull; January &ndash; March</div><div class="term-subtitle">SQL (all statements + WHERE join); data management &amp; database design theory</div></div></div>
+  <div class="term-body">
+    <div class="term-col"><div class="term-col-title">&#128300; Practical (Paper 1)</div>
+      <ul class="term-links">
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>SELECT, FROM, WHERE, ORDER BY, DISTINCT</a></li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>Calculated fields, aliases (AS)</a></li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>LIKE, IN, BETWEEN, IS NULL, wildcards, dates (#)</a></li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>Aggregate: SUM, MIN, MAX, AVG, COUNT, TOP</a></li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>GROUP BY and HAVING</a></li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>INSERT, UPDATE, DELETE</a></li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>SQL functions: ROUND, INT, LENGTH, LEFT, RIGHT, MID, FORMAT</a></li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>Date functions: DAY, MONTH, YEAR, DATE</a></li>
+        <li><a href="grade12/sql-join.html"><span class="tl-dot"></span>Joining tables using WHERE (single join)</a></li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>Parameterised queries (one parameter)</a></li>
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>All SQL via TADOQuery in Delphi</li>
+      </ul>
+    </div>
+    <div class="term-col"><div class="term-col-title">&#128216; Theory (Paper 2)</div>
+      <ul class="term-links">
+        <li><a href="grade12/data-management.html"><span class="tl-dot"></span>Data collection: forms, RFID, cookies, transactions, loyalty cards</a></li>
+        <li><a href="grade12/data-management.html"><span class="tl-dot"></span>Data warehousing vs databases</a></li>
+        <li><a href="grade12/data-management.html"><span class="tl-dot"></span>Data mining: processes &amp; practical examples</a></li>
+        <li><a href="grade12/data-management.html"><span class="tl-dot"></span>Caring for data: validation, verification, integrity, access control</a></li>
+        <li><a href="grade12/relational-db.html"><span class="tl-dot"></span>Characteristics of a good database</a></li>
+        <li><a href="grade12/relational-db.html"><span class="tl-dot"></span>Referential integrity</a></li>
+        <li><a href="grade12/relational-db.html"><span class="tl-dot"></span>Database anomalies (insertion, deletion, modification)</a></li>
+        <li><a href="grade12/relational-db.html"><span class="tl-dot"></span>Normalisation: 1NF, 2NF, 3NF</a></li>
+        <li><a href="grade12/hardware-gr12.html"><span class="tl-dot"></span>Mobile hardware &amp; performance factors</a></li>
+        <li><a href="grade12/social-gr12.html"><span class="tl-dot"></span>Mobile tech privacy implications (personal &amp; business)</a></li>
+        <li><a href="grade12/social-gr12.html"><span class="tl-dot"></span>Big Data, warehousing &amp; mining: social implications</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="term-block">
+  <div class="term-header"><div class="term-num">T2</div><div><div class="term-title">Term 2 &bull; April &ndash; June (incl. mid-year exam)</div><div class="term-subtitle">OOP &amp; 2D arrays; cloud/AI/VR/AR, cybercrime</div></div></div>
+  <div class="term-body">
+    <div class="term-col"><div class="term-col-title">&#128300; Practical (Paper 1)</div>
+      <ul class="term-links">
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>OOP concepts: class, object, instance</a></li>
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>Non-parameterised &amp; parameterised constructors</a></li>
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>Private attributes vs public methods</a></li>
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>Accessor (Get) methods</a></li>
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>Mutator (Set) methods</a></li>
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>Auxiliary methods</a></li>
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>ToString method</a></li>
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>Correct instantiation of objects</a></li>
+        <li><a href="grade12/arrays-2d.html"><span class="tl-dot"></span>2D arrays: declaration &amp; syntax</a></li>
+        <li><a href="grade12/arrays-2d.html"><span class="tl-dot"></span>Populating with nested FOR loops</a></li>
+        <li><a href="grade12/arrays-2d.html"><span class="tl-dot"></span>Row totals, column totals, element access</a></li>
+      </ul>
+    </div>
+    <div class="term-col"><div class="term-col-title">&#128216; Theory (Paper 2)</div>
+      <ul class="term-links">
+        <li><a href="grade12/social-gr12.html"><span class="tl-dot"></span>Computer management: housekeeping, integrity, system protection</a></li>
+        <li><a href="grade12/cloud-vr-ar.html"><span class="tl-dot"></span>Cloud computing: SaaS, advantages, hardware effects</a></li>
+        <li><a href="grade12/cloud-vr-ar.html"><span class="tl-dot"></span>Artificial Intelligence (AI): uses, advantages, limitations</a></li>
+        <li><a href="grade12/cloud-vr-ar.html"><span class="tl-dot"></span>VR: uses, hardware/software requirements, limitations</a></li>
+        <li><a href="grade12/cloud-vr-ar.html"><span class="tl-dot"></span>AR &amp; Mixed Reality: uses, hardware, limitations</a></li>
+        <li><a href="grade12/cloud-vr-ar.html"><span class="tl-dot"></span>Virtualisation: uses &amp; benefits</a></li>
+        <li><a href="grade12/cybercrime.html"><span class="tl-dot"></span>Computer criminals: hackers, crackers, cyber gangs</a></li>
+        <li><a href="grade12/cybercrime.html"><span class="tl-dot"></span>Types of cybercrime: identity theft, ransomware, phishing, botnets</a></li>
+        <li><a href="grade12/cybercrime.html"><span class="tl-dot"></span>Effects of cybercrime</a></li>
+        <li><a href="grade12/cybercrime.html"><span class="tl-dot"></span>Safeguards against cybercrime</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="term-block">
+  <div class="term-header"><div class="term-num">T3</div><div><div class="term-title">Term 3 &bull; July &ndash; September (prelim + PAT due)</div><div class="term-subtitle">Consolidation; internet services, networks, communication security &amp; social implications</div></div></div>
+  <div class="term-body">
+    <div class="term-col"><div class="term-col-title">&#128300; Practical (Paper 1) &mdash; Consolidation</div>
+      <ul class="term-links">
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Past paper practice: full Paper 1 (2019&ndash;2025)</li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>Complex SQL (join + aggregate + GROUP BY)</a></li>
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>OOP multi-class scenarios</a></li>
+        <li><a href="grade12/arrays-2d.html"><span class="tl-dot"></span>2D array exam scenarios</a></li>
+        <li><a href="grade12/recursion.html"><span class="tl-dot"></span>Recursion varied problems &amp; tracing</a></li>
+        <li><a href="grade11/practical/text-files.html"><span class="tl-dot"></span>File handling &amp; CSV processing</a></li>
+        <li><a href="grade11/practical/arrays.html"><span class="tl-dot"></span>1D array sort/search/parallel</a></li>
+      </ul>
+    </div>
+    <div class="term-col"><div class="term-col-title">&#128216; Theory (Paper 2)</div>
+      <ul class="term-links">
+        <li><a href="grade12/internet-tech.html"><span class="tl-dot"></span>Semantic search, mediated search, SEO</a></li>
+        <li><a href="grade12/internet-tech.html"><span class="tl-dot"></span>Online apps: cookies, PHP/JS/XML, CSS, AJAX</a></li>
+        <li><a href="grade12/networks-gr12.html"><span class="tl-dot"></span>Switch, cables, wireless base station</a></li>
+        <li><a href="grade12/networks-gr12.html"><span class="tl-dot"></span>Internet connections: fibre, Wi-Fi, 4G/5G, satellite</a></li>
+        <li><a href="grade12/networks-gr12.html"><span class="tl-dot"></span>Sharing files/folders, user rights, BitTorrent</a></li>
+        <li><a href="grade12/networks-gr12.html"><span class="tl-dot"></span>Remote access (LAN, Internet, VPN)</a></li>
+        <li><a href="grade12/communication-tech.html"><span class="tl-dot"></span>SSL, public/private keys, digital certificates, firewall</a></li>
+        <li><a href="grade12/communication-tech.html"><span class="tl-dot"></span>Review Gr11 data security (blockchain, encryption, MFA)</a></li>
+        <li><a href="grade12/social-gr12.html"><span class="tl-dot"></span>Computers solving national/global problems</a></li>
+        <li><a href="grade12/social-gr12.html"><span class="tl-dot"></span>Social networking evolution &amp; its effects</a></li>
+        <li><a href="grade12/social-gr12.html"><span class="tl-dot"></span>Privacy: cookies, anonymity, GUIDs, file sharing</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="term-block">
+  <div class="term-header"><div class="term-num">T4</div><div><div class="term-title">Term 4 &bull; September &ndash; November &mdash; Final Exams</div><div class="term-subtitle">No new content &mdash; case studies, exam revision</div></div></div>
+  <div class="term-body">
+    <div class="term-col"><div class="term-col-title">&#128300; Paper 1 High-Priority Areas</div>
+      <ul class="term-links">
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Q1: General programming (strings, loops, decisions)</li>
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Q2: Arrays &amp; text file handling</li>
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Q3: OOP with multiple method types</li>
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Q4: SQL + database programming (incl. join)</li>
+      </ul>
+    </div>
+    <div class="term-col"><div class="term-col-title">&#128216; Paper 2 High-Priority Areas</div>
+      <ul class="term-links">
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Hardware, networks, internet (cumulative Gr10&ndash;12)</li>
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Normalisation (1NF/2NF/3NF) &mdash; always appears</li>
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Social implications &amp; cybercrime</li>
+        <li><a href="exam-extras.html"><span class="tl-dot"></span>Check Exam Extras for out-of-CAPS questions</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch15">
+  <div class="chapter-tag">Grade 12 &middot; Exam Resources</div>
+<h1>Exam Extras <span class="grade-badge" style="background:rgba(74,222,128,.15);color:#4ade80">Out-of-CAPS</span></h1>
+  <p class="page-intro">These topics are not explicitly required by CAPS but have appeared in NSC past papers (2015–2024). Knowing them can mean the difference between a pass and a distinction.</p>
+
+  <div class="callout warning">
+    <div class="callout-title">How to use this page</div>
+    <p>Items marked <span class="badge badge-blue">P1</span> appear in Paper 1 (practical/Delphi), <span class="badge badge-purple">P2</span> in Paper 2 (theory), and <span class="badge badge-green">Both</span> in either paper. These are <em>supplementary</em> — master your CAPS content first.</p>
+  </div>
+
+  <!-- SOFTWARE DEVELOPMENT PROCESS -->
+  <h2 id="dev-process">The Software Development Process</h2>
+  <p>CAPS never teaches "how to plan a whole program" as one topic — instead it hands you the individual planning tools (IPO tables, TOE charts, pseudocode) at different points across Grade 10 and 11. Strung together in order, those tools form a complete process for turning a vague idea into a finished, working program. None of this is examinable on its own, but following it will make your PAT — and any open-ended practical question — far less overwhelming.</p>
+
+  <ol style="margin:0.75rem 0 0 1.25rem; display:flex; flex-direction:column; gap:1rem">
+    <li>
+      <strong>Pin down exactly what the program must do.</strong> A one-line description ("a till program") is not enough to start coding from — write out every input the program will receive, every calculation or decision it must make, and every output it must produce. This is the same information an <strong>IPO table</strong> asks for (<a href="grade10/practical/algorithms.html">Grade 10 T1, Algorithms &amp; Problem Solving</a>), just applied to the whole program instead of one calculation.
+    </li>
+    <li>
+      <strong>Sketch the interface before placing a single component.</strong> Decide which forms the user will see, what components sit on each one, and how the user moves between them. Keep the same layout, colours and button placement on every form — a program that looks different from screen to screen feels unfinished even when the code is solid.
+    </li>
+    <li>
+      <strong>Map out which event triggers which task.</strong> For every button, checkbox or form event, list precisely what must happen when it fires — this is exactly what a <strong>TOE (Task–Object–Event) chart</strong> is for (also covered on the <a href="grade10/practical/algorithms.html">Algorithms &amp; Problem Solving</a> page). Doing this before writing code stops the common mistake of half-remembering what a button was supposed to do halfway through typing its handler.
+    </li>
+    <li>
+      <strong>Break the plan into procedures and functions before typing the body of any of them.</strong> Decide which pieces of logic will repeat, which need a return value and which don't, and what needs to pass between them as parameters — this is where the <a href="grade11/practical/methods.html">Procedures &amp; Functions</a> (Grade 11 T2) content and the local-vs-global variable rules on that page earn their keep.
+    </li>
+    <li>
+      <strong>Write the code in small, testable pieces</strong> rather than the whole program at once — build and run after every procedure or two so that when something breaks, you know it's in the last few lines you typed, not buried somewhere in 200 lines you haven't tested yet.
+    </li>
+    <li>
+      <strong>Test with data designed to break it, not just data that works.</strong> Run the program with an empty text box, a negative number, the largest and smallest values it should accept, and anything else a careless user might type — this is the mindset behind the <a href="grade10/practical/decisions.html">Input Validation</a> content (Grade 10 T2). Where something goes wrong before you can even see the output, Delphi's debugger (breakpoints, F8 stepping, the Watch List — see <a href="grade10/practical/data-types.html">Data Types &amp; Variables</a>) will show you exactly which line is responsible.
+    </li>
+  </ol>
+
+  <div class="callout tip">
+    <div class="callout-title">Why bother with all of this for a PAT?</div>
+    <p>A PAT is marked over months, revisited many times, and often built on by a partner or by future-you after a long break. Time spent planning up front — even just a page of notes on what each form does — is what makes it possible to pick the project back up in Term 4 and still understand your own Term 2 code.</p>
+  </div>
+
+  <!-- PRACTICAL EXTRAS -->
+  <h2 id="practical-extras">Practical Extras — Paper 1 (Delphi)</h2>
+  <p>These Delphi functions, components and techniques are not listed in CAPS but appear regularly in exam questions or are needed to solve exam problems efficiently.</p>
+
+  <div class="extras-grid">
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>StringReplace()</h4>
+      <p>Replaces all or first occurrence of a substring within a string.<br>
+      <code>s := StringReplace(s, 'old', 'new', [rfReplaceAll]);</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>TStringList</h4>
+      <p>A powerful list of strings — very useful for loading file lines into memory.<br>
+      <code>sl := TStringList.Create; sl.LoadFromFile('data.txt'); sl.Free;</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Format() function</h4>
+      <p>Formats numbers/strings with precise control — <code>Format('%.2f', [rVal])</code> gives 2 decimal places. More powerful than FloatToStrF.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Random() &amp; Randomize()</h4>
+      <p>Generate random integers. Always call <code>Randomize;</code> first to seed the generator. <code>Random(100)</code> returns 0–99.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>TOpenDialog / TSaveDialog</h4>
+      <p>Let users browse for files at runtime.<br>
+      <code>if OpenDialog1.Execute then sFile := OpenDialog1.FileName;</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>DateToStr() &amp; StrToDate()</h4>
+      <p>Convert between TDate values and string representation. Used with TDateTimePicker.<br>
+      <code>sDate := DateToStr(dtpDate.Date);</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Try…Except…End (Exception Handling)</h4>
+      <p>Catch runtime errors gracefully — e.g. invalid StrToInt input.<br>
+      <code>try iNum := StrToInt(edtNum.Text); except ShowMessage('Invalid'); end;</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Memo.Lines.Count</h4>
+      <p>Returns the number of lines in a Memo. Often used in loops to process all memo lines.<br>
+      <code>for i := 0 to Memo1.Lines.Count - 1 do</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>SameText() / CompareText()</h4>
+      <p>Case-insensitive string comparison — avoids problems when user types 'yes', 'YES' or 'Yes'.<br>
+      <code>if SameText(sInput, 'yes') then</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>IntToHex() &amp; HexToInt()</h4>
+      <p>Convert integers to hexadecimal strings and back. Sometimes tested in conjunction with number systems theory.<br>
+      <code>sHex := IntToHex(255, 4); // = '00FF'</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Odd() &amp; Even() functions</h4>
+      <p>Built-in boolean checks — cleaner than MOD 2.<br>
+      <code>if Odd(iNum) then // true if iNum is odd</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Break &amp; Continue in loops</h4>
+      <p><code>Break</code> exits the loop immediately. <code>Continue</code> skips to the next iteration. Both appear in exam solutions — know the difference.</p>
+    </div>
+  </div>
+
+  <!-- THEORY EXTRAS -->
+  <h2 id="theory-extras">Theory Extras — Paper 2</h2>
+  <p>These theory topics have appeared in NSC Theory papers but sit at the edge of or outside the formal CAPS scope. They typically appear in social implications or "current technology" questions.</p>
+
+  <div class="extras-grid">
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Artificial Intelligence (AI) &amp; Machine Learning</h4>
+      <p>AI appears regularly in social implications questions — automation of jobs, AI decision-making, bias in AI, chatbots. Not deeply technical — understand the concept and its social effects.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Blockchain Technology</h4>
+      <p>A distributed digital ledger of linked blocks. Used in cryptocurrency, supply chain, and secure records. Appeared in Gr12 theory papers. Know: what it is, how it works, and 2 uses.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Deep Fakes</h4>
+      <p>AI-generated fake videos or audio that appear authentic. Social implications question topic — impacts on trust, truth, and politics. Know the definition and two risks.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Dark Web</h4>
+      <p>A part of the internet not indexed by search engines, accessed via special software (Tor). Used for anonymity — legal and illegal uses. Appeared in theory cybercrime questions.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Net Neutrality</h4>
+      <p>The principle that all internet traffic should be treated equally — ISPs cannot throttle or prioritise certain content. A social/political IT topic.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>IPv6</h4>
+      <p>The successor to IPv4 — uses 128-bit addresses (vs 32-bit) to solve address exhaustion. Format: 2001:0db8:85a3::8a2e:0370:7334. Know why it was introduced.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>RAID Levels (0, 1, 5)</h4>
+      <p>RAID 0: speed (striping, no redundancy). RAID 1: mirroring (exact copy). RAID 5: striping with parity (balance of speed + fault tolerance). CAPS only mentions RAID in general — exams go deeper.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Steganography</h4>
+      <p>Hiding secret information within ordinary files (images, audio) without detection. Different from encryption — encryption scrambles data; steganography hides its existence. Appeared in theory questions.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Smart Contracts</h4>
+      <p>Self-executing contracts where terms are written in code on a blockchain. No middlemen needed. Related to blockchain technology — appeared in Gr12 social implications.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Edge Computing</h4>
+      <p>Processing data close to where it is generated (the "edge" of the network) rather than sending it all to a central cloud server. Reduces latency — important for IoT and 5G.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Bus Network Topology</h4>
+      <p>All devices share a single communication line (the bus). Not in the current CAPS but appeared in older papers. Advantage: cheap. Disadvantage: single point of failure; performance drops with more devices.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Mesh Network Topology</h4>
+      <p>Each device connects to several others, so data has more than one possible path. Not in the current CAPS (it sits under "network innovation"). Advantage: very reliable — traffic reroutes if a link fails. Disadvantage: expensive, many connections needed. It's how "mesh Wi-Fi" systems work.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Social Engineering</h4>
+      <p>Manipulating people (rather than systems) to reveal confidential information. Includes pretexting, baiting, tailgating. Appears in cybercrime theory questions.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-both">Both</span>
+      <h4>Number System Conversions</h4>
+      <p>Exams frequently ask you to <em>convert</em> values — not just explain systems. Practise: decimal↔binary, decimal↔hex, binary↔hex. Know the place values (powers of 2 and 16).</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>POPIA (Protection of Personal Information Act)</h4>
+      <p>South African law governing how personal data must be collected, stored, and protected. Appears in privacy and legal implications questions. Know: what it is, who it protects, and 2 requirements.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Cybercrimes Act (2020)</h4>
+      <p>SA legislation that criminalises hacking, ransomware, online fraud, and malicious communications. Often referenced in cybercrime theory questions for Gr12.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Digital Twins</h4>
+      <p>A virtual replica of a physical object or system, updated in real time from sensor data. Used in engineering, manufacturing, and smart cities. Appeared in 4IR/IoT questions.</p>
+    </div>
+  </div>
+
+  <!-- DELPHI FUNCTIONS REFERENCE -->
+  <h2 id="delphi-functions">Complete Delphi Functions Quick Reference</h2>
+  <p>A comprehensive reference of all Delphi functions you need to know — both CAPS-required and commonly appearing in exams.</p>
+
+  <h3>String Functions</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Function/Procedure</th><th>What it does</th><th>Example</th></tr>
+    <tr><td><code>Length(s)</code></td><td>Returns number of characters</td><td><code>Length('Hello') = 5</code></td></tr>
+    <tr><td><code>Pos(find, source)</code></td><td>Position of substring (0 if not found)</td><td><code>Pos('lo','Hello') = 4</code></td></tr>
+    <tr><td><code>Copy(source, start, len)</code></td><td>Extract substring</td><td><code>Copy('Hello',2,3) = 'ell'</code></td></tr>
+    <tr><td><code>Insert(text, var s, pos)</code></td><td>Insert text into string at position</td><td><code>Insert('!','Hello',6) → 'Hello!'</code></td></tr>
+    <tr><td><code>Delete(var s, pos, len)</code></td><td>Remove characters from string</td><td><code>Delete(s,1,3)</code></td></tr>
+    <tr><td><code>UpperCase(s)</code></td><td>All uppercase</td><td><code>UpperCase('hi') = 'HI'</code></td></tr>
+    <tr><td><code>LowerCase(s)</code></td><td>All lowercase</td><td><code>LowerCase('HI') = 'hi'</code></td></tr>
+    <tr><td><code>Trim(s)</code></td><td>Remove leading/trailing spaces</td><td><code>Trim('  Hi  ') = 'Hi'</code></td></tr>
+    <tr><td><code>StringReplace(s,old,new,flags)</code></td><td>Replace substring(s)</td><td><code>StringReplace(s,'a','e',[rfReplaceAll])</code></td></tr>
+    <tr><td><code>SameText(s1,s2)</code></td><td>Case-insensitive comparison (boolean)</td><td><code>SameText('Yes','yes') = True</code></td></tr>
+    <tr><td><code>Concat(s1,s2)</code></td><td>Join two strings (same as +)</td><td><code>Concat('Hel','lo')</code></td></tr>
+    <tr><td><code>s[i]</code></td><td>Character at index i (1-based)</td><td><code>s[1]</code> = first character</td></tr>
+  </table></div>
+
+  <h3>Math Functions</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Function</th><th>What it does</th><th>Example</th></tr>
+    <tr><td><code>Sqr(x)</code></td><td>x squared (x²)</td><td><code>Sqr(4) = 16</code></td></tr>
+    <tr><td><code>Sqrt(x)</code></td><td>Square root</td><td><code>Sqrt(16) = 4</code></td></tr>
+    <tr><td><code>Power(base, exp)</code></td><td>base to the power of exp</td><td><code>Power(2,8) = 256</code></td></tr>
+    <tr><td><code>Round(x)</code></td><td>Round to nearest integer</td><td><code>Round(4.6) = 5</code></td></tr>
+    <tr><td><code>Trunc(x)</code></td><td>Remove decimal (truncate toward zero)</td><td><code>Trunc(4.9) = 4</code></td></tr>
+    <tr><td><code>Ceil(x)</code></td><td>Round UP to integer</td><td><code>Ceil(4.1) = 5</code></td></tr>
+    <tr><td><code>Floor(x)</code></td><td>Round DOWN to integer</td><td><code>Floor(4.9) = 4</code></td></tr>
+    <tr><td><code>Abs(x)</code></td><td>Absolute value</td><td><code>Abs(-5) = 5</code></td></tr>
+    <tr><td><code>Random(n)</code></td><td>Random integer 0 to n-1</td><td><code>Random(6)+1</code> simulates a die</td></tr>
+    <tr><td><code>Randomize</code></td><td>Seed the random generator (call once)</td><td>Call before Random()</td></tr>
+    <tr><td><code>Inc(x)</code> / <code>Inc(x,n)</code></td><td>Increment by 1 or n</td><td><code>Inc(i) ≡ i := i+1</code></td></tr>
+    <tr><td><code>Dec(x)</code> / <code>Dec(x,n)</code></td><td>Decrement by 1 or n</td><td><code>Dec(i,3) ≡ i := i-3</code></td></tr>
+    <tr><td><code>Odd(n)</code></td><td>True if n is odd</td><td><code>Odd(3) = True</code></td></tr>
+    <tr><td><code>Pi</code></td><td>Returns π (3.14159…)</td><td><code>rArea := Pi * Sqr(r)</code></td></tr>
+  </table></div>
+
+  <h3>Type Conversion Functions</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Function</th><th>Converts</th><th>Example</th></tr>
+    <tr><td><code>StrToInt(s)</code></td><td>String → Integer</td><td><code>StrToInt('42') = 42</code></td></tr>
+    <tr><td><code>StrToFloat(s)</code></td><td>String → Real</td><td><code>StrToFloat('3.14')</code></td></tr>
+    <tr><td><code>StrToIntDef(s, default)</code></td><td>String → Integer (safe — returns default if invalid)</td><td><code>StrToIntDef(edtNum.Text, 0)</code></td></tr>
+    <tr><td><code>IntToStr(n)</code></td><td>Integer → String</td><td><code>IntToStr(42) = '42'</code></td></tr>
+    <tr><td><code>FloatToStr(r)</code></td><td>Real → String</td><td><code>FloatToStr(3.14)</code></td></tr>
+    <tr><td><code>FloatToStrF(r, fmt, digits, dec)</code></td><td>Formatted real → String</td><td><code>FloatToStrF(r, ffFixed, 6, 2)</code></td></tr>
+    <tr><td><code>Ord(c)</code></td><td>Char → Integer (ASCII value)</td><td><code>Ord('A') = 65</code></td></tr>
+    <tr><td><code>Chr(n)</code></td><td>Integer → Char</td><td><code>Chr(65) = 'A'</code></td></tr>
+    <tr><td><code>UpCase(c)</code></td><td>Single char to uppercase</td><td><code>UpCase('a') = 'A'</code></td></tr>
+    <tr><td><code>IntToHex(n, digits)</code></td><td>Integer → Hex string</td><td><code>IntToHex(255,2) = 'FF'</code></td></tr>
+    <tr><td><code>DateToStr(d)</code></td><td>TDate → String</td><td><code>DateToStr(Now)</code></td></tr>
+    <tr><td><code>FormatFloat(fmt, r)</code></td><td>Real → formatted string</td><td><code>FormatFloat('#,##0.00', 1234.5)</code></td></tr>
+  </table></div>
+
+  <!-- PAST PAPER TIPS -->
+  <h2 id="past-paper-tips">Past Paper Patterns &amp; Tips</h2>
+
+  <h3>Paper 1 (Practical) — What Always Appears</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Section</th><th>What to expect</th><th>Common traps</th></tr>
+    <tr><td><strong>Q1: General programming</strong></td><td>Strings, loops, decisions, calculations (~30–40 marks)</td><td>Off-by-one errors in loops; forgetting to initialise variables</td></tr>
+    <tr><td><strong>Q2: Arrays &amp; files</strong></td><td>1D/2D arrays, text file reading/writing (~20–25 marks)</td><td>Using wrong index (0 vs 1-based); not closing file</td></tr>
+    <tr><td><strong>Q3: OOP</strong></td><td>Class with constructor, accessors, mutators, toString (~25–30 marks)</td><td>Calling Create on the object var (not class name); forgetting Result in functions</td></tr>
+    <tr><td><strong>Q4: Database/SQL</strong></td><td>TADOQuery, SQL statements including JOIN (~20–25 marks)</td><td>Not calling qry.Close before changing SQL; wrong JOIN ON condition</td></tr>
+    <tr><td><strong>Recursion (Gr12)</strong></td><td>Write a recursive function; trace it (~10–15 marks)</td><td>Missing base case; not returning Result</td></tr>
+  </table></div>
+
+  <h3>Paper 2 (Theory) — What Always Appears</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Topic</th><th>Typical mark allocation</th><th>What examiners look for</th></tr>
+    <tr><td>Hardware &amp; software</td><td>15–20 marks</td><td>Specific advantages/disadvantages; real-world examples</td></tr>
+    <tr><td>Networks &amp; internet</td><td>20–25 marks</td><td>Correct terminology; topology advantages/disadvantages</td></tr>
+    <tr><td>Databases &amp; normalisation</td><td>20–30 marks</td><td>Correct normal form identification; proper primary/foreign key use</td></tr>
+    <tr><td>Social implications</td><td>20–25 marks</td><td>Balance of positive AND negative effects; specific examples</td></tr>
+    <tr><td>Cybercrime</td><td>10–15 marks (Gr12)</td><td>Correct crime type names; effects on both victim and business</td></tr>
+    <tr><td>Current technology (IoT, AI, VR)</td><td>10–15 marks (Gr12)</td><td>Practical application examples; social implications</td></tr>
+  </table></div>
+
+  <h3>General Exam Advice</h3>
+  <div class="callout tip">
+    <div class="callout-title">Top 5 mark-saving habits</div>
+    <ul style="margin:0.5rem 0 0 1.25rem">
+      <li>Read the question twice — "list" means bullet points, "explain" means a sentence or two</li>
+      <li>Never leave a practical question blank — partial marks are awarded for correct structure</li>
+      <li>In SQL: always check your WHERE condition matches the question's criteria exactly</li>
+      <li>In OOP: write the constructor first — it sets up all the attributes you'll use elsewhere</li>
+      <li>In theory: "advantage AND disadvantage" means you need both for full marks</li>
+    </ul>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
