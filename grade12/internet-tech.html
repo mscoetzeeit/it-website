@@ -41,6 +41,32 @@
   <tr><td><strong>Purpose</strong></td><td>Real-time page updates, validation, animations</td><td>Authentication, database access, processing</td></tr>
   <tr><td><strong>AJAX</strong></td><td>Updates parts of a page without reloading</td><td>—</td></tr>
 </table></div>
+
+<h2>Exam Technique — "Explain the Role of a Scripting Language..."</h2>
+<p>A very common NSC question style names a specific business or website and asks you to <strong>explain the role of a scripting language, such as PHP or JavaScript, on the [Business Name] website</strong>. A weak answer just recites the definition of JavaScript or PHP in general. A strong answer roots the explanation in <em>that specific website</em> — say which type of scripting you're describing, what it generally does, and then give a concrete example of it happening on the business in the question.</p>
+
+<div class="callout">
+  <div class="callout-title">Worked Example — "...on the BSHS Online Store"</div>
+  <p><strong>Client-side scripting (e.g. JavaScript)</strong> runs in the customer's own browser, so it can react instantly without waiting for the server. On the BSHS Online Store it could:</p>
+  <ul>
+    <li>Validate the checkout form before it is submitted — e.g. checking that a cellphone number field isn't empty or that the quantity entered is a valid positive number — so the customer sees the error immediately, without a round trip to the server.</li>
+    <li>Update the shopping cart total the instant a customer changes a quantity, with no need to reload the page.</li>
+    <li>Show or hide extra product information (e.g. a "Read more" description) when clicked.</li>
+  </ul>
+  <p><strong>Server-side scripting (e.g. PHP)</strong> runs on the store's web server, so it's the only place that can safely reach the database. On the BSHS Online Store it could:</p>
+  <ul>
+    <li>Check the product database to confirm an item is still in stock before allowing checkout.</li>
+    <li>Calculate the order total and generate an order confirmation.</li>
+    <li>Securely process the customer's login and payment details.</li>
+    <li>Insert the new order into the database and update the stock level once payment succeeds.</li>
+  </ul>
+</div>
+
+<div class="callout tip">
+  <div class="callout-title">Adapt this to any scenario</div>
+  <p>The business name in the question changes every year, but the underlying roles don't: <strong>client-side scripting</strong> is always about instant, in-browser feedback (validation, updating what's on screen, no server round trip), and <strong>server-side scripting</strong> is always about the things only the server can do safely (checking/updating a database, authentication, processing payments). Re-read the scenario, pick one or two of its specific features (a cart, a login, a booking form, a search bar), and describe the role in terms of <em>that</em> feature rather than giving a generic definition.</p>
+</div>
+
 <h2>HTTP vs HTTPS</h2>
 <div class="tbl-wrap"><table>
   <tr><th></th><th>HTTP</th><th>HTTPS</th></tr>
