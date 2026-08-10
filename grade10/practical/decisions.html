@@ -129,6 +129,19 @@
 
     <div class="term-divider"><span class="term-divider-badge">T2</span><span class="term-divider-label">Term 2 &middot; Full IF&hellip;ELSE, Nested IF, Boolean Operators &amp; CASE</span></div>
 
+    <h2>Nested IF</h2>
+    <p>An IF inside another IF.</p>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">if</span> iAge >= <span class="num">18</span> <span class="kw">then</span>
+<span class="kw">begin</span>
+  <span class="kw">if</span> bHasLicense = <span class="kw">True</span> <span class="kw">then</span>
+    bDrive := <span class="kw">True</span>
+  <span class="kw">else</span>
+    bDrive := <span class="kw">False</span>;
+<span class="kw">end</span>
+<span class="kw">else</span>
+  bDrive := <span class="kw">False</span>;</code></pre></div>
+
     <h2>Boolean Operators</h2>
     <p>Combine multiple conditions in one statement.</p>
     <p><strong>Boolean operators</strong> let you ask more than one question at the same time. <strong>Everyday analogy:</strong> to get into a club you might need to be 18 <em>AND</em> have an ID — <em>both</em> must be true. To qualify for a discount you might need to be a student <em>OR</em> a pensioner — <em>either one</em> is enough. <em>NOT</em> simply flips an answer around, like saying "if it is <em>not</em> a holiday, school is open".</p>
@@ -146,33 +159,45 @@
 <span class="kw">if</span> (iScore >= <span class="num">30</span>) <span class="kw">OR</span> (bHasSymbol = <span class="kw">True</span>) <span class="kw">then</span>
   lblResult.Caption := <span class="str">'Passed'</span>;</code></pre></div>
 
-    <h2>Nested IF</h2>
-    <p>An IF inside another IF.</p>
-    <div class="code-block"><span class="code-label">Delphi</span>
-<pre><code><span class="kw">if</span> iAge >= <span class="num">18</span> <span class="kw">then</span>
+    <div class="callout warning">
+      <div class="callout-title">Watch the order AND and OR are applied</div>
+      <p>When a condition mixes <code>AND</code> and <code>OR</code> without brackets, Delphi does not test them strictly left-to-right — <code>NOT</code> is applied first, then <code>AND</code>, and only then <code>OR</code>. This is the same idea as multiplication happening before addition in a maths expression. Two learners could type the exact same words and end up with logically different conditions, so get into the habit of bracketing every individual condition — it removes any doubt about what is being tested against what.</p>
+    </div>
+
+    <h3>Shortcut — Assigning a Boolean Directly</h3>
+    <p>Sometimes an entire <code>if…then…else</code> exists purely to store <code>True</code> or <code>False</code> in a Boolean variable. In that case the condition already <em>is</em> the answer you want, so the <code>if</code> is not needed at all — the condition can be assigned straight to the variable.</p>
+    <div class="code-block"><span class="code-label">Delphi — two ways to record whether a learner passed</span>
+<pre><code><span class="cmt">// Longer version:</span>
+<span class="kw">if</span> iMark >= <span class="num">50</span> <span class="kw">then</span>
+  bPassed := <span class="kw">True</span>
+<span class="kw">else</span>
+  bPassed := <span class="kw">False</span>;
+
+<span class="cmt">// Shorter, equivalent version:</span>
+bPassed := iMark >= <span class="num">50</span>;</code></pre></div>
+
+    <h3>Simplifying a Long Condition with 'Flags'</h3>
+    <p>A single <code>if</code> line that strings together many <code>AND</code>s and <code>OR</code>s across several variables becomes hard to read, and one misplaced bracket can break the whole thing. A tidier approach is to work out each separate rule on its own line first, storing every result in its own Boolean variable (often called a <strong>flag</strong>), and letting the final decision combine only the flags.</p>
+    <p>Consider selecting a learner for the school athletics team: they must have run the trial faster than the qualifying time, attended at least 80% of the practice sessions, and not currently be under a sports suspension.</p>
+    <div class="code-block"><span class="code-label">Delphi — team selection built from three flags</span>
+<pre><code><span class="kw">var</span>
+  bFastEnough, bAttendedEnough, bMaySelect : <span class="kw2">boolean</span>;
+  rTrialTime, rQualifyTime, rAttendancePercent : <span class="kw2">real</span>;
+  bSuspended : <span class="kw2">boolean</span>;
 <span class="kw">begin</span>
-  <span class="kw">if</span> bHasLicense = <span class="kw">True</span> <span class="kw">then</span>
-    bDrive := <span class="kw">True</span>
+  bFastEnough     := rTrialTime &lt;= rQualifyTime;
+  bAttendedEnough := rAttendancePercent >= <span class="num">80</span>;
+  bMaySelect      := <span class="kw">NOT</span> bSuspended;
+
+  <span class="kw">if</span> bFastEnough <span class="kw">AND</span> bAttendedEnough <span class="kw">AND</span> bMaySelect <span class="kw">then</span>
+    lblResult.Caption := <span class="str">'Selected for the team'</span>
   <span class="kw">else</span>
-    bDrive := <span class="kw">False</span>;
-<span class="kw">end</span>
-<span class="kw">else</span>
-  bDrive := <span class="kw">False</span>;</code></pre></div>
-
-    <h2>Decision Components</h2>
-    <h3>RadioGroup</h3>
-    <p>Uses an <code>ItemIndex</code> property — first item is index <code>0</code>.</p>
-    <div class="code-block"><span class="code-label">Delphi</span>
-<pre><code><span class="kw">if</span> rgpGender.ItemIndex = <span class="num">0</span> <span class="kw">then</span>
-  sGender := <span class="str">'Male'</span>
-<span class="kw">else</span>
-  sGender := <span class="str">'Female'</span>;</code></pre></div>
-
-    <h3>CheckBox</h3>
-    <p>Uses the <code>Checked</code> property — <code>True</code> or <code>False</code>.</p>
-    <div class="code-block"><span class="code-label">Delphi</span>
-<pre><code><span class="kw">if</span> chkInsurance.Checked = <span class="kw">True</span> <span class="kw">then</span>
-  rCost := rCost + rInsuranceAmount;</code></pre></div>
+    lblResult.Caption := <span class="str">'Not selected'</span>;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">Why this is worth doing</div>
+      <p>Each flag can be checked on its own, which makes it much easier to spot a mistake in one rule without untangling a single sprawling condition. The final decision then reads almost like plain English.</p>
+    </div>
 
     <h2>The IN Operator</h2>
     <p>Tests if a value is in a set. Cleaner than multiple OR conditions.</p>
@@ -188,6 +213,35 @@
 <span class="cmt">// Works with Char too</span>
 <span class="kw">if</span> cLetter <span class="kw">IN</span> [<span class="str">'A'</span>, <span class="str">'E'</span>, <span class="str">'I'</span>, <span class="str">'O'</span>, <span class="str">'U'</span>] <span class="kw">then</span>
   ShowMessage(<span class="str">'Vowel'</span>);</code></pre></div>
+
+    <h3>Sets, Ordinal Types &amp; Sub-Ranges</h3>
+    <p>Everything written inside those square brackets is called a <strong>set</strong>. Sets only work with <strong>ordinal</strong> data types — types where every value has one clear predecessor and one clear successor, so the values can be counted off in order. <code>Integer</code>, <code>Char</code> and <code>Boolean</code> all qualify. <code>Real</code> and <code>String</code> do not: between any two real numbers there are infinitely many more real numbers, so there is no single "next" one, which rules them out of a set.</p>
+    <p>Instead of listing every value separately, a <strong>sub-range</strong> lets you give just the two endpoints as <code>&lt;lowest&gt; .. &lt;highest&gt;</code>. A single set is allowed to mix plain values and sub-ranges together, separated by commas:</p>
+    <div class="code-block"><span class="code-label">Delphi — a grade band and a seating rule built from sub-ranges</span>
+<pre><code><span class="kw">if</span> cGrade <span class="kw">IN</span> [<span class="str">'A'</span>..<span class="str">'C'</span>] <span class="kw">then</span>
+  ShowMessage(<span class="str">'Well done — top achiever!'</span>);
+
+<span class="kw">if</span> <span class="kw">NOT</span> (iSeat <span class="kw">IN</span> [<span class="num">1</span>..<span class="num">15</span>, <span class="num">40</span>..<span class="num">55</span>]) <span class="kw">then</span>
+  ShowMessage(<span class="str">'Seat number must be 1-15 or 40-55'</span>);</code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">Set limits</div>
+      <p>A sub-range built from Integers can only test values between <strong>0 and 255</strong> — anything outside that band raises an error. A set is also capped at a maximum of 265 values in total.</p>
+    </div>
+
+    <h2>Decision Components</h2>
+    <h3>RadioGroup</h3>
+    <p>Uses an <code>ItemIndex</code> property — first item is index <code>0</code>.</p>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">if</span> rgpGender.ItemIndex = <span class="num">0</span> <span class="kw">then</span>
+  sGender := <span class="str">'Male'</span>
+<span class="kw">else</span>
+  sGender := <span class="str">'Female'</span>;</code></pre></div>
+
+    <h3>CheckBox</h3>
+    <p>Uses the <code>Checked</code> property — <code>True</code> or <code>False</code>.</p>
+    <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="kw">if</span> chkInsurance.Checked = <span class="kw">True</span> <span class="kw">then</span>
+  rCost := rCost + rInsuranceAmount;</code></pre></div>
 
     <h2>The CASE Statement</h2>
     <p>Cleaner alternative to multiple IF…ELSE when testing one variable against many values. Works with <strong>Integer</strong> and <strong>Char</strong> only.</p>
@@ -215,6 +269,33 @@
   lblSymbol.Caption := <span class="str">'1 — Not Achieved'</span>;
 <span class="kw">end</span>;</code></pre></div>
 
+    <h3>What Can Go in a CaseList</h3>
+    <p>The value being tested (the <strong>Selector Expression</strong>, straight after the word <code>case</code>) must be ordinal. Each individual <strong>caseList</strong> is flexible about how it lists the values it matches — it can be one constant on its own, several constants separated by commas, a sub-range, or any mixture of these on the same line. The only rule is that a value may not show up in two different caseLists.</p>
+    <div class="code-block"><span class="code-label">Delphi — bus fare worked out from the zone number</span>
+<pre><code><span class="kw">case</span> iZone <span class="kw">of</span>
+  <span class="num">1</span>             : rFare := <span class="num">12</span>;
+  <span class="num">2</span>, <span class="num">3</span>          : rFare := <span class="num">18</span>;
+  <span class="num">4</span>..<span class="num">6</span>          : rFare := <span class="num">25</span>;
+  <span class="num">7</span>, <span class="num">8</span>, <span class="num">10</span>..<span class="num">12</span> : rFare := <span class="num">35</span>;
+<span class="kw">end</span>;</code></pre></div>
+
+    <p>A caseList is not restricted to a single statement either — wrap several statements in <code>begin…end</code> exactly as you would for a multi-statement IF:</p>
+    <div class="code-block"><span class="code-label">Delphi — tallying a register by arrival time</span>
+<pre><code><span class="kw">case</span> iArrivalMinutes <span class="kw">of</span>
+  <span class="num">0</span>..<span class="num">5</span>    : Inc(iOnTime);
+  <span class="num">6</span>..<span class="num">15</span>   : Inc(iLate);
+  <span class="num">16</span>..<span class="num">60</span>  : <span class="kw">begin</span>
+                Inc(iLate);
+                Inc(iVeryLate);
+              <span class="kw">end</span>
+<span class="kw">else</span>
+  ShowMessage(<span class="str">'Please check the time entered'</span>);
+<span class="kw">end</span>; <span class="cmt">// end of case</span></code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">Two easy mistakes to avoid</div>
+      <p>Only one caseList can fire per run of the statement, so double-check that your ranges don't overlap. And remember there is never a semicolon directly before the <code>else</code> part — the same rule as an IF statement. If a CASE branch needs to abandon the rest of the procedure entirely (say, after finding invalid data), call <code>Exit</code> — it works inside any procedure or function, not only inside a CASE.</p>
+    </div>
+
     <h2>MessageDlg</h2>
     <p>A pop-up dialog that asks the user a yes/no question and returns a result.</p>
     <div class="code-block"><span class="code-label">Delphi</span>
@@ -228,6 +309,40 @@
       <tr><td>Buttons</td><td><code>mbYesNo</code>, <code>mbOKCancel</code>, <code>mbYesNoCancel</code></td></tr>
       <tr><td>Result</td><td><code>mrYes</code>, <code>mrNo</code>, <code>mrOK</code>, <code>mrCancel</code></td></tr>
     </table></div>
+
+    <h2>Input Validation</h2>
+    <p>No amount of clever code can rescue a program that starts with bad data — this is often summed up as <strong>GIGO</strong>: <strong>G</strong>arbage <strong>I</strong>n, <strong>G</strong>arbage <strong>O</strong>ut. Before a program uses a value in a calculation or a decision, it should first check that the value is reasonable. Checking a value <em>before</em> it gets used is called <strong>input validation</strong>, and the IF statement is the tool most often used to do it.</p>
+    <p>It helps to separate two ideas that are easy to confuse:</p>
+    <ul>
+      <li><strong>Valid data</strong> — the value falls within rules a program can check on its own, e.g. a ticket quantity of <code>4</code> is a whole number the program can accept.</li>
+      <li><strong>Correct data</strong> — the value is actually the right one for this situation, e.g. that this particular learner really did order 4 tickets. A program cannot verify this by itself; a person has to check it against a reliable source.</li>
+    </ul>
+    <p>A <strong>validation rule</strong> spells out exactly what "valid" means for a piece of data, for example: "the number of matric dance tickets ordered must be a whole number from 1 to 6." Once the rule is written down, an IF statement can enforce it:</p>
+    <div class="code-block"><span class="code-label">Delphi — range check</span>
+<pre><code><span class="kw">if</span> (iTickets &lt; <span class="num">1</span>) <span class="kw">or</span> (iTickets &gt; <span class="num">6</span>) <span class="kw">then</span>
+  ShowMessage(<span class="str">'You may order between 1 and 6 tickets.'</span>);</code></pre></div>
+    <p>Validation matters most when an invalid value would otherwise crash the program during a calculation. Delphi's <code>Sqrt</code> function, for instance, cannot handle a negative number, so the sign has to be checked first:</p>
+    <div class="code-block"><span class="code-label">Delphi — check before Sqrt</span>
+<pre><code><span class="kw">if</span> rNumber &lt; <span class="num">0</span> <span class="kw">then</span>
+  ShowMessage(<span class="str">'Cannot calculate the square root of a negative number'</span>)
+<span class="kw">else</span>
+  rAnswer := Sqrt(rNumber);</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">Keep asking until the answer is valid</div>
+      <p>A single warning message still leaves the program with no usable value to work with. Wrapping the input and the check in a <code>REPEAT..UNTIL</code> loop forces the user to keep trying until they enter something acceptable:</p>
+      <div class="code-block"><span class="code-label">Delphi — repeat until valid</span>
+<pre><code><span class="kw">repeat</span>
+  iTickets := StrToInt(edtTickets.Text);
+  <span class="kw">if not</span> (iTickets <span class="kw">in</span> [<span class="num">1</span>..<span class="num">6</span>]) <span class="kw">then</span>
+    ShowMessage(<span class="str">'You may order between 1 and 6 tickets.'</span>);
+<span class="kw">until</span> iTickets <span class="kw">in</span> [<span class="num">1</span>..<span class="num">6</span>];</code></pre></div>
+    </div>
+    <p>A range is only one kind of validation rule. Depending on the field, a program might instead need to check:</p>
+    <ul>
+      <li><strong>Format</strong> — does the value match an expected pattern, e.g. a South African ID number must be exactly 13 digits.</li>
+      <li><strong>Type</strong> — is the value the right kind of data, e.g. rejecting text where a numeric mark is expected.</li>
+      <li><strong>Presence</strong> — has a required field been left empty, e.g. testing <code>edtName.Text &lt;&gt; ''</code>.</li>
+    </ul>
 
     <h2>Worked Example — Validate, Grade &amp; Decide</h2>
     <p>A typical question chains several decisions together: first <strong>validate</strong> the input with an <code>if</code>, then use a <code>case</code> to map the mark to a symbol, then a final <code>if</code> to decide pass/fail. This shows exactly when to reach for <code>if</code> and when for <code>case</code>.</p>

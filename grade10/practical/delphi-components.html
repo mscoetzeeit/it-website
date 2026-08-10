@@ -26,6 +26,20 @@
   <tr><td><strong>TProgressBar</strong></td><td><code>.Position</code></td><td><code>pbrLoad.Position := 75;</code></td></tr>
   <tr><td><strong>TPanel</strong></td><td><code>.Caption</code>, <code>.Color</code></td><td><code>pnlInfo.Caption := 'Ready';</code></td></tr>
 </table></div>
+<h2>Bitmap Buttons (TBitBtn)</h2>
+<p>A <code>TBitBtn</code> is a special type of button that can show a caption <strong>and</strong> a small picture (bitmap) on its face, making an interface look more professional. Its most useful property is <code>Kind</code> &mdash; setting it gives the button pre-programmed behaviour, so some Bitmap Buttons need <strong>no code at all</strong>.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Kind value</th><th>Built-in behaviour</th></tr>
+  <tr><td><code>bkClose</code></td><td>Closes the form/program &mdash; fully pre-programmed</td></tr>
+  <tr><td><code>bkOK</code></td><td>Closes a modal form and returns <code>mrOk</code></td></tr>
+  <tr><td><code>bkCancel</code></td><td>Closes a modal form and returns <code>mrCancel</code></td></tr>
+  <tr><td><code>bkYes</code> / <code>bkNo</code></td><td>Closes a modal form, returning <code>mrYes</code> / <code>mrNo</code></td></tr>
+  <tr><td><code>bkHelp</code></td><td>Triggers context help &mdash; the programmer adds the code</td></tr>
+</table></div>
+<div class="callout tip">
+  <div class="callout-title">Naming</div>
+  <p>Bitmap Buttons use the prefix <code>bmb</code>, e.g. <code>bmbClose</code>.</p>
+</div>
 <h2>ComboBox — Adding Items</h2>
 <div class="code-block"><span class="code-label">Delphi</span>
 <pre><code><span class="cmt">// At design time: use Items property in Object Inspector
@@ -80,25 +94,6 @@ lstNames.ItemIndex  := <span class="num">-1</span>;   <span class="cmt">// ListB
   <tr><td><code>img</code></td><td>TImage</td></tr>
 </table></div>
 <div class="term-divider"><span class="term-divider-badge">T3</span><span class="term-divider-label">Term 3 &middot; Timer &amp; PageControl (PAT)</span></div>
-<h2>PageControl (Tabbed Forms)</h2>
-<p>A <code>TPageControl</code> creates tabbed pages on a form. Each tab is a <code>TTabSheet</code>.</p>
-<h3>Creating tabs</h3>
-<ol>
-  <li>Add <code>TPageControl</code> to the form</li>
-  <li>Right-click → <strong>New Page</strong> to add tabs</li>
-  <li>Set each <code>TTabSheet.Caption</code> in the Object Inspector</li>
-  <li>Drop other components onto each tab — they belong to that tab</li>
-</ol>
-<h3>Controlling tabs in code</h3>
-<div class="code-block"><span class="code-label">Delphi</span>
-<pre><code><span class="cmt">// Show a tab</span>
-TabSheet2.TabVisible := <span class="kw">True</span>;
-
-<span class="cmt">// Hide a tab</span>
-TabSheet2.TabVisible := <span class="kw">False</span>;
-
-<span class="cmt">// Jump to a specific tab</span>
-pgcMain.ActivePage := TabSheet3;</code></pre></div>
 <h2>Timer Component</h2>
 <p>A <code>TTimer</code> fires its <code>OnTimer</code> event at regular intervals without user input.</p>
 <div class="tbl-wrap"><table>
@@ -121,6 +116,25 @@ pgcMain.ActivePage := TabSheet3;</code></pre></div>
     ShowMessage(<span class="str">'Time is up!'</span>);
   <span class="kw">end</span>;
 <span class="kw">end</span>;</code></pre></div>
+<h2>PageControl (Tabbed Forms)</h2>
+<p>A <code>TPageControl</code> creates tabbed pages on a form. Each tab is a <code>TTabSheet</code>.</p>
+<h3>Creating tabs</h3>
+<ol>
+  <li>Add <code>TPageControl</code> to the form</li>
+  <li>Right-click → <strong>New Page</strong> to add tabs</li>
+  <li>Set each <code>TTabSheet.Caption</code> in the Object Inspector</li>
+  <li>Drop other components onto each tab — they belong to that tab</li>
+</ol>
+<h3>Controlling tabs in code</h3>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code><span class="cmt">// Show a tab</span>
+TabSheet2.TabVisible := <span class="kw">True</span>;
+
+<span class="cmt">// Hide a tab</span>
+TabSheet2.TabVisible := <span class="kw">False</span>;
+
+<span class="cmt">// Jump to a specific tab</span>
+pgcMain.ActivePage := TabSheet3;</code></pre></div>
 <div class="page-nav">
   <a href="delphi-intro.html"><span class="page-nav-label">← Previous</span>Introduction to Delphi (T1)</a>
   <a class="next" href="data-types.html"><span class="page-nav-label">Next →</span>Data Types &amp; Variables (T1)</a>

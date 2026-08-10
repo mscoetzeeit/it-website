@@ -16,6 +16,7 @@
   <a href="terms-gr12.html">📅 Grade 12 — Year Planner</a>
   <a href="exam-extras.html">⚡ Exam Extras</a>
   <div class="sidebar-grade" style="margin-top:1rem">Sections</div>
+  <a href="#dev-process">Software Development Process</a>
   <a href="#practical-extras">Practical Extras (P1)</a>
   <a href="#theory-extras">Theory Extras (P2)</a>
   <a href="#delphi-functions">Delphi Functions Reference</a>
@@ -29,6 +30,36 @@
   <div class="callout warning">
     <div class="callout-title">How to use this page</div>
     <p>Items marked <span class="badge badge-blue">P1</span> appear in Paper 1 (practical/Delphi), <span class="badge badge-purple">P2</span> in Paper 2 (theory), and <span class="badge badge-green">Both</span> in either paper. These are <em>supplementary</em> — master your CAPS content first.</p>
+  </div>
+
+  <!-- SOFTWARE DEVELOPMENT PROCESS -->
+  <h2 id="dev-process">The Software Development Process</h2>
+  <p>CAPS never teaches "how to plan a whole program" as one topic — instead it hands you the individual planning tools (IPO tables, TOE charts, pseudocode) at different points across Grade 10 and 11. Strung together in order, those tools form a complete process for turning a vague idea into a finished, working program. None of this is examinable on its own, but following it will make your PAT — and any open-ended practical question — far less overwhelming.</p>
+
+  <ol style="margin:0.75rem 0 0 1.25rem; display:flex; flex-direction:column; gap:1rem">
+    <li>
+      <strong>Pin down exactly what the program must do.</strong> A one-line description ("a till program") is not enough to start coding from — write out every input the program will receive, every calculation or decision it must make, and every output it must produce. This is the same information an <strong>IPO table</strong> asks for (<a href="grade10/practical/algorithms.html">Grade 10 T1, Algorithms &amp; Problem Solving</a>), just applied to the whole program instead of one calculation.
+    </li>
+    <li>
+      <strong>Sketch the interface before placing a single component.</strong> Decide which forms the user will see, what components sit on each one, and how the user moves between them. Keep the same layout, colours and button placement on every form — a program that looks different from screen to screen feels unfinished even when the code is solid.
+    </li>
+    <li>
+      <strong>Map out which event triggers which task.</strong> For every button, checkbox or form event, list precisely what must happen when it fires — this is exactly what a <strong>TOE (Task–Object–Event) chart</strong> is for (also covered on the <a href="grade10/practical/algorithms.html">Algorithms &amp; Problem Solving</a> page). Doing this before writing code stops the common mistake of half-remembering what a button was supposed to do halfway through typing its handler.
+    </li>
+    <li>
+      <strong>Break the plan into procedures and functions before typing the body of any of them.</strong> Decide which pieces of logic will repeat, which need a return value and which don't, and what needs to pass between them as parameters — this is where the <a href="grade11/practical/methods.html">Procedures &amp; Functions</a> (Grade 11 T2) content and the local-vs-global variable rules on that page earn their keep.
+    </li>
+    <li>
+      <strong>Write the code in small, testable pieces</strong> rather than the whole program at once — build and run after every procedure or two so that when something breaks, you know it's in the last few lines you typed, not buried somewhere in 200 lines you haven't tested yet.
+    </li>
+    <li>
+      <strong>Test with data designed to break it, not just data that works.</strong> Run the program with an empty text box, a negative number, the largest and smallest values it should accept, and anything else a careless user might type — this is the mindset behind the <a href="grade10/practical/decisions.html">Input Validation</a> content (Grade 10 T2). Where something goes wrong before you can even see the output, Delphi's debugger (breakpoints, F8 stepping, the Watch List — see <a href="grade10/practical/data-types.html">Data Types &amp; Variables</a>) will show you exactly which line is responsible.
+    </li>
+  </ol>
+
+  <div class="callout tip">
+    <div class="callout-title">Why bother with all of this for a PAT?</div>
+    <p>A PAT is marked over months, revisited many times, and often built on by a partner or by future-you after a long break. Time spent planning up front — even just a page of notes on what each form does — is what makes it possible to pick the project back up in Term 4 and still understand your own Term 2 code.</p>
   </div>
 
   <!-- PRACTICAL EXTRAS -->

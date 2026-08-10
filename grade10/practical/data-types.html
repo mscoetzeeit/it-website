@@ -58,6 +58,14 @@
       </table>
     </div>
 
+    <div class="callout tip">
+      <div class="callout-title">Integer and Real Values Mix &mdash; But Not Both Ways</div>
+      <p>Delphi lets you go one way but not the other: a whole-number result can be poured into a <code>Real</code> variable without any fuss, but a <code>Real</code> value can never be poured into an <code>Integer</code> variable — there is no automatic way to throw away a decimal part. Worth remembering too: the <code>/</code> operator always hands back a <code>Real</code> answer, even when both of the numbers you divide happen to be whole numbers.</p>
+      <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>rTotalStock := iBoxesIn + iBoxesReturned;   <span class="cmt">// fine — a whole number fits happily into a Real</span>
+iBoxesIn    := rTotalStock * 2;             <span class="cmt">// rejected — a Real value won't fit into an Integer</span></code></pre></div>
+    </div>
+
     <h2>Variables</h2>
     <p>A <strong>variable</strong> is a named storage location that holds a value during program execution. Think of it as a labelled cup — it holds one thing at a time, but you can empty it and refill it whenever you like.</p>
     <p>Variables must be: <strong>Declared</strong> → <strong>Populated</strong> → <strong>Used</strong>.</p>
@@ -73,6 +81,20 @@
         <li><code>Boolean</code> — holds only <code>True</code> or <code>False</code></li>
       </ul>
       <p>And just as you would not serve soup on a plate, you cannot store the word <code>'Banana'</code> in an <code>Integer</code> — the value has to match the type of container.</p>
+    </div>
+
+    <h3>Rules for Variable Names</h3>
+    <p>Delphi won't accept just any piece of text as a variable name — a handful of rules apply every time you choose one:</p>
+    <ul>
+      <li>It has to begin with a letter or an underscore <code>_</code> — never a digit or another symbol</li>
+      <li>Spaces are not allowed anywhere in the name</li>
+      <li>Once past the first character, digits and underscores may join the letters — but nothing else</li>
+      <li>You can't reuse one of Delphi's own reserved words, since words like <code>begin</code>, <code>var</code> or <code>end</code> already have a fixed meaning to the compiler</li>
+      <li>Delphi stops paying attention after the 255th character, so an extremely long name gains you nothing beyond that point</li>
+    </ul>
+    <div class="callout tip">
+      <div class="callout-title">Multi-word Names</div>
+      <p>When a single word isn't descriptive enough, run several together and capitalise each new one instead of using spaces or an unbroken run of lowercase letters — <code>sFirstName</code> and <code>rTotalCost</code> read far more clearly than <code>sfirstname</code> or <code>rtotalcost</code>.</p>
     </div>
 
     <h3>Naming Convention — Prefixes</h3>
@@ -241,6 +263,47 @@ memOut.Lines.Add(IntToStr(iNum1) + <span class="str">' + '</span> + IntToStr(iNu
                + <span class="str">' = '</span> + IntToStr(iAnswer));</code></pre>
     </div>
 
+    <div class="callout tip">
+      <div class="callout-title">Special Characters — New Lines and Tabs</div>
+      <p>Two ASCII character codes are handy for laying out text: <code>#13</code> forces whatever follows onto a new line (it is the code for a carriage return), and <code>#9</code> inserts a tab space. Join either one into a string with <code>+</code>, exactly like any other piece of text:</p>
+      <div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>lblResult.Caption := <span class="str">'Test 1: 78%'</span> + #13 + <span class="str">'Test 2: 84%'</span>;
+memOut.Lines.Add(<span class="str">'Player'</span> + #9 + <span class="str">'Score'</span>);</code></pre></div>
+    </div>
+
+    <h3>Incrementing and Decrementing Variables</h3>
+    <p>Instead of writing out a full assignment every time a counter needs to move up or down by one, Delphi gives you two ready-made procedures: <code>Inc</code> and <code>Dec</code>. Call one with just the variable name and it steps by one; give it a second number and it steps by that amount instead.</p>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Statement</th><th>Equivalent to</th></tr>
+        <tr><td><code>Inc(iVisitors);</code></td><td><code>iVisitors := iVisitors + 1;</code></td></tr>
+        <tr><td><code>Inc(iVisitors, 5);</code></td><td><code>iVisitors := iVisitors + 5;</code></td></tr>
+        <tr><td><code>Dec(iStock);</code></td><td><code>iStock := iStock - 1;</code></td></tr>
+        <tr><td><code>Dec(iStock, 5);</code></td><td><code>iStock := iStock - 5;</code></td></tr>
+      </table>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title">Handy for Counters</div>
+      <p>You'll reach for <code>Inc</code> most often inside a loop, nudging a counter forward one step per repetition — <code>Inc(iCount);</code> reads more naturally than repeating the full assignment statement every time.</p>
+    </div>
+
+    <h3>Getting Input with InputBox</h3>
+    <p>Not every value needs its own Edit box sitting on the form. The <code>InputBox</code> function opens a small dialog of its own, waits for the user to type something, and hands back whatever they entered — always packaged as a <strong>string</strong>, no matter what kind of data it looks like.</p>
+    <div class="code-block">
+      <span class="code-label">Delphi — InputBox(title, prompt, default)</span>
+      <pre><code>sTeam := InputBox(<span class="str">'House Team'</span>, <span class="str">'Which house are you in?'</span>, <span class="str">''</span>);</code></pre>
+    </div>
+    <p>Since the result is always text, wrap it in a conversion function whenever you actually need a number or a single character:</p>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Required type</th><th>Example</th></tr>
+        <tr><td><code>string</code></td><td><code>sTeam := InputBox('House Team', 'Which house are you in?', '');</code></td></tr>
+        <tr><td><code>integer</code></td><td><code>iAge := StrToInt(InputBox('Age', 'How old are you?', ''));</code></td></tr>
+        <tr><td><code>real</code></td><td><code>rHeight := StrToFloat(InputBox('Height', 'What is your height in metres?', ''));</code></td></tr>
+        <tr><td><code>char</code></td><td><code>cGrade := InputBox('Grade', 'Enter your grade symbol:', '')[1];</code> — the <code>[1]</code> keeps only the first character typed</td></tr>
+      </table>
+    </div>
+
     <h2>Constants</h2>
     <p>A <strong>constant</strong> holds a value that is known before the program runs and <em>cannot</em> change while it runs. Use <code>const</code> instead of <code>var</code>. No data type is needed, and use <code>=</code> not <code>:=</code>.</p>
     <div class="code-block">
@@ -288,6 +351,16 @@ rTotal     := rCostPrice + rVatAmount;</code></pre>
 lblPrice.Caption := FloatToStrF(rPrice, ffCurrency, <span class="num">4</span>, <span class="num">2</span>);  <span class="cmt">// → R24.50</span>
 lblPrice.Caption := FloatToStrF(rPrice, ffFixed,    <span class="num">4</span>, <span class="num">2</span>);  <span class="cmt">// → 24.50</span></code></pre>
     </div>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Format</th><th>Description</th></tr>
+        <tr><td><code>ffCurrency</code></td><td>Adds a currency symbol to the formatted value</td></tr>
+        <tr><td><code>ffExponent</code></td><td>Writes the value out in scientific notation</td></tr>
+        <tr><td><code>ffFixed</code></td><td>Rounds the value to however many decimal places you ask for</td></tr>
+        <tr><td><code>ffGeneral</code></td><td>Plain number formatting — decimals are shown only when the value actually has them</td></tr>
+        <tr><td><code>ffNumber</code></td><td>Works like <code>ffFixed</code>, but breaks large numbers up with thousands separators</td></tr>
+      </table>
+    </div>
 
     <h2>Types of Errors</h2>
     <div class="tbl-wrap">
@@ -297,6 +370,59 @@ lblPrice.Caption := FloatToStrF(rPrice, ffFixed,    <span class="num">4</span>, 
         <tr><td><strong>Runtime Error</strong></td><td>Crashes while the program is running</td><td>Dividing by zero</td></tr>
         <tr><td><strong>Logical Error</strong></td><td>Runs, but gives wrong answer</td><td>Calculating average before total, infinite loop</td></tr>
       </table>
+    </div>
+    <p>Only a <strong>syntax error</strong> stops the program from compiling at all — Delphi catches it immediately. <strong>Runtime</strong> and <strong>logical</strong> errors both let the program compile and run, which makes them harder to catch: a runtime error only shows itself when the exact conditions that break it occur (e.g. the user finally types a letter instead of a number), and a logical error may never show itself at all — the program keeps running and simply produces the wrong answer.</p>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Common causes of runtime errors</th><th>Common causes of logical errors</th></tr>
+        <tr><td>Converting text that isn't a valid number (<code>StrToInt</code>/<code>StrToFloat</code>)</td><td>Using the wrong variable in a calculation (e.g. a property was never transferred into it)</td></tr>
+        <tr><td>Dividing by zero</td><td>Getting the sequence of instructions wrong (e.g. calculating a total before all the values were added)</td></tr>
+        <tr><td>Calculating the square root of a negative number</td><td>Using AND/OR/NOT incorrectly in a compound condition</td></tr>
+        <tr><td>A calculated answer too big for its variable type (overflow)</td><td>Ignoring the order of precedence of operators</td></tr>
+        <tr><td>Accessing an array index that is out of range</td><td>A mistake with the variable controlling a loop, causing it to run forever</td></tr>
+      </table>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title">GIGO &mdash; the root cause of many errors</div>
+      <p>Many runtime and logical errors trace back to <strong>invalid data</strong>: <strong>G</strong>arbage <strong>I</strong>n, <strong>G</strong>arbage <strong>O</strong>ut. A program is only as reliable as the checks it makes on the data it receives &mdash; see <a href="decisions.html">Input Validation</a> on the Decision Making page.</p>
+    </div>
+
+    <h2>Preventing and Handling Runtime Errors with Try..Except</h2>
+    <p>A <code>try..except</code> block protects against <em>any</em> runtime error, not just a bad conversion. Code that might fail &mdash; a conversion, a calculation, anything risky &mdash; goes inside the <code>try</code> section. The moment something in there raises an error, Delphi abandons whatever was left in that section and jumps straight to <code>except</code>, running the recovery code written there instead of letting the program crash.</p>
+    <div class="code-block"><span class="code-label">Syntax</span>
+<pre><code><span class="kw">try</span>
+  <span class="cmt">// risky code that might raise a runtime error</span>
+<span class="kw">except</span>
+  <span class="cmt">// code that runs only if an error occurred above</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="code-block"><span class="code-label">Delphi — protecting a StrToFloat conversion</span>
+<pre><code><span class="kw">var</span>
+  rAmount : <span class="kw2">real</span>;
+<span class="kw">begin</span>
+  <span class="kw">try</span>
+    rAmount := StrToFloat(edtAmount.Text);
+  <span class="kw">except</span>
+    ShowMessage(<span class="str">'Invalid amount entered'</span>);
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">Val vs try..except</div>
+      <p>The <code>Val</code> procedure above and a <code>try..except</code> block solve the same problem in different ways. <code>Val</code> checks a <em>conversion</em> specifically and gives you an error code to test. <code>try..except</code> is more general &mdash; it protects <em>any</em> block of code (a conversion, a calculation, a file operation) and reacts only if something actually goes wrong.</p>
+    </div>
+
+    <h2>Finding Logical Errors — Debugging Tools</h2>
+    <p>Logical errors are the hardest to find because the program runs without crashing. Besides tracing the code by hand with a paper-based trace table, Delphi's built-in debugger lets you watch a program execute one line at a time and see exactly what is happening inside it.</p>
+    <div class="tbl-wrap">
+      <table>
+        <tr><th>Tool</th><th>What it does</th></tr>
+        <tr><td><strong>Breakpoint</strong></td><td>Click in the grey margin next to a line of code to mark where execution must pause. When the program reaches that line, Delphi stops and lets you take control instead of running straight through.</td></tr>
+        <tr><td><strong>Step (F8)</strong></td><td>Executes only the highlighted line, then pauses again on the next one &mdash; lets you watch the program run one instruction at a time.</td></tr>
+        <tr><td><strong>Watch List</strong> (<em>Run &rarr; Add Watch</em>)</td><td>Displays the current value of one or more variables, updated live as each line executes &mdash; so you can see exactly where a variable gets the wrong value.</td></tr>
+      </table>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title">Stop guessing, start watching</div>
+      <p>It is tempting to change lines of code at random when the output looks wrong, hoping something sticks. That approach wastes time and can introduce new bugs on top of the original one. Watching the variables change value one line at a time pinpoints the exact instruction responsible, so the fix is targeted instead of accidental.</p>
     </div>
 
     <div class="page-nav">

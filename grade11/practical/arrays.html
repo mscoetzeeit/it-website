@@ -177,6 +177,67 @@ iTotal := <span class="num">0</span>;
   iTotal := iTotal + arrMarks[i];
 rAvg := iTotal / Length(arrMarks);</code></pre></div>
 
+<h3>Shortcut: the Math Unit</h3>
+<p>Writing your own loop to total or average an array works, but Delphi's <code>Math</code> unit already has ready-made functions that do the same job in one line.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Function</th><th>Returns</th></tr>
+  <tr><td><code>Sum(arr)</code></td><td>Total of every element</td></tr>
+  <tr><td><code>Mean(arr)</code></td><td>Average of every element</td></tr>
+  <tr><td><code>MaxValue(arr)</code></td><td>The largest value in the array</td></tr>
+  <tr><td><code>MinValue(arr)</code></td><td>The smallest value in the array</td></tr>
+</table></div>
+<div class="code-block"><span class="code-label">Delphi &mdash; Math unit shortcuts</span>
+<pre><code><span class="kw">uses</span> Math;   <span class="cmt">// add this to the uses clause first</span>
+
+rAvg     := Mean(arrPrices);
+rTotal   := Sum(arrPrices);
+rHighest := MaxValue(arrPrices);
+rLowest  := MinValue(arrPrices);</code></pre></div>
+<div class="callout warning">
+  <div class="callout-title">Only for arrays of type Double</div>
+  <p>These four functions only accept an array whose elements are declared as <code>Double</code> &mdash; not <code>Integer</code>, and not the general-purpose <code>Real</code>. If your array holds integers, either redeclare it as <code>array[1..n] of Double</code>, or stick to your own loop.</p>
+</div>
+
+<!-- ═══════ MEANINGFUL INDICES ═══════ -->
+<h2>Arrays with Meaningful Indices</h2>
+<p>Every index used so far has just meant "the Nth item in the list" &mdash; <code>arrNames[3]</code> is simply whoever happens to be third. Sometimes, though, it's more useful to let the index itself carry meaning. If <code>arrVotes[4]</code> always holds the vote count for competitor number 4, the index <em>is</em> the competitor number, not just a position in a queue.</p>
+
+<h3>Using a Char as the Index</h3>
+<p>An index isn't limited to whole numbers &mdash; any ordinal type can be used, including <code>Char</code>. This is handy whenever the letter itself is what you want to look values up by, e.g. tallying how many learners scored each grade symbol (A to F) in a test:</p>
+<div class="code-block"><span class="code-label">Delphi &mdash; a Char-indexed array</span>
+<pre><code><span class="kw">var</span>
+  arrSymbolCount : <span class="kw">array</span> [<span class="str">'A'</span>..<span class="str">'F'</span>] <span class="kw">of</span> <span class="kw2">Integer</span>;
+  cGrade : <span class="kw2">Char</span>;
+<span class="kw">begin</span>
+  cGrade := <span class="str">'A'</span>;
+  <span class="kw">while</span> cGrade &lt;= <span class="str">'F'</span> <span class="kw">do</span>
+  <span class="kw">begin</span>
+    arrSymbolCount[cGrade] := <span class="num">0</span>;   <span class="cmt">// reset every element to zero first</span>
+    cGrade := succ(cGrade);         <span class="cmt">// moves 'A' to 'B', 'B' to 'C', and so on</span>
+  <span class="kw">end</span>;
+
+  <span class="cmt">// later, whenever a learner's symbol is worked out:</span>
+  Inc(arrSymbolCount[cLearnerSymbol]);</code></pre></div>
+<div class="callout tip">
+  <div class="callout-title">succ and pred</div>
+  <p><code>succ(cGrade)</code> gives the character that comes <em>after</em> <code>cGrade</code> in the alphabet; <code>pred(cGrade)</code> gives the one <em>before</em> it. They work like <code>+1</code>/<code>-1</code> for any ordinal type, including <code>Char</code>, where plain arithmetic isn't allowed.</p>
+</div>
+
+<h3>Matching a RadioGroup's ItemIndex to an Array</h3>
+<p>A <code>RadioGroup</code>'s <code>ItemIndex</code> always starts counting from <strong>0</strong> for its first button &mdash; but an array you declare yourself might start at <code>1</code>. When you use <code>ItemIndex</code> to pick an element to update (for example, tallying votes for a menu option), you need to decide which convention your array follows and stay consistent:</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Array declared <code>[0..4]</code></th><th>Array declared <code>[1..5]</code></th></tr>
+  <tr>
+    <td><code>iChoice := rgpMenu.ItemIndex;</code><br><code>Inc(arrVotes[iChoice]);</code></td>
+    <td><code>iChoice := rgpMenu.ItemIndex + 1;</code><br><code>Inc(arrVotes[iChoice]);</code></td>
+  </tr>
+</table></div>
+<p>With the <code>[1..5]</code> version, the array index is always one more than <code>ItemIndex</code>, because <code>ItemIndex</code> itself never moves off its 0-based counting &mdash; only your array's lower bound changes.</p>
+<div class="callout warning">
+  <div class="callout-title">IndexOutOfBounds / range check error</div>
+  <p>Delphi will happily compile <code>arrNames[50]</code> even if <code>arrNames</code> was declared as <code>[1..30]</code> &mdash; the mistake only surfaces while the program is <em>running</em>, as a range-check/IndexOutOfBounds error the moment that line executes. Whenever an index comes from user input or from a component like <code>ItemIndex</code>, validate it against the array's real bounds before using it.</p>
+</div>
+
 <!-- ═══════ LINEAR SEARCH ═══════ -->
 <h2>Linear Search</h2>
 <div class="code-block"><span class="code-label">Delphi</span>
@@ -190,6 +251,10 @@ rAvg := iTotal / Length(arrMarks);</code></pre></div>
   <span class="kw">end</span>;
 <span class="kw">if not</span> bFound <span class="kw">then</span>
   ShowMessage(<span class="str">'Not found'</span>);</code></pre></div>
+<div class="callout tip">
+  <div class="callout-title">Pick the right search for the job</div>
+  <p>The code above stops the loop with <code>Break</code> as soon as one match turns up &mdash; correct when you only expect a single match (e.g. one learner's ID number). If instead you needed <em>every</em> occurrence (e.g. every learner who chose "Physics"), you would drop the flag and <code>Break</code>, and simply let the loop run to the end, adding each match found along the way. Once the array is sorted, binary search (below) beats both approaches for speed.</p>
+</div>
 
 <!-- ═══════ BINARY SEARCH ═══════ -->
 <h2>Binary Search (sorted array)</h2>
@@ -283,6 +348,21 @@ bFound := <span class="kw">False</span>;
 <span class="kw">if</span> bFound <span class="kw">then</span>
   ShowMessage(<span class="str">'Found at position '</span> + IntToStr(iMid));</code></pre></div>
 
+<!-- ═══════ ASCII STRING COMPARISON ═══════ -->
+<h2>How String Comparison Works</h2>
+<p>Sorting a string array with <code>&gt;</code> and <code>&lt;</code> only makes sense once you know what Delphi is actually comparing. It never looks at "the alphabet" directly &mdash; it walks each string letter by letter and compares the underlying <strong>ASCII value</strong> of each character, stopping at the first pair of letters that differ.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Comparison</th><th>Result</th><th>Why</th></tr>
+  <tr><td><code>'Alice' = 'alice'</code></td><td>False</td><td><code>'A'</code> is ASCII 65, <code>'a'</code> is ASCII 97 &mdash; string comparison is case-sensitive.</td></tr>
+  <tr><td><code>'Bob' &lt; 'Eve'</code></td><td>True</td><td>First letters differ straight away: <code>'B'</code> (66) is less than <code>'E'</code> (69).</td></tr>
+  <tr><td><code>'Farai' &lt; 'Farm'</code></td><td>True</td><td>The first three letters (<code>'F','a','r'</code>) match, so the 4th letter decides: <code>'a'</code> (97) is less than <code>'m'</code> (109).</td></tr>
+  <tr><td><code>'Gio' &gt; 'Gi'</code></td><td>True</td><td>Delphi pads the shorter string with trailing spaces to compare them &mdash; so <code>'Gi'</code> becomes <code>'Gi '</code>, and <code>'o'</code> (111) beats a space (32).</td></tr>
+</table></div>
+<div class="callout tip">
+  <div class="callout-title">Capitals sort before lowercase</div>
+  <p>Because every uppercase letter has a lower ASCII value than every lowercase letter, an unsorted mix of cases will group <em>all</em> the capitalised words before <em>any</em> lowercase word once sorted &mdash; not what most people expect from "alphabetical order". If that matters, convert both sides to the same case (e.g. with <code>UpperCase()</code>) before comparing or sorting.</p>
+</div>
+
 <!-- ═══════ BUBBLE SORT VISUAL ═══════ -->
 <h2>Bubble Sort — Pass by Pass</h2>
 <p>Bubble sort compares adjacent elements and swaps them if they are in the wrong order. After each full pass, the largest unsorted value "bubbles" to its correct position at the end. Array: <strong>[5, 3, 8, 1, 9]</strong> — sorting ascending.</p>
@@ -358,6 +438,24 @@ bFound := <span class="kw">False</span>;
       arrNums[j] := arrNums[j + <span class="num">1</span>];
       arrNums[j + <span class="num">1</span>] := iTemp;
     <span class="kw">end</span>;</code></pre></div>
+<div class="callout tip">
+  <div class="callout-title">Stop early once nothing swaps</div>
+  <p>The version above always completes every single pass, even once the array is already sorted. A smarter bubble sort keeps a Boolean <strong>flag</strong> and quits the moment a whole pass goes by with no swaps at all &mdash; because that can only happen when the array is fully sorted:</p>
+</div>
+<div class="code-block"><span class="code-label">Delphi &mdash; Bubble Sort that quits early</span>
+<pre><code>iEndCounter := Length(arrNums) - <span class="num">1</span>;
+<span class="kw">repeat</span>
+  bSwapped := <span class="kw">False</span>;
+  <span class="kw">for</span> j := <span class="num">1</span> <span class="kw">to</span> iEndCounter <span class="kw">do</span>
+    <span class="kw">if</span> arrNums[j] > arrNums[j + <span class="num">1</span>] <span class="kw">then</span>
+    <span class="kw">begin</span>
+      iTemp := arrNums[j];
+      arrNums[j] := arrNums[j + <span class="num">1</span>];
+      arrNums[j + <span class="num">1</span>] := iTemp;
+      bSwapped := <span class="kw">True</span>;
+    <span class="kw">end</span>;
+  Dec(iEndCounter);            <span class="cmt">// the tail end is sorted, so search one less item next time</span>
+<span class="kw">until not</span> bSwapped;         <span class="cmt">// no swaps this pass = fully sorted, stop looping</span></code></pre></div>
 
 <!-- ═══════ SELECTION SORT VISUAL ═══════ -->
 <h2>Selection Sort — Pass by Pass</h2>
