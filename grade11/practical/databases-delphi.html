@@ -235,6 +235,21 @@ dm.tblStudents.Filtered := <span class="kw">False</span>;              <span cla
     <p><code>Filter</code> hides records that don't match &mdash; it changes <em>which</em> records you see. <code>Sort</code> changes the <em>order</em> of the records you see. You can use both together.</p>
   </div>
 
+  <h2>Dataset State</h2>
+  <p>A dataset (a <code>TADOTable</code> or <code>TADOQuery</code>) is always in one of several <strong>states</strong>, and the state controls what you may do to the current record. This is <em>why</em> you must call <code>Edit</code> or <code>Insert</code> <strong>before</strong> changing a field, and <code>Post</code> afterwards.</p>
+  <div class="tbl-wrap"><table>
+    <tr><th>State</th><th>Meaning</th><th>How you get into it</th></tr>
+    <tr><td><code>dsInactive</code></td><td>The dataset is closed — no data available</td><td><code>Active := False</code> / <code>Close</code></td></tr>
+    <tr><td><code>dsBrowse</code></td><td>The normal state — you can read and move through records, but not change them</td><td><code>Open</code>, or after <code>Post</code></td></tr>
+    <tr><td><code>dsEdit</code></td><td>The current record is open for changes</td><td><code>Edit</code></td></tr>
+    <tr><td><code>dsInsert</code></td><td>A new blank record is being filled in</td><td><code>Insert</code> / <code>Append</code></td></tr>
+  </table></div>
+  <p>The cycle: from <strong>Browse</strong> you call <code>Edit</code> (&rarr; dsEdit) or <code>Insert</code> (&rarr; dsInsert), change the fields, then <code>Post</code> saves and returns to <strong>Browse</strong> — or <code>Cancel</code> discards the change and returns to Browse.</p>
+  <div class="callout tip">
+    <div class="callout-title">Why it matters</div>
+    <p>Trying to change a field while in <code>dsBrowse</code> raises an error. Always <code>Edit</code> or <code>Insert</code> first, then <code>Post</code>. You can test the current state in code with <code>if tblStudents.State = dsBrowse then …</code></p>
+  </div>
+
   <h2>Sorting Records</h2>
   <div class="code-block"><span class="code-label">Delphi</span>
 <pre><code>dm.tblStudents.Sort := <span class="str">'Surname ASC'</span>;         <span class="cmt">// A to Z by surname</span>
@@ -261,6 +276,17 @@ dm.tblStudents.Sort := <span class="str">'Grade ASC, Surname ASC'</span>; <span 
   <span class="kw">end</span>;
   lblResult.Caption := sTopName + <span class="str">' scored the highest: '</span> + IntToStr(iHighest);
 <span class="kw">end</span>;</code></pre></div>
+
+  <h2>Linked Tables (Master-Detail)</h2>
+  <p>Two related tables can be <strong>linked</strong> so that selecting a record in the <strong>master</strong> (parent) table automatically shows only the matching records in the <strong>detail</strong> (child) table — for example, click a class and see only that class's learners. The link is made on the shared key field (the foreign key in the detail table matching the primary key in the master).</p>
+  <div class="code-block"><span class="code-label">Delphi — set these on the DETAIL table</span>
+<pre><code>tblLearners.MasterSource := dsClasses;   <span class="cmt">// point at the MASTER table's DataSource</span>
+tblLearners.MasterFields := <span class="str">'ClassID'</span>;   <span class="cmt">// the linking (foreign key) field</span></code></pre></div>
+  <p>Now the detail grid filters itself as you move through the master table — a one-to-many relationship shown live on screen. (These properties are usually set in the Object Inspector, but can be set in code as above.)</p>
+  <div class="callout tip">
+    <div class="callout-title">Master-detail vs an SQL join</div>
+    <p>Use a <strong>master-detail</strong> link when you want two grids that stay in sync as the user browses. Use an <strong>SQL join</strong> (see <a href="../../grade12/sql-join.html">Grade 12 SQL — Joining Tables</a>) when you want the linked data combined into a single result set for a report.</p>
+  </div>
 
   <h2>Connecting a Database <em>Dynamically</em> (in Code)</h2>
   <p>Everything above used components dropped onto a Data Module at <strong>design time</strong>. You can also build the whole connection <strong>at runtime with code</strong> &mdash; no components needed. This is called a <strong>dynamic connection</strong>, and it is useful when the database path is only known while the program runs (e.g. the user browses to the file).</p>
