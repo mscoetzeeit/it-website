@@ -322,6 +322,17 @@ dm.tblStudents.Sort := <span class="str">'Grade ASC, Surname ASC'</span>; <span 
   lblResult.Caption := sTopName + <span class="str">' scored the highest: '</span> + IntToStr(iHighest);
 <span class="kw">end</span>;</code></pre></div>
 
+  <h2>Linked Tables (Master-Detail)</h2>
+  <p>Two related tables can be <strong>linked</strong> so that selecting a record in the <strong>master</strong> (parent) table automatically shows only the matching records in the <strong>detail</strong> (child) table — for example, click a class and see only that class's learners. The link is made on the shared key field (the foreign key in the detail table matching the primary key in the master).</p>
+  <div class="code-block"><span class="code-label">Delphi — set these on the DETAIL table</span>
+<pre><code>tblLearners.MasterSource := dsClasses;   <span class="cmt">// point at the MASTER table's DataSource</span>
+tblLearners.MasterFields := <span class="str">'ClassID'</span>;   <span class="cmt">// the linking (foreign key) field</span></code></pre></div>
+  <p>Now the detail grid filters itself as you move through the master table — a one-to-many relationship shown live on screen. (These properties are usually set in the Object Inspector, but can be set in code as above.)</p>
+  <div class="callout tip">
+    <div class="callout-title">Master-detail vs an SQL join</div>
+    <p>Use a <strong>master-detail</strong> link when you want two grids that stay in sync as the user browses. Use an <strong>SQL join</strong> (see <a href="../../grade12/sql-join.html">Grade 12 SQL — Joining Tables</a>) when you want the linked data combined into a single result set for a report.</p>
+  </div>
+
   <h2>Editing Records Without Code &mdash; Data-Aware Controls</h2>
   <p>Everything else on this page shows how to insert, edit and delete records <em>using code</em>. Delphi also provides <strong>data-aware controls</strong> that let a user browse and change records directly on the Form, with no code at all.</p>
 
