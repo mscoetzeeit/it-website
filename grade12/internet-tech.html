@@ -42,6 +42,30 @@
   <tr><td><strong>Purpose</strong></td><td>Real-time page updates, validation, animations</td><td>Authentication, database access, processing</td></tr>
   <tr><td><strong>AJAX</strong></td><td>Updates parts of a page without reloading</td><td>—</td></tr>
 </table></div>
+
+<h2>The Role of Scripting Languages</h2>
+<p>A scripting language is what turns a plain, static page into a website that actually <em>does</em> something. Its role always splits into two halves — what happens instantly in the visitor's browser, and what happens back on the web server — and an online store is a good way to see both halves at work at once.</p>
+
+<div class="callout">
+  <div class="callout-title">Client-side scripting (e.g. JavaScript)</div>
+  <p>Runs in the customer's own browser, so it can react instantly without waiting for the server. On an online store it could:</p>
+  <ul>
+    <li>Validate the checkout form before it is submitted — e.g. checking that a cellphone number field isn't empty or that the quantity entered is a valid positive number — so the customer sees the error immediately, without a round trip to the server.</li>
+    <li>Update the shopping cart total the instant a customer changes a quantity, with no need to reload the page.</li>
+    <li>Show or hide extra product information (e.g. a "Read more" description) when clicked.</li>
+  </ul>
+</div>
+<div class="callout">
+  <div class="callout-title">Server-side scripting (e.g. PHP)</div>
+  <p>Runs on the store's web server, so it's the only place that can safely reach the database. On an online store it could:</p>
+  <ul>
+    <li>Check the product database to confirm an item is still in stock before allowing checkout.</li>
+    <li>Calculate the order total and generate an order confirmation.</li>
+    <li>Securely process the customer's login and payment details.</li>
+    <li>Insert the new order into the database and update the stock level once payment succeeds.</li>
+  </ul>
+</div>
+
 <h2>HTTP vs HTTPS</h2>
 <div class="tbl-wrap"><table>
   <tr><th></th><th>HTTP</th><th>HTTPS</th></tr>

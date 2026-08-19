@@ -4276,25 +4276,35 @@ cUpper := Chr(Ord(cLower) - <span class="num">32</span>);
   <li><strong>Cloud/online</strong> — e.g. Google Drive, OneDrive — automatic, accessible anywhere</li>
 </ul>
 <h2>Common Malware Threats</h2>
+<p><strong>Malware</strong> (malicious software) is the umbrella term for any software designed to damage, disrupt or gain unauthorised access to a computer system. It comes in several distinct forms, each with its own way of infecting a device and its own goal.</p>
 <div class="tbl-wrap"><table>
-  <tr><th>Threat</th><th>Description</th></tr>
-  <tr><td><strong>Virus</strong></td><td>Replicates and spreads; performs harmful actions</td></tr>
-  <tr><td><strong>Worm</strong></td><td>Spreads across networks without user action</td></tr>
-  <tr><td><strong>Trojan</strong></td><td>Disguised as useful software; gives attackers back-door access</td></tr>
-  <tr><td><strong>Ransomware</strong></td><td>Encrypts your data; demands payment for the key</td></tr>
-  <tr><td><strong>Spyware</strong></td><td>Secretly tracks your activity</td></tr>
-  <tr><td><strong>Adware</strong></td><td>Displays unwanted advertisements (pop-ups)</td></tr>
+  <tr><th>Threat</th><th>Description</th><th>How It Spreads / Example</th></tr>
+  <tr><td><strong>Virus</strong></td><td>Attaches itself to a file or program and replicates when that file is run, then performs harmful actions</td><td>Opening an infected email attachment or running a pirated program</td></tr>
+  <tr><td><strong>Worm</strong></td><td>A self-contained program that spreads across a network on its own, without needing the user to open or run anything</td><td>Exploits weaknesses in network software to copy itself from one computer to the next</td></tr>
+  <tr><td><strong>Trojan</strong></td><td>Disguised as useful, legitimate software, but secretly gives an attacker back-door access to the computer</td><td>A "free" game or cracked software download that installs hidden malware alongside it</td></tr>
+  <tr><td><strong>Ransomware</strong></td><td>Encrypts the victim's files so they can no longer be opened, then demands payment for the decryption key</td><td>WannaCry (2017) locked hospital and business computers worldwide until a ransom was paid</td></tr>
+  <tr><td><strong>Spyware</strong></td><td>Secretly runs in the background, tracking browsing habits, keystrokes or personal information without the user's knowledge</td><td>Bundled with a free download; sends the collected data back to advertisers or attackers</td></tr>
+  <tr><td><strong>Adware</strong></td><td>Automatically displays unwanted advertisements, often as pop-ups, to generate revenue for its creator</td><td>Bundled with free software; can also slow the computer down or redirect the browser</td></tr>
 </table></div>
+<div class="callout tip">
+  <div class="callout-title">Virus vs Worm — the key difference</div>
+  <p>Both replicate and spread, which makes them easy to mix up. The difference is whether a person has to do something: a <strong>virus</strong> needs a human to open or run the infected file before it can act, while a <strong>worm</strong> spreads entirely on its own across a network, with no user action required at all.</p>
+</div>
 <h2>Security Measures</h2>
+<p>Each measure below defends against a different kind of risk — some stop malware getting in, some protect data if a device is lost or intercepted, and some protect against problems that have nothing to do with an attacker at all, like a power cut.</p>
 <div class="tbl-wrap"><table>
-  <tr><th>Measure</th><th>Purpose</th></tr>
-  <tr><td><strong>Antivirus</strong></td><td>Detects, prevents and removes malware</td></tr>
-  <tr><td><strong>Firewall</strong></td><td>Monitors network traffic; blocks unauthorised connections</td></tr>
-  <tr><td><strong>Strong password</strong></td><td>8+ chars, uppercase, lowercase, numbers, special characters</td></tr>
-  <tr><td><strong>Access rights</strong></td><td>Users only access files they are authorised for</td></tr>
-  <tr><td><strong>UPS</strong></td><td>Uninterruptible Power Supply — keeps computer running during power failure</td></tr>
-  <tr><td><strong>Encryption</strong></td><td>Scrambles data so only authorised parties can read it</td></tr>
+  <tr><th>Measure</th><th>Purpose</th><th>How It Works / Example</th></tr>
+  <tr><td><strong>Antivirus</strong></td><td>Detects, prevents and removes malware</td><td>Scans files against a database of known malware, and watches for suspicious behaviour. Examples: Windows Defender, Avast — should run in the background and update itself automatically.</td></tr>
+  <tr><td><strong>Firewall</strong></td><td>Monitors network traffic; blocks unauthorised connections</td><td>Sits between the computer and the network, checking every connection against its rules and only letting approved traffic through — e.g. blocking an unknown program from secretly sending your data out to the internet.</td></tr>
+  <tr><td><strong>Strong password</strong></td><td>8+ chars, uppercase, lowercase, numbers, special characters</td><td>The more varied and unpredictable a password is, the longer it takes an attacker's software to guess it. <code>Sunset$92Purple!</code> is far stronger than <code>password123</code>, which can be cracked almost instantly.</td></tr>
+  <tr><td><strong>Access rights</strong></td><td>Users only access files they are authorised for</td><td>Each user account is given a permission level (no access, read-only, or edit) per file or folder — e.g. a learner on the school network can view but not edit the shared timetable, and cannot open staff-only folders at all.</td></tr>
+  <tr><td><strong>UPS</strong></td><td>Uninterruptible Power Supply — keeps computer running during power failure</td><td>A battery inside the UPS takes over the instant mains power cuts out, giving enough time to save your work and shut down safely instead of losing it. Especially useful in South Africa during load shedding.</td></tr>
+  <tr><td><strong>Encryption</strong></td><td>Scrambles data so only authorised parties can read it</td><td>A mathematical key scrambles (encrypts) the data; only someone with the matching key can unscramble (decrypt) it. Examples: HTTPS encrypts data between your browser and a website; WhatsApp messages are end-to-end encrypted.</td></tr>
 </table></div>
+<div class="callout tip">
+  <div class="callout-title">Antivirus vs Firewall — the key difference</div>
+  <p>Both are essential but guard different doors. An <strong>antivirus</strong> checks files already <em>on</em> the device for known malware. A <strong>firewall</strong> checks traffic moving <em>into and out of</em> the device over the network, before it ever becomes a file. A well-protected computer needs both.</p>
+</div>
 <h2>Organising Files &amp; Folders</h2>
 <p>A <strong>file</strong> is a collection of data stored as a single unit (a document, image, song, program). A <strong>folder</strong> (directory) is a container used to group related files. Organising files means storing them in a logical, meaningful way so they are easy to find later.</p>
 

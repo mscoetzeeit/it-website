@@ -1147,7 +1147,7 @@ myArray[<span class="num">2</span>,<span class="num">1</span>] := <span class="n
 <p>To show the grid neatly we again use nested loops, but this time we build up one line of text per row. For each row we start with an empty string, add every column value to it (padding each so the columns line up), and only then add the finished line to the memo. <strong>Important Rule:</strong> the line is built inside the inner loop but written out in the outer loop — that is what keeps each row on its own line.</p>
 <div class="code-block"><span class="code-label">Delphi — display as table in memo</span>
 <pre><code><span class="kw">var</span>
-  sLine: <span class="kw2">string</span>;
+  sLine, sNum: <span class="kw2">string</span>;
   r, c:  <span class="kw2">Integer</span>;
 <span class="kw">begin</span>
   memOut.Clear;
@@ -1155,10 +1155,19 @@ myArray[<span class="num">2</span>,<span class="num">1</span>] := <span class="n
   <span class="kw">begin</span>
     sLine := <span class="str">''</span>;
     <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> <span class="num">4</span> <span class="kw">do</span>
-      sLine := sLine + IntToStr(myArray[r,c]).PadLeft(<span class="num">5</span>);
+    <span class="kw">begin</span>
+      sNum := IntToStr(myArray[r,c]);
+      <span class="kw">while</span> Length(sNum) &lt; <span class="num">5</span> <span class="kw">do</span>       <span class="cmt">// pad with spaces until 5 characters wide</span>
+        sNum := <span class="str">' '</span> + sNum;
+      sLine := sLine + sNum;
+    <span class="kw">end</span>;
     memOut.Lines.Add(sLine);
   <span class="kw">end</span>;
 <span class="kw">end</span>;</code></pre></div>
+<div class="callout tip">
+  <div class="callout-title">Why not PadLeft?</div>
+  <p>Newer Delphi versions have a built-in <code>.PadLeft()</code> string helper that does this in one call, but it is not part of CAPS. The <code>WHILE</code> loop above achieves the same result — adding a space in front of the number until it is 5 characters wide — using only <code>Length</code>, string concatenation and a loop, all of which are already CAPS-examinable.</p>
+</div>
 <h2>Calculations on 2D Arrays</h2>
 <p>A big reason for using a grid is to add things up. The trick is knowing which index to <strong>fix</strong> and which to <strong>vary</strong>. If you think of the class register again: a <strong>row total</strong> is one learner's marks added across all subjects, while a <strong>column total</strong> is one subject's marks added across all learners.</p>
 <h3>Row total</h3>
@@ -1828,6 +1837,7 @@ lblResult.Caption := IntToStr(Factorial(<span class="num">5</span>));  <span cla
   <tr><td><strong>PHP</strong></td><td>Server-side scripting; processes forms, talks to databases</td><td>Login authentication, database queries</td></tr>
   <tr><td><strong>SQL</strong></td><td>Query and manage database data</td><td>SELECT user data, INSERT orders</td></tr>
   <tr><td><strong>XML</strong></td><td>Structured data exchange between systems</td><td>Product data feeds between websites</td></tr>
+  <tr><td><strong>RSS</strong></td><td>An XML-based feed format that lets users subscribe to a site and automatically receive new content as it is published</td><td>News headlines, blog posts, new podcast episodes</td></tr>
 </table></div>
 <h2>Storing Data Online</h2>
 <ul>
@@ -1842,6 +1852,30 @@ lblResult.Caption := IntToStr(Factorial(<span class="num">5</span>));  <span cla
   <tr><td><strong>Purpose</strong></td><td>Real-time page updates, validation, animations</td><td>Authentication, database access, processing</td></tr>
   <tr><td><strong>AJAX</strong></td><td>Updates parts of a page without reloading</td><td>—</td></tr>
 </table></div>
+
+<h2>The Role of Scripting Languages</h2>
+<p>A scripting language is what turns a plain, static page into a website that actually <em>does</em> something. Its role always splits into two halves — what happens instantly in the visitor's browser, and what happens back on the web server — and an online store is a good way to see both halves at work at once.</p>
+
+<div class="callout">
+  <div class="callout-title">Client-side scripting (e.g. JavaScript)</div>
+  <p>Runs in the customer's own browser, so it can react instantly without waiting for the server. On an online store it could:</p>
+  <ul>
+    <li>Validate the checkout form before it is submitted — e.g. checking that a cellphone number field isn't empty or that the quantity entered is a valid positive number — so the customer sees the error immediately, without a round trip to the server.</li>
+    <li>Update the shopping cart total the instant a customer changes a quantity, with no need to reload the page.</li>
+    <li>Show or hide extra product information (e.g. a "Read more" description) when clicked.</li>
+  </ul>
+</div>
+<div class="callout">
+  <div class="callout-title">Server-side scripting (e.g. PHP)</div>
+  <p>Runs on the store's web server, so it's the only place that can safely reach the database. On an online store it could:</p>
+  <ul>
+    <li>Check the product database to confirm an item is still in stock before allowing checkout.</li>
+    <li>Calculate the order total and generate an order confirmation.</li>
+    <li>Securely process the customer's login and payment details.</li>
+    <li>Insert the new order into the database and update the stock level once payment succeeds.</li>
+  </ul>
+</div>
+
 <h2>HTTP vs HTTPS</h2>
 <div class="tbl-wrap"><table>
   <tr><th></th><th>HTTP</th><th>HTTPS</th></tr>
@@ -1980,6 +2014,9 @@ lblResult.Caption := IntToStr(Factorial(<span class="num">5</span>));  <span cla
   <tr><td><strong>Theft of time &amp; services</strong></td><td>Using an employer's computers, internet or work time for personal or unauthorised purposes</td></tr>
   <tr><td><strong>Botnet / zombies</strong></td><td>A network of infected computers ("zombies") secretly controlled by an attacker, often used for DDoS attacks or spam</td></tr>
   <tr><td><strong>Back door</strong></td><td>A hidden way to bypass normal security and gain remote access to a system</td></tr>
+  <tr><td><strong>Piggybacking</strong></td><td>Using someone else's internet connection or account without their permission (e.g. an unsecured Wi-Fi), or slipping in behind an authorised user</td></tr>
+  <tr><td><strong>Extortion (cyber-extortion)</strong></td><td>Threatening to damage, expose or block access to data/systems unless a payment is made (e.g. ransomware, DDoS threats)</td></tr>
+  <tr><td><strong>Spam</strong></td><td>Sending unsolicited bulk messages/email; wastes bandwidth and time and is often used to spread scams or malware</td></tr>
 </table></div>
 <h2>Effects of Cybercrime</h2>
 <h3>On Individuals</h3>
@@ -2081,6 +2118,14 @@ lblResult.Caption := IntToStr(Factorial(<span class="num">5</span>));  <span cla
   <li><strong>Examples:</strong> volunteer/grid projects where the public donate idle CPU time to disease, climate or space research; large cloud platforms renting out combined power on demand.</li>
   <li><strong>Trade-offs:</strong> needs reliable network connectivity, raises questions about who controls the data, and the combined energy use can be significant.</li>
 </ul>
+<h2>The Evolving Web (Web 1.0 &rarr; 2.0 &rarr; 3.0)</h2>
+<p>The World Wide Web has moved through three broad phases, each more interactive and intelligent than the last:</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Phase</th><th>Nickname</th><th>What it was like</th></tr>
+  <tr><td><strong>Web 1.0</strong></td><td>"Read-only"</td><td>Mostly static pages you could only view. A few people published; everyone else just consumed content.</td></tr>
+  <tr><td><strong>Web 2.0</strong></td><td>"Read-write"</td><td>The interactive, social web: <em>users</em> create the content — social media, wikis, blogs, comments and sharing. Two-way participation.</td></tr>
+  <tr><td><strong>Web 3.0</strong></td><td>"Semantic / intelligent web"</td><td>Machines understand the <em>meaning</em> of data (the semantic web); content is linked, personalised and AI-driven, giving smarter, more relevant results.</td></tr>
+</table></div>
 <h2>Evolution of Social Media and its Effects</h2>
 <ul>
   <li><strong>Information overload</strong>: constant exposure to content makes it hard to focus or verify facts</li>
