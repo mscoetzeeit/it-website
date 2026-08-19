@@ -13,6 +13,16 @@
   <tr><td><strong>Wireless access point</strong></td><td>Enables wireless devices to connect to a wired network via Wi-Fi</td></tr>
   <tr><td><strong>All-in-one home router</strong></td><td>Combines modem + router + switch + Wi-Fi access point in one device</td></tr>
 </table></div>
+<div class="callout warning"><div class="callout-title">Trap — switch vs router</div><p>A <strong>switch</strong> only ever operates <em>within</em> one network — it forwards data to the correct device on the same LAN. A <strong>router</strong> operates <em>between</em> different networks and finds the best path from one to another. The box on your wall at home combines both — but in the exam, describe each function separately.</p></div>
+<h2>IP Address vs MAC Address</h2>
+<p>Every device on a network needs an address, but there are two different kinds working at the same time.</p>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>IP Address</th><th>MAC Address</th></tr>
+  <tr><td><strong>Assigned by</strong></td><td>The network, often automatically via DHCP</td><td>The manufacturer — burnt into the NIC</td></tr>
+  <tr><td><strong>Changes?</strong></td><td>Yes — a new one is assigned when the device joins a different network</td><td>No — permanent and globally unique</td></tr>
+  <tr><td><strong>Purpose</strong></td><td>Logical address used to route data between networks</td><td>Physical address used to identify a device on its own local network</td></tr>
+</table></div>
+<div class="callout warning"><div class="callout-title">Trap — IP vs MAC</div><p>A MAC address never changes, no matter which network the device connects to. An IP address usually <em>does</em> change — it identifies where a device currently is, not which physical device it is.</p></div>
 <h2>Wired Communication Media</h2>
 <div class="tbl-wrap"><table>
   <tr><th>Medium</th><th>Speed</th><th>Range</th><th>Notes</th></tr>
@@ -29,6 +39,14 @@
   <tr><td><strong>4G/LTE</strong></td><td>Mobile broadband; widely available</td><td>5–100 Mbps</td></tr>
   <tr><td><strong>5G</strong></td><td>New generation mobile; very low latency; supports IoT</td><td>50 Mbps–10 Gbps</td></tr>
 </table></div>
+<h2>Bandwidth, Data Caps &amp; Throttling</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Term</th><th>Measured in</th><th>Meaning</th></tr>
+  <tr><td><strong>Bandwidth</strong></td><td>Mbps (megabits per second)</td><td>How <em>fast</em> data can be transferred — the maximum capacity of the connection</td></tr>
+  <tr><td><strong>Data cap</strong></td><td>GB (gigabytes)</td><td>How <em>much</em> total data may be used in a billing period</td></tr>
+  <tr><td><strong>Throttling / shaping</strong></td><td>&mdash;</td><td>The ISP deliberately reducing speed — often once a data cap is exceeded, or for specific traffic types (e.g. streaming) at any time</td></tr>
+</table></div>
+<div class="callout warning"><div class="callout-title">Trap — capped vs throttled</div><p>Being <strong>capped</strong> doesn&apos;t slow you down at all — until you exceed the limit. Being <strong>shaped/throttled</strong> can slow specific traffic types at <em>any</em> time, cap or no cap. Don&apos;t confuse &quot;how fast&quot; (bandwidth), &quot;how much&quot; (data cap) and &quot;deliberately slowed&quot; (throttling).</p></div>
 <h2>File and Folder Sharing</h2>
 <p>On a network, users can share resources. Access can be restricted by permission level:</p>
 <div class="tbl-wrap"><table>

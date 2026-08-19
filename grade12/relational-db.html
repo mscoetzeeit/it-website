@@ -89,6 +89,10 @@
     <tr><td><strong>Composite Key</strong></td><td>Two or more fields combined to create a unique identifier</td><td><code>StudentID + SubjectID</code> in tblMarks</td></tr>
     <tr><td><strong>Alternate Key</strong></td><td>Could be a primary key but wasn&apos;t chosen as one</td><td>Email address (also unique, but ID was chosen as PK)</td></tr>
   </table></div>
+  <div class="callout warning">
+    <div class="callout-title">Trap — PK vs FK</div>
+    <p>One field can be <strong>both</strong> — a primary key in its own table and a foreign key where it's used to link into another table. The rule to remember: a <strong>primary key</strong> may never be null or duplicated, but a <strong>foreign key</strong> is allowed to be null (e.g. a student who hasn&apos;t been assigned a class yet).</p>
+  </div>
 
   <h2>Referential Integrity</h2>
   <p>Referential integrity is a rule that ensures relationships between tables remain consistent. It means: <strong>a foreign key value must always match an existing primary key value</strong> in the related table.</p>
@@ -168,6 +172,33 @@
     <p>Normalisation splits large, messy tables into smaller, focused tables and links them properly. This eliminates all three anomalies.</p>
   </div>
 
+  <h2>Spot the Design Errors — Exam Checklist</h2>
+  <p>A common Section D question gives you a badly designed table and asks you to identify the faults. Run the table through this checklist in order:</p>
+  <div class="tbl-wrap"><table>
+    <tr><th>Design fault</th><th>Why it&apos;s a problem</th><th>Fix</th></tr>
+    <tr><td><strong>Unsuitable primary key</strong></td><td>A surname, e-mail or cellphone number can repeat or change over time</td><td>Use an autonumber ID field that is unique and never changes</td></tr>
+    <tr><td><strong>Non-atomic field</strong></td><td>A cell holding more than one piece of data, e.g. a full name or a full address in one field</td><td>Split into separate fields (Name &rarr; FirstName + Surname)</td></tr>
+    <tr><td><strong>Data stored in field names</strong></td><td>Columns named <code>2024</code>, <code>2025</code>, <code>2026</code> — adding a new year means redesigning the table</td><td>Store the year as <em>data</em> in a field, not as a column heading</td></tr>
+    <tr><td><strong>Descriptive data duplicated with a foreign key</strong></td><td>Storing both <code>TeacherID</code> and <code>TeacherSurname</code> in the child table is redundant</td><td>Store only the foreign key; retrieve the rest through the relationship</td></tr>
+    <tr><td><strong>Inconsistent or ambiguous naming</strong></td><td>Fields named <code>Name1</code>, <code>Nm</code>, or a mix of naming styles</td><td>Use clear, consistent, descriptive field names throughout</td></tr>
+  </table></div>
+
+  <h4>Worked example: tblClubMembers as given</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>MemberName</th><th>Activities</th><th>Coach</th><th>CoachCell</th></tr>
+    <tr><td>Lindiwe Zulu</td><td>Chess, Debating</td><td>Mr Adams</td><td>0821234567</td></tr>
+    <tr><td>Sam Petersen</td><td>Chess</td><td>Mr Adams</td><td>0821234567</td></tr>
+  </table></div>
+  <p style="color:var(--muted);font-size:.875rem">❌ No primary key &middot; MemberName is not atomic (first name + surname) &middot; Activities holds multiple values in one cell &middot; Coach and CoachCell are redundant, repeated for every member</p>
+  <h4>Corrected design</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>Table</th><th>Fields</th></tr>
+    <tr><td><code>tblCoach</code></td><td>CoachID (PK), FirstName, Surname, CellNumber</td></tr>
+    <tr><td><code>tblMember</code></td><td>MemberID (PK), FirstName, Surname</td></tr>
+    <tr><td><code>tblActivity</code></td><td>ActivityID (PK), ActivityName, CoachID (FK)</td></tr>
+    <tr><td><code>tblMemberActivity</code></td><td>MemberID (FK), ActivityID (FK) &mdash; composite PK, resolves the many-to-many between members and activities</td></tr>
+  </table></div>
+
   <h2>Normalisation — The Three Normal Forms</h2>
   <p><strong>Normalisation</strong> is the systematic process of organising the fields and tables of a relational database, by applying a set of rules called <strong>normal forms</strong>, in order to reduce data redundancy and prevent insertion, deletion and modification anomalies.</p>
   <div class="callout"><div class="callout-title">Think of it this way</div><p>Imagine one giant spreadsheet where every order repeats the customer's full name, address and phone number. If a customer moves house you must change it in <em>dozens</em> of rows — and if you miss one, the data disagrees with itself. <strong>Normalisation</strong> is like splitting that mess into tidy, single-topic tables: one <strong>Customers</strong> table (each customer stored <em>once</em>) and one <strong>Orders</strong> table that just points back with the customer's ID (a <strong>foreign key</strong>). Now a change is made in one place only. The three normal forms are simply three tidy-up rules you apply in order.</p></div>
@@ -246,6 +277,10 @@
     <tr><td><strong>Data security</strong></td><td>Only authorised users can access or modify data</td></tr>
     <tr><td><strong>Ease of maintenance</strong></td><td>The database design makes it simple to insert, update and delete without causing problems</td></tr>
   </table></div>
+  <div class="callout warning">
+    <div class="callout-title">Trap — data integrity vs data redundancy</div>
+    <p>Redundancy (the same data stored in more than one place) is usually what <em>causes</em> integrity failures — update one copy and forget the other, and the data disagrees with itself. But not all redundancy is bad: a <strong>backup</strong> is deliberate, planned redundancy. Only accidental, unplanned duplication threatens integrity.</p>
+  </div>
 
   <div class="page-nav">
     <a href="data-management.html"><span class="page-nav-label">&larr; Previous</span>Data Warehousing (T1)</a>

@@ -336,6 +336,21 @@
 <span class="kw">end</span>;</code></pre></div>
     </div>
 
+    <!-- ═══════ COMMON EXAM TRAPS ═══════ -->
+    <h2>Common Exam Traps</h2>
+    <div class="callout warning">
+      <div class="callout-title">Trap — function vs procedure</div>
+      <p>A <strong>function</strong> returns a value and can be used inside an expression. A <strong>procedure</strong> performs an action and returns nothing. If the question says a routine &quot;displays&quot; something on screen, that&apos;s a procedure — displaying is not the same as returning.</p>
+    </div>
+    <div class="callout warning">
+      <div class="callout-title">Trap — value vs reference parameters</div>
+      <p>A <strong>value</strong> parameter passes a copy — changes made to it disappear when the routine ends. A <strong>reference</strong> parameter (<code>var</code> in Delphi) passes the actual variable — changes persist in the calling code. Whenever a question says a routine must change two values and return them to the caller, you need reference parameters.</p>
+    </div>
+    <div class="callout warning">
+      <div class="callout-title">Trap — syntax vs logic vs runtime errors</div>
+      <p>A <strong>syntax error</strong> breaks the rules of the language and won&apos;t compile. A <strong>logic error</strong> compiles and runs, but produces the wrong answer — the compiler can never find this one for you, which is exactly why trace tables exist. A <strong>runtime error</strong> crashes the program while it&apos;s running, e.g. division by zero or an array index out of bounds.</p>
+    </div>
+
     <!-- ═══════ HOW TO CREATE A CLASS ═══════ -->
     <h2>How to Create a Class in Delphi</h2>
     <ol>
