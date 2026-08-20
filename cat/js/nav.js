@@ -111,6 +111,10 @@
     + '<a href="' + r + 'terms-gr10.html">&#128197; ' + t('Grade 10 &mdash; Year Planner', 'Graad 10 &mdash; Jaarbeplanner') + '</a>'
     + '<a href="' + r + 'terms-gr11.html">&#128197; ' + t('Grade 11 &mdash; Year Planner', 'Graad 11 &mdash; Jaarbeplanner') + '</a>'
     + '<a href="' + r + 'terms-gr12.html">&#128197; ' + t('Grade 12 &mdash; Year Planner', 'Graad 12 &mdash; Jaarbeplanner') + '</a>'
+    + '<div class="dropdown-section">' + t('Printable Booklets', 'Drukbare Boekie') + '</div>'
+    + '<a href="' + r + 'booklet-gr10.html">&#128218; ' + t('Grade 10 &mdash; Printable Booklet', 'Graad 10 &mdash; Drukbare Boekie') + '</a>'
+    + '<a href="' + r + 'booklet-gr11.html">&#128218; ' + t('Grade 11 &mdash; Printable Booklet', 'Graad 11 &mdash; Drukbare Boekie') + '</a>'
+    + '<a href="' + r + 'booklet-gr12.html">&#128218; ' + t('Grade 12 &mdash; Printable Booklet', 'Graad 12 &mdash; Drukbare Boekie') + '</a>'
     + '</div></li>'
 
     + '</ul>'
