@@ -1,0 +1,2087 @@
+<!DOCTYPE html>
+<html lang="af">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Me Coetzee RTT - Graad 10 Studieverwysing (Drukbare Boekie)</title>
+<style>
+/* ============ B&W PRINTABLE BOOKLET - GRAAD 10 (AFRIKAANS) ============ */
+:root{ --ink:#111; --soft:#333; --faint:#555; --line:#888; --rule:#ccc; --panel:#f4f4f4; --head:#eaeaea; --grade:#0d9488; }
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ font-size:11.5pt; }
+body{
+  background:#fff; color:var(--ink);
+  font-family:'Segoe UI', system-ui, Arial, sans-serif;
+  line-height:1.55;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+a{ color:var(--ink); text-decoration:none; }
+@page{
+  size:A4;
+  margin:18mm 16mm 16mm 16mm;
+  @bottom-center{ content:counter(page); font-family:Arial,sans-serif; font-size:9pt; color:#555; }
+}
+.sheet{ max-width:760px; margin:0 auto; padding:24px; }
+.cover{ text-align:center; padding-top:22vh; page-break-after:always; break-after:page; }
+.cover .brand{ font-size:14pt; letter-spacing:.25em; text-transform:uppercase; color:var(--faint); }
+.cover .gradenum{ font-size:64pt; font-weight:800; color:var(--grade); line-height:1; margin:.3em 0 .1em; }
+.cover h1{ font-size:30pt; font-weight:800; letter-spacing:-.02em; line-height:1.1; margin:.1em 0 .3em; }
+.cover .sub{ font-size:13pt; color:var(--soft); max-width:30em; margin:0 auto 2.5em; }
+.cover .grades{ font-size:11pt; color:var(--faint); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); display:inline-block; padding:.6em 1.4em; }
+.cover .foot{ margin-top:3em; font-size:9.5pt; color:var(--faint); }
+.toc{ page-break-after:always; break-after:page; }
+.toc h2{ font-size:20pt; border-bottom:2px solid var(--grade); padding-bottom:.3em; margin-bottom:1em; }
+.toc ul{ list-style:none; }
+.toc-sub{ font-weight:700; font-size:9.5pt; text-transform:uppercase; letter-spacing:.08em; color:var(--faint); margin:1em 0 .3em; border-bottom:1px solid var(--rule); padding-bottom:.2em; }
+.toc-item{ margin:.12em 0 .12em 1.2em; font-size:10.5pt; }
+.toc-item a{ color:var(--ink); }
+.toc-item a::before{ content:"\2022"; color:var(--line); margin-right:.6em; }
+.chapter{ page-break-before:always; break-before:page; }
+.chapter-tag{ font-size:8.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--grade); margin-bottom:.4em; }
+h1,h2,h3,h4,h5,h6{ break-after:avoid-page; break-inside:avoid-page; page-break-after:avoid; page-break-inside:avoid; }
+h1{ font-size:21pt; font-weight:800; letter-spacing:-.01em; line-height:1.15; margin-bottom:.35em; }
+h2{ font-size:15pt; font-weight:700; margin:1.4em 0 .5em; padding-bottom:.25em; border-bottom:1px solid var(--grade); }
+h3{ font-size:12.5pt; font-weight:700; margin:1em 0 .35em; }
+h4{ font-size:11pt; font-weight:700; margin:.9em 0 .3em; }
+p,li,td{ orphans:3; widows:3; }
+ul,ol{ margin:.4em 0 .8em 1.4em; }
+li{ margin-bottom:.2em; }
+strong{ font-weight:700; }
+em{ font-style:italic; }
+.grade-badge{ font-size:7.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.08em; border:1px solid var(--line); padding:.12em .45em; border-radius:3px; vertical-align:middle; margin-left:.4em; color:var(--soft); white-space:nowrap; }
+.page-intro{ font-size:11.5pt; color:var(--soft); margin-bottom:1.2em; padding-bottom:.8em; border-bottom:1px solid var(--rule); }
+.term-tag{ display:inline-block; font-size:7.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:.1em .5em; border-radius:3px; border:1px solid var(--line); color:var(--soft); margin-bottom:.6em; }
+.callout{ border:1px solid var(--rule); border-left:3px solid var(--grade); background:var(--panel); padding:.6em .9em; margin:.9em 0; border-radius:0 4px 4px 0; page-break-inside:avoid; break-inside:avoid-page; }
+.callout-title{ font-size:8.5pt; font-weight:800; text-transform:uppercase; letter-spacing:.07em; color:var(--soft); margin-bottom:.3em; }
+.callout p,.callout ul{ margin:0; }
+.callout ul{ margin-left:1.2em; margin-top:.3em; }
+.tbl-wrap{ margin:.9em 0; overflow:visible; }
+table{ width:100%; border-collapse:collapse; font-size:9.5pt; page-break-inside:avoid; break-inside:avoid-page; }
+th{ background:var(--head); text-align:left; padding:.4em .6em; font-size:8.5pt; text-transform:uppercase; letter-spacing:.04em; color:var(--soft); border:1px solid var(--rule); }
+td{ padding:.4em .6em; border:1px solid var(--rule); vertical-align:top; }
+.def-grid{ display:grid; grid-template-columns:max-content 1fr; gap:.3em 1.2em; margin:.8em 0; }
+.def-term{ font-weight:700; }
+code{ font-family:'Consolas','Courier New',monospace; background:var(--panel); border:1px solid var(--rule); padding:0 .25em; border-radius:3px; font-size:.9em; }
+pre{ background:var(--panel); border:1px solid var(--rule); border-radius:4px; padding:.7em .9em; overflow:visible; white-space:pre-wrap; word-wrap:break-word; font-size:9pt; line-height:1.45; font-family:'Consolas','Courier New',monospace; margin:.9em 0; page-break-inside:avoid; break-inside:avoid-page; }
+img{ max-width:100%; height:auto; }
+.term-block{ border:1px solid var(--rule); border-radius:6px; margin-bottom:1.1em; overflow:hidden; page-break-inside:avoid; break-inside:avoid-page; }
+.term-header{ padding:.6em .9em; display:flex; align-items:center; gap:.8em; border-bottom:1px solid var(--rule); background:var(--panel); }
+.term-num{ font-size:15pt; font-weight:800; min-width:2em; color:var(--grade); }
+.term-title{ font-size:10.5pt; font-weight:700; }
+.term-subtitle{ font-size:8.5pt; color:var(--faint); margin-top:.1em; }
+.term-body{ display:grid; grid-template-columns:1fr 1fr; }
+.term-col{ padding:.7em .9em; }
+.term-col:first-child{ border-right:1px solid var(--rule); }
+.term-col-title{ font-size:8pt; text-transform:uppercase; letter-spacing:.07em; color:var(--faint); margin-bottom:.4em; font-weight:700; }
+.term-links{ list-style:none; margin:0; padding:0; }
+.term-links li{ margin-bottom:.2em; font-size:9pt; }
+.badge,.extra-tag{ display:inline-block; font-size:7.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:.1em .45em; border:1px solid var(--line); border-radius:3px; color:var(--soft); }
+.topnav,.sidebar,.breadcrumb,.page-nav,.prev-next-nav{ display:none !important; }
+svg{ max-width:100%; height:auto; }
+svg text{ fill:#111 !important; }
+svg [fill]{ fill:#fff; }
+svg [stroke]{ stroke:#222; }
+svg rect,svg polygon,svg ellipse,svg circle,svg path,svg line,svg polyline{ stroke:#333; }
+svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
+@media print{
+  .sheet{ max-width:none; padding:0; }
+  a{ color:var(--ink) !important; }
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- VOORBLAD -->
+  <section class="cover">
+    <div class="brand">Me Coetzee &middot; Rekenaartoepassingstegnologie</div>
+    <div class="gradenum">10</div>
+    <h1>Graad 10 Studieverwysing</h1>
+    <p class="sub">Woordverwerking, Sigblaaie, HTML, Hardeware, Sagteware, Netwerke, Internet en Maatskaplike Implikasies</p>
+    <div class="grades">Prakties (V1) &nbsp;&bull;&nbsp; Teorie (V2) &nbsp;&bull;&nbsp; Jaarbeplanner</div>
+    <div class="foot">KABV-belyn &middot; Drukbare boekie-uitgawe</div>
+  </section>
+
+  <!-- INHOUDSOPGAWE -->
+  <section class="toc">
+    <h2>Inhoud &mdash; Graad 10</h2>
+    <ul>
+<li class="toc-sub">Prakties (V1)</li>
+<li class="toc-item"><a href="#ch00">Word Processing</a></li>
+<li class="toc-item"><a href="#ch01">Spreadsheets</a></li>
+<li class="toc-item"><a href="#ch02">HTML & Web Design</a></li>
+<li class="toc-item"><a href="#ch03">Presentations (PAT)</a></li>
+<li class="toc-sub">Teorie (V2)</li>
+<li class="toc-item"><a href="#ch04">Concepts of Computing</a></li>
+<li class="toc-item"><a href="#ch05">Hardware</a></li>
+<li class="toc-item"><a href="#ch06">Software & Licensing</a></li>
+<li class="toc-item"><a href="#ch07">Networks</a></li>
+<li class="toc-item"><a href="#ch08">Internet & E-Communication</a></li>
+<li class="toc-item"><a href="#ch09">Social Implications</a></li>
+<li class="toc-sub">Jaarbeplanner</li>
+<li class="toc-item"><a href="#ch10">Grade 10 – By Term</a></li>
+    </ul>
+  </section>
+
+  <!-- HOOFSTUKKE -->
+<section class="chapter" id="ch00">
+  <div class="chapter-tag">Graad 10 &middot; Prakties (V1)</div>
+<h1>Woordverwerking <span class="grade-badge">Graad 10</span></h1>
+    <p class="page-intro">Microsoft Word is die woordverwerkingsprogram wat in RTT gebruik word. Graad 10 dek al die basiese vaardighede — van die skep van dokumente en die formatteer van teks tot die werk met tabelle, bladuitleg en voorwerpe.</p>
+
+    <div class="callout tip">
+      <div class="callout-title">HOE OM DIE STAPPE OP HIERDIE BLAD TE LEES</div>
+      <p>Wanneer jy 'n pad sien soos <span class="ribbon-path"><span class="rp">Home tab</span><span class="rp-arrow">→</span><span class="rp">Font group</span><span class="rp-arrow">→</span><span class="rp">Bold</span></span> beteken dit: klik die woord <strong>Home</strong> aan die bokant van die skerm, kyk dan in die afdeling genaamd <strong>Font</strong>, klik dan die <strong>Bold</strong> -knoppie. Sleutels wat jy op die sleutelbord druk, lyk so: <kbd>Ctrl</kbd> + <kbd>S</kbd> (hou die eerste sleutel ingedruk, tik dan die tweede).</p>
+    </div>
+
+    <h2>Die Word-koppelvlak</h2>
+    <figure class="figure">
+      <svg viewBox="0 0 720 300" width="720" aria-label="Diagram of the Microsoft Word window">
+        <rect x="0" y="0" width="720" height="300" rx="6" fill="#0d1117" stroke="#30363d"/>
+        <!-- title bar -->
+        <rect x="1" y="1" width="718" height="26" rx="6" fill="#161b22"/>
+        <text x="12" y="18" fill="#8b949e" font-family="Segoe UI" font-size="11">Document1 - Word</text>
+        <!-- ribbon tabs -->
+        <rect x="1" y="27" width="718" height="22" fill="#21262d"/>
+        <text x="14" y="42" fill="#34d399" font-family="Segoe UI" font-size="11" font-weight="bold">File</text>
+        <text x="46" y="42" fill="#e6edf3" font-family="Segoe UI" font-size="11" font-weight="bold">Home</text>
+        <text x="92" y="42" fill="#8b949e" font-family="Segoe UI" font-size="11">Insert</text>
+        <text x="134" y="42" fill="#8b949e" font-family="Segoe UI" font-size="11">Design</text>
+        <text x="184" y="42" fill="#8b949e" font-family="Segoe UI" font-size="11">Layout</text>
+        <text x="236" y="42" fill="#8b949e" font-family="Segoe UI" font-size="11">References</text>
+        <text x="306" y="42" fill="#8b949e" font-family="Segoe UI" font-size="11">Review</text>
+        <text x="356" y="42" fill="#8b949e" font-family="Segoe UI" font-size="11">View</text>
+        <!-- ribbon body -->
+        <rect x="1" y="49" width="718" height="46" fill="#161b22"/>
+        <rect x="10" y="56" width="120" height="32" rx="3" fill="#21262d" stroke="#30363d"/>
+        <text x="70" y="76" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">Clipboard group</text>
+        <rect x="138" y="56" width="150" height="32" rx="3" fill="#21262d" stroke="#34d399"/>
+        <text x="213" y="76" fill="#34d399" font-family="Segoe UI" font-size="9" text-anchor="middle">Font group</text>
+        <rect x="296" y="56" width="150" height="32" rx="3" fill="#21262d" stroke="#30363d"/>
+        <text x="371" y="76" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">Paragraph group</text>
+        <rect x="454" y="56" width="120" height="32" rx="3" fill="#21262d" stroke="#30363d"/>
+        <text x="514" y="76" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">Styles group</text>
+        <!-- ruler -->
+        <rect x="1" y="95" width="718" height="12" fill="#21262d"/>
+        <!-- page -->
+        <rect x="160" y="115" width="400" height="170" fill="#ffffff" stroke="#30363d"/>
+        <rect x="185" y="135" width="350" height="8" rx="2" fill="#d0d7de"/>
+        <rect x="185" y="152" width="350" height="6" rx="2" fill="#e6edf3"/>
+        <rect x="185" y="164" width="320" height="6" rx="2" fill="#e6edf3"/>
+        <rect x="185" y="176" width="340" height="6" rx="2" fill="#e6edf3"/>
+        <!-- labels with arrows -->
+        <text x="14" y="20" fill="#fb923c" font-family="Segoe UI" font-size="10"></text>
+        <text x="600" y="44" fill="#34d399" font-family="Segoe UI" font-size="10">Ribbon tabs ↑</text>
+        <text x="600" y="78" fill="#34d399" font-family="Segoe UI" font-size="10">Groups ↑</text>
+        <text x="600" y="105" fill="#fb923c" font-family="Segoe UI" font-size="10">Ruler ↑</text>
+        <text x="600" y="205" fill="#f472b6" font-family="Segoe UI" font-size="10">← Your page</text>
+        <!-- status bar -->
+        <rect x="1" y="285" width="718" height="14" fill="#21262d"/>
+        <text x="12" y="296" fill="#8b949e" font-family="Segoe UI" font-size="9">Page 1 of 1     Words: 0</text>
+      </svg>
+      <figcaption>Die hoofdele van die Microsoft Word-venster. Die <strong>Ribbon</strong> oor die boonste deel het al die knoppies, georganiseer in <strong>tabs</strong> (Home, Insert…) en <strong>groups</strong> (Font, Paragraph…).</figcaption>
+    </figure>
+    <div class="def-grid">
+      <div class="def-term">Ribbon</div><div class="def-desc">Die nutsbalk aan die bokant met al die opdragte, georganiseer in tabs (Home, Insert, Layout, ens.)</div>
+      <div class="def-term">Tabs</div><div class="def-desc">Kategorieë op die Ribbon: Home, Insert, Design, Layout, References, Mailings, Review, View</div>
+      <div class="def-term">Groups</div><div class="def-desc">Afdelings binne 'n tab wat verwante opdragte groepeer (bv. Font group, Paragraph group)</div>
+      <div class="def-term">Statusbalk</div><div class="def-desc">Onderkant van die skerm — wys bladsynommer, woordtelling, zoemvlak</div>
+      <div class="def-term">Liniaal</div><div class="def-desc">Wys kantlyne en tabstoppe; nuttig om inkepings te stel</div>
+    </div>
+
+    <h2>Lêerbestuur in Word</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Aksie</th><th>Kortpad</th><th>Wat dit doen</th></tr>
+      <tr><td>Nuwe dokument</td><td>Ctrl+N</td><td>Skep 'n leë nuwe dokument</td></tr>
+      <tr><td>Open</td><td>Ctrl+O</td><td>Open 'n bestaande dokument</td></tr>
+      <tr><td>Stoor</td><td>Ctrl+S</td><td>Stoor met die huidige lêernaam</td></tr>
+      <tr><td>Stoor As</td><td>F12</td><td>Stoor met 'n nuwe naam of in 'n ander formaat/ligging</td></tr>
+      <tr><td>Sluit</td><td>Ctrl+W</td><td>Sluit die huidige dokument</td></tr>
+      <tr><td>Druk</td><td>Ctrl+P</td><td>Open die drukdialoogvenster</td></tr>
+      <tr><td>Drukvoorskou</td><td>Ctrl+P (then preview)</td><td>Wys hoe die dokument sal lyk wanneer dit gedruk word</td></tr>
+    </table></div>
+
+    <h2>Dokumentstruktuur</h2>
+    <p>'n Word-dokument bestaan uit:</p>
+    <ul>
+      <li><strong>Bladsye / Afdelings</strong> — die fisiese bladsye; afdelings laat verskillende formatering in verskillende dele toe</li>
+      <li><strong>Paragrawe</strong> — blokke teks wat met 'n paragraafmerker (¶) eindig</li>
+      <li><strong>Lyne / Teks</strong> — individuele rye karakters</li>
+      <li><strong>Voorwerpe</strong> — beelde, vorms, teksblokke, grafieke wat in die dokument ingevoeg word</li>
+    </ul>
+    <div class="callout tip">
+      <div class="callout-title">FORMATERINGSMERKERS</div>
+      <p>Skakel formateringsmerkers aan met <strong>Ctrl+Shift+8</strong> of die ¶-knoppie op die Home-tab. Dit wys paragraafmerkers (¶), spasies (·) en tabkarakters (→) — baie nuttig om uitlegprobleme op te spoor.</p>
+    </div>
+
+    <h2>Teks Selekteer</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Om te selekteer</th><th>Metode</th></tr>
+      <tr><td>'n Woord</td><td>Dubbelklik die woord</td></tr>
+      <tr><td>'n Sin</td><td>Klik, dan Shift+klik aan die einde; of Ctrl+klik</td></tr>
+      <tr><td>'n Lyn</td><td>Klik in die linkerkantlyn langs die lyn</td></tr>
+      <tr><td>'n Paragraaf</td><td>Drie-klik enige plek in die paragraaf</td></tr>
+      <tr><td>Alle teks</td><td>Ctrl+A</td></tr>
+      <tr><td>'n Blok</td><td>Klik aan die begin, Shift+klik aan die einde</td></tr>
+    </table></div>
+
+    <h2>Teks Redigeer</h2>
+    <div class="def-grid">
+      <div class="def-term">Knip</div><div class="def-desc">Ctrl+X — verwyder geselekteerde teks en plaas dit op die knipbord</div>
+      <div class="def-term">Kopieer</div><div class="def-desc">Ctrl+C — kopieer geselekteerde teks na die knipbord</div>
+      <div class="def-term">Plak</div><div class="def-desc">Ctrl+V — voeg knipbordinhoud by die wyserposisie in</div>
+      <div class="def-term">Ontdoen</div><div class="def-desc">Ctrl+Z — keer die laaste aksie om</div>
+      <div class="def-term">Herdoen</div><div class="def-desc">Ctrl+Y — herhaal die laaste ontdane aksie</div>
+      <div class="def-term">Soek &amp; Vervang</div><div class="def-desc">Ctrl+H — vind spesifieke teks en vervang dit met iets anders</div>
+    </div>
+
+    <h2>Fontformatering (Home-tab → Font-groep)</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Formatering</th><th>Kortpad</th><th>Effek</th></tr>
+      <tr><td>Vetdruk</td><td>Ctrl+B</td><td><strong>Maak teks dikker/swaarder</strong></td></tr>
+      <tr><td>Kursief</td><td>Ctrl+I</td><td><em>Skuins die teks</em></td></tr>
+      <tr><td>Onderstreep</td><td>Ctrl+U</td><td><u>Voeg 'n lyn onder die teks by</u></td></tr>
+      <tr><td>Fonttipe</td><td>Fontnaam-blokkie</td><td>Verander die fontsoort (Arial, Times New Roman, Calibri)</td></tr>
+      <tr><td>Fontgrootte</td><td>Fontgrootte-blokkie</td><td>Verander hoe groot die teks is (in punte)</td></tr>
+      <tr><td>Fontkleur</td><td>A▼ button</td><td>Verander die kleur van die teks</td></tr>
+      <tr><td>Verlig</td><td>ab▼ button</td><td>Voeg agtergrondkleur agter teks by</td></tr>
+      <tr><td>Deurstreep</td><td>Font-dialoogvenster</td><td><s>Trek 'n lyn deur die teks</s></td></tr>
+      <tr><td>Boskrif</td><td>Ctrl+Shift++</td><td>Lig teks op (bv. x²)</td></tr>
+      <tr><td>Subskrif</td><td>Ctrl+=</td><td>Verlaag teks (bv. H₂O)</td></tr>
+      <tr><td>Verander Kas</td><td>Shift+F3</td><td>Wissel tussen HOOFLETTERS, kleinletters en Titel Kas</td></tr>
+    </table></div>
+
+    <div class="callout">
+      <div class="callout-title">TIPOGRAFIE-WENK</div>
+      <p>Gebruik net EEN spasie na leestekens (volpunte, kommas, ens.) — NIE twee spasies nie. Word se outomatiese korreksie sal ook &quot;slim aanhalingstekens&quot; (krul ') en korrekte kappies (—) outomaties regstel.</p>
+    </div>
+
+    <div class="steps-box">
+      <div class="steps-title">Stap-vir-stap: Maak 'n opskrif vetdruk, grootte 16, donkerblou</div>
+      <ol class="steps">
+        <li>Beweeg jou muis na die heel begin van die teks wat jy wil verander. Druk en hou die linker-muisknoppie, sleep dan oor die woorde om hulle te <strong>verlig</strong> (die teks verander na 'n geskakeerde kleur). Laat die knoppie los.</li>
+        <li>Klik aan die bokant van die skerm op die <span class="ribbon-path"><span class="rp">Home</span></span> tab (dit is gewoonlik reeds oop).</li>
+        <li>Vind die afdeling gemerk <strong>Font</strong> naby die boonste linkerkant. Klik die klein pyltjie langs die <strong>fontgrootte-blokkie</strong> (dit wys 'n nommer soos 11) en kies <strong>16</strong>.</li>
+        <li>Klik nog steeds in die Font-groep op die <strong>B</strong> -knoppie om die teks vetdruk te maak. (Of druk <kbd>Ctrl</kbd> + <kbd>B</kbd>.)</li>
+        <li>Klik die klein pyltjie langs die <strong>A</strong> met die gekleurde lyn daaronder (die <em>Fontkleur</em> -knoppie).</li>
+        <li>'n Rooster van kleure verskyn. Klik op 'n donkerblou vierkant. As jy nie die presiese kleur kan sien nie, klik <strong>Meer Kleure…</strong> en kies een.</li>
+        <li>Klik enige plek anders op die bladsy om te ontselekteer, en kyk of jou opskrif korrek lyk.</li>
+      </ol>
+    </div>
+
+    <h2>Paragraafformatering (Home-tab → Paragraph-groep)</h2>
+    <h3>Belyning</h3>
+    <div class="def-grid">
+      <div class="def-term">Belyn Links (Align Left)</div><div class="def-desc">Ctrl+L — teks lyn op teen die linkerkantlyn (verstek)</div>
+      <div class="def-term">Sentreer (Centre)</div><div class="def-desc">Ctrl+E — teks word tussen die kantlyne gesentreer</div>
+      <div class="def-term">Belyn Regs (Align Right)</div><div class="def-desc">Ctrl+R — teks lyn op teen die regterkantlyn</div>
+      <div class="def-term">Regverdig (Justify)</div><div class="def-desc">Ctrl+J — teks strek om die lyn tussen beide kantlyne te vul</div>
+    </div>
+    <h3>Spasiëring</h3>
+    <ul>
+      <li><strong>Lynspasiëring</strong>: beheer die spasie tussen lyne binne 'n paragraaf (1.0 = enkel, 1.5, 2.0 = dubbel)</li>
+      <li><strong>Paragraafspasiëring</strong>: voeg spasie Voor of Na 'n paragraaf by (gestel in Paragraph-dialoogvenster: Layout → Paragraph)</li>
+    </ul>
+    <h3>Inkepings</h3>
+    <ul>
+      <li><strong>Vergroot inkeping</strong>: Tab / Ctrl+M — beweeg paragraaf na regs</li>
+      <li><strong>Verklein inkeping</strong>: Shift+Tab / Ctrl+Shift+M — beweeg paragraaf terug links</li>
+      <li><strong>Eerste-lyn-inkeping</strong>: slegs die eerste lyn van die paragraaf word ingekeep</li>
+      <li><strong>Hangende inkeping</strong>: eerste lyn is by die kantlyn; alle ander lyne word ingekeep</li>
+    </ul>
+
+    <h3>Kolletjies en Nommering</h3>
+    <ul>
+      <li><strong>Kolletjies</strong>: ongeordende lys met simbole (•, ◆, ✓) — gebruik wanneer volgorde nie saak maak nie</li>
+      <li><strong>Nommering</strong>: geordende lys (1, 2, 3 of a, b, c) — gebruik wanneer volgorde saak maak</li>
+    </ul>
+
+    <h3>Tabs</h3>
+    <p>Tabs plaas teks op vaste intervalle op 'n lyn. Verskillende tab-tipes:</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Tab-tipe</th><th>Teks belyn...</th></tr>
+      <tr><td>Linkertab</td><td>Linkerkant van teks by die tabstop</td></tr>
+      <tr><td>Middeltab</td><td>Gesentreer by die tabstop</td></tr>
+      <tr><td>Regtertab</td><td>Regterkant van teks by die tabstop</td></tr>
+      <tr><td>Desimale tab</td><td>Desimale punt belyn by die tabstop (goed vir nommers)</td></tr>
+    </table></div>
+
+    <h2>Bladuitleg (Layout-tab)</h2>
+    <div class="def-grid">
+      <div class="def-term">Kantlyne</div><div class="def-desc">Die leë spasie rondom die rande van die bladsy; gestel in Layout → Margins</div>
+      <div class="def-term">Oriëntasie</div><div class="def-desc">Portret (regop) of Landskap (wyd)</div>
+      <div class="def-term">Bladsygrootte</div><div class="def-desc">A4 (verstek in SA), Letter, ens.</div>
+      <div class="def-term">Bladsyrand</div><div class="def-desc">Design-tab → Page Borders — dekoratiewe rand rondom die hele bladsy</div>
+      <div class="def-term">Kolomme</div><div class="def-desc">Verdeel die teksarea in meervoudige kolomme (koerantstyl)</div>
+      <div class="def-term">Watermerk</div><div class="def-desc">Vae teks/beeld agter die hoofinhoud (bv. &quot;DRAFT&quot; of &quot;CONFIDENTIAL&quot;)</div>
+    </div>
+
+    <h3>Dokumentuitleg</h3>
+    <div class="def-grid">
+      <div class="def-term">Bladsynommers</div><div class="def-desc">Insert → Page Number — voeg outomatiese bladsynommers by (bo, onder, kantlyn)</div>
+      <div class="def-term">Bladsybreuk</div><div class="def-desc">Ctrl+Enter — dwing die volgende inhoud om op 'n nuwe bladsy te begin</div>
+      <div class="def-term">Koptekste &amp; Voetteksten</div><div class="def-desc">Teks wat aan die bokant (kopteks) of onderkant (voetteks) van elke bladsy verskyn — bv. titel, datum, bladsynommer</div>
+    </div>
+    <div class="steps-box">
+      <div class="steps-title">Stap-vir-stap: Sit jou naam in die kopteks en 'n bladsynommer in die voetteks</div>
+      <ol class="steps">
+        <li>Klik die <span class="ribbon-path"><span class="rp">Insert</span><span class="rp-arrow">→</span><span class="rp">Header</span></span> -knoppie, klik dan <strong>Wysig Kopteks</strong> (of kies 'n ingeboude ontwerp). Die wyser spring na die koptekstgebied aan die bokant van die bladsy.</li>
+        <li>Tik jou naam. Dit sal nou outomaties aan die bokant van <em>every</em> bladsy verskyn.</li>
+        <li>Klik <strong>Gaan na Voetteks</strong> op die Header &amp; Footer-tab (of rol af en klik in die voettekstgebied).</li>
+        <li>Klik <strong>Bladsynommer</strong> → <strong>Huidige Posisie</strong> → <strong>Eenvoudige Nommer</strong>. 'n Bladsynommer verskyn.</li>
+        <li>Klik <strong>Sluit Kopteks en Voetteks</strong> (die rooi X aan die regterkant) om terug te gaan na jou normale dokument.</li>
+      </ol>
+    </div>
+
+    <h2>Vinnige Style (Home-tab → Styles-groep)</h2>
+    <p>Style pas 'n kombinasie van formatering toe met een klik. Ingeboude style sluit in <strong>Heading 1, Heading 2, Normal, Title</strong>. Die konsekwente gebruik van opskrifstyle maak outomatiese inhoudsopgawe-generering moontlik.</p>
+
+    <h2>Taalkontrole en Hersiening</h2>
+    <div class="def-grid">
+      <div class="def-term">Speltoets</div><div class="def-desc">F7 of Review → Spelling &amp; Grammar — merk spel- en grammatikafoute</div>
+      <div class="def-term">Outomatiese Korreksie</div><div class="def-desc">Korrigeer outomaties algemene tikfoute (teh→the, adn→and)</div>
+      <div class="def-term">Woordtelling</div><div class="def-desc">Review → Word Count (of gewys in die Statusbalk onderkant)</div>
+    </div>
+
+    <h2>Werk met Tabelle</h2>
+    <div class="steps-box">
+      <div class="steps-title">Stap-vir-stap: Voeg 'n tabel in met 3 kolomme en 4 rye</div>
+      <ol class="steps">
+        <li>Klik in jou dokument waar jy wil hê die tabel moet verskyn (die flikkerende lyn, genaamd die <strong>wyser</strong>, wys waar dit sal gaan).</li>
+        <li>Klik die <span class="ribbon-path"><span class="rp">Insert</span><span class="rp-arrow">→</span><span class="rp">Table</span></span> -knoppie. 'n Klein rooster van vierkante val af.</li>
+        <li>Beweeg jou muis oor die rooster. Soos jy beweeg, lig vierkante op om die grootte te wys. Beweeg totdat <strong>3 oor en 4 af</strong> verlig is (dit sê &quot;3x4 Table&quot; aan die bokant).</li>
+        <li>Klik een keer. Word voeg 'n leë tabel met 3 kolomme en 4 rye in.</li>
+        <li>Klik binne enige blok (genaamd 'n <strong>sel</strong>) en tik. Druk die <kbd>Tab</kbd> -sleutel om na die volgende sel te spring. (Die druk van <kbd>Tab</kbd> in die laaste sel maak 'n nuwe ry.)</li>
+      </ol>
+    </div>
+    <p>Twee nuwe tabs verskyn wanneer jou wyser binne 'n tabel is: <strong>Table Design</strong> (kleure, rande, style) en <strong>Table Layout</strong> (voeg by/verwyder rye, smelt selle, belyning).</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Taak</th><th>Hoe om dit te doen</th></tr>
+      <tr><td>Voeg ry in</td><td>Regsklik → Insert → Rows Above/Below (of Tab aan einde van laaste ry)</td></tr>
+      <tr><td>Skrap ry/kolom</td><td>Regsklik → Delete Cells → skrap ry of kolom</td></tr>
+      <tr><td>Smelt selle</td><td>Selekteer selle → Table Layout → Merge Cells</td></tr>
+      <tr><td>Verdeel selle</td><td>Table Layout → Split Cells → spesifiseer rye en kolomme</td></tr>
+      <tr><td>Tabelstyle</td><td>Table Design-tab → kies uit stylgalery</td></tr>
+      <tr><td>Rande &amp; skadu</td><td>Table Design → Borders / Shading</td></tr>
+      <tr><td>Sorteer data</td><td>Table Layout → Sort</td></tr>
+      <tr><td>SOM in tabel</td><td>Table Layout → Formula → =SUM(ABOVE) of =SUM(LEFT)</td></tr>
+    </table></div>
+
+    <h2>Voorwerpe en Illustrasies (Insert-tab)</h2>
+    <ul>
+      <li><strong>Beelde</strong> — voeg in vanaf 'n lêer of aanlyn; verstel grootte met hoekgrepe</li>
+      <li><strong>Vorms</strong> — teken vierkante, sirkels, pyle; formateer met vulkleur en rande</li>
+      <li><strong>WordArt</strong> — dekoratiewe teks-effekte</li>
+      <li><strong>SmartArt</strong> — visuele diagramme (organisasiekaarte, lyste, siklusdiagramme)</li>
+      <li><strong>Skermkiekies</strong> — neem 'n beeld van jou skerm of 'n venster</li>
+      <li><strong>Teksblok</strong> — 'n blokkie wat jy enige plek op die bladsy kan plaas om in te tik</li>
+    </ul>
+    <div class="callout tip">
+      <div class="callout-title">TEKSVLOEI</div>
+      <p>Wanneer jy beelde of vorms invoeg, verander die teksvloei om te beheer hoe teks om die voorwerp vloei. Algemene opsies: <strong>In Lyn met Teks</strong> (beweeg saam met teks), <strong>Vierkant</strong> of <strong>Styf</strong> (teks vloei om die voorwerp), <strong>Agter Teks</strong> / <strong>Voor Teks</strong>.</p>
+    </div>
+
+    <h2>Template</h2>
+    <p>'n Sjabloon is 'n klaargemaakte dokument met die uitleg, fonte en plekhouerteks reeds vir jou gedoen — soos 'n voorafgedrukte vorm wat jy net invul, in plaas daarvan om elke keer 'n briefkop van nuuts af te ontwerp wanneer jy 'n brief skryf.</p>
+    <div class="steps-box">
+      <div class="steps-title">Stap-vir-stap: Begin 'n dokument vanaf 'n templaat</div>
+      <ol class="steps">
+        <li>Klik <strong>File</strong> → <strong>New</strong>.</li>
+        <li>Blaai deur die beskikbare template (Letter, Fax, Report, ens.) of soek aanlyn template met die soekblokkie.</li>
+        <li>Klik 'n templaat om dit te voorskou, klik dan <strong>Skep</strong>.</li>
+        <li>Vervang die plekhouerteks (gewoonlik in vierkantige hakies, bv. <code>[Company Name]</code>) met jou eie besonderhede.</li>
+      </ol>
+    </div>
+
+    <h2>Watermerk en Bladsykleur</h2>
+    <p>'n Watermerk is vae teks of 'n beeld (soos &quot;DRAFT&quot; of &quot;CONFIDENTIAL&quot;) wat agter die normale teks op elke bladsy gewys word — sigbaar genoeg om op te merk, vaag genoeg om nie met lees te inmeng nie.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Taak</th><th>Hoe</th></tr>
+      <tr><td>Voeg 'n teks-watermerk in</td><td><span class="ribbon-path"><span class="rp">Design</span><span class="rp-arrow">→</span><span class="rp">Watermark</span></span> → kies 'n voorinstelling (bv. CONFIDENTIAL) of <strong>Pasgemaakte Watermerk…</strong> om jou eie teks te tik</td></tr>
+      <tr><td>Verwyder 'n watermerk</td><td>Design → Watermark → Remove Watermark</td></tr>
+      <tr><td>Verander die bladsy-agtergrondkleur</td><td>Design → Page Color → kies 'n kleur (hierdie kleur wys op die skerm maar druk nie standaard nie)</td></tr>
+    </table></div>
+
+    <h2>Woordafbreking</h2>
+    <p>Woordafbreking breek lang woorde aan die einde van 'n lyn met 'n koppelteken, in plaas daarvan om die hele woord na die volgende lyn te stoot — dit hou die regterkant van geregverdigde teks netjieser.</p>
+    <ul>
+      <li><strong>Skakel outomatiese woordafbreking aan</strong>: Layout → Hyphenation → Automatic</li>
+      <li><strong>Skakel woordafbreking af</strong>: Layout → Hyphenation → None</li>
+    </ul>
+
+    <h2>'n Dokument Beskerm</h2>
+    <p>Soms wil jy 'n dokument deel maar verhoed dat mense dit per ongeluk verander — soos om iemand 'n vorm te gee waar slegs sekere leë spasies ingevul kan word.</p>
+    <div class="steps-box">
+      <div class="steps-title">Stap-vir-stap: Beperk redigering</div>
+      <ol class="steps">
+        <li>Klik <strong>Review</strong> → <strong>Beperk Redigering</strong>.</li>
+        <li>Onder &quot;Redigeringsbeperkings&quot;, merk die regmerkblokkie en kies 'n beperkingsvlak (bv. &quot;Geen veranderinge (Leesalleen)&quot;).</li>
+        <li>Klik <strong>Ja, Begin Beskerming Afdwing</strong>, tik dan opsioneel 'n wagwoord sodat slegs jy die beskerming later kan verwyder.</li>
+      </ol>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title">WAGWOORD-BESKERMING VAN DIE LÊER SELF</div>
+      <p>Restrict Editing beskerm die inhoud terwyl die lêer oop is. Om te verhoed dat die lêer glad nie sonder 'n wagwoord oopmaak nie, gebruik eerder File → Info → Protect Document → Encrypt with Password.</p>
+    </div>
+
+    <h2>Aansigopsies</h2>
+    <div class="def-grid">
+      <div class="def-term">Drukuitleg</div><div class="def-desc">Verstekaansig — wys presies hoe die dokument sal druk</div>
+      <div class="def-term">Konsep</div><div class="def-desc">Vereenvoudigde aansig sonder bladsykantlyne — goed vir vinnige redigering</div>
+      <div class="def-term">Zoem</div><div class="def-desc">Ctrl+rolwiel — vergroot of verklein die aansig (verander NIE die fontgrootte nie)</div>
+      <div class="def-term">Langs-mekaar</div><div class="def-desc">View → View Side by Side — vergelyk twee oop dokumente gelyktydig</div>
+    </div>
+
+    <div class="callout exam">
+      <div class="callout-title">EKSAMENWENK — Algemene Woordverwerkingstake</div>
+      <p>In 'n praktiese eksamen word punte toegeken vir presiese formatering. Let op: presiese fontgroottes en -tipes, korrekte belyning, korrekte kopteks-/voettekstinhoud, korrekte gebruik van style, en of jy in die korrekte formaat (.docx) stoor. Stoor altyd gereeld!</p>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">Toets jouself</div>
+      <p>Probeer die Word/Excel/HTML-praktiese take in die <a href="../../exam-practice/grade10.html#practical">Graad 10 Eksamenoefening</a>.</p>
+    </div>
+</section>
+
+<section class="chapter" id="ch01">
+  <div class="chapter-tag">Graad 10 &middot; Prakties (V1)</div>
+<h1>Sigblaaie <span class="grade-badge">Graad 10</span></h1>
+    <p class="page-intro">Microsoft Excel is die sigbladprogram wat in RTT gebruik word. Sigblaaie organiseer data in rye en kolomme en maak kragtige berekeninge, grafieke en data-analise moontlik.</p>
+
+    <h2>Die Excel-werkruimte</h2>
+    <div class="def-grid">
+      <div class="def-term">Werkboek</div><div class="def-desc">Die hele Excel-lêer (bv. Sales.xlsx); bevat een of meer werkblaaie</div>
+      <div class="def-term">Werkblad / Blad</div><div class="def-desc">'n Enkele tab/blad binne die werkboek; bestaan uit rye en kolomme</div>
+      <div class="def-term">Kolom</div><div class="def-desc">Vertikaal — gemerk A, B, C … Z, AA, AB…</div>
+      <div class="def-term">Ry</div><div class="def-desc">Horisontaal — gemerk 1, 2, 3…</div>
+      <div class="def-term">Sel</div><div class="def-desc">Die kruising van 'n kolom en ry (bv. B3)</div>
+      <div class="def-term">Aktiewe sel</div><div class="def-desc">Die huidig geselekteerde sel — gewys in die Naamblokkie (boonste linkerkant)</div>
+      <div class="def-term">Naamblokkie</div><div class="def-desc">Wys die adres van die aktiewe sel; klik om na 'n sel te navigeer</div>
+      <div class="def-term">Formulebalk</div><div class="def-desc">Wys die inhoud (waarde of formule) van die aktiewe sel; redigeer hier</div>
+    </div>
+
+    <figure class="figure">
+      <svg viewBox="0 0 560 220" width="560" aria-label="Diagram of an Excel worksheet grid">
+        <rect x="0" y="0" width="560" height="220" rx="6" fill="#0d1117" stroke="#30363d"/>
+        <!-- name box + formula bar -->
+        <rect x="8" y="8" width="70" height="20" rx="3" fill="#21262d" stroke="#30363d"/>
+        <text x="43" y="22" fill="#34d399" font-family="Segoe UI" font-size="10" text-anchor="middle">B3</text>
+        <rect x="84" y="8" width="468" height="20" rx="3" fill="#161b22" stroke="#30363d"/>
+        <text x="92" y="22" fill="#dcdcaa" font-family="Courier New" font-size="11">=B1+B2</text>
+        <text x="8" y="44" fill="#8b949e" font-family="Segoe UI" font-size="9">↑ Name Box (shows active cell)        ↑ Formula Bar (shows what's in the cell)</text>
+        <!-- column headers -->
+        <rect x="8" y="52" width="40" height="20" fill="#21262d"/><text x="28" y="66" fill="#8b949e" font-size="10" text-anchor="middle" font-family="Segoe UI"></text>
+        <rect x="48" y="52" width="120" height="20" fill="#21262d" stroke="#30363d"/><text x="108" y="66" fill="#8b949e" font-size="10" text-anchor="middle" font-family="Segoe UI">A</text>
+        <rect x="168" y="52" width="120" height="20" fill="#34d39933" stroke="#34d399"/><text x="228" y="66" fill="#34d399" font-size="10" text-anchor="middle" font-family="Segoe UI" font-weight="bold">B</text>
+        <rect x="288" y="52" width="120" height="20" fill="#21262d" stroke="#30363d"/><text x="348" y="66" fill="#8b949e" font-size="10" text-anchor="middle" font-family="Segoe UI">C</text>
+        <!-- rows -->
+        <g font-family="Segoe UI" font-size="10">
+          <rect x="8" y="72" width="40" height="26" fill="#21262d" stroke="#30363d"/><text x="28" y="89" fill="#8b949e" text-anchor="middle">1</text>
+          <rect x="48" y="72" width="120" height="26" fill="#0d1117" stroke="#30363d"/><text x="58" y="89" fill="#e6edf3">Maths</text>
+          <rect x="168" y="72" width="120" height="26" fill="#0d1117" stroke="#30363d"/><text x="178" y="89" fill="#b5cea8">45</text>
+          <rect x="288" y="72" width="120" height="26" fill="#0d1117" stroke="#30363d"/><text x="298" y="89" fill="#e6edf3"></text>
+          <rect x="8" y="98" width="40" height="26" fill="#21262d" stroke="#30363d"/><text x="28" y="115" fill="#8b949e" text-anchor="middle">2</text>
+          <rect x="48" y="98" width="120" height="26" fill="#0d1117" stroke="#30363d"/><text x="58" y="115" fill="#e6edf3">Science</text>
+          <rect x="168" y="98" width="120" height="26" fill="#0d1117" stroke="#30363d"/><text x="178" y="115" fill="#b5cea8">38</text>
+          <rect x="288" y="98" width="120" height="26" fill="#0d1117" stroke="#30363d"/><text x="298" y="115" fill="#e6edf3"></text>
+          <rect x="8" y="124" width="40" height="26" fill="#21262d" stroke="#30363d"/><text x="28" y="141" fill="#8b949e" text-anchor="middle">3</text>
+          <rect x="48" y="124" width="120" height="26" fill="#0d1117" stroke="#30363d"/><text x="58" y="141" fill="#e6edf3">Total</text>
+          <rect x="168" y="124" width="120" height="26" fill="#34d39922" stroke="#34d399" stroke-width="2"/><text x="178" y="141" fill="#34d399" font-weight="bold">83</text>
+          <rect x="288" y="124" width="120" height="26" fill="#0d1117" stroke="#30363d"/><text x="298" y="141" fill="#e6edf3"></text>
+        </g>
+        <text x="180" y="172" fill="#34d399" font-family="Segoe UI" font-size="10">↑ Cell B3 holds the formula =B1+B2, which shows the answer 83</text>
+        <text x="58" y="192" fill="#8b949e" font-family="Segoe UI" font-size="10">Column letter + Row number = the cell address (e.g. B1 is column B, row 1)</text>
+      </svg>
+      <figcaption>'n Werkblad is 'n rooster van <strong>selle</strong>. Elke sel het 'n adres bestaande uit sy <strong>kolomletter</strong> en <strong>rynommer</strong> (bv. B3). Die Formulebalk wys wat werklik binne die aktiewe sel is.</figcaption>
+    </figure>
+
+    <h2>Selverwysings</h2>
+    <p>'n <strong>selverwysing</strong> identifiseer 'n spesifieke sel deur sy kolomletter en rynommer. Die gebruik van selverwysings in formules is van kritieke belang — as die data verander, herbereken die formule outomaties.</p>
+    <div class="callout">
+      <div class="callout-title">HOEKOM SELVERWYSINGS GEBRUIK?</div>
+      <p>In plaas daarvan om te tik <code>=50+30</code>, gebruik <code>=B2+C2</code>. As die waardes in B2 of C2 verander, word die antwoord outomaties opgedateer. Hardgekodeerde nommers word nooit opgedateer nie.</p>
+    </div>
+    <h3>Reeksname</h3>
+    <p>'n <strong>benoemde reeks</strong> gee 'n betekenisvolle naam aan 'n groep selle. Selekteer die selle → Naamblokkie → tik naam → Enter. Gebruik dan die naam in formules:</p>
+    <div class="code-block">
+      <div class="code-label">Voorbeeld</div>
+      <pre>=SUM(<span class="fn">Marks</span>)   <span class="str">← in plaas van =SUM(B2:B20)</span></pre>
+    </div>
+
+    <h2>Datatipes</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Datatipe</th><th>Beskrywing</th><th>Verstekbelyning</th></tr>
+      <tr><td>Nommer</td><td>Numeriese waarde gebruik in berekeninge</td><td>Regs belyn</td></tr>
+      <tr><td>Teks (Etiket)</td><td>Woorde, name, beskrywings; kan nie in berekeninge gebruik word nie</td><td>Links belyn</td></tr>
+      <tr><td>Datum / Tyd</td><td>Gestoor as 'n nommer; vertoon as 'n datum</td><td>Regs belyn</td></tr>
+      <tr><td>Geldeenheid</td><td>Nommer met geldeenheidsimbool (R, $)</td><td>Regs belyn</td></tr>
+      <tr><td>Persentasie</td><td>Nommer geformateer as % (0.75 vertoon as 75%)</td><td>Regs belyn</td></tr>
+    </table></div>
+
+    <h2>Basiese Berekeninge</h2>
+    <p>Alle formules begin met <code>=</code>. Volgorde van bewerkings (BODMAS) is van toepassing.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Operator</th><th>Betekenis</th><th>Voorbeeld</th></tr>
+      <tr><td><code>+</code></td><td>Optelling</td><td><code>=A1+B1</code></td></tr>
+      <tr><td><code>-</code></td><td>Aftrekking</td><td><code>=A1-B1</code></td></tr>
+      <tr><td><code>*</code></td><td>Vermenigvuldiging</td><td><code>=A1*B1</code></td></tr>
+      <tr><td><code>/</code></td><td>Deling</td><td><code>=A1/B1</code></td></tr>
+      <tr><td><code>^</code></td><td>Eksponent (mag)</td><td><code>=A1^2</code> (A1 in die kwadraat)</td></tr>
+      <tr><td><code>( )</code></td><td>Hakies — bereken eerste</td><td><code>=(A1+B1)*C1</code></td></tr>
+    </table></div>
+
+    <h2>Basiese Funksies</h2>
+    <p>Funksies is ingeboude formules. Sintaksis: <code>=FUNCTIONNAME(argument1, argument2, …)</code></p>
+    <div class="steps-box">
+      <div class="steps-title">Stap-vir-stap: Tel 'n kolom nommers op met SOM</div>
+      <ol class="steps">
+        <li>Klik die leë sel waar jy wil hê die antwoord moet verskyn (byvoorbeeld die sel net onder jou lys van nommers).</li>
+        <li>Tik 'n gelykheidsteken <kbd>=</kbd>. Elke formule MOET begin met <code>=</code>, anders behandel Excel dit as plein teks.</li>
+        <li>Tik die woord <code>SUM</code> gevolg deur 'n openingshakie: <code>=SUM(</code></li>
+        <li>Selekteer nou die nommers: klik die eerste nommer-sel, hou die muisknoppie ingedruk en sleep af na die laaste nommer, laat dan los. Excel vul die reeks vir jou in, bv. <code>=SUM(B2:B10</code></li>
+        <li>Tik 'n sluitingshakie <code>)</code> sodat dit lees <code>=SUM(B2:B10)</code></li>
+        <li>Druk <kbd>Enter</kbd>. Die sel wys nou die totaal. (Klik die sel weer en kyk na die Formulebalk aan die bokant — dit wys nog steeds die formule, nie die antwoord nie.)</li>
+      </ol>
+    </div>
+    <div class="tryit">
+      <div class="tryit-title">Probeer dit self</div>
+      <p>Tik die nommers 10, 20 en 30 in selle A1, A2 en A3. In sel A4, tik <code>=SUM(A1:A3)</code> en druk <kbd>Enter</kbd>. Jy behoort <strong>60</strong> te sien. Verander nou A1 na 100 — kyk hoe A4 outomaties opdateer na <strong>150</strong>. Dit is die krag van die gebruik van selverwysings!</p>
+    </div>
+    <div class="tbl-wrap"><table>
+      <tr><th>Funksie</th><th>Wat dit doen</th><th>Voorbeeld</th></tr>
+      <tr><td><code class="fn">SUM</code></td><td>Tel alle waardes in 'n reeks op</td><td><code>=SUM(B2:B10)</code></td></tr>
+      <tr><td><code class="fn">AVERAGE</code></td><td>Bereken die gemiddelde van waardes</td><td><code>=AVERAGE(B2:B10)</code></td></tr>
+      <tr><td><code class="fn">MAX</code></td><td>Gee die grootste waarde terug</td><td><code>=MAX(B2:B10)</code></td></tr>
+      <tr><td><code class="fn">MIN</code></td><td>Gee die kleinste waarde terug</td><td><code>=MIN(B2:B10)</code></td></tr>
+      <tr><td><code class="fn">COUNT</code></td><td>Tel selle wat nommers bevat</td><td><code>=COUNT(B2:B10)</code></td></tr>
+      <tr><td><code class="fn">COUNTA</code></td><td>Tel alle nie-leë selle</td><td><code>=COUNTA(A2:A10)</code></td></tr>
+      <tr><td><code class="fn">TODAY</code></td><td>Gee vandag se datum terug (geen argument)</td><td><code>=TODAY()</code></td></tr>
+      <tr><td><code class="fn">RANDBETWEEN</code></td><td>Lukrake heelgetal tussen twee waardes</td><td><code>=RANDBETWEEN(1,100)</code></td></tr>
+      <tr><td><code class="fn">MODE</code></td><td>Mees-voorkomende waarde</td><td><code>=MODE(B2:B10)</code></td></tr>
+      <tr><td><code class="fn">MEDIAN</code></td><td>Middelwaarde in 'n gesorteerde reeks</td><td><code>=MEDIAN(B2:B10)</code></td></tr>
+      <tr><td><code class="fn">COUNTBLANK</code></td><td>Tel leë selle in reeks</td><td><code>=COUNTBLANK(B2:B10)</code></td></tr>
+      <tr><td><code class="fn">COUNTIF</code></td><td>Tel selle wat aan 'n voorwaarde voldoen</td><td><code>=COUNTIF(B2:B10,"&gt;=50")</code></td></tr>
+    </table></div>
+
+    <div class="callout">
+      <div class="callout-title">COUNTIF — Relasionele Operatore</div>
+      <p>COUNTIF-kriteria gebruik relasionele operatore binne aanhalingstekens: <code>"&gt;50"</code>, <code>"&lt;=30"</code>, <code>"=Pass"</code>, <code>"&lt;&gt;0"</code> (nie gelyk aan 0).</p>
+    </div>
+
+    <h2>Selle Formateer</h2>
+    <h3>Nommerformate (Home → Number-groep of Ctrl+1)</h3>
+    <ul>
+      <li><strong>Algemeen</strong> — geen spesifieke formaat</li>
+      <li><strong>Nommer</strong> — stel desimale plekke (bv. 2)</li>
+      <li><strong>Geldeenheid</strong> — voeg R of $ simbool by</li>
+      <li><strong>Persentasie</strong> — vermenigvuldig met 100 en voeg %-teken by</li>
+      <li><strong>Datum</strong> — vertoon nommers as datums</li>
+    </ul>
+    <h3>Selformatering</h3>
+    <ul>
+      <li>Rande, vulkleur (agtergrond), belyning (links/middel/regs/vou teks)</li>
+      <li><strong>Smelt &amp; Sentreer</strong> — kombineer geselekteerde selle in een (uitstekend vir opskrifte)</li>
+      <li><strong>Outomatiese Vul</strong> — sleep die vulgreep (onderste-regterhoek van sel) om 'n patroon te vul (1,2,3… of Jan, Feb, Mar…)</li>
+    </ul>
+    <h3>Rye en Kolomme</h3>
+    <ul>
+      <li>Verstel grootte: sleep die kolom-/ry-rand, of regsklik → Column Width / Row Height</li>
+      <li>Voeg in: regsklik ry-/kolomkop → Insert</li>
+      <li>Skrap: regsklik → Delete</li>
+      <li>Versteek/Wys: regsklik → Hide / Unhide</li>
+    </ul>
+
+    <h2>Outomatiese Vul</h2>
+    <p>AutoFill spaar jou daarvan om herhalende of voorspelbare data met die hand te tik — soos 'n lys van datums, maande, of nommers wat opklim — deur die patroon van een of twee selle te herken en dit vir jou voort te sit.</p>
+    <div class="steps-box">
+      <div class="steps-title">Stap-vir-stap: Gebruik AutoFill</div>
+      <ol class="steps">
+        <li>Tik die begin-waarde (bv. <code>Monday</code>, of <code>1</code> en <code>2</code> in twee selle om die patroon te wys).</li>
+        <li>Selekteer die sel(le), beweeg dan oor die klein groen vierkant in die onderste-regterhoek van die seleksie — die wyser verander in 'n dun swart <strong>+</strong>.</li>
+        <li>Klik en sleep af of oor die selle wat jy wil vul. Excel sit die patroon voort (dae, maande, of opklimmende nommers).</li>
+        <li>Om 'n formule in plaas van 'n lys te kopieer, gebruik AutoFill op dieselfde manier — Excel verstel outomaties relatiewe selverwysings vir elke nuwe ry.</li>
+      </ol>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title">OUTOMATIESE VUL-OPSIES-KNOPPIE</div>
+      <p>Na sleep verskyn 'n klein knoppie naby die gevulde selle — klik daarop om &quot;Copy Cells&quot; te kies (herhaal dieselfde waarde presies) in plaas van &quot;Fill Series&quot; as jy nie wou hê die patroon moes voortgaan nie.</p>
+    </div>
+
+    <h2>Werk met Blaaie</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Aksie</th><th>Hoe</th></tr>
+      <tr><td>Hernoem 'n blad</td><td>Dubbelklik die tab; tik nuwe naam</td></tr>
+      <tr><td>Voeg bladkleur by</td><td>Regsklik tab → Tab Colour</td></tr>
+      <tr><td>Versteek/wys blad</td><td>Regsklik tab → Hide / Unhide</td></tr>
+      <tr><td>Voeg nuwe blad in</td><td>Klik die +-knoppie onder linkerkant van blaaie</td></tr>
+    </table></div>
+
+    <h2>Sorteer</h2>
+    <p>Sorteer data alfabeties of numeries: Data → Sort. Kies die kolom om volgens te sorteer en Ascending (A→Z, 0→9) of Descending (Z→A, 9→0).</p>
+
+    <h2>Foutaanduiders</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Fout</th><th>Oorsaak</th></tr>
+      <tr><td><code class="err">#######</code></td><td>Kolom te smal om die waarde te vertoon — maak die kolom wyer</td></tr>
+      <tr><td><code class="err">#NAME!</code></td><td>Funksienaam is verkeerd gespel (bv. <code>=SUMM()</code>)</td></tr>
+      <tr><td><code class="err">#DIV/0!</code></td><td>Formule probeer deur nul deel</td></tr>
+      <tr><td><code class="err">#REF!</code></td><td>'n Selverwysing is ongeldig — 'n verwysde sel is geskrap</td></tr>
+      <tr><td><code class="err">#VALUE!</code></td><td>Verkeerde tipe data (bv. probeer om teks by 'n nommer te tel)</td></tr>
+      <tr><td><code class="err">#NUM!</code></td><td>Ongeldige numeriese waarde (bv. vierkantswortel van 'n negatiewe nommer)</td></tr>
+    </table></div>
+
+    <h2>Grafieke (Kwartaal 4)</h2>
+    <p>Selekteer die data → Insert → Charts → kies grafiektipe.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Grafiektipe</th><th>Beste gebruik vir</th></tr>
+      <tr><td>Kolom / Staaf</td><td>Vergelyk waardes oor kategorieë</td></tr>
+      <tr><td>Sirkel</td><td>Wys dele van 'n geheel (persentasies); werk slegs met een reeks</td></tr>
+      <tr><td>Lyn</td><td>Wys tendense oor tyd</td></tr>
+    </table></div>
+    <p>Na die invoeg van 'n grafiek, gebruik die <strong>Chart Design</strong> en <strong>Format</strong> -tabs om: 'n grafiektitel, asetiquette, datamerke by te voeg, kleure te verander, die grafiek te beweeg.</p>
+
+    <div class="callout exam">
+      <div class="callout-title">EKSAMENWENK</div>
+      <p>Algemene eksamenfoute: om die <code>=</code> -teken voor 'n formule te vergeet; om 'n komma in plaas van 'n kolon in reekse te gebruik (<code>B2,B10</code> in plaas van <code>B2:B10</code>); om die verkeerde reeks te selekteer. Kontroleer altyd jou formule in die Formulebalk voordat jy aanbeweeg.</p>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">Toets jouself</div>
+      <p>Probeer die Excel-formuletake in die <a href="../../exam-practice/grade10.html#practical">Graad 10 Eksamenoefening</a>.</p>
+    </div>
+</section>
+
+<section class="chapter" id="ch02">
+  <div class="chapter-tag">Graad 10 &middot; Prakties (V1)</div>
+<h1>HTML &amp; Webontwerp <span class="grade-badge">Graad 10</span></h1>
+    <p class="page-intro">HTML (HyperText Markup Language) is die taal wat gebruik word om webblaaie te skep. In RTT word HTML in 'n teksredigeerder soos Notepad++ gekodeer en in 'n blaaier bekyk.</p>
+
+    <h2>Wat is HTML?</h2>
+    <p><strong>HTML</strong> = HyperText Markup Language. Dit gebruik <strong>tags</strong> (instruksies in skuinshoekige hakies) om inhoud op 'n webblad te struktureer en te formateer. Blaaiers lees die HTML en wys dit visueel.</p>
+    <div class="callout">
+      <div class="callout-title">HTML-REDIGEERDER</div>
+      <p>In RTT, gebruik <strong>Notepad++</strong> om HTML te skryf (dit verlig jou kode in kleur). Stoor die lêer met 'n <code>.html</code> -uitbreiding. Open dit in 'n blaaier (Chrome, Edge) om die resultaat te sien. Jy het NIE 'n internetverbinding nodig om plaaslike HTML-lêers te bekyk nie.</p>
+    </div>
+
+    <div class="steps-box">
+      <div class="steps-title">Stap-vir-stap: Skep jou eerste HTML-lêer in Notepad++</div>
+      <ol class="steps">
+        <li>Maak <strong>Notepad++</strong> oop (klik die Start-knoppie, tik &quot;Notepad++&quot; en klik daarop). 'n Leë wit bladsy verskyn.</li>
+        <li>Tik jou HTML-kode in die bladsy (gebruik die voorbeelde hieronder).</li>
+        <li>Klik <span class="ribbon-path"><span class="rp">File</span><span class="rp-arrow">→</span><span class="rp">Save As</span></span> aan die bokant.</li>
+        <li>In die <strong>Lêernaam</strong> -blokkie, tik 'n naam wat eindig op <strong>.html</strong> — byvoorbeeld <code>mypage.html</code> (die <code>.html</code> -deel is baie belangrik, dit sê vir die rekenaar dit is 'n webblad).</li>
+        <li>Klik <strong>Stoor</strong>.</li>
+        <li>Vind jou gestoorde lêer in sy gids en <strong>dubbelklik</strong> dit. Dit maak oop in 'n webblaaier (Chrome/Edge) sodat jy die resultaat kan sien.</li>
+        <li>Om veranderinge te maak: redigeer die kode in Notepad++, stoor weer (<kbd>Ctrl</kbd> + <kbd>S</kbd>), gaan dan terug na die blaaier en druk <kbd>F5</kbd> om te herlaai.</li>
+      </ol>
+    </div>
+
+    <h2>Tag-sintaksis</h2>
+    <p>Meeste HTML-tags kom in pare: 'n <strong>openingstag</strong> en 'n <strong>sluitingstag</strong>. Die sluitingstag het 'n skuinsstreep <code>/</code> voor die tagnaam.</p>
+    <figure class="figure">
+      <svg viewBox="0 0 520 130" width="520" aria-label="Anatomy of an HTML tag">
+        <text x="260" y="60" font-family="Courier New" font-size="26" text-anchor="middle">
+          <tspan fill="#4ec9b0">&lt;p&gt;</tspan><tspan fill="#e6edf3"> Hello </tspan><tspan fill="#4ec9b0">&lt;/p&gt;</tspan>
+        </text>
+        <!-- opening tag bracket -->
+        <line x1="175" y1="72" x2="175" y2="92" stroke="#34d399"/>
+        <text x="175" y="108" fill="#34d399" font-family="Segoe UI" font-size="11" text-anchor="middle">Opening tag</text>
+        <!-- content -->
+        <line x1="258" y1="72" x2="258" y2="86" stroke="#fb923c"/>
+        <text x="258" y="100" fill="#fb923c" font-family="Segoe UI" font-size="11" text-anchor="middle">Content</text>
+        <!-- closing tag -->
+        <line x1="345" y1="72" x2="345" y2="92" stroke="#f472b6"/>
+        <text x="345" y="108" fill="#f472b6" font-family="Segoe UI" font-size="11" text-anchor="middle">Closing tag (note the /)</text>
+      </svg>
+      <figcaption>'n HTML-element = 'n <strong>openingstag</strong> + die <strong>inhoud</strong> + 'n <strong>sluitingstag</strong>. Die sluitingstag is identies aan die openingstag maar het 'n skuinsstreep <code>/</code> na die eerste hakie.</figcaption>
+    </figure>
+    <div class="code-block">
+      <div class="code-label">Sintaksis</div>
+      <pre><span class="ht">&lt;tagname&gt;</span>Content goes here<span class="ht">&lt;/tagname&gt;</span></pre>
+    </div>
+    <p>Sommige tags is <strong>selfsluitend</strong> — hulle het geen inhoud en geen sluitingstag nie: <code class="ht">&lt;br&gt;</code> en <code class="ht">&lt;hr&gt;</code></p>
+
+    <h2>Basiese HTML-bladstruktuur</h2>
+    <div class="code-block">
+      <div class="code-label">Basiese HTML-struktuur</div>
+      <pre><span class="ht">&lt;html&gt;</span>
+  <span class="ht">&lt;head&gt;</span>
+    <span class="ht">&lt;title&gt;</span>Page Title Here<span class="ht">&lt;/title&gt;</span>
+  <span class="ht">&lt;/head&gt;</span>
+  <span class="ht">&lt;body&gt;</span>
+    <span class="hcmt">&lt;!-- All visible content goes here --&gt;</span>
+    <span class="ht">&lt;h1&gt;</span>My First Web Page<span class="ht">&lt;/h1&gt;</span>
+    <span class="ht">&lt;p&gt;</span>This is a paragraph.<span class="ht">&lt;/p&gt;</span>
+  <span class="ht">&lt;/body&gt;</span>
+<span class="ht">&lt;/html&gt;</span></pre>
+    </div>
+
+    <h2>Graad 10 HTML-tagverwysing</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Tag</th><th>Sluitingstag</th><th>Doel</th></tr>
+      <tr><td><code class="ht">&lt;html&gt;</code></td><td><code class="ht">&lt;/html&gt;</code></td><td>Merk die begin en einde van die HTML-dokument</td></tr>
+      <tr><td><code class="ht">&lt;head&gt;</code></td><td><code class="ht">&lt;/head&gt;</code></td><td>Bevat metadata (bladinligting wat nie op die blad gewys word nie)</td></tr>
+      <tr><td><code class="ht">&lt;title&gt;</code></td><td><code class="ht">&lt;/title&gt;</code></td><td>Stel die blaaiertab-/venstertitel</td></tr>
+      <tr><td><code class="ht">&lt;body&gt;</code></td><td><code class="ht">&lt;/body&gt;</code></td><td>Bevat alle sigbare bladinhoud</td></tr>
+      <tr><td><code class="ht">&lt;h1&gt;</code> tot <code class="ht">&lt;h6&gt;</code></td><td><code class="ht">&lt;/h1&gt;</code> ens.</td><td>Opskrifte — h1 is grootste, h6 is kleinste</td></tr>
+      <tr><td><code class="ht">&lt;p&gt;</code></td><td><code class="ht">&lt;/p&gt;</code></td><td>Paragraaf — voeg 'n leë lyn voor en na by</td></tr>
+      <tr><td><code class="ht">&lt;br&gt;</code></td><td>geen</td><td>Lynbreuk — beweeg na die volgende lyn (geen leë lyn nie)</td></tr>
+      <tr><td><code class="ht">&lt;hr&gt;</code></td><td>geen</td><td>Horisontale lyn — trek 'n horisontale skeidingslyn</td></tr>
+      <tr><td><code class="ht">&lt;b&gt;</code></td><td><code class="ht">&lt;/b&gt;</code></td><td><strong>Vetdruk</strong> teks</td></tr>
+      <tr><td><code class="ht">&lt;i&gt;</code></td><td><code class="ht">&lt;/i&gt;</code></td><td><em>Kursief</em> teks</td></tr>
+      <tr><td><code class="ht">&lt;u&gt;</code></td><td><code class="ht">&lt;/u&gt;</code></td><td><u>Onderstreepte</u> teks</td></tr>
+    </table></div>
+
+    <h2>Attribute</h2>
+    <p>Attribute voeg ekstra inligting by 'n tag. Hulle gaan binne die openingstag as <code>name="value"</code> -pare.</p>
+    <div class="code-block">
+      <div class="code-label">Attribuutsintaksis</div>
+      <pre><span class="ht">&lt;tagname</span> <span class="hat">attribute</span>=<span class="hv">"value"</span><span class="ht">&gt;</span>content<span class="ht">&lt;/tagname&gt;</span></pre>
+    </div>
+
+    <h2>Die Font-tag</h2>
+    <p>Die <code class="ht">&lt;font&gt;</code> -tag beheer die voorkoms van teks met behulp van attribute:</p>
+    <div class="code-block">
+      <div class="code-label">Font-tag voorbeelde</div>
+      <pre><span class="ht">&lt;font</span> <span class="hat">face</span>=<span class="hv">"Arial"</span> <span class="hat">size</span>=<span class="hv">"4"</span> <span class="hat">color</span>=<span class="hv">"red"</span><span class="ht">&gt;</span>
+  This text is Arial, size 4, red colour
+<span class="ht">&lt;/font&gt;</span></pre>
+    </div>
+    <div class="tbl-wrap"><table>
+      <tr><th>Attribuut</th><th>Waardes</th><th>Effek</th></tr>
+      <tr><td><code class="hat">face</code></td><td>Fontnaam (bv. &quot;Arial&quot;, &quot;Times New Roman&quot;)</td><td>Stel die fonttipe</td></tr>
+      <tr><td><code class="hat">size</code></td><td>1 (kleinste) tot 7 (grootste)</td><td>Stel die teksgrootte</td></tr>
+      <tr><td><code class="hat">color</code></td><td>Kleurnaam (&quot;red&quot;) of heksadesimaal (#FF0000)</td><td>Stel tekskleur</td></tr>
+    </table></div>
+
+    <h2>Horisontale Lyn-attribute</h2>
+    <div class="code-block">
+      <div class="code-label">hr met attribute</div>
+      <pre><span class="ht">&lt;hr</span> <span class="hat">width</span>=<span class="hv">"50%"</span> <span class="hat">size</span>=<span class="hv">"3"</span><span class="ht">&gt;</span>   <span class="hcmt">&lt;!-- 50% wide, 3px thick --&gt;</span></pre>
+    </div>
+
+    <h2>Liggaam-agtergrondkleur</h2>
+    <div class="code-block">
+      <div class="code-label">Stel die bladsy-agtergrondkleur</div>
+      <pre><span class="ht">&lt;body</span> <span class="hat">bgcolor</span>=<span class="hv">"lightblue"</span><span class="ht">&gt;</span>
+  <span class="hcmt">&lt;!-- All page content --&gt;</span>
+<span class="ht">&lt;/body&gt;</span></pre>
+    </div>
+    <p>Kleurwaardes kan wees: kleurname (<code>"red"</code>, <code>"yellow"</code>, <code>"lightgreen"</code>) of heksadesimale kodes (<code>"#FF0000"</code>).</p>
+
+    <h2>Volledige Voorbeeld — Graad 10 HTML-blad</h2>
+    <div class="code-block">
+      <div class="code-label">Volledige voorbeeld</div>
+      <pre><span class="ht">&lt;html&gt;</span>
+<span class="ht">&lt;head&gt;</span>
+  <span class="ht">&lt;title&gt;</span>Ms Coetzee CAT<span class="ht">&lt;/title&gt;</span>
+<span class="ht">&lt;/head&gt;</span>
+<span class="ht">&lt;body</span> <span class="hat">bgcolor</span>=<span class="hv">"lightyellow"</span><span class="ht">&gt;</span>
+
+  <span class="ht">&lt;h1&gt;</span><span class="ht">&lt;font</span> <span class="hat">color</span>=<span class="hv">"darkblue"</span><span class="ht">&gt;</span>Welcome to Grade 10 CAT<span class="ht">&lt;/font&gt;&lt;/h1&gt;</span>
+  <span class="ht">&lt;hr</span> <span class="hat">width</span>=<span class="hv">"80%"</span><span class="ht">&gt;</span>
+
+  <span class="ht">&lt;h2&gt;</span>About this subject<span class="ht">&lt;/h2&gt;</span>
+  <span class="ht">&lt;p&gt;</span>CAT teaches us to use <span class="ht">&lt;b&gt;</span>application software<span class="ht">&lt;/b&gt;</span> effectively.<span class="ht">&lt;/p&gt;</span>
+  <span class="ht">&lt;p&gt;</span>We study <span class="ht">&lt;i&gt;</span>Word, Excel, Access<span class="ht">&lt;/i&gt;</span> and <span class="ht">&lt;u&gt;</span>HTML<span class="ht">&lt;/u&gt;</span>.<span class="ht">&lt;/p&gt;</span>
+
+  <span class="ht">&lt;h3&gt;</span>Practical Tools:<span class="ht">&lt;/h3&gt;</span>
+  <span class="ht">&lt;p&gt;&lt;font</span> <span class="hat">face</span>=<span class="hv">"Arial"</span> <span class="hat">size</span>=<span class="hv">"3"</span> <span class="hat">color</span>=<span class="hv">"green"</span><span class="ht">&gt;</span>Microsoft Word<span class="ht">&lt;/font&gt;&lt;/p&gt;</span>
+  <span class="ht">&lt;p&gt;&lt;font</span> <span class="hat">face</span>=<span class="hv">"Arial"</span> <span class="hat">size</span>=<span class="hv">"3"</span> <span class="hat">color</span>=<span class="hv">"green"</span><span class="ht">&gt;</span>Microsoft Excel<span class="ht">&lt;/font&gt;&lt;/p&gt;</span>
+
+<span class="ht">&lt;/body&gt;</span>
+<span class="ht">&lt;/html&gt;</span></pre>
+    </div>
+
+    <div class="callout exam">
+      <div class="callout-title">EKSAMENWENK — Algemene HTML-foute</div>
+      <p>
+        1. Om te vergeet om tags te sluit (bv. <code>&lt;b&gt;</code> sonder <code>&lt;/b&gt;</code>) — alles daarna word vetdruk.<br>
+        2. Verkeerde aanhalingstekens — gebruik reguit aanhalingstekens <code>"</code> nie krul-aanhalingstekens nie <code>"</code>.<br>
+        3. Om kleur as &quot;color&quot; te spel — HTML gebruik <strong>Amerikaanse spelling</strong>: <code>color</code>, nie <code>colour</code>.<br>
+        4. &lt;hr&gt; en &lt;br&gt; het GEEN sluitingstags nodig nie.<br>
+        5. Die &lt;title&gt; verander slegs die blaaiertab-teks — nie wat jy op die blad sien nie.
+      </p>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">Toets jouself</div>
+      <p>Probeer die HTML-take in die <a href="../../exam-practice/grade10.html#practical">Graad 10 Eksamenoefening</a>.</p>
+    </div>
+</section>
+
+<section class="chapter" id="ch03">
+  <div class="chapter-tag">Graad 10 &middot; Prakties (V1)</div>
+<h1>Aanbiedinge <span class="grade-badge">Graad 10 · slegs PAT</span></h1>
+    <p class="page-intro">Microsoft PowerPoint-aanbiedinge word in RTT slegs as deel van die PAT (Praktiese Assesseringstaak) gebruik. Aanbiedinge word NIE in V1-vraestelle geassesseer nie — slegs in die PAT.</p>
+
+    <div class="callout warning">
+      <div class="callout-title">SLEGS PAT — NIE IN EKSAMENVRAESTEL 1 NIE</div>
+      <p>Aanbiedinge word in Kwartaal 3 onderrig as deel van PAT-Fase 1. Hulle word gebruik om jou Inligtingsbestuur-bevindinge aan te bied. Aanbiedinge word deur die PAT geassesseer, NIE in die Junie- of eind-van-jaar V1-eksamen nie.</p>
+    </div>
+
+    <h2>Wat is 'n Aanbieding?</h2>
+    <p>'n Aanbieding is 'n skyfievertoning bestaande uit individuele <strong>skyfies</strong>, elk met teks, beelde en ander voorwerpe. PowerPoint (.pptx) is die standaardformaat wat in RTT gebruik word.</p>
+
+    <h2>Die PowerPoint-koppelvlak</h2>
+    <div class="def-grid">
+      <div class="def-term">Skyfiepaneel</div><div class="def-desc">Linkerkant — wys kleinkiekie-voorskoue van alle skyfies</div>
+      <div class="def-term">Skyfiearea</div><div class="def-desc">Hoof-redigeringsarea — ontwerp jou huidige skyfie hier</div>
+      <div class="def-term">Notapaneel</div><div class="def-desc">Onder die skyfiearea — voeg sprekersnotas by (nie gewys tydens skyfievertoning nie)</div>
+      <div class="def-term">Ribbon</div><div class="def-desc">Home, Insert, Design, Transitions, Animations, Slide Show, Review, View</div>
+    </div>
+
+    <h2>Reëls vir Goeie Aanbiedinge</h2>
+    <ul>
+      <li><strong>Hou dit eenvoudig</strong> — gebruik kernwoorde, nie volledige sinne nie</li>
+      <li><strong>Konsekwente ontwerp</strong> — gebruik dieselfde tema/kleurskema deurgaans</li>
+      <li><strong>Beperk inhoud</strong> — 6×6-reël: maksimum 6 kolletjiepunte per skyfie, 6 woorde per punt</li>
+      <li><strong>Gebruik visuele media</strong> — beelde, grafieke en diagramme is meer boeiend as plein teks</li>
+      <li><strong>Leesbare fonte</strong> — minimum grootte 24pt vir liggaam, 36pt+ vir opskrifte</li>
+      <li><strong>Hoë kontras</strong> — donker teks op 'n ligte agtergrond of omgekeerd</li>
+      <li>Vermy om direk van die skyfies af te lees — hulle ondersteun, nie vervang nie, jou aanbieding</li>
+    </ul>
+
+    <h2>Werk met Skyfies</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Aksie</th><th>Hoe</th></tr>
+      <tr><td>Voeg nuwe skyfie in</td><td>Home → New Slide; of regsklik in paneel → New Slide</td></tr>
+      <tr><td>Skrap skyfie</td><td>Regsklik skyfie → Delete Slide</td></tr>
+      <tr><td>Beweeg skyfie</td><td>Sleep in die Skyfiepaneel</td></tr>
+      <tr><td>Dupliseer skyfie</td><td>Regsklik → Duplicate Slide</td></tr>
+      <tr><td>Verander uitleg</td><td>Home → Layout (Title Slide, Title and Content, Blank, ens.)</td></tr>
+      <tr><td>Skyfienommers</td><td>Insert → Header and Footer → Slide Number</td></tr>
+    </table></div>
+
+    <h2>Ontwerpe Toepas</h2>
+    <ul>
+      <li><strong>Temas</strong>: Design-tab → Themes-galery — kies 'n ingeboude ontwerp (kleure, fonte, agtergrond)</li>
+      <li><strong>Ontwerp-idees</strong>: PowerPoint stel outomaties uitlegte voor (Design-tab → Design Ideas)</li>
+      <li><strong>Skyfiegrootte</strong>: Design → Slide Size → Standard (4:3) of Widescreen (16:9)</li>
+    </ul>
+
+    <h2>Aansigopsies</h2>
+    <div class="def-grid">
+      <div class="def-term">Normaal</div><div class="def-desc">Verstek redigeringsaansig — skyfie + notapaneel</div>
+      <div class="def-term">Skyfiesorteerder</div><div class="def-desc">Wys alle skyfies as kleinkiekies; nuttig om te herrangskik</div>
+      <div class="def-term">Notablad</div><div class="def-desc">Volblad-aansig van skyfie + notas — druk vir die aanbieder</div>
+      <div class="def-term">Leesaansig</div><div class="def-desc">Speel die skyfievertoning in 'n venster (nie volskerm nie)</div>
+      <div class="def-term">Skyfievertoning</div><div class="def-desc">Volskerm-aanbieding (F5 vanaf die begin; Shift+F5 vanaf huidige)</div>
+    </div>
+
+    <h2>Pasgemaakte Animasies (Basies)</h2>
+    <p>Animasies maak dat individuele voorwerpe op 'n skyfie verskyn, beweeg of verdwyn.</p>
+    <ul>
+      <li>Selekteer voorwerp → <strong>Animations-tab</strong> → kies 'n animasie (Appear, Fly In, Fade, ens.)</li>
+      <li>Stel <strong>Begin</strong>: On Click, With Previous, of After Previous</li>
+      <li><strong>Animasiepaneel</strong>: Animations → Animation Pane — lys alle animasies in volgorde; sleep om te herrangskik</li>
+    </ul>
+
+    <h2>Skyfie-oorgange (Basies)</h2>
+    <p>Oorgange is effekte tussen skyfies wanneer jy van een na die volgende beweeg.</p>
+    <ul>
+      <li><strong>Transitions-tab</strong> → kies 'n effek (Fade, Push, Wipe, ens.)</li>
+      <li>Stel spoed en of dit moet vooruitgaan met On Click of na 'n aantal sekondes.</li>
+      <li><strong>Apply to All</strong> om dieselfde oorgang deurgaans te gebruik</li>
+    </ul>
+
+    <h2>Hiperskakels in Aanbiedinge</h2>
+    <p>Voeg 'n hiperskakel by 'n skyfievoorwerp: selekteer teks of voorwerp → Insert → Link → kies URL, lêer, e-pos of 'n ander skyfie in die aanbieding.</p>
+
+    <h2>Multimedia Byvoeg</h2>
+    <ul>
+      <li><strong>Video</strong>: Insert → Video → This Device of Online Video</li>
+      <li><strong>Klank / Stemopname</strong>: Insert → Audio → Record Audio</li>
+      <li><strong>Beelde</strong>: Insert → Pictures; verstel grootte met hoekgrepe</li>
+    </ul>
+
+    <h2>Drukopsies</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Drukuitleg</th><th>Wat dit wys</th></tr>
+      <tr><td>Volblad-skyfies</td><td>Een skyfie per bladsy (volle grootte)</td></tr>
+      <tr><td>Notablaaie</td><td>Skyfie + jou sprekersnotas onder</td></tr>
+      <tr><td>Uitdeelstukke</td><td>Meervoudige skyfies per bladsy (2, 3, 4, 6, of 9) — gee aan gehoor</td></tr>
+      <tr><td>Buitelyn</td><td>Slegs teksinhoud — geen skyfieontwerpe nie</td></tr>
+    </table></div>
+
+    <h2>Stoor-opsies</h2>
+    <div class="def-grid">
+      <div class="def-term">.pptx</div><div class="def-desc">Standaard redigeerbare PowerPoint-formaat</div>
+      <div class="def-term">.ppsx</div><div class="def-desc">PowerPoint Show — open direk in skyfievertoning-aansig (kan nie redigeer nie)</div>
+      <div class="def-term">.mp4 / Video</div><div class="def-desc">File → Export → Create a Video — stoor as 'n videolêer</div>
+      <div class="def-term">.pdf</div><div class="def-desc">File → Export → Create PDF/XPS — stoor as nie-redigeerbare PDF</div>
+    </div>
+
+    <h2>Integrasie met Ander Toepassings</h2>
+    <ul>
+      <li>Kopieer 'n grafiek vanaf Excel → plak in 'n PowerPoint-skyfie</li>
+      <li>Plak teks vanaf Word met formatering behoue</li>
+      <li>Sluit voorwerpe van ander Office-toepassings in of skakel daarna</li>
+    </ul>
+
+    <div class="callout tip">
+      <div class="callout-title">PAT-WENK</div>
+      <p>Jou PAT-aanbieding som jou navorsingsbevindinge op. Sluit in: titelskyfie, inleiding, bevindinge (met grafieke vanaf Excel), gevolgtrekkings, aanbevelings en 'n bronnelys. Gebruik grafieke en beelde om dit visueel en boeiend te maak.</p>
+    </div>
+</section>
+
+<section class="chapter" id="ch04">
+  <div class="chapter-tag">Graad 10 &middot; Teorie (V2)</div>
+<h1>Konsepte van Rekenaars (K1) <span class="grade-badge">Graad 10</span></h1>
+    <p class="page-intro">Hierdie onderwerp dek die grondbeginsels: wat 'n rekenaar is, tipes rekentoestelle, IKT's, en die verskil tussen data en inligting.</p>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Wat is 'n Rekenaar?</h2>
+    <p>'n <strong>rekenaar</strong> is 'n elektroniese toestel wat data (toevoer) aanvaar, dit verwerk volgens 'n stel instruksies (program), die resultate stoor en uitvoer produseer. Die basiese model is die <strong>Inligtingsverwerkingsiklus</strong>:</p>
+    <div style="display:flex;gap:0.5rem;align-items:center;margin:1.25rem 0;flex-wrap:wrap">
+      <div style="background:var(--surface2);border:1px solid var(--gr10);border-radius:6px;padding:.6rem 1rem;font-size:.9rem;font-weight:600;color:var(--gr10)">TOEVOER</div>
+      <div style="color:var(--muted)">→</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:.6rem 1rem;font-size:.9rem;font-weight:600">VERWERKING</div>
+      <div style="color:var(--muted)">→</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:.6rem 1rem;font-size:.9rem;font-weight:600">UITVOER</div>
+      <div style="color:var(--muted)">↕</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:.6rem 1rem;font-size:.9rem;font-weight:600">STOORPLEK</div>
+      <div style="color:var(--muted)">↔</div>
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:.6rem 1rem;font-size:.9rem;font-weight:600">KOMMUNIKASIE</div>
+    </div>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Tipes Rekentoestelle</h2>
+    <h3>Multidoel-toestelle</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Toestel</th><th>Beskrywing / Voorbeeld</th></tr>
+      <tr><td><strong>Lessenaarrekenaar</strong></td><td>Nie-draagbaar; afsonderlike monitor, toring en sleutelbord; kragtigste vir die prys; sluit alles-in-een-ontwerpe in</td></tr>
+      <tr><td><strong>Skootrekenaar</strong></td><td>Draagbaar, batteryaangedrewe; ingeboude skerm en sleutelbord; sluit omskakelbare/2-in-1 in (kan in tablet-modus vou)</td></tr>
+      <tr><td><strong>Tablet</strong></td><td>Raakskerm; meer draagbaar as skootrekenaar; gebruik met stylus of skermsleutelbord</td></tr>
+      <tr><td><strong>Slimfoon</strong></td><td>Sakgrootte; foon + rekenaar; gebruik mobiele bedryfstelsel (Android, iOS); altyd verbind</td></tr>
+      <tr><td><strong>Bediener</strong></td><td>Kragtige rekenaar wat dienste aan ander rekenaars op 'n netwerk verskaf</td></tr>
+    </table></div>
+
+    <h3>Toegewyde Toestelle (enkeldoel)</h3>
+    <p>Toegewyde toestelle het 'n ingebedde rekenaar wat vir een spesifieke funksie ontwerp is:</p>
+    <ul>
+      <li><strong>ATM</strong> — gee kontant uit, kontroleer balanse</li>
+      <li><strong>Digitale kamera</strong> — neem foto's/video</li>
+      <li><strong>Drukker</strong> — druk dokumente</li>
+      <li><strong>Fiksheidsmeter / Slimhorlosie</strong> — monitor gesondheidsdata</li>
+      <li><strong>Fabrieksrobots</strong> — geoutomatiseerde vervaardiging</li>
+      <li><strong>Slim toestelle</strong> — yskaste, mikrogolfoonde met ingebedde skyfies</li>
+    </ul>
+
+    <div class="callout">
+      <div class="callout-title">KONSEP VAN KONVERGENSIE</div>
+      <p><strong>Konvergensie</strong> is wanneer meervoudige funksies in een toestel gekombineer word. 'n Slimfoon is die beste voorbeeld — dit is 'n foon, kamera, GPS-navigeerder, musiekspeler, internetblaaier en meer, alles in een toestel.</p>
+    </div>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Wat is IKT?</h2>
+    <p><strong>IKT (Inligtings- en Kommunikasietegnologie)</strong> verwys na tegnologieë wat gebruik word om inligting te hanteer, te stoor, te herwin, te stuur en te ontvang. 'n <strong>IKT-stelsel</strong> het drie kernfunksies:</p>
+    <div class="def-grid">
+      <div class="def-term">Oordra</div><div class="def-desc">Oordra/kommunikeer data tussen toestelle of mense (bv. om 'n e-pos te stuur, 'n oproep te maak)</div>
+      <div class="def-term">Manipuleer</div><div class="def-desc">Verwerk en verander data (bv. om totale in 'n sigblad te bereken)</div>
+      <div class="def-term">Stoor</div><div class="def-desc">Stoor data vir latere herwinning (bv. om 'n lêer op 'n hardeskyf of wolk te stoor)</div>
+    </div>
+    <h3>IKT's in die Alledaagse Lewe</h3>
+    <ul>
+      <li><strong>Verkooppunt (POS)-stelsel</strong>: strepieskodeskandeerder + rekenaar + kaartmasjien by 'n winkeltoonbank</li>
+      <li><strong>Selfoonstelsel</strong>: foon + selfoontorings + netwerkinfrastruktuur</li>
+      <li><strong>Aanlynbankwese</strong>: rekenaar/foon + internet + bankbedieners</li>
+      <li><strong>Skoolbestuurstelsel</strong>: stoor leerderrekords, bywoning, punte</li>
+    </ul>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Data teenoor Inligting</h2>
+    <div class="callout">
+      <div class="callout-title">SLEUTELONDERSKEID</div>
+      <p><strong>Data</strong> = rou, onverwerkte feite sonder konteks (bv. die nommers 85, 72, 90).<br>
+      <strong>Inligting</strong> = data wat verwerk is en betekenis gegee is (bv. &quot;Leerder het 'n gemiddeld van 82% in RTT behaal&quot;).<br>
+      <strong>Onthou:</strong> Data → verwerk → Inligting → gebruik om besluite te neem (Kennis).</p>
+    </div>
+    <div class="tbl-wrap"><table>
+      <tr><th>Aspek</th><th>Data</th><th>Inligting</th></tr>
+      <tr><td>Definisie</td><td>Rou, onverwerkte feite</td><td>Verwerkte, betekenisvolle data</td></tr>
+      <tr><td>Voorbeeld</td><td>45, 78, 12, "John"</td><td>&quot;John het 45% in Kwartaal 1 en 78% in Kwartaal 2 behaal&quot;</td></tr>
+      <tr><td>Nuttigheid</td><td>Beperk — geen konteks</td><td>Kan gebruik word om besluite te neem</td></tr>
+      <tr><td>Organisasie</td><td>Ongeorganiseerd</td><td>Georganiseerd en gestruktureerd</td></tr>
+    </table></div>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Die GUI (Grafiese Gebruikerskoppelvlak)</h2>
+    <p>'n <strong>GUI</strong> is 'n visuele koppelvlak wat gebruikers toelaat om met die rekenaar te kommunikeer deur middel van ikone, vensters, kieslyste en 'n muis — in plaas daarvan om teksopdragte te tik. Alle moderne bedryfstelsels (Windows, macOS, Android, iOS) gebruik 'n GUI.</p>
+    <h3>Lessenaar-GUI-eienskappe (Windows):</h3>
+    <ul>
+      <li><strong>Lessenaar</strong> — die werkarea (soos 'n fisiese lessenaar)</li>
+      <li><strong>Ikone</strong> — klein prentjies wat programme of lêers verteenwoordig</li>
+      <li><strong>Taakbalk</strong> — balk aan die onderkant wat oop programme en die Start-knoppie wys</li>
+      <li><strong>Start-knoppie</strong> — maak die kieslys oop om toegang tot alle programme te verkry</li>
+      <li><strong>Herwinmandjie</strong> — hou geskrapte lêers tot permanent verwyder</li>
+      <li><strong>Kortpaaie</strong> — vinnige-toegang-ikone op die lessenaar geplaas</li>
+      <li><strong>Lêerbestuurder (Hierdie PC / Windows Explorer)</strong> — blaai deur gidse en lêers</li>
+    </ul>
+
+    <div class="callout exam">
+      <div class="callout-title">EKSAMENWENK</div>
+      <p>Weet die verskil tussen <strong>data en inligting</strong> — dit is 'n baie algemene eksamenvraag. Onthou altyd: data is rou, inligting is betekenisvol. Wees ook in staat om voorbeelde uit 'n skoolkonteks te gee (bv. toetspunte = data; &quot;leerder het Kwartaal 1 geslaag&quot; = inligting).</p>
+    </div>
+
+    <h2>Common Exam Mistakes</h2>
+    <div class="mistakes">
+      <div class="mistake"><div class="wrong">Data and information are the same thing.</div><div class="right"><strong>Data</strong> is raw, unprocessed facts; <strong>information</strong> is processed data that has meaning and helps you make a decision.</div></div>
+      <div class="mistake"><div class="wrong">Hardware and software mean the same thing.</div><div class="right"><strong>Hardware</strong> is the physical parts you can touch; <strong>software</strong> is the programs (instructions) that run on the hardware.</div></div>
+      <div class="mistake"><div class="wrong">A tablet or smartphone is not really a computer.</div><div class="right">It <strong>is</strong> a computing device — it takes <strong>input</strong>, <strong>processes</strong> data, gives <strong>output</strong> and has <strong>storage</strong>, just like a desktop.</div></div>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">Toets jouself</div>
+      <p>Probeer die objektiewe- en konsepvrae in die <a href="../../exam-practice/grade10.html#mcq">Graad 10 Eksamenoefening</a>.</p>
+    </div>
+</section>
+
+<section class="chapter" id="ch05">
+  <div class="chapter-tag">Graad 10 &middot; Teorie (V2)</div>
+<h1>Hardeware (K1–K2) <span class="grade-badge">Graad 10</span></h1>
+    <p class="page-intro">Hardeware is elke <strong>fisiese komponent</strong> van 'n rekenaar wat jy kan aanraak. Dit sluit toevoertoestelle, uitvoertoestelle, stoortoestelle en die verwerkingskomponente binne die stelseleenheid in.</p>
+
+    <figure class="figure">
+      <svg viewBox="0 0 600 180" width="600" aria-label="Input Process Output Storage model">
+        <!-- input -->
+        <rect x="20" y="60" width="110" height="55" rx="6" fill="#34d39922" stroke="#34d399"/>
+        <text x="75" y="83" fill="#34d399" font-family="Segoe UI" font-size="13" font-weight="bold" text-anchor="middle">INPUT</text>
+        <text x="75" y="101" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">keyboard, mouse</text>
+        <!-- arrow -->
+        <text x="148" y="92" fill="#e6edf3" font-size="20" text-anchor="middle">→</text>
+        <!-- process -->
+        <rect x="170" y="60" width="110" height="55" rx="6" fill="#fb923c22" stroke="#fb923c"/>
+        <text x="225" y="83" fill="#fb923c" font-family="Segoe UI" font-size="13" font-weight="bold" text-anchor="middle">PROCESSING</text>
+        <text x="225" y="101" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">CPU</text>
+        <!-- arrow -->
+        <text x="298" y="92" fill="#e6edf3" font-size="20" text-anchor="middle">→</text>
+        <!-- output -->
+        <rect x="320" y="60" width="110" height="55" rx="6" fill="#f472b622" stroke="#f472b6"/>
+        <text x="375" y="83" fill="#f472b6" font-family="Segoe UI" font-size="13" font-weight="bold" text-anchor="middle">OUTPUT</text>
+        <text x="375" y="101" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">monitor, printer</text>
+        <!-- storage below process -->
+        <rect x="170" y="135" width="110" height="35" rx="6" fill="#60a5fa22" stroke="#60a5fa"/>
+        <text x="225" y="157" fill="#60a5fa" font-family="Segoe UI" font-size="12" font-weight="bold" text-anchor="middle">STORAGE</text>
+        <line x1="225" y1="115" x2="225" y2="135" stroke="#60a5fa" stroke-dasharray="3"/>
+        <!-- communication -->
+        <rect x="460" y="60" width="120" height="55" rx="6" fill="#a78bfa22" stroke="#a78bfa"/>
+        <text x="520" y="83" fill="#a78bfa" font-family="Segoe UI" font-size="11" font-weight="bold" text-anchor="middle">COMMUNICATION</text>
+        <text x="520" y="101" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">NIC, modem</text>
+        <text x="300" y="25" fill="#e6edf3" font-family="Segoe UI" font-size="13" font-weight="bold" text-anchor="middle">The Information Processing Cycle</text>
+      </svg>
+      <figcaption>Elke rekenaar volg hierdie siklus: data gaan <strong>IN</strong>, die SVE <strong>VERWERK</strong> dit, en resultate kom <strong>UIT</strong>. <strong>Stoorplek</strong> hou data permanent, en <strong>kommunikasie</strong> -toestelle verbind met ander rekenaars.</figcaption>
+    </figure>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Wat is Hardeware?</h2>
+    <p>Hardeware verwys na die <strong>fisiese dele</strong> van 'n rekenaarstelsel. Dit werk saam met sagteware (programme/instruksies) om take uit te voer. Hardeware sonder sagteware is nutteloos, en sagteware kan nie sonder hardeware loop nie.</p>
+    <div class="callout">
+      <div class="callout-title">SLEUTELDEFINISIE</div>
+      <p><strong>Hardeware (K1–K2)</strong> = enige fisiese komponent van 'n rekenaar wat jy kan aanraak en sien. <strong>Randtoestelle</strong> = hardewaretoestelle verbind aan (maar nie deel van) die hoofstelseleenheid nie, bv. sleutelbord, muis, drukker.</p>
+    </div>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Poorte en Konnektore</h2>
+    <p>Poorte is sokkels op die rekenaar waar randtoestelle gekoppel word.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Poort/Konnektor</th><th>Gebruik vir</th><th>Notas</th></tr>
+      <tr><td><strong>USB-A / USB-C</strong></td><td>Flitsdrywers, sleutelborde, muise, oplaai</td><td>USB-C is omkeerbaar; adapters/omsetters verlengende poorte</td></tr>
+      <tr><td><strong>HDMI</strong></td><td>Koppel monitors, TV's, projectors</td><td>Dra klank en video in een kabel</td></tr>
+      <tr><td><strong>3.5mm Klankprop</strong></td><td>Kopstukke, luidsprekers, mikrofone</td><td>Ook genoem 'n oorfoonprop</td></tr>
+      <tr><td><strong>SD-kaartgleuf</strong></td><td>Geheuekaarte vanaf kameras</td><td>Ingebou of eksterne kaartleser</td></tr>
+      <tr><td><strong>Ethernet (RJ45)</strong></td><td>Bedrade netwerkverbinding</td><td>Vinniger en meer stabiel as Wi-Fi</td></tr>
+    </table></div>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Toevoertoestelle</h2>
+    <p><strong>Toevoer</strong> = data of instruksies wat in die rekenaar ingevoer word. 'n <strong>toevoertoestel</strong> is hardeware gebruik om data of opdragte in te voer.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Toestel</th><th>Tipe</th><th>Wat dit doen</th></tr>
+      <tr><td>Sleutelbord</td><td>Teks-/opdragtoevoer</td><td>Voer teks, nommers, opdragte in met sleutels</td></tr>
+      <tr><td>Muis (bedraad/draadloos)</td><td>Wystoestel</td><td>Beweeg wyser, klik om items te selekteer</td></tr>
+      <tr><td>Raakpaneel</td><td>Wystoestel</td><td>Ingebou in skootrekenaars; vingergebare beheer die wyser</td></tr>
+      <tr><td>Raakskerm</td><td>Wys- + teksinvoer</td><td>Reageer op vinger of stylus op die skerm</td></tr>
+      <tr><td>Stylus/Digitale pen</td><td>Wystoestel</td><td>Pen-vormige toestel vir raakskerms/tekentablette</td></tr>
+      <tr><td>Joystick</td><td>Wystoestel</td><td>Gebruik vir speletjies of om masjinerie te beheer</td></tr>
+      <tr><td>Webkamera</td><td>Video-toevoer</td><td>Neem video/beelde op; gebruik vir video-oproepe</td></tr>
+      <tr><td>Mikrofoon</td><td>Klanktoevoer</td><td>Neem klank op; gebruik vir stemherkenning</td></tr>
+      <tr><td>Skandeerder (plat/handheld)</td><td>Skandering/lesing</td><td>Omskakel fisiese dokumente na digitale beelde</td></tr>
+      <tr><td>Strepieskode-leser / QR-skandeerder</td><td>Lestoestel</td><td>Lees strepieskodes/QR-kodes by toonbank, ens.</td></tr>
+      <tr><td>RFID-leser</td><td>Lestoestel</td><td>Lees RFID-merkers (biblioteekboeke, toegangskaarte)</td></tr>
+      <tr><td>OKH (Optiese Karakterherkenning)</td><td>Lestoestel</td><td>Lees gedrukte teks en omskakel na redigeerbare teks</td></tr>
+      <tr><td>Biometriese skandeerder</td><td>Identifikasie-toevoer</td><td>Vingerafdruk, iris, gesigsherkenning vir sekuriteit</td></tr>
+    </table></div>
+
+    <div class="callout exam">
+      <div class="callout-title">EKSAMENWENK — Voordele teenoor Beperkings</div>
+      <p>Eksaminatore vra dikwels dat jy die <strong>voordeel OF beperking</strong> van 'n spesifieke toevoertoestel verklaar. Skakel altyd jou antwoord aan die konteks gegee in die vraag (bv. 'n raakskerm is gerieflik maar krap maklik; 'n strepieskode-leser is vinnig en akkuraat maar kan nie beskadigde strepieskodes lees nie).</p>
+    </div>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Uitvoertoestelle</h2>
+    <p><strong>Uitvoer</strong> = data of resultate geproduseer deur die rekenaar na verwerking. 'n <strong>uitvoertoestel</strong> bied verwerkte inligting aan die gebruiker.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Toestel</th><th>Tipe Uitvoer</th><th>Notas</th></tr>
+      <tr><td>Monitor / Skerm</td><td>Visueel (sagte kopie)</td><td>Grootte gemeet in duim; resolusie beïnvloed kwaliteit</td></tr>
+      <tr><td>Inkstraaldrukker</td><td>Visueel (harde kopie)</td><td>Goed vir foto's; stadiger en duurder ink</td></tr>
+      <tr><td>Laserdrukker</td><td>Visueel (harde kopie)</td><td>Vinnig, goed vir teks; meer ekonomies per bladsy</td></tr>
+      <tr><td>3D-drukker</td><td>Fisiek (harde kopie)</td><td>Skep 3D-voorwerpe laag vir laag</td></tr>
+      <tr><td>Dataprojector</td><td>Visueel (projekteer)</td><td>Projekteer skerm op muur/skerm; gebruik in klaskamers</td></tr>
+      <tr><td>Luidsprekers</td><td>Klank</td><td>Voer klank uit; gebruik vir musiek, stem, kennisgewings</td></tr>
+      <tr><td>Kopstuk/Oorfone</td><td>Klank</td><td>Privaat luister; het ook mikrofoon vir oproepe</td></tr>
+      <tr><td>Multifunksionele drukker</td><td>Visueel + skandeer + kopieer</td><td>Kombineer drukker, skandeerder, kopieerder in een toestel</td></tr>
+    </table></div>
+
+    <h3>Harde Kopie teenoor Sagte Kopie</h3>
+    <div class="def-grid">
+      <div class="def-term">Harde kopie</div><div class="def-desc">Gedrukte fisiese uitvoer op papier — permanent en tastbaar (bv. gedrukte dokument, foto)</div>
+      <div class="def-term">Sagte kopie</div><div class="def-desc">Digitale uitvoer gewys op 'n skerm — tydelik en elektronies (bv. dokument op monitor, PDF op tablet)</div>
+    </div>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Stoorplek</h2>
+    <p><strong>Stoorplek</strong> stoor data permanent (selfs wanneer krag af is), anders as RAM wat tydelik is. Stoorkapasiteit word gemeet in <strong>KB → MB → GB → TB</strong>.</p>
+
+    <h3>Vaste Stoorplek (ingebou in die rekenaar)</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Toestel</th><th>Afkorting</th><th>Eienskappe</th></tr>
+      <tr><td>Hardeskyf</td><td>HDD</td><td>Magnetiese roterende skywe; groot kapasiteit; stadiger; goedkoper; kan deur skokke beskadig word</td></tr>
+      <tr><td>Soliede-toestand-skyf</td><td>SSD</td><td>Geen bewegende dele nie; veel vinniger; meer duursaam; duurder; gebruik flitsgeheue</td></tr>
+    </table></div>
+
+    <h3>Draagbare Stoorplek</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Toestel</th><th>Notas</th></tr>
+      <tr><td>Flitsdrywer (USB-stokkie)</td><td>Klein, prop-en-speel; draagbaar; kapasiteite van 4 GB tot 1 TB</td></tr>
+      <tr><td>Eksterne HDD/SSD</td><td>Groot draagbare stoorplek; koppel via USB; goed vir rugsteuning</td></tr>
+      <tr><td>Geheuekaart (SD, microSD)</td><td>Gebruik in kameras, fone, dronings; ingevoeg via kaartleser</td></tr>
+      <tr><td>Optiese skyf (CD/DVD/Blu-ray)</td><td>Gelees deur laser; ouer tegnologie; minder algemeen nou</td></tr>
+    </table></div>
+
+    <div class="callout">
+      <div class="callout-title">STOORMEDIA VERGELYK</div>
+      <p>Wanneer jy stoorplek vergelyk, oorweeg: <strong>Kapasiteit</strong> (hoeveel kan dit hou?), <strong>Spoed</strong> (hoe vinnig lees/skryf dit?), <strong>Stewigheid</strong> (hoe goed weerstaan dit skade?), <strong>Vlugtigheid</strong> (verloor dit data wanneer krag afgesny word?), <strong>Fisiese grootte</strong> (is dit draagbaar?), <strong>Koste</strong>.</p>
+    </div>
+
+    <div class="term-tag t2">Kwartaal 2</div>
+    <h2>Verwerking — Binne die Stelseleenheid</h2>
+    <div class="def-grid">
+      <div class="def-term">Moederbord</div><div class="def-desc">Hoofstroombaanbord wat alle komponente met mekaar verbind (SVE, RAM, uitbreidingskaarte)</div>
+      <div class="def-term">SVE (Sentrale Verwerkingseenheid)</div><div class="def-desc">Die &quot;brein&quot; van die rekenaar — voer programinstruksies uit; spoed gemeet in <strong>GHz</strong></div>
+      <div class="def-term">RAM (Toevallige-toegang-geheue)</div><div class="def-desc">Tydelike stoorplek — hou data en programme wat tans gebruik word; <strong>vlugtig</strong> (data verloor wanneer krag af is); gemeet in GB</div>
+      <div class="def-term">ROM (Leesalleen-geheue)</div><div class="def-desc">Permanente geheue met opstartinstruksies (BIOS); <strong>nie-vlugtig</strong>; kan normaalweg nie verander word nie.</div>
+    </div>
+
+    <div class="term-tag t2">Kwartaal 2</div>
+    <h2>Metodes om Randtoestelle te Koppel</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Verbindingstipe</th><th>Voorbeelde</th><th>Voordeel</th></tr>
+      <tr><td>Bekabel (bedraad)</td><td>USB, HDMI, Ethernet kabel</td><td>Betroubaar, vinniger, geen inmenging</td></tr>
+      <tr><td>Draadloos</td><td>Bluetooth, Wi-Fi, NFC</td><td>Geen kabels nodig; draagbaar; gerieflik</td></tr>
+    </table></div>
+
+    <div class="callout exam">
+      <div class="callout-title">EKSAMENWENK — Randtoestelle</div>
+      <p>'n <strong>randtoestel</strong> is enige hardewaretoestel wat aan die rekenaar koppel en daardeur beheer word, maar nie deel is van die kernstelseleenheid nie. Voorbeelde: sleutelbord, muis, drukker, skandeerder, webkamera. Onthou: monitors WORD ook as randtoestelle beskou.</p>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">Toets jouself</div>
+      <p>Probeer die hardeware-vrae in die <a href="../../exam-practice/grade10.html#hardware">Graad 10 Eksamenoefening</a>.</p>
+    </div>
+
+    <h2>Common Exam Mistakes</h2>
+    <div class="mistakes">
+      <div class="mistake"><div class="wrong">RAM stores files permanently.</div><div class="right"><strong>RAM is temporary (volatile)</strong> — its contents are lost when the power is off. Storage (HDD/SSD) keeps files.</div></div>
+      <div class="mistake"><div class="wrong">A scanner is an output device.</div><div class="right">A scanner is an <strong>input</strong> device — it captures an image or text into the computer.</div></div>
+      <div class="mistake"><div class="wrong">A bigger hard drive makes the computer faster.</div><div class="right">More storage = more <strong>space</strong>, not more speed. More RAM or an SSD improves speed.</div></div>
+    </div>
+</section>
+
+<section class="chapter" id="ch06">
+  <div class="chapter-tag">Graad 10 &middot; Teorie (V2)</div>
+<h1>Sagteware &amp; Lisensiëring (K1–K2) <span class="grade-badge">Graad 10</span></h1>
+    <p class="page-intro">Sagteware is die stel programme en instruksies wat hardeware sê wat om te doen. Hierdie onderwerp dek die tipes sagteware, lisensie-ooreenkomste, en hoe bedryfstelsels werk.</p>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Wat is Sagteware?</h2>
+    <p><strong>Sagteware</strong> = programme en instruksies wat die hardeware sê hoe om te werk. Sonder sagteware is hardeware net 'n duur versameling van metaal en plastiek. Sagteware is nie fisies nie — jy kan dit nie aanraak nie.</p>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Stelselagteware vs Toepassingsagteware</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th></th><th>Stelselagteware</th><th>Toepassingsagteware (Programme)</th></tr>
+      <tr><td><strong>Doel</strong></td><td>Bestuur hardeware en laat die rekenaar loop</td><td>Help gebruikers om spesifieke take te voltooi</td></tr>
+      <tr><td><strong>Voorbeelde</strong></td><td>Windows 11, Android, macOS, Linux</td><td>Word, Excel, Chrome, WhatsApp</td></tr>
+      <tr><td><strong>Wanneer gebruik</strong></td><td>Loop altyd op die agtergrond</td><td>Word deur die gebruiker oopgemaak wanneer nodig</td></tr>
+    </table></div>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Toepassingsagteware</h2>
+    <p>Toepassingsagteware is ontwerp vir eindgebruikers om spesifieke take uit te voer:</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Kategorie</th><th>Voorbeelde</th></tr>
+      <tr><td>Kantoorstel</td><td>Microsoft Office (Word, Excel, Access, PowerPoint)</td></tr>
+      <tr><td>Webblaaier</td><td>Chrome, Edge, Firefox, Safari</td></tr>
+      <tr><td>E-poskliënt</td><td>Outlook, Gmail (web-based)</td></tr>
+      <tr><td>Mediaspeler</td><td>VLC, Windows Media Player</td></tr>
+      <tr><td>Grafiese redigering</td><td>Photoshop, GIMP (free)</td></tr>
+      <tr><td>Kommunikasie</td><td>WhatsApp, Teams, Zoom</td></tr>
+    </table></div>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Sagtewarelisensiëring</h2>
+    <div class="callout">
+      <div class="callout-title">SLEUTELDEFINISIE</div>
+      <p>'n <strong>sagtewarelisensie</strong> is 'n wettige ooreenkoms tussen die ontwikkelaar en die gebruiker wat bepaal hoe die sagteware gebruik mag word. Om sagteware te koop beteken nie jy besit dit nie — jy koop slegs die <strong>reg om dit te gebruik</strong> dit.</p>
+    </div>
+
+    <h3>Tipes Sagteware volgens Lisensiëring</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Tipe</th><th>Koste</th><th>Kan kopieer/deel?</th><th>Kan kode wysig?</th><th>Voorbeelde</th></tr>
+      <tr><td><strong>Eiendomsreg / Kommersieel</strong></td><td>Moet koop</td><td>Nee — onwettig om te kopieer</td><td>Nee</td><td>Microsoft Office, Adobe Photoshop</td></tr>
+      <tr><td><strong>Oopbron (VOVS)</strong></td><td>Gratis</td><td>Ja — vry versprei</td><td>Ja — bronkode is openbaar</td><td>Linux, LibreOffice, VLC, GIMP</td></tr>
+      <tr><td><strong>Vryware</strong></td><td>Gratis</td><td>Ja</td><td>Nee (bronkode versteek)</td><td>Google Chrome, Skype (basic)</td></tr>
+      <tr><td><strong>Proefsagteware</strong></td><td>Gratis proeftydperk, dan betaal</td><td>Ja (proefweergawe)</td><td>Nee</td><td>WinRAR, many games demos</td></tr>
+    </table></div>
+
+    <h3>Tipes Lisensie-ooreenkomste</h3>
+    <div class="def-grid">
+      <div class="def-term">EULA</div><div class="def-desc">Eindgebruikerlisensie-ooreenkoms — standaard enkelloopbaanlisensie; jy stem in tot die voorwaardes wanneer jy die sagteware installeer</div>
+      <div class="def-term">Sitelisensie</div><div class="def-desc">Laat installasie op meerdere rekenaars op een plek toe (bv. 'n skool kan 'n sitelisensie vir Office koop)</div>
+      <div class="def-term">Creative Commons</div><div class="def-desc">Gebruik vir kreatiewe werke (beelde, musiek, dokumente); die skepper kies watter toestemmings aan ander verleen word</div>
+    </div>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Sagtewarerowery en Kopiereg</h2>
+    <div class="callout warning">
+      <div class="callout-title">ONWETTIG</div>
+      <p><strong>Sagtewarerowery</strong> = die kopieer, versprei of gebruik van sagteware sonder 'n geldige lisensie. Dit is onwettig en oneties. Dit skend kopieregwetgewing. Gevolge sluit boetes en strafregtelike vervolging in.</p>
+    </div>
+    <ul>
+      <li><strong>Kopiereg</strong> = wetlike beskerming aan skeppers oor hul oorspronklike werk. Sagteware is outomaties kopiereg beskerm.</li>
+      <li><strong>Intellektuele eiendom</strong> = skeppings van die gees (musiek, kuns, sagteware, uitvindsels) deur die reg beskerm.</li>
+      <li>Om 'n sagtewarelisensie te koop gee jou NIE eienaarskap nie — dit gee jou 'n <strong>reg om dit te gebruik</strong> dit onder die gespesifiseerde voorwaardes.</li>
+    </ul>
+
+    <div class="term-tag t2">Kwartaal 2</div>
+    <h2>Stelselagteware in Detail</h2>
+    <h3>Bedryfstelsel (BS)</h3>
+    <p>Die <strong>bedryfstelsel</strong> bestuur alle hardeware en sagteware op die rekenaar. Dit verskaf die gebruikerskoppelvlak (GUI of opdragreël) en koördineer alle take.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Toestelletipe</th><th>Algemene Bedryfstelsels</th></tr>
+      <tr><td>Tafelrekenaar / Skootrekenaar</td><td>Windows 10/11, macOS, Linux (Ubuntu)</td></tr>
+      <tr><td>Slimfoon / Tablet</td><td>Android (Google), iOS (Apple)</td></tr>
+    </table></div>
+
+    <h3>Drywers</h3>
+    <p>'n <strong>drywer (driver)</strong> is 'n klein program wat die bedryfstelsel in staat stel om met 'n hardewaretoestel te kommunikeer. Wanneer jy 'n nuwe drukker of muis inprop, installeer die BS 'n drywer daarvoor. Sonder die korrekte drywer sal die toestel nie werk nie.</p>
+
+    <h3>Outo-konfigurasie (Prop-en-Speel)</h3>
+    <p><strong>Prop-en-Speel (PnP)</strong> beteken die rekenaar bespeur en konfigureer outomaties 'n nuwe toestel wanneer jy dit koppel — sonder om drywers handmatig te installeer of te herlaai.</p>
+
+    <h3>Nutsprogramme</h3>
+    <p>Nutsprogramme help om die rekenaar te onderhou en te optimeer:</p>
+    <ul>
+      <li><strong>Antivirussagteware</strong> — bespeur en verwyder kwaadwillige sagteware</li>
+      <li><strong>Skyfopruiming</strong> — verwyder tydelike lêers om spasie vry te maak</li>
+      <li><strong>Defragmenteerder</strong> — herorganiseer HDD-lêers vir vinniger toegang</li>
+      <li><strong>Lêerkompressie</strong> — verminder lêergroottes (bv. WinZip, 7-Zip)</li>
+      <li><strong>Rugsteun-sagteware</strong> — skep kopieë van belangrike data</li>
+      <li><strong>Brandmuur</strong> — monitor netwerkverkeer om bedreigings te blokkeer</li>
+    </ul>
+
+    <div class="term-tag t2">Kwartaal 2</div>
+    <h2>Basiese Sekuriteit — Verifikasie</h2>
+    <p>Verifikasie is die proses om te bevestig wie jy is voordat toegang tot 'n toestel of rekening verleen word:</p>
+    <div class="def-grid">
+      <div class="def-term">Gebruikersnaam</div><div class="def-desc">Identifiseer wie jy is</div>
+      <div class="def-term">Wagwoord</div><div class="def-desc">Geheime sleutel om jou identiteit te bewys</div>
+      <div class="def-term">PIN</div><div class="def-desc">Numeriese kode (Persoonlike Identifikasienommer)</div>
+      <div class="def-term">Patroon</div><div class="def-desc">Veepatroon op aanraakskerm</div>
+      <div class="def-term">Gesigsherkenning</div><div class="def-desc">Kamera identifiseer jou gesig (biometries)</div>
+      <div class="def-term">Vingerafdrukleser</div><div class="def-desc">Lees jou unieke vingerafdruk (biometries)</div>
+    </div>
+
+    <div class="callout exam">
+      <div class="callout-title">EKSAMENWENK — Oopbron vs Eiendomsreg</div>
+      <p>Ken die <strong>voordele van oopbron</strong>: gratis, gemeenskapondersteun, aanpasbaar, deursigtige kode. En die <strong>nadele</strong>: minder professionele ondersteuning, kan moeiliker wees om te gebruik, sekuriteit hang af van gemeenskapswaarneming. Eiendomsreg-sagteware se voordeel: professionele ondersteuning en gereelde opdaterings; nadeel: duur.</p>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">Toets jouself</div>
+      <p>Probeer die sagteware- en lisensiëringsvrae in die <a href="../../exam-practice/grade10.html#software">Graad 10 Eksamenoefening</a>.</p>
+    </div>
+
+    <h2>Common Exam Mistakes</h2>
+    <div class="mistakes">
+      <div class="mistake"><div class="wrong">Windows is application software.</div><div class="right">Windows is <strong>system software</strong> — an operating system.</div></div>
+      <div class="mistake"><div class="wrong">Freeware means the same as open-source.</div><div class="right">Freeware is free but its <strong>source code is hidden</strong>; open-source <strong>shares the code</strong>.</div></div>
+      <div class="mistake"><div class="wrong">Defragmenting frees up disk space.</div><div class="right">Defragmenting <strong>reorders files for speed</strong>; Disk Cleanup frees space.</div></div>
+    </div>
+</section>
+
+<section class="chapter" id="ch07">
+  <div class="chapter-tag">Graad 10 &middot; Teorie (V2)</div>
+<h1>Netwerke (K2–K3) <span class="grade-badge">Graad 10</span></h1>
+    <p class="page-intro">'n Netwerk verbind rekenaars en toestelle sodat hulle kan kommunikeer en hulpbronne kan deel. Hierdie onderwerp dek tipes netwerke, toestelle, kommunikasiemedia en hoe om Internettoegang te bekom.</p>
+
+    <figure class="figure">
+      <svg viewBox="0 0 600 240" width="600" aria-label="A typical home network">
+        <text x="300" y="20" fill="#e6edf3" font-family="Segoe UI" font-size="13" font-weight="bold" text-anchor="middle">A Typical Home Network</text>
+        <!-- internet cloud -->
+        <ellipse cx="70" cy="120" rx="55" ry="34" fill="#60a5fa22" stroke="#60a5fa"/>
+        <text x="70" y="118" fill="#60a5fa" font-family="Segoe UI" font-size="12" font-weight="bold" text-anchor="middle">INTERNET</text>
+        <text x="70" y="134" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">(via ISP)</text>
+        <!-- line to router -->
+        <line x1="125" y1="120" x2="190" y2="120" stroke="#8b949e" stroke-width="2"/>
+        <!-- router/modem -->
+        <rect x="190" y="92" width="120" height="56" rx="6" fill="#34d39922" stroke="#34d399"/>
+        <text x="250" y="116" fill="#34d399" font-family="Segoe UI" font-size="12" font-weight="bold" text-anchor="middle">ROUTER</text>
+        <text x="250" y="132" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">+ modem</text>
+        <!-- wired branch -->
+        <line x1="310" y1="110" x2="430" y2="60" stroke="#34d399" stroke-width="2"/>
+        <rect x="430" y="38" width="140" height="46" rx="6" fill="#21262d" stroke="#34d399"/>
+        <text x="500" y="58" fill="#e6edf3" font-family="Segoe UI" font-size="11" font-weight="bold" text-anchor="middle">Desktop / PC</text>
+        <text x="500" y="74" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">wired — UTP cable</text>
+        <!-- wireless branch 1 -->
+        <line x1="310" y1="125" x2="430" y2="125" stroke="#fb923c" stroke-width="2" stroke-dasharray="4"/>
+        <rect x="430" y="103" width="140" height="46" rx="6" fill="#21262d" stroke="#fb923c"/>
+        <text x="500" y="123" fill="#e6edf3" font-family="Segoe UI" font-size="11" font-weight="bold" text-anchor="middle">Laptop / Tablet</text>
+        <text x="500" y="139" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">wireless — Wi-Fi</text>
+        <!-- wireless branch 2 -->
+        <line x1="310" y1="140" x2="430" y2="190" stroke="#fb923c" stroke-width="2" stroke-dasharray="4"/>
+        <rect x="430" y="168" width="140" height="46" rx="6" fill="#21262d" stroke="#fb923c"/>
+        <text x="500" y="188" fill="#e6edf3" font-family="Segoe UI" font-size="11" font-weight="bold" text-anchor="middle">Phone / Smart TV</text>
+        <text x="500" y="204" fill="#8b949e" font-family="Segoe UI" font-size="9" text-anchor="middle">wireless — Wi-Fi</text>
+      </svg>
+      <figcaption>Die <strong>roeteerder/modem</strong> verbind die huis aan die <strong>internet</strong> deur die ISP. Toestelle sluit dan by die netwerk aan, óf via <strong>kabel (UTP)</strong> — soliede lyn — óf <strong>draadloos (Wi-Fi)</strong> — gestreepte lyn.</figcaption>
+    </figure>
+
+    <div class="term-tag t2">Kwartaal 2</div>
+    <h2>Wat is 'n Netwerk?</h2>
+    <p>'n <strong>rekenaarnetwerk</strong> is twee of meer rekentoestelle wat saam verbind is om hulpbronne te deel en te kommunikeer. Netwerke kan gekabel (met kabels) of draadloos wees.</p>
+    <h3>Doelwitte van Netwerke</h3>
+    <ul>
+      <li><strong>Kommunikasie</strong> — stuur e-posse, boodskappe, video-oproepe</li>
+      <li><strong>Deel hardeware</strong> — meervoudige rekenaars deel een drukker of skandeerder</li>
+      <li><strong>Deel sagteware</strong> — hardloop programme gestoor op 'n sentrale bediener</li>
+      <li><strong>Deel data/inligting</strong> — kry toegang tot lêers gestoor op 'n gedeelde aandrywer</li>
+      <li><strong>Sekuriteit</strong> — gesentraliseerde toegangsbeheer; wie kan aanmeld en wat hulle kan sien</li>
+    </ul>
+
+    <div class="term-tag t2">Kwartaal 2</div>
+    <h2>Tipes Netwerke</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Tipe</th><th>Volle Naam</th><th>Dekkingsarea</th><th>Voorbeeld</th></tr>
+      <tr><td><strong>PAN</strong></td><td>Persoonlike Areanetwerk</td><td>'n Paar meter (rondom 'n persoon)</td><td>Foon verbind aan draadlose oorfone via Bluetooth</td></tr>
+      <tr><td><strong>HAN</strong></td><td>Huis-areanetwerk</td><td>'n Huis</td><td>Toestelle in jou huis verbind aan jou huis se Wi-Fi-roeteerder</td></tr>
+      <tr><td><strong>LAN</strong></td><td>Plaaslike Areanetwerk</td><td>'n Gebou of kampus</td><td>Skool se rekenaarlab; kantoorgebou</td></tr>
+      <tr><td><strong>WAN</strong></td><td>Wye-areanetwerk</td><td>Lande / globaal</td><td>Die Internet is die grootste WAN</td></tr>
+    </table></div>
+
+    <div class="callout">
+      <div class="callout-title">PAN teenoor HAN</div>
+      <p><strong>PAN</strong>: persoonlike toestelle rondom EEN persoon (bv. foon + slimhorlosie + oorfone). Bestek is tipies onder 10 m.<br>
+      <strong>HAN</strong>: alle toestelle in 'n huis (foone, skootrekenaars, slimTV, slimkoelkas). Gebruik gewoonlik 'n huis se Wi-Fi-roeteerder. Groter as 'n PAN.</p>
+    </div>
+
+    <div class="tbl-wrap"><table>
+      <tr><th>&nbsp;</th><th>Voordele</th><th>Nadele</th></tr>
+      <tr>
+        <td><strong>PAN</strong></td>
+        <td><ul>
+          <li>Maklik en vinnig om op te stel (bv. Bluetooth-koppeling)</li>
+          <li>Geen kabels benodig — draadloos en draagbaar</li>
+          <li>Lae koste — geen spesiale netwerktoerusting benodig nie</li>
+          <li>Persoonlike toestelle bly aan mekaar gesinkroniseer (bv. foon en slimhorlosie)</li>
+        </ul></td>
+        <td><ul>
+          <li>Beperkte reikafstand — gewoonlik net 'n paar meter</li>
+          <li>Data-oordragspoed kan stadig wees (veral via Bluetooth)</li>
+          <li>Randtoestelle kan gewoonlik slegs met een toestel op 'n slag afgepaar word</li>
+          <li>Nie geskik vir die deel van hulpbronne tussen verskeie gebruikers nie</li>
+        </ul></td>
+      </tr>
+      <tr>
+        <td><strong>HAN</strong></td>
+        <td><ul>
+          <li>Gebruikers kan data vanaf enige toestel in die huis deel</li>
+          <li>Toestelle soos 'n drukker kan deur almal gedeel word — bespaar koste</li>
+          <li>'n Internetkonneksie kan deur al die toestelle in die huis gedeel word</li>
+          <li>Maklik om lêers tussen toestelle oor te stuur</li>
+        </ul></td>
+        <td><ul>
+          <li>Sekuriteitsrisiko — indien een toestel 'n virus kry, kan dit na ander versprei</li>
+          <li>Afhanlik van die roeteerder — as dit faal, verloor almal konneksie</li>
+          <li>Opsetkompleksiteit — kan moeilik wees vir onervare gebruikers</li>
+          <li>Privaatheid — ander gebruikers in die huis kan gedeelde lêers sien</li>
+        </ul></td>
+      </tr>
+    </table></div>
+
+    <div class="term-tag t2">Kwartaal 2</div>
+    <h2>Netwerktoestelle</h2>
+    <div class="def-grid">
+      <div class="def-term">Modem</div><div class="def-desc">Modulator-Demodulator — skakel digitale seine om na analoog en terug; verbind die plaaslike netwerk aan die Internet via 'n ISP</div>
+      <div class="def-term">Router</div><div class="def-desc">Stuur datapakkies tussen verskillende netwerke; verbind jou huis-/skoolnetwerk aan die Internet; word dikwels met 'n modem gekombineer</div>
+      <div class="def-term">Switch</div><div class="def-desc">Verbind toestelle binne 'n LAN; stuur data slegs aan die bedoelde toestel (meer doeltreffend as 'n hub)</div>
+    </div>
+
+    <div class="term-tag t2">Kwartaal 2</div>
+    <h2>Kommunikasiemedia (Hoe toestelle verbind)</h2>
+    <h3>gekabele verbindings</h3>
+    <ul>
+      <li><strong>UTP-kabel (Ethernet)</strong> — gedraaide kopperdraad; gebruik in LANs; betroubaar en vinnig</li>
+      <li><strong>Optiese vesel</strong> — gebruik ligpulse deur glas/plastiek; baie vinnig; duur; gebruik vir lang afstande en ISP-rugrade</li>
+    </ul>
+    <h3>Draadlose verbindings</h3>
+    <div class="def-grid">
+      <div class="def-term">Wi-Fi</div><div class="def-desc">Draadlose verbinding wat radiogolwe gebruik; gebruik in huise, skole, openbare warmkolle; bestek tipies 30–100 m binne</div>
+      <div class="def-term">Bluetooth</div><div class="def-desc">Kortafstand-draadloos (tot ~10 m); gebruik om toestelle te koppel (foon aan oorfone, sleutelbord, luidspreker)</div>
+      <div class="def-term">NFC</div><div class="def-desc">Near Field Communication; baie kort bestek (~4 cm); gebruik vir tik-en-betaal, toegangskaarte</div>
+    </div>
+
+    <div class="term-tag t2">Kwartaal 2</div>
+    <h2>gekabel teenoor Draadloos — wat is beter?</h2>
+    <p>'n Gunsteling-eksamenvraag. Daar is nie 'n enkele 'beste' nie — dit hang van die situasie af. Leer ten minste twee punte vir elke kant.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>&nbsp;</th><th>gekabel (UTP/vesel)</th><th>Draadloos (Wi-Fi)</th></tr>
+      <tr><td><strong>Spoed</strong></td><td>Vinniger &amp; meer konstant</td><td>Gewoonlik stadiger; daal met afstand/mure</td></tr>
+      <tr><td><strong>Betroubaarheid</strong></td><td>Baie betroubaar — geen inmenging</td><td>Kan inmenging &amp; seinverlies hê</td></tr>
+      <tr><td><strong>Mobiliteit</strong></td><td>Gebonde aan 'n kabel/poort</td><td>Beweeg vrylik binne die dekkingsarea</td></tr>
+      <tr><td><strong>Opstelling &amp; koste</strong></td><td>Kabels om te lê — meer moeite om te installeer</td><td>Vinnig &amp; maklik; goedkoper om toestelle by te voeg</td></tr>
+      <tr><td><strong>Sekuriteit</strong></td><td>Moeiliker om te onderskep</td><td>Sein kan onderskep word indien nie versleutel nie</td></tr>
+    </table></div>
+    <div class="callout exam">
+      <div class="callout-title">EKSAMENWENK — pas dit toe op die scenario</div>
+      <p>Beveel <strong>gekabel</strong> aan vir 'n vaste rekenaar wat spoed/stabiliteit benodig (bv. 'n skoolbediener of speletjie-rekenaar), en <strong>draadloos</strong> vir toestelle wat rondbeweeg (bv. 'n skootrekenaar, foon of tablet). Motiveer jou keuse altyd met 'n rede uit die vraag.</p>
+    </div>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Maniere om aan die Internet te Koppel</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Metode</th><th>Hoe dit werk</th><th>Beste vir</th></tr>
+      <tr><td><strong>Vesel</strong></td><td>Lig deur glaskabels na die huis (FTTH)</td><td>Vinnige, betroubare huis-internet waar vesel beskikbaar is</td></tr>
+      <tr><td><strong>ADSL</strong></td><td>Oor ou telefoon-kopperlyne</td><td>Areas sonder vesel (stadiger; word uitgefaseer)</td></tr>
+      <tr><td><strong>Mobiel (3G/4G/5G)</strong></td><td>Sellulêre data via 'n SIM-kaart &amp; selmaste</td><td>Toegang op-die-pad; areas met goeie sein</td></tr>
+      <tr><td><strong>Wi-Fi-warmkol</strong></td><td>Koppel aan 'n gedeelde Wi-Fi-punt (mall, kafee)</td><td>Gratis/openbare toegang (let op sekuriteit op oop warmkolle)</td></tr>
+      <tr><td><strong>Satelliet</strong></td><td>Sein na/van 'n satellietskottel</td><td>Afgeleë/landelike areas sonder kabels (bv. Starlink)</td></tr>
+    </table></div>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Toestelle Koppel</h2>
+    <p><strong>Koppeling</strong> is die proses om twee Bluetooth-toestelle te verbind sodat hulle kan kommunikeer. Stappe: aktiveer Bluetooth op beide toestelle → maak een toestel opspoorbaar → kies dit op die ander toestel → bevestig die koppelkode.</p>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Internettoegang Bekom</h2>
+    <p>Om aan die Internet te koppel benodig jy:</p>
+    <ul>
+      <li>'n Rekentoestel (foon, skootrekenaar, tablet)</li>
+      <li>'n Modem/roeteerder OF mobiele data (4G/5G)</li>
+      <li>'n Rekening met 'n <strong>ISP (Internetdiensverskaffer)</strong></li>
+    </ul>
+    <div class="callout">
+      <div class="callout-title">ISP — Internetdiensverskaffer</div>
+      <p>'n ISP is 'n maatskappy wat Internettoegang aan huise en besighede verskaf. Voorbeelde in SA: Telkom, Vodacom, MTN, Afrihost, Rain. Hulle verskaf 'n verbindingstipe (ADSL, vesel, LTE, 5G) en jy betaal 'n maandelikse fooi vir data of onbeperkte toegang.</p>
+    </div>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Basiese Netwerksekuriteit</h2>
+    <ul>
+      <li><strong>Wagwoordbeskerming</strong> — slegs gemagtigde gebruikers kan aanmeld</li>
+      <li><strong>Brandmuur</strong> — sagteware/hardeware wat netwerkverkeer monitor en filtreer</li>
+      <li><strong>Versleuteling</strong> — verwarrer data sodat dit nie gelees kan word indien onderskep nie</li>
+      <li><strong>Toegangsregte</strong> — gebruikers kan slegs toegang kry tot lêers/gidse waarvoor hulle toestemming het</li>
+    </ul>
+
+    <div class="callout exam">
+      <div class="callout-title">EKSAMENWENK — Voordele teenoor Nadele van Netwerke</div>
+      <p><strong>Voordele:</strong></p>
+      <ul>
+        <li>Hulpbrondeling — toestelle soos drukkers en skywe kan deur alle gebruikers op die netwerk gedeel word, wat koste bespaar.</li>
+        <li>Kommunikasie — gebruikers kan maklik met mekaar kommunikeer deur e-pos, kitsboodskappe en videovergaderings oor die netwerk.</li>
+        <li>Gesentraliseerde datastoor — alle data word op 'n sentrale bediener gestoor, wat rugsteun, sekuriteit en toegang vir alle gebruikers makliker maak.</li>
+        <li>Maklike sagteware-opdaterings — sagteware kan op die bediener opgedateer word en dit werk outomaties vir alle toestelle op die netwerk.</li>
+      </ul>
+      <p><strong>Nadele:</strong></p>
+      <ul>
+        <li>Duur om op te stel — die aankoop van netwerkinfrastruktuur soos kabels, skakelaars en bedieners kan baie geld kos.</li>
+        <li>Sekuriteitsrisiko's — kuberkrakers kan ongemagtigde toegang kry tot die netwerk, en virusse kan vinnig van een toestel na alle ander toestelle op die netwerk versprei.</li>
+        <li>Afhanklik van die bediener — as die sentrale bediener faal, kan alle gebruikers op die netwerk nie meer werk of toegang tot hulle data kry nie.</li>
+        <li>Benodig tegniese ondersteuning — netwerke benodig gespesialiseerde personeel om dit op te stel, te onderhou en probleme op te los.</li>
+      </ul>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">Toets jouself</div>
+      <p>Probeer die netwerkvrae in die <a href="../../exam-practice/grade10.html#networks">Graad 10 Eksamenoefening</a> en merk jouself met die memo.</p>
+    </div>
+
+    <h2>Common Exam Mistakes</h2>
+    <div class="mistakes">
+      <div class="mistake"><div class="wrong">The internet and the World Wide Web are the same thing.</div><div class="right">The <strong>internet</strong> is the network; the <strong>WWW</strong> is the websites that run on it.</div></div>
+      <div class="mistake"><div class="wrong">A modem and a router are the same device.</div><div class="right">A <strong>modem</strong> connects you to the ISP/internet; a <strong>router</strong> directs traffic between devices/networks.</div></div>
+      <div class="mistake"><div class="wrong">A LAN can cover a whole country.</div><div class="right">A <strong>LAN</strong> covers one building/site; a <strong>WAN</strong> covers a large area (the internet is a WAN).</div></div>
+    </div>
+</section>
+
+<section class="chapter" id="ch08">
+  <div class="chapter-tag">Graad 10 &middot; Teorie (V2)</div>
+<h1>Internet &amp; E-Kommunikasie (K3) <span class="grade-badge">Graad 10</span></h1>
+    <p class="page-intro">Die Internet is die grootste netwerk in die wêreld. Hierdie onderwerp dek die Internet, die Wêreldwye Web, blaaiers, soekenjins en elektroniese kommunikasie, insluitend e-pos en netiquette.</p>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Die Internet teenoor die WWW</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th></th><th>Internet</th><th>World Wide Web (WWW)</th></tr>
+      <tr><td><strong>Wat is dit?</strong></td><td>'n Globale netwerk van verbinde rekenaars en toestelle</td><td>'n Versameling webwerwe en webblaaie wat via die Internet bereik word</td></tr>
+      <tr><td><strong>Ouer/nuwer?</strong></td><td>Ouer — die infrastruktuur</td><td>Nuwer — 'n diens wat op die Internet loop</td></tr>
+      <tr><td><strong>Analogie</strong></td><td>Soos die padstelsel</td><td>Soos die winkels langs die paaie</td></tr>
+      <tr><td><strong>Protokol</strong></td><td>TCP/IP</td><td>HTTP / HTTPS</td></tr>
+    </table></div>
+    <div class="callout">
+      <div class="callout-title">SLEUTELPUNT</div>
+      <p>Die Internet is die fisiese infrastruktuur (kabels, bedieners, roeteerders). Die WWW is 'n <em>diens</em> wat die Internet gebruik. E-pos, aanlyn speletjies en videostroming gebruik ook die Internet maar is NIE deel van die WWW nie.</p>
+    </div>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Internetadresse</h2>
+    <div class="def-grid">
+      <div class="def-term">IP-adres</div><div class="def-desc">Unieke numeriese adres toegewys aan elke toestel op 'n netwerk (bv. 192.168.1.1). Identifiseer waar data gestuur moet word.</div>
+      <div class="def-term">URL</div><div class="def-desc">Uniform Resource Locator — die volledige adres van 'n spesifieke webblad (bv. https://www.google.com/search)</div>
+      <div class="def-term">URL-verkorter</div><div class="def-desc">'n Diens wat 'n lange URL na 'n korte een omskakel (bv. bit.ly). Nuttig om skakels te deel.</div>
+      <div class="def-term">Domeinnaam</div><div class="def-desc">Mensvriendelike naam vir 'n webwerf (bv. google.com). Omskakel na 'n IP-adres deur 'n DNS-bediener.</div>
+    </div>
+
+    <h3>Die Dele van 'n URL</h3>
+    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:1rem;margin:1rem 0;font-family:monospace;font-size:.95rem;overflow-x:auto;white-space:nowrap">
+      <span style="color:#60a5fa">https://</span><span style="color:var(--gr10)">www.</span><span style="color:var(--gr11)">capeschools.co.za</span><span style="color:var(--gr12)">/grade10/index.html</span><br>
+      <span style="font-size:.78rem;color:#60a5fa">protokol</span> &nbsp;<span style="font-size:.78rem;color:var(--gr10)">www (gasheer)</span> &nbsp;<span style="font-size:.78rem;color:var(--gr11)">domeinnaam</span> &nbsp;<span style="font-size:.78rem;color:var(--gr12)">pad na die blad/lêer</span>
+    </div>
+    <h3>Domeinuitbreidings — tipe organisasie en geografiese ligging</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Uitbreiding</th><th>Beteken</th><th>Voorbeeld</th></tr>
+      <tr><td><code>.com</code></td><td>Kommersiële organisasie</td><td>google.com</td></tr>
+      <tr><td><code>.org</code></td><td>Nie-winsgewende organisasie</td><td>wikipedia.org</td></tr>
+      <tr><td><code>.gov</code></td><td>Regeringswebwerf</td><td>sars.gov.za</td></tr>
+      <tr><td><code>.ac</code></td><td>Akademiese instelling (universiteit/kollege)</td><td>cput.ac.za</td></tr>
+      <tr><td><code>.edu</code></td><td>Opvoedkundige instelling (hoofsaaklik VSA)</td><td>mit.edu</td></tr>
+      <tr><td><code>.za</code></td><td>Geografiese ligging — Suid-Afrika</td><td>dbe.gov.za</td></tr>
+      <tr><td><code>.uk</code></td><td>Geografiese ligging — Verenigde Koninkryk</td><td>bbc.co.uk</td></tr>
+    </table></div>
+    <div class="callout exam">
+      <div class="callout-title">EKSAMENWENK — dele van www.cput.ac.za</div>
+      <p>'n Gewilde eksamenvraag vra jou om die dele van 'n URL soos www.cput.ac.za te identifiseer:<br>
+      <strong>cput</strong> — naam van die webtuiste &nbsp;|&nbsp;
+      <strong>.ac</strong> — tipe organisasie (akademies) &nbsp;|&nbsp;
+      <strong>.za</strong> — geografiese ligging (Suid-Afrika)</p>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">HTTP teenoor HTTPS</div>
+      <p><code>http://</code> is onversleutel; <code>https://</code> is <strong>veilig</strong> — data word versleutel (kyk vir die hangslot 🔒). Kontroleer altyd vir HTTPS voordat jy wagwoorde of bankbesonderhede invoer.</p>
+    </div>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Webwerwe en Webblaaie</h2>
+    <div class="def-grid">
+      <div class="def-term">Webblad</div><div class="def-desc">'n Enkele dokument op die Internet, geskryf in HTML en vertoon in 'n blaaier</div>
+      <div class="def-term">Webwerf</div><div class="def-desc">'n Versameling verwante webblaaie wat aan dieselfde persoon of organisasie behoort</div>
+      <div class="def-term">hiperskakel (hyperlink)</div><div class="def-desc">Klikbare teks of beeld wat jou na 'n ander webblad of lêer neem</div>
+      <div class="def-term">Tuisblad</div><div class="def-desc">Die hoof-/eerste blad van 'n webwerf</div>
+    </div>
+
+    <h3>Tipes Webwerwe</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Tipe</th><th>Doel</th><th>Voorbeeld</th></tr>
+      <tr><td>Blog / Vlog</td><td>Persoonlike of tematiese artikels (teks) of videos</td><td>WordPress-blogs, YouTube-kanale</td></tr>
+      <tr><td>Wiki</td><td>Samewerkende, gemeenskap-geredigeerde kennisbasis</td><td>Wikipedia</td></tr>
+      <tr><td>Sosiale Netwerk</td><td>Verbind mense; deel plasings, foto's, boodskappe</td><td>Facebook, Instagram, TikTok</td></tr>
+      <tr><td>Opvoedkundig</td><td>Leerhulpbronne, kursusse, tutoriale</td><td>Khan Academy, DBE-webwerf</td></tr>
+      <tr><td>Webtoepassing</td><td>Aanlyn gereedskap/dienste (werk in blaaier)</td><td>Google Docs, OneDrive, Office 365</td></tr>
+      <tr><td>E-handel</td><td>Aanlyn koop en verkoop</td><td>Takealot, Amazon</td></tr>
+      <tr><td>Voorspraakwebwerf</td><td>Stel 'n idee, opinie of saak bekend — verteenwoordig gewoonlik die siening van 'n spesifieke groep of organisasie</td><td>Politieke partye, NGO-webwerwe</td></tr>
+    </table></div>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Webblaaiers</h2>
+    <p>'n <strong>blaaier</strong> is sagteware gebruik om webblaaie te bereik en te vertoon. Dit vra blaaie van webbedieners aan met HTTP/HTTPS.</p>
+    <div class="def-grid">
+      <div class="def-term">Chrome</div><div class="def-desc">Google se blaaier — gewildste wêreldwyd</div>
+      <div class="def-term">Edge</div><div class="def-desc">Microsoft se blaaier — ingebou in Windows</div>
+      <div class="def-term">Firefox</div><div class="def-desc">Mozilla se oopbron-blaaier</div>
+      <div class="def-term">Safari</div><div class="def-desc">Apple se blaaier — verstek op Mac en iPhone</div>
+    </div>
+    <p><strong>Tab-blaaiing</strong>: laat meervoudige webblaaie toe om gelyktydig in afsonderlike tabs binne een blaaiervenster oop te wees — meer doeltreffend as om meervoudige vensters oop te maak.</p>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Soekenjins</h2>
+    <p>'n <strong>soekenjin</strong> is 'n webwerf/instrument wat die Internet vir inligting deursoek gebaseer op sleutelwoorde wat jy tik. Dit hou 'n indeks van miljarde webblaaie.</p>
+    <ul>
+      <li><strong>Google</strong> — gewildste soekenjin</li>
+      <li><strong>Bing</strong> — Microsoft se soekenjin</li>
+      <li><strong>Yahoo</strong> — ouer soekenjin/portaal</li>
+    </ul>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Aflaai teenoor Oplaai</h2>
+    <div class="def-grid">
+      <div class="def-term">Aflaai</div><div class="def-desc">Ontvang data VANAF die Internet NA jou toestel (bv. 'n lêer stoor, 'n fliek stroom om te kyk)</div>
+      <div class="def-term">Oplaai</div><div class="def-desc">Stuur data VANAF jou toestel NA die Internet (bv. 'n foto op Instagram plaas, 'n vorm indien)</div>
+    </div>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>E-Kommunikasie</h2>
+    <p><strong>E-kommunikasie</strong> = enige vorm van kommunikasie deur elektroniese toestelle en netwerke te gebruik.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Vorm</th><th>Beskrywing</th></tr>
+      <tr><td>E-pos</td><td>Elektroniese boodskappe gestuur tussen e-posadresse; kan aanhangsels insluit</td></tr>
+      <tr><td>Kitsboodskappe</td><td>Intydse teks-geselsies (WhatsApp, Messenger, Teams)</td></tr>
+      <tr><td>Video-oproep / -konferensie</td><td>Lewendige video- en klankkommunikasie (Zoom, Teams, Google Meet)</td></tr>
+      <tr><td>SMS / MMS</td><td>Teks-/multimedia-boodskappe via mobiele netwerk</td></tr>
+      <tr><td>Sosiale media</td><td>Plasings, opmerkings, stories op platforms soos Instagram, TikTok</td></tr>
+    </table></div>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Sinchroniese teenoor Asinchroniese Kommunikasie</h2>
+    <p>E-kommunikasie kan gegroepeer word volgens wanneer die mense betrokke deelneem:</p>
+    <ul>
+      <li><strong>Sinchroniese kommunikasie</strong> gebeur in reële tyd - almal neem op dieselfde oomblik deel (bv. 'n video-oproep of lewendige geselsie).</li>
+      <li><strong>Asinchroniese kommunikasie</strong> gebeur nie op dieselfde tyd nie - die ontvanger antwoord wanneer dit hom/haar pas (bv. e-pos of SMS).</li>
+    </ul>
+    <div class="tbl-wrap"><table>
+      <tr><th></th><th>Sinchronies</th><th>Asinchronies</th></tr>
+      <tr><td>Tydsberekening</td><td>Reële tyd, op dieselfde oomblik</td><td>Met 'n vertraging; antwoord wanneer dit pas</td></tr>
+      <tr><td>Almal saam aanlyn?</td><td>Ja</td><td>Nee</td></tr>
+      <tr><td>Voorbeelde</td><td>Video-oproep, lewendige geselsie, telefoon</td><td>E-pos, SMS, blog, forum</td></tr>
+    </table></div>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>E-pos — Struktuur en Gebruik</h2>
+    <h3>Anatomie van 'n E-posadres</h3>
+    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:1rem;margin:1rem 0;font-family:monospace;font-size:1rem">
+      <span style="color:var(--gr10)">gebruikersnaam</span><span style="color:var(--muted)">@</span><span style="color:var(--gr11)">domein</span><span style="color:var(--muted)">.</span><span style="color:var(--gr12)">uitbreiding</span><br>
+      <span style="font-size:.8rem;color:var(--muted)">bv.: &nbsp;&nbsp;<span style="color:var(--gr10)">jane.smith</span>@<span style="color:var(--gr11)">gmail</span>.<span style="color:var(--gr12)">com</span></span>
+    </div>
+    <h3>Basiese E-pos-aksies</h3>
+    <div class="def-grid">
+      <div class="def-term">Stel op</div><div class="def-desc">Skryf 'n nuwe e-posboodskap</div>
+      <div class="def-term">Stuur</div><div class="def-desc">Lewer die boodskap aan die ontvanger</div>
+      <div class="def-term">Ontvang/Inkassie</div><div class="def-desc">Inkomende boodskappe word hier gestoor</div>
+      <div class="def-term">Antwoord</div><div class="def-desc">Reageer slegs aan die sender</div>
+      <div class="def-term">Antwoord Almal</div><div class="def-desc">Reageer aan almal op die e-pos (sender + alle ontvangers)</div>
+      <div class="def-term">Stuur Aan</div><div class="def-desc">Stuur die ontvangde e-pos aan iemand anders</div>
+      <div class="def-term">Aanhangsel</div><div class="def-desc">'n Lêer ingesluit met 'n e-pos (dokument, foto)</div>
+    </div>
+
+    <h3>Aan, Cc en Bcc — 'n gunsteling-eksamenvraag</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Veld</th><th>Vir wie is dit</th><th>Kan ander ontvangers hierdie adres sien?</th></tr>
+      <tr><td><strong>To</strong></td><td>Die hoof-ontvanger(s) van die boodskap</td><td>Ja</td></tr>
+      <tr><td><strong>Cc</strong> (Koolstofkopie)</td><td>Mense wat 'n kopie vir inligting moet ontvang</td><td>Ja — almal sien Cc-name</td></tr>
+      <tr><td><strong>Bcc</strong> (Blinde koolstofkopie)</td><td>Kopieer iemand privaat</td><td><strong>Nee</strong> — Bcc-adresse word van almal weggesteek</td></tr>
+    </table></div>
+    <div class="callout exam">
+      <div class="callout-title">EKSAMENWENK — wanneer om Bcc te gebruik</div>
+      <p>Gebruik <strong>Bcc</strong> wanneer jy aan baie mense e-pos wat mekaar nie ken nie (bv. 'n nuusbrief), om hulle <strong>privaatheid te beskerm</strong> en hulle e-posadresse van mekaar weg te steek.</p>
+    </div>
+    <h3>E-poslys (Verspreidingslys)</h3>
+    <p><strong>'n E-poslys</strong> is 'n lys van mense se e-posadresse wat onder 'n enkele groepsnaam gegroepeer is. 'n E-pos gestuur na die groepsnaam word outomaties aan al die e-posadresse op die lys gestuur. Dit verskil van 'n kontaklys — 'n kontaklys stoor individuele kontakte, terwyl 'n e-poslys spesifiek gebruik word om boodskappe aan 'n groep gelyktydig te stuur.</p>
+    <div class="callout exam">
+      <div class="callout-title">EKSAMENWENK — Kontaklys teenoor E-poslys</div>
+      <p><strong>Kontaklys</strong>: stoor individuele e-posadresse en kontakbesonderhede.<br>
+      <strong>E-poslys (verspreidingslys)</strong>: 'n groepsnaam waaraan jy e-pos stuur, en dit gaan outomaties na alle lede van die groep.</p>
+    </div>
+
+    <h3>Webgebaseerde E-pos teenoor Kliëntgebaseerde E-pos</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>&nbsp;</th><th>Webgebaseerde e-pos (Webmail)</th><th>Kliëntgebaseerde e-pos (Desktop)</th></tr>
+      <tr><td><strong>Toegang</strong></td><td>Via 'n webblaaier — geen installasie nodig nie</td><td>Sagteware wat op die rekenaar geïnstalleer is</td></tr>
+      <tr><td><strong>Aanlyn benodig?</strong></td><td>Moet aanlyn wees om boodskappe te lees en te stuur</td><td>Kan boodskappe aflyn lees; stuur wanneer konneksie herstel</td></tr>
+      <tr><td><strong>Koste</strong></td><td>Gewoonlik gratis (Gmail, Yahoo Mail)</td><td>Dikwels deel van 'n betaalde pakket (bv. Microsoft 365)</td></tr>
+      <tr><td><strong>Stoor</strong></td><td>Boodskappe word op die bediener gestoor — toeganklik vanaf enige toestel</td><td>Boodskappe word plaaslik op die rekenaar afgelaai en gestoor</td></tr>
+    </table></div>
+
+    <h3>Voordele &amp; Nadele van E-pos</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Voordele</th><th>Nadele</th></tr>
+      <tr><td>Vinnig — afgelewer binne sekondes</td><td>Benodig internet &amp; 'n toestel</td></tr>
+      <tr><td>Gratis / baie goedkoop</td><td>Strooipos &amp; uitvissing-e-posse</td></tr>
+      <tr><td>Kan lêers aanheg &amp; aan baie tegelyk stuur</td><td>Kan virusse via aanhangsels versprei</td></tr>
+      <tr><td>Geskrewe rekord word gehou; kan enige tyd lees</td><td>Word nie altyd onmiddellik gelees nie; kan onpersoonlik wees</td></tr>
+    </table></div>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Netiquette (Internet-etiket)</h2>
+    <p><strong>Netiquette</strong> = goeie maniere en korrekte gedrag wanneer jy aanlyn kommunikeer. Reëls sluit in:</p>
+    <ul>
+      <li>Tik NIE in HOOFLETTERS nie — dit lyk of jy SKREEU</li>
+      <li>Kontroleer jou spelling en grammatika voor jy stuur</li>
+      <li>Wees bondig en hoflik — moenie onnodige lang boodskappe skryf nie</li>
+      <li>Moenie skinder nie</li>
+      <li>Komprimeer aanhangsels voor jy stuur om die lêergrootte te verminder</li>
+      <li>Gebruik 'n duidelike en relevante onderwerpreël</li>
+      <li>Stuur nie ketting-e-posse of strooipos aan nie</li>
+      <li>Respekteer ander se privaatheid — deel nie hulle e-posadresse sonder toestemming nie</li>
+    </ul>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Veilige Internetgebruik</h2>
+    <ul>
+      <li><strong>Multivlak-verifikasie</strong>: gebruik meer as een metode om identiteit te verifieer (wagwoord + OTP)</li>
+      <li><strong>OTP (Eenmalige Wagwoord)</strong>: 'n unieke kode gestuur na jou foon vir 'n enkele aanmeldpoging</li>
+      <li>Deel nooit jou wagwoorde met enigiemand nie</li>
+      <li>Wees verdag op onverwagse e-posse met skakels of aanhangsels (uitvissing)</li>
+      <li>Besoek slegs veilige webwerwe (HTTPS, hangslot-ikoon in blaaier)</li>
+    </ul>
+
+    <div class="callout tip">
+      <div class="callout-title">Toets jouself</div>
+      <p>Probeer die internet- &amp; netiquette-vrae in die <a href="../../exam-practice/grade10.html#networks">Graad 10 Eksamenoefening</a>.</p>
+    </div>
+
+    <h2>Common Exam Mistakes</h2>
+    <div class="mistakes">
+      <div class="mistake"><div class="wrong">A web browser and a search engine are the same.</div><div class="right">A <strong>browser</strong> (Chrome, Edge) displays web pages; a <strong>search engine</strong> (Google) finds pages by keyword.</div></div>
+      <div class="mistake"><div class="wrong">Cc and Bcc do the same thing.</div><div class="right"><strong>Cc</strong> addresses are visible to all; <strong>Bcc</strong> addresses are hidden from everyone.</div></div>
+      <div class="mistake"><div class="wrong">HTTP and HTTPS are equally safe.</div><div class="right"><strong>HTTPS encrypts</strong> the data (padlock); HTTP does not.</div></div>
+    </div>
+</section>
+
+<section class="chapter" id="ch09">
+  <div class="chapter-tag">Graad 10 &middot; Teorie (V2)</div>
+<h1>Maatskaplike Implikasies (K1, K3–K4) <span class="grade-badge">Graad 10</span></h1>
+    <p class="page-intro">Maatskaplike implikasies kyk na hoe IKT's mense se gesondheid, die omgewing, die samelewing en regs-/etiese keuses beïnvloed. Hierdie onderwerp integreer met al die ander teorie-areas.</p>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Ergonomie en Gesondheid</h2>
+    <p><strong>Ergonomie</strong> is die wetenskap van die ontwerp van werkplekke en toerusting om die gebruiker veilig en gemaklik te pas, wat die risiko van beserings verminder.</p>
+    <h3>Korrekte Werkstasie-opstelling</h3>
+    <ul>
+      <li>Stoelhoogte: voete plat op die vloer, knieë op 90°</li>
+      <li>Monitor: op ooghoogte, armlengte weg, geen weerkaatsing</li>
+      <li>Sleutelbord: elmboë op 90°, polse reguit (nie gebuig nie)</li>
+      <li>Sit regop — rug ondersteun deur die stoel</li>
+      <li>Neem gereelde pouses — elke 30–60 minute, kyk weg en rek</li>
+    </ul>
+    <figure class="figure">
+      <svg viewBox="0 0 600 270" width="600" aria-label="Correct ergonomic workstation setup">
+        <text x="300" y="20" fill="#e6edf3" font-family="Segoe UI" font-size="13" font-weight="bold" text-anchor="middle">Correct Ergonomic Setup (side view)</text>
+        <!-- desk -->
+        <rect x="300" y="150" width="210" height="8" fill="#8b949e"/>
+        <rect x="304" y="158" width="8" height="80" fill="#8b949e"/>
+        <rect x="500" y="158" width="8" height="80" fill="#8b949e"/>
+        <!-- monitor -->
+        <rect x="410" y="70" width="95" height="62" rx="4" fill="#21262d" stroke="#34d399" stroke-width="2"/>
+        <rect x="448" y="132" width="20" height="14" fill="#8b949e"/>
+        <text x="457" y="60" fill="#34d399" font-family="Segoe UI" font-size="10" text-anchor="middle">top ≈ eye level</text>
+        <line x1="408" y1="95" x2="360" y2="95" stroke="#34d399" stroke-dasharray="3"/>
+        <!-- head -->
+        <circle cx="250" cy="95" r="18" fill="#fb923c33" stroke="#fb923c" stroke-width="2"/>
+        <!-- eye level line -->
+        <line x1="268" y1="95" x2="410" y2="95" stroke="#34d399" stroke-dasharray="3"/>
+        <!-- back/torso (straight) -->
+        <line x1="250" y1="113" x2="250" y2="185" stroke="#fb923c" stroke-width="6" stroke-linecap="round"/>
+        <text x="205" y="150" fill="#fb923c" font-family="Segoe UI" font-size="10" text-anchor="middle">back</text>
+        <text x="205" y="163" fill="#fb923c" font-family="Segoe UI" font-size="10" text-anchor="middle">straight</text>
+        <!-- upper arm down, forearm to desk: 90 elbow -->
+        <line x1="250" y1="130" x2="250" y2="158" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"/>
+        <line x1="250" y1="158" x2="320" y2="158" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"/>
+        <text x="270" y="151" fill="#60a5fa" font-family="Segoe UI" font-size="10">90° elbow</text>
+        <!-- thigh + lower leg: 90 knee -->
+        <line x1="250" y1="185" x2="300" y2="185" stroke="#a78bfa" stroke-width="6" stroke-linecap="round"/>
+        <line x1="255" y1="185" x2="255" y2="245" stroke="#a78bfa" stroke-width="6" stroke-linecap="round"/>
+        <text x="315" y="200" fill="#a78bfa" font-family="Segoe UI" font-size="10">90° knee</text>
+        <!-- chair -->
+        <rect x="235" y="185" width="70" height="6" fill="#8b949e"/>
+        <rect x="300" y="120" width="6" height="70" fill="#8b949e"/>
+        <!-- floor + feet flat -->
+        <line x1="180" y1="248" x2="360" y2="248" stroke="#8b949e" stroke-width="2"/>
+        <line x1="245" y1="245" x2="275" y2="245" stroke="#34d399" stroke-width="4" stroke-linecap="round"/>
+        <text x="300" y="263" fill="#34d399" font-family="Segoe UI" font-size="10">feet flat on floor</text>
+      </svg>
+      <figcaption>Bo-aan die monitor ≈ ooghoogte, armlengte weg · elmboë &amp; knieë op ongeveer 90° · rug reguit en ondersteun · voete plat op die vloer.</figcaption>
+    </figure>
+
+    <h3>Gesondheidsrisiko's van Swak Ergonomie</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Probleem</th><th>Oorsaak</th><th>Voorkoming</th></tr>
+      <tr><td>HBB (Herhalingsbewegingsbesering)</td><td>Herhaalde muis-/sleutelbordgebruik met swak postuur</td><td>Ergonomiese sleutelbord/muis; gereelde pouses</td></tr>
+      <tr><td>Oogvermoeidheid / KVS</td><td>Lank na die skerm staar</td><td>20-20-20-reël; skerm op ooghoogte; anti-glansfilter</td></tr>
+      <tr><td>Rug-/nekpyn</td><td>Swak postuur; verkeerde stoelhoogte</td><td>Ergonomiese stoel; monitor op korrekte hoogte</td></tr>
+      <tr><td>Hoofpyne</td><td>Skerms weerkaatsing; verkeerde beligting</td><td>Stel skermshelderheid in; gebruik behoorlike beligting</td></tr>
+    </table></div>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Groen Rekenaarkunde</h2>
+    <p><strong>Groen rekenaarkunde</strong> verwys na die gebruik van rekenaars op 'n omgewingsverantwoordelike wyse — vermindering van energieverbruik en elektroniese afval (e-afval).</p>
+    <h3>Groen Rekenaarkunde-praktyke</h3>
+    <ul>
+      <li>Skakel monitors en rekenaars af wanneer nie in gebruik nie</li>
+      <li>Gebruik kragbesparings-/slaapmodusinstellings</li>
+      <li>Koop energiedoeltreffende toestelle (Energy Star-gradering)</li>
+      <li>Druk slegs wanneer nodig (spaar papier)</li>
+      <li>Herwin ou toestelle verantwoordelik — moenie in gewone afval gooi nie</li>
+      <li>Skenk nog-werkende toerusting aan skole of liefdadigheidsorganisasies</li>
+    </ul>
+    <div class="callout warning">
+      <div class="callout-title">E-AFVAL</div>
+      <p><strong>E-afval</strong> (elektroniese afval) bevat giftige stowwe soos lood, kwik en kadmium. Onbehoorlike wegdoening kan grond en water besoedel. Neem ou toestelle altyd na geregistreerde herwinningspunte.</p>
+    </div>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Ekonomiese Redes vir die Gebruik van Rekenaars</h2>
+    <p>Rekenaars bespaar geld en verbeter produktiwiteit op baie maniere:</p>
+    <ul>
+      <li><strong>Bespaar papier</strong> — digitale dokumente vervang gedrukte</li>
+      <li><strong>Bespaar arbeidskoste</strong> — geoutomatiseerde take vervang handwerk</li>
+      <li><strong>Bespaar kommunikasiekoste</strong> — e-pos en VoIP is goedkoper as telefoonoproepe en poste</li>
+      <li><strong>Doeltreffendheid</strong> — take word vinniger en met minder foute voltooi</li>
+      <li><strong>Akkuraatheid</strong> — berekeninge en data-invoer is betroubaar</li>
+      <li><strong>Betroubaarheid</strong> — konsekwente uitset 24/7 sonder moegheid</li>
+    </ul>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Digitale Burgerskap</h2>
+    <p><strong>Digitale burgerskap</strong> = 'n verantwoordelike, etiese en veilige gebruiker van tegnologie en die Internet wees. Dit behels:</p>
+    <ul>
+      <li>Aanlyn gedra soos jy persoonlik sou — met respek en eerlikheid</li>
+      <li>Beskerm jou eie en ander se persoonlike inligting</li>
+      <li>Gebruik tegnologie slegs vir wettige, regmatige doeleindes</li>
+      <li>Respekteer kopiereg en intellektuele eiendom</li>
+      <li>Rapporteer kuberafknouery en aanlynbedreigings</li>
+    </ul>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Digitale Voetspoor</h2>
+    <div class="callout">
+      <div class="callout-title">DEFINISIE</div>
+      <p>'n <strong>digitale voetspoor</strong> is die spoor van data wat jy agterlaat wanneer jy die Internet gebruik — soektogte, sosiale media-plasings, aanlynankope, webtuistes besoek. Hierdie data kan deur maatskappye en ander opgespoor, gestoor en gebruik word. Dit is byna onmoontlik om jou digitale voetspoor volledig uit te wis.</p>
+    </div>
+    <ul>
+      <li><strong>Aktiewe voetspoor</strong>: inligting wat jy doelbewus deel (plasings, profiele, aanmeldings)</li>
+      <li><strong>Passiewe voetspoor</strong>: inligting wat sonder jou direkte medewete versamel word (koekies, blaaiergeskiedenis, liggingsdata)</li>
+    </ul>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Die POPIA-Wet (Wet op Beskerming van Persoonlike Inligting)</h2>
+    <p>POPIA is 'n Suid-Afrikaanse wet wat burgers se persoonlike inligting beskerm. Sleutelpunte:</p>
+    <ul>
+      <li>Organisasies moet 'n wettige rede hê om jou persoonlike data in te samel</li>
+      <li>Data moet veilig gestoor word en nie sonder toestemming gedeel word nie</li>
+      <li>Jy het die reg om te weet watter data oor jou gehou word</li>
+      <li>Jy kan versoek dat verkeerde data reggestel of uitgevee word</li>
+    </ul>
+    <p><strong>Persoonlike inligting</strong> sluit in: naam, ID-nommer, e-posadres, telefoonnommer, liggingsdata, gesondheidsinligting, finansiële besonderhede.</p>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Etiese Gebruik van Rekenaars en die Internet</h2>
+    <div class="tbl-wrap"><table>
+      <tr><th>Etiese Gedrag</th><th>Onetiese / Onwettige Gedrag</th></tr>
+      <tr><td>Sagteware wettiglik koop (gelisensieerde kopie)</td><td>Sagteware kopieer/deel sonder lisensie (rowery)</td></tr>
+      <tr><td>Bronne vermeld wanneer ander se werk gebruik word</td><td>Plagiaat — ander se werk as jou eie voorhou</td></tr>
+      <tr><td>Die Internet vir wettige doeleindes gebruik</td><td>Inbraak, uitvissing, kwaadwillige sagteware versprei</td></tr>
+      <tr><td>Ander se privaatheid aanlyn respekteer</td><td>Ander se persoonlike inligting sonder toestemming deel</td></tr>
+      <tr><td>Eerlike en respekvolle aanlynkommunikasie</td><td>Kuberafknouery, teistering, vals inligting versprei</td></tr>
+    </table></div>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Veilige Internetgebruik</h2>
+
+    <h3>Malware — Kwaadwillige Sagteware</h3>
+    <div class="def-grid">
+      <div class="def-term">Virus</div>
+      <div class="def-desc">
+        <p>'n Program wat homself aan ander lêers heg en versprei wanneer die lêer uitgevoer word. Dit kan lêers beskadig, data uitvee of die stelsel vertraag.</p>
+        <p><strong>Hoe dit versprei:</strong> Via besmette e-posaanhegsels, afgelaaide lêers, gedeelde USB-dryfwerke of besmette webtuistes.</p>
+        <p><strong>Voorkoming:</strong> Gebruik antivirusprogrammatuur en hou dit op datum; moenie onbekende aanhegsels oopmaak nie; skandeer USB-dryfwerke voor gebruik.</p>
+      </div>
+      <div class="def-term">Wurm (Worm)</div>
+      <div class="def-desc">Soortgelyk aan 'n virus maar versprei outomaties oor netwerke sonder dat die gebruiker 'n lêer hoef te oopmaak. Wurms verbruik netwerk- en stelselbronne en kan 'n netwerk tot stilstand bring. Voorkoming: brandmuur en bygewerkte sagteware.</div>
+      <div class="def-term">Trojaan (Trojan)</div>
+      <div class="def-desc">'n Program wat lyk asof dit nuttig is maar in werklikheid kwaadwillige kode bevat. Dit open 'n agterdeur vir kuberkrakers om toegang tot jou stelsel te kry. Dit versprei nie vanself nie — die gebruiker installeer dit onwetend. Voorkoming: laai slegs sagteware af van betroubare bronne; gebruik antivirusprogrammatuur.</div>
+    </div>
+
+    <h3>Aanlynbedreigings en Bedrog</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Bedreiging</th><th>Beskrywing</th><th>Hoe om jouself te beskerm</th></tr>
+      <tr>
+        <td><strong>Strooipos (Spam)</strong></td>
+        <td>Ongewenste massas-e-posse wat gewoonlik vir advertensiedoeleindes of bedrog gestuur word. Kan kwaadwillige aanhegsels of skakels bevat.</td>
+        <td>Gebruik 'n strooiposfilter; moenie op skakels in onbekende e-posse klik nie; onttrek van ongewenste lyste.</td>
+      </tr>
+      <tr>
+        <td><strong>Hoax / Skelm (Scam)</strong></td>
+        <td>'n Vals boodskap (e-pos, sosiale media) wat mense mislei om geld te stuur, persoonlike inligting te deel of 'n virus te versprei. Dikwels deur kettingbriewe of vals pryskennisgewings versprei.</td>
+        <td>Bevestig inligting voor jy dit aanstuur; wees skepties oor aanbiedinge wat te goed klink om waar te wees; moenie geld aan onbekende partye stuur nie.</td>
+      </tr>
+      <tr>
+        <td><strong>Uitvissing (Phishing)</strong></td>
+        <td>Bedrieglike e-posse of webtuistes wat voorgee om wettige organisasies te wees (bv. jou bank) om wagwoorde, banknommers of persoonlike inligting te steel.</td>
+        <td>Kontroleer die afsender se e-posadres noukeurig; gaan na die webtuiste direk deur die adres te tik, nie deur op 'n skakel te klik nie; banke vra nooit vir wagwoorde via e-pos nie.</td>
+      </tr>
+      <tr>
+        <td><strong>Boerdery (Pharming)</strong></td>
+        <td>'n Aanval wat DNS-rekords manipuleer sodat selfs 'n korrekte webadres jou na 'n vals webtuiste herlei sonder jou medewete. Moeiliker om op te spoor as uitvissing.</td>
+        <td>Gebruik betroubare DNS-dienste; kyk vir HTTPS en 'n geldige sekuriteitssertifikaat; hou jou roeteerder en bedryfstelsel op datum.</td>
+      </tr>
+      <tr>
+        <td><strong>E-pos-vervalsing (Email Spoofing)</strong></td>
+        <td>Die afsender se e-posadres word vervals sodat dit lyk asof die e-pos van 'n betroubare bron kom (bv. jou werkgewer of 'n bank). Dikwels gebruik in saam met uitvissing-aanvalle.</td>
+        <td>Kyk na die werklike e-posadres, nie net die vertoonnaam nie; wees agterdogtig oor dringende versoeke om aksie te neem; bevestig via 'n aparte kanaal as jy onseker is.</td>
+      </tr>
+    </table></div>
+
+    <h3>Riglyne vir Veilige Internetgebruik</h3>
+    <ul>
+      <li>Gebruik sterk, unieke wagwoorde vir elke rekening en verander dit gereeld</li>
+      <li>Aktiveer tweefaktor-verifikasie (2FA) waar moontlik</li>
+      <li>Hou jou bedryfstelsel, blaaier en antivirusprogrammatuur op datum</li>
+      <li>Gebruik slegs veilige (HTTPS) webtuistes vir enige persoonlike of finansiële transaksies</li>
+      <li>Vermy openbare Wi-Fi vir sensitiewe aktiwiteite (bv. internetbankdienste)</li>
+      <li>Maak gereelde rugsteunkopieë van belangrike data</li>
+      <li>Moenie op skakels of aanhegsels in onbekende of verdagte e-posse klik nie</li>
+      <li>Laai slegs sagteware af van wettige, betroubare webtuistes</li>
+      <li>Meld verdagte aanlyn-aktiwiteit aan by die betrokke platform of owerhede</li>
+    </ul>
+
+    <h3>Goeie Gewoontes vir Aanlynkommunikasie (Netikette)</h3>
+    <ul>
+      <li><strong>Wees hoflik en respekvol</strong> — behandel ander aanlyn soos jy behandel wil word</li>
+      <li><strong>Gebruik gepaste taal</strong> — vermy lelike of beledigende taal in alle aanlyinkommunikasie</li>
+      <li><strong>Dink voor jy plaas</strong> — plasings is moeilik om te verwyder en kan jou reputasie skaad</li>
+      <li><strong>Respekteer privaatheid</strong> — deel nie foto's of inligting van ander sonder hulle toestemming nie</li>
+      <li><strong>Vermy kuberafknouery</strong> — moenie ander teister, uitsluit of intimideer aanlyn nie; rapporteer dit indien jy dit sien</li>
+      <li><strong>Kontroleer feite</strong> — stuur nie ongetoetste berigte of hoaxes aan nie; verifieer inligting voor jy dit deel</li>
+      <li><strong>Gebruik gepaste toonaard in e-pos</strong> — gebruik 'n onderwerpreël, groet die ontvanger en sluit ordentlik af</li>
+      <li><strong>Beperk persoonlike inligting wat jy aanlyn deel</strong> — deel nie jou adres, ID-nommer of finansiële besonderhede op sosiale media nie</li>
+    </ul>
+
+    <div class="callout warning">
+      <div class="callout-title">ONTHOU: Veilig Aanlyn Bly</div>
+      <p>Geen wettige bank, regeringsinstansie of maatskappy sal ooit jou wagwoord, PIN of volledige bankbesonderhede per e-pos of telefoon vra nie. As iemand dit doen, is dit 'n skelm.</p>
+    </div>
+
+    <div class="term-tag t4">Kwartaal 4</div>
+    <h2>Rekenaarmisdaad (Tipes)</h2>
+    <div class="def-grid">
+      <div class="def-term">Inligtingsdiefstal</div><div class="def-desc">Die steel van private data (wagwoorde, maatskappygeheime) sonder magtiging</div>
+      <div class="def-term">Datadiefstal</div><div class="def-desc">Kopieer, uitvee of verander iemand anders se data</div>
+      <div class="def-term">identiteitsdiefstal (identity theft)</div><div class="def-desc">Steel iemand se persoonlike inligting om hulle na te boots (bv. vir finansiële bedrog)</div>
+    </div>
+
+    <div class="callout exam">
+      <div class="callout-title">EKSAMENWENK — Maatskaplike Implikasies-vrae</div>
+      <p>Eksamenvrae verskaf dikwels 'n scenario en vra jou om die maatskaplike kwessie te identifiseer, 'n oplossing voor te stel, of die impak te evalueer. Lees die konteks altyd sorgvuldig en koppel jou antwoord aan spesifieke terme: ergonomie, e-afval, POPIA, digitale voetspoor, netikette, kopiereg, rowery, ens.</p>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">Toets jouself</div>
+      <p>Probeer die ergonomie-, groen-rekenaarkunde- en digitale voetspoor-vrae in die <a href="../../exam-practice/grade10.html#social">Graad 10 Eksamenoefening</a>.</p>
+    </div>
+
+    <h2>Common Exam Mistakes</h2>
+    <div class="mistakes">
+      <div class="mistake"><div class="wrong">Green computing just means recycling paper.</div><div class="right">It also means <strong>saving energy</strong> (sleep mode, Energy Star) and safely disposing of <strong>e-waste</strong>.</div></div>
+      <div class="mistake"><div class="wrong">A digital footprint can be fully deleted.</div><div class="right">It is <strong>very hard to erase</strong> — posts can be copied, cached or shared, so think before posting.</div></div>
+      <div class="mistake"><div class="wrong">Software piracy is fine if you don't sell the copy.</div><div class="right">Any <strong>illegal copying/use</strong> breaks the licence and copyright — it is illegal even for personal use.</div></div>
+    </div>
+</section>
+
+<section class="chapter" id="ch10">
+  <div class="chapter-tag">Graad 10 &middot; Jaarbeplanner</div>
+<h1>Graad 10 — Jaarbeplanner <span class="grade-badge">Graad 10</span></h1>
+  <p class="page-intro">Gebaseer op die 2026 RTT Jaarlikse Onderwysplan. Elke kwartaal wys die praktiese (Oplossingsontwikkeling) en teorie- (Stelsels-/Netwerk-/Internettegnologie, Inligtingsbestuur, Maatskaplike Implikasies) onderwerpe wat gedek word.</p>
+
+  <div class="callout warning"><div class="callout-title">'n Jaarbeplanner — nie 'n toetsbestek nie</div><p>Dit wys wanneer elke onderwerp gedurende die jaar onderrig word — dit is nie 'n lys van wat 'n spesifieke toets dek nie. Enige werk wat reeds vanjaar gedoen is, plus die grondslagwerk van vorige grade, kan steeds geassesseer word. Moenie net die huidige kwartaal se onderwerpe bestudeer nie.</p></div>
+
+  <div class="term-block">
+    <div class="term-header"><div class="term-num">1</div><div><div class="term-title">Kwartaal 1 — Grondbeginsels &amp; Woordverwerking</div><div class="term-subtitle">Assessering: SBA Taak 1 — Teorietoets (min 50 punte)</div></div></div>
+    <div class="term-body">
+      <div class="term-col"><div class="term-col-title">Prakties (Oplossingsontwikkeling)</div>
+        <ul class="term-links">
+          <li><a href="grade10/practical/word-processing.html"><span class="tl-dot"></span>Woordverwerking — lêerbestuur, teks, formatering, paragrawe, bladuitleg, voorwerpe</a></li>
+        </ul>
+      </div>
+      <div class="term-col"><div class="term-col-title">Teorie</div>
+        <ul class="term-links">
+          <li><a href="grade10/theory/concepts.html"><span class="tl-dot"></span>Konsepte van Rekenaars</a></li>
+          <li><a href="grade10/theory/hardware.html"><span class="tl-dot"></span>Hardeware (invoer, uitvoer, berging)</a></li>
+          <li><a href="grade10/theory/software.html"><span class="tl-dot"></span>Sagteware &amp; Lisensiëring</a></li>
+          <li><a href="grade10/theory/social.html"><span class="tl-plain"></span>Maatskaplike Implikasies (ergonomika, groen)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="term-block">
+    <div class="term-header"><div class="term-num">2</div><div><div class="term-title">Kwartaal 2 — Sigblaaie &amp; Middeljaareksamen</div><div class="term-subtitle">Assessering: SBA Taak 2 — Praktiese Toets + SBA Taak 3 — Junieeksamen (V1 + V2)</div></div></div>
+    <div class="term-body">
+      <div class="term-col"><div class="term-col-title">Prakties (Oplossingsontwikkeling)</div>
+        <ul class="term-links">
+          <li><a href="grade10/practical/word-processing.html"><span class="tl-dot"></span>Woordverwerking — tabelle, kolletjies, tabs, koptekste/voettekste, voorblad</a></li>
+          <li><a href="grade10/practical/spreadsheets.html"><span class="tl-dot"></span>Sigblaaie — inleiding, selle, basiese funksies, foutwysers</a></li>
+        </ul>
+      </div>
+      <div class="term-col"><div class="term-col-title">Teorie</div>
+        <ul class="term-links">
+          <li><a href="grade10/theory/hardware.html"><span class="tl-dot"></span>Hardeware (uitgebrei — skandering, biometries, verwerking)</a></li>
+          <li><a href="grade10/theory/software.html"><span class="tl-dot"></span>Sagteware (drywers, nutsprogramme, lisensiëring)</a></li>
+          <li><a href="grade10/theory/networks.html"><span class="tl-dot"></span>Netwerke (inleiding — LAN, PAN, HAN)</a></li>
+          <li><a href="grade10/theory/social.html"><span class="tl-plain"></span>Inligtingsbestuur (inleiding tot PAT)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="term-block">
+    <div class="term-header"><div class="term-num">3</div><div><div class="term-title">Kwartaal 3 — HTML, Internet &amp; PAT Fase 1</div><div class="term-subtitle">Assessering: SBA Taak 4 — Praktiese Toets + SBA Taak 5 — Teorie/Alternatief. PAT Fase 1 voltooi.</div></div></div>
+    <div class="term-body">
+      <div class="term-col"><div class="term-col-title">Prakties (Oplossingsontwikkeling)</div>
+        <ul class="term-links">
+          <li><a href="grade10/practical/spreadsheets.html"><span class="tl-dot"></span>Sigblaaie — VANDAG, TELINDIEN, sortering, blaaie</a></li>
+          <li><a href="grade10/practical/html.html"><span class="tl-dot"></span>HTML &amp; Webontwerp — merkers, formatering, font, struktuur</a></li>
+          <li><a href="grade10/practical/word-processing.html"><span class="tl-plain"></span>Woordverwerking — style, IOO, kolomme, watermerk</a></li>
+          <li><a href="grade10/practical/presentations.html"><span class="tl-plain"></span>Aanbiedinge (PAT, plus ~15% van V1)</a></li>
+        </ul>
+      </div>
+      <div class="term-col"><div class="term-col-title">Teorie</div>
+        <ul class="term-links">
+          <li><a href="grade10/theory/networks.html"><span class="tl-dot"></span>Netwerke (PAN/HAN, toestelle, ISP, Internettoegang)</a></li>
+          <li><a href="grade10/theory/internet.html"><span class="tl-dot"></span>Internet &amp; WWW, E-Kommunikasie</a></li>
+          <li><a href="grade10/theory/social.html"><span class="tl-plain"></span>Maatskaplik (digitale burgerskap, POPIA, EMW)</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="term-block">
+    <div class="term-header"><div class="term-num">4</div><div><div class="term-title">Kwartaal 4 — Grafieke, PAT Fase 2 &amp; Finale Eksamen</div><div class="term-subtitle">Assessering: SBA Taak 6 — Eindejaareksamen (V1 120 + V2 120). PAT Fase 2 voltooi (100 punte).</div></div></div>
+    <div class="term-body">
+      <div class="term-col"><div class="term-col-title">Prakties (Oplossingsontwikkeling)</div>
+        <ul class="term-links">
+          <li><a href="grade10/practical/spreadsheets.html"><span class="tl-dot"></span>Sigblaaie — grafieke/diagramme, integrasie, probleemoplossing</a></li>
+          <li><a href="grade10/practical/word-processing.html"><span class="tl-plain"></span>Word — hulp, integrasie, werk met dokumente</a></li>
+        </ul>
+      </div>
+      <div class="term-col"><div class="term-col-title">Teorie</div>
+        <ul class="term-links">
+          <li><a href="grade10/theory/social.html"><span class="tl-dot"></span>Maatskaplik (impak op samelewing, rekenaarmisdaad)</a></li>
+          <li><span style="font-size:.85rem;color:var(--muted);display:flex;gap:.4rem;align-items:center;padding:.2rem 0"><span class="tl-plain"></span>Inhoud met gevallestudies (alle onderwerpe — hersiening)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout exam">
+    <div class="callout-title">GRAAD 10 EKSAMENSTRUKTUUR</div>
+    <p><strong>Vraestel 1 (Prakties, 120 punte, 2.5 uur):</strong> Woordverwerking (~40%), Sigblaaie (~30%), Aanbiedinge (~15%), Algemeen/Integrasie (~15%).<br>
+    <strong>Vraestel 2 (Teorie, 120 punte, 2.5 uur):</strong> Kortvrae, Stelseltegnologie, Internet/Netwerk, Inligtingsbestuur, Maatskaplike Implikasies, Oplossingsontwikkeling.</p>
+  </div>
+</section>
+
+</div>
+</body>
+</html>

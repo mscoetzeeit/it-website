@@ -20,7 +20,8 @@ CAT_DIR = os.path.join(ROOT, "cat")
 GRADE_PAGES = {
     "10": {
         "colour": "#0d9488",   # teal-600
-        "desc":   "Word Processing, Spreadsheets, HTML, Hardware, Software, Networks, Internet & Social Implications",
+        "desc":    "Word Processing, Spreadsheets, HTML, Hardware, Software, Networks, Internet & Social Implications",
+        "desc_af": "Woordverwerking, Sigblaaie, HTML, Hardeware, Sagteware, Netwerke, Internet en Maatskaplike Implikasies",
         "chapters": [
             ("Practical (P1)", "grade10/practical/word-processing.html", "Word Processing"),
             ("Practical (P1)", "grade10/practical/spreadsheets.html",    "Spreadsheets"),
@@ -37,7 +38,8 @@ GRADE_PAGES = {
     },
     "11": {
         "colour": "#7c3aed",   # violet-600
-        "desc":   "Advanced Word, IF functions, Access Databases, HTML tables & links, LAN/WLAN, IoT, 4IR & Social Implications",
+        "desc":    "Advanced Word, IF functions, Access Databases, HTML tables & links, LAN/WLAN, IoT, 4IR & Social Implications",
+        "desc_af": "Gevorderde Word, IF-funksies, Access-databasisse, HTML-tabelle en -skakels, LAN/WLAN, IoT, 4IR en Maatskaplike Implikasies",
         "chapters": [
             ("Practical (P1)", "grade11/practical/word-processing.html", "Word Processing"),
             ("Practical (P1)", "grade11/practical/spreadsheets.html",    "Spreadsheets"),
@@ -53,7 +55,8 @@ GRADE_PAGES = {
     },
     "12": {
         "colour": "#b45309",   # amber-700
-        "desc":   "Nested IF & VLOOKUP, advanced Access, mail merge, WAN, cybercrime & buying decisions",
+        "desc":    "Nested IF & VLOOKUP, advanced Access, mail merge, WAN, cybercrime & buying decisions",
+        "desc_af": "Geneste IF en VLOOKUP, gevorderde Access, korrespondensie-samesmelting, WAN, kubermisdaad en aankoopbesluite",
         "chapters": [
             ("Practical (P1)", "grade12/practical/word-processing.html", "Word Processing"),
             ("Practical (P1)", "grade12/practical/spreadsheets.html",    "Spreadsheets"),
@@ -72,8 +75,9 @@ GRADE_PAGES = {
 MAIN_RE  = re.compile(r'<main class="content"[^>]*>(.*?)</main>', re.DOTALL)
 CRUMB_RE = re.compile(r'<div class="breadcrumb">.*?</div>', re.DOTALL)
 PNAV_RE  = re.compile(r'<div class="page-nav">.*?</div>\s*', re.DOTALL)
-# Rewrite relative paths so images still resolve when loaded from cat/
 IMG_RE   = re.compile(r'((?:\.\./)+)images/')
+# Match i18n spans: <span class="i18n" data-af="AF TEXT">EN TEXT</span>
+I18N_RE  = re.compile(r'<span class="i18n" data-af="([^"]*)">(.*?)</span>', re.DOTALL)
 
 
 def extract(path):
@@ -95,10 +99,24 @@ def extract(path):
     return body.strip()
 
 
-def build_grade(grade, info):
+def to_afrikaans(html):
+    """Replace every i18n span with its data-af (Afrikaans) value."""
+    return I18N_RE.sub(lambda m: m.group(1), html)
+
+
+def build_grade(grade, info, lang="en"):
     chapters  = []
     toc_rows  = []
     last_sub  = None
+
+    af = (lang == "af")
+
+    # Afrikaans sub-section labels
+    sub_labels = {
+        "Practical (P1)": "Prakties (V1)",
+        "Theory (P2)":    "Teorie (V2)",
+        "Year Planner":   "Jaarbeplanner",
+    }
 
     for i, (sub, path, title) in enumerate(info["chapters"]):
         cid  = "ch%02d" % i
@@ -106,28 +124,39 @@ def build_grade(grade, info):
         if not body:
             continue
 
+        if af:
+            body = to_afrikaans(body)
+
+        display_sub = sub_labels.get(sub, sub) if af else sub
+
         if sub != last_sub:
-            toc_rows.append('<li class="toc-sub">%s</li>' % sub)
+            toc_rows.append('<li class="toc-sub">%s</li>' % display_sub)
             last_sub = sub
+
+        # For Afrikaans TOC titles, pull from the page h1's data-af
         toc_rows.append('<li class="toc-item"><a href="#%s">%s</a></li>' % (cid, title))
 
+        grade_label = "Graad" if af else "Grade"
         chapters.append(
             '<section class="chapter" id="%s">\n'
-            '  <div class="chapter-tag">Grade %s &middot; %s</div>\n%s\n</section>'
-            % (cid, grade, sub, body)
+            '  <div class="chapter-tag">%s %s &middot; %s</div>\n%s\n</section>'
+            % (cid, grade_label, grade, display_sub, body)
         )
 
     toc_html      = "\n".join(toc_rows)
     chapters_html = "\n\n".join(chapters)
 
-    out = (TEMPLATE
+    template = TEMPLATE_AF if af else TEMPLATE_EN
+
+    out = (template
            .replace("{{GRADE}}",    grade)
            .replace("{{COLOUR}}",   info["colour"])
-           .replace("{{DESC}}",     info["desc"])
+           .replace("{{DESC}}",     info["desc_af"] if af else info["desc"])
            .replace("{{TOC}}",      toc_html)
            .replace("{{CHAPTERS}}", chapters_html))
 
-    out_name = "booklet-gr%s.html" % grade
+    suffix   = "-af" if af else ""
+    out_name = "booklet-gr%s%s.html" % (grade, suffix)
     out_path = os.path.join(CAT_DIR, out_name)
     with io.open(out_path, "w", encoding="utf-8") as fh:
         fh.write(out)
@@ -136,10 +165,11 @@ def build_grade(grade, info):
 
 def build():
     for grade in ("10", "11", "12"):
-        build_grade(grade, GRADE_PAGES[grade])
+        build_grade(grade, GRADE_PAGES[grade], lang="en")
+        build_grade(grade, GRADE_PAGES[grade], lang="af")
 
 
-TEMPLATE = u"""<!DOCTYPE html>
+TEMPLATE_EN = u"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -285,6 +315,126 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
   </section>
 
   <!-- CHAPTERS -->
+{{CHAPTERS}}
+
+</div>
+</body>
+</html>
+"""
+
+TEMPLATE_AF = u"""<!DOCTYPE html>
+<html lang="af">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Me Coetzee RTT - Graad {{GRADE}} Studieverwysing (Drukbare Boekie)</title>
+<style>
+/* ============ B&W PRINTABLE BOOKLET - GRAAD {{GRADE}} (AFRIKAANS) ============ */
+:root{ --ink:#111; --soft:#333; --faint:#555; --line:#888; --rule:#ccc; --panel:#f4f4f4; --head:#eaeaea; --grade:{{COLOUR}}; }
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ font-size:11.5pt; }
+body{
+  background:#fff; color:var(--ink);
+  font-family:'Segoe UI', system-ui, Arial, sans-serif;
+  line-height:1.55;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+a{ color:var(--ink); text-decoration:none; }
+@page{
+  size:A4;
+  margin:18mm 16mm 16mm 16mm;
+  @bottom-center{ content:counter(page); font-family:Arial,sans-serif; font-size:9pt; color:#555; }
+}
+.sheet{ max-width:760px; margin:0 auto; padding:24px; }
+.cover{ text-align:center; padding-top:22vh; page-break-after:always; break-after:page; }
+.cover .brand{ font-size:14pt; letter-spacing:.25em; text-transform:uppercase; color:var(--faint); }
+.cover .gradenum{ font-size:64pt; font-weight:800; color:var(--grade); line-height:1; margin:.3em 0 .1em; }
+.cover h1{ font-size:30pt; font-weight:800; letter-spacing:-.02em; line-height:1.1; margin:.1em 0 .3em; }
+.cover .sub{ font-size:13pt; color:var(--soft); max-width:30em; margin:0 auto 2.5em; }
+.cover .grades{ font-size:11pt; color:var(--faint); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); display:inline-block; padding:.6em 1.4em; }
+.cover .foot{ margin-top:3em; font-size:9.5pt; color:var(--faint); }
+.toc{ page-break-after:always; break-after:page; }
+.toc h2{ font-size:20pt; border-bottom:2px solid var(--grade); padding-bottom:.3em; margin-bottom:1em; }
+.toc ul{ list-style:none; }
+.toc-sub{ font-weight:700; font-size:9.5pt; text-transform:uppercase; letter-spacing:.08em; color:var(--faint); margin:1em 0 .3em; border-bottom:1px solid var(--rule); padding-bottom:.2em; }
+.toc-item{ margin:.12em 0 .12em 1.2em; font-size:10.5pt; }
+.toc-item a{ color:var(--ink); }
+.toc-item a::before{ content:"\\2022"; color:var(--line); margin-right:.6em; }
+.chapter{ page-break-before:always; break-before:page; }
+.chapter-tag{ font-size:8.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--grade); margin-bottom:.4em; }
+h1,h2,h3,h4,h5,h6{ break-after:avoid-page; break-inside:avoid-page; page-break-after:avoid; page-break-inside:avoid; }
+h1{ font-size:21pt; font-weight:800; letter-spacing:-.01em; line-height:1.15; margin-bottom:.35em; }
+h2{ font-size:15pt; font-weight:700; margin:1.4em 0 .5em; padding-bottom:.25em; border-bottom:1px solid var(--grade); }
+h3{ font-size:12.5pt; font-weight:700; margin:1em 0 .35em; }
+h4{ font-size:11pt; font-weight:700; margin:.9em 0 .3em; }
+p,li,td{ orphans:3; widows:3; }
+ul,ol{ margin:.4em 0 .8em 1.4em; }
+li{ margin-bottom:.2em; }
+strong{ font-weight:700; }
+em{ font-style:italic; }
+.grade-badge{ font-size:7.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.08em; border:1px solid var(--line); padding:.12em .45em; border-radius:3px; vertical-align:middle; margin-left:.4em; color:var(--soft); white-space:nowrap; }
+.page-intro{ font-size:11.5pt; color:var(--soft); margin-bottom:1.2em; padding-bottom:.8em; border-bottom:1px solid var(--rule); }
+.term-tag{ display:inline-block; font-size:7.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:.1em .5em; border-radius:3px; border:1px solid var(--line); color:var(--soft); margin-bottom:.6em; }
+.callout{ border:1px solid var(--rule); border-left:3px solid var(--grade); background:var(--panel); padding:.6em .9em; margin:.9em 0; border-radius:0 4px 4px 0; page-break-inside:avoid; break-inside:avoid-page; }
+.callout-title{ font-size:8.5pt; font-weight:800; text-transform:uppercase; letter-spacing:.07em; color:var(--soft); margin-bottom:.3em; }
+.callout p,.callout ul{ margin:0; }
+.callout ul{ margin-left:1.2em; margin-top:.3em; }
+.tbl-wrap{ margin:.9em 0; overflow:visible; }
+table{ width:100%; border-collapse:collapse; font-size:9.5pt; page-break-inside:avoid; break-inside:avoid-page; }
+th{ background:var(--head); text-align:left; padding:.4em .6em; font-size:8.5pt; text-transform:uppercase; letter-spacing:.04em; color:var(--soft); border:1px solid var(--rule); }
+td{ padding:.4em .6em; border:1px solid var(--rule); vertical-align:top; }
+.def-grid{ display:grid; grid-template-columns:max-content 1fr; gap:.3em 1.2em; margin:.8em 0; }
+.def-term{ font-weight:700; }
+code{ font-family:'Consolas','Courier New',monospace; background:var(--panel); border:1px solid var(--rule); padding:0 .25em; border-radius:3px; font-size:.9em; }
+pre{ background:var(--panel); border:1px solid var(--rule); border-radius:4px; padding:.7em .9em; overflow:visible; white-space:pre-wrap; word-wrap:break-word; font-size:9pt; line-height:1.45; font-family:'Consolas','Courier New',monospace; margin:.9em 0; page-break-inside:avoid; break-inside:avoid-page; }
+img{ max-width:100%; height:auto; }
+.term-block{ border:1px solid var(--rule); border-radius:6px; margin-bottom:1.1em; overflow:hidden; page-break-inside:avoid; break-inside:avoid-page; }
+.term-header{ padding:.6em .9em; display:flex; align-items:center; gap:.8em; border-bottom:1px solid var(--rule); background:var(--panel); }
+.term-num{ font-size:15pt; font-weight:800; min-width:2em; color:var(--grade); }
+.term-title{ font-size:10.5pt; font-weight:700; }
+.term-subtitle{ font-size:8.5pt; color:var(--faint); margin-top:.1em; }
+.term-body{ display:grid; grid-template-columns:1fr 1fr; }
+.term-col{ padding:.7em .9em; }
+.term-col:first-child{ border-right:1px solid var(--rule); }
+.term-col-title{ font-size:8pt; text-transform:uppercase; letter-spacing:.07em; color:var(--faint); margin-bottom:.4em; font-weight:700; }
+.term-links{ list-style:none; margin:0; padding:0; }
+.term-links li{ margin-bottom:.2em; font-size:9pt; }
+.badge,.extra-tag{ display:inline-block; font-size:7.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:.1em .45em; border:1px solid var(--line); border-radius:3px; color:var(--soft); }
+.topnav,.sidebar,.breadcrumb,.page-nav,.prev-next-nav{ display:none !important; }
+svg{ max-width:100%; height:auto; }
+svg text{ fill:#111 !important; }
+svg [fill]{ fill:#fff; }
+svg [stroke]{ stroke:#222; }
+svg rect,svg polygon,svg ellipse,svg circle,svg path,svg line,svg polyline{ stroke:#333; }
+svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
+@media print{
+  .sheet{ max-width:none; padding:0; }
+  a{ color:var(--ink) !important; }
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- VOORBLAD -->
+  <section class="cover">
+    <div class="brand">Me Coetzee &middot; Rekenaartoepassingstegnologie</div>
+    <div class="gradenum">{{GRADE}}</div>
+    <h1>Graad {{GRADE}} Studieverwysing</h1>
+    <p class="sub">{{DESC}}</p>
+    <div class="grades">Prakties (V1) &nbsp;&bull;&nbsp; Teorie (V2) &nbsp;&bull;&nbsp; Jaarbeplanner</div>
+    <div class="foot">KABV-belyn &middot; Drukbare boekie-uitgawe</div>
+  </section>
+
+  <!-- INHOUDSOPGAWE -->
+  <section class="toc">
+    <h2>Inhoud &mdash; Graad {{GRADE}}</h2>
+    <ul>
+{{TOC}}
+    </ul>
+  </section>
+
+  <!-- HOOFSTUKKE -->
 {{CHAPTERS}}
 
 </div>
