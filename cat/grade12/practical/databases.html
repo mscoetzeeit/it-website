@@ -125,6 +125,21 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <li><span class="i18n" data-af="Op die Data-tab, vind"> On the Data tab, find</span> <strong>Record Source</strong> <span class="i18n" data-af="→ klik aftrekmenu → kies ander tabel of navraag"> → click dropdown → choose different table or query</span></li>
     </ol>
 
+    <h2><span class="i18n" data-af="Datatipes en Validering Aflei uit Gegewe Data">Deducing Data Types and Validation from Given Data</span></h2>
+    <p><span class="i18n" data-af="'n Vraag sal jou nie altyd presies vertel watter datatipe of valideringsreël om te gebruik nie. Jy moet dikwels na 'n voorbeeld in die tabel kyk en self aflei watter datatipe/reël pas.">A question won't always tell you exactly which data type or validation rule to use. You often need to look at a sample in the table and deduce for yourself which data type/rule fits.</span></p>
+    <div class="tbl-wrap"><table>
+      <tr><th><span class="i18n" data-af="Voorbeelddata gegee">Sample data given</span></th><th><span class="i18n" data-af="Afgeleide datatipe">Deduced data type</span></th><th><span class="i18n" data-af="Rede">Reason</span></th></tr>
+      <tr><td>"08"</td><td>Short Text</td><td><span class="i18n" data-af="Voorloop-nul (08) sal verlore gaan as dit as Number gestoor word — dit moet teks wees">A leading zero (08) would be lost if stored as Number — it must be text</span></td></tr>
+      <tr><td>2026-08-24</td><td>Date/Time</td><td><span class="i18n" data-af="Herkenbare datumformaat">Recognisable date format</span></td></tr>
+      <tr><td>R 450.00</td><td>Currency</td><td><span class="i18n" data-af="Geldwaarde met desimale">Monetary value with decimals</span></td></tr>
+      <tr><td><span class="i18n" data-af="Ja / Nee-kolom">Yes / No column</span></td><td>Yes/No</td><td><span class="i18n" data-af="Slegs twee moontlike waardes">Only two possible values</span></td></tr>
+      <tr><td>15, 16, 17 <span class="i18n" data-af="(ouderdomme tussen 13 en 19)">(ages between 13 and 19)</span></td><td><span class="i18n" data-af="Number, met Validation Rule">Number, with Validation Rule</span> <code>&gt;=13 And &lt;=19</code></td><td><span class="i18n" data-af="Die reeks van die voorbeelde wys die redelike grense">The range of the samples shows the reasonable limits</span></td></tr>
+    </table></div>
+    <div class="callout exam">
+      <div class="callout-title"><span class="i18n" data-af="EKSAMENWENK — DATA AFLEI">EXAM TIP — DEDUCING DATA</span></div>
+      <p><span class="i18n" data-af="As 'n vraag 'n paar rye voorbeelddata wys en vra &quot;watter datatipe/valideringsreël sal die mees geskikte wees?&quot;, kyk na: (1) is daar voorloop-nulle of spesiale karakters (→ Short Text); (2) is daar 'n herkenbare boonste/onderste grens (→ Number met Validation Rule); (3) is daar slegs twee opsies (→ Yes/No); (4) is dit 'n geldbedrag (→ Currency).">If a question shows a few rows of sample data and asks "which data type/validation rule would be most suitable?", look for: (1) leading zeros or special characters (→ Short Text); (2) a recognisable upper/lower limit (→ Number with Validation Rule); (3) only two options (→ Yes/No); (4) a monetary amount (→ Currency).</span></p>
+    </div>
+
     <h2><span class="i18n" data-af="Datavalidering in Tabelle">Data Validation in Tables</span></h2>
     <p><span class="i18n" data-af="Validering verseker dat slegs korrekte data ingetik kan word. Dink daaraan as 'n uitsmyter by die deur van elke veld — die"> Validation ensures only correct data can be entered. Think of it as a bouncer at the door of each field — the</span> <strong><span class="i18n" data-af="Validation Rule">Validation Rule</span></strong> <span class="i18n" data-af="besluit wat toegelaat word, en die"> decides what's allowed in, and the</span> <strong>Validation Text</strong> <span class="i18n" data-af="is die boodskap wat aan enigeen gewys word wat afgewys word:"> is the message shown to anyone turned away:</span></p>
     <div class="tbl-wrap"><table>

@@ -176,6 +176,30 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
       <p>Vir 'n Aftreklys is die volgorde waarin jy <strong>Add…</strong> klik die volgorde waarin die items in die lys verskyn — as die vraag sê &quot;in dalende volgorde&quot; (bv. Graad 12 af na Graad 8), voeg hulle in dié volgorde by, of gebruik <strong>Modify</strong> om 'n inskrywing na bo/onder te skuif.</p>
     </div>
 
+    <h3>Erfenis-hulpmiddels (Legacy Tools) — insluitend Radioknoppies</h3>
+    <p>Naas moderne inhoudsbeheer bied Word ook ouer, &quot;erfenis&quot;-vormvelde vanaf <strong>Developer → Legacy Tools</strong>. Hierdie word steeds in RTT-vrae oor elektroniese vorms gebruik en sluit <strong>radioknoppies</strong> in as deel van die GUI (grafiese gebruikerskoppelvlak).</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Erfenis-beheer</th><th>Waarvoor dit is</th></tr>
+      <tr><td>Teksvormveld</td><td>'n Eenvoudige blokkie vir vry teksinvoer op 'n vorm</td></tr>
+      <tr><td>Merkblokkie</td><td>Laat die gebruiker toe om een of meer opsies te merk (bv. &quot;Ek stem saam&quot;)</td></tr>
+      <tr><td>Radioknoppie</td><td>Laat die gebruiker toe om slegs EEN opsie uit 'n groep te kies (bv. Manlik / Vroulik) — anders as merkblokkies waar meer as een gemerk kan word</td></tr>
+      <tr><td>Aftreklys (erfenis)</td><td>Dieselfde idee as die moderne Aftreklys-inhoudsbeheer</td></tr>
+    </table></div>
+    <div class="callout">
+      <div class="callout-title">RADIOKNOPPIES vs MERKBLOKKIES</div>
+      <p>Radioknoppies word in 'n groep gebruik waar slegs EEN keuse geldig is (bv. geslag, ja/nee). Merkblokkies word gebruik waar MEER as een opsie tegelyk gekies kan word (bv. &quot;Kies al die vakke wat jy neem&quot;).</p>
+    </div>
+
+    <h3>Elektroniese/Aanlyn Vorms — Data Insamel</h3>
+    <p>Naas vorms binne 'n Word-dokument kan data ook via elektroniese/aanlyn vorms ingesamel word, soos <strong>Microsoft Forms</strong> of <strong>Google Forms</strong>. Hierdie is webgebaseerde vorms wat 'n skakel deel — respondente vul dit in 'n blaaier in en die antwoorde word outomaties in 'n sigblad ingesamel, gereed om te ontleed.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Kenmerk</th><th>Beskrywing</th></tr>
+      <tr><td>Deel van die vorm</td><td>'n Skakel word gegenereer wat na respondente via e-pos, sosiale media of 'n QR-kode gestuur kan word</td></tr>
+      <tr><td>Antwoorde</td><td>Word outomaties in 'n gekoppelde sigblad (Excel/Google Sheets) versamel, gereed vir ontleding</td></tr>
+      <tr><td>Vraagtipes</td><td>Meerkeusevrae, kortantwoord, gradering, datum, lêeroplaai, ens.</td></tr>
+      <tr><td>Koste</td><td>Beide is gratis om te gebruik met 'n Microsoft- of Google-rekening</td></tr>
+    </table></div>
+
     <h2>Gevorderde E-Pos-Samesmelting — Meervoudige Databronne</h2>
     <p>In Graad 12 brei e-pos-samesmelting-databronne verder uit as Word-tabelle en Excel:</p>
     <div class="tbl-wrap"><table>
@@ -230,6 +254,14 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
     <ul>
       <li>References → Cross-reference → kies Reference type (Heading, Figure, Table, Bookmark) en Insert reference to (Page number, Heading text, ens.)</li>
       <li>Wanneer die dokument verander, selekteer alles (Ctrl+A) en druk dan F9 om alle kruisverwysings by te werk</li>
+    </ul>
+
+    <h3>Figuurlys (Table of Figures)</h3>
+    <p>'n Figuurlys werk soos 'n Inhoudsopgawe, maar vir figure/prente in plaas van opskrifte. Dit lys elke geskrewe skrif (caption) outomaties, saam met die bladsynommer waarop dit voorkom.</p>
+    <ul>
+      <li>Elke prent moet eers 'n skrif (caption) hê: regsklik die prent → Insert Caption</li>
+      <li>Plaas die wyser waar die lys moet verskyn → References → Insert Table of Figures</li>
+      <li>Om by te werk nadat prente bygevoeg/verwyder is: regsklik die lys → Update Field → Update entire table</li>
     </ul>
 
     <h2>Wysigingspoor</h2>
@@ -330,6 +362,18 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
     <div class="callout tip">
       <div class="callout-title">HAKIES TEL</div>
       <p>Elke IF het 'n sluitende hakie nodig. Met 3 geneste IF's benodig jy 3 sluitende hakies <code>)))</code> aan die einde. Tel: een ) vir elke IF wat oopgemaak is.</p>
+    </div>
+
+    <h3>IFS-Funksie (opsioneel)</h3>
+    <p>IFS is 'n nuwer funksie wat dieselfde resultaat as 'n geneste IF gee, maar sonder om IF-funksies binne-in mekaar te nes. Dit toets elke voorwaarde in volgorde en gee die waarde vir die eerste een wat WAAR is. IFS en XLOOKUP is opsioneel — hulle is slegs beskikbaar vir skole wat Microsoft 365 gebruik.</p>
+    <div class="code-block">
+      <div class="code-label">IFS</div>
+      <pre>=<span class="fn">IFS</span>(<span class="ref">B2</span>&gt;=80, <span class="str">"Distinction"</span>, <span class="ref">B2</span>&gt;=60, <span class="str">"Merit"</span>, <span class="ref">B2</span>&gt;=50, <span class="str">"Pass"</span>, <span class="ref">B2</span>&lt;50, <span class="str">"Fail"</span>)
+<span class="hcmt">&lt;-- same result as the nested IF above, but flatter and easier to read --&gt;</span></pre>
+    </div>
+    <div class="callout">
+      <div class="callout-title">Geneste IF vs IFS</div>
+      <p>Geneste IF werk in <strong>alle</strong> weergawes van Excel; IFS werk slegs in Microsoft 365/Excel 2019 en later. Vir eksamendoeleindes kan enige een gebruik word tensy die vraag spesifiek een vereis — maar as jou skool nie Microsoft 365 gebruik nie, sal IFS nie beskikbaar wees om te toets nie.</p>
     </div>
 
     <h3>AND / OR-Funksies</h3>
@@ -494,7 +538,13 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
       <tr><td><code class="fn">CONCATENATE</code></td><td>=CONCATENATE(t1,t2…) or &amp;</td><td>=A2&amp;" "&amp;B2</td><td>Jane Smith</td></tr>
       <tr><td><code class="fn">FIND</code></td><td>=FIND(find_text, within_text)</td><td>=FIND("o","Town")</td><td>2 (posisie van &quot;o&quot;)</td></tr>
       <tr><td><code class="fn">VALUE</code></td><td>=VALUE(text)</td><td>=VALUE("123")</td><td>123 (getal)</td></tr>
+      <tr><td><code class="fn">UPPER</code></td><td>=UPPER(text)</td><td>=UPPER("cape town")</td><td>CAPE TOWN</td></tr>
+      <tr><td><code class="fn">LOWER</code></td><td>=LOWER(text)</td><td>=LOWER("CAPE TOWN")</td><td>cape town</td></tr>
     </table></div>
+    <div class="callout">
+      <div class="callout-title">UPPER / LOWER</div>
+      <p>UPPER skakel alle letters in 'n teksstring na HOOFLETTERS om; LOWER skakel alles na kleinletters om. Albei is nuttig om inskrywings te standaardiseer voordat jy dit vergelyk (bv. &quot;Cape Town&quot; en &quot;CAPE TOWN&quot; sal nie as gelyk uitgeken word in 'n presiese vergelyking nie, tensy jy eers UPPER of LOWER toepas).</p>
+    </div>
 
     <h2>Datum- en Tydfunksies</h2>
     <div class="tbl-wrap"><table>
@@ -691,6 +741,21 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <li>Kyk na die Property Sheet: Design → Property Sheet (F4)</li>
       <li>Op die Data-tab, vind <strong>Record Source</strong> → klik aftrekmenu → kies ander tabel of navraag</li>
     </ol>
+
+    <h2>Datatipes en Validering Aflei uit Gegewe Data</h2>
+    <p>'n Vraag sal jou nie altyd presies vertel watter datatipe of valideringsreël om te gebruik nie. Jy moet dikwels na 'n voorbeeld in die tabel kyk en self aflei watter datatipe/reël pas.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Voorbeelddata gegee</th><th>Afgeleide datatipe</th><th>Rede</th></tr>
+      <tr><td>"08"</td><td>Short Text</td><td>Voorloop-nul (08) sal verlore gaan as dit as Number gestoor word — dit moet teks wees</td></tr>
+      <tr><td>2026-08-24</td><td>Date/Time</td><td>Herkenbare datumformaat</td></tr>
+      <tr><td>R 450.00</td><td>Currency</td><td>Geldwaarde met desimale</td></tr>
+      <tr><td>Ja / Nee-kolom</td><td>Yes/No</td><td>Slegs twee moontlike waardes</td></tr>
+      <tr><td>15, 16, 17 (ouderdomme tussen 13 en 19)</td><td>Number, met Validation Rule <code>&gt;=13 And &lt;=19</code></td><td>Die reeks van die voorbeelde wys die redelike grense</td></tr>
+    </table></div>
+    <div class="callout exam">
+      <div class="callout-title">EKSAMENWENK — DATA AFLEI</div>
+      <p>As 'n vraag 'n paar rye voorbeelddata wys en vra &quot;watter datatipe/valideringsreël sal die mees geskikte wees?&quot;, kyk na: (1) is daar voorloop-nulle of spesiale karakters (→ Short Text); (2) is daar 'n herkenbare boonste/onderste grens (→ Number met Validation Rule); (3) is daar slegs twee opsies (→ Yes/No); (4) is dit 'n geldbedrag (→ Currency).</p>
+    </div>
 
     <h2>Datavalidering in Tabelle</h2>
     <p>Validering verseker dat slegs korrekte data ingetik kan word. Dink daaraan as 'n uitsmyter by die deur van elke veld — die <strong>Validation Rule</strong> besluit wat toegelaat word, en die <strong>Validation Text</strong> is die boodskap wat aan enigeen gewys word wat afgewys word:</p>
@@ -987,6 +1052,13 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <li><strong>Toegewyde GPU</strong>: nodig vir speletjies, video-redigering, 3D-ontwerp, masjienleer; het sy eie VRAM</li>
     </ul>
 
+    <h3>Nuwe Hardewaretegnologieë</h3>
+    <div class="def-grid">
+      <div class="def-term">Kaartleser</div><div class="def-desc">'n Toestel wat aan 'n rekenaar gekoppel word om data van verskillende stoormedia te lees, soos SIM- en SD-kaarte en flitsaandrywers.</div>
+      <div class="def-term">Multi-raak-skerm</div><div class="def-desc">'n Skermkenmerk wat toelaat dat meer as een raakpunt gelyktydig geregistreer word — maak gebare soos knyp-om-te-zoem en twee-vinger-blaai moontlik.</div>
+      <div class="def-term">HDMI</div><div class="def-desc">High-Definition Multimedia Interface — 'n standaard/poort vir die koppeling van hoë-definisie video-toestelle soos rekenaarmonitors, video-projektore en digitale televisies. HDMI dra hoë-kwaliteit video ÉN oudiosein saam — daar is nie 'n aparte oudiokabel soos met VGA nodig nie.</div>
+    </div>
+
     <div class="term-tag t1">Kwartaal 1</div>
     <h2>Randapparaattoestelle Kies</h2>
     <h3>Drukkers — Welke om te Kies?</h3>
@@ -1261,6 +1333,10 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <tr><td><strong>WiMAX</strong></td><td>10–70 Mbps</td><td>Draadlose breëband oor groter areas as Wi-Fi; gebruik in plattelandse areas</td></tr>
       <tr><td><strong>Satelliet</strong></td><td>10–100+ Mbps</td><td>Dekking oral; hoë latensie; duur; nuttig in afgeleë areas (Starlink)</td></tr>
     </table></div>
+    <div class="callout">
+      <div class="callout-title">STANDAARDE VIR DRAADLOSE KOMMUNIKASIE — 5G EN 6G</div>
+      <p>5G en 6G is standaarde wat hoëspoed-dataoordrag tussen sellulêre toestelle (soos slimfone en tablette) en INVs bied. Elke nuwe generasie — 5G, dan 6G — verhoog die kapasiteit en spoed van die vorige mobiele verbinding.</p>
+    </div>
 
     <div class="term-tag t2">Kwartaal 2</div>
     <h2>INV — Internetdiensverskaffer</h2>
@@ -1370,6 +1446,18 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <tr><td>Vertaler</td><td>Vertaal volledige webbladsye</td><td>Google Translate-uitbreiding</td></tr>
       <tr><td>Skermleser</td><td>Lees webinhoud hardop vir visueel-gestremde gebruikers</td><td>ChromeVox</td></tr>
     </table></div>
+    <div class="callout">
+      <div class="callout-title">URL-VERKORTER</div>
+      <p>'n Instrument of diens, soos TinyURL.com, wat 'n lang URL na 'n korter weergawe omskep. Hierdie korter weergawe van die URL neem 'n gebruiker na dieselfde webadres, maar is makliker om te onthou en/of uit te tik.</p>
+    </div>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Internet van Dinge en Opkomende Tegnologieë</h2>
+    <div class="def-grid">
+      <div class="def-term">Internet van Dinge (IoT)</div><div class="def-desc">Verwys na die neiging waar allerhande soorte voorwerpe en toestelle toenemend met mekaar verbind word via die internet. Dit kan wissel van bewakingstelsels tot geisers, wasmasjiene, 'slim' voertuie en verkeersligte. Verskeie sensors in die toestelle kan data vir allerhande doeleindes produseer, insluitend diagnostiek en die doeltreffender bedryf van stelsels.</div>
+      <div class="def-term">Outonome voertuie</div><div class="def-desc">'n Selfbesturende motor, ook bekend as 'n outonome voertuig of robo-kar, is 'n voertuig wat sy omgewing kan waarneem en veilig kan beweeg met min of geen menslike toevoer nie.</div>
+      <div class="def-term">Dronetegnologie</div><div class="def-desc">'n Droon is 'n onbemande vliegtuig. In wese is 'n droon 'n vliegende robot wat op afstand beheer kan word of outonoom kan vlieg deur sagteware-beheerde vlugplanne in hul ingebedde stelsels, saam met boordsensors en GPS. Hulle word wyd gebruik in landbou, fotografie, wildbewaring, pakkiebesorging, ens.</div>
+    </div>
 
     <div class="term-tag t3">Kwartaal 3</div>
     <h2>Gebruike van Rekenaarkommunikasie</h2>
@@ -1501,6 +1589,14 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <tr><td>Gereelde rugsteune</td><td>Herstel data indien getref deur gyselsagteware (3-2-1-reël)</td></tr>
     </table></div>
 
+    <h3>Toestelvergrendeling en Verifikasie</h3>
+    <div class="def-grid">
+      <div class="def-term">Skermsluitpatroon</div><div class="def-desc">'n Manier om 'n toestel te sluit deur 'n patroon op te stel wat jy moet teken of natrek op die skerm om die toestel te ontsluit.</div>
+      <div class="def-term">Twee-faktor-/twee-stap-verifikasie</div><div class="def-desc">Sluit die gebruik in van CAPTCHA, OTP (eenmalige wagwoord) en ApproveIt-boodskappe.</div>
+      <div class="def-term">CAPTCHA</div><div class="def-desc">'n Toets (bv. verwronge teks of beeldkeuse) wat verifieer dat 'n mens en nie 'n bot die stelsel gebruik nie.</div>
+      <div class="def-term">OTP</div><div class="def-desc">Eenmalige pin/wagwoord — 'n kode wat na jou foon of e-pos gestuur word en slegs een keer gebruik kan word om aan te meld.</div>
+    </div>
+
     <div class="term-tag t3">Kwartaal 3</div>
     <h2>Impak van Sosiale Netwerke en Tegnologie</h2>
     <div class="def-grid">
@@ -1520,6 +1616,7 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <div class="def-term">E-pendel / Afstandswerk</div><div class="def-desc">Werk vanaf die huis/enige plek via die internet in plaas daarvan om na 'n kantoor te reis</div>
       <div class="def-term">E-leer</div><div class="def-desc">Aanlyn-onderwys — kursusse, lesings en assesserings digitaal gelewer</div>
       <div class="def-term">Gigis-ekonomie</div><div class="def-desc">Korttermyn, buigsame werk via platforms (Uber, vryskutwerk); gedesentraliseerde arbeid</div>
+      <div class="def-term">BYOD</div><div class="def-desc">Bring jou eie toestel (Bring Your Own Device) verwys na 'n konsep waar werknemers/studente toegelaat word om hul eie draagbare toestelle, soos slimfone, skootrekenaars en tablette, te bring en te gebruik om te werk en die netwerk te benader in plaas van 'n toestel wat deur die maatskappy/instelling verskaf word.</div>
     </div>
     <div class="tbl-wrap"><table>
       <tr><th>Voordele van afstandswerk</th><th>Nadele van afstandswerk</th></tr>
@@ -1528,6 +1625,22 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <tr><td>Wyer talentpoel vir werkgewers</td><td>Vereis betroubare internet en toerusting</td></tr>
       <tr><td>Laer kantoorkostes</td><td>Sekuriteitsrisiko's by toegang tot maatskappydata op afstand</td></tr>
     </table></div>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Groot Data, KI en die 4de Industriële Revolusie</h2>
+    <div class="def-grid">
+      <div class="def-term">Groot data (big data)</div><div class="def-desc">Baie groot, gestruktureerde en ongestruktureerde datastelle wat met rekenaars ontleed word om tendense en verbande te openbaar. Hierdie stel uitdagings soos berging, kuratering, bevraging en visualisering.</div>
+      <div class="def-term">Mobiele of M-Leer</div><div class="def-desc">'n Vorm van onderwys en opleiding wat via die internet gelewer en aangebied word deur mobiele toestelle, soos tablette en slimfone. Dit is ontwerp om buigsaam te wees, wat leerders/werkers/studente toelaat om enige tyd, enige plek toegang tot onderwys te verkry.</div>
+      <div class="def-term">Virtuele realiteit (VR)</div><div class="def-desc">Verwys na die gebruik van tegnologie om 'n simulasie van 'n 3D-omgewing te skep waarmee 'n persoon op 'n oënskynlik werklike of fisiese manier kan omgaan. Dit word bereik deur toerusting soos helms en handskoene toegerus met sensors te gebruik.</div>
+      <div class="def-term">Aangevulde realiteit (AR)</div><div class="def-desc">Gebruik soortgelyke tegnologie as VR, maar skep nie 'n heeltemal virtuele omgewing soos VR nie. In plaas daarvan neem dit die fisiese wêreld en voeg (vermeerder) voorwerpe, soos grafika, binne die werklike wêreld by. Beide VR en AR word gebruik in areas wat wissel van vermaak (bv. die aangevulde realiteitspeletjie Pokémon GO), opleiding in vliegtuigsimulators, en gesondheidsorg (bv. 'n toepassing wat gebruik word om are uit te lig wanneer 'n drupnaald ingesit word, of chirurge wat afstandschirurgie op pasiënte kan uitvoer).</div>
+      <div class="def-term">KI (kunsmatige intelligensie)</div><div class="def-desc">Verwys na die simulasie van menslike intelligensie in masjiene wat geprogrammeer is om soos mense te dink en hul optrede na te boots, veral eienskappe wat met 'n menslike verstand geassosieer word, soos leer en probleemoplossing. Masjienleer is die studie van rekenaaralgoritmes wat outomaties verbeter deur ervaring en die gebruik van data. Dit word beskou as deel van kunsmatige intelligensie.</div>
+      <div class="def-term">4IR</div><div class="def-desc">Die 4de Industriële Revolusie is 'n manier om die vervaging van grense tussen die fisiese, digitale en biologiese wêrelde te beskryf. Dit is 'n mengsel van vooruitgang in kunsmatige intelligensie (KI), robotika, die Internet van Dinge (IoT), 3D-druk, genetiese ingenieurswese, kwantum-rekenaars en ander tegnologieë. Dit skep baie produkte en dienste wat vinnig noodsaaklik word vir die moderne lewe en is die kollektiewe krag agter die ontwrigting van byna elke besigheidsektor.</div>
+      <div class="def-term">5IR</div><div class="def-desc">Die 5de Industriële Revolusie loop en ontwikkel saam met 4IR en gebruik die voordele wat 4IR bring om die fokus terug op mense en menslike strewe te plaas — dit definieer die etiek en impak van tegnologie wat in die 4IR ontwikkel is.</div>
+    </div>
+    <div class="callout exam">
+      <div class="callout-title">EKSAMENWENK — VR vs AR</div>
+      <p>VR (virtuele realiteit) skep 'n <strong>volledig virtuele</strong> omgewing wat die werklike wêreld vervang. AR (aangevulde realiteit) voeg digitale voorwerpe <strong>bo-op</strong> die werklike wêreld — jy sien steeds jou omgewing. Onthou: Pokémon GO = AR (jy sien jou kamera se werklike beeld met 'n karakter bo-oor); volledige gesimuleerde speletjiewêreld met 'n VR-bril = VR.</p>
+    </div>
 
     <div class="term-tag t3">Kwartaal 3</div>
     <h2>Hoe Tegnologie die Samelewing kan Bevoordeel of Benadeel</h2>

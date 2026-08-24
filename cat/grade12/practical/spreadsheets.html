@@ -49,6 +49,18 @@
       <p><span class="i18n" data-af="Elke IF het 'n sluitende hakie nodig. Met 3 geneste IF's benodig jy 3 sluitende hakies <code>)))</code> aan die einde. Tel: een ) vir elke IF wat oopgemaak is.">Each IF needs a closing bracket. With 3 nested IFs, you need 3 closing brackets <code>)))</code> at the end. Count: one ) for each IF opened.</span></p>
     </div>
 
+    <h3><span class="i18n" data-af="IFS-Funksie (opsioneel)">IFS Function (optional)</span></h3>
+    <p><span class="i18n" data-af="IFS is 'n nuwer funksie wat dieselfde resultaat as 'n geneste IF gee, maar sonder om IF-funksies binne-in mekaar te nes. Dit toets elke voorwaarde in volgorde en gee die waarde vir die eerste een wat WAAR is. IFS en XLOOKUP is opsioneel — hulle is slegs beskikbaar vir skole wat Microsoft 365 gebruik.">IFS is a newer function that gives the same result as a nested IF, but without nesting IF functions inside one another. It tests each condition in order and returns the value for the first one that is TRUE. IFS and XLOOKUP are optional — they can only be used by schools using Microsoft 365.</span></p>
+    <div class="code-block">
+      <div class="code-label">IFS</div>
+      <pre>=<span class="fn">IFS</span>(<span class="ref">B2</span>&gt;=80, <span class="str">"Distinction"</span>, <span class="ref">B2</span>&gt;=60, <span class="str">"Merit"</span>, <span class="ref">B2</span>&gt;=50, <span class="str">"Pass"</span>, <span class="ref">B2</span>&lt;50, <span class="str">"Fail"</span>)
+<span class="hcmt">&lt;-- same result as the nested IF above, but flatter and easier to read --&gt;</span></pre>
+    </div>
+    <div class="callout">
+      <div class="callout-title"><span class="i18n" data-af="Geneste IF vs IFS">Nested IF vs IFS</span></div>
+      <p><span class="i18n" data-af="Geneste IF werk in <strong>alle</strong> weergawes van Excel; IFS werk slegs in Microsoft 365/Excel 2019 en later. Vir eksamendoeleindes kan enige een gebruik word tensy die vraag spesifiek een vereis — maar as jou skool nie Microsoft 365 gebruik nie, sal IFS nie beskikbaar wees om te toets nie.">Nested IF works in <strong>all</strong> versions of Excel; IFS only works in Microsoft 365/Excel 2019 and later. Either can be used for exam purposes unless the question specifically requires one — but if your school doesn't use Microsoft 365, IFS won't be available to test.</span></p>
+    </div>
+
     <h3><span class="i18n" data-af="AND / OR-Funksies">AND / OR Functions</span></h3>
     <div class="code-block">
       <div class="code-label">AND and OR</div>
@@ -211,7 +223,13 @@
       <tr><td><code class="fn">CONCATENATE</code></td><td>=CONCATENATE(t1,t2…) or &amp;</td><td>=A2&amp;" "&amp;B2</td><td>Jane Smith</td></tr>
       <tr><td><code class="fn">FIND</code></td><td>=FIND(find_text, within_text)</td><td>=FIND("o","Town")</td><td><span class="i18n" data-af="2 (posisie van &quot;o&quot;)">2 (position of "o")</span></td></tr>
       <tr><td><code class="fn">VALUE</code></td><td>=VALUE(text)</td><td>=VALUE("123")</td><td><span class="i18n" data-af="123 (getal)">123 (number)</span></td></tr>
+      <tr><td><code class="fn">UPPER</code></td><td>=UPPER(text)</td><td>=UPPER("cape town")</td><td>CAPE TOWN</td></tr>
+      <tr><td><code class="fn">LOWER</code></td><td>=LOWER(text)</td><td>=LOWER("CAPE TOWN")</td><td>cape town</td></tr>
     </table></div>
+    <div class="callout">
+      <div class="callout-title">UPPER / LOWER</div>
+      <p><span class="i18n" data-af="UPPER skakel alle letters in 'n teksstring na HOOFLETTERS om; LOWER skakel alles na kleinletters om. Albei is nuttig om inskrywings te standaardiseer voordat jy dit vergelyk (bv. &quot;Cape Town&quot; en &quot;CAPE TOWN&quot; sal nie as gelyk uitgeken word in 'n presiese vergelyking nie, tensy jy eers UPPER of LOWER toepas).">UPPER converts every letter in a text string to UPPERCASE; LOWER converts everything to lowercase. Both are useful for standardising entries before comparing them (e.g. "Cape Town" and "CAPE TOWN" won't be recognised as equal in an exact comparison unless you apply UPPER or LOWER first).</span></p>
+    </div>
 
     <h2><span class="i18n" data-af="Datum- en Tydfunksies">Date and Time Functions</span></h2>
     <div class="tbl-wrap"><table>
