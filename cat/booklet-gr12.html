@@ -418,6 +418,30 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
       <p><span class="i18n" data-af="Mees algemene VLOOKUP-foute: (1) nie absolute verwysing gebruik vir table_array ($E$2:$G$20) nie — dit skuif wanneer dit gekopieer word; (2) verkeerde col_index-nommer — tel van LINKS van die table_array, nie van kolom A; (3) gebruik van TRUE in plaas van FALSE vir presiese treffer — gebruik altyd FALSE in RTT tensy anders aangedui.">Most common VLOOKUP mistakes: (1) not using absolute reference for table_array ($E$2:$G$20) — it shifts when copied; (2) wrong col_index number — count from the LEFT of the table_array, not from column A; (3) using TRUE instead of FALSE for exact match — always use FALSE in CAT unless told otherwise.</span></p>
     </div>
 
+    <h3><span class="i18n" data-af="XLOOKUP">XLOOKUP</span></h3>
+    <p><span class="i18n" data-af="XLOOKUP is die moderne plaasvervanger vir VLOOKUP. Dit kan in enige rigting soek, vereis geen kolomnommer nie, en gee 'n meer leesbare formule.">XLOOKUP is the modern replacement for VLOOKUP. It can search in any direction, requires no column number, and produces a more readable formula.</span></p>
+    <div class="code-block">
+      <div class="code-label">XLOOKUP</div>
+      <pre>=<span class="fn">XLOOKUP</span>(lookup_value, lookup_array, return_array, [if_not_found])
+
+=<span class="fn">XLOOKUP</span>(<span class="ref">B2</span>, <span class="ref">$E$2:$E$20</span>, <span class="ref">$G$2:$G$20</span>)
+<span class="hcmt">&lt;-- searches E2:E20 for the value in B2, returns the matching value from G2:G20</span>
+
+=<span class="fn">XLOOKUP</span>(<span class="ref">B2</span>, <span class="ref">$E$2:$E$20</span>, <span class="ref">$G$2:$G$20</span>, <span class="str">"Not found"</span>)
+<span class="hcmt">&lt;-- same, but shows "Not found" instead of an error if no match exists</span></pre>
+    </div>
+    <div class="tbl-wrap"><table>
+      <tr><th></th><th>VLOOKUP</th><th>XLOOKUP</th></tr>
+      <tr><td><span class="i18n" data-af="Rigting">Direction</span></td><td><span class="i18n" data-af="Altyd na regs">Always right</span></td><td><span class="i18n" data-af="Enige rigting">Any direction</span></td></tr>
+      <tr><td><span class="i18n" data-af="Kolomnommer">Column number</span></td><td><span class="i18n" data-af="Vereis">Required</span></td><td><span class="i18n" data-af="Nie nodig nie">Not needed</span></td></tr>
+      <tr><td><span class="i18n" data-af="Nie-gevind-waarde">Not-found value</span></td><td><span class="i18n" data-af="Gebruik IFERROR">Use IFERROR</span></td><td><span class="i18n" data-af="Ingeboude 4de argument">Built-in 4th argument</span></td></tr>
+      <tr><td><span class="i18n" data-af="Kolomme invoeging">Column insertion</span></td><td><span class="i18n" data-af="Breek formule">Breaks formula</span></td><td><span class="i18n" data-af="Gee steeds korrekte data terug">Still returns correct data</span></td></tr>
+    </table></div>
+    <div class="callout exam">
+      <div class="callout-title"><span class="i18n" data-af="EKSAMENWENK — XLOOKUP">EXAM TIP — XLOOKUP</span></div>
+      <p><span class="i18n" data-af="Gebruik absolute verwysings ($) op beide lookup_array en return_array wanneer jy die funksie gaan kopieer. Die vierde argument (if_not_found) is opsioneel maar nuttig — gebruik dit as die vraag 'n boodskap soos &quot;Nie gevind&quot; vereis.">Use absolute references ($) on both the lookup_array and return_array when copying the function. The fourth argument (if_not_found) is optional but useful — include it if the question requires a message like "Not found".</span></p>
+    </div>
+
     <h3><span class="i18n" data-af="COUNTIFS en SUMIFS">COUNTIFS and SUMIFS</span></h3>
     <p><span class="i18n" data-af="Hierdie brei COUNTIF/SUMIF uit om meervoudige kriteria te ondersteun:">These extend COUNTIF/SUMIF to support multiple criteria:</span></p>
     <div class="code-block">
@@ -430,6 +454,59 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
 =<span class="fn">SUMIFS</span>(sum_range, criteria_range1, criteria1, criteria_range2, criteria2)
 =<span class="fn">SUMIFS</span>(<span class="ref">C2:C20</span>, <span class="ref">A2:A20</span>, <span class="str">"Cape Town"</span>, <span class="ref">B2:B20</span>, <span class="str">"&gt;100"</span>)
 <span class="hcmt">&lt;-- sums C where A = "Cape Town" AND B &gt; 100</span></pre>
+    </div>
+
+    <h3><span class="i18n" data-af="AVERAGEIF en AVERAGEIFS">AVERAGEIF and AVERAGEIFS</span></h3>
+    <p><span class="i18n" data-af="AVERAGEIF bereken die gemiddelde van selle wat aan 'n enkele voorwaarde voldoen. AVERAGEIFS doen dieselfde vir meervoudige voorwaardes — dieselfde patroon as COUNTIFS/SUMIFS.">AVERAGEIF calculates the average of cells that meet a single condition. AVERAGEIFS does the same for multiple conditions — same pattern as COUNTIFS/SUMIFS.</span></p>
+    <div class="code-block">
+      <div class="code-label">AVERAGEIF / AVERAGEIFS</div>
+      <pre><span class="hcmt">AVERAGEIF — one condition</span>
+=<span class="fn">AVERAGEIF</span>(range, criteria, [average_range])
+=<span class="fn">AVERAGEIF</span>(<span class="ref">A2:A20</span>, <span class="str">"Female"</span>, <span class="ref">B2:B20</span>)
+<span class="hcmt">&lt;-- averages B2:B20 only where A = "Female"</span>
+<span class="hcmt">   (if average_range is omitted, it averages the range itself)</span>
+
+<span class="hcmt">AVERAGEIFS — multiple conditions</span>
+=<span class="fn">AVERAGEIFS</span>(average_range, criteria_range1, criteria1, criteria_range2, criteria2)
+=<span class="fn">AVERAGEIFS</span>(<span class="ref">C2:C20</span>, <span class="ref">A2:A20</span>, <span class="str">"Grade 12"</span>, <span class="ref">B2:B20</span>, <span class="str">"&gt;=50"</span>)
+<span class="hcmt">&lt;-- averages C where A = "Grade 12" AND B &gt;= 50</span></pre>
+    </div>
+    <div class="tbl-wrap"><table>
+      <tr><th><span class="i18n" data-af="Funksie">Function</span></th><th><span class="i18n" data-af="Doel">Purpose</span></th><th><span class="i18n" data-af="Voorwaardes">Conditions</span></th></tr>
+      <tr><td><code>AVERAGEIF</code></td><td><span class="i18n" data-af="Gemiddeld met 1 voorwaarde">Average with 1 condition</span></td><td>1</td></tr>
+      <tr><td><code>AVERAGEIFS</code></td><td><span class="i18n" data-af="Gemiddeld met 2+ voorwaardes">Average with 2+ conditions</span></td><td>2+</td></tr>
+      <tr><td><code>COUNTIF / COUNTIFS</code></td><td><span class="i18n" data-af="Tel met 1 / meervoudige voorwaardes">Count with 1 / multiple conditions</span></td><td>1 / 2+</td></tr>
+      <tr><td><code>SUMIF / SUMIFS</code></td><td><span class="i18n" data-af="Som met 1 / meervoudige voorwaardes">Sum with 1 / multiple conditions</span></td><td>1 / 2+</td></tr>
+    </table></div>
+    <div class="callout">
+      <div class="callout-title"><span class="i18n" data-af="AVERAGEIF vs AVERAGEIFS — argoment-volgorde">AVERAGEIF vs AVERAGEIFS — argument order</span></div>
+      <p><span class="i18n" data-af="In AVERAGEIF kom die gemiddeld-reeks <em>laaste</em>: <code>=AVERAGEIF(criteria_range, criteria, average_range)</code>. In AVERAGEIFS kom dit <em>eerste</em>: <code>=AVERAGEIFS(average_range, criteria_range1, criteria1, …)</code>. Hierdie omgekeerde volgorde is 'n algemene eksamenfout.">In AVERAGEIF the average range comes <em>last</em>: <code>=AVERAGEIF(criteria_range, criteria, average_range)</code>. In AVERAGEIFS it comes <em>first</em>: <code>=AVERAGEIFS(average_range, criteria_range1, criteria1, …)</code>. This reversed order is a common exam mistake.</span></p>
+    </div>
+
+    <h3><span class="i18n" data-af="Jokertekens in Excel">Wildcards in Excel</span></h3>
+    <p><span class="i18n" data-af="Jokertekens is spesiale karakters wat gebruik word in kriteria vir funksies soos COUNTIF, COUNTIFS, SUMIF, AVERAGEIF en VLOOKUP om gedeeltelike treffers te soek.">Wildcards are special characters used in criteria for functions like COUNTIF, COUNTIFS, SUMIF, AVERAGEIF and VLOOKUP to search for partial matches.</span></p>
+    <div class="tbl-wrap"><table>
+      <tr><th><span class="i18n" data-af="Jokerteken">Wildcard</span></th><th><span class="i18n" data-af="Betekenis">Meaning</span></th><th><span class="i18n" data-af="Voorbeeld">Example</span></th><th><span class="i18n" data-af="Tref">Matches</span></th></tr>
+      <tr><td><code>*</code></td><td><span class="i18n" data-af="Enige aantal karakters (insluitend geen)">Any number of characters (including none)</span></td><td><code>"S*"</code></td><td>Smith, Sara, SA</td></tr>
+      <tr><td><code>*</code></td><td><span class="i18n" data-af="Eindig met">Ends with</span></td><td><code>"*son"</code></td><td>Jackson, Johnson, Wilson</td></tr>
+      <tr><td><code>*</code></td><td><span class="i18n" data-af="Bevat">Contains</span></td><td><code>"*an*"</code></td><td>January, Banana, Crane</td></tr>
+      <tr><td><code>?</code></td><td><span class="i18n" data-af="Enige enkele karakter">Any single character</span></td><td><code>"B?g"</code></td><td>Big, Bag, Bug</td></tr>
+      <tr><td><code>~*</code></td><td><span class="i18n" data-af="Letterlike asterisk (nie 'n jokerteken nie)">Literal asterisk (not a wildcard)</span></td><td><code>"~*"</code></td><td>* (only)</td></tr>
+    </table></div>
+    <div class="code-block">
+      <div class="code-label"><span class="i18n" data-af="Jokerteken-voorbeelde">Wildcard examples</span></div>
+      <pre><span class="hcmt">Count all cells starting with "Cape"</span>
+=<span class="fn">COUNTIF</span>(<span class="ref">A2:A20</span>, <span class="str">"Cape*"</span>)
+
+<span class="hcmt">Sum sales where product name contains "Pro"</span>
+=<span class="fn">SUMIF</span>(<span class="ref">A2:A20</span>, <span class="str">"*Pro*"</span>, <span class="ref">B2:B20</span>)
+
+<span class="hcmt">Average marks where name ends in "a"</span>
+=<span class="fn">AVERAGEIF</span>(<span class="ref">A2:A20</span>, <span class="str">"*a"</span>, <span class="ref">B2:B20</span>)</pre>
+    </div>
+    <div class="callout exam">
+      <div class="callout-title"><span class="i18n" data-af="EKSAMENWENK — JOKERTEKENS">EXAM TIP — WILDCARDS</span></div>
+      <p><span class="i18n" data-af="Jokertekens werk slegs in teks-kriteria binne COUNTIF, COUNTIFS, SUMIF, SUMIFS, AVERAGEIF en AVERAGEIFS — nie in getallevergelykings soos &quot;&gt;=50&quot; nie. VLOOKUP aanvaar ook * en ? in die lookup_value. Gebruik altyd aanhalingstekens rondom die jokertekenkriteria: <code>&quot;Cape*&quot;</code>, nie <code>Cape*</code>.">Wildcards only work in text criteria inside COUNTIF, COUNTIFS, SUMIF, SUMIFS, AVERAGEIF and AVERAGEIFS — not in number comparisons like <code>"&gt;=50"</code>. VLOOKUP also accepts * and ? in the lookup_value. Always wrap wildcard criteria in quotes: <code>"Cape*"</code>, not <code>Cape*</code>.</span></p>
     </div>
 
     <h3><span class="i18n" data-af="ROUNDUP en ROUNDDOWN">ROUNDUP and ROUNDDOWN</span></h3>

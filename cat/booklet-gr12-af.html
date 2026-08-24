@@ -385,6 +385,30 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
       <p>Mees algemene VLOOKUP-foute: (1) nie absolute verwysing gebruik vir table_array ($E$2:$G$20) nie — dit skuif wanneer dit gekopieer word; (2) verkeerde col_index-nommer — tel van LINKS van die table_array, nie van kolom A; (3) gebruik van TRUE in plaas van FALSE vir presiese treffer — gebruik altyd FALSE in RTT tensy anders aangedui.</p>
     </div>
 
+    <h3>XLOOKUP</h3>
+    <p>XLOOKUP is die moderne plaasvervanger vir VLOOKUP. Dit kan in enige rigting soek, vereis geen kolomnommer nie, en gee 'n meer leesbare formule.</p>
+    <div class="code-block">
+      <div class="code-label">XLOOKUP</div>
+      <pre>=<span class="fn">XLOOKUP</span>(lookup_value, lookup_array, return_array, [if_not_found])
+
+=<span class="fn">XLOOKUP</span>(<span class="ref">B2</span>, <span class="ref">$E$2:$E$20</span>, <span class="ref">$G$2:$G$20</span>)
+<span class="hcmt">&lt;-- searches E2:E20 for the value in B2, returns the matching value from G2:G20</span>
+
+=<span class="fn">XLOOKUP</span>(<span class="ref">B2</span>, <span class="ref">$E$2:$E$20</span>, <span class="ref">$G$2:$G$20</span>, <span class="str">"Not found"</span>)
+<span class="hcmt">&lt;-- same, but shows "Not found" instead of an error if no match exists</span></pre>
+    </div>
+    <div class="tbl-wrap"><table>
+      <tr><th></th><th>VLOOKUP</th><th>XLOOKUP</th></tr>
+      <tr><td>Rigting</td><td>Altyd na regs</td><td>Enige rigting</td></tr>
+      <tr><td>Kolomnommer</td><td>Vereis</td><td>Nie nodig nie</td></tr>
+      <tr><td>Nie-gevind-waarde</td><td>Gebruik IFERROR</td><td>Ingeboude 4de argument</td></tr>
+      <tr><td>Kolomme invoeging</td><td>Breek formule</td><td>Gee steeds korrekte data terug</td></tr>
+    </table></div>
+    <div class="callout exam">
+      <div class="callout-title">EKSAMENWENK — XLOOKUP</div>
+      <p>Gebruik absolute verwysings ($) op beide lookup_array en return_array wanneer jy die funksie gaan kopieer. Die vierde argument (if_not_found) is opsioneel maar nuttig — gebruik dit as die vraag 'n boodskap soos &quot;Nie gevind&quot; vereis.</p>
+    </div>
+
     <h3>COUNTIFS en SUMIFS</h3>
     <p>Hierdie brei COUNTIF/SUMIF uit om meervoudige kriteria te ondersteun:</p>
     <div class="code-block">
@@ -397,6 +421,59 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
 =<span class="fn">SUMIFS</span>(sum_range, criteria_range1, criteria1, criteria_range2, criteria2)
 =<span class="fn">SUMIFS</span>(<span class="ref">C2:C20</span>, <span class="ref">A2:A20</span>, <span class="str">"Cape Town"</span>, <span class="ref">B2:B20</span>, <span class="str">"&gt;100"</span>)
 <span class="hcmt">&lt;-- sums C where A = "Cape Town" AND B &gt; 100</span></pre>
+    </div>
+
+    <h3>AVERAGEIF en AVERAGEIFS</h3>
+    <p>AVERAGEIF bereken die gemiddelde van selle wat aan 'n enkele voorwaarde voldoen. AVERAGEIFS doen dieselfde vir meervoudige voorwaardes — dieselfde patroon as COUNTIFS/SUMIFS.</p>
+    <div class="code-block">
+      <div class="code-label">AVERAGEIF / AVERAGEIFS</div>
+      <pre><span class="hcmt">AVERAGEIF — one condition</span>
+=<span class="fn">AVERAGEIF</span>(range, criteria, [average_range])
+=<span class="fn">AVERAGEIF</span>(<span class="ref">A2:A20</span>, <span class="str">"Female"</span>, <span class="ref">B2:B20</span>)
+<span class="hcmt">&lt;-- averages B2:B20 only where A = "Female"</span>
+<span class="hcmt">   (if average_range is omitted, it averages the range itself)</span>
+
+<span class="hcmt">AVERAGEIFS — multiple conditions</span>
+=<span class="fn">AVERAGEIFS</span>(average_range, criteria_range1, criteria1, criteria_range2, criteria2)
+=<span class="fn">AVERAGEIFS</span>(<span class="ref">C2:C20</span>, <span class="ref">A2:A20</span>, <span class="str">"Grade 12"</span>, <span class="ref">B2:B20</span>, <span class="str">"&gt;=50"</span>)
+<span class="hcmt">&lt;-- averages C where A = "Grade 12" AND B &gt;= 50</span></pre>
+    </div>
+    <div class="tbl-wrap"><table>
+      <tr><th>Funksie</th><th>Doel</th><th>Voorwaardes</th></tr>
+      <tr><td><code>AVERAGEIF</code></td><td>Gemiddeld met 1 voorwaarde</td><td>1</td></tr>
+      <tr><td><code>AVERAGEIFS</code></td><td>Gemiddeld met 2+ voorwaardes</td><td>2+</td></tr>
+      <tr><td><code>COUNTIF / COUNTIFS</code></td><td>Tel met 1 / meervoudige voorwaardes</td><td>1 / 2+</td></tr>
+      <tr><td><code>SUMIF / SUMIFS</code></td><td>Som met 1 / meervoudige voorwaardes</td><td>1 / 2+</td></tr>
+    </table></div>
+    <div class="callout">
+      <div class="callout-title">AVERAGEIF vs AVERAGEIFS — argoment-volgorde</div>
+      <p>In AVERAGEIF kom die gemiddeld-reeks <em>laaste</em>: <code>=AVERAGEIF(criteria_range, criteria, average_range)</code>. In AVERAGEIFS kom dit <em>eerste</em>: <code>=AVERAGEIFS(average_range, criteria_range1, criteria1, …)</code>. Hierdie omgekeerde volgorde is 'n algemene eksamenfout.</p>
+    </div>
+
+    <h3>Jokertekens in Excel</h3>
+    <p>Jokertekens is spesiale karakters wat gebruik word in kriteria vir funksies soos COUNTIF, COUNTIFS, SUMIF, AVERAGEIF en VLOOKUP om gedeeltelike treffers te soek.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Jokerteken</th><th>Betekenis</th><th>Voorbeeld</th><th>Tref</th></tr>
+      <tr><td><code>*</code></td><td>Enige aantal karakters (insluitend geen)</td><td><code>"S*"</code></td><td>Smith, Sara, SA</td></tr>
+      <tr><td><code>*</code></td><td>Eindig met</td><td><code>"*son"</code></td><td>Jackson, Johnson, Wilson</td></tr>
+      <tr><td><code>*</code></td><td>Bevat</td><td><code>"*an*"</code></td><td>January, Banana, Crane</td></tr>
+      <tr><td><code>?</code></td><td>Enige enkele karakter</td><td><code>"B?g"</code></td><td>Big, Bag, Bug</td></tr>
+      <tr><td><code>~*</code></td><td>Letterlike asterisk (nie 'n jokerteken nie)</td><td><code>"~*"</code></td><td>* (only)</td></tr>
+    </table></div>
+    <div class="code-block">
+      <div class="code-label">Jokerteken-voorbeelde</div>
+      <pre><span class="hcmt">Count all cells starting with "Cape"</span>
+=<span class="fn">COUNTIF</span>(<span class="ref">A2:A20</span>, <span class="str">"Cape*"</span>)
+
+<span class="hcmt">Sum sales where product name contains "Pro"</span>
+=<span class="fn">SUMIF</span>(<span class="ref">A2:A20</span>, <span class="str">"*Pro*"</span>, <span class="ref">B2:B20</span>)
+
+<span class="hcmt">Average marks where name ends in "a"</span>
+=<span class="fn">AVERAGEIF</span>(<span class="ref">A2:A20</span>, <span class="str">"*a"</span>, <span class="ref">B2:B20</span>)</pre>
+    </div>
+    <div class="callout exam">
+      <div class="callout-title">EKSAMENWENK — JOKERTEKENS</div>
+      <p>Jokertekens werk slegs in teks-kriteria binne COUNTIF, COUNTIFS, SUMIF, SUMIFS, AVERAGEIF en AVERAGEIFS — nie in getallevergelykings soos &quot;&gt;=50&quot; nie. VLOOKUP aanvaar ook * en ? in die lookup_value. Gebruik altyd aanhalingstekens rondom die jokertekenkriteria: <code>&quot;Cape*&quot;</code>, nie <code>Cape*</code>.</p>
     </div>
 
     <h3>ROUNDUP en ROUNDDOWN</h3>
