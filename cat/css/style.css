@@ -482,7 +482,7 @@ kbd {
   padding: 1rem;
   text-align: center;
 }
-.figure svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+.figure svg, .figure img { max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 4px; }
 .figure figcaption {
   font-size: 0.8rem;
   color: var(--muted);
