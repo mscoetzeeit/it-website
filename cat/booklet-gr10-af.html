@@ -741,7 +741,52 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
       <tr><td><code class="ht">&lt;b&gt;</code></td><td><code class="ht">&lt;/b&gt;</code></td><td><strong>Vetdruk</strong> teks</td></tr>
       <tr><td><code class="ht">&lt;i&gt;</code></td><td><code class="ht">&lt;/i&gt;</code></td><td><em>Kursief</em> teks</td></tr>
       <tr><td><code class="ht">&lt;u&gt;</code></td><td><code class="ht">&lt;/u&gt;</code></td><td><u>Onderstreepte</u> teks</td></tr>
+      <tr><td><code class="ht">&lt;ul&gt;</code></td><td><code class="ht">&lt;/ul&gt;</code></td><td>Ongeordende lys — omhul kolpunt-lysitems</td></tr>
+      <tr><td><code class="ht">&lt;ol&gt;</code></td><td><code class="ht">&lt;/ol&gt;</code></td><td>Geordende lys — omhul genommerde lysitems</td></tr>
+      <tr><td><code class="ht">&lt;li&gt;</code></td><td><code class="ht">&lt;/li&gt;</code></td><td>Lysitem — elke item binne 'n ul of ol</td></tr>
     </table></div>
+
+    <h2>Lyste: Ongeordende en Geordende</h2>
+    <p>Lyste laat jou toe om items onder mekaar te vertoon, elk met 'n kolpunt of 'n nommer. Elke lysitem word geskryf met <code class="ht">&lt;li&gt;</code>…<code class="ht">&lt;/li&gt;</code>, en die hele lys word omhul deur óf <code class="ht">&lt;ul&gt;</code> (ongeordend) óf <code class="ht">&lt;ol&gt;</code> (geordend).</p>
+
+    <h3>Ongeordende lyste — &lt;ul&gt;</h3>
+    <p>'n <code class="ht">&lt;ul&gt;</code> (unordered list) vertoon elke item met 'n <strong>kolpunt (•)</strong>. Gebruik dit wanneer die volgorde van items nie saak maak nie.</p>
+    <div class="code-block">
+      <div class="code-label">Ongeordende lys voorbeeld</div>
+      <pre><span class="ht">&lt;ul&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Maths<span class="ht">&lt;/li&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Science<span class="ht">&lt;/li&gt;</span>
+  <span class="ht">&lt;li&gt;</span>CAT<span class="ht">&lt;/li&gt;</span>
+<span class="ht">&lt;/ul&gt;</span></pre>
+    </div>
+    <p>Dit vertoon as:</p>
+    <ul>
+      <li>Maths</li>
+      <li>Science</li>
+      <li>CAT</li>
+    </ul>
+
+    <h3>Geordende lyste — &lt;ol&gt;</h3>
+    <p>'n <code class="ht">&lt;ol&gt;</code> (ordered list) vertoon elke item met 'n <strong>volgnommer (1, 2, 3…)</strong> in plaas van 'n kolpunt. Gebruik dit wanneer die volgorde belangrik is, soos stappe wat in 'n bepaalde volgorde gedoen moet word.</p>
+    <div class="code-block">
+      <div class="code-label">Geordende lys voorbeeld</div>
+      <pre><span class="ht">&lt;ol&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Open Notepad++<span class="ht">&lt;/li&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Type your HTML code<span class="ht">&lt;/li&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Save the file as .html<span class="ht">&lt;/li&gt;</span>
+<span class="ht">&lt;/ol&gt;</span></pre>
+    </div>
+    <p>Dit vertoon as:</p>
+    <ol>
+      <li>Open Notepad++</li>
+      <li>Type your HTML code</li>
+      <li>Save the file as .html</li>
+    </ol>
+
+    <div class="callout">
+      <div class="callout-title">&lt;ul&gt; teenoor &lt;ol&gt; — die verskil</div>
+      <p><code class="ht">&lt;ul&gt;</code> (ongeordende lys) gee kolpunte <strong>(• • •)</strong>, terwyl <code class="ht">&lt;ol&gt;</code> (geordende lys) outomaties nommers gee <strong>(1. 2. 3.)</strong> — jy hoef nie self die nommers te tik nie, die blaaier doen dit. In beide gevalle word elke item geskryf met <code class="ht">&lt;li&gt;</code>.</p>
+    </div>
 
     <h2>Attribute</h2>
     <p>Attribute voeg ekstra inligting by 'n tag. Hulle gaan binne die openingstag as <code>name="value"</code> -pare.</p>
@@ -1438,6 +1483,8 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
       <div class="def-term">Modem</div><div class="def-desc">Modulator-Demodulator — skakel digitale seine om na analoog en terug; verbind die plaaslike netwerk aan die Internet via 'n ISP</div>
       <div class="def-term">Router</div><div class="def-desc">Stuur datapakkies tussen verskillende netwerke; verbind jou huis-/skoolnetwerk aan die Internet; word dikwels met 'n modem gekombineer</div>
       <div class="def-term">Switch</div><div class="def-desc">Verbind toestelle binne 'n LAN; stuur data slegs aan die bedoelde toestel (meer doeltreffend as 'n hub)</div>
+      <div class="def-term">Server</div><div class="def-desc">'n Kragtige sentrale rekenaar wat dienste en hulpbronne (lêers, drukwerk, sagteware) aan kliëntrekenaars op die netwerk verskaf</div>
+      <div class="def-term">Client</div><div class="def-desc">'n Rekenaar wat dienste of hulpbronne by 'n bediener aanvra en ontvang, bv. dit vra 'n lêer, webblad of drukwerktaak by die bediener aan</div>
     </div>
 
     <div class="term-tag t2">Kwartaal 2</div>

@@ -100,13 +100,17 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
     <div class="tbl-wrap"><table>
       <tr><th><span class="i18n" data-af="Afdeling">Section</span></th><th><span class="i18n" data-af="Verskyn">Appears</span></th><th><span class="i18n" data-af="Gebruik vir">Used for</span></th></tr>
       <tr><td>Report Header</td><td><span class="i18n" data-af="Boonste van verslag (een keer)">Top of report (once)</span></td><td><span class="i18n" data-af="Verslagtitel, logo, datum">Report title, logo, date</span></td></tr>
-      <tr><td>Page Header</td><td><span class="i18n" data-af="Boonste van elke bladsy">Top of each page</span></td><td><span class="i18n" data-af="Kolomopskrifte">Column headings</span></td></tr>
+      <tr><td>Page Header</td><td><span class="i18n" data-af="Boonste van elke bladsy">Top of each page</span></td><td><span class="i18n" data-af="Kolomopskrifte, en enige logo/beeld wat op ELKE gedrukte bladsy moet herhaal">Column headings, and any logo/image that should repeat on EVERY printed page</span></td></tr>
       <tr><td>[Group] Header</td><td><span class="i18n" data-af="Begin van elke groep">Start of each group</span></td><td><span class="i18n" data-af="Groepnaam/-etiket">Group name/label</span></td></tr>
       <tr><td>Detail</td><td><span class="i18n" data-af="Elke individuele rekord">Each individual record</span></td><td><span class="i18n" data-af="Rydata">Row data</span></td></tr>
       <tr><td>[Group] Footer</td><td><span class="i18n" data-af="Einde van elke groep">End of each group</span></td><td><span class="i18n" data-af="Groepsubtotale">Group subtotals</span></td></tr>
       <tr><td>Page Footer</td><td><span class="i18n" data-af="Onderkant van elke bladsy">Bottom of each page</span></td><td><span class="i18n" data-af="Bladsynommer">Page number</span></td></tr>
       <tr><td>Report Footer</td><td><span class="i18n" data-af="Onderkant van verslag (een keer)">Bottom of report (once)</span></td><td><span class="i18n" data-af="Groottotale">Grand totals</span></td></tr>
     </table></div>
+    <div class="callout tip">
+      <div class="callout-title"><span class="i18n" data-af="REPORT HEADER teenoor PAGE HEADER — 'n gewilde verwarring">REPORT HEADER vs PAGE HEADER — a common confusion</span></div>
+      <p><span class="i18n" data-af="Dit is maklik om hierdie twee deurmekaar te maak. Die <strong>Report Header</strong> druk slegs <strong>EEN KEER</strong>, heel bo-aan die eerste bladsy — dit is waar 'n voorbladlogo of verslagtitel hoort, iets wat jy nie wil hê moet op elke bladsy herhaal nie. Die <strong>Page Header</strong> druk aan die bokant van <strong>ELKE</strong> bladsy — as die vraag vra vir 'n logo of beeld wat op elke gedrukte bladsy moet verskyn (nie net die eerste een nie), moet dit in die Page Header geplaas word, nie die Report Header nie.">It's easy to mix these two up. The <strong>Report Header</strong> only prints <strong>ONCE</strong>, right at the top of the first page — this is where a cover-page logo or report title belongs, something you do NOT want repeated on every page. The <strong>Page Header</strong> prints at the top of <strong>EVERY</strong> page — if the question asks for a logo or image that must appear on every printed page (not just the first), it must be placed in the Page Header, not the Report Header.</span></p>
+    </div>
 
     <h3><span class="i18n" data-af="Berekeninge in Groep-onderskrif">Calculations in Group Footer</span></h3>
     <div class="code-block">

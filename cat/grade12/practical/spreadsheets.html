@@ -33,6 +33,24 @@
       <p style="margin-top:.5em"><strong><span class="i18n" data-af="Eksamenwaarskuwing:">Exam warning:</span></strong> <span class="i18n" data-af="As die vraag vra vir 'n <strong>formule</strong> en jy tik 'n funksie soos <code>=SUM</code>, <strong>sal jy punte verloor</strong> — selfs al is die antwoord numeries korrek. Lees die vraag noukeurig: die woord <em>formule</em> beteken jy moet operatore gebruik; die woord <em>funksie</em> beteken jy mag 'n ingeboude naam gebruik.">If the question asks for a <strong>formula</strong> and you type a function like <code>=SUM</code>, you <strong>will lose marks</strong> — even if the numeric answer is correct. Read the question carefully: the word <em>formula</em> means you must use operators; the word <em>function</em> means you may use a built-in name.</span></p>
     </div>
 
+    <h2><span class="i18n" data-af="Opfrissing: COUNT teenoor COUNTA">Refresher: COUNT vs COUNTA</span></h2>
+    <p><span class="i18n" data-af="Voordat ons by die gevorderde funksies kom, 'n vinnige opfrissing van Graad 10/11-werk wat steeds in Graad 12-eksamens getoets word: <code>COUNT</code> tel slegs selle wat GETALLE bevat; <code>COUNTA</code> tel ALLE nie-leë selle (getalle, teks, datums — enigiets behalwe 'n werklik leë sel).">Before we get into the advanced functions, a quick refresher of Grade 10/11 work that Grade 12 exams still test: <code>COUNT</code> counts only cells containing NUMBERS; <code>COUNTA</code> counts ALL non-empty cells (numbers, text, dates — anything except a truly blank cell).</span></p>
+    <div class="code-block">
+      <div class="code-label"><span class="i18n" data-af="COUNT teenoor COUNTA — dieselfde reeks, verskillende resultate">COUNT vs COUNTA — same range, different results</span></div>
+      <pre><span class="hcmt">Range A1:A6 contains: 85, "Absent", 72, (blank), 90, "N/A"</span>
+=<span class="fn">COUNT</span>(<span class="ref">A1:A6</span>)   <span class="hcmt">&lt;-- 3 (only counts the numbers: 85, 72, 90)</span>
+=<span class="fn">COUNTA</span>(<span class="ref">A1:A6</span>)  <span class="hcmt">&lt;-- 5 (counts everything that isn't empty: 85, "Absent", 72, 90, "N/A")</span></pre>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title"><span class="i18n" data-af="ONTHOU">REMEMBER</span></div>
+      <p><span class="i18n" data-af="<code>COUNT</code> = slegs getalle; <code>COUNTA</code> = enigiets wat nie leeg is nie.">COUNT = numbers only; COUNTA = anything that isn't empty.</span></p>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title"><span class="i18n" data-af="SELFORMAAT AS TEKS — behou voorloopnulle in selnommers">FORMAT CELLS AS TEXT — preserving leading zeros in phone numbers</span></div>
+      <p><span class="i18n" data-af="Wanneer jy 'n telefoon- of selnommer soos &quot;082 555 1234&quot; intik, sal Excel die voorloopnul laat val en dit as 'n getal behandel (dit word &quot;82 555 1234&quot;), tensy jy die kolom eers as <strong>Text</strong> formateer. Kies die kolom → <strong>Home → Number Format → Text</strong> → <em>voordat</em> jy die nommers intik. Dan bly &quot;082 555 1234&quot; presies soos getik.">When you type a phone or cell number like "082 555 1234", Excel will drop the leading zero and treat it as a number (it becomes "82 555 1234"), unless you format the column as <strong>Text</strong> first. Select the column → <strong>Home → Number Format → Text</strong> → <em>before</em> typing the numbers in. Then "082 555 1234" stays exactly as typed.</span></p>
+    </div>
+
     <h2><span class="i18n" data-af="Komplekse Funksies">Complex Functions</span></h2>
 
     <h3><span class="i18n" data-af="Geneste IF">Nested IF</span></h3>

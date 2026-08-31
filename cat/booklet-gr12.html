@@ -393,6 +393,24 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
       <p style="margin-top:.5em"><strong><span class="i18n" data-af="Eksamenwaarskuwing:">Exam warning:</span></strong> <span class="i18n" data-af="As die vraag vra vir 'n <strong>formule</strong> en jy tik 'n funksie soos <code>=SUM</code>, <strong>sal jy punte verloor</strong> — selfs al is die antwoord numeries korrek. Lees die vraag noukeurig: die woord <em>formule</em> beteken jy moet operatore gebruik; die woord <em>funksie</em> beteken jy mag 'n ingeboude naam gebruik.">If the question asks for a <strong>formula</strong> and you type a function like <code>=SUM</code>, you <strong>will lose marks</strong> — even if the numeric answer is correct. Read the question carefully: the word <em>formula</em> means you must use operators; the word <em>function</em> means you may use a built-in name.</span></p>
     </div>
 
+    <h2><span class="i18n" data-af="Opfrissing: COUNT teenoor COUNTA">Refresher: COUNT vs COUNTA</span></h2>
+    <p><span class="i18n" data-af="Voordat ons by die gevorderde funksies kom, 'n vinnige opfrissing van Graad 10/11-werk wat steeds in Graad 12-eksamens getoets word: <code>COUNT</code> tel slegs selle wat GETALLE bevat; <code>COUNTA</code> tel ALLE nie-leë selle (getalle, teks, datums — enigiets behalwe 'n werklik leë sel).">Before we get into the advanced functions, a quick refresher of Grade 10/11 work that Grade 12 exams still test: <code>COUNT</code> counts only cells containing NUMBERS; <code>COUNTA</code> counts ALL non-empty cells (numbers, text, dates — anything except a truly blank cell).</span></p>
+    <div class="code-block">
+      <div class="code-label"><span class="i18n" data-af="COUNT teenoor COUNTA — dieselfde reeks, verskillende resultate">COUNT vs COUNTA — same range, different results</span></div>
+      <pre><span class="hcmt">Range A1:A6 contains: 85, "Absent", 72, (blank), 90, "N/A"</span>
+=<span class="fn">COUNT</span>(<span class="ref">A1:A6</span>)   <span class="hcmt">&lt;-- 3 (only counts the numbers: 85, 72, 90)</span>
+=<span class="fn">COUNTA</span>(<span class="ref">A1:A6</span>)  <span class="hcmt">&lt;-- 5 (counts everything that isn't empty: 85, "Absent", 72, 90, "N/A")</span></pre>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title"><span class="i18n" data-af="ONTHOU">REMEMBER</span></div>
+      <p><span class="i18n" data-af="<code>COUNT</code> = slegs getalle; <code>COUNTA</code> = enigiets wat nie leeg is nie.">COUNT = numbers only; COUNTA = anything that isn't empty.</span></p>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title"><span class="i18n" data-af="SELFORMAAT AS TEKS — behou voorloopnulle in selnommers">FORMAT CELLS AS TEXT — preserving leading zeros in phone numbers</span></div>
+      <p><span class="i18n" data-af="Wanneer jy 'n telefoon- of selnommer soos &quot;082 555 1234&quot; intik, sal Excel die voorloopnul laat val en dit as 'n getal behandel (dit word &quot;82 555 1234&quot;), tensy jy die kolom eers as <strong>Text</strong> formateer. Kies die kolom → <strong>Home → Number Format → Text</strong> → <em>voordat</em> jy die nommers intik. Dan bly &quot;082 555 1234&quot; presies soos getik.">When you type a phone or cell number like "082 555 1234", Excel will drop the leading zero and treat it as a number (it becomes "82 555 1234"), unless you format the column as <strong>Text</strong> first. Select the column → <strong>Home → Number Format → Text</strong> → <em>before</em> typing the numbers in. Then "082 555 1234" stays exactly as typed.</span></p>
+    </div>
+
     <h2><span class="i18n" data-af="Komplekse Funksies">Complex Functions</span></h2>
 
     <h3><span class="i18n" data-af="Geneste IF">Nested IF</span></h3>
@@ -762,13 +780,17 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
     <div class="tbl-wrap"><table>
       <tr><th><span class="i18n" data-af="Afdeling">Section</span></th><th><span class="i18n" data-af="Verskyn">Appears</span></th><th><span class="i18n" data-af="Gebruik vir">Used for</span></th></tr>
       <tr><td>Report Header</td><td><span class="i18n" data-af="Boonste van verslag (een keer)">Top of report (once)</span></td><td><span class="i18n" data-af="Verslagtitel, logo, datum">Report title, logo, date</span></td></tr>
-      <tr><td>Page Header</td><td><span class="i18n" data-af="Boonste van elke bladsy">Top of each page</span></td><td><span class="i18n" data-af="Kolomopskrifte">Column headings</span></td></tr>
+      <tr><td>Page Header</td><td><span class="i18n" data-af="Boonste van elke bladsy">Top of each page</span></td><td><span class="i18n" data-af="Kolomopskrifte, en enige logo/beeld wat op ELKE gedrukte bladsy moet herhaal">Column headings, and any logo/image that should repeat on EVERY printed page</span></td></tr>
       <tr><td>[Group] Header</td><td><span class="i18n" data-af="Begin van elke groep">Start of each group</span></td><td><span class="i18n" data-af="Groepnaam/-etiket">Group name/label</span></td></tr>
       <tr><td>Detail</td><td><span class="i18n" data-af="Elke individuele rekord">Each individual record</span></td><td><span class="i18n" data-af="Rydata">Row data</span></td></tr>
       <tr><td>[Group] Footer</td><td><span class="i18n" data-af="Einde van elke groep">End of each group</span></td><td><span class="i18n" data-af="Groepsubtotale">Group subtotals</span></td></tr>
       <tr><td>Page Footer</td><td><span class="i18n" data-af="Onderkant van elke bladsy">Bottom of each page</span></td><td><span class="i18n" data-af="Bladsynommer">Page number</span></td></tr>
       <tr><td>Report Footer</td><td><span class="i18n" data-af="Onderkant van verslag (een keer)">Bottom of report (once)</span></td><td><span class="i18n" data-af="Groottotale">Grand totals</span></td></tr>
     </table></div>
+    <div class="callout tip">
+      <div class="callout-title"><span class="i18n" data-af="REPORT HEADER teenoor PAGE HEADER — 'n gewilde verwarring">REPORT HEADER vs PAGE HEADER — a common confusion</span></div>
+      <p><span class="i18n" data-af="Dit is maklik om hierdie twee deurmekaar te maak. Die <strong>Report Header</strong> druk slegs <strong>EEN KEER</strong>, heel bo-aan die eerste bladsy — dit is waar 'n voorbladlogo of verslagtitel hoort, iets wat jy nie wil hê moet op elke bladsy herhaal nie. Die <strong>Page Header</strong> druk aan die bokant van <strong>ELKE</strong> bladsy — as die vraag vra vir 'n logo of beeld wat op elke gedrukte bladsy moet verskyn (nie net die eerste een nie), moet dit in die Page Header geplaas word, nie die Report Header nie.">It's easy to mix these two up. The <strong>Report Header</strong> only prints <strong>ONCE</strong>, right at the top of the first page — this is where a cover-page logo or report title belongs, something you do NOT want repeated on every page. The <strong>Page Header</strong> prints at the top of <strong>EVERY</strong> page — if the question asks for a logo or image that must appear on every printed page (not just the first), it must be placed in the Page Header, not the Report Header.</span></p>
+    </div>
 
     <h3><span class="i18n" data-af="Berekeninge in Groep-onderskrif">Calculations in Group Footer</span></h3>
     <div class="code-block">
@@ -1119,7 +1141,17 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <li><strong><span class="i18n" data-af="Resolusie (resolution)">Resolution</span></strong><span class="i18n" data-af=": 1920×1080 (Volledige HD) standaard; 2560×1440 (QHD); 3840×2160 (4K)">: 1920×1080 (Full HD) standard; 2560×1440 (QHD); 3840×2160 (4K)</span></li>
       <li><strong><span class="i18n" data-af="Grootte">Size</span></strong><span class="i18n" data-af=": 24" standaard kantoor; 27"+ vir ontwerp; 32"+ vir kragtige gebruikers">: 24" standard office; 27"+ for design; 32"+ for power users</span></li>
       <li><strong><span class="i18n" data-af="Aspekverhouding">Aspect ratio</span></strong><span class="i18n" data-af=": 16:9 wyeskerm is standaard; ultra-wyd 21:9 vir multitaaking">: 16:9 widescreen is standard; ultrawide 21:9 for multi-tasking</span></li>
+      <li><strong><span class="i18n" data-af="Webkamera-resolusie">Webcam resolution</span></strong><span class="i18n" data-af=": word gemeet in megapixels (MP) eerder as pixelafmetings — 'n 1080p webkamera is ongeveer 2MP, 'n 4K webkamera ongeveer 8MP. Hoër megapixels = skerper videobeeld, belangrik wanneer 'n webkamera vir video-oproepe/videokonferensies gekies word.">: measured in megapixels (MP) rather than pixel dimensions — a 1080p webcam is roughly 2MP, a 4K webcam roughly 8MP. Higher megapixel count = sharper video image, important when choosing a webcam for video calls/conferencing.</span></li>
     </ul>
+
+    <h3><span class="i18n" data-af="Raakpaneel (Touchpad)">Touchpad</span></h3>
+    <p><span class="i18n" data-af="'n Raakpaneel is 'n plat, raaksensitiewe oppervlak wat ingebou is in 'n skootrekenaar, wat gebruik word om die wyser te beheer deur met 'n vinger daaroor te beweeg en gebare te gebruik (bv. twee-vinger-blaai, knyp-om-te-zoem).">A touchpad is a flat, touch-sensitive surface built into a laptop, used to control the cursor by moving a finger across it and using gestures (e.g. two-finger scroll, pinch-to-zoom).</span></p>
+    <div class="tbl-wrap"><table>
+      <tr><th><span class="i18n" data-af="Voordele bo 'n muis">Advantages over a mouse</span></th><th><span class="i18n" data-af="Nadele bo 'n muis">Disadvantages compared to a mouse</span></th></tr>
+      <tr><td><span class="i18n" data-af="Ingebou — geen ekstra hardeware nodig nie">Built-in — no extra hardware needed</span></td><td><span class="i18n" data-af="Minder presies vir detailwerk (bv. beeldredigering)">Less precise for detailed work (e.g. image editing)</span></td></tr>
+      <tr><td><span class="i18n" data-af="Draagbaar — maak deel van die skootrekenaar self uit">Portable — part of the laptop itself</span></td><td><span class="i18n" data-af="Kan minder gemaklik wees vir langdurige gebruik">Can be less comfortable for extended use</span></td></tr>
+      <tr><td><span class="i18n" data-af="Benodig geen ekstra lessenaarspasie nie">Requires no extra desk space</span></td><td><span class="i18n" data-af="Geen fisiese rolwieletjie nie">No physical scroll wheel</span></td></tr>
+    </table></div>
 
     <div class="term-tag t1"><span class="i18n" data-af="Kwartaal 1">Term 1</span></div>
     <h2><span class="i18n" data-af="Hardewarespesifikasies Interpreteer">Interpreting Hardware Specifications</span></h2>
@@ -1143,6 +1175,11 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
     </ul>
 
     <div class="term-tag t1"><span class="i18n" data-af="Kwartaal 1">Term 1</span></div>
+    <h2><span class="i18n" data-af="Beta-toetsing">Beta Testing</span></h2>
+    <p><span class="i18n" data-af="Beta-toetsing is 'n stadium van sagteware-toetsing waartydens 'n byna-finale weergawe van 'n program vrygestel word aan 'n beperkte groep regte gebruikers — buite die ontwikkelingspan — voordat dit amptelik en wyd vrygestel word.">Beta testing is a stage of software testing where a near-final version of a program is released to a limited group of real users — outside the development team — before it is officially released to the wider public.</span></p>
+    <p><span class="i18n" data-af="Dit is belangrik omdat dit foute en bruikbaarheidsprobleme opspoor op baie verskillende regte-wêreld toestelle en opstellings wat ontwikkelaars nie intern kon toets nie, en omdat dit terugvoer van gebruikers insamel voordat die amptelike bekendstelling plaasvind.">It matters because it catches bugs and usability issues across many different real-world devices and setups that developers could not test internally, and because it gathers user feedback before the official launch.</span></p>
+
+    <div class="term-tag t1"><span class="i18n" data-af="Kwartaal 1">Term 1</span></div>
     <h2><span class="i18n" data-af="Algemene Probleme Oplos">Troubleshooting Common Problems</span></h2>
     <div class="tbl-wrap"><table>
       <tr><th><span class="i18n" data-af="Probleem">Problem</span></th><th><span class="i18n" data-af="Moontlike Oorsaak">Possible Cause</span></th><th><span class="i18n" data-af="Oplossing">Solution</span></th></tr>
@@ -1153,6 +1190,11 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <tr><td><span class="i18n" data-af="Wasige/verkeerde resolusie">Blurry/incorrect resolution</span></td><td><span class="i18n" data-af="Vertoonstellings verkeerd; verkeerde drywer">Display settings wrong; wrong driver</span></td><td><span class="i18n" data-af="Settings → Display → verander resolusie; opdateer GPU-drywer">Settings → Display → change resolution; update GPU driver</span></td></tr>
       <tr><td><span class="i18n" data-af="Program reageer nie">Program not responding</span></td><td><span class="i18n" data-af="Sagteware-omval; onvoldoende RAM; drywerbotsing">Software crash; insufficient RAM; driver conflict</span></td><td><span class="i18n" data-af="Ctrl+Alt+Del → Taakbestuurder → Beëindig Taak; herbegin; opdateer drywer">Ctrl+Alt+Del → Task Manager → End Task; restart; update driver</span></td></tr>
     </table></div>
+
+    <div class="callout warning">
+      <div class="callout-title"><span class="i18n" data-af="Hou Antivirus-definisies Opgedateer">Keep Antivirus Definitions Updated</span></div>
+      <p><span class="i18n" data-af="Nuwe kwaadwillige sagteware word voortdurend geskep, en antivirus-sagteware kan slegs bedreigings opspoor waarvoor dit reeds 'n definisie (handtekening) het. Verouderde antivirus-sagteware gee dus 'n vals gevoel van sekuriteit — dit moet gereeld opgedateer word om effektief te bly. Sien <a href="social.html">Social Implications</a> vir die waarskuwingstekens dat 'n toestel met kwaadwillige sagteware besmet mag wees.">New malware is created constantly, and antivirus software can only detect threats it already has a definition (signature) for. Outdated antivirus software therefore gives a false sense of security — it must be updated regularly to stay effective. See <a href="social.html">Social Implications</a> for the warning signs that a device may be infected with malware.</span></p>
+    </div>
 
     <div class="callout exam">
       <div class="callout-title"><span class="i18n" data-af="EKSAMENWENK — &quot;Beveel Hardeware aan vir 'n Gebruiker&quot;-Vrae">EXAM TIP — "Recommend Hardware for a User" Questions</span></div>
@@ -1249,6 +1291,27 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
     <h3><span class="i18n" data-af="Taakbestuurder">Task Manager</span></h3>
     <p>Ctrl+Alt+Del → Task Manager. <span class="i18n" data-af="Laat jou toe om: alle lopende programme en prosesse te sien, nie-reagerende take te beëindig, CPU-/RAM-/skyf-/netwerkgebruik te monitor, opstartprogramme te bekyk.">Allows you to: see all running programs and processes, end unresponsive tasks, monitor CPU/RAM/disk/network usage, view startup programs.</span></p>
 
+    <h3><span class="i18n" data-af="GUI-aanpassing (Persoonlike Instellings)">GUI Customisation (Personalising the Interface)</span></h3>
+    <p><span class="i18n" data-af="Die grafiese gebruikerskoppelvlak (GUI) van 'n bedryfstelsel kan aangepas word sodat die rekenaar gemakliker, doeltreffender en meer toeganklik is vir 'n spesifieke gebruiker. Dit word gewoonlik gedoen via Settings → Personalize (of Ease of Access).">The graphical user interface (GUI) of an operating system can be personalised so the computer is more comfortable, efficient and accessible for a specific user. This is usually done via Settings → Personalize (or Ease of Access).</span></p>
+    <div class="def-grid">
+      <div class="def-term"><span class="i18n" data-af="Tema">Theme</span></div><div class="def-desc"><span class="i18n" data-af="Verander kleurskema en muurpapier (agtergrondbeeld) om die skerm meer aangenaam of persoonlik te maak">Changes the colour scheme and wallpaper (background image) to make the screen more pleasant or personal</span></div>
+      <div class="def-term"><span class="i18n" data-af="Taakbalk">Taskbar</span></div><div class="def-desc"><span class="i18n" data-af="Kan vergroot/verklein of na 'n ander kant van die skerm geskuif word; ikone kan bygevoeg of herrangskik word vir vinniger toegang tot gunsteling-programme">Can be resized or moved to a different side of the screen; icons can be added or rearranged for quicker access to favourite programs</span></div>
+      <div class="def-term"><span class="i18n" data-af="Ikoongrootte">Icon size</span></div><div class="def-desc"><span class="i18n" data-af="Vergroot of verklein lêer- en program-ikone op die lessenaar of in Verkenner vir beter leesbaarheid">Enlarges or shrinks file and program icons on the desktop or in File Explorer for better readability</span></div>
+      <div class="def-term"><span class="i18n" data-af="Toeganklikheidsinstellings">Accessibility settings</span></div><div class="def-desc"><span class="i18n" data-af="Groter teks, hoë-kontraskleure, groter muiswyser, en 'n narrator/skermleser vir gebruikers met visuele of ander gestremdhede">Larger text, high-contrast colours, a bigger cursor, and a narrator/screen reader for users with visual or other impairments</span></div>
+      <div class="def-term"><span class="i18n" data-af="Skermresolusie">Screen resolution</span></div><div class="def-desc"><span class="i18n" data-af="Verander die aantal pixels wat vertoon word — hoër resolusie = skerper beeld maar kleiner teks/ikone">Changes the number of pixels displayed — higher resolution = sharper image but smaller-looking text/icons</span></div>
+      <div class="def-term"><span class="i18n" data-af="Vertoonskalering">Display scaling</span></div><div class="def-desc"><span class="i18n" data-af="Vergroot teks, ikone en toepassings sonder om die resolusie te verander — nuttig op hoë-resolusie skerms waar alles andersins te klein sou wees">Enlarges text, icons and apps without changing the resolution — useful on high-resolution screens where everything would otherwise be too small</span></div>
+    </div>
+
+    <h3><span class="i18n" data-af="Basiese Bluetooth-probleemoplossing">Basic Bluetooth Troubleshooting</span></h3>
+    <p><span class="i18n" data-af="Wanneer 'n reeds-gepaarde Bluetooth-toestel (bv. 'n draadlose muis of oorfone) ophou reageer, probeer die volgende stappe in volgorde:">When a previously-paired Bluetooth device (e.g. a wireless mouse or headphones) stops responding, try the following steps in order:</span></p>
+    <ol>
+      <li><span class="i18n" data-af="Kontroleer die toestel se battery/krag — laai dit op of vervang die batterye">Check the device's battery/power — charge it or replace the batteries</span></li>
+      <li><span class="i18n" data-af="Maak seker die toestel is binne bereik (naby genoeg aan die rekenaar)">Make sure the device is within range (close enough to the computer)</span></li>
+      <li><span class="i18n" data-af="Skakel Bluetooth op die rekenaar af en dan weer aan">Turn Bluetooth off and then on again on the computer</span></li>
+      <li><span class="i18n" data-af="&quot;Vergeet&quot;/ontkoppel die toestel in Settings, en paar dit dan weer van voor af">"Forget"/unpair the device in Settings, then re-pair it from scratch</span></li>
+      <li><span class="i18n" data-af="Herbegin die rekenaar as die probleem steeds voortduur">Restart the computer if the problem still persists</span></li>
+    </ol>
+
     <div class="term-tag t3"><span class="i18n" data-af="Kwartaal 3">Term 3</span></div>
     <h2><span class="i18n" data-af="Bedryfstelsel-nutsprogramme">Operating System Utilities</span></h2>
     <div class="tbl-wrap"><table>
@@ -1277,6 +1340,20 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <tr><td><span class="i18n" data-af="Kwaadwillige sagteware">Malware</span></td><td><span class="i18n" data-af="Kwaadwillige sagteware gebruik CPU/RAM/netwerk in die agtergrond = stadiger stelsel">Malware uses CPU/RAM/network in background = slower system</span></td></tr>
       <tr><td><span class="i18n" data-af="Opstartprogramme">Startup programs</span></td><td><span class="i18n" data-af="Te veel programme begin saam met Windows = stadige selflaai; deaktiveer onnodige programme">Too many programs starting with Windows = slow boot; disable unnecessary ones</span></td></tr>
       <tr><td><span class="i18n" data-af="Oorverhitting">Overheating</span></td><td><span class="i18n" data-af="Swak ventilasie veroorsaak CPU-smoring = stadiger werkverrigting">Poor ventilation causes CPU throttling = slower performance</span></td></tr>
+    </table></div>
+
+    <h3><span class="i18n" data-af="Minimum vs Aanbevole Stelselvereistes">Minimum vs Recommended System Requirements</span></h3>
+    <p><span class="i18n" data-af="Sagteware word dikwels met twee stelle stelselvereistes gelys: die <strong>minimum</strong> vereistes en die <strong>aanbevole</strong> vereistes.">Software is often listed with two sets of system requirements: the <strong>minimum</strong> requirements and the <strong>recommended</strong> requirements.</span></p>
+    <div class="def-grid">
+      <div class="def-term"><span class="i18n" data-af="Minimum vereistes">Minimum requirements</span></div><div class="def-desc"><span class="i18n" data-af="Die laagste spesifikasies waarop die sagteware wel sal loop — maar moontlik stadig, met haperinge, of met sekere funksies afgeskakel">The lowest specifications the software will still run on — but possibly slowly, with lag, or with certain features disabled</span></div>
+      <div class="def-term"><span class="i18n" data-af="Aanbevole vereistes">Recommended requirements</span></div><div class="def-desc"><span class="i18n" data-af="Die spesifikasies benodig sodat die sagteware vlot loop met alle funksies en volle werkverrigting">The specifications needed for the software to run smoothly with all features and full performance</span></div>
+    </div>
+    <p><span class="i18n" data-af="As 'n stelsel slegs die minimum vereistes bevredig, kan die sagteware stadig loop, gereeld hang of omval, of gedwing word om sekere funksies af te skakel — bv. laer grafika-instellings in 'n speletjie, of intydse (real-time) funksies in 'n toepassing wat gedeaktiveer word om die las op die stelsel te verminder.">If a system only meets the minimum requirements, the software may run slowly, lag, crash more often, or be forced to disable certain features — e.g. lower graphics settings in a game, or real-time features in an app being switched off to reduce the load on the system.</span></p>
+    <div class="tbl-wrap"><table>
+      <tr><th></th><th><span class="i18n" data-af="Minimum">Minimum</span></th><th><span class="i18n" data-af="Aanbevole">Recommended</span></th></tr>
+      <tr><td><strong>RAM</strong></td><td>4 GB</td><td>16 GB</td></tr>
+      <tr><td><strong><span class="i18n" data-af="Skyfspasie">Storage space</span></strong></td><td>20 GB</td><td>100 GB (SSD)</td></tr>
+      <tr><td><strong><span class="i18n" data-af="Werkverrigting">Performance</span></strong></td><td><span class="i18n" data-af="Loop, maar stadig; funksies moontlik afgeskakel">Runs, but slowly; features possibly disabled</span></td><td><span class="i18n" data-af="Vlot loop met alle funksies aangeskakel">Runs smoothly with all features enabled</span></td></tr>
     </table></div>
 
     <div class="callout exam">
@@ -1356,7 +1433,6 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
     <div class="term-tag t2"><span class="i18n" data-af="Kwartaal 2">Term 2</span></div>
     <h2><span class="i18n" data-af="Internetdienste">Internet Services</span></h2>
     <div class="def-grid">
-      <div class="def-term"><span class="i18n" data-af="Onmiddellike boodskappe">Instant messaging</span></div><div class="def-desc"><span class="i18n" data-af="Werklike-tyd teksklets (WhatsApp, Telegram, Teams); voordeel: onmiddellik; nadeel: aanhoudende druk, aflei">Real-time text chat (WhatsApp, Telegram, Teams); advantage: immediate; disadvantage: always-on pressure, distraction</span></div>
       <div class="def-term">VoIP</div><div class="def-desc"><span class="i18n" data-af="Stemoproepe oor die internet (Skype, WhatsApp-oproepe); voordeel: gratis/goedkoop; nadeel: benodig internet, kwaliteit wisselend">Voice calls over Internet (Skype, WhatsApp calls); advantage: free/cheap; disadvantage: needs internet, quality varies</span></div>
       <div class="def-term"><span class="i18n" data-af="Lêerdeling">File sharing</span></div><div class="def-desc"><span class="i18n" data-af="Deel lêers via die wolk (Google Drive, OneDrive) of P2P; voordeel: maklik om saam te werk; nadeel: kopieregprobleme met P2P">Share files via cloud (Google Drive, OneDrive) or P2P; advantage: easy to collaborate; disadvantage: copyright issues with P2P</span></div>
       <div class="def-term"><span class="i18n" data-af="Roosterverwerking">Grid computing</span></div><div class="def-desc"><span class="i18n" data-af="Kombineer rekenaarkrag van baie rekenaars oor die internet om een komplekse probleem op te los (wetenskaplike navorsing)">Combines computing power of many computers over the internet to solve one complex problem (scientific research)</span></div>
@@ -1365,6 +1441,28 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <div class="def-term"><span class="i18n" data-af="Stroming">Streaming</span></div><div class="def-desc"><span class="i18n" data-af="Ontvang en speel media deurlopend in werklike tyd (Netflix, YouTube, Spotify) — geen aflaai nodig nie">Receiving and playing media continuously in real time (Netflix, YouTube, Spotify) — no download needed</span></div>
       <div class="def-term"><span class="i18n" data-af="Aflaai">Downloading</span></div><div class="def-desc"><span class="i18n" data-af="Stoor 'n volledige kopie van media/lêer na jou toestel voor gebruik">Saving a complete copy of media/file to your device before using it</span></div>
     </div>
+
+    <h3><span class="i18n" data-af="Onmiddellike Boodskappe (Instant Messaging)">Instant Messaging</span></h3>
+    <p><span class="i18n" data-af="Onmiddellike boodskappe (instant messaging) is werklike-tyd teksklets soos WhatsApp, Telegram en Teams. Dit is uitstekend geskik vir dringende of vinnige kommunikasie.">Instant messaging is real-time text chat such as WhatsApp, Telegram and Teams. It is well suited to urgent or quick communication.</span></p>
+    <div class="tbl-wrap"><table>
+      <tr><th><span class="i18n" data-af="Waarom dit werk vir Vinnige Kommunikasie">Why It Suits Quick Communication</span></th><th><span class="i18n" data-af="Nadele vir Formele/Belangrike Boodskappe">Drawbacks for Formal/Important Messages</span></th></tr>
+      <tr><td><span class="i18n" data-af="Byna-onmiddellike aflewering van boodskappe">Near-instant delivery of messages</span></td><td><span class="i18n" data-af="Kan maklik oor die hoof gesien word of verlore raak in kletsgeskiedenis">Can easily be overlooked or lost in chat history</span></td></tr>
+      <tr><td><span class="i18n" data-af="Goed geskik vir kort heen-en-weer-gesprekke">Good for short back-and-forth conversations</span></td><td><span class="i18n" data-af="Ontbreek formaliteit — nie altyd gepas vir amptelike kommunikasie nie">Lacks formality — not always appropriate for official communication</span></td></tr>
+      <tr><td><span class="i18n" data-af="Wys leesbevestigings/aanlyn-status sodat jy weet of jou boodskap gesien is">Shows read receipts/online status so you know if your message was seen</span></td><td><span class="i18n" data-af="Nie so robuuste aanhegsel-/formateringsopsies as e-pos nie">Not as robust attachment/formatting options as email</span></td></tr>
+      <tr><td></td><td><span class="i18n" data-af="Kan druk skep om onmiddellik te antwoord">Can create pressure to reply instantly</span></td></tr>
+      <tr><td></td><td><span class="i18n" data-af="Nie ideaal vir gedetailleerde of amptelike kommunikasie nie — e-pos is gewoonlik beter daarvoor">Not ideal for detailed or official communication — email is usually better for that</span></td></tr>
+    </table></div>
+
+    <h3><span class="i18n" data-af="Buffering (Vertraging) tydens Stroming">Buffering (Lag) During Streaming</span></h3>
+    <p><span class="i18n" data-af="Buffering is 'n pouse of vertraging in die afspeel van 'n video/oudiostroom terwyl die toestel wag vir genoeg data om af te laai voordat dit weer kan voortgaan om af te speel. Dit gebeur wanneer data nie vinnig genoeg oor die internetverbinding aankom nie.">Buffering is a pause or delay in the playback of a video/audio stream while the device waits for enough data to download before it can continue playing. It happens when data isn't arriving fast enough over the internet connection.</span></p>
+    <div class="tbl-wrap"><table>
+      <tr><th><span class="i18n" data-af="Hoe om Buffering te Verminder">How to Reduce Buffering</span></th></tr>
+      <tr><td><span class="i18n" data-af="Gebruik 'n vinniger of meer stabiele internetverbinding">Use a faster or more stable internet connection</span></td></tr>
+      <tr><td><span class="i18n" data-af="Sluit ander toepassings/toestelle wat bandwydte gebruik">Close other apps/devices using bandwidth</span></td></tr>
+      <tr><td><span class="i18n" data-af="Verlaag die stroomkwaliteit/resolusie">Lower the streaming quality/resolution</span></td></tr>
+      <tr><td><span class="i18n" data-af="Gebruik 'n bedrade verbinding in plaas van Wi-Fi indien moontlik">Use a wired connection instead of Wi-Fi if possible</span></td></tr>
+      <tr><td><span class="i18n" data-af="Beweeg nader aan die roeteerder">Move closer to the router</span></td></tr>
+    </table></div>
 
     <div class="term-tag t2"><span class="i18n" data-af="Kwartaal 2">Term 2</span></div>
     <h2><span class="i18n" data-af="Internetverbindingstipes">Internet Connection Types</span></h2>
@@ -1495,6 +1593,44 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <div class="callout-title"><span class="i18n" data-af="URL-VERKORTER">URL SHORTENER</span></div>
       <p><span class="i18n" data-af="'n Instrument of diens, soos TinyURL.com, wat 'n lang URL na 'n korter weergawe omskep. Hierdie korter weergawe van die URL neem 'n gebruiker na dieselfde webadres, maar is makliker om te onthou en/of uit te tik.">A tool or service, such as TinyURL.com, which converts a long URL to a shorter version. This shorter version of the URL will take a user to the same web address, but is easier to remember and/or type out.</span></p>
     </div>
+
+    <div class="term-tag t3"><span class="i18n" data-af="Kwartaal 3">Term 3</span></div>
+    <h2><span class="i18n" data-af="Biometrie">Biometrics</span></h2>
+    <p><span class="i18n" data-af="Biometrie gebruik 'n persoon se unieke fisiese of gedragskenmerke om hul identiteit te verifieer. Dit word algemeen gebruik om slimfone te ontsluit, in bankapps in te teken en toegang tot veilige geboue te beheer.">Biometrics uses a person's unique physical or behavioural characteristics to verify their identity. It is commonly used to unlock smartphones, log into banking apps, and control access to secure buildings.</span></p>
+    <div class="def-grid">
+      <div class="def-term"><span class="i18n" data-af="Vingerafdruk">Fingerprint</span></div><div class="def-desc"><span class="i18n" data-af="Skandeer die unieke patroon van riffels op 'n vinger; algemeen op slimfone en skootrekenaars">Scans the unique pattern of ridges on a finger; common on smartphones and laptops</span></div>
+      <div class="def-term"><span class="i18n" data-af="Gesig (gesigsherkenning)">Face (facial recognition)</span></div><div class="def-desc"><span class="i18n" data-af="Gebruik 'n kamera om unieke gesigskenmerke te herken en te vergelyk">Uses a camera to recognise and match unique facial features</span></div>
+      <div class="def-term"><span class="i18n" data-af="Iris/Retina (oogskandering)">Iris/Retina (eye scanning)</span></div><div class="def-desc"><span class="i18n" data-af="Skandeer die unieke patrone in die iris of retina van die oog; hoogs akkuraat">Scans the unique patterns in the iris or retina of the eye; highly accurate</span></div>
+      <div class="def-term"><span class="i18n" data-af="Palm (palmafdruk/aar-skandering)">Palm (palm print/vein scanning)</span></div><div class="def-desc"><span class="i18n" data-af="Skandeer die patroon van 'n handpalm of die aar-patrone onder die vel">Scans the pattern of a palm or the vein patterns beneath the skin</span></div>
+      <div class="def-term"><span class="i18n" data-af="Stem (stemherkenning)">Voice (voice recognition)</span></div><div class="def-desc"><span class="i18n" data-af="Herken 'n persoon se unieke stempatrone en spraakkenmerke">Recognises a person's unique voice patterns and speech characteristics</span></div>
+    </div>
+
+    <div class="term-tag t3"><span class="i18n" data-af="Kwartaal 3">Term 3</span></div>
+    <h2><span class="i18n" data-af="Lêer-/Dataskikking (Sync)">File/Data Synchronisation</span></h2>
+    <p><span class="i18n" data-af="Wanneer 'n lêer &quot;gesinkroniseer&quot; (synced) is, word dit outomaties identies en op datum gehou oor verskeie toestelle of met 'n wolkdiens. As jy byvoorbeeld 'n lêer op jou foon redigeer, word dit outomaties op jou skootrekenaar bygewerk ook. Dit is verwant aan, maar nie dieselfde as, wolkberging nie — sinkronisasie is die proses wat lêers tussen toestelle en die wolk op datum hou.">When a file is "synced", it is automatically kept identical and up to date across multiple devices or with a cloud service. For example, if you edit a file on your phone, it automatically updates on your laptop too. This is related to, but not the same as, cloud storage — synchronisation is the process that keeps files up to date between devices and the cloud.</span></p>
+    <div class="def-grid">
+      <div class="def-term"><span class="i18n" data-af="Nuutste weergawe beskikbaar">Latest version available</span></div><div class="def-desc"><span class="i18n" data-af="Die mees onlangse weergawe van 'n lêer is altyd beskikbaar op elke gekoppelde toestel">The most recent version of a file is always available on every connected device</span></div>
+      <div class="def-term"><span class="i18n" data-af="Geen handmatige kopiëring nodig nie">No manual copying needed</span></div><div class="def-desc"><span class="i18n" data-af="Lêers word outomaties bygewerk sonder om dit self oor te dra (bv. per USB-flitsdryf)">Files update automatically without transferring them yourself (e.g. via USB flash drive)</span></div>
+      <div class="def-term"><span class="i18n" data-af="Outomatiese rugsteun">Automatic backup</span></div><div class="def-desc"><span class="i18n" data-af="'n Gesinkroniseerde kopie in die wolk dien as 'n rugsteun as 'n toestel verlore raak, gesteel of beskadig word">A synced copy in the cloud serves as a backup if a device is lost, stolen or damaged</span></div>
+      <div class="def-term"><span class="i18n" data-af="Naatlose voortsetting">Seamless continuation</span></div><div class="def-desc"><span class="i18n" data-af="Jy kan werk op een toestel staak en op 'n ander voortgaan sonder om iets te verloor">You can stop working on one device and continue on another without losing anything</span></div>
+    </div>
+
+    <div class="term-tag t3"><span class="i18n" data-af="Kwartaal 3">Term 3</span></div>
+    <h2><span class="i18n" data-af="Openbare Wi-Fi — Sekuriteit">Public Wi-Fi — Security</span></h2>
+    <h3><span class="i18n" data-af="Risiko's van Openbare Wi-Fi">Risks of Public Wi-Fi</span></h3>
+    <ul>
+      <li><span class="i18n" data-af="Data kan deur ander gebruikers op dieselfde netwerk onderskep word, aangesien openbare Wi-Fi dikwels nie geënkripteer is nie">Data can be intercepted by other users on the same network, since public Wi-Fi is often unencrypted</span></li>
+      <li><span class="i18n" data-af="Aanvallers kan vals kuberpunte (fake hotspots) opstel wat lyk soos die regte netwerk om data te steel">Attackers can set up fake hotspots that look like the real network to steal data</span></li>
+      <li><span class="i18n" data-af="Verhoogde risiko van wanware-verspreiding oor onbeveiligde netwerke">Increased risk of malware distribution over unsecured networks</span></li>
+    </ul>
+    <h3><span class="i18n" data-af="Voorsorgmaatreëls">Safeguards</span></h3>
+    <ul>
+      <li><span class="i18n" data-af="Vermy toegang tot sensitiewe inligting (bankwese, persoonlike rekeninge) op openbare Wi-Fi">Avoid accessing sensitive information (banking, personal accounts) on public Wi-Fi</span></li>
+      <li><span class="i18n" data-af="Gebruik 'n VPN om jou verbinding te enkripteer">Use a VPN to encrypt your connection</span></li>
+      <li><span class="i18n" data-af="Maak seker webwerwe gebruik HTTPS voordat jy inligting invoer">Ensure websites use HTTPS before entering information</span></li>
+      <li><span class="i18n" data-af="Skakel lêerdeling af terwyl op openbare netwerke">Turn off file sharing while on public networks</span></li>
+      <li><span class="i18n" data-af="Vergeet (forget) die netwerk op jou toestel nadat jy dit gebruik het">Forget the network on your device after use</span></li>
+    </ul>
 
     <div class="term-tag t3"><span class="i18n" data-af="Kwartaal 3">Term 3</span></div>
     <h2><span class="i18n" data-af="Internet van Dinge en Opkomende Tegnologieë">Internet of Things and Emerging Technologies</span></h2>
@@ -1681,11 +1817,38 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <div class="def-term"><span class="i18n" data-af="KI (kunsmatige intelligensie)">AI (artificial intelligence)</span></div><div class="def-desc"><span class="i18n" data-af="Verwys na die simulasie van menslike intelligensie in masjiene wat geprogrammeer is om soos mense te dink en hul optrede na te boots, veral eienskappe wat met 'n menslike verstand geassosieer word, soos leer en probleemoplossing. Masjienleer is die studie van rekenaaralgoritmes wat outomaties verbeter deur ervaring en die gebruik van data. Dit word beskou as deel van kunsmatige intelligensie.">Refers to the simulation of human intelligence in machines that are programmed to think like humans and mimic their actions, especially traits associated with a human mind, such as learning and problem-solving. Machine learning is the study of computer algorithms that improve automatically through experience and by the use of data. It is seen as a part of artificial intelligence.</span></div>
       <div class="def-term">4IR</div><div class="def-desc"><span class="i18n" data-af="Die 4de Industriële Revolusie is 'n manier om die vervaging van grense tussen die fisiese, digitale en biologiese wêrelde te beskryf. Dit is 'n mengsel van vooruitgang in kunsmatige intelligensie (KI), robotika, die Internet van Dinge (IoT), 3D-druk, genetiese ingenieurswese, kwantum-rekenaars en ander tegnologieë. Dit skep baie produkte en dienste wat vinnig noodsaaklik word vir die moderne lewe en is die kollektiewe krag agter die ontwrigting van byna elke besigheidsektor.">4IR is a way of describing the blurring of boundaries between the physical, digital and biological worlds. It is a blend of advances in artificial intelligence (AI), robotics, the Internet of Things (IoT), 3D printing, genetic engineering, quantum computing and other technologies. It creates many products and services that are fast becoming essential to modern life and is the collective force behind disrupting almost every business sector.</span></div>
       <div class="def-term">5IR</div><div class="def-desc"><span class="i18n" data-af="Die 5de Industriële Revolusie loop en ontwikkel saam met 4IR en gebruik die voordele wat 4IR bring om die fokus terug op mense en menslike strewe te plaas — dit definieer die etiek en impak van tegnologie wat in die 4IR ontwikkel is.">5IR runs and develops alongside 4IR and uses the advantages 4IR brings to put the focus back on humans and human endeavour, defining the ethics and impact of technology developed in the 4IR.</span></div>
+      <div class="def-term"><span class="i18n" data-af="Etiese kwessies rondom KI-inhoud">Ethical concerns around AI content</span></div><div class="def-desc"><span class="i18n" data-af="KI kan realistiese maar vals video's/klank/beelde skep (&quot;deepfakes&quot;), wat gebruik kan word om waninligting te versprei. KI-gegenereerde teks/kuns skep vrae oor outeurskap en kopiereg, en dit word al hoe moeiliker om werklike van KI-gegenereerde inhoud te onderskei.">AI can create realistic but fake video/audio/images ("deepfakes"), which can be used to spread misinformation. AI-generated text/art raises questions about authorship and copyright, and it is becoming harder to distinguish real from AI-generated content.</span></div>
+      <div class="def-term"><span class="i18n" data-af="Nadele van oormatige staat op KI">Disadvantages of over-relying on AI</span></div><div class="def-desc"><span class="i18n" data-af="Verminderde kritiese denke en probleemoplossingsvaardighede as mense altyd op KI staatmaak; KI kan verkeerd of bevooroordeeld wees (gebaseer op die data waarop dit opgelei is); werksverplasing; verlies van menslike oordeel in besluitneming; en foute kan onopgemerk bly as dit nie feite-gekontroleer word nie.">Reduced critical thinking and problem-solving skills if people always defer to AI; AI can be wrong or biased (based on the data it was trained on); job displacement; loss of human judgement in decision-making; and errors can go unnoticed if not fact-checked.</span></div>
     </div>
     <div class="callout exam">
       <div class="callout-title"><span class="i18n" data-af="EKSAMENWENK — VR vs AR">EXAM TIP — VR vs AR</span></div>
       <p><span class="i18n" data-af="VR (virtuele realiteit) skep 'n <strong>volledig virtuele</strong> omgewing wat die werklike wêreld vervang. AR (aangevulde realiteit) voeg digitale voorwerpe <strong>bo-op</strong> die werklike wêreld — jy sien steeds jou omgewing. Onthou: Pokémon GO = AR (jy sien jou kamera se werklike beeld met 'n karakter bo-oor); volledige gesimuleerde speletjiewêreld met 'n VR-bril = VR.">VR (virtual reality) creates a <strong>fully virtual</strong> environment that replaces the real world. AR (augmented reality) adds digital objects <strong>on top of</strong> the real world — you still see your surroundings. Remember: Pokémon GO = AR (you see your camera's real image with a character overlaid); a fully simulated game world through a VR headset = VR.</span></p>
     </div>
+
+    <h3><span class="i18n" data-af="Kortvorm-video-inhoud op Sosiale Media">Short-Form Video Content on Social Media</span></h3>
+    <p><span class="i18n" data-af="Kortvorm-video is 'n gewilde inhoudformaat op platforms soos TikTok, Instagram Reels en YouTube Shorts — kort, regop video's wat gewoonlik minder as 60 sekondes duur en vinnig verbruik kan word.">Short-form video is a popular content format on platforms such as TikTok, Instagram Reels and YouTube Shorts — short, vertical videos usually under 60 seconds that are quick to consume.</span></p>
+    <p><span class="i18n" data-af="Risiko's van die openbare deel van self-gemaakte video-inhoud sluit in:">Risks of sharing self-made video content publicly include:</span></p>
+    <ul>
+      <li><span class="i18n" data-af="Verlies van privaatheid — video's kan jou ligging, roetine of persoonlike besonderhede openbaar">Loss of privacy — videos can reveal your location, routine or personal details</span></li>
+      <li><span class="i18n" data-af="Inhoud kan afgelaai en herdeel word sonder toestemming, en versprei buite jou beheer">Content can be downloaded and reshared without consent, spreading beyond your control</span></li>
+      <li><span class="i18n" data-af="Dit skep 'n permanente digitale voetspoor wat moeilik is om te verwyder">It creates a permanent digital footprint that is difficult to remove</span></li>
+      <li><span class="i18n" data-af="Risiko van teistering of ongewenste aandag">Risk of harassment or unwanted attention</span></li>
+      <li><span class="i18n" data-af="Inhoud kan buite konteks geneem word en gebruik word om die skepper in die verleentheid te stel of af te knou">Content can be taken out of context and used to embarrass or bully the creator</span></li>
+    </ul>
+
+    <h3><span class="i18n" data-af="Aanbevelingsalgoritmes op Sosiale Media">Social Media Recommendation Algorithms</span></h3>
+    <p><span class="i18n" data-af="Hierdie algoritmes personaliseer 'n gebruiker se voer deur op te spoor wat die gebruiker &quot;like&quot;, deel, waarop hulle kommentaar lewer, wat hulle kyk, en hoe lank hulle by bepaalde inhoud vertoef. Hierdie data word gebruik om te voorspel — en meer te wys van — die inhoud wat die gebruiker die langste betrokke sal hou.">These algorithms personalise a user's feed by tracking what the user likes, shares, comments on, watches, and how long they linger on particular content. This data is used to predict — and show more of — the content that will keep the user engaged the longest.</span></p>
+    <p><span class="i18n" data-af="Dit kan &quot;filterborrels&quot; of eggokamers skep, waar 'n gebruiker slegs inhoud sien wat hul bestaande sienings versterk. Hierdie algoritmes is ontwerp om die tyd wat op die platform deurgebring word, te maksimeer.">This can create "filter bubbles" or echo chambers, where a user only sees content that reinforces their existing views. These algorithms are designed to maximise the time spent on the platform.</span></p>
+
+    <h3><span class="i18n" data-af="Ander Bydraers tot Internet-/Digitale Verslawing">Other Contributors to Internet/Digital Addiction</span></h3>
+    <p><span class="i18n" data-af="Behalwe sosiale media self, kan die volgende aktiwiteite ook tot digitale verslawing bydra:">Besides social media itself, the following activities can also contribute to digital addiction:</span></p>
+    <ul>
+      <li><span class="i18n" data-af="Aanlyn speletjies (online gaming)">Online gaming</span></li>
+      <li><span class="i18n" data-af="Video-stroming/&quot;binge-watching&quot;">Video streaming/binge-watching</span></li>
+      <li><span class="i18n" data-af="Aanlyn inkopies">Online shopping</span></li>
+      <li><span class="i18n" data-af="Dobbel-toepassings">Gambling apps</span></li>
+      <li><span class="i18n" data-af="Eindelose rondskuif deur nuus-/inhoudvoere">Endless scrolling of news/content feeds</span></li>
+    </ul>
 
     <div class="term-tag t3"><span class="i18n" data-af="Kwartaal 3">Term 3</span></div>
     <h2><span class="i18n" data-af="Hoe Tegnologie die Samelewing kan Bevoordeel of Benadeel">How Technology Can Benefit or Harm Society</span></h2>

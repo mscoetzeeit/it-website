@@ -774,7 +774,52 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
       <tr><td><code class="ht">&lt;b&gt;</code></td><td><code class="ht">&lt;/b&gt;</code></td><td><strong><span class="i18n" data-af="Vetdruk">Bold</span></strong> <span class="i18n" data-af="teks">text</span></td></tr>
       <tr><td><code class="ht">&lt;i&gt;</code></td><td><code class="ht">&lt;/i&gt;</code></td><td><em><span class="i18n" data-af="Kursief">Italic</span></em> <span class="i18n" data-af="teks">text</span></td></tr>
       <tr><td><code class="ht">&lt;u&gt;</code></td><td><code class="ht">&lt;/u&gt;</code></td><td><u><span class="i18n" data-af="Onderstreepte">Underlined</span></u> <span class="i18n" data-af="teks">text</span></td></tr>
+      <tr><td><code class="ht">&lt;ul&gt;</code></td><td><code class="ht">&lt;/ul&gt;</code></td><td><span class="i18n" data-af="Ongeordende lys — omhul kolpunt-lysitems">Unordered list — wraps bulleted list items</span></td></tr>
+      <tr><td><code class="ht">&lt;ol&gt;</code></td><td><code class="ht">&lt;/ol&gt;</code></td><td><span class="i18n" data-af="Geordende lys — omhul genommerde lysitems">Ordered list — wraps numbered list items</span></td></tr>
+      <tr><td><code class="ht">&lt;li&gt;</code></td><td><code class="ht">&lt;/li&gt;</code></td><td><span class="i18n" data-af="Lysitem — elke item binne 'n ul of ol">List item — each item inside a ul or ol</span></td></tr>
     </table></div>
+
+    <h2><span class="i18n" data-af="Lyste: Ongeordende en Geordende">Lists: Unordered and Ordered</span></h2>
+    <p><span class="i18n" data-af="Lyste laat jou toe om items onder mekaar te vertoon, elk met 'n kolpunt of 'n nommer. Elke lysitem word geskryf met"> Lists let you display items one below the other, each with a bullet or a number. Each list item is written with</span> <code class="ht">&lt;li&gt;</code><span class="i18n" data-af="…"> </span><code class="ht">&lt;/li&gt;</code><span class="i18n" data-af=", en die hele lys word omhul deur óf"> , and the whole list is wrapped by either</span> <code class="ht">&lt;ul&gt;</code> <span class="i18n" data-af="(ongeordend) óf"> (unordered) or</span> <code class="ht">&lt;ol&gt;</code> <span class="i18n" data-af="(geordend)."> (ordered).</span></p>
+
+    <h3><span class="i18n" data-af="Ongeordende lyste — &lt;ul&gt;">Unordered lists — &lt;ul&gt;</span></h3>
+    <p><span class="i18n" data-af="'n"> An</span> <code class="ht">&lt;ul&gt;</code> <span class="i18n" data-af="(unordered list) vertoon elke item met 'n"> (unordered list) displays each item with a</span> <strong><span class="i18n" data-af="kolpunt (•)">bullet point (•)</span></strong><span class="i18n" data-af=". Gebruik dit wanneer die volgorde van items nie saak maak nie."> . Use it when the order of the items does not matter.</span></p>
+    <div class="code-block">
+      <div class="code-label"><span class="i18n" data-af="Ongeordende lys voorbeeld">Unordered list example</span></div>
+      <pre><span class="ht">&lt;ul&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Maths<span class="ht">&lt;/li&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Science<span class="ht">&lt;/li&gt;</span>
+  <span class="ht">&lt;li&gt;</span>CAT<span class="ht">&lt;/li&gt;</span>
+<span class="ht">&lt;/ul&gt;</span></pre>
+    </div>
+    <p><span class="i18n" data-af="Dit vertoon as:"> This renders as:</span></p>
+    <ul>
+      <li>Maths</li>
+      <li>Science</li>
+      <li>CAT</li>
+    </ul>
+
+    <h3><span class="i18n" data-af="Geordende lyste — &lt;ol&gt;">Ordered lists — &lt;ol&gt;</span></h3>
+    <p><span class="i18n" data-af="'n"> An</span> <code class="ht">&lt;ol&gt;</code> <span class="i18n" data-af="(ordered list) vertoon elke item met 'n"> (ordered list) displays each item with a</span> <strong><span class="i18n" data-af="volgnommer (1, 2, 3…)">sequential number (1, 2, 3…)</span></strong><span class="i18n" data-af=" in plaas van 'n kolpunt. Gebruik dit wanneer die volgorde belangrik is, soos stappe wat in 'n bepaalde volgorde gedoen moet word."> instead of a bullet. Use it when the order matters, such as steps that must be done in a specific sequence.</span></p>
+    <div class="code-block">
+      <div class="code-label"><span class="i18n" data-af="Geordende lys voorbeeld">Ordered list example</span></div>
+      <pre><span class="ht">&lt;ol&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Open Notepad++<span class="ht">&lt;/li&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Type your HTML code<span class="ht">&lt;/li&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Save the file as .html<span class="ht">&lt;/li&gt;</span>
+<span class="ht">&lt;/ol&gt;</span></pre>
+    </div>
+    <p><span class="i18n" data-af="Dit vertoon as:"> This renders as:</span></p>
+    <ol>
+      <li>Open Notepad++</li>
+      <li>Type your HTML code</li>
+      <li>Save the file as .html</li>
+    </ol>
+
+    <div class="callout">
+      <div class="callout-title"><span class="i18n" data-af="&lt;ul&gt; teenoor &lt;ol&gt; — die verskil">&lt;ul&gt; vs &lt;ol&gt; — the difference</span></div>
+      <p><code class="ht">&lt;ul&gt;</code> <span class="i18n" data-af="(ongeordende lys) gee kolpunte"> (unordered list) gives bullet points</span> <strong>(• • •)</strong><span class="i18n" data-af=", terwyl"> , while</span> <code class="ht">&lt;ol&gt;</code> <span class="i18n" data-af="(geordende lys) outomaties nommers gee"> (ordered list) automatically gives numbers</span> <strong>(1. 2. 3.)</strong><span class="i18n" data-af=" — jy hoef nie self die nommers te tik nie, die blaaier doen dit."> — you don't type the numbers yourself, the browser does it for you.</span> <span class="i18n" data-af="In beide gevalle word elke item geskryf met"> In both cases, each item is written with</span> <code class="ht">&lt;li&gt;</code>.</p>
+    </div>
 
     <h2><span class="i18n" data-af="Attribute">Attributes</span></h2>
     <p><span class="i18n" data-af="Attribute voeg ekstra inligting by 'n tag. Hulle gaan binne die openingstag as"> Attributes add extra information to a tag. They go inside the opening tag as</span> <code>name="value"</code> <span class="i18n" data-af="-pare."> pairs.</span></p>
@@ -1471,6 +1516,8 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
       <div class="def-term">Modem</div><div class="def-desc"><span class="i18n" data-af="Modulator-Demodulator — skakel digitale seine om na analoog en terug; verbind die plaaslike netwerk aan die Internet via 'n ISP">Modulator-Demodulator — converts digital signals to analogue and back; connects the local network to the Internet via an ISP</span></div>
       <div class="def-term">Router</div><div class="def-desc"><span class="i18n" data-af="Stuur datapakkies tussen verskillende netwerke; verbind jou huis-/skoolnetwerk aan die Internet; word dikwels met 'n modem gekombineer">Directs data packets between different networks; connects your home/school network to the Internet; often combined with modem</span></div>
       <div class="def-term">Switch</div><div class="def-desc"><span class="i18n" data-af="Verbind toestelle binne 'n LAN; stuur data slegs aan die bedoelde toestel (meer doeltreffend as 'n hub)">Connects devices within a LAN; forwards data only to the intended device (more efficient than a hub)</span></div>
+      <div class="def-term">Server</div><div class="def-desc"><span class="i18n" data-af="'n Kragtige sentrale rekenaar wat dienste en hulpbronne (lêers, drukwerk, sagteware) aan kliëntrekenaars op die netwerk verskaf">A powerful central computer that provides services and resources (files, printing, software) to client computers on the network</span></div>
+      <div class="def-term">Client</div><div class="def-desc"><span class="i18n" data-af="'n Rekenaar wat dienste of hulpbronne by 'n bediener aanvra en ontvang, bv. dit vra 'n lêer, webblad of drukwerktaak by die bediener aan">A computer that requests and receives services or resources from a server, e.g. it requests a file, webpage or print job from the server</span></div>
     </div>
 
     <div class="term-tag t2"><span class="i18n" data-af="Kwartaal 2">Term 2</span></div>

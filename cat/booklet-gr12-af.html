@@ -360,6 +360,24 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
       <p style="margin-top:.5em"><strong>Eksamenwaarskuwing:</strong> As die vraag vra vir 'n <strong>formule</strong> en jy tik 'n funksie soos <code>=SUM</code>, <strong>sal jy punte verloor</strong> — selfs al is die antwoord numeries korrek. Lees die vraag noukeurig: die woord <em>formule</em> beteken jy moet operatore gebruik; die woord <em>funksie</em> beteken jy mag 'n ingeboude naam gebruik.</p>
     </div>
 
+    <h2>Opfrissing: COUNT teenoor COUNTA</h2>
+    <p>Voordat ons by die gevorderde funksies kom, 'n vinnige opfrissing van Graad 10/11-werk wat steeds in Graad 12-eksamens getoets word: <code>COUNT</code> tel slegs selle wat GETALLE bevat; <code>COUNTA</code> tel ALLE nie-leë selle (getalle, teks, datums — enigiets behalwe 'n werklik leë sel).</p>
+    <div class="code-block">
+      <div class="code-label">COUNT teenoor COUNTA — dieselfde reeks, verskillende resultate</div>
+      <pre><span class="hcmt">Range A1:A6 contains: 85, "Absent", 72, (blank), 90, "N/A"</span>
+=<span class="fn">COUNT</span>(<span class="ref">A1:A6</span>)   <span class="hcmt">&lt;-- 3 (only counts the numbers: 85, 72, 90)</span>
+=<span class="fn">COUNTA</span>(<span class="ref">A1:A6</span>)  <span class="hcmt">&lt;-- 5 (counts everything that isn't empty: 85, "Absent", 72, 90, "N/A")</span></pre>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title">ONTHOU</div>
+      <p><code>COUNT</code> = slegs getalle; <code>COUNTA</code> = enigiets wat nie leeg is nie.</p>
+    </div>
+
+    <div class="callout tip">
+      <div class="callout-title">SELFORMAAT AS TEKS — behou voorloopnulle in selnommers</div>
+      <p>Wanneer jy 'n telefoon- of selnommer soos &quot;082 555 1234&quot; intik, sal Excel die voorloopnul laat val en dit as 'n getal behandel (dit word &quot;82 555 1234&quot;), tensy jy die kolom eers as <strong>Text</strong> formateer. Kies die kolom → <strong>Home → Number Format → Text</strong> → <em>voordat</em> jy die nommers intik. Dan bly &quot;082 555 1234&quot; presies soos getik.</p>
+    </div>
+
     <h2>Komplekse Funksies</h2>
 
     <h3>Geneste IF</h3>
@@ -729,13 +747,17 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
     <div class="tbl-wrap"><table>
       <tr><th>Afdeling</th><th>Verskyn</th><th>Gebruik vir</th></tr>
       <tr><td>Report Header</td><td>Boonste van verslag (een keer)</td><td>Verslagtitel, logo, datum</td></tr>
-      <tr><td>Page Header</td><td>Boonste van elke bladsy</td><td>Kolomopskrifte</td></tr>
+      <tr><td>Page Header</td><td>Boonste van elke bladsy</td><td>Kolomopskrifte, en enige logo/beeld wat op ELKE gedrukte bladsy moet herhaal</td></tr>
       <tr><td>[Group] Header</td><td>Begin van elke groep</td><td>Groepnaam/-etiket</td></tr>
       <tr><td>Detail</td><td>Elke individuele rekord</td><td>Rydata</td></tr>
       <tr><td>[Group] Footer</td><td>Einde van elke groep</td><td>Groepsubtotale</td></tr>
       <tr><td>Page Footer</td><td>Onderkant van elke bladsy</td><td>Bladsynommer</td></tr>
       <tr><td>Report Footer</td><td>Onderkant van verslag (een keer)</td><td>Groottotale</td></tr>
     </table></div>
+    <div class="callout tip">
+      <div class="callout-title">REPORT HEADER teenoor PAGE HEADER — 'n gewilde verwarring</div>
+      <p>Dit is maklik om hierdie twee deurmekaar te maak. Die <strong>Report Header</strong> druk slegs <strong>EEN KEER</strong>, heel bo-aan die eerste bladsy — dit is waar 'n voorbladlogo of verslagtitel hoort, iets wat jy nie wil hê moet op elke bladsy herhaal nie. Die <strong>Page Header</strong> druk aan die bokant van <strong>ELKE</strong> bladsy — as die vraag vra vir 'n logo of beeld wat op elke gedrukte bladsy moet verskyn (nie net die eerste een nie), moet dit in die Page Header geplaas word, nie die Report Header nie.</p>
+    </div>
 
     <h3>Berekeninge in Groep-onderskrif</h3>
     <div class="code-block">
@@ -1086,7 +1108,17 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <li><strong>Resolusie (resolution)</strong>: 1920×1080 (Volledige HD) standaard; 2560×1440 (QHD); 3840×2160 (4K)</li>
       <li><strong>Grootte</strong><span class="i18n" data-af=": 24" standaard kantoor; 27"+ vir ontwerp; 32"+ vir kragtige gebruikers">: 24" standard office; 27"+ for design; 32"+ for power users</span></li>
       <li><strong>Aspekverhouding</strong>: 16:9 wyeskerm is standaard; ultra-wyd 21:9 vir multitaaking</li>
+      <li><strong>Webkamera-resolusie</strong>: word gemeet in megapixels (MP) eerder as pixelafmetings — 'n 1080p webkamera is ongeveer 2MP, 'n 4K webkamera ongeveer 8MP. Hoër megapixels = skerper videobeeld, belangrik wanneer 'n webkamera vir video-oproepe/videokonferensies gekies word.</li>
     </ul>
+
+    <h3>Raakpaneel (Touchpad)</h3>
+    <p>'n Raakpaneel is 'n plat, raaksensitiewe oppervlak wat ingebou is in 'n skootrekenaar, wat gebruik word om die wyser te beheer deur met 'n vinger daaroor te beweeg en gebare te gebruik (bv. twee-vinger-blaai, knyp-om-te-zoem).</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Voordele bo 'n muis</th><th>Nadele bo 'n muis</th></tr>
+      <tr><td>Ingebou — geen ekstra hardeware nodig nie</td><td>Minder presies vir detailwerk (bv. beeldredigering)</td></tr>
+      <tr><td>Draagbaar — maak deel van die skootrekenaar self uit</td><td>Kan minder gemaklik wees vir langdurige gebruik</td></tr>
+      <tr><td>Benodig geen ekstra lessenaarspasie nie</td><td>Geen fisiese rolwieletjie nie</td></tr>
+    </table></div>
 
     <div class="term-tag t1">Kwartaal 1</div>
     <h2>Hardewarespesifikasies Interpreteer</h2>
@@ -1110,6 +1142,11 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
     </ul>
 
     <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Beta-toetsing</h2>
+    <p>Beta-toetsing is 'n stadium van sagteware-toetsing waartydens 'n byna-finale weergawe van 'n program vrygestel word aan 'n beperkte groep regte gebruikers — buite die ontwikkelingspan — voordat dit amptelik en wyd vrygestel word.</p>
+    <p>Dit is belangrik omdat dit foute en bruikbaarheidsprobleme opspoor op baie verskillende regte-wêreld toestelle en opstellings wat ontwikkelaars nie intern kon toets nie, en omdat dit terugvoer van gebruikers insamel voordat die amptelike bekendstelling plaasvind.</p>
+
+    <div class="term-tag t1">Kwartaal 1</div>
     <h2>Algemene Probleme Oplos</h2>
     <div class="tbl-wrap"><table>
       <tr><th>Probleem</th><th>Moontlike Oorsaak</th><th>Oplossing</th></tr>
@@ -1120,6 +1157,11 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <tr><td>Wasige/verkeerde resolusie</td><td>Vertoonstellings verkeerd; verkeerde drywer</td><td>Settings → Display → verander resolusie; opdateer GPU-drywer</td></tr>
       <tr><td>Program reageer nie</td><td>Sagteware-omval; onvoldoende RAM; drywerbotsing</td><td>Ctrl+Alt+Del → Taakbestuurder → Beëindig Taak; herbegin; opdateer drywer</td></tr>
     </table></div>
+
+    <div class="callout warning">
+      <div class="callout-title">Hou Antivirus-definisies Opgedateer</div>
+      <p><span class="i18n" data-af="Nuwe kwaadwillige sagteware word voortdurend geskep, en antivirus-sagteware kan slegs bedreigings opspoor waarvoor dit reeds 'n definisie (handtekening) het. Verouderde antivirus-sagteware gee dus 'n vals gevoel van sekuriteit — dit moet gereeld opgedateer word om effektief te bly. Sien <a href="social.html">Social Implications</a> vir die waarskuwingstekens dat 'n toestel met kwaadwillige sagteware besmet mag wees.">New malware is created constantly, and antivirus software can only detect threats it already has a definition (signature) for. Outdated antivirus software therefore gives a false sense of security — it must be updated regularly to stay effective. See <a href="social.html">Social Implications</a> for the warning signs that a device may be infected with malware.</span></p>
+    </div>
 
     <div class="callout exam">
       <div class="callout-title">EKSAMENWENK — &quot;Beveel Hardeware aan vir 'n Gebruiker&quot;-Vrae</div>
@@ -1216,6 +1258,27 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
     <h3>Taakbestuurder</h3>
     <p>Ctrl+Alt+Del → Task Manager. Laat jou toe om: alle lopende programme en prosesse te sien, nie-reagerende take te beëindig, CPU-/RAM-/skyf-/netwerkgebruik te monitor, opstartprogramme te bekyk.</p>
 
+    <h3>GUI-aanpassing (Persoonlike Instellings)</h3>
+    <p>Die grafiese gebruikerskoppelvlak (GUI) van 'n bedryfstelsel kan aangepas word sodat die rekenaar gemakliker, doeltreffender en meer toeganklik is vir 'n spesifieke gebruiker. Dit word gewoonlik gedoen via Settings → Personalize (of Ease of Access).</p>
+    <div class="def-grid">
+      <div class="def-term">Tema</div><div class="def-desc">Verander kleurskema en muurpapier (agtergrondbeeld) om die skerm meer aangenaam of persoonlik te maak</div>
+      <div class="def-term">Taakbalk</div><div class="def-desc">Kan vergroot/verklein of na 'n ander kant van die skerm geskuif word; ikone kan bygevoeg of herrangskik word vir vinniger toegang tot gunsteling-programme</div>
+      <div class="def-term">Ikoongrootte</div><div class="def-desc">Vergroot of verklein lêer- en program-ikone op die lessenaar of in Verkenner vir beter leesbaarheid</div>
+      <div class="def-term">Toeganklikheidsinstellings</div><div class="def-desc">Groter teks, hoë-kontraskleure, groter muiswyser, en 'n narrator/skermleser vir gebruikers met visuele of ander gestremdhede</div>
+      <div class="def-term">Skermresolusie</div><div class="def-desc">Verander die aantal pixels wat vertoon word — hoër resolusie = skerper beeld maar kleiner teks/ikone</div>
+      <div class="def-term">Vertoonskalering</div><div class="def-desc">Vergroot teks, ikone en toepassings sonder om die resolusie te verander — nuttig op hoë-resolusie skerms waar alles andersins te klein sou wees</div>
+    </div>
+
+    <h3>Basiese Bluetooth-probleemoplossing</h3>
+    <p>Wanneer 'n reeds-gepaarde Bluetooth-toestel (bv. 'n draadlose muis of oorfone) ophou reageer, probeer die volgende stappe in volgorde:</p>
+    <ol>
+      <li>Kontroleer die toestel se battery/krag — laai dit op of vervang die batterye</li>
+      <li>Maak seker die toestel is binne bereik (naby genoeg aan die rekenaar)</li>
+      <li>Skakel Bluetooth op die rekenaar af en dan weer aan</li>
+      <li>&quot;Vergeet&quot;/ontkoppel die toestel in Settings, en paar dit dan weer van voor af</li>
+      <li>Herbegin die rekenaar as die probleem steeds voortduur</li>
+    </ol>
+
     <div class="term-tag t3">Kwartaal 3</div>
     <h2>Bedryfstelsel-nutsprogramme</h2>
     <div class="tbl-wrap"><table>
@@ -1244,6 +1307,20 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <tr><td>Kwaadwillige sagteware</td><td>Kwaadwillige sagteware gebruik CPU/RAM/netwerk in die agtergrond = stadiger stelsel</td></tr>
       <tr><td>Opstartprogramme</td><td>Te veel programme begin saam met Windows = stadige selflaai; deaktiveer onnodige programme</td></tr>
       <tr><td>Oorverhitting</td><td>Swak ventilasie veroorsaak CPU-smoring = stadiger werkverrigting</td></tr>
+    </table></div>
+
+    <h3>Minimum vs Aanbevole Stelselvereistes</h3>
+    <p>Sagteware word dikwels met twee stelle stelselvereistes gelys: die <strong>minimum</strong> vereistes en die <strong>aanbevole</strong> vereistes.</p>
+    <div class="def-grid">
+      <div class="def-term">Minimum vereistes</div><div class="def-desc">Die laagste spesifikasies waarop die sagteware wel sal loop — maar moontlik stadig, met haperinge, of met sekere funksies afgeskakel</div>
+      <div class="def-term">Aanbevole vereistes</div><div class="def-desc">Die spesifikasies benodig sodat die sagteware vlot loop met alle funksies en volle werkverrigting</div>
+    </div>
+    <p>As 'n stelsel slegs die minimum vereistes bevredig, kan die sagteware stadig loop, gereeld hang of omval, of gedwing word om sekere funksies af te skakel — bv. laer grafika-instellings in 'n speletjie, of intydse (real-time) funksies in 'n toepassing wat gedeaktiveer word om die las op die stelsel te verminder.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th></th><th>Minimum</th><th>Aanbevole</th></tr>
+      <tr><td><strong>RAM</strong></td><td>4 GB</td><td>16 GB</td></tr>
+      <tr><td><strong>Skyfspasie</strong></td><td>20 GB</td><td>100 GB (SSD)</td></tr>
+      <tr><td><strong>Werkverrigting</strong></td><td>Loop, maar stadig; funksies moontlik afgeskakel</td><td>Vlot loop met alle funksies aangeskakel</td></tr>
     </table></div>
 
     <div class="callout exam">
@@ -1323,7 +1400,6 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
     <div class="term-tag t2">Kwartaal 2</div>
     <h2>Internetdienste</h2>
     <div class="def-grid">
-      <div class="def-term">Onmiddellike boodskappe</div><div class="def-desc">Werklike-tyd teksklets (WhatsApp, Telegram, Teams); voordeel: onmiddellik; nadeel: aanhoudende druk, aflei</div>
       <div class="def-term">VoIP</div><div class="def-desc">Stemoproepe oor die internet (Skype, WhatsApp-oproepe); voordeel: gratis/goedkoop; nadeel: benodig internet, kwaliteit wisselend</div>
       <div class="def-term">Lêerdeling</div><div class="def-desc">Deel lêers via die wolk (Google Drive, OneDrive) of P2P; voordeel: maklik om saam te werk; nadeel: kopieregprobleme met P2P</div>
       <div class="def-term">Roosterverwerking</div><div class="def-desc">Kombineer rekenaarkrag van baie rekenaars oor die internet om een komplekse probleem op te los (wetenskaplike navorsing)</div>
@@ -1332,6 +1408,28 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <div class="def-term">Stroming</div><div class="def-desc">Ontvang en speel media deurlopend in werklike tyd (Netflix, YouTube, Spotify) — geen aflaai nodig nie</div>
       <div class="def-term">Aflaai</div><div class="def-desc">Stoor 'n volledige kopie van media/lêer na jou toestel voor gebruik</div>
     </div>
+
+    <h3>Onmiddellike Boodskappe (Instant Messaging)</h3>
+    <p>Onmiddellike boodskappe (instant messaging) is werklike-tyd teksklets soos WhatsApp, Telegram en Teams. Dit is uitstekend geskik vir dringende of vinnige kommunikasie.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Waarom dit werk vir Vinnige Kommunikasie</th><th>Nadele vir Formele/Belangrike Boodskappe</th></tr>
+      <tr><td>Byna-onmiddellike aflewering van boodskappe</td><td>Kan maklik oor die hoof gesien word of verlore raak in kletsgeskiedenis</td></tr>
+      <tr><td>Goed geskik vir kort heen-en-weer-gesprekke</td><td>Ontbreek formaliteit — nie altyd gepas vir amptelike kommunikasie nie</td></tr>
+      <tr><td>Wys leesbevestigings/aanlyn-status sodat jy weet of jou boodskap gesien is</td><td>Nie so robuuste aanhegsel-/formateringsopsies as e-pos nie</td></tr>
+      <tr><td></td><td>Kan druk skep om onmiddellik te antwoord</td></tr>
+      <tr><td></td><td>Nie ideaal vir gedetailleerde of amptelike kommunikasie nie — e-pos is gewoonlik beter daarvoor</td></tr>
+    </table></div>
+
+    <h3>Buffering (Vertraging) tydens Stroming</h3>
+    <p>Buffering is 'n pouse of vertraging in die afspeel van 'n video/oudiostroom terwyl die toestel wag vir genoeg data om af te laai voordat dit weer kan voortgaan om af te speel. Dit gebeur wanneer data nie vinnig genoeg oor die internetverbinding aankom nie.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Hoe om Buffering te Verminder</th></tr>
+      <tr><td>Gebruik 'n vinniger of meer stabiele internetverbinding</td></tr>
+      <tr><td>Sluit ander toepassings/toestelle wat bandwydte gebruik</td></tr>
+      <tr><td>Verlaag die stroomkwaliteit/resolusie</td></tr>
+      <tr><td>Gebruik 'n bedrade verbinding in plaas van Wi-Fi indien moontlik</td></tr>
+      <tr><td>Beweeg nader aan die roeteerder</td></tr>
+    </table></div>
 
     <div class="term-tag t2">Kwartaal 2</div>
     <h2>Internetverbindingstipes</h2>
@@ -1462,6 +1560,44 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <div class="callout-title">URL-VERKORTER</div>
       <p>'n Instrument of diens, soos TinyURL.com, wat 'n lang URL na 'n korter weergawe omskep. Hierdie korter weergawe van die URL neem 'n gebruiker na dieselfde webadres, maar is makliker om te onthou en/of uit te tik.</p>
     </div>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Biometrie</h2>
+    <p>Biometrie gebruik 'n persoon se unieke fisiese of gedragskenmerke om hul identiteit te verifieer. Dit word algemeen gebruik om slimfone te ontsluit, in bankapps in te teken en toegang tot veilige geboue te beheer.</p>
+    <div class="def-grid">
+      <div class="def-term">Vingerafdruk</div><div class="def-desc">Skandeer die unieke patroon van riffels op 'n vinger; algemeen op slimfone en skootrekenaars</div>
+      <div class="def-term">Gesig (gesigsherkenning)</div><div class="def-desc">Gebruik 'n kamera om unieke gesigskenmerke te herken en te vergelyk</div>
+      <div class="def-term">Iris/Retina (oogskandering)</div><div class="def-desc">Skandeer die unieke patrone in die iris of retina van die oog; hoogs akkuraat</div>
+      <div class="def-term">Palm (palmafdruk/aar-skandering)</div><div class="def-desc">Skandeer die patroon van 'n handpalm of die aar-patrone onder die vel</div>
+      <div class="def-term">Stem (stemherkenning)</div><div class="def-desc">Herken 'n persoon se unieke stempatrone en spraakkenmerke</div>
+    </div>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Lêer-/Dataskikking (Sync)</h2>
+    <p>Wanneer 'n lêer &quot;gesinkroniseer&quot; (synced) is, word dit outomaties identies en op datum gehou oor verskeie toestelle of met 'n wolkdiens. As jy byvoorbeeld 'n lêer op jou foon redigeer, word dit outomaties op jou skootrekenaar bygewerk ook. Dit is verwant aan, maar nie dieselfde as, wolkberging nie — sinkronisasie is die proses wat lêers tussen toestelle en die wolk op datum hou.</p>
+    <div class="def-grid">
+      <div class="def-term">Nuutste weergawe beskikbaar</div><div class="def-desc">Die mees onlangse weergawe van 'n lêer is altyd beskikbaar op elke gekoppelde toestel</div>
+      <div class="def-term">Geen handmatige kopiëring nodig nie</div><div class="def-desc">Lêers word outomaties bygewerk sonder om dit self oor te dra (bv. per USB-flitsdryf)</div>
+      <div class="def-term">Outomatiese rugsteun</div><div class="def-desc">'n Gesinkroniseerde kopie in die wolk dien as 'n rugsteun as 'n toestel verlore raak, gesteel of beskadig word</div>
+      <div class="def-term">Naatlose voortsetting</div><div class="def-desc">Jy kan werk op een toestel staak en op 'n ander voortgaan sonder om iets te verloor</div>
+    </div>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Openbare Wi-Fi — Sekuriteit</h2>
+    <h3>Risiko's van Openbare Wi-Fi</h3>
+    <ul>
+      <li>Data kan deur ander gebruikers op dieselfde netwerk onderskep word, aangesien openbare Wi-Fi dikwels nie geënkripteer is nie</li>
+      <li>Aanvallers kan vals kuberpunte (fake hotspots) opstel wat lyk soos die regte netwerk om data te steel</li>
+      <li>Verhoogde risiko van wanware-verspreiding oor onbeveiligde netwerke</li>
+    </ul>
+    <h3>Voorsorgmaatreëls</h3>
+    <ul>
+      <li>Vermy toegang tot sensitiewe inligting (bankwese, persoonlike rekeninge) op openbare Wi-Fi</li>
+      <li>Gebruik 'n VPN om jou verbinding te enkripteer</li>
+      <li>Maak seker webwerwe gebruik HTTPS voordat jy inligting invoer</li>
+      <li>Skakel lêerdeling af terwyl op openbare netwerke</li>
+      <li>Vergeet (forget) die netwerk op jou toestel nadat jy dit gebruik het</li>
+    </ul>
 
     <div class="term-tag t3">Kwartaal 3</div>
     <h2>Internet van Dinge en Opkomende Tegnologieë</h2>
@@ -1648,11 +1784,38 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <div class="def-term">KI (kunsmatige intelligensie)</div><div class="def-desc">Verwys na die simulasie van menslike intelligensie in masjiene wat geprogrammeer is om soos mense te dink en hul optrede na te boots, veral eienskappe wat met 'n menslike verstand geassosieer word, soos leer en probleemoplossing. Masjienleer is die studie van rekenaaralgoritmes wat outomaties verbeter deur ervaring en die gebruik van data. Dit word beskou as deel van kunsmatige intelligensie.</div>
       <div class="def-term">4IR</div><div class="def-desc">Die 4de Industriële Revolusie is 'n manier om die vervaging van grense tussen die fisiese, digitale en biologiese wêrelde te beskryf. Dit is 'n mengsel van vooruitgang in kunsmatige intelligensie (KI), robotika, die Internet van Dinge (IoT), 3D-druk, genetiese ingenieurswese, kwantum-rekenaars en ander tegnologieë. Dit skep baie produkte en dienste wat vinnig noodsaaklik word vir die moderne lewe en is die kollektiewe krag agter die ontwrigting van byna elke besigheidsektor.</div>
       <div class="def-term">5IR</div><div class="def-desc">Die 5de Industriële Revolusie loop en ontwikkel saam met 4IR en gebruik die voordele wat 4IR bring om die fokus terug op mense en menslike strewe te plaas — dit definieer die etiek en impak van tegnologie wat in die 4IR ontwikkel is.</div>
+      <div class="def-term">Etiese kwessies rondom KI-inhoud</div><div class="def-desc">KI kan realistiese maar vals video's/klank/beelde skep (&quot;deepfakes&quot;), wat gebruik kan word om waninligting te versprei. KI-gegenereerde teks/kuns skep vrae oor outeurskap en kopiereg, en dit word al hoe moeiliker om werklike van KI-gegenereerde inhoud te onderskei.</div>
+      <div class="def-term">Nadele van oormatige staat op KI</div><div class="def-desc">Verminderde kritiese denke en probleemoplossingsvaardighede as mense altyd op KI staatmaak; KI kan verkeerd of bevooroordeeld wees (gebaseer op die data waarop dit opgelei is); werksverplasing; verlies van menslike oordeel in besluitneming; en foute kan onopgemerk bly as dit nie feite-gekontroleer word nie.</div>
     </div>
     <div class="callout exam">
       <div class="callout-title">EKSAMENWENK — VR vs AR</div>
       <p>VR (virtuele realiteit) skep 'n <strong>volledig virtuele</strong> omgewing wat die werklike wêreld vervang. AR (aangevulde realiteit) voeg digitale voorwerpe <strong>bo-op</strong> die werklike wêreld — jy sien steeds jou omgewing. Onthou: Pokémon GO = AR (jy sien jou kamera se werklike beeld met 'n karakter bo-oor); volledige gesimuleerde speletjiewêreld met 'n VR-bril = VR.</p>
     </div>
+
+    <h3>Kortvorm-video-inhoud op Sosiale Media</h3>
+    <p>Kortvorm-video is 'n gewilde inhoudformaat op platforms soos TikTok, Instagram Reels en YouTube Shorts — kort, regop video's wat gewoonlik minder as 60 sekondes duur en vinnig verbruik kan word.</p>
+    <p>Risiko's van die openbare deel van self-gemaakte video-inhoud sluit in:</p>
+    <ul>
+      <li>Verlies van privaatheid — video's kan jou ligging, roetine of persoonlike besonderhede openbaar</li>
+      <li>Inhoud kan afgelaai en herdeel word sonder toestemming, en versprei buite jou beheer</li>
+      <li>Dit skep 'n permanente digitale voetspoor wat moeilik is om te verwyder</li>
+      <li>Risiko van teistering of ongewenste aandag</li>
+      <li>Inhoud kan buite konteks geneem word en gebruik word om die skepper in die verleentheid te stel of af te knou</li>
+    </ul>
+
+    <h3>Aanbevelingsalgoritmes op Sosiale Media</h3>
+    <p>Hierdie algoritmes personaliseer 'n gebruiker se voer deur op te spoor wat die gebruiker &quot;like&quot;, deel, waarop hulle kommentaar lewer, wat hulle kyk, en hoe lank hulle by bepaalde inhoud vertoef. Hierdie data word gebruik om te voorspel — en meer te wys van — die inhoud wat die gebruiker die langste betrokke sal hou.</p>
+    <p>Dit kan &quot;filterborrels&quot; of eggokamers skep, waar 'n gebruiker slegs inhoud sien wat hul bestaande sienings versterk. Hierdie algoritmes is ontwerp om die tyd wat op die platform deurgebring word, te maksimeer.</p>
+
+    <h3>Ander Bydraers tot Internet-/Digitale Verslawing</h3>
+    <p>Behalwe sosiale media self, kan die volgende aktiwiteite ook tot digitale verslawing bydra:</p>
+    <ul>
+      <li>Aanlyn speletjies (online gaming)</li>
+      <li>Video-stroming/&quot;binge-watching&quot;</li>
+      <li>Aanlyn inkopies</li>
+      <li>Dobbel-toepassings</li>
+      <li>Eindelose rondskuif deur nuus-/inhoudvoere</li>
+    </ul>
 
     <div class="term-tag t3">Kwartaal 3</div>
     <h2>Hoe Tegnologie die Samelewing kan Bevoordeel of Benadeel</h2>
