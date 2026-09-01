@@ -75,6 +75,7 @@
     ShowMessage(<span class="str">'File not found!'</span>);
 <span class="kw">end</span>;</code></pre></div>
 <h3>LoadFromFile and SaveToFile &mdash; Not Usable in Exams or PAT</h3>
+<div class="hard-block">🚫 You may NOT use LoadFromFile or SaveToFile in exams or PAT tasks &mdash; they will not be assessed.</div>
 <p>A <code>Memo</code> or <code>RichEdit</code>'s <code>Lines</code> property has two built-in methods, <code>LoadFromFile</code> and <code>SaveToFile</code>, that dump a whole text file onto the screen (or the screen into a file) in a single line, skipping <code>AssignFile</code>/<code>Reset</code>/<code>ReadLn</code>/<code>EOF</code> entirely.</p>
 <div class="code-block"><span class="code-label">Delphi &mdash; what this shortcut looks like</span>
 <pre><code>memOutput.Lines.Clear;

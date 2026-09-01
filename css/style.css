@@ -598,6 +598,22 @@ p code, li code {
 .callout.tip { border-color: #15803d; }
 .callout.tip .callout-title { color: #15803d; }
 
+/* ── HARD-BLOCK BANNER ── unmissable, high-contrast strip for "cannot be
+   used/assessed" warnings. Deliberately louder than .callout — same
+   solid colour in both themes since the point is raw visibility. */
+.hard-block {
+  background: #dc2626;
+  color: #fff;
+  font-weight: 800;
+  text-align: center;
+  padding: 0.65rem 1.1rem;
+  border-radius: 6px;
+  margin: 0.5rem 0 1.25rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+
 /* ── TABLE ── */
 .tbl-wrap { overflow-x: auto; margin: 1.25rem 0; }
 table {

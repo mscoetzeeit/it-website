@@ -78,6 +78,10 @@ strong{ font-weight:700; }
 .callout-title{ font-size:8.5pt; font-weight:800; text-transform:uppercase; letter-spacing:.07em; color:var(--soft); margin-bottom:.3em; }
 .callout p{ margin:0; }
 
+/* ---- HARD-BLOCK BANNER ---- solid black/white for "cannot be used/assessed"
+   warnings, since colour (red) would just print as grey on a B&W printer. */
+.hard-block{ background:#111; color:#fff; font-weight:800; text-align:center; padding:.55em .9em; border-radius:4px; margin:.5em 0 1em; font-size:10pt; page-break-inside:avoid; break-inside:avoid-page; }
+
 /* ---- TABLES ---- */
 .tbl-wrap{ margin:.9em 0; overflow:visible; }
 table{ width:100%; border-collapse:collapse; font-size:9.5pt; page-break-inside:avoid; break-inside:avoid-page; }
@@ -891,6 +895,7 @@ iAge := YearOf(Now) - YearOf(dtpBirth.Date); <span class="cmt">// e.g. 17</span>
     ShowMessage(<span class="str">'File not found!'</span>);
 <span class="kw">end</span>;</code></pre></div>
 <h3>LoadFromFile and SaveToFile &mdash; Not Usable in Exams or PAT</h3>
+<div class="hard-block">🚫 You may NOT use LoadFromFile or SaveToFile in exams or PAT tasks &mdash; they will not be assessed.</div>
 <p>A <code>Memo</code> or <code>RichEdit</code>'s <code>Lines</code> property has two built-in methods, <code>LoadFromFile</code> and <code>SaveToFile</code>, that dump a whole text file onto the screen (or the screen into a file) in a single line, skipping <code>AssignFile</code>/<code>Reset</code>/<code>ReadLn</code>/<code>EOF</code> entirely.</p>
 <div class="code-block"><span class="code-label">Delphi &mdash; what this shortcut looks like</span>
 <pre><code>memOutput.Lines.Clear;
