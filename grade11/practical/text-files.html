@@ -74,17 +74,17 @@
   <span class="kw">else</span>
     ShowMessage(<span class="str">'File not found!'</span>);
 <span class="kw">end</span>;</code></pre></div>
-<h3>Quick Alternative &mdash; LoadFromFile and SaveToFile</h3>
-<p>A <code>Memo</code> or <code>RichEdit</code>'s <code>Lines</code> property has two built-in methods that skip the whole <code>AssignFile</code>/<code>Reset</code>/<code>ReadLn</code> loop when you just want to dump a text file straight onto the screen (or the screen straight into a file). One line does the job of the entire loop above.</p>
-<div class="code-block"><span class="code-label">Delphi &mdash; load and save a whole file in one line</span>
+<h3>LoadFromFile and SaveToFile &mdash; Not Usable in Exams or PAT</h3>
+<p>A <code>Memo</code> or <code>RichEdit</code>'s <code>Lines</code> property has two built-in methods, <code>LoadFromFile</code> and <code>SaveToFile</code>, that dump a whole text file onto the screen (or the screen into a file) in a single line, skipping <code>AssignFile</code>/<code>Reset</code>/<code>ReadLn</code>/<code>EOF</code> entirely.</p>
+<div class="code-block"><span class="code-label">Delphi &mdash; what this shortcut looks like</span>
 <pre><code>memOutput.Lines.Clear;
 memOutput.Lines.LoadFromFile(<span class="str">'Data.txt'</span>);   <span class="cmt">// reads the whole file into the Memo</span>
 
 <span class="cmt">// ... later, to save the Memo's content back to a file:</span>
 memOutput.Lines.SaveToFile(<span class="str">'Output.txt'</span>);   <span class="cmt">// writes every line in the Memo to a file</span></code></pre></div>
-<div class="callout tip">
-  <div class="callout-title">When to use which method</div>
-  <p><code>LoadFromFile</code>/<code>SaveToFile</code> are fast and simple, but they give you no control over each line &mdash; you cannot validate, split or calculate anything while the file loads. Use them only when you want to display or save a file <em>as-is</em>. As soon as a question asks you to process the data (split fields, calculate a total, search for a value), you need the <code>AssignFile</code>/<code>Reset</code>/<code>ReadLn</code>/<code>EOF</code> loop instead.</p>
+<div class="callout warning">
+  <div class="callout-title">Do not use LoadFromFile / SaveToFile</div>
+  <p><code>LoadFromFile</code> and <code>SaveToFile</code> <strong>cannot be assessed in exams or PAT tasks and must not be used</strong> in your practical work at all &mdash; not even as a shortcut for the parts of a task that just display or save a file as-is. Every file operation, from the simplest read to the most complex report, must be written <strong>from first principles</strong> using <code>AssignFile</code>, <code>Reset</code>/<code>Rewrite</code>/<code>Append</code>, <code>ReadLn</code>/<code>WriteLn</code>, <code>EOF</code> and <code>CloseFile</code> &mdash; the technique shown earlier on this page. This example is here only so you recognise the shortcut and know to avoid it, not to use it.</p>
 </div>
 <h2>EOF vs Eoln &mdash; Reading Multiple Values on One Line</h2>
 <p><code>EOF(F)</code> checks whether you have reached the end of the whole <strong>file</strong>. But what if a single <strong>line</strong> holds several values you need to read one at a time, and you don't know in advance how many there are? Delphi has a matching function for exactly this: <code>Eoln(F)</code> &mdash; short for "End Of Line" &mdash; which returns <code>True</code> once you have read everything on the current line, even though the file itself is not finished yet.</p>
