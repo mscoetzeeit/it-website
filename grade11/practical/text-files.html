@@ -86,6 +86,45 @@ memOutput.Lines.SaveToFile(<span class="str">'Output.txt'</span>);   <span class
   <div class="callout-title">When to use which method</div>
   <p><code>LoadFromFile</code>/<code>SaveToFile</code> are fast and simple, but they give you no control over each line &mdash; you cannot validate, split or calculate anything while the file loads. Use them only when you want to display or save a file <em>as-is</em>. As soon as a question asks you to process the data (split fields, calculate a total, search for a value), you need the <code>AssignFile</code>/<code>Reset</code>/<code>ReadLn</code>/<code>EOF</code> loop instead.</p>
 </div>
+<h2>EOF vs Eoln &mdash; Reading Multiple Values on One Line</h2>
+<p><code>EOF(F)</code> checks whether you have reached the end of the whole <strong>file</strong>. But what if a single <strong>line</strong> holds several values you need to read one at a time, and you don't know in advance how many there are? Delphi has a matching function for exactly this: <code>Eoln(F)</code> &mdash; short for "End Of Line" &mdash; which returns <code>True</code> once you have read everything on the current line, even though the file itself is not finished yet.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Function</th><th>Returns True when&hellip;</th><th>Used to control&hellip;</th></tr>
+  <tr><td><code>EOF(F)</code></td><td>There are no lines left to read in the whole file</td><td>The <strong>outer</strong> loop &mdash; moves from one line to the next</td></tr>
+  <tr><td><code>Eoln(F)</code></td><td>You have reached the end of the <em>current</em> line (the file still has more lines after this one)</td><td>The <strong>inner</strong> loop &mdash; moves from one value to the next value on the same line</td></tr>
+</table></div>
+<p>Consider a file where each line holds an unknown number of test scores separated by spaces:</p>
+<div class="code-block"><span class="code-label">Data.txt</span>
+<pre><code>85 72 90 61
+78 88</code></pre></div>
+<p>Because every line has a different number of values, <code>ReadLn</code> on its own cannot pull them out one at a time. The fix is to nest a value-by-value loop (controlled by <code>Eoln</code>) inside the line-by-line loop (controlled by <code>EOF</code>):</p>
+<div class="code-block"><span class="code-label">Delphi &mdash; EOF and Eoln working together</span>
+<pre><code><span class="kw">var</span>
+  F: TextFile;
+  iScore, iTotal, iCount: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iTotal := <span class="num">0</span>;
+  iCount := <span class="num">0</span>;
+  AssignFile(F, <span class="str">'Data.txt'</span>);
+  Reset(F);
+  <span class="kw">while not</span> EOF(F) <span class="kw">do</span>          <span class="cmt">// outer loop: one line at a time</span>
+  <span class="kw">begin</span>
+    <span class="kw">while not</span> Eoln(F) <span class="kw">do</span>       <span class="cmt">// inner loop: one value at a time on this line</span>
+    <span class="kw">begin</span>
+      Read(F, iScore);              <span class="cmt">// Read (not ReadLn) leaves the cursor on the same line</span>
+      iTotal := iTotal + iScore;
+      iCount := iCount + <span class="num">1</span>;
+    <span class="kw">end</span>;
+    ReadLn(F);                      <span class="cmt">// step past the end-of-line marker onto the next line</span>
+  <span class="kw">end</span>;
+  CloseFile(F);
+  ShowMessage(<span class="str">'Average: '</span> + FloatToStr(iTotal / iCount));
+<span class="kw">end</span>;</code></pre></div>
+<div class="callout warning">
+  <div class="callout-title">Read vs ReadLn inside the inner loop</div>
+  <p>Inside the <code>Eoln</code> loop you must use <code>Read</code>, not <code>ReadLn</code>. <code>Read</code> takes just the next value and leaves the file cursor exactly where it stopped, ready for the next <code>Read</code>. <code>ReadLn</code> would jump straight to the next line, throwing away any values still waiting on the current one. The lone <code>ReadLn(F);</code> after the inner loop ends is what actually steps the cursor past the invisible end-of-line marker, so the outer <code>EOF</code> loop can correctly move on to the next line.</p>
+</div>
+
 <h2>Checking a File Exists with <code>try..except</code></h2>
 <p>Using <code>FileExists</code> is the simplest way to avoid a crash. A second method is to <em>try</em> to open the file and <strong>catch the error</strong> if it is missing. A <code>try..except</code> block runs the risky code in the <code>try</code> part; if an exception happens (for example the file does not exist, so <code>Reset</code> fails), control jumps straight to the <code>except</code> part instead of crashing the program.</p>
 <div class="code-block"><span class="code-label">Delphi — try..except when reading</span>
