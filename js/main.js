@@ -183,6 +183,86 @@ const PAGES = [
   { title: 'Exam Extras (Out-of-CAPS)',         url: 'exam-extras.html',                           grade: 'Study Tools',          tags: 'exam extras out of caps blockchain ai deep fake dark web steganography stringreplace format random trycatch popia mesh bus topology raid ipv6' },
 ];
 
+/* ---------- FUZZY SEARCH HELPERS ----------
+   Small, dependency-free tolerance for two common typing mistakes:
+   1) spelling mistakes  — "algorythm" should still find "algorithm"
+   2) word-boundary slips — "data base" should find "database" and
+      vice versa, in either direction, since both sides are compared
+      with spaces stripped as one of the matching strategies. */
+
+// Classic edit-distance (insert/delete/substitute), capped early for
+// very mismatched lengths since those can never be a near-miss anyway.
+function levenshtein(a, b) {
+  const m = a.length, n = b.length;
+  if (Math.abs(m - n) > 3) return 99;
+  if (m === 0) return n;
+  if (n === 0) return m;
+  let prev = new Array(n + 1);
+  let curr = new Array(n + 1);
+  for (let j = 0; j <= n; j++) prev[j] = j;
+  for (let i = 1; i <= m; i++) {
+    curr[0] = i;
+    for (let j = 1; j <= n; j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      curr[j] = Math.min(prev[j] + 1, curr[j - 1] + 1, prev[j - 1] + cost);
+    }
+    [prev, curr] = [curr, prev];
+  }
+  return prev[n];
+}
+
+// How many edits to tolerate before a word no longer counts as "close
+// enough" — scaled by word length so short words stay strict (a 1-edit
+// tolerance on a 3-letter word matches almost anything).
+function fuzzyThreshold(len) {
+  if (len <= 4) return 1;
+  if (len <= 7) return 2;
+  return 3;
+}
+
+// Scores one page against the query. Higher is a better match; 0 means
+// no match at all. Computes every applicable strategy — exact substring,
+// a space-stripped substring pass (catches split/joined words in either
+// direction), and per-word fuzzy matching (catches typos) — and keeps
+// the best of the three, rather than stopping at the first that hits.
+// The three score bands (1000 / 500 / ≤~70 per word) are kept far apart
+// on purpose so a genuine exact or joined match always outranks a merely
+// plausible fuzzy one, however many query words happen to fuzzy-match.
+function scorePage(page, q) {
+  const haystack = (page.title + ' ' + page.tags + ' ' + page.grade).toLowerCase();
+  let score = 0;
+
+  if (haystack.includes(q)) score = Math.max(score, 1000);
+
+  const qJoined = q.replace(/\s+/g, '');
+  if (qJoined.length >= 3 && haystack.replace(/\s+/g, '').includes(qJoined)) {
+    score = Math.max(score, 500);
+  }
+
+  const qWords = q.split(/\s+/).filter(Boolean);
+  const hWords = haystack.split(/[\s,./()&-]+/).filter(w => w.length > 2);
+  let total = 0, matched = 0;
+  for (const qw of qWords) {
+    let best = 0;
+    for (const hw of hWords) {
+      // Only trust a raw substring match when the shorter side is long
+      // enough to be meaningful — otherwise short fragments like "or"
+      // or "art" trivially match inside unrelated longer words.
+      if (Math.min(hw.length, qw.length) >= 3 && (hw.includes(qw) || qw.includes(hw))) {
+        best = Math.max(best, 70);
+        continue;
+      }
+      const dist = levenshtein(qw, hw);
+      if (dist <= fuzzyThreshold(qw.length)) best = Math.max(best, 60 - dist * 15);
+    }
+    if (best > 0) { total += best; matched++; }
+  }
+  if (matched > 0) {
+    score = Math.max(score, total * (matched / qWords.length)); // penalise queries only partly matched
+  }
+  return score;
+}
+
 function getRoot() {
   // Mirror the depth detection used in nav.js so links always resolve,
   // regardless of how deep the URL prefix is.
@@ -203,9 +283,12 @@ function buildSearchIndex() {
   input.addEventListener('input', () => {
     const q = input.value.trim().toLowerCase();
     if (q.length < 2) { results.classList.remove('open'); return; }
-    const matches = PAGES.filter(p =>
-      p.title.toLowerCase().includes(q) || p.tags.toLowerCase().includes(q) || p.grade.toLowerCase().includes(q)
-    ).slice(0, 8);
+    const matches = PAGES
+      .map(p => ({ page: p, score: scorePage(p, q) }))
+      .filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 8)
+      .map(x => x.page);
     if (matches.length === 0) {
       results.innerHTML = '<div class="sr-empty">No results found</div>';
     } else {
