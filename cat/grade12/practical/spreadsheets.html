@@ -33,6 +33,7 @@
       <p style="margin-top:.5em"><strong><span class="i18n" data-af="Eksamenwaarskuwing:">Exam warning:</span></strong> <span class="i18n" data-af="As die vraag vra vir 'n <strong>formule</strong> en jy tik 'n funksie soos <code>=SUM</code>, <strong>sal jy punte verloor</strong> — selfs al is die antwoord numeries korrek. Lees die vraag noukeurig: die woord <em>formule</em> beteken jy moet operatore gebruik; die woord <em>funksie</em> beteken jy mag 'n ingeboude naam gebruik.">If the question asks for a <strong>formula</strong> and you type a function like <code>=SUM</code>, you <strong>will lose marks</strong> — even if the numeric answer is correct. Read the question carefully: the word <em>formula</em> means you must use operators; the word <em>function</em> means you may use a built-in name.</span></p>
     </div>
 
+    <div class="term-tag t1"><span class="i18n" data-af="Kwartaal 1">Term 1</span></div>
     <h2><span class="i18n" data-af="Opfrissing: COUNT teenoor COUNTA">Refresher: COUNT vs COUNTA</span></h2>
     <p><span class="i18n" data-af="Voordat ons by die gevorderde funksies kom, 'n vinnige opfrissing van Graad 10/11-werk wat steeds in Graad 12-eksamens getoets word: <code>COUNT</code> tel slegs selle wat GETALLE bevat; <code>COUNTA</code> tel ALLE nie-leë selle (getalle, teks, datums — enigiets behalwe 'n werklik leë sel).">Before we get into the advanced functions, a quick refresher of Grade 10/11 work that Grade 12 exams still test: <code>COUNT</code> counts only cells containing NUMBERS; <code>COUNTA</code> counts ALL non-empty cells (numbers, text, dates — anything except a truly blank cell).</span></p>
     <div class="code-block">
@@ -51,6 +52,7 @@
       <p><span class="i18n" data-af="Wanneer jy 'n telefoon- of selnommer soos &quot;082 555 1234&quot; intik, sal Excel die voorloopnul laat val en dit as 'n getal behandel (dit word &quot;82 555 1234&quot;), tensy jy die kolom eers as <strong>Text</strong> formateer. Kies die kolom → <strong>Home → Number Format → Text</strong> → <em>voordat</em> jy die nommers intik. Dan bly &quot;082 555 1234&quot; presies soos getik.">When you type a phone or cell number like "082 555 1234", Excel will drop the leading zero and treat it as a number (it becomes "82 555 1234"), unless you format the column as <strong>Text</strong> first. Select the column → <strong>Home → Number Format → Text</strong> → <em>before</em> typing the numbers in. Then "082 555 1234" stays exactly as typed.</span></p>
     </div>
 
+    <div class="term-tag t1"><span class="i18n" data-af="Kwartaal 1">Term 1</span></div>
     <h2><span class="i18n" data-af="Komplekse Funksies">Complex Functions</span></h2>
 
     <h3><span class="i18n" data-af="Geneste IF">Nested IF</span></h3>
@@ -231,6 +233,63 @@
 =<span class="fn">ROUND</span>(<span class="ref">A1</span>, 0)      <span class="hcmt">&lt;-- rounds to nearest (3.5 → 4; 3.4 → 3)</span></pre>
     </div>
 
+    <div class="term-tag t1"><span class="i18n" data-af="Kwartaal 1">Term 1</span></div>
+    <h2><span class="i18n" data-af="Datum- en Tydfunksies">Date and Time Functions</span></h2>
+    <div class="tbl-wrap"><table>
+      <tr><th><span class="i18n" data-af="Funksie">Function</span></th><th><span class="i18n" data-af="Gee terug">Returns</span></th><th><span class="i18n" data-af="Voorbeeld">Example</span></th></tr>
+      <tr><td><code class="fn">TODAY()</code></td><td><span class="i18n" data-af="Vandag se datum">Today's date</span></td><td>=TODAY()</td></tr>
+      <tr><td><code class="fn">NOW()</code></td><td><span class="i18n" data-af="Huidige datum en tyd">Current date and time</span></td><td>=NOW()</td></tr>
+      <tr><td><code class="fn">YEAR(date)</code></td><td><span class="i18n" data-af="Jaardeel van 'n datum">Year part of a date</span></td><td>=YEAR(A1) → 2026</td></tr>
+      <tr><td><code class="fn">MONTH(date)</code></td><td><span class="i18n" data-af="Maandnommer (1–12)">Month number (1–12)</span></td><td>=MONTH(A1) → 6</td></tr>
+      <tr><td><code class="fn">DAY(date)</code></td><td><span class="i18n" data-af="Dagnommer (1–31)">Day number (1–31)</span></td><td>=DAY(A1) → 15</td></tr>
+      <tr><td><code class="fn">DAYS(end,start)</code></td><td><span class="i18n" data-af="Aantal dae tussen twee datums">Number of days between two dates</span></td><td>=DAYS(TODAY(),A1)</td></tr>
+    </table></div>
+    <div class="code-block">
+      <div class="code-label"><span class="i18n" data-af="Ouderdomsberekening voorbeeld">Age calculation example</span></div>
+      <pre>=<span class="fn">YEAR</span>(<span class="fn">TODAY</span>()) - <span class="fn">YEAR</span>(<span class="ref">B2</span>)   <span class="hcmt">&lt;-- approximate age in years</span>
+=<span class="fn">DAYS</span>(<span class="fn">TODAY</span>(), <span class="ref">B2</span>) / 365.25  <span class="hcmt">&lt;-- more precise age</span></pre>
+    </div>
+
+    <div class="term-tag t1"><span class="i18n" data-af="Kwartaal 1">Term 1</span></div>
+    <h2><span class="i18n" data-af="Vasvries van Meervoudige Rye of Kolomme">Freezing Multiple Rows or Columns</span></h2>
+    <p><span class="i18n" data-af="Vasvries-panele hou sekere rye of kolomme op die skerm vasgesluit terwyl jy deur 'n groot blad blaai — soos om die kolomopskrifte van 'n gedrukte tabel sigbaar te hou bo-aan elke bladsy. Meer as een ry vasvries werk op dieselfde manier as een vasvries, jy moet net eers op die regte plek klik.">Freeze Panes keeps certain rows or columns locked in place on screen while you scroll through a large sheet — like keeping the column headings of a printed table visible at the top of every page. Freezing more than one row works the same way as freezing one, you just need to click in the right place first.</span></p>
+    <div class="steps-box">
+      <div class="steps-title"><span class="i18n" data-af="Stap-vir-stap: Vries die boonste 3 rye vas">Step-by-step: Freeze the top 3 rows</span></div>
+      <ol class="steps">
+        <li><span class="i18n" data-af="Klik op sel <strong>A4</strong> — d.w.s. die sel in kolom A van die ry direk <em>onder</em> die rye wat jy wil vasvries. (Om rye 1–3 vas te vries, klik jy in ry 4.)">Click on cell <strong>A4</strong> — i.e. the cell in column A of the row directly <em>below</em> the rows you want frozen. (To freeze rows 1–3, you click into row 4.)</span></li>
+        <li><span class="i18n" data-af="Gaan na">Go to</span> <span class="ribbon-path"><span class="rp">View</span><span class="rp-arrow">→</span><span class="rp">Freeze Panes</span><span class="rp-arrow">→</span><span class="rp">Freeze Panes</span></span>.</li>
+        <li><span class="i18n" data-af="Rye 1–3 bly nou sigbaar bo-aan ongeag hoe ver af jy blaai. 'n Dun grys lyn merk die vasgevriese grens.">Rows 1–3 now stay visible at the top no matter how far down you scroll. A thin grey line marks the frozen boundary.</span></li>
+      </ol>
+    </div>
+    <p><span class="i18n" data-af="Dieselfde idee werk vir kolomme: klik in die eerste sel van die kolom wat jy wil ontsluit (bv. C1, om kolomme A en B vas te vries), gebruik dan dieselfde Freeze Panes-opdrag.">The same idea works for columns: click in the first cell of the column you want unfrozen (e.g. C1, to freeze columns A and B), then use the same Freeze Panes command.</span></p>
+
+    <div class="term-tag t1"><span class="i18n" data-af="Kwartaal 1">Term 1</span></div>
+    <h2><span class="i18n" data-af="Voorwaardelike Formatering met Pasgemaakte Reëls">Conditional Formatting with Custom Rules</span></h2>
+    <p><span class="i18n" data-af="Voorwaardelike formatering verander hoe 'n sel <em>lyk</em> outomaties, gebaseer op wat daarin is — sodat die sigblad die waardes wat vir jou saak maak, uitlig in plaas van dat jy 'n lang kolom met die oog skandeer. 'n Algemene eksamentaak: maak elke sel wat 'n spesifieke woord bevat (bv. &quot;Nee&quot;) in vetdruk rooi uitstaan.">Conditional formatting changes how a cell <em>looks</em> automatically, based on what's inside it — so instead of scanning a long column by eye, the spreadsheet highlights the values that matter for you. A common exam task: make every cell containing a specific word (e.g. "No") stand out in bold red.</span></p>
+    <div class="steps-box">
+      <div class="steps-title"><span class="i18n" data-af="Stap-vir-stap: Merk selle wat spesifieke teks bevat">Step-by-step: Highlight cells containing specific text</span></div>
+      <ol class="steps">
+        <li><span class="i18n" data-af="Selekteer die reeks selle om te kontroleer (bv. D2:D20).">Select the range of cells to check (e.g. D2:D20).</span></li>
+        <li><span class="i18n" data-af="Gaan na">Go to</span> <span class="ribbon-path"><span class="rp">Home</span><span class="rp-arrow">→</span><span class="rp">Conditional Formatting</span><span class="rp-arrow">→</span><span class="rp">Highlight Cells Rules</span><span class="rp-arrow">→</span><span class="rp">Equal To…</span></span> <span class="i18n" data-af="(of <strong>Text that Contains…</strong> as dit nie 'n presiese treffer is nie).">(or <strong>Text that Contains…</strong> if it isn't an exact match).</span></li>
+        <li><span class="i18n" data-af="Tik die woord om te pas, bv. <code>No</code>.">Type the word to match, e.g. <code>No</code>.</span></li>
+        <li><span class="i18n" data-af="Klik die formaat-aftrekkieslys en kies <strong>Custom Format…</strong> om beide 'n lettertipestyl (Vetdruk) en 'n vulkleur (rooi) te stel, klik dan twee keer <strong>OK</strong>.">Click the format dropdown and choose <strong>Custom Format…</strong> to set both a font style (Bold) and a fill colour (red), then click <strong>OK</strong> twice.</span></li>
+      </ol>
+    </div>
+    <div class="callout exam">
+      <div class="callout-title"><span class="i18n" data-af="EKSAMENWENK — Voorwaardelike Formatering teenoor handmatige formatering">EXAM TIP — Conditional Formatting vs typing the format by hand</span></div>
+      <p><span class="i18n" data-af="Moenie ooit die passende selle handmatig selekteer en vetdruk/kleur self toepas nie — merkgraaders kontroleer of die reël steeds aan die sel gekoppel is. As nuwe data later ingeskryf word en dit ook sê &quot;No&quot;, moet dit outomaties rooi word. Dit gebeur slegs met 'n regte voorwaardelike formateringsreël, nie handmatige formatering nie.">Never select the matching cells manually and apply bold/colour yourself — markers check that the rule is still attached to the cell. If new data is typed in later and it also says "No", it must automatically turn red too. That only happens with a real conditional formatting rule, not manual formatting.</span></p>
+    </div>
+
+    <div class="term-tag t1"><span class="i18n" data-af="Kwartaal 1">Term 1</span></div>
+    <h2><span class="i18n" data-af="Subtotaal-funksie">Subtotal Feature</span></h2>
+    <p><span class="i18n" data-af="Die Subtotaal-hulpmiddel voeg outomaties opsommingsrye in 'n lys in waar ook al 'n gekoose kolom se waarde verander — byvoorbeeld, 'n subtotaal van punte aan die einde van elke graad, sonder dat jy self rye invoeg of SOM-formules tik. Dit werk slegs op 'n gesorteerde, gewone lys van data (nie binne 'n tabelobjek nie), so sorteer eers volgens die groeperingskolom.">The Subtotal tool automatically inserts summary rows into a list wherever a chosen column's value changes — for example, a sub-total of marks at the end of every grade, without you manually inserting rows or typing SUM formulas yourself. It only works on a sorted, plain list of data (not inside a table object), so sort by the grouping column first.</span></p>
+    <ul>
+      <li><span class="i18n" data-af="Data → Subtotal → kies kolom om volgens te groepeer, funksie (SOM/GEM/TELL) en kolom om te bereken">Data → Subtotal → choose column to group by, function (SUM/AVG/COUNT) and column to calculate</span></li>
+      <li><span class="i18n" data-af="Skep omlyningsvlakke — klik 1, 2, 3 knoppies om groepe uit te vou/te vou">Creates outline levels — click 1, 2, 3 buttons to expand/collapse groups</span></li>
+      <li><span class="i18n" data-af="Verwyder: Data → Subtotal → Remove All">Remove: Data → Subtotal → Remove All</span></li>
+    </ul>
+
+    <div class="term-tag t2"><span class="i18n" data-af="Kwartaal 2">Term 2</span></div>
     <h2><span class="i18n" data-af="Teksfunksies">Text Functions</span></h2>
     <div class="tbl-wrap"><table>
       <tr><th><span class="i18n" data-af="Funksie">Function</span></th><th><span class="i18n" data-af="Sintaksis">Syntax</span></th><th><span class="i18n" data-af="Voorbeeld">Example</span></th><th><span class="i18n" data-af="Resultaat">Result</span></th></tr>
@@ -249,22 +308,7 @@
       <p><span class="i18n" data-af="UPPER skakel alle letters in 'n teksstring na HOOFLETTERS om; LOWER skakel alles na kleinletters om. Albei is nuttig om inskrywings te standaardiseer voordat jy dit vergelyk (bv. &quot;Cape Town&quot; en &quot;CAPE TOWN&quot; sal nie as gelyk uitgeken word in 'n presiese vergelyking nie, tensy jy eers UPPER of LOWER toepas).">UPPER converts every letter in a text string to UPPERCASE; LOWER converts everything to lowercase. Both are useful for standardising entries before comparing them (e.g. "Cape Town" and "CAPE TOWN" won't be recognised as equal in an exact comparison unless you apply UPPER or LOWER first).</span></p>
     </div>
 
-    <h2><span class="i18n" data-af="Datum- en Tydfunksies">Date and Time Functions</span></h2>
-    <div class="tbl-wrap"><table>
-      <tr><th><span class="i18n" data-af="Funksie">Function</span></th><th><span class="i18n" data-af="Gee terug">Returns</span></th><th><span class="i18n" data-af="Voorbeeld">Example</span></th></tr>
-      <tr><td><code class="fn">TODAY()</code></td><td><span class="i18n" data-af="Vandag se datum">Today's date</span></td><td>=TODAY()</td></tr>
-      <tr><td><code class="fn">NOW()</code></td><td><span class="i18n" data-af="Huidige datum en tyd">Current date and time</span></td><td>=NOW()</td></tr>
-      <tr><td><code class="fn">YEAR(date)</code></td><td><span class="i18n" data-af="Jaardeel van 'n datum">Year part of a date</span></td><td>=YEAR(A1) → 2026</td></tr>
-      <tr><td><code class="fn">MONTH(date)</code></td><td><span class="i18n" data-af="Maandnommer (1–12)">Month number (1–12)</span></td><td>=MONTH(A1) → 6</td></tr>
-      <tr><td><code class="fn">DAY(date)</code></td><td><span class="i18n" data-af="Dagnommer (1–31)">Day number (1–31)</span></td><td>=DAY(A1) → 15</td></tr>
-      <tr><td><code class="fn">DAYS(end,start)</code></td><td><span class="i18n" data-af="Aantal dae tussen twee datums">Number of days between two dates</span></td><td>=DAYS(TODAY(),A1)</td></tr>
-    </table></div>
-    <div class="code-block">
-      <div class="code-label"><span class="i18n" data-af="Ouderdomsberekening voorbeeld">Age calculation example</span></div>
-      <pre>=<span class="fn">YEAR</span>(<span class="fn">TODAY</span>()) - <span class="fn">YEAR</span>(<span class="ref">B2</span>)   <span class="hcmt">&lt;-- approximate age in years</span>
-=<span class="fn">DAYS</span>(<span class="fn">TODAY</span>(), <span class="ref">B2</span>) / 365.25  <span class="hcmt">&lt;-- more precise age</span></pre>
-    </div>
-
+    <div class="term-tag t2"><span class="i18n" data-af="Kwartaal 2">Term 2</span></div>
     <h2><span class="i18n" data-af="Teksfunksies Kombineer">Combining Text Functions</span></h2>
     <p><span class="i18n" data-af="LEFT, RIGHT en MID word baie nuttiger sodra jy twee van hulle kombineer om 'n splinternuwe kode uit stukke van ander data te bou — byvoorbeeld, 'n &quot;familiecode&quot; gemaak uit die eerste 3 letters van 'n van plus die laaste 3 karakters van 'n toelatingsnommer.">LEFT, RIGHT and MID become far more useful once you combine two of them to build a brand-new code out of pieces of other data — for example, a "family code" made from the first 3 letters of a surname plus the last 3 characters of an admission number.</span></p>
     <div class="code-block">
@@ -278,42 +322,7 @@
       <p><span class="i18n" data-af="Bou hierdie formules stuk vir stuk presies in die volgorde soos die vraag dit beskryf (&quot;eerste 3 letters van van, gekombineer met die laaste 3 karakters van toelatingsnommer&quot;) — skryf neer wat elke stuk moet produseer voordat jy hulle met <code>&amp;</code> saamvoeg, sodat jy kan sien watter helfte verkeerd is as die resultaat skeef lyk.">Build these formulas piece by piece exactly in the order the question describes ("first 3 letters of surname, combined with the last 3 characters of admission number") — write down what each piece should produce before joining them with <code>&amp;</code>, so you can spot which half is wrong if the result looks off.</span></p>
     </div>
 
-    <h2><span class="i18n" data-af="Vasvries van Meervoudige Rye of Kolomme">Freezing Multiple Rows or Columns</span></h2>
-    <p><span class="i18n" data-af="Vasvries-panele hou sekere rye of kolomme op die skerm vasgesluit terwyl jy deur 'n groot blad blaai — soos om die kolomopskrifte van 'n gedrukte tabel sigbaar te hou bo-aan elke bladsy. Meer as een ry vasvries werk op dieselfde manier as een vasvries, jy moet net eers op die regte plek klik.">Freeze Panes keeps certain rows or columns locked in place on screen while you scroll through a large sheet — like keeping the column headings of a printed table visible at the top of every page. Freezing more than one row works the same way as freezing one, you just need to click in the right place first.</span></p>
-    <div class="steps-box">
-      <div class="steps-title"><span class="i18n" data-af="Stap-vir-stap: Vries die boonste 3 rye vas">Step-by-step: Freeze the top 3 rows</span></div>
-      <ol class="steps">
-        <li><span class="i18n" data-af="Klik op sel <strong>A4</strong> — d.w.s. die sel in kolom A van die ry direk <em>onder</em> die rye wat jy wil vasvries. (Om rye 1–3 vas te vries, klik jy in ry 4.)">Click on cell <strong>A4</strong> — i.e. the cell in column A of the row directly <em>below</em> the rows you want frozen. (To freeze rows 1–3, you click into row 4.)</span></li>
-        <li><span class="i18n" data-af="Gaan na">Go to</span> <span class="ribbon-path"><span class="rp">View</span><span class="rp-arrow">→</span><span class="rp">Freeze Panes</span><span class="rp-arrow">→</span><span class="rp">Freeze Panes</span></span>.</li>
-        <li><span class="i18n" data-af="Rye 1–3 bly nou sigbaar bo-aan ongeag hoe ver af jy blaai. 'n Dun grys lyn merk die vasgevriese grens.">Rows 1–3 now stay visible at the top no matter how far down you scroll. A thin grey line marks the frozen boundary.</span></li>
-      </ol>
-    </div>
-    <p><span class="i18n" data-af="Dieselfde idee werk vir kolomme: klik in die eerste sel van die kolom wat jy wil ontsluit (bv. C1, om kolomme A en B vas te vries), gebruik dan dieselfde Freeze Panes-opdrag.">The same idea works for columns: click in the first cell of the column you want unfrozen (e.g. C1, to freeze columns A and B), then use the same Freeze Panes command.</span></p>
-
-    <h2><span class="i18n" data-af="Voorwaardelike Formatering met Pasgemaakte Reëls">Conditional Formatting with Custom Rules</span></h2>
-    <p><span class="i18n" data-af="Voorwaardelike formatering verander hoe 'n sel <em>lyk</em> outomaties, gebaseer op wat daarin is — sodat die sigblad die waardes wat vir jou saak maak, uitlig in plaas van dat jy 'n lang kolom met die oog skandeer. 'n Algemene eksamentaak: maak elke sel wat 'n spesifieke woord bevat (bv. &quot;Nee&quot;) in vetdruk rooi uitstaan.">Conditional formatting changes how a cell <em>looks</em> automatically, based on what's inside it — so instead of scanning a long column by eye, the spreadsheet highlights the values that matter for you. A common exam task: make every cell containing a specific word (e.g. "No") stand out in bold red.</span></p>
-    <div class="steps-box">
-      <div class="steps-title"><span class="i18n" data-af="Stap-vir-stap: Merk selle wat spesifieke teks bevat">Step-by-step: Highlight cells containing specific text</span></div>
-      <ol class="steps">
-        <li><span class="i18n" data-af="Selekteer die reeks selle om te kontroleer (bv. D2:D20).">Select the range of cells to check (e.g. D2:D20).</span></li>
-        <li><span class="i18n" data-af="Gaan na">Go to</span> <span class="ribbon-path"><span class="rp">Home</span><span class="rp-arrow">→</span><span class="rp">Conditional Formatting</span><span class="rp-arrow">→</span><span class="rp">Highlight Cells Rules</span><span class="rp-arrow">→</span><span class="rp">Equal To…</span></span> <span class="i18n" data-af="(of <strong>Text that Contains…</strong> as dit nie 'n presiese treffer is nie).">(or <strong>Text that Contains…</strong> if it isn't an exact match).</span></li>
-        <li><span class="i18n" data-af="Tik die woord om te pas, bv. <code>No</code>.">Type the word to match, e.g. <code>No</code>.</span></li>
-        <li><span class="i18n" data-af="Klik die formaat-aftrekkieslys en kies <strong>Custom Format…</strong> om beide 'n lettertipestyl (Vetdruk) en 'n vulkleur (rooi) te stel, klik dan twee keer <strong>OK</strong>.">Click the format dropdown and choose <strong>Custom Format…</strong> to set both a font style (Bold) and a fill colour (red), then click <strong>OK</strong> twice.</span></li>
-      </ol>
-    </div>
-    <div class="callout exam">
-      <div class="callout-title"><span class="i18n" data-af="EKSAMENWENK — Voorwaardelike Formatering teenoor handmatige formatering">EXAM TIP — Conditional Formatting vs typing the format by hand</span></div>
-      <p><span class="i18n" data-af="Moenie ooit die passende selle handmatig selekteer en vetdruk/kleur self toepas nie — merkgraaders kontroleer of die reël steeds aan die sel gekoppel is. As nuwe data later ingeskryf word en dit ook sê &quot;No&quot;, moet dit outomaties rooi word. Dit gebeur slegs met 'n regte voorwaardelike formateringsreël, nie handmatige formatering nie.">Never select the matching cells manually and apply bold/colour yourself — markers check that the rule is still attached to the cell. If new data is typed in later and it also says "No", it must automatically turn red too. That only happens with a real conditional formatting rule, not manual formatting.</span></p>
-    </div>
-
-    <h2><span class="i18n" data-af="Subtotaal-funksie">Subtotal Feature</span></h2>
-    <p><span class="i18n" data-af="Die Subtotaal-hulpmiddel voeg outomaties opsommingsrye in 'n lys in waar ook al 'n gekoose kolom se waarde verander — byvoorbeeld, 'n subtotaal van punte aan die einde van elke graad, sonder dat jy self rye invoeg of SOM-formules tik. Dit werk slegs op 'n gesorteerde, gewone lys van data (nie binne 'n tabelobjek nie), so sorteer eers volgens die groeperingskolom.">The Subtotal tool automatically inserts summary rows into a list wherever a chosen column's value changes — for example, a sub-total of marks at the end of every grade, without you manually inserting rows or typing SUM formulas yourself. It only works on a sorted, plain list of data (not inside a table object), so sort by the grouping column first.</span></p>
-    <ul>
-      <li><span class="i18n" data-af="Data → Subtotal → kies kolom om volgens te groepeer, funksie (SOM/GEM/TELL) en kolom om te bereken">Data → Subtotal → choose column to group by, function (SUM/AVG/COUNT) and column to calculate</span></li>
-      <li><span class="i18n" data-af="Skep omlyningsvlakke — klik 1, 2, 3 knoppies om groepe uit te vou/te vou">Creates outline levels — click 1, 2, 3 buttons to expand/collapse groups</span></li>
-      <li><span class="i18n" data-af="Verwyder: Data → Subtotal → Remove All">Remove: Data → Subtotal → Remove All</span></li>
-    </ul>
-
+    <div class="term-tag t3"><span class="i18n" data-af="Kwartaal 3">Term 3</span></div>
     <h2><span class="i18n" data-af="Gevorderde Grafieke">Advanced Charts</span></h2>
     <div class="tbl-wrap"><table>
       <tr><th><span class="i18n" data-af="Taak">Task</span></th><th><span class="i18n" data-af="Hoe">How</span></th></tr>

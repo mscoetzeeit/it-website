@@ -27,9 +27,11 @@
     <h1><span class="i18n" data-af="HTML &amp; Webontwerp">HTML &amp; Web Design</span> <span class="grade-badge"><span class="i18n" data-af="Graad 11">Grade 11</span></span></h1>
     <p class="page-intro"><span class="i18n" data-af="Graad 11 bou voort op die HTML-basiese vaardighede van Graad 10. Nuwe onderwerpe: HTML-tabelle, lyste (geordend en ongeordend), beelde, hiperskakels, kommentaar, en basiese kleurgebruik in webontwerp.">Grade 11 extends on Grade 10 HTML basics. New topics: HTML tables, lists (ordered and unordered), images, hyperlinks, comments, and basic colour use in web design.</span></p>
 
+    <div class="term-tag t2"><span class="i18n" data-af="Kwartaal 2">Term 2</span></div>
     <h2><span class="i18n" data-af="Hersiening — HTML-struktuur">Revision — HTML Structure</span></h2>
     <p><span class="i18n" data-af="Alle Graad 10-merkers is nog van toepassing. Graad 11 bou daarop voort.">All Grade 10 tags still apply. Grade 11 builds on top of them.</span></p>
 
+    <div class="term-tag t2"><span class="i18n" data-af="Kwartaal 2">Term 2</span></div>
     <h2><span class="i18n" data-af="HTML-kommentaar">HTML Comments</span></h2>
     <p><span class="i18n" data-af="Kommentaar is notas vir die ontwikkelaar — dit word NIE in die blaaier vertoon nie.">Comments are notes for the developer — they are NOT displayed in the browser.</span></p>
     <div class="code-block">
@@ -38,6 +40,7 @@
 <span class="ht">&lt;p&gt;</span>This text IS displayed.<span class="ht">&lt;/p&gt;</span></pre>
     </div>
 
+    <div class="term-tag t2"><span class="i18n" data-af="Kwartaal 2">Term 2</span></div>
     <h2><span class="i18n" data-af="Kenmerke — Uitgebrei">Attributes — Extended</span></h2>
     <p><span class="i18n" data-af="Kenmerke beheer die voorkoms en gedrag van elemente. Meerdere kenmerke kan in een merker gebruik word:">Attributes control the appearance and behaviour of elements. Multiple attributes can be used in one tag:</span></p>
     <div class="code-block">
@@ -46,65 +49,7 @@
 <span class="ht">&lt;h2</span> <span class="hat">align</span>=<span class="hv">"right"</span><span class="ht">&gt;</span>Right-aligned heading<span class="ht">&lt;/h2&gt;</span></pre>
     </div>
 
-    <h2><span class="i18n" data-af="HTML-lyste">HTML Lists</span></h2>
-    <h3><span class="i18n" data-af="Ongeordende (Kolpunt-) Lys">Unordered (Bulleted) List</span></h3>
-    <div class="code-block">
-      <div class="code-label"><span class="i18n" data-af="Ongeordende lys">Unordered list</span></div>
-      <pre><span class="ht">&lt;ul&gt;</span>
-  <span class="ht">&lt;li&gt;</span>First item<span class="ht">&lt;/li&gt;</span>
-  <span class="ht">&lt;li&gt;</span>Second item<span class="ht">&lt;/li&gt;</span>
-  <span class="ht">&lt;li&gt;</span>Third item<span class="ht">&lt;/li&gt;</span>
-<span class="ht">&lt;/ul&gt;</span>
-
-<span class="hcmt">&lt;!-- type attribute changes bullet symbol --&gt;</span>
-<span class="ht">&lt;ul</span> <span class="hat">type</span>=<span class="hv">"disc"</span><span class="ht">&gt;</span>    <span class="hcmt">&lt;-- ● (default)</span>
-<span class="ht">&lt;ul</span> <span class="hat">type</span>=<span class="hv">"circle"</span><span class="ht">&gt;</span>  <span class="hcmt">&lt;-- ○</span>
-<span class="ht">&lt;ul</span> <span class="hat">type</span>=<span class="hv">"square"</span><span class="ht">&gt;</span>  <span class="hcmt">&lt;-- ■</span></pre>
-    </div>
-
-    <h3><span class="i18n" data-af="Geordende (Genommerde) Lys">Ordered (Numbered) List</span></h3>
-    <div class="code-block">
-      <div class="code-label"><span class="i18n" data-af="Geordende lys">Ordered list</span></div>
-      <pre><span class="ht">&lt;ol&gt;</span>
-  <span class="ht">&lt;li&gt;</span>First step<span class="ht">&lt;/li&gt;</span>
-  <span class="ht">&lt;li&gt;</span>Second step<span class="ht">&lt;/li&gt;</span>
-  <span class="ht">&lt;li&gt;</span>Third step<span class="ht">&lt;/li&gt;</span>
-<span class="ht">&lt;/ol&gt;</span>
-
-<span class="hcmt">&lt;!-- type attribute changes numbering style --&gt;</span>
-<span class="ht">&lt;ol</span> <span class="hat">type</span>=<span class="hv">"1"</span><span class="ht">&gt;</span>   <span class="hcmt">&lt;-- 1, 2, 3 (default)</span>
-<span class="ht">&lt;ol</span> <span class="hat">type</span>=<span class="hv">"A"</span><span class="ht">&gt;</span>   <span class="hcmt">&lt;-- A, B, C</span>
-<span class="ht">&lt;ol</span> <span class="hat">type</span>=<span class="hv">"a"</span><span class="ht">&gt;</span>   <span class="hcmt">&lt;-- a, b, c</span>
-<span class="ht">&lt;ol</span> <span class="hat">type</span>=<span class="hv">"I"</span><span class="ht">&gt;</span>   <span class="hcmt">&lt;-- I, II, III (Roman numerals)</span>
-<span class="ht">&lt;ol</span> <span class="hat">type</span>=<span class="hv">"i"</span><span class="ht">&gt;</span>   <span class="hcmt">&lt;-- i, ii, iii</span></pre>
-    </div>
-
-    <h2><span class="i18n" data-af="HTML-beelde">HTML Images</span></h2>
-    <div class="code-block">
-      <div class="code-label"><span class="i18n" data-af="Beeld-merker">Image tag</span></div>
-      <pre><span class="ht">&lt;img</span> <span class="hat">src</span>=<span class="hv">"logo.png"</span> <span class="hat">alt</span>=<span class="hv">"Company Logo"</span><span class="ht">&gt;</span>
-
-<span class="hcmt">&lt;!-- With width and height --&gt;</span>
-<span class="ht">&lt;img</span> <span class="hat">src</span>=<span class="hv">"photo.jpg"</span> <span class="hat">alt</span>=<span class="hv">"School photo"</span> <span class="hat">width</span>=<span class="hv">"300"</span> <span class="hat">height</span>=<span class="hv">"200"</span><span class="ht">&gt;</span>
-
-<span class="hcmt">&lt;!-- With border --&gt;</span>
-<span class="ht">&lt;img</span> <span class="hat">src</span>=<span class="hv">"icon.gif"</span> <span class="hat">alt</span>=<span class="hv">"Icon"</span> <span class="hat">border</span>=<span class="hv">"2"</span><span class="ht">&gt;</span></pre>
-    </div>
-    <div class="tbl-wrap"><table>
-      <tr><th><span class="i18n" data-af="Kenmerk">Attribute</span></th><th><span class="i18n" data-af="Doel">Purpose</span></th><th><span class="i18n" data-af="Vereis?">Required?</span></th></tr>
-      <tr><td><code class="hat">src</code></td><td><span class="i18n" data-af="Pad/lêernaam van die beeld">Path/filename of the image</span></td><td><span class="i18n" data-af="Ja">Yes</span></td></tr>
-      <tr><td><code class="hat">alt</code></td><td><span class="i18n" data-af="Alternatiewe teks (gewys as beeld nie laai nie; toeganklikheid)">Alternative text (shown if image doesn't load; accessibility)</span></td><td><span class="i18n" data-af="Ja">Yes</span></td></tr>
-      <tr><td><code class="hat">width</code></td><td><span class="i18n" data-af="Breedte van die beeld in pixels">Width of the image in pixels</span></td><td><span class="i18n" data-af="Nee">No</span></td></tr>
-      <tr><td><code class="hat">height</code></td><td><span class="i18n" data-af="Hoogte van die beeld in pixels">Height of the image in pixels</span></td><td><span class="i18n" data-af="Nee">No</span></td></tr>
-      <tr><td><code class="hat">border</code></td><td><span class="i18n" data-af="Randdikte in pixels">Border thickness in pixels</span></td><td><span class="i18n" data-af="Nee">No</span></td></tr>
-    </table></div>
-    <div class="callout">
-      <div class="callout-title"><span class="i18n" data-af="BEELDLÊERPAAIE">IMAGE FILE PATHS</span></div>
-      <p><span class="i18n" data-af="As die beeld in dieselfde gids as die HTML-lêer is:">If the image is in the same folder as the HTML file:</span> <code>src="photo.jpg"</code><br>
-      <span class="i18n" data-af="In 'n subgids:">If in a subfolder:</span> <code>src="images/photo.jpg"</code><br>
-      <span class="i18n" data-af="Aanlyn beeld (URL):">Online image (URL):</span> <code>src="https://example.com/photo.jpg"</code></p>
-    </div>
-
+    <div class="term-tag t2"><span class="i18n" data-af="Kwartaal 2">Term 2</span></div>
     <h2><span class="i18n" data-af="HTML-tabelle">HTML Tables</span></h2>
     <div class="code-block">
       <div class="code-label"><span class="i18n" data-af="Tabelstruktuur">Table structure</span></div>
@@ -164,6 +109,68 @@
 <span class="ht">&lt;td</span> <span class="hat">rowspan</span>=<span class="hv">"3"</span><span class="ht">&gt;</span>This cell spans three rows<span class="ht">&lt;/td&gt;</span></pre>
     </div>
 
+    <div class="term-tag t3"><span class="i18n" data-af="Kwartaal 3">Term 3</span></div>
+    <h2><span class="i18n" data-af="HTML-lyste">HTML Lists</span></h2>
+    <h3><span class="i18n" data-af="Ongeordende (Kolpunt-) Lys">Unordered (Bulleted) List</span></h3>
+    <div class="code-block">
+      <div class="code-label"><span class="i18n" data-af="Ongeordende lys">Unordered list</span></div>
+      <pre><span class="ht">&lt;ul&gt;</span>
+  <span class="ht">&lt;li&gt;</span>First item<span class="ht">&lt;/li&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Second item<span class="ht">&lt;/li&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Third item<span class="ht">&lt;/li&gt;</span>
+<span class="ht">&lt;/ul&gt;</span>
+
+<span class="hcmt">&lt;!-- type attribute changes bullet symbol --&gt;</span>
+<span class="ht">&lt;ul</span> <span class="hat">type</span>=<span class="hv">"disc"</span><span class="ht">&gt;</span>    <span class="hcmt">&lt;-- ● (default)</span>
+<span class="ht">&lt;ul</span> <span class="hat">type</span>=<span class="hv">"circle"</span><span class="ht">&gt;</span>  <span class="hcmt">&lt;-- ○</span>
+<span class="ht">&lt;ul</span> <span class="hat">type</span>=<span class="hv">"square"</span><span class="ht">&gt;</span>  <span class="hcmt">&lt;-- ■</span></pre>
+    </div>
+
+    <h3><span class="i18n" data-af="Geordende (Genommerde) Lys">Ordered (Numbered) List</span></h3>
+    <div class="code-block">
+      <div class="code-label"><span class="i18n" data-af="Geordende lys">Ordered list</span></div>
+      <pre><span class="ht">&lt;ol&gt;</span>
+  <span class="ht">&lt;li&gt;</span>First step<span class="ht">&lt;/li&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Second step<span class="ht">&lt;/li&gt;</span>
+  <span class="ht">&lt;li&gt;</span>Third step<span class="ht">&lt;/li&gt;</span>
+<span class="ht">&lt;/ol&gt;</span>
+
+<span class="hcmt">&lt;!-- type attribute changes numbering style --&gt;</span>
+<span class="ht">&lt;ol</span> <span class="hat">type</span>=<span class="hv">"1"</span><span class="ht">&gt;</span>   <span class="hcmt">&lt;-- 1, 2, 3 (default)</span>
+<span class="ht">&lt;ol</span> <span class="hat">type</span>=<span class="hv">"A"</span><span class="ht">&gt;</span>   <span class="hcmt">&lt;-- A, B, C</span>
+<span class="ht">&lt;ol</span> <span class="hat">type</span>=<span class="hv">"a"</span><span class="ht">&gt;</span>   <span class="hcmt">&lt;-- a, b, c</span>
+<span class="ht">&lt;ol</span> <span class="hat">type</span>=<span class="hv">"I"</span><span class="ht">&gt;</span>   <span class="hcmt">&lt;-- I, II, III (Roman numerals)</span>
+<span class="ht">&lt;ol</span> <span class="hat">type</span>=<span class="hv">"i"</span><span class="ht">&gt;</span>   <span class="hcmt">&lt;-- i, ii, iii</span></pre>
+    </div>
+
+    <div class="term-tag t3"><span class="i18n" data-af="Kwartaal 3">Term 3</span></div>
+    <h2><span class="i18n" data-af="HTML-beelde">HTML Images</span></h2>
+    <div class="code-block">
+      <div class="code-label"><span class="i18n" data-af="Beeld-merker">Image tag</span></div>
+      <pre><span class="ht">&lt;img</span> <span class="hat">src</span>=<span class="hv">"logo.png"</span> <span class="hat">alt</span>=<span class="hv">"Company Logo"</span><span class="ht">&gt;</span>
+
+<span class="hcmt">&lt;!-- With width and height --&gt;</span>
+<span class="ht">&lt;img</span> <span class="hat">src</span>=<span class="hv">"photo.jpg"</span> <span class="hat">alt</span>=<span class="hv">"School photo"</span> <span class="hat">width</span>=<span class="hv">"300"</span> <span class="hat">height</span>=<span class="hv">"200"</span><span class="ht">&gt;</span>
+
+<span class="hcmt">&lt;!-- With border --&gt;</span>
+<span class="ht">&lt;img</span> <span class="hat">src</span>=<span class="hv">"icon.gif"</span> <span class="hat">alt</span>=<span class="hv">"Icon"</span> <span class="hat">border</span>=<span class="hv">"2"</span><span class="ht">&gt;</span></pre>
+    </div>
+    <div class="tbl-wrap"><table>
+      <tr><th><span class="i18n" data-af="Kenmerk">Attribute</span></th><th><span class="i18n" data-af="Doel">Purpose</span></th><th><span class="i18n" data-af="Vereis?">Required?</span></th></tr>
+      <tr><td><code class="hat">src</code></td><td><span class="i18n" data-af="Pad/lêernaam van die beeld">Path/filename of the image</span></td><td><span class="i18n" data-af="Ja">Yes</span></td></tr>
+      <tr><td><code class="hat">alt</code></td><td><span class="i18n" data-af="Alternatiewe teks (gewys as beeld nie laai nie; toeganklikheid)">Alternative text (shown if image doesn't load; accessibility)</span></td><td><span class="i18n" data-af="Ja">Yes</span></td></tr>
+      <tr><td><code class="hat">width</code></td><td><span class="i18n" data-af="Breedte van die beeld in pixels">Width of the image in pixels</span></td><td><span class="i18n" data-af="Nee">No</span></td></tr>
+      <tr><td><code class="hat">height</code></td><td><span class="i18n" data-af="Hoogte van die beeld in pixels">Height of the image in pixels</span></td><td><span class="i18n" data-af="Nee">No</span></td></tr>
+      <tr><td><code class="hat">border</code></td><td><span class="i18n" data-af="Randdikte in pixels">Border thickness in pixels</span></td><td><span class="i18n" data-af="Nee">No</span></td></tr>
+    </table></div>
+    <div class="callout">
+      <div class="callout-title"><span class="i18n" data-af="BEELDLÊERPAAIE">IMAGE FILE PATHS</span></div>
+      <p><span class="i18n" data-af="As die beeld in dieselfde gids as die HTML-lêer is:">If the image is in the same folder as the HTML file:</span> <code>src="photo.jpg"</code><br>
+      <span class="i18n" data-af="In 'n subgids:">If in a subfolder:</span> <code>src="images/photo.jpg"</code><br>
+      <span class="i18n" data-af="Aanlyn beeld (URL):">Online image (URL):</span> <code>src="https://example.com/photo.jpg"</code></p>
+    </div>
+
+    <div class="term-tag t3"><span class="i18n" data-af="Kwartaal 3">Term 3</span></div>
     <h2><span class="i18n" data-af="Hiperskakels">Hyperlinks</span></h2>
     <div class="code-block">
       <div class="code-label"><span class="i18n" data-af="Anker-merker — hiperskakels">Anchor tag — hyperlinks</span></div>
@@ -197,6 +204,7 @@
       <code>target="_self"</code> — <span class="i18n" data-af="maak in dieselfde oortjie oop (verstek).">opens in the same tab (default).</span></p>
     </div>
 
+    <div class="term-tag t3"><span class="i18n" data-af="Kwartaal 3">Term 3</span></div>
     <h2><span class="i18n" data-af="Goeie Webtuisteontwerp-beginsels">Good Website Design Principles</span></h2>
     <ul>
       <li><strong><span class="i18n" data-af="Leesbaarheid">Readability</span></strong>: <span class="i18n" data-af="duidelike lettertipe, toepaslike grootte, voldoende kontras tussen teks en agtergrond">clear font, appropriate size, sufficient contrast between text and background</span></li>
