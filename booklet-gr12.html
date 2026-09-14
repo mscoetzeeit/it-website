@@ -957,6 +957,27 @@ qryData.Open;</code></pre></div>
 
 <span class="kw">end</span>.</code></pre></div>
 
+    <!-- ═══════ PARAMETERISED VS NON-PARAMETERISED CONSTRUCTORS ═══════ -->
+    <h3>Parameterised vs Non-Parameterised Constructors</h3>
+    <p>A class can have more than one constructor. The one shown above — <code>Create(sName: string; iAge: integer; rWeight: real)</code> — is a <strong>parameterised constructor</strong>: it takes arguments and uses them to set the object's attributes immediately, at the moment the object is created.</p>
+    <p>A class can also have a <strong>non-parameterised constructor</strong> — just <code>Create</code> with no arguments — which creates the object with default/empty values instead, to be filled in later using the mutator methods:</p>
+    <div class="code-block"><span class="code-label">Delphi — a non-parameterised constructor for TCat</span>
+<pre><code><span class="kw">constructor</span> <span class="cls">TCat</span>.Create;
+<span class="kw">begin</span>
+  fName   := <span class="str">''</span>;
+  fAge    := <span class="num">0</span>;
+  fWeight := <span class="num">0</span>;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="tbl-wrap"><table>
+      <tr><th></th><th>Parameterised <code>Create(...)</code></th><th>Non-parameterised <code>Create</code></th></tr>
+      <tr><td><strong>Values set</strong></td><td>Immediately, from the arguments passed in</td><td>Default/empty — must be set afterwards</td></tr>
+      <tr><td><strong>When you'd use it</strong></td><td>You already know the object's details when creating it</td><td>You'll fill in the details later, or the user will type them in afterwards</td></tr>
+    </table></div>
+    <div class="callout tip">
+      <div class="callout-title">EXAM ANGLE — distinguishing the two constructors</div>
+      <p>"Distinguish between the parameterised and non-parameterised constructor" wants exactly this — one sets real values straight away from arguments, the other creates an empty object with default values that gets filled in later.</p>
+    </div>
+
     <!-- ═══════ TCar CLASS ═══════ -->
     <h2>Practice Example — TCar Class</h2>
     <p>This is the kind of class you will write in a Grade 12 exam. Study the pattern carefully — constructor, accessors, mutator, ToString.</p>
@@ -1393,6 +1414,19 @@ lblResult.Caption := IntToStr(Factorial(<span class="num">5</span>));  <span cla
   <tr><td><strong>Operations</strong></td><td>Read + write (INSERT, UPDATE, DELETE)</td><td>Mostly read (SELECT, reports)</td></tr>
   <tr><td><strong>Used by</strong></td><td>Operational staff</td><td>Analysts, management, BI tools</td></tr>
 </table></div>
+<div class="callout"><div class="callout-title">Metadata</div><p><strong>Metadata</strong> is data that describes other data. It doesn't tell you the actual content, but tells you facts <em>about</em> that content — e.g. a photo's metadata might include the file size, the date it was created, the camera used and the GPS location, without saying anything about what's actually in the photo. Metadata is what lets you search, sort and organise large amounts of data efficiently.</p></div>
+<h3>Centralised vs Distributed Databases</h3>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Centralised database</th><th>Distributed database</th></tr>
+  <tr><td><strong>Where data lives</strong></td><td>Stored and managed on a single server</td><td>Spread across multiple servers/locations</td></tr>
+  <tr><td><strong>Main advantage</strong></td><td>Simpler to manage, secure and back up</td><td>Better performance for users in different locations; no single point of failure</td></tr>
+  <tr><td><strong>Main disadvantage</strong></td><td>If that one server fails, the whole system is unavailable</td><td>More complex to keep all copies of the data consistent (synchronisation)</td></tr>
+  <tr><td><strong>Typical use</strong></td><td>A small business with one office</td><td>A large company with branches/customers in many regions, or cloud-based services</td></tr>
+</table></div>
+<div class="callout tip">
+  <div class="callout-title">EXAM ANGLE — centralised vs distributed</div>
+  <p>The usual question just asks you to distinguish the two — focus on the "single server" vs "spread across multiple servers/locations" distinction, since that's the core of almost every mark allocation.</p>
+</div>
 <h2>Data Mining</h2>
 <p><strong>Data mining</strong> is the process of analysing very large datasets to discover hidden patterns, trends and useful relationships that a human could never spot by eye. The name is a good clue: just as a gold miner digs through tonnes of rock to find a few grams of gold, data mining digs through millions of records to find the valuable nuggets of knowledge buried inside.</p>
 <h3 id="why-mine">Why Do Companies Mine Data?</h3>
@@ -1786,6 +1820,10 @@ lblResult.Caption := IntToStr(Factorial(<span class="num">5</span>));  <span cla
   <li>Expensive to develop and maintain</li>
   <li>Privacy concerns with data collection required for AI training</li>
 </ul>
+<div class="callout">
+  <div class="callout-title">AI and accountability</div>
+  <p>When an AI system makes a decision on its own — e.g. automatically adjusting a home's temperature, or a bank's AI declining a loan — it raises the question of who is responsible if that decision is wrong or unfair: the company that built the AI, the company that deployed it, or the AI itself (which cannot be held legally responsible)? This is why most systems still allow a human to review or override an AI's decision, and why exam answers about AI limitations should mention accountability/bias alongside the more obvious "it might make mistakes".</p>
+</div>
 <h2>Cloud Computing</h2>
 <p>Software, storage and computing power delivered as a service over the Internet, rather than installed locally.</p>
 <div class="callout"><div class="callout-title">ANALOGY — cloud computing is like electricity</div><p>You don't build a power station in your back yard — you just plug into the wall and pay for what you use, and someone else runs the generators. Cloud computing works the same way: instead of buying and maintaining your own servers, you rent storage and computing power from a provider (Google, Microsoft, Amazon) over the internet and pay only for what you use. It scales up when you need more and down when you don't, exactly like drawing more or less electricity from the grid.</p></div>
@@ -1797,6 +1835,10 @@ lblResult.Caption := IntToStr(Factorial(<span class="num">5</span>));  <span cla
   <tr><td>Maintained by experts; always updated</td><td>Ongoing subscription costs</td></tr>
   <tr><td>Easy collaboration between users</td><td>Limited control over infrastructure</td></tr>
 </table></div>
+<div class="callout warning">
+  <div class="callout-title">Data ownership</div>
+  <p>When a business stores its data with a third-party cloud provider, it must be clear about who actually owns that data and who controls it. The business should understand the provider's policies on access, storage, backup and — critically — what happens to the data if it stops using that provider (can it be retrieved and deleted, or does the provider retain rights to it?). This is a concern distinct from general "security" — even a perfectly secure cloud service can still raise ownership questions.</p>
+</div>
 <h3>SaaS — Software as a Service</h3>
 <p>Applications accessed via browser with no local installation. Examples: Google Docs, Microsoft 365, Gmail.</p>
 <h3>Effect on Hardware</h3>
@@ -1944,6 +1986,19 @@ lblResult.Caption := IntToStr(Factorial(<span class="num">5</span>));  <span cla
 <h1>Networks &amp; Remote Access <span class="grade-badge">Grade 12</span></h1>
 <p class="page-intro">Essential network components, internet connection methods, file sharing, and remote access technologies.</p>
 <div class="term-divider"><span class="term-divider-badge">T3</span><span class="term-divider-label">Term 3 &middot; Networks &amp; Remote Access</span></div>
+<h2>What Type of Network Is a Home Network?</h2>
+<p>A typical customer's home — a router, a few computers, a smart TV and various smart-home devices all connected together — is a <strong>Home Area Network (HAN)</strong>: a small-scale LAN, just applied specifically to a residence.</p>
+<h3>Wi-Fi vs Wired Connections</h3>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Wi-Fi (wireless)</th><th>Wired (Ethernet/UTP cable)</th></tr>
+  <tr><td><strong>Installation</strong></td><td>No cables needed — much easier and cheaper to set up, especially for multiple devices around a house</td><td>Requires running a physical cable to every device</td></tr>
+  <tr><td><strong>Speed &amp; reliability</strong></td><td>Can be affected by walls, distance and interference from other devices</td><td>Generally faster and more stable/reliable</td></tr>
+  <tr><td><strong>Best for</strong></td><td>Phones, laptops, smart-home devices that move around or can't easily be wired</td><td>Devices that stay in one place and need maximum speed, e.g. a gaming PC or a server</td></tr>
+</table></div>
+<div class="callout tip">
+  <div class="callout-title">EXAM ANGLE — Wi-Fi for smart-home devices</div>
+  <p>"Why is Wi-Fi more practical than a wired connection for smart-home devices?" is really asking you to say that Wi-Fi doesn't require running cables to every device, which makes it easier and cheaper to connect multiple devices around the house.</p>
+</div>
 <h2>Essential Network Hardware</h2>
 <div class="tbl-wrap"><table>
   <tr><th>Component</th><th>Function</th></tr>
@@ -1979,7 +2034,12 @@ lblResult.Caption := IntToStr(Factorial(<span class="num">5</span>));  <span cla
   <tr><td><strong>WiMAX</strong></td><td>Long-range wireless; used in rural/remote areas</td><td>Moderate</td></tr>
   <tr><td><strong>4G/LTE</strong></td><td>Mobile broadband; widely available</td><td>5–100 Mbps</td></tr>
   <tr><td><strong>5G</strong></td><td>New generation mobile; very low latency; supports IoT</td><td>50 Mbps–10 Gbps</td></tr>
+  <tr><td><strong>Satellite</strong></td><td>Signal sent to/from an orbiting satellite; works almost anywhere, even where no cables or towers exist</td><td>Slower and higher latency than fibre or mobile data; often more expensive</td></tr>
 </table></div>
+<div class="callout tip">
+  <div class="callout-title">EXAM ANGLE — choosing a connection for a rural area</div>
+  <p>When fibre isn't available, the usual comparison is between a mobile (4G/5G) connection and satellite. 4G/5G is normally recommended because it doesn't need fixed-line infrastructure and can be set up quickly, and it's typically faster and cheaper than satellite — though satellite remains the only option in truly remote areas with no mobile signal at all.</p>
+</div>
 <h2>Bandwidth, Data Caps &amp; Throttling</h2>
 <div class="tbl-wrap"><table>
   <tr><th>Term</th><th>Measured in</th><th>Meaning</th></tr>
@@ -2033,6 +2093,14 @@ lblResult.Caption := IntToStr(Factorial(<span class="num">5</span>));  <span cla
   <li>All data is encrypted — safe on public Wi-Fi</li>
   <li>Used by companies for remote workers to securely access internal systems</li>
 </ul>
+<h3>Risks of Allowing Remote Access to a Company Network</h3>
+<p>Letting employees connect to the company network from home or on the road introduces risks that don't exist when everyone works from a secured office network:</p>
+<ul>
+  <li><strong>Weaker home networks:</strong> an employee's home Wi-Fi is usually far less secure than the office network (weak passwords, outdated router firmware), making it easier for an attacker to intercept data or gain access to the connection.</li>
+  <li><strong>Lost or stolen devices:</strong> a laptop or phone used for remote access that is lost or stolen can give an unauthorised person direct entry into the company network, especially if it isn't password/PIN protected or its access isn't revoked quickly.</li>
+  <li><strong>Unsecured public Wi-Fi:</strong> connecting from a coffee shop or airport network makes it easier for someone else on that same network to intercept data.</li>
+</ul>
+<div class="callout"><p>This is exactly why VPNs, MFA and strong device security matter more for remote workers than for on-site staff.</p></div>
 <h2>Encryption &amp; Security</h2>
 <div class="tbl-wrap"><table>
   <tr><th>Concept</th><th>Description</th></tr>
@@ -2043,6 +2111,13 @@ lblResult.Caption := IntToStr(Factorial(<span class="num">5</span>));  <span cla
   <tr><td><strong>MFA</strong></td><td>Multi-Factor Authentication — requires password + second factor (OTP, fingerprint)</td></tr>
   <tr><td><strong>OTP</strong></td><td>One-Time PIN — valid for one login only; prevents replay attacks</td></tr>
 </table></div>
+<h3>Other Security Strategies (Besides MFA and SSL)</h3>
+<ul>
+  <li><strong>Strong password policies:</strong> requiring long, complex passwords that are changed regularly, and never reused across accounts.</li>
+  <li><strong>Regular software/security updates:</strong> patching known vulnerabilities before attackers can exploit them.</li>
+  <li><strong>Staff security-awareness training:</strong> teaching employees to recognise phishing emails and other social-engineering attempts, since people are often the weakest link, not the technology.</li>
+  <li><strong>Access control / user rights management:</strong> giving each user only the access they actually need for their job (the "principle of least privilege"), so a compromised account can't be used to reach everything.</li>
+</ul>
 <h2>Email &amp; Messaging Security</h2>
 <div class="tbl-wrap"><table>
   <tr><th>Concept</th><th>Description</th></tr>
@@ -2165,6 +2240,13 @@ lblResult.Caption := IntToStr(Factorial(<span class="num">5</span>));  <span cla
   <tr><td><strong>Jobs</strong></td><td>Routine jobs replaced by machines; new careers in data science, AI, cybersecurity</td></tr>
   <tr><td><strong>Workers</strong></td><td>Must reskill constantly; digital literacy essential</td></tr>
 </table></div>
+<h3>Internet of Things (IoT)</h3>
+<p><strong>IoT</strong> refers to everyday physical devices — not just computers and phones — that are connected to the Internet so they can collect data, exchange it with other devices, and be monitored or controlled remotely. Examples include smart plugs, smart thermostats, security cameras, fitness trackers, smart fridges and smart streetlights.</p>
+<div class="callout tip">
+  <div class="callout-title">EXAM ANGLE — defining IoT</div>
+  <p>A full-mark IoT definition needs TWO parts: (1) the device is connected to the Internet, and (2) it collects/exchanges data or can be controlled remotely. "It's smart devices" on its own won't get full marks — the data/connectivity part is what the marker is looking for.</p>
+</div>
+<p>IoT links to several other Social Implications themes: <strong>privacy</strong> (data collected without the user's full awareness), <strong>security</strong> (each connected device is a potential entry point for attackers — see Botnets on the <a href="cybercrime.html">Cybercrime &amp; Safeguards</a> page), and the <strong>digital divide</strong> (IoT devices, and the Internet access they need, aren't affordable for everyone).</p>
 <h2>Decision-making &amp; Knowledge Systems</h2>
 <p>As the amount of data in the world explodes, organisations increasingly rely on software not just to <em>store</em> data, but to help people <strong>make decisions</strong> with it. Two related kinds of system come up in the exam, and they are easy to confuse.</p>
 <div class="tbl-wrap"><table>
@@ -2211,6 +2293,17 @@ lblResult.Caption := IntToStr(Factorial(<span class="num">5</span>));  <span cla
   <li><strong>Wikis</strong>: collaborative knowledge (e.g. Wikipedia) — useful but reliability varies</li>
   <li><strong>Cultural effects</strong>: global connectivity promotes exchange but can dilute local traditions</li>
 </ul>
+<h2>Smart-Home Technology and Accessibility</h2>
+<p>Smart-home and AI-driven devices can make a real difference for elderly or disabled users specifically because they remove the need to physically move around the house:</p>
+<ul>
+  <li><strong>Independence:</strong> voice-controlled or app-controlled lights, door locks and appliances mean a user with limited mobility doesn't need to get up, walk to a switch, or manipulate a small physical lock.</li>
+  <li><strong>Safety:</strong> smart security cameras and sensors can alert family or caregivers automatically if something seems wrong (e.g. a fall, or a door left unlocked), without the user having to act.</li>
+  <li><strong>Automation:</strong> routines — like lights switching on automatically at dusk, or the temperature adjusting itself — reduce the number of daily tasks a user has to perform manually.</li>
+</ul>
+<div class="callout warning">
+  <div class="callout-title">The trade-off — always give both sides</div>
+  <p>These devices are usually expensive to buy <strong>and</strong> require a reliable, paid Internet connection to keep working. For lower-income elderly or disabled users, that cost can put the benefits out of reach entirely — link this back to the <strong>digital divide</strong> whenever a "discuss" question asks for both sides.</p>
+</div>
 <h2>Privacy and Information Sharing</h2>
 <div class="tbl-wrap"><table>
   <tr><th>Concept</th><th>Privacy implication</th></tr>
@@ -2220,6 +2313,15 @@ lblResult.Caption := IntToStr(Factorial(<span class="num">5</span>));  <span cla
   <tr><td><strong>Location data</strong></td><td>Apps continuously track movement; risk of stalking and profiling</td></tr>
   <tr><td><strong>File sharing</strong></td><td>Piracy is illegal and harms creators; but sharing also enables legal distribution</td></tr>
 </table></div>
+<h2>POPIA — Protection of Personal Information Act</h2>
+<p><strong>POPIA</strong> is South Africa's law that controls how organisations may collect, store, use and share a person's personal information. It came into full effect on 1 July 2020, and it protects any person whose personal information is processed by a South African organisation (or a foreign one doing business here).</p>
+<p><strong>"Personal information" includes:</strong> name, ID number, contact details, email, location, financial information, biometric data (fingerprints, face scans), and special categories like health, religion or race.</p>
+<div class="callout"><div class="callout-title">The conditions for lawful processing</div><p>Organisations must: get the person's <strong>consent</strong> (or another lawful reason) before collecting data; only collect what is <strong>necessary</strong>, and only use it for the stated purpose; keep the data <strong>accurate</strong> and up to date; <strong>secure</strong> it against loss, damage or unauthorised access; let people <strong>see, correct or request deletion</strong> of their own data; and <strong>report data breaches</strong> to both the Information Regulator and the affected people.</p></div>
+<p><strong>Who enforces it:</strong> the Information Regulator — an independent body that can investigate complaints and issue fines (up to R10 million) or, for serious violations, prison sentences.</p>
+<div class="callout tip">
+  <div class="callout-title">EXAM ANGLE — POPIA</div>
+  <p>POPIA questions usually ask you to (a) name the act, or (b) apply it to a scenario — e.g. explain why a company storing customer emails and addresses without consent, or without securing that data, would be in breach of POPIA.</p>
+</div>
 <h2>Protecting Your Online Identity</h2>
 <ul>
   <li>Use strong, unique passwords for every account</li>

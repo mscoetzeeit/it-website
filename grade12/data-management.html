@@ -34,6 +34,19 @@
   <tr><td><strong>Operations</strong></td><td>Read + write (INSERT, UPDATE, DELETE)</td><td>Mostly read (SELECT, reports)</td></tr>
   <tr><td><strong>Used by</strong></td><td>Operational staff</td><td>Analysts, management, BI tools</td></tr>
 </table></div>
+<div class="callout"><div class="callout-title">Metadata</div><p><strong>Metadata</strong> is data that describes other data. It doesn't tell you the actual content, but tells you facts <em>about</em> that content — e.g. a photo's metadata might include the file size, the date it was created, the camera used and the GPS location, without saying anything about what's actually in the photo. Metadata is what lets you search, sort and organise large amounts of data efficiently.</p></div>
+<h3>Centralised vs Distributed Databases</h3>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Centralised database</th><th>Distributed database</th></tr>
+  <tr><td><strong>Where data lives</strong></td><td>Stored and managed on a single server</td><td>Spread across multiple servers/locations</td></tr>
+  <tr><td><strong>Main advantage</strong></td><td>Simpler to manage, secure and back up</td><td>Better performance for users in different locations; no single point of failure</td></tr>
+  <tr><td><strong>Main disadvantage</strong></td><td>If that one server fails, the whole system is unavailable</td><td>More complex to keep all copies of the data consistent (synchronisation)</td></tr>
+  <tr><td><strong>Typical use</strong></td><td>A small business with one office</td><td>A large company with branches/customers in many regions, or cloud-based services</td></tr>
+</table></div>
+<div class="callout tip">
+  <div class="callout-title">EXAM ANGLE — centralised vs distributed</div>
+  <p>The usual question just asks you to distinguish the two — focus on the "single server" vs "spread across multiple servers/locations" distinction, since that's the core of almost every mark allocation.</p>
+</div>
 <h2>Data Mining</h2>
 <p><strong>Data mining</strong> is the process of analysing very large datasets to discover hidden patterns, trends and useful relationships that a human could never spot by eye. The name is a good clue: just as a gold miner digs through tonnes of rock to find a few grams of gold, data mining digs through millions of records to find the valuable nuggets of knowledge buried inside.</p>
 <h3 id="why-mine">Why Do Companies Mine Data?</h3>

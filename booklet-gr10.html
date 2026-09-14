@@ -3797,6 +3797,18 @@ cUpper := Chr(Ord(cLower) - <span class="num">32</span>);
   <tr><td><strong>Lossless</strong></td><td>Removes redundant data in a way that can be perfectly reversed — no information is lost</td><td>Smaller file, but not as small as lossy</td><td>PNG (images), ZIP (any file), FLAC (audio)</td></tr>
   <tr><td><strong>Lossy</strong></td><td>Permanently discards some data that is hard for humans to notice is missing</td><td>Much smaller file, but quality cannot be fully restored</td><td>JPEG (images), MP3 (audio), MPEG-4 (video)</td></tr>
 </table></div>
+
+<h3>Video Compression</h3>
+<p>Like images, video files are compressed to keep file sizes manageable. Two things to know:</p>
+<ul>
+  <li><strong>Container vs codec:</strong> a video <strong>container</strong> (e.g. <strong>MP4</strong>, <strong>MKV</strong>) is the file format that holds the compressed video, audio and other data together — think of it as the box. A video <strong>codec</strong> (e.g. <strong>H.264</strong>, <strong>H.265</strong>) is the actual compression technology used to shrink the video data inside that box — think of it as the recipe.</li>
+  <li><strong>H.264 (AVC):</strong> the long-standing industry-standard codec — widely supported by virtually every device and video player.</li>
+  <li><strong>H.265 (HEVC):</strong> a newer codec that compresses video roughly twice as efficiently as H.264 at the same quality (smaller file size, less bandwidth needed to stream it) — useful for things like 4K video or security-camera footage — but it needs more processing power to encode and play back, and isn't supported by quite as many older devices.</li>
+</ul>
+<div class="callout tip">
+  <div class="callout-title">EXAM ANGLE — naming video compression formats</div>
+  <p>"Name TWO compression formats used for video footage" wants container/codec names like MP4, MKV, H.264 or H.265 — any two are usually accepted.</p>
+</div>
 </section>
 
 <section class="chapter" id="ch12">
@@ -3927,6 +3939,14 @@ cUpper := Chr(Ord(cLower) - <span class="num">32</span>);
   <tr><td>Easy to diagnose faults — test one connection at a time</td><td>Cost of the switch adds to setup expense</td></tr>
   <tr><td>Most widely used in schools and offices</td><td>Performance depends on the quality of the switch</td></tr>
 </table></div>
+
+<h3>Other Network Topologies</h3>
+<p>Star isn't the only topology — the exam expects you to recognise these as well, mainly so you can eliminate them as wrong answers:</p>
+<ul>
+  <li><strong>Bus:</strong> all devices connect to a single central cable (the "bus"). Cheap and simple, but if the main cable breaks, the whole network goes down.</li>
+  <li><strong>Ring:</strong> each device connects to exactly two others, forming a circle, and data travels around the ring until it reaches its destination. A single broken connection can disrupt the whole ring.</li>
+  <li><strong>Mesh:</strong> every device connects directly to every (or many) other devices. Very reliable — there's no single point of failure — but expensive and complex to cable, since the number of connections grows quickly as devices are added.</li>
+</ul>
 
 <!-- NETWORK COMPONENTS DIAGRAM -->
 <h2>Essential Network Components</h2>

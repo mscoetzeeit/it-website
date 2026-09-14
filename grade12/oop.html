@@ -426,6 +426,27 @@
 
 <span class="kw">end</span>.</code></pre></div>
 
+    <!-- ═══════ PARAMETERISED VS NON-PARAMETERISED CONSTRUCTORS ═══════ -->
+    <h3>Parameterised vs Non-Parameterised Constructors</h3>
+    <p>A class can have more than one constructor. The one shown above — <code>Create(sName: string; iAge: integer; rWeight: real)</code> — is a <strong>parameterised constructor</strong>: it takes arguments and uses them to set the object's attributes immediately, at the moment the object is created.</p>
+    <p>A class can also have a <strong>non-parameterised constructor</strong> — just <code>Create</code> with no arguments — which creates the object with default/empty values instead, to be filled in later using the mutator methods:</p>
+    <div class="code-block"><span class="code-label">Delphi — a non-parameterised constructor for TCat</span>
+<pre><code><span class="kw">constructor</span> <span class="cls">TCat</span>.Create;
+<span class="kw">begin</span>
+  fName   := <span class="str">''</span>;
+  fAge    := <span class="num">0</span>;
+  fWeight := <span class="num">0</span>;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="tbl-wrap"><table>
+      <tr><th></th><th>Parameterised <code>Create(...)</code></th><th>Non-parameterised <code>Create</code></th></tr>
+      <tr><td><strong>Values set</strong></td><td>Immediately, from the arguments passed in</td><td>Default/empty — must be set afterwards</td></tr>
+      <tr><td><strong>When you'd use it</strong></td><td>You already know the object's details when creating it</td><td>You'll fill in the details later, or the user will type them in afterwards</td></tr>
+    </table></div>
+    <div class="callout tip">
+      <div class="callout-title">EXAM ANGLE — distinguishing the two constructors</div>
+      <p>"Distinguish between the parameterised and non-parameterised constructor" wants exactly this — one sets real values straight away from arguments, the other creates an empty object with default values that gets filled in later.</p>
+    </div>
+
     <!-- ═══════ TCar CLASS ═══════ -->
     <h2>Practice Example — TCar Class</h2>
     <p>This is the kind of class you will write in a Grade 12 exam. Study the pattern carefully — constructor, accessors, mutator, ToString.</p>

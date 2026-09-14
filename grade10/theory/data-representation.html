@@ -350,6 +350,18 @@ cUpper := Chr(Ord(cLower) - <span class="num">32</span>);
   <tr><td><strong>Lossy</strong></td><td>Permanently discards some data that is hard for humans to notice is missing</td><td>Much smaller file, but quality cannot be fully restored</td><td>JPEG (images), MP3 (audio), MPEG-4 (video)</td></tr>
 </table></div>
 
+<h3>Video Compression</h3>
+<p>Like images, video files are compressed to keep file sizes manageable. Two things to know:</p>
+<ul>
+  <li><strong>Container vs codec:</strong> a video <strong>container</strong> (e.g. <strong>MP4</strong>, <strong>MKV</strong>) is the file format that holds the compressed video, audio and other data together — think of it as the box. A video <strong>codec</strong> (e.g. <strong>H.264</strong>, <strong>H.265</strong>) is the actual compression technology used to shrink the video data inside that box — think of it as the recipe.</li>
+  <li><strong>H.264 (AVC):</strong> the long-standing industry-standard codec — widely supported by virtually every device and video player.</li>
+  <li><strong>H.265 (HEVC):</strong> a newer codec that compresses video roughly twice as efficiently as H.264 at the same quality (smaller file size, less bandwidth needed to stream it) — useful for things like 4K video or security-camera footage — but it needs more processing power to encode and play back, and isn't supported by quite as many older devices.</li>
+</ul>
+<div class="callout tip">
+  <div class="callout-title">EXAM ANGLE — naming video compression formats</div>
+  <p>"Name TWO compression formats used for video footage" wants container/codec names like MP4, MKV, H.264 or H.265 — any two are usually accepted.</p>
+</div>
+
 <div class="page-nav">
   <a href="software.html"><span class="page-nav-label">← Previous</span>Software &amp; Licensing (T1&ndash;T2)</a>
   <a class="next" href="networks.html"><span class="page-nav-label">Next →</span>Networks (T2)</a>
