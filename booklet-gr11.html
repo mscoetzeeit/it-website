@@ -1819,10 +1819,7 @@ dm.tblStudents.EnableControls;       <span class="cmt">// switch the grid's upda
   <span class="kw">end</span>;
   dm.tblStudents.Next;
 <span class="kw">end</span>;</code></pre></div>
-  <div class="callout tip">
-    <div class="callout-title">A built-in shortcut: Locate</div>
-    <p>Writing the loop above is a useful skill, but Delphi also gives you a method that does the same job in one line: <code>dm.tblStudents.Locate('Surname', edtSearch.Text, [loCaseInsensitive])</code> jumps straight to the first matching record and makes it the active one, returning <code>True</code> if a match existed. The <code>loCaseInsensitive</code> option means a search for "smith" will also match "Smith".</p>
-  </div>
+  <div class="hard-block">🚫 The Locate method is not usable in exams or PAT tasks &mdash; searching must be done from first principles using a loop, exactly like the example above.</div>
 
   <h2>Filtering Records</h2>
   <p>A <code>TADOTable</code> can also show only the records that match a condition, without writing any SQL. Set <code>Filter</code> to a condition string, then set <code>Filtered</code> to <code>True</code> to apply it.</p>
