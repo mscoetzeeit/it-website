@@ -2157,7 +2157,7 @@ bPassed := iMark >= <span class="num">50</span>;</code></pre></div>
 <span class="kw">end</span>; <span class="cmt">// end of case</span></code></pre></div>
     <div class="callout warning">
       <div class="callout-title">Two easy mistakes to avoid</div>
-      <p>Only one caseList can fire per run of the statement, so double-check that your ranges don't overlap. And remember there is never a semicolon directly before the <code>else</code> part — the same rule as an IF statement. If a CASE branch needs to abandon the rest of the procedure entirely (say, after finding invalid data), call <code>Exit</code> — it works inside any procedure or function, not only inside a CASE.</p>
+      <p>Only one caseList can fire per run of the statement, so double-check that your ranges don't overlap. And remember there is never a semicolon directly before the <code>else</code> part — the same rule as an IF statement. If a CASE branch needs to abandon the rest of the procedure entirely (say, after finding invalid data), call <code>Exit</code> — it stops any further processing in that procedure or function, and works anywhere in one, not only inside a CASE. (How <code>Exit</code> differs from <code>Break</code> is explained on the <a href="loops.html">Loops</a> page.)</p>
     </div>
 
     <h2>MessageDlg</h2>
@@ -2625,6 +2625,58 @@ ShowMessage(<span class="str">'Jackpot landed after '</span> + IntToStr(iSpins) 
     <div class="callout tip">
       <div class="callout-title">Tracing the order the loops fire</div>
       <p>Follow the innermost loop first: <code>cSeat</code> runs all the way through 'a', 'b', 'c' before <code>iRow</code> is even allowed to move on to its next value. Only once <code>iRow</code> has itself been through 1, 2 and 3 — meaning the middle loop has fully finished for the current block — does <code>cBlock</code> step forward to its next letter. The resulting list reads <code>A1a, A1b, A1c, A2a, A2b, A2c, A3a, A3b, A3c, B1a, …</code> and finishes at <code>Total seats = 27</code>, since 3 blocks &times; 3 rows &times; 3 seats gives 27 combinations in total.</p>
+    </div>
+
+    <h2>Stopping Early — Break and Exit</h2>
+    <p>Sometimes you need to stop part-way through, without waiting for a loop to finish naturally or a procedure to reach its last line. Delphi has two commands for this. They look similar, but they stop <em>different amounts</em> of the code, so learners often mix them up.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th></th><th><code>Break</code></th><th><code>Exit</code></th></tr>
+      <tr><td><strong>What it stops</strong></td><td>Stops the rest of the loop from processing</td><td>Stops any further processing in that procedure or function</td></tr>
+      <tr><td><strong>Where the program carries on</strong></td><td>With the first line <em>after</em> the loop &mdash; the rest of the procedure still runs</td><td>It doesn't &mdash; control goes straight back to whoever called the procedure</td></tr>
+      <tr><td><strong>Where it can be used</strong></td><td>Only inside a loop (FOR, WHILE or REPEAT)</td><td>Anywhere in a procedure or function, inside a loop or not</td></tr>
+    </table></div>
+
+    <h3>Break &mdash; leave the loop, keep going with the procedure</h3>
+    <p>In this example the user enters up to five marks, but typing a negative number means "I'm done". <code>Break</code> ends the loop at that point, and the line that displays the total <em>still runs</em> because it comes after the loop.</p>
+    <div class="code-block"><span class="code-label">Delphi — Break stops the loop only</span>
+<pre><code><span class="kw">procedure</span> TForm1.<span class="fn">btnTotalClick</span>(Sender: TObject);
+<span class="kw">var</span>
+  i, iMark, iTotal : <span class="kw2">integer</span>;
+<span class="kw">begin</span>
+  iTotal := <span class="num">0</span>;
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> <span class="num">5</span> <span class="kw">do</span>
+  <span class="kw">begin</span>
+    iMark := StrToInt(InputBox(<span class="str">'Input'</span>, <span class="str">'Mark (negative to stop):'</span>, <span class="str">''</span>));
+    <span class="kw">if</span> iMark &lt; <span class="num">0</span> <span class="kw">then</span>
+      <span class="kw">Break</span>;                 <span class="cmt">// rest of the loop is skipped...</span>
+    iTotal := iTotal + iMark;
+  <span class="kw">end</span>;
+  lblTotal.Caption := <span class="str">'Total: '</span> + IntToStr(iTotal);   <span class="cmt">// ...but this line still runs</span>
+<span class="kw">end</span>;</code></pre></div>
+
+    <h3>Exit &mdash; leave the whole procedure</h3>
+    <p>Here a negative mark is treated as an error instead. <code>Exit</code> abandons the procedure on the spot, so the total is <em>never</em> displayed.</p>
+    <div class="code-block"><span class="code-label">Delphi — Exit stops the whole procedure</span>
+<pre><code><span class="kw">procedure</span> TForm1.<span class="fn">btnTotalClick</span>(Sender: TObject);
+<span class="kw">var</span>
+  i, iMark, iTotal : <span class="kw2">integer</span>;
+<span class="kw">begin</span>
+  iTotal := <span class="num">0</span>;
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> <span class="num">5</span> <span class="kw">do</span>
+  <span class="kw">begin</span>
+    iMark := StrToInt(InputBox(<span class="str">'Input'</span>, <span class="str">'Mark:'</span>, <span class="str">''</span>));
+    <span class="kw">if</span> iMark &lt; <span class="num">0</span> <span class="kw">then</span>
+    <span class="kw">begin</span>
+      ShowMessage(<span class="str">'Marks cannot be negative'</span>);
+      <span class="kw">Exit</span>;                  <span class="cmt">// nothing else in this procedure runs</span>
+    <span class="kw">end</span>;
+    iTotal := iTotal + iMark;
+  <span class="kw">end</span>;
+  lblTotal.Caption := <span class="str">'Total: '</span> + IntToStr(iTotal);   <span class="cmt">// never reached after Exit</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">Trap — Break vs Exit</div>
+      <p>Ask yourself: <strong>"Should the code after the loop still run?"</strong> If yes, use <code>Break</code>. If no &mdash; the whole procedure should stop &mdash; use <code>Exit</code>. Also remember that <code>Break</code> in a <em>nested</em> loop only stops the loop it is written in; the outer loop carries on.</p>
     </div>
 </section>
 
@@ -4622,7 +4674,7 @@ cUpper := Chr(Ord(cLower) - <span class="num">32</span>);
     <div class="extra-card">
       <span class="extra-tag tag-p1">P1</span>
       <h4>Break &amp; Continue in loops</h4>
-      <p><code>Break</code> exits the loop immediately. <code>Continue</code> skips to the next iteration. Both appear in exam solutions — know the difference.</p>
+      <p><code>Break</code> stops the rest of the loop from processing. <code>Continue</code> skips the rest of the current pass and moves on to the next iteration. Both appear in exam solutions — know the difference. (<code>Break</code> vs <code>Exit</code> is taught on the <a href="grade10/practical/loops.html">Loops</a> page.)</p>
     </div>
   </div>
 
