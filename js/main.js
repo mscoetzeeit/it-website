@@ -126,7 +126,7 @@ const PAGES = [
   { title: 'Data Types & Variables',          url: 'grade10/practical/data-types.html',          grade: 'Grade 10 · Practical', tags: 'integer real string boolean char variable declaration constant strToInt floatToStr val procedure conversion error code overflow' },
   { title: 'Operators & Functions',           url: 'grade10/practical/operators.html',           grade: 'Grade 10 · Practical', tags: 'mod div arithmetic operators math functions sqrt power round ord chr upcase trim' },
   { title: 'Decision Making (IF/CASE)',       url: 'grade10/practical/decisions.html',           grade: 'Grade 10 · Practical', tags: 'if else case in operator boolean and or not messagedlg radiogroup checkbox' },
-  { title: 'Loops',                           url: 'grade10/practical/loops.html',               grade: 'Grade 10 · Practical', tags: 'for while repeat until loop counter increment downto sentinel' },
+  { title: 'Loops',                           url: 'grade10/practical/loops.html',               grade: 'Grade 10 · Practical', tags: 'for while repeat until loop counter increment downto sentinel break exit stop early' },
   { title: 'String Manipulation',             url: 'grade10/practical/strings.html',             grade: 'Grade 10 · Practical', tags: 'string pos copy insert delete length uppercase lowercase trim reverse vowel' },
   { title: 'HTML — Web Design',               url: 'grade10/practical/html.html',                grade: 'Grade 10 · Practical', tags: 'html web design tags heading paragraph list link image table body head doctype href src' },
   // Grade 10 Theory
