@@ -407,6 +407,29 @@ DataField  → choose the field from the dropdown (e.g. "Surname")</code></pre><
     <p>The Data Module is usually created <strong>after</strong> the main form. If you try to link the grid in the main form's <code>OnCreate</code> event, the Data Module does not exist yet and you get an <strong>access violation</strong> error. Use <code>OnShow</code>, which fires later, once everything exists.</p>
   </div>
 
+  <div class="quiz" data-title="Quick Quiz &mdash; Delphi Databases">
+    <div class="quiz-q" data-a="1">
+      <p class="quiz-text">Before you change a field&rsquo;s value in code, you must first put the table into&hellip;</p>
+      <button class="quiz-opt">Post mode</button>
+      <button class="quiz-opt">Edit mode</button>
+      <button class="quiz-opt">Browse mode</button>
+      <p class="quiz-why">Call <code>tbl.Edit</code> first, change the field, then <code>tbl.Post</code> to save.</p>
+    </div>
+    <div class="quiz-q" data-a="0">
+      <p class="quiz-text">Which component supplies the records that a DBGrid displays?</p>
+      <button class="quiz-opt">DataSource</button>
+      <button class="quiz-opt">Label</button>
+      <button class="quiz-opt">Button</button>
+      <p class="quiz-why">A DBGrid&rsquo;s DataSource points to the dataset (e.g. a TADOTable).</p>
+    </div>
+    <div class="quiz-q" data-a="2">
+      <p class="quiz-text">After editing a record, which call <strong>saves</strong> the change to the table?</p>
+      <button class="quiz-opt">Edit</button>
+      <button class="quiz-opt">Insert</button>
+      <button class="quiz-opt">Post</button>
+      <p class="quiz-why"><code>Post</code> writes the pending change to the database.</p>
+    </div>
+  </div>
   <div class="page-nav">
     <a href="methods.html"><span class="page-nav-label">&larr; Previous</span>Procedures &amp; Functions</a>
     <a class="next" href="../../grade12/sql.html"><span class="page-nav-label">Next (Grade 12) &rarr;</span>SQL</a>

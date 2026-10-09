@@ -148,6 +148,29 @@ result := <span class="num">10</span> <span class="kw">DIV</span> <span class="n
       <p>Without it, shifting a letter near the end of the alphabet (like 'X', 'Y' or 'Z') pushes past 'Z' into punctuation characters instead of wrapping back to 'A'. Subtracting <code>Ord('A')</code> first converts the letter to a 0–25 range, <code>MOD 26</code> wraps it, and adding <code>Ord('A')</code> back converts it to a real letter again.</p>
     </div>
 
+    <div class="quiz" data-title="Quick Quiz &mdash; Operators">
+      <div class="quiz-q" data-a="1">
+        <p class="quiz-text">What is the result of <code>17 MOD 5</code>?</p>
+        <button class="quiz-opt">3</button>
+        <button class="quiz-opt">2</button>
+        <button class="quiz-opt">5</button>
+        <p class="quiz-why">MOD gives the remainder: 17 = 3&times;5 + 2, so 17 MOD 5 = 2.</p>
+      </div>
+      <div class="quiz-q" data-a="0">
+        <p class="quiz-text">What is the result of <code>17 DIV 5</code>?</p>
+        <button class="quiz-opt">3</button>
+        <button class="quiz-opt">2</button>
+        <button class="quiz-opt">3.4</button>
+        <p class="quiz-why">DIV gives the whole-number quotient: 17 DIV 5 = 3 (the .4 is discarded).</p>
+      </div>
+      <div class="quiz-q" data-a="2">
+        <p class="quiz-text">To test whether an integer <code>n</code> is <strong>even</strong>, you check&hellip;</p>
+        <button class="quiz-opt">n DIV 2 = 0</button>
+        <button class="quiz-opt">n * 2 = 0</button>
+        <button class="quiz-opt">n MOD 2 = 0</button>
+        <p class="quiz-why">An even number divides by 2 with no remainder, so n MOD 2 = 0.</p>
+      </div>
+    </div>
     <div class="page-nav">
       <a href="data-types.html"><span class="page-nav-label">← Previous</span>Data Types &amp; Variables (T1)</a>
       <a class="next" href="decisions.html"><span class="page-nav-label">Next →</span>Decision Making (T1&ndash;T2)</a>

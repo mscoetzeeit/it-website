@@ -384,6 +384,29 @@ bPassed := iMark >= <span class="num">50</span>;</code></pre></div>
       <p>Use <strong>CASE</strong> when <em>one</em> variable maps to <em>many</em> ranges or values (the mark → symbol step). Use <strong>IF</strong> for a true/false test or when conditions combine different variables (the validation and the pass/fail steps). The pattern <strong>validate → work out → decide</strong> appears in almost every practical question.</p>
     </div>
 
+    <div class="quiz" data-title="Quick Quiz &mdash; Decisions">
+      <div class="quiz-q" data-a="1">
+        <p class="quiz-text">Which structure is best when one variable is tested against many fixed values?</p>
+        <button class="quiz-opt">A long nested IF</button>
+        <button class="quiz-opt">CASE</button>
+        <button class="quiz-opt">WHILE</button>
+        <p class="quiz-why">CASE is cleaner than many nested IFs when matching one value against set options.</p>
+      </div>
+      <div class="quiz-q" data-a="0">
+        <p class="quiz-text">You must <strong>not</strong> put a semicolon on the line directly before&hellip;</p>
+        <button class="quiz-opt">ELSE</button>
+        <button class="quiz-opt">THEN</button>
+        <button class="quiz-opt">BEGIN</button>
+        <p class="quiz-why">A <code>;</code> before ELSE ends the IF early and causes a compile error.</p>
+      </div>
+      <div class="quiz-q" data-a="2">
+        <p class="quiz-text">The operator that checks whether a value is in a set such as <code>[1,3,5]</code> is&hellip;</p>
+        <button class="quiz-opt">AND</button>
+        <button class="quiz-opt">OR</button>
+        <button class="quiz-opt">IN</button>
+        <p class="quiz-why"><code>IN</code> tests set membership, e.g. <code>if ch in ['a','e','i'] then</code>.</p>
+      </div>
+    </div>
     <div class="page-nav">
       <a href="operators.html"><span class="page-nav-label">← Previous</span>Operators &amp; Functions (T1&ndash;T3)</a>
       <a class="next" href="loops.html"><span class="page-nav-label">Next →</span>Loops (T3)</a>

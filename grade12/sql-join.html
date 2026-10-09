@@ -109,6 +109,29 @@ qryData.Open;</code></pre></div>
     <tr><td>Not calling <code>qryData.Close</code> before changing SQL</td><td>Runtime error</td><td>Always close first</td></tr>
   </table></div>
 
+  <div class="quiz" data-title="Quick Quiz &mdash; SQL Joins">
+    <div class="quiz-q" data-a="1">
+      <p class="quiz-text">In CAPS, two tables are most often joined using the&hellip;</p>
+      <button class="quiz-opt">GROUP BY clause</button>
+      <button class="quiz-opt">WHERE clause</button>
+      <button class="quiz-opt">ORDER BY clause</button>
+      <p class="quiz-why">You match the key fields in the WHERE clause, e.g. <code>WHERE A.ID = B.ID</code>.</p>
+    </div>
+    <div class="quiz-q" data-a="0">
+      <p class="quiz-text">Forgetting the matching condition when joining two tables produces a&hellip;</p>
+      <button class="quiz-opt">Cartesian product</button>
+      <button class="quiz-opt">Syntax error</button>
+      <button class="quiz-opt">Primary key</button>
+      <p class="quiz-why">Every row of one table pairs with every row of the other &mdash; far too many rows.</p>
+    </div>
+    <div class="quiz-q" data-a="2">
+      <p class="quiz-text">When both joined tables have a field called <code>Name</code>, in the query you must&hellip;</p>
+      <button class="quiz-opt">Rename the tables</button>
+      <button class="quiz-opt">Delete one field</button>
+      <button class="quiz-opt">Prefix it with the table name</button>
+      <p class="quiz-why">Write <code>tblLearner.Name</code> so SQL knows which table&rsquo;s Name you mean.</p>
+    </div>
+  </div>
   <div class="page-nav">
     <a href="sql.html"><span class="page-nav-label">&larr; Previous</span>SQL (T1&ndash;T3)</a>
     <a class="next" href="oop.html"><span class="page-nav-label">Next &rarr;</span>OOP (T2&ndash;T3)</a>
