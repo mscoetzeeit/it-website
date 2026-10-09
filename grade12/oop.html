@@ -602,6 +602,30 @@ lblName.Caption := objCat.GetName;           <span class="cmt">// 'Felix'</span>
       <p>If you create a component with <code>Create(nil)</code> (no owner), <strong>you</strong> must free it yourself with <code>btnDynamic.Free;</code> when you are done, otherwise it stays in memory. Passing the form as the owner lets Delphi clean up for you automatically.</p>
     </div>
 
+    <div class="quiz" data-title="Quick Quiz &mdash; OOP">
+      <div class="quiz-q" data-a="1">
+        <p class="quiz-text">An actual instance created from a class is called a(n):</p>
+        <button class="quiz-opt">Method</button>
+        <button class="quiz-opt">Object</button>
+        <button class="quiz-opt">Attribute</button>
+        <p class="quiz-why">A class is the blueprint; an object is an actual instance built from it.</p>
+      </div>
+      <div class="quiz-q" data-a="0">
+        <p class="quiz-text">Hiding an object's data and exposing it only through methods is:</p>
+        <button class="quiz-opt">Encapsulation</button>
+        <button class="quiz-opt">Inheritance</button>
+        <button class="quiz-opt">Polymorphism</button>
+        <p class="quiz-why">Encapsulation keeps attributes private and controls access through public methods.</p>
+      </div>
+      <div class="quiz-q" data-a="2">
+        <p class="quiz-text">The special method that creates an object and sets its starting values is the:</p>
+        <button class="quiz-opt">Accessor</button>
+        <button class="quiz-opt">Mutator</button>
+        <button class="quiz-opt">Constructor</button>
+        <p class="quiz-why">The constructor (Create) builds the object and initialises its attributes.</p>
+      </div>
+    </div>
+
     <div class="page-nav">
       <a href="sql-join.html"><span class="page-nav-label">← Previous</span>SQL — Joining Tables (T1)</a>
       <a class="next" href="arrays-2d.html"><span class="page-nav-label">Next →</span>2D Arrays (T2&ndash;T3)</a>

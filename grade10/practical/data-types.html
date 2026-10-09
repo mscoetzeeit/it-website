@@ -425,6 +425,30 @@ lblPrice.Caption := FloatToStrF(rPrice, ffFixed,    <span class="num">4</span>, 
       <p>It is tempting to change lines of code at random when the output looks wrong, hoping something sticks. That approach wastes time and can introduce new bugs on top of the original one. Watching the variables change value one line at a time pinpoints the exact instruction responsible, so the fix is targeted instead of accidental.</p>
     </div>
 
+    <div class="quiz" data-title="Quick Quiz &mdash; Data Types & Variables">
+      <div class="quiz-q" data-a="0">
+        <p class="quiz-text">Which data type stores whole numbers?</p>
+        <button class="quiz-opt">Integer</button>
+        <button class="quiz-opt">Real</button>
+        <button class="quiz-opt">String</button>
+        <p class="quiz-why">Integer stores whole numbers. Real stores decimals; String stores text.</p>
+      </div>
+      <div class="quiz-q" data-a="1">
+        <p class="quiz-text">In <code>sName := 'Jannie';</code> the value <code>'Jannie'</code> goes:</p>
+        <button class="quiz-opt">Into whatever is on the right</button>
+        <button class="quiz-opt">Into the variable on the left</button>
+        <button class="quiz-opt">Nowhere</button>
+        <p class="quiz-why">Assignment works right-to-left: the value on the right is stored in the variable (the "cup") on the left.</p>
+      </div>
+      <div class="quiz-q" data-a="2">
+        <p class="quiz-text">Which function converts the text in an Edit box to an integer?</p>
+        <button class="quiz-opt">FloatToStr</button>
+        <button class="quiz-opt">IntToStr</button>
+        <button class="quiz-opt">StrToInt</button>
+        <p class="quiz-why">StrToInt converts a string to an integer. IntToStr does the opposite.</p>
+      </div>
+    </div>
+
     <div class="page-nav">
       <a href="delphi-components.html"><span class="page-nav-label">← Previous</span>Delphi Components &amp; Events (T2&ndash;T3)</a>
       <a class="next" href="operators.html"><span class="page-nav-label">Next →</span>Operators &amp; Functions (T1&ndash;T3)</a>

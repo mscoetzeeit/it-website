@@ -282,6 +282,30 @@
     <p>Redundancy (the same data stored in more than one place) is usually what <em>causes</em> integrity failures — update one copy and forget the other, and the data disagrees with itself. But not all redundancy is bad: a <strong>backup</strong> is deliberate, planned redundancy. Only accidental, unplanned duplication threatens integrity.</p>
   </div>
 
+  <div class="quiz" data-title="Quick Quiz &mdash; Relational Databases">
+    <div class="quiz-q" data-a="0">
+      <p class="quiz-text">A field whose value uniquely identifies each record in a table is the:</p>
+      <button class="quiz-opt">Primary key</button>
+      <button class="quiz-opt">Foreign key</button>
+      <button class="quiz-opt">Composite key</button>
+      <p class="quiz-why">The primary key uniquely identifies every record in its table.</p>
+    </div>
+    <div class="quiz-q" data-a="1">
+      <p class="quiz-text">A field that refers to the primary key of another table is a:</p>
+      <button class="quiz-opt">Primary key</button>
+      <button class="quiz-opt">Foreign key</button>
+      <button class="quiz-opt">Candidate key</button>
+      <p class="quiz-why">A foreign key links a record to a matching primary key in another table.</p>
+    </div>
+    <div class="quiz-q" data-a="0">
+      <p class="quiz-text">The main goal of normalisation is to:</p>
+      <button class="quiz-opt">Remove data redundancy</button>
+      <button class="quiz-opt">Add more tables for fun</button>
+      <button class="quiz-opt">Make typing faster</button>
+      <p class="quiz-why">Normalisation removes duplicated data (redundancy) and the errors it causes.</p>
+    </div>
+  </div>
+
   <div class="page-nav">
     <a href="data-management.html"><span class="page-nav-label">&larr; Previous</span>Data Warehousing (T1)</a>
     <a class="next" href="hardware-gr12.html"><span class="page-nav-label">Next &rarr;</span>Hardware &amp; Performance (T1)</a>

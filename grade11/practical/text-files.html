@@ -394,6 +394,30 @@ WriteLn(tFile, Format(<span class="str">'%12.2m'</span>, [rPrice]));   <span cla
   <p>Proportional fonts (like Arial) give each character a different width, so columns that line up perfectly in your code can look uneven when displayed. Set the output component's font to a <strong>fixed-width</strong> font such as <code>Courier New</code> so every character takes up exactly the same space and your columns line up visually.</p>
 </div>
 
+<div class="quiz" data-title="Quick Quiz &mdash; Text Files">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Which command opens an <em>existing</em> text file for reading?</p>
+    <button class="quiz-opt">Rewrite</button>
+    <button class="quiz-opt">Reset</button>
+    <button class="quiz-opt">Append</button>
+    <p class="quiz-why">Reset opens an existing file for reading from the start. Rewrite creates/overwrites; Append adds to the end.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Which function returns True once the end of the file is reached?</p>
+    <button class="quiz-opt">EOF</button>
+    <button class="quiz-opt">Reset</button>
+    <button class="quiz-opt">CloseFile</button>
+    <p class="quiz-why">EOF (End Of File) becomes True after the last line, so loops know when to stop.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">Which command creates a new file (or overwrites an existing one) for writing?</p>
+    <button class="quiz-opt">Reset</button>
+    <button class="quiz-opt">Append</button>
+    <button class="quiz-opt">Rewrite</button>
+    <p class="quiz-why">Rewrite creates a new empty file, wiping any existing contents.</p>
+  </div>
+</div>
+
 <div class="page-nav">
   <span></span>
   <a class="next" href="methods.html"><span class="page-nav-label">Next →</span>Procedures &amp; Functions</a>

@@ -306,3 +306,78 @@ function buildSearchIndex() {
 }
 
 buildSearchIndex();
+
+/* ---------- BUILT-IN QUIZZES ----------
+   Any page can embed a self-marking multiple-choice quiz by adding:
+
+     <div class="quiz" data-title="Quick Quiz — Hardware">
+       <div class="quiz-q" data-a="1">        (data-a = 0-based index of the correct option)
+         <p class="quiz-text">Question?</p>
+         <button class="quiz-opt">Option A</button>
+         <button class="quiz-opt">Option B</button>   <- correct (index 1)
+         <button class="quiz-opt">Option C</button>
+         <p class="quiz-why">Why that answer is right.</p>
+       </div>
+       ...more .quiz-q...
+     </div>
+
+   This script turns each block into an interactive quiz with instant
+   feedback, a running score and a "Try again" button. No per-page code. */
+document.querySelectorAll('.quiz').forEach(function (quiz) {
+  const questions = Array.prototype.slice.call(quiz.querySelectorAll('.quiz-q'));
+  if (!questions.length) return;
+  let answered = 0, correct = 0;
+
+  const head = document.createElement('div');
+  head.className = 'quiz-head';
+  head.innerHTML = '<span class="quiz-title">' + (quiz.dataset.title || 'Quick Quiz') +
+                   '</span><span class="quiz-score" aria-live="polite"></span>';
+  quiz.insertBefore(head, quiz.firstChild);
+  const scoreEl = head.querySelector('.quiz-score');
+
+  const reset = document.createElement('button');
+  reset.type = 'button';
+  reset.className = 'quiz-reset';
+  reset.textContent = 'Try again';
+  reset.style.display = 'none';
+  quiz.appendChild(reset);
+
+  function refreshScore() {
+    scoreEl.textContent = answered ? (correct + ' / ' + questions.length) : '';
+    if (answered === questions.length) {
+      reset.style.display = '';
+      head.classList.toggle('quiz-done-good', correct === questions.length);
+    }
+  }
+
+  questions.forEach(function (q) {
+    const ans = parseInt(q.dataset.a, 10);
+    const opts = Array.prototype.slice.call(q.querySelectorAll('.quiz-opt'));
+    opts.forEach(function (opt, i) {
+      opt.type = 'button';
+      opt.addEventListener('click', function () {
+        if (q.classList.contains('answered')) return;   // one attempt per question
+        q.classList.add('answered');
+        answered++;
+        if (i === ans) { opt.classList.add('quiz-correct'); correct++; }
+        else { opt.classList.add('quiz-wrong'); if (opts[ans]) opts[ans].classList.add('quiz-correct'); }
+        opts.forEach(function (o) { o.disabled = true; });
+        refreshScore();
+      });
+    });
+  });
+
+  reset.addEventListener('click', function () {
+    answered = 0; correct = 0;
+    reset.style.display = 'none';
+    scoreEl.textContent = '';
+    head.classList.remove('quiz-done-good');
+    questions.forEach(function (q) {
+      q.classList.remove('answered');
+      q.querySelectorAll('.quiz-opt').forEach(function (o) {
+        o.disabled = false;
+        o.classList.remove('quiz-correct', 'quiz-wrong');
+      });
+    });
+  });
+});

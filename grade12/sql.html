@@ -299,6 +299,30 @@ qryStudents.First;
     <p>Using <code>:pName</code> and <code>ParamByName</code> is safer and cleaner than gluing the user's text straight into the SQL string — it avoids quote/type errors and blocks <strong>SQL injection</strong> (see <a href="cybercrime.html">Cybercrime</a>). The wildcard <code>'%'</code> is added to the <em>value</em>, so a partial surname still matches.</p>
   </div>
 
+  <div class="quiz" data-title="Quick Quiz &mdash; SQL">
+    <div class="quiz-q" data-a="1">
+      <p class="quiz-text">Which SQL clause filters which records are returned?</p>
+      <button class="quiz-opt">ORDER BY</button>
+      <button class="quiz-opt">WHERE</button>
+      <button class="quiz-opt">GROUP BY</button>
+      <p class="quiz-why">WHERE filters rows by a condition. ORDER BY sorts; GROUP BY groups for aggregates.</p>
+    </div>
+    <div class="quiz-q" data-a="0">
+      <p class="quiz-text">Which clause sorts the results of a query?</p>
+      <button class="quiz-opt">ORDER BY</button>
+      <button class="quiz-opt">WHERE</button>
+      <button class="quiz-opt">HAVING</button>
+      <p class="quiz-why">ORDER BY sorts the result set (ASC or DESC).</p>
+    </div>
+    <div class="quiz-q" data-a="2">
+      <p class="quiz-text">Which function counts the number of records?</p>
+      <button class="quiz-opt">SUM</button>
+      <button class="quiz-opt">AVG</button>
+      <button class="quiz-opt">COUNT</button>
+      <p class="quiz-why">COUNT(*) returns the number of records. SUM totals and AVG averages a field.</p>
+    </div>
+  </div>
+
   <div class="page-nav">
     <a href="../grade11/practical/databases-delphi.html"><span class="page-nav-label">&larr; Previous</span>Databases in Delphi (T3)</a>
     <a class="next" href="sql-join.html"><span class="page-nav-label">Next &rarr;</span>SQL &mdash; Joining Tables (T1)</a>

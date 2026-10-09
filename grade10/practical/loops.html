@@ -395,6 +395,30 @@ ShowMessage(<span class="str">'Jackpot landed after '</span> + IntToStr(iSpins) 
       <p>Follow the innermost loop first: <code>cSeat</code> runs all the way through 'a', 'b', 'c' before <code>iRow</code> is even allowed to move on to its next value. Only once <code>iRow</code> has itself been through 1, 2 and 3 — meaning the middle loop has fully finished for the current block — does <code>cBlock</code> step forward to its next letter. The resulting list reads <code>A1a, A1b, A1c, A2a, A2b, A2c, A3a, A3b, A3c, B1a, …</code> and finishes at <code>Total seats = 27</code>, since 3 blocks &times; 3 rows &times; 3 seats gives 27 combinations in total.</p>
     </div>
 
+    <div class="quiz" data-title="Quick Quiz &mdash; Loops">
+      <div class="quiz-q" data-a="0">
+        <p class="quiz-text">You know exactly how many times to repeat. Which loop is best?</p>
+        <button class="quiz-opt">FOR</button>
+        <button class="quiz-opt">WHILE</button>
+        <button class="quiz-opt">REPEAT&hellip;UNTIL</button>
+        <p class="quiz-why">A FOR loop is for a known, fixed number of repeats.</p>
+      </div>
+      <div class="quiz-q" data-a="2">
+        <p class="quiz-text">Which loop always runs its body at least once?</p>
+        <button class="quiz-opt">FOR</button>
+        <button class="quiz-opt">WHILE</button>
+        <button class="quiz-opt">REPEAT&hellip;UNTIL</button>
+        <p class="quiz-why">REPEAT&hellip;UNTIL checks the condition at the end, so the body always runs at least once.</p>
+      </div>
+      <div class="quiz-q" data-a="0">
+        <p class="quiz-text">A WHILE loop checks its condition:</p>
+        <button class="quiz-opt">Before each repeat</button>
+        <button class="quiz-opt">After each repeat</button>
+        <button class="quiz-opt">Never</button>
+        <p class="quiz-why">WHILE is a pre-conditional loop - it tests first, so it may run zero times.</p>
+      </div>
+    </div>
+
     <div class="page-nav">
       <a href="decisions.html"><span class="page-nav-label">← Previous</span>Decision Making (T1&ndash;T2)</a>
       <a class="next" href="strings.html"><span class="page-nav-label">Next →</span>String Manipulation (T2&ndash;T3)</a>
