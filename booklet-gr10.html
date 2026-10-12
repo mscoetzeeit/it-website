@@ -750,6 +750,30 @@ END</code></pre>
 <span class="kw">else</span>
   lblResult.Caption := IntToStr(iNum1) + <span class="str">' is NOT a factor of '</span> + IntToStr(iNum2);</code></pre>
     </div>
+
+    <div class="quiz" data-title="Quick Quiz &mdash; Algorithms">
+      <div class="quiz-q" data-a="1">
+        <p class="quiz-text">A clear, step-by-step set of instructions to solve a problem is called a(n)&hellip;</p>
+        <button class="quiz-opt">Flowchart</button>
+        <button class="quiz-opt">Algorithm</button>
+        <button class="quiz-opt">Variable</button>
+        <p class="quiz-why">An algorithm is the logic/steps; a flowchart is just one way to draw an algorithm.</p>
+      </div>
+      <div class="quiz-q" data-a="2">
+        <p class="quiz-text">In an <strong>IPO</strong> table, the <strong>P</strong> stands for&hellip;</p>
+        <button class="quiz-opt">Print</button>
+        <button class="quiz-opt">Program</button>
+        <button class="quiz-opt">Process</button>
+        <p class="quiz-why">IPO = Input &rarr; Process &rarr; Output: the processing turns input into output.</p>
+      </div>
+      <div class="quiz-q" data-a="1">
+        <p class="quiz-text">In a flowchart, which symbol is used for a <strong>decision</strong>?</p>
+        <button class="quiz-opt">Rectangle</button>
+        <button class="quiz-opt">Diamond</button>
+        <button class="quiz-opt">Oval</button>
+        <p class="quiz-why">A diamond asks a yes/no question; a rectangle is a process and an oval is start/stop.</p>
+      </div>
+    </div>
 </section>
 
 <section class="chapter" id="ch01">
@@ -1220,6 +1244,30 @@ Shape1.Brush.Color  := clRed;</code></pre>
       <div class="callout-title">Syntax Errors</div>
       <p>Forgetting the closing <strong>semicolon</strong> <code>;</code> on a statement causes a syntax error. There is <strong>never</strong> a semicolon before <code>else</code>. Begin/end pairs must always match.</p>
     </div>
+
+    <div class="quiz" data-title="Quick Quiz &mdash; Delphi Basics">
+      <div class="quiz-q" data-a="1">
+        <p class="quiz-text">In Delphi, the window you design your program&rsquo;s interface on is called the&hellip;</p>
+        <button class="quiz-opt">Unit</button>
+        <button class="quiz-opt">Form</button>
+        <button class="quiz-opt">Object Inspector</button>
+        <p class="quiz-why">You drop components onto the Form; the Object Inspector sets their properties.</p>
+      </div>
+      <div class="quiz-q" data-a="1">
+        <p class="quiz-text">Which property holds the text shown <em>on</em> a button?</p>
+        <button class="quiz-opt">Name</button>
+        <button class="quiz-opt">Caption</button>
+        <button class="quiz-opt">Text</button>
+        <p class="quiz-why">A TButton&rsquo;s visible label is its Caption; Name is the identifier you use in code.</p>
+      </div>
+      <div class="quiz-q" data-a="0">
+        <p class="quiz-text">Code that must run when a button is clicked is placed in its&hellip;</p>
+        <button class="quiz-opt">OnClick event</button>
+        <button class="quiz-opt">OnCreate event</button>
+        <button class="quiz-opt">OnChange event</button>
+        <p class="quiz-why">Double-clicking a button creates its OnClick event handler.</p>
+      </div>
+    </div>
 </section>
 
 <section class="chapter" id="ch02">
@@ -1359,6 +1407,29 @@ TabSheet2.TabVisible := <span class="kw">False</span>;
 
 <span class="cmt">// Jump to a specific tab</span>
 pgcMain.ActivePage := TabSheet3;</code></pre></div>
+<div class="quiz" data-title="Quick Quiz &mdash; Delphi Components">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Which component lets the user pick <strong>one</strong> option from a drop-down list?</p>
+    <button class="quiz-opt">ListBox</button>
+    <button class="quiz-opt">ComboBox</button>
+    <button class="quiz-opt">Memo</button>
+    <p class="quiz-why">A ComboBox shows a drop-down; a Memo is for multiple lines of free text.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Which property gives the <strong>position</strong> of the selected item in a ListBox/ComboBox?</p>
+    <button class="quiz-opt">ItemIndex</button>
+    <button class="quiz-opt">Caption</button>
+    <button class="quiz-opt">Count</button>
+    <p class="quiz-why">ItemIndex is the 0-based position of the chosen item (&minus;1 means nothing selected).</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">A component that lets the user raise/lower a number with up&ndash;down arrows is a&hellip;</p>
+    <button class="quiz-opt">Label</button>
+    <button class="quiz-opt">Memo</button>
+    <button class="quiz-opt">SpinEdit</button>
+    <p class="quiz-why">A SpinEdit edits a whole number with arrow buttons; a Label only displays text.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch03">
@@ -1839,6 +1910,30 @@ lblPrice.Caption := FloatToStrF(rPrice, ffFixed,    <span class="num">4</span>, 
       <div class="callout-title">Stop guessing, start watching</div>
       <p>It is tempting to change lines of code at random when the output looks wrong, hoping something sticks. That approach wastes time and can introduce new bugs on top of the original one. Watching the variables change value one line at a time pinpoints the exact instruction responsible, so the fix is targeted instead of accidental.</p>
     </div>
+
+    <div class="quiz" data-title="Quick Quiz &mdash; Data Types & Variables">
+      <div class="quiz-q" data-a="0">
+        <p class="quiz-text">Which data type stores whole numbers?</p>
+        <button class="quiz-opt">Integer</button>
+        <button class="quiz-opt">Real</button>
+        <button class="quiz-opt">String</button>
+        <p class="quiz-why">Integer stores whole numbers. Real stores decimals; String stores text.</p>
+      </div>
+      <div class="quiz-q" data-a="1">
+        <p class="quiz-text">In <code>sName := 'Jannie';</code> the value <code>'Jannie'</code> goes:</p>
+        <button class="quiz-opt">Into whatever is on the right</button>
+        <button class="quiz-opt">Into the variable on the left</button>
+        <button class="quiz-opt">Nowhere</button>
+        <p class="quiz-why">Assignment works right-to-left: the value on the right is stored in the variable (the "cup") on the left.</p>
+      </div>
+      <div class="quiz-q" data-a="2">
+        <p class="quiz-text">Which function converts the text in an Edit box to an integer?</p>
+        <button class="quiz-opt">FloatToStr</button>
+        <button class="quiz-opt">IntToStr</button>
+        <button class="quiz-opt">StrToInt</button>
+        <p class="quiz-why">StrToInt converts a string to an integer. IntToStr does the opposite.</p>
+      </div>
+    </div>
 </section>
 
 <section class="chapter" id="ch04">
@@ -2089,6 +2184,30 @@ result := <span class="num">10</span> <span class="kw">DIV</span> <span class="n
     <div class="callout tip">
       <div class="callout-title">Why the MOD 26?</div>
       <p>Without it, shifting a letter near the end of the alphabet (like 'X', 'Y' or 'Z') pushes past 'Z' into punctuation characters instead of wrapping back to 'A'. Subtracting <code>Ord('A')</code> first converts the letter to a 0–25 range, <code>MOD 26</code> wraps it, and adding <code>Ord('A')</code> back converts it to a real letter again.</p>
+    </div>
+
+    <div class="quiz" data-title="Quick Quiz &mdash; Operators">
+      <div class="quiz-q" data-a="1">
+        <p class="quiz-text">What is the result of <code>17 MOD 5</code>?</p>
+        <button class="quiz-opt">3</button>
+        <button class="quiz-opt">2</button>
+        <button class="quiz-opt">5</button>
+        <p class="quiz-why">MOD gives the remainder: 17 = 3&times;5 + 2, so 17 MOD 5 = 2.</p>
+      </div>
+      <div class="quiz-q" data-a="0">
+        <p class="quiz-text">What is the result of <code>17 DIV 5</code>?</p>
+        <button class="quiz-opt">3</button>
+        <button class="quiz-opt">2</button>
+        <button class="quiz-opt">3.4</button>
+        <p class="quiz-why">DIV gives the whole-number quotient: 17 DIV 5 = 3 (the .4 is discarded).</p>
+      </div>
+      <div class="quiz-q" data-a="2">
+        <p class="quiz-text">To test whether an integer <code>n</code> is <strong>even</strong>, you check&hellip;</p>
+        <button class="quiz-opt">n DIV 2 = 0</button>
+        <button class="quiz-opt">n * 2 = 0</button>
+        <button class="quiz-opt">n MOD 2 = 0</button>
+        <p class="quiz-why">An even number divides by 2 with no remainder, so n MOD 2 = 0.</p>
+      </div>
     </div>
 </section>
 
@@ -2457,6 +2576,30 @@ bPassed := iMark >= <span class="num">50</span>;</code></pre></div>
     <div class="callout tip">
       <div class="callout-title">IF or CASE — how to choose</div>
       <p>Use <strong>CASE</strong> when <em>one</em> variable maps to <em>many</em> ranges or values (the mark → symbol step). Use <strong>IF</strong> for a true/false test or when conditions combine different variables (the validation and the pass/fail steps). The pattern <strong>validate → work out → decide</strong> appears in almost every practical question.</p>
+    </div>
+
+    <div class="quiz" data-title="Quick Quiz &mdash; Decisions">
+      <div class="quiz-q" data-a="1">
+        <p class="quiz-text">Which structure is best when one variable is tested against many fixed values?</p>
+        <button class="quiz-opt">A long nested IF</button>
+        <button class="quiz-opt">CASE</button>
+        <button class="quiz-opt">WHILE</button>
+        <p class="quiz-why">CASE is cleaner than many nested IFs when matching one value against set options.</p>
+      </div>
+      <div class="quiz-q" data-a="0">
+        <p class="quiz-text">You must <strong>not</strong> put a semicolon on the line directly before&hellip;</p>
+        <button class="quiz-opt">ELSE</button>
+        <button class="quiz-opt">THEN</button>
+        <button class="quiz-opt">BEGIN</button>
+        <p class="quiz-why">A <code>;</code> before ELSE ends the IF early and causes a compile error.</p>
+      </div>
+      <div class="quiz-q" data-a="2">
+        <p class="quiz-text">The operator that checks whether a value is in a set such as <code>[1,3,5]</code> is&hellip;</p>
+        <button class="quiz-opt">AND</button>
+        <button class="quiz-opt">OR</button>
+        <button class="quiz-opt">IN</button>
+        <p class="quiz-why"><code>IN</code> tests set membership, e.g. <code>if ch in ['a','e','i'] then</code>.</p>
+      </div>
     </div>
 </section>
 
@@ -3242,6 +3385,30 @@ ShowMessage(<span class="str">'Jackpot landed after '</span> + IntToStr(iSpins) 
       <tr><td>Decimal to another base</td><td><code>repeat</code></td><td>Unknown number of divisions, but at least one digit must be produced, even for 0.</td></tr>
       <tr><td>Binary, octal or hexadecimal to decimal</td><td><code>for &hellip; downto</code></td><td>One pass per character, from the last one to the first.</td></tr>
     </table></div>
+
+    <div class="quiz" data-title="Quick Quiz &mdash; Loops">
+      <div class="quiz-q" data-a="0">
+        <p class="quiz-text">You know exactly how many times to repeat. Which loop is best?</p>
+        <button class="quiz-opt">FOR</button>
+        <button class="quiz-opt">WHILE</button>
+        <button class="quiz-opt">REPEAT&hellip;UNTIL</button>
+        <p class="quiz-why">A FOR loop is for a known, fixed number of repeats.</p>
+      </div>
+      <div class="quiz-q" data-a="2">
+        <p class="quiz-text">Which loop always runs its body at least once?</p>
+        <button class="quiz-opt">FOR</button>
+        <button class="quiz-opt">WHILE</button>
+        <button class="quiz-opt">REPEAT&hellip;UNTIL</button>
+        <p class="quiz-why">REPEAT&hellip;UNTIL checks the condition at the end, so the body always runs at least once.</p>
+      </div>
+      <div class="quiz-q" data-a="0">
+        <p class="quiz-text">A WHILE loop checks its condition:</p>
+        <button class="quiz-opt">Before each repeat</button>
+        <button class="quiz-opt">After each repeat</button>
+        <button class="quiz-opt">Never</button>
+        <p class="quiz-why">WHILE is a pre-conditional loop - it tests first, so it may run zero times.</p>
+      </div>
+    </div>
 </section>
 
 <section class="chapter" id="ch07">
@@ -3603,6 +3770,30 @@ sNewText := <span class="fn">Copy</span>(sSourceText, <span class="num">1</span>
       <div class="callout-title">The check digit (Grade 11/12 extension)</div>
       <p>The 13th digit is a <strong>check digit</strong> worked out from the other 12 using the <strong>Luhn algorithm</strong>. A program can recalculate it and compare — if it does not match, the ID was mistyped. That step adds a loop and some arithmetic on top of the string work shown here.</p>
     </div>
+
+    <div class="quiz" data-title="Quick Quiz &mdash; String Manipulation">
+      <div class="quiz-q" data-a="1">
+        <p class="quiz-text">Which function returns the position of a substring in a string?</p>
+        <button class="quiz-opt">Copy</button>
+        <button class="quiz-opt">Pos</button>
+        <button class="quiz-opt">Length</button>
+        <p class="quiz-why">Pos returns the position of the first occurrence of a substring (0 if not found).</p>
+      </div>
+      <div class="quiz-q" data-a="0">
+        <p class="quiz-text">Which function extracts a section of a string?</p>
+        <button class="quiz-opt">Copy</button>
+        <button class="quiz-opt">Delete</button>
+        <button class="quiz-opt">Pos</button>
+        <p class="quiz-why">Copy(source, start, length) extracts a substring without changing the original.</p>
+      </div>
+      <div class="quiz-q" data-a="0">
+        <p class="quiz-text">In Delphi, the first character of a string is at position:</p>
+        <button class="quiz-opt">1</button>
+        <button class="quiz-opt">0</button>
+        <button class="quiz-opt">-1</button>
+        <p class="quiz-why">Delphi strings are 1-based: the first character is position 1.</p>
+      </div>
+    </div>
 </section>
 
 <section class="chapter" id="ch08">
@@ -3696,6 +3887,30 @@ sNewText := <span class="fn">Copy</span>(sSourceText, <span class="num">1</span>
     <div class="callout tip">
       <div class="callout-title">Why it matters</div>
       <p>Green computing saves electricity (and money), reduces pollution and carbon footprint, and conserves the natural resources used to manufacture new devices. E-waste (old phones, monitors, batteries) contains toxic materials like lead and mercury, so it should go to a proper e-waste recycler — not a normal landfill.</p>
+    </div>
+
+    <div class="quiz" data-title="Quick Quiz &mdash; Digital Technology">
+      <div class="quiz-q" data-a="1">
+        <p class="quiz-text">Raw, unprocessed facts (on their own, with no meaning) are called&hellip;</p>
+        <button class="quiz-opt">Information</button>
+        <button class="quiz-opt">Data</button>
+        <button class="quiz-opt">Knowledge</button>
+        <p class="quiz-why">Data becomes information once it is processed and given meaning/context.</p>
+      </div>
+      <div class="quiz-q" data-a="0">
+        <p class="quiz-text">Which type of computer is built to manage a network and serve many other computers?</p>
+        <button class="quiz-opt">Server</button>
+        <button class="quiz-opt">Tablet</button>
+        <button class="quiz-opt">Smartphone</button>
+        <p class="quiz-why">A server provides resources/services to client computers on a network.</p>
+      </div>
+      <div class="quiz-q" data-a="2">
+        <p class="quiz-text"><strong>ICT</strong> stands for Information and _____ Technology.</p>
+        <button class="quiz-opt">Computer</button>
+        <button class="quiz-opt">Internet</button>
+        <button class="quiz-opt">Communication</button>
+        <p class="quiz-why">ICT = Information and Communication Technology.</p>
+      </div>
     </div>
 </section>
 
@@ -4091,6 +4306,38 @@ sNewText := <span class="fn">Copy</span>(sSourceText, <span class="num">1</span>
       <tr><td>Terabyte</td><td>TB</td><td>1 024 GB</td><td>A large hard drive, server storage</td></tr>
       <tr><td>Petabyte</td><td>PB</td><td>1 024 TB</td><td>Entire data centres, cloud storage</td></tr>
     </table></div>
+
+    <div class="quiz" data-title="Quick Quiz — Hardware">
+      <div class="quiz-q" data-a="1">
+        <p class="quiz-text">Which type of memory is <strong>volatile</strong> (loses its contents when the power is switched off)?</p>
+        <button class="quiz-opt">ROM</button>
+        <button class="quiz-opt">RAM</button>
+        <button class="quiz-opt">An SSD</button>
+        <p class="quiz-why">RAM is volatile working memory — its contents are lost without power. ROM and SSDs are non-volatile.</p>
+      </div>
+      <div class="quiz-q" data-a="2">
+        <p class="quiz-text">Which of these is an <strong>input</strong> device?</p>
+        <button class="quiz-opt">Monitor</button>
+        <button class="quiz-opt">Printer</button>
+        <button class="quiz-opt">Scanner</button>
+        <button class="quiz-opt">Speaker</button>
+        <p class="quiz-why">A scanner feeds data <em>into</em> the computer. Monitors, printers and speakers are output devices.</p>
+      </div>
+      <div class="quiz-q" data-a="0">
+        <p class="quiz-text">How many bytes are in one kilobyte (as used in IT)?</p>
+        <button class="quiz-opt">1 024</button>
+        <button class="quiz-opt">100</button>
+        <button class="quiz-opt">8</button>
+        <p class="quiz-why">1 KB = 1 024 bytes (2¹⁰). There are 8 <em>bits</em> in a byte — don't confuse the two.</p>
+      </div>
+      <div class="quiz-q" data-a="1">
+        <p class="quiz-text">What is the main job of the <strong>CPU</strong>?</p>
+        <button class="quiz-opt">Store files permanently</button>
+        <button class="quiz-opt">Process (carry out) instructions</button>
+        <button class="quiz-opt">Display images on screen</button>
+        <p class="quiz-why">The CPU processes instructions — it's the "brain". Storage keeps files; the GPU/monitor handle display.</p>
+      </div>
+    </div>
 </section>
 
 <section class="chapter" id="ch10">
@@ -4226,6 +4473,30 @@ sNewText := <span class="fn">Copy</span>(sSourceText, <span class="num">1</span>
     <tr><td><strong>Creativity</strong></td><td>Edit photos, videos, audio</td><td>Photoshop, Audacity, Canva</td></tr>
     <tr><td><strong>Web browsers</strong></td><td>Access websites and web applications</td><td>Chrome, Firefox, Edge</td></tr>
   </table></div>
+
+  <div class="quiz" data-title="Quick Quiz &mdash; Software & Licensing">
+    <div class="quiz-q" data-a="1">
+      <p class="quiz-text">Software that is free for a trial period, then must be paid for, is:</p>
+      <button class="quiz-opt">Freeware</button>
+      <button class="quiz-opt">Shareware</button>
+      <button class="quiz-opt">Open-source</button>
+      <p class="quiz-why">Shareware is free to try for a limited time, then you must buy a licence.</p>
+    </div>
+    <div class="quiz-q" data-a="2">
+      <p class="quiz-text">Which licence lets you freely view and modify the source code?</p>
+      <button class="quiz-opt">Proprietary</button>
+      <button class="quiz-opt">Freeware</button>
+      <button class="quiz-opt">Open-source (FOSS)</button>
+      <p class="quiz-why">Free and open-source software (FOSS) publishes its source code for anyone to view and change.</p>
+    </div>
+    <div class="quiz-q" data-a="1">
+      <p class="quiz-text">Which of these is <strong>system</strong> software?</p>
+      <button class="quiz-opt">Microsoft Word</button>
+      <button class="quiz-opt">The operating system</button>
+      <button class="quiz-opt">Google Chrome</button>
+      <p class="quiz-why">The operating system controls the hardware. Word and Chrome are application software.</p>
+    </div>
+  </div>
 </section>
 
 <section class="chapter" id="ch11">
@@ -4579,6 +4850,30 @@ cUpper := Chr(Ord(cLower) - <span class="num">32</span>);
   <div class="callout-title">EXAM ANGLE — naming video compression formats</div>
   <p>"Name TWO compression formats used for video footage" wants container/codec names like MP4, MKV, H.264 or H.265 — any two are usually accepted.</p>
 </div>
+
+<div class="quiz" data-title="Quick Quiz &mdash; Data Representation">
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">The binary number <code>1011</code> equals which decimal value?</p>
+    <button class="quiz-opt">9</button>
+    <button class="quiz-opt">10</button>
+    <button class="quiz-opt">11</button>
+    <p class="quiz-why">8 + 0 + 2 + 1 = 11.</p>
+  </div>
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">How many different values can a single byte represent?</p>
+    <button class="quiz-opt">8</button>
+    <button class="quiz-opt">256</button>
+    <button class="quiz-opt">1 024</button>
+    <p class="quiz-why">A byte is 8 bits, giving 2&#8312; = 256 possible values.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">How many unique digits does the hexadecimal system use?</p>
+    <button class="quiz-opt">2</button>
+    <button class="quiz-opt">10</button>
+    <button class="quiz-opt">16</button>
+    <p class="quiz-why">Hexadecimal uses 16 digits: 0-9 and A-F.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch12">
@@ -4886,6 +5181,30 @@ cUpper := Chr(Ord(cLower) - <span class="num">32</span>);
 
 <h3>Mobile Hotspot / Tethering</h3>
 <p>A smartphone has its own built-in communication hardware (Wi-Fi and Bluetooth), so it can share its mobile data connection with other devices. This is called using the phone as a <strong>hotspot</strong> (or <strong>tethering</strong>) — a laptop or tablet connects to the phone's Wi-Fi signal and browses the internet through the phone's LTE/5G data, useful when no other Wi-Fi network is available.</p>
+
+<div class="quiz" data-title="Quick Quiz &mdash; Networks">
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">A network that covers a single building is a:</p>
+    <button class="quiz-opt">LAN</button>
+    <button class="quiz-opt">WAN</button>
+    <button class="quiz-opt">PAN</button>
+    <p class="quiz-why">A LAN (Local Area Network) covers a small area like one building. A WAN covers a large area.</p>
+  </div>
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Which device connects different networks and routes data between them?</p>
+    <button class="quiz-opt">Switch</button>
+    <button class="quiz-opt">Router</button>
+    <button class="quiz-opt">NIC</button>
+    <p class="quiz-why">A router connects networks and directs (routes) traffic between them.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">UTP cable is an example of a:</p>
+    <button class="quiz-opt">Wired (guided) medium</button>
+    <button class="quiz-opt">Wireless medium</button>
+    <button class="quiz-opt">Protocol</button>
+    <p class="quiz-why">UTP is a physical cable, so it is a wired/guided transmission medium.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch13">
@@ -4937,6 +5256,29 @@ cUpper := Chr(Ord(cLower) - <span class="num">32</span>);
   <tr><td><strong>Ransomware</strong></td><td>Malware that encrypts your data and demands payment</td><td>Regular backups; don't open unknown attachments</td></tr>
   <tr><td><strong>Hoax</strong></td><td>False information spread as if true</td><td>Verify with reputable sources before sharing</td></tr>
 </table></div>
+<div class="quiz" data-title="Quick Quiz &mdash; Internet &amp; WWW">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">The huge global network of interconnected computers is the&hellip;</p>
+    <button class="quiz-opt">WWW</button>
+    <button class="quiz-opt">Internet</button>
+    <button class="quiz-opt">Intranet</button>
+    <p class="quiz-why">The Internet is the infrastructure; the WWW is the collection of web pages on it.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">The software you use to view web pages is a&hellip;</p>
+    <button class="quiz-opt">Browser</button>
+    <button class="quiz-opt">Search engine</button>
+    <button class="quiz-opt">Server</button>
+    <p class="quiz-why">A browser (Chrome, Edge&hellip;) displays pages; a search engine helps you find them.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">In a web address, <code>https</code> is the&hellip;</p>
+    <button class="quiz-opt">Domain name</button>
+    <button class="quiz-opt">File name</button>
+    <button class="quiz-opt">Protocol</button>
+    <p class="quiz-why">The protocol sets the rules for the transfer; https is the secure version of http.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch14">
@@ -4980,6 +5322,29 @@ cUpper := Chr(Ord(cLower) - <span class="num">32</span>);
 </table></div>
 <h2>W3C — World Wide Web Consortium</h2>
 <p>The <strong>W3C</strong> sets the standards that all web browsers and websites should follow to ensure web pages display correctly across all devices and browsers. Web designers follow these standards.</p>
+<div class="quiz" data-title="Quick Quiz &mdash; Internet Services">
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Watching a video as it arrives, without saving the whole file first, is called&hellip;</p>
+    <button class="quiz-opt">Streaming</button>
+    <button class="quiz-opt">Syncing</button>
+    <button class="quiz-opt">Caching</button>
+    <p class="quiz-why">Streaming plays media on the fly; you don&rsquo;t keep a permanent copy.</p>
+  </div>
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Storing your files on remote internet servers (e.g. Google Drive) is&hellip;</p>
+    <button class="quiz-opt">A LAN</button>
+    <button class="quiz-opt">Cloud storage</button>
+    <button class="quiz-opt">A browser</button>
+    <p class="quiz-why">Cloud storage keeps your data on the provider&rsquo;s servers, reachable from anywhere.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">Keeping the same files up to date across your phone, laptop and the cloud is called&hellip;</p>
+    <button class="quiz-opt">Streaming</button>
+    <button class="quiz-opt">Compressing</button>
+    <button class="quiz-opt">Synchronising</button>
+    <p class="quiz-why">Synchronising makes sure every device has the latest version of the files.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch15">
@@ -5048,6 +5413,29 @@ cUpper := Chr(Ord(cLower) - <span class="num">32</span>);
   <li><strong>Privacy</strong> — be careful what you share online; it leaves a digital footprint</li>
   <li><strong>Green computing</strong> — turn off devices, reduce printing, recycle e-waste</li>
 </ul>
+<div class="quiz" data-title="Quick Quiz &mdash; E-communication">
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">A live video call where everyone takes part at the same time is _____ communication.</p>
+    <button class="quiz-opt">Synchronous</button>
+    <button class="quiz-opt">Asynchronous</button>
+    <button class="quiz-opt">Offline</button>
+    <p class="quiz-why">Synchronous = same time (calls, live chat); asynchronous = different times.</p>
+  </div>
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Good <strong>netiquette</strong> means you should&hellip;</p>
+    <button class="quiz-opt">Type in ALL CAPS</button>
+    <button class="quiz-opt">Use a clear subject line</button>
+    <button class="quiz-opt">Forward chain mail</button>
+    <p class="quiz-why">ALL CAPS reads as shouting and chain mail is spam; a clear subject is good manners.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">Which of these is an example of <strong>asynchronous</strong> communication?</p>
+    <button class="quiz-opt">A phone call</button>
+    <button class="quiz-opt">A live chat</button>
+    <button class="quiz-opt">Email</button>
+    <p class="quiz-why">Email is read later; the sender and receiver are not online at the same moment.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch16">
@@ -5164,6 +5552,29 @@ cUpper := Chr(Ord(cLower) - <span class="num">32</span>);
   <li>Use underscores or dashes instead of spaces</li>
   <li>Back up regularly — at least weekly</li>
 </ul>
+<div class="quiz" data-title="Quick Quiz &mdash; Computer Management">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Reorganising scattered file fragments on a hard drive so it reads faster is&hellip;</p>
+    <button class="quiz-opt">Disk cleanup</button>
+    <button class="quiz-opt">Defragmentation</button>
+    <button class="quiz-opt">Compression</button>
+    <p class="quiz-why">Defragmentation groups each file&rsquo;s pieces together; do NOT defrag an SSD.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Software that monitors traffic and blocks unauthorised connections is a&hellip;</p>
+    <button class="quiz-opt">Firewall</button>
+    <button class="quiz-opt">Antivirus</button>
+    <button class="quiz-opt">UPS</button>
+    <p class="quiz-why">A firewall filters network traffic; antivirus removes malware already on the PC.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">The safest place to keep a <strong>backup</strong> is&hellip;</p>
+    <button class="quiz-opt">On the same drive</button>
+    <button class="quiz-opt">In the same folder</button>
+    <button class="quiz-opt">Off-site or in the cloud</button>
+    <p class="quiz-why">An off-site/cloud copy survives theft, fire or drive failure at the original site.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch17">

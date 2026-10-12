@@ -1107,6 +1107,30 @@ iDays := DayNumber(<span class="num">2024</span>, <span class="num">3</span>, <s
   <div class="callout-title">Elapsed days, not inclusive days</div>
   <p>Subtracting the two day numbers counts the days <em>between</em> the dates, so the starting day itself is not counted. If a question wants both the first and last day included, add 1. Check the working with 2024: 25 Feb to 29 Feb is 4 days, then 1 Mar and 2 Mar bring it to 6, because 2024 is a leap year.</p>
 </div>
+
+<div class="quiz" data-title="Quick Quiz &mdash; 1D Arrays">
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Before a binary search will work, the array must be:</p>
+    <button class="quiz-opt">Sorted</button>
+    <button class="quiz-opt">Reversed</button>
+    <button class="quiz-opt">Empty</button>
+    <p class="quiz-why">Binary search repeatedly halves the list, which only works if it is sorted first.</p>
+  </div>
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">When you sort one of two parallel arrays, you must:</p>
+    <button class="quiz-opt">Leave the other array unchanged</button>
+    <button class="quiz-opt">Swap the other array at the same index too</button>
+    <button class="quiz-opt">Delete the other array</button>
+    <p class="quiz-why">Parallel arrays share an index, so every swap must be applied to both to keep records together.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">A bubble sort works by repeatedly comparing:</p>
+    <button class="quiz-opt">The first and last items</button>
+    <button class="quiz-opt">Random items</button>
+    <button class="quiz-opt">Adjacent items</button>
+    <p class="quiz-why">Bubble sort compares neighbouring (adjacent) elements and swaps them if out of order.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch01">
@@ -1633,6 +1657,30 @@ WriteLn(tFile, Format(<span class="str">'%12.2m'</span>, [rPrice]));   <span cla
   <div class="callout-title">Use a fixed-width font to check your columns</div>
   <p>Proportional fonts (like Arial) give each character a different width, so columns that line up perfectly in your code can look uneven when displayed. Set the output component's font to a <strong>fixed-width</strong> font such as <code>Courier New</code> so every character takes up exactly the same space and your columns line up visually.</p>
 </div>
+
+<div class="quiz" data-title="Quick Quiz &mdash; Text Files">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Which command opens an <em>existing</em> text file for reading?</p>
+    <button class="quiz-opt">Rewrite</button>
+    <button class="quiz-opt">Reset</button>
+    <button class="quiz-opt">Append</button>
+    <p class="quiz-why">Reset opens an existing file for reading from the start. Rewrite creates/overwrites; Append adds to the end.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Which function returns True once the end of the file is reached?</p>
+    <button class="quiz-opt">EOF</button>
+    <button class="quiz-opt">Reset</button>
+    <button class="quiz-opt">CloseFile</button>
+    <p class="quiz-why">EOF (End Of File) becomes True after the last line, so loops know when to stop.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">Which command creates a new file (or overwrites an existing one) for writing?</p>
+    <button class="quiz-opt">Reset</button>
+    <button class="quiz-opt">Append</button>
+    <button class="quiz-opt">Rewrite</button>
+    <p class="quiz-why">Rewrite creates a new empty file, wiping any existing contents.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch02">
@@ -1987,6 +2035,29 @@ lblAvg.Caption := FloatToStr(rAvg);</code></pre></div>
   <li>Easier to update — change in one place, works everywhere</li>
   <li>Each method should perform only one task</li>
 </ul>
+<div class="quiz" data-title="Quick Quiz &mdash; Methods">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Which kind of method <strong>returns a value</strong> back to where it was called?</p>
+    <button class="quiz-opt">A procedure</button>
+    <button class="quiz-opt">A function</button>
+    <button class="quiz-opt">An event</button>
+    <p class="quiz-why">A function returns a value; a procedure just performs an action.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Inside a Delphi function, the value you send back is stored in&hellip;</p>
+    <button class="quiz-opt">Result</button>
+    <button class="quiz-opt">Return</button>
+    <button class="quiz-opt">Output</button>
+    <p class="quiz-why">Assign to the automatic <code>Result</code> variable to return a value.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">A placeholder listed in a method&rsquo;s declaration (that receives a value) is a&hellip;</p>
+    <button class="quiz-opt">Argument</button>
+    <button class="quiz-opt">Event</button>
+    <button class="quiz-opt">Parameter</button>
+    <p class="quiz-why">Parameters are declared with the method; arguments are the actual values passed in.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch03">
@@ -2473,6 +2544,30 @@ DataField  → choose the field from the dropdown (e.g. "Surname")</code></pre><
     <div class="callout-title">Why FormShow and not FormCreate?</div>
     <p>The Data Module is usually created <strong>after</strong> the main form. If you try to link the grid in the main form's <code>OnCreate</code> event, the Data Module does not exist yet and you get an <strong>access violation</strong> error. Use <code>OnShow</code>, which fires later, once everything exists.</p>
   </div>
+
+  <div class="quiz" data-title="Quick Quiz &mdash; Delphi Databases">
+    <div class="quiz-q" data-a="1">
+      <p class="quiz-text">Before you change a field&rsquo;s value in code, you must first put the table into&hellip;</p>
+      <button class="quiz-opt">Post mode</button>
+      <button class="quiz-opt">Edit mode</button>
+      <button class="quiz-opt">Browse mode</button>
+      <p class="quiz-why">Call <code>tbl.Edit</code> first, change the field, then <code>tbl.Post</code> to save.</p>
+    </div>
+    <div class="quiz-q" data-a="0">
+      <p class="quiz-text">Which component supplies the records that a DBGrid displays?</p>
+      <button class="quiz-opt">DataSource</button>
+      <button class="quiz-opt">Label</button>
+      <button class="quiz-opt">Button</button>
+      <p class="quiz-why">A DBGrid&rsquo;s DataSource points to the dataset (e.g. a TADOTable).</p>
+    </div>
+    <div class="quiz-q" data-a="2">
+      <p class="quiz-text">After editing a record, which call <strong>saves</strong> the change to the table?</p>
+      <button class="quiz-opt">Edit</button>
+      <button class="quiz-opt">Insert</button>
+      <button class="quiz-opt">Post</button>
+      <p class="quiz-why"><code>Post</code> writes the pending change to the database.</p>
+    </div>
+  </div>
 </section>
 
 <section class="chapter" id="ch04">
@@ -2551,6 +2646,29 @@ DataField  → choose the field from the dropdown (e.g. "Surname")</code></pre><
 </table></div>
 <h2>Modular Design</h2>
 <p>Motherboards use a <strong>modular design</strong> — individual components (RAM, CPU, GPU) can be upgraded or replaced without replacing the whole computer.</p>
+<div class="quiz" data-title="Quick Quiz &mdash; Hardware (Gr 11)">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">The main circuit board that connects all the components together is the&hellip;</p>
+    <button class="quiz-opt">CPU</button>
+    <button class="quiz-opt">Motherboard</button>
+    <button class="quiz-opt">RAM</button>
+    <p class="quiz-why">Everything plugs into the motherboard, which links the CPU, RAM, storage, etc.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Small, very fast memory built into/near the CPU to speed it up is&hellip;</p>
+    <button class="quiz-opt">Cache</button>
+    <button class="quiz-opt">ROM</button>
+    <button class="quiz-opt">Virtual memory</button>
+    <p class="quiz-why">Cache holds data the CPU is likely to need next, avoiding slower RAM trips.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">The pathways that carry data between components are called&hellip;</p>
+    <button class="quiz-opt">Slots</button>
+    <button class="quiz-opt">Ports</button>
+    <button class="quiz-opt">Buses</button>
+    <p class="quiz-why">A bus is a set of wires that transports data/addresses/control signals.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch05">
@@ -2646,6 +2764,29 @@ DataField  → choose the field from the dropdown (e.g. "Surname")</code></pre><
   <tr><td><strong>Logical</strong></td><td>Runs but gives wrong output</td></tr>
   <tr><td><strong>Overflow</strong></td><td>Calculation result too large for the data type</td></tr>
 </table></div>
+<div class="quiz" data-title="Quick Quiz &mdash; Processing Techniques">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Splitting a single program into parts that run at the same time is:</p>
+    <button class="quiz-opt">Multitasking</button>
+    <button class="quiz-opt">Multithreading</button>
+    <button class="quiz-opt">Multiprocessing</button>
+    <p class="quiz-why">Multithreading splits ONE program into threads. Multitasking switches between programs; multiprocessing uses multiple cores.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">Using hard-drive space as if it were extra RAM is called:</p>
+    <button class="quiz-opt">Caching</button>
+    <button class="quiz-opt">Thrashing</button>
+    <button class="quiz-opt">Virtual memory</button>
+    <p class="quiz-why">Virtual memory borrows disk space when RAM is full. Thrashing is excessive swapping.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Which translator converts the entire program to machine code before it runs?</p>
+    <button class="quiz-opt">Compiler</button>
+    <button class="quiz-opt">Interpreter</button>
+    <button class="quiz-opt">Debugger</button>
+    <p class="quiz-why">A compiler translates all the code at once up front; an interpreter does it line by line while running.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch06">
@@ -2953,6 +3094,30 @@ DataField  → choose the field from the dropdown (e.g. "Surname")</code></pre><
   <div class="callout-title">Looking ahead</div>
   <p>You will practise <em>Filter</em> and <em>Sort</em> for real using <code>TADOTable</code> in <a href="../practical/databases-delphi.html">Databases in Delphi</a>, and full <strong>querying</strong> with SQL next year in Grade 12.</p>
 </div>
+
+<div class="quiz" data-title="Quick Quiz &mdash; Databases">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Software used to create and manage a database is a&hellip;</p>
+    <button class="quiz-opt">Spreadsheet</button>
+    <button class="quiz-opt">DBMS</button>
+    <button class="quiz-opt">Browser</button>
+    <p class="quiz-why">A DBMS (Database Management System) stores, secures and queries the data.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">A field whose value <strong>uniquely</strong> identifies each record is the&hellip;</p>
+    <button class="quiz-opt">Primary key</button>
+    <button class="quiz-opt">Foreign key</button>
+    <button class="quiz-opt">Sort key</button>
+    <p class="quiz-why">A primary key is unique and never empty; a foreign key links to another table.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">Checking that entered data is reasonable and in the right format is&hellip;</p>
+    <button class="quiz-opt">Verification</button>
+    <button class="quiz-opt">Encryption</button>
+    <button class="quiz-opt">Validation</button>
+    <p class="quiz-why">Validation checks it&rsquo;s sensible; verification checks it was captured correctly.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch07">
@@ -3059,6 +3224,29 @@ DataField  → choose the field from the dropdown (e.g. "Surname")</code></pre><
   <li>No cyberbullying or harassment</li>
   <li>Respect copyright laws</li>
 </ul>
+<div class="quiz" data-title="Quick Quiz &mdash; Networks & Protocols">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">The amount of data that can be sent over a network in a given time is:</p>
+    <button class="quiz-opt">Latency</button>
+    <button class="quiz-opt">Bandwidth</button>
+    <button class="quiz-opt">A data cap</button>
+    <p class="quiz-why">Bandwidth is how much data can travel per second (measured in bits per second).</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">Which protocol is used to SEND email?</p>
+    <button class="quiz-opt">POP3</button>
+    <button class="quiz-opt">IMAP</button>
+    <button class="quiz-opt">SMTP</button>
+    <p class="quiz-why">SMTP sends email. POP3 and IMAP are used to receive/access it.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">A secure, encrypted "tunnel" to a private network over the internet is a:</p>
+    <button class="quiz-opt">VPN</button>
+    <button class="quiz-opt">VoIP</button>
+    <button class="quiz-opt">LAN</button>
+    <p class="quiz-why">A VPN (Virtual Private Network) encrypts your connection over the public internet.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch08">
@@ -3134,6 +3322,29 @@ DataField  → choose the field from the dropdown (e.g. "Surname")</code></pre><
   <li><strong>Shaping</strong> — ISP prioritises certain traffic types (e.g. video gets priority over downloads)</li>
   <li><strong>Throttling</strong> — ISP intentionally slows your speed after you exceed a data cap</li>
 </ul>
+<div class="quiz" data-title="Quick Quiz &mdash; Mobile Technology">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Which wireless technology has the <strong>shortest</strong> range (a few cm, for tap-to-pay)?</p>
+    <button class="quiz-opt">Bluetooth</button>
+    <button class="quiz-opt">NFC</button>
+    <button class="quiz-opt">Wi-Fi</button>
+    <p class="quiz-why">NFC works only when devices nearly touch; Bluetooth and Wi-Fi reach much further.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">GPS works out your location using signals from&hellip;</p>
+    <button class="quiz-opt">Satellites</button>
+    <button class="quiz-opt">Cell towers only</button>
+    <button class="quiz-opt">Wi-Fi routers only</button>
+    <p class="quiz-why">GPS receivers calculate position from several orbiting satellites.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">An app that shows the nearest driver or shop is using&hellip;</p>
+    <button class="quiz-opt">Encryption</button>
+    <button class="quiz-opt">A firewall</button>
+    <button class="quiz-opt">Location-based services</button>
+    <p class="quiz-why">Location-based computing uses your position (GPS/cell/Wi-Fi) to give local results.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch09">
@@ -3216,6 +3427,29 @@ DataField  → choose the field from the dropdown (e.g. "Surname")</code></pre><
   <li><strong>Cloud</strong> — Google Drive, OneDrive (automatic, accessible anywhere)</li>
 </ul>
 <div class="callout tip"><div class="callout-title">3-2-1 Backup Rule</div><p><strong>3</strong> copies, on <strong>2</strong> different media types, <strong>1</strong> stored off-site or in the cloud.</p></div>
+<div class="quiz" data-title="Quick Quiz &mdash; Computer Management">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Malware that encrypts your data and demands payment to unlock it is:</p>
+    <button class="quiz-opt">Spyware</button>
+    <button class="quiz-opt">Ransomware</button>
+    <button class="quiz-opt">Adware</button>
+    <p class="quiz-why">Ransomware locks or encrypts data and demands a ransom to restore access.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Which malware spreads across a network on its own, without user action?</p>
+    <button class="quiz-opt">A worm</button>
+    <button class="quiz-opt">A virus</button>
+    <button class="quiz-opt">A trojan</button>
+    <p class="quiz-why">A worm self-replicates across networks. A virus needs a file to be run; a trojan is disguised software.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">The 3-2-1 backup rule says to keep how many copies of your data?</p>
+    <button class="quiz-opt">1</button>
+    <button class="quiz-opt">2</button>
+    <button class="quiz-opt">3</button>
+    <p class="quiz-why">3 copies, on 2 different media, with 1 stored off-site.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch10">
@@ -3310,6 +3544,29 @@ DataField  → choose the field from the dropdown (e.g. "Surname")</code></pre><
   <li>Multi-factor authentication (MFA)</li>
   <li>Avoid public Wi-Fi for sensitive communications</li>
 </ul>
+<div class="quiz" data-title="Quick Quiz &mdash; E-communications (Gr 11)">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Making voice and video calls over the internet is known as&hellip;</p>
+    <button class="quiz-opt">SMS</button>
+    <button class="quiz-opt">VoIP</button>
+    <button class="quiz-opt">A blog</button>
+    <p class="quiz-why">VoIP (e.g. WhatsApp/Skype calls) sends voice as data packets over the internet.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">A regularly updated online journal with the newest entries at the top is a&hellip;</p>
+    <button class="quiz-opt">Blog</button>
+    <button class="quiz-opt">Wiki</button>
+    <button class="quiz-opt">Firewall</button>
+    <p class="quiz-why">A blog is one author&rsquo;s posts; a wiki is edited collaboratively by many people.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">An audio series you subscribe to and download to listen to offline is a&hellip;</p>
+    <button class="quiz-opt">Webinar</button>
+    <button class="quiz-opt">Vlog</button>
+    <button class="quiz-opt">Podcast</button>
+    <p class="quiz-why">A podcast is episodic audio; a vlog is video and a webinar is a live online seminar.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch11">
@@ -3368,6 +3625,29 @@ DataField  → choose the field from the dropdown (e.g. "Surname")</code></pre><
   <tr><td><strong>ZIP / RAR</strong></td><td>Lossless general</td><td>Files and folders — full recovery on decompression</td></tr>
 </table></div>
 <div class="callout"><div class="callout-title">Lossy vs Lossless</div><p><strong>Lossy</strong>: permanently removes data to get smaller files. Cannot fully recover original.<br><strong>Lossless</strong>: compresses without losing data. Decompressed file is identical to original.</p></div>
+<div class="quiz" data-title="Quick Quiz &mdash; Internet (Gr 11)">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">The interactive, user-generated &lsquo;social&rsquo; web (sharing, comments, wikis) is&hellip;</p>
+    <button class="quiz-opt">Web 1.0</button>
+    <button class="quiz-opt">Web 2.0</button>
+    <button class="quiz-opt">Web 0.5</button>
+    <p class="quiz-why">Web 2.0 lets users create content; Web 1.0 was mostly read-only pages.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Compression that permanently drops some detail to shrink files (MP3, JPEG) is&hellip;</p>
+    <button class="quiz-opt">Lossy</button>
+    <button class="quiz-opt">Lossless</button>
+    <button class="quiz-opt">RAW</button>
+    <p class="quiz-why">Lossy throws away data you&rsquo;re unlikely to notice; lossless keeps everything.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">Playing content as it arrives, without downloading the whole file first, is&hellip;</p>
+    <button class="quiz-opt">Buffering</button>
+    <button class="quiz-opt">Caching</button>
+    <button class="quiz-opt">Streaming</button>
+    <p class="quiz-why">Streaming plays live/on-demand media on the fly; buffering is the small pre-load.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch12">
@@ -3446,6 +3726,29 @@ DataField  → choose the field from the dropdown (e.g. "Surname")</code></pre><
   <tr><td><strong>SEO Specialist</strong></td><td>Optimises websites to rank higher in search results</td></tr>
   <tr><td><strong>Cybersecurity Analyst</strong></td><td>Monitors and protects systems from attacks</td></tr>
 </table></div>
+<div class="quiz" data-title="Quick Quiz &mdash; Internet Services (Gr 11)">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">A website whose content is built per request (often from a database) is&hellip;</p>
+    <button class="quiz-opt">Static</button>
+    <button class="quiz-opt">Dynamic</button>
+    <button class="quiz-opt">Offline</button>
+    <p class="quiz-why">Dynamic pages change (per user/time); static pages show the same fixed HTML.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">The &lsquo;s&rsquo; in <strong>HTTPS</strong> means the connection is&hellip;</p>
+    <button class="quiz-opt">Secure (encrypted)</button>
+    <button class="quiz-opt">Slower</button>
+    <button class="quiz-opt">Simple</button>
+    <p class="quiz-why">HTTPS encrypts the data between browser and server so it can&rsquo;t be read en route.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">A one-time code sent to your phone to prove it&rsquo;s really you is an&hellip;</p>
+    <button class="quiz-opt">ISP</button>
+    <button class="quiz-opt">SEO</button>
+    <button class="quiz-opt">OTP</button>
+    <p class="quiz-why">An OTP (one-time PIN) is a second factor used in multi-factor authentication.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch13">
@@ -3546,6 +3849,29 @@ DataField  → choose the field from the dropdown (e.g. "Surname")</code></pre><
 <h2>Digital Footprint</h2>
 <p>The trail of data you leave online. <strong>Active</strong>: data you intentionally share (posts, forms). <strong>Passive</strong>: data collected without your knowledge (cookies, browsing history).</p>
 <p>Implications: affects reputation, privacy, can be used by employers or cybercriminals.</p>
+<div class="quiz" data-title="Quick Quiz &mdash; Social Implications (Gr 11)">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Everyday objects with sensors, connected to the internet, make up the&hellip;</p>
+    <button class="quiz-opt">DBMS</button>
+    <button class="quiz-opt">Internet of Things (IoT)</button>
+    <button class="quiz-opt">Intranet</button>
+    <p class="quiz-why">IoT = smart devices (fridges, watches, sensors) that send/receive data online.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">The three classic &lsquo;V&rsquo;s of Big Data are Volume, Velocity and&hellip;</p>
+    <button class="quiz-opt">Validity</button>
+    <button class="quiz-opt">Value</button>
+    <button class="quiz-opt">Variety</button>
+    <p class="quiz-why">Volume (amount), Velocity (speed) and Variety (many different types/formats).</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">A decentralised, tamper-resistant digital ledger of linked blocks is a&hellip;</p>
+    <button class="quiz-opt">Blockchain</button>
+    <button class="quiz-opt">Botnet</button>
+    <button class="quiz-opt">Cookie</button>
+    <p class="quiz-why">Each block is chained to the previous one, so records can&rsquo;t be changed unnoticed.</p>
+  </div>
+</div>
 </section>
 
 <section class="chapter" id="ch14">
