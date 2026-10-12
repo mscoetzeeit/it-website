@@ -553,6 +553,175 @@ memOut.Lines.Add(objCat.ToString);           <span class="cmt">// 'Whiskers, Age
 objCat.SetName(<span class="str">'Felix'</span>);
 lblName.Caption := objCat.GetName;           <span class="cmt">// 'Felix'</span></code></pre></div>
 
+    <!-- ═══════ WORKED EXAMPLE: TLibraryBook ═══════ -->
+    <h2>Worked Example &mdash; Methods with Logic (TLibraryBook)</h2>
+    <p>The classes above only copy values in and out. Real tasks ask for methods that <strong>build</strong>, <strong>decide</strong> and <strong>calculate</strong>. We will use a new class, <code>TLibraryBook</code>, to practise each technique. A school library keeps a title, an author, the number of copies, a <em>wear</em> rating from 1 (like new) to 10 (falling apart) and the number of days a book may be borrowed.</p>
+    <div class="code-block"><span class="code-label">Delphi &mdash; the class declaration</span>
+<pre><code><span class="kw">type</span>
+  <span class="cls">TLibraryBook</span> = <span class="kw">class</span>
+  <span class="kw">private</span>
+    fBookID   : <span class="kw2">string</span>;
+    fTitle    : <span class="kw2">string</span>;
+    fAuthor   : <span class="kw2">string</span>;
+    fCopies   : <span class="kw2">integer</span>;
+    fWear     : <span class="kw2">integer</span>;     <span class="cmt">// 1 = like new ... 10 = falling apart</span>
+    fLoanDays : <span class="kw2">integer</span>;     <span class="cmt">// how many days it may be borrowed</span>
+    <span class="kw">function</span> GenerateID : <span class="kw2">string</span>;   <span class="cmt">// auxiliary: only used inside the class</span>
+  <span class="kw">public</span>
+    <span class="kw">constructor</span> Create(sBookID, sTitle, sAuthor: <span class="kw2">string</span>; iCopies: <span class="kw2">integer</span>);
+    <span class="kw">function</span>    GetWear : <span class="kw2">integer</span>;
+    <span class="kw">procedure</span>   SetLoanDays(iDays: <span class="kw2">integer</span>);
+    <span class="kw">procedure</span>   RecordCheck(sResult: <span class="kw2">string</span>);
+    <span class="kw">function</span>    DueDate(dBorrowed: <span class="kw2">TDate</span>) : <span class="kw2">TDate</span>;
+    <span class="kw">function</span>    IsAvailable : <span class="kw2">boolean</span>;
+    <span class="kw">function</span>    ToString : <span class="kw2">string</span>;
+  <span class="kw">end</span>;</code></pre></div>
+
+    <h3>Generating and Returning an ID</h3>
+    <p>An ID is often built from pieces of other attributes. <code>Copy(text, start, count)</code> cuts out part of a string. To get the <em>last</em> two characters, start at <code>Length(text) - 1</code> and copy 2. Numbers must be converted with <code>IntToStr</code> before they can be joined to text, and <code>UpperCase</code> makes the letters capitals. Here the ID is the first four letters of the title, the last two letters of the author, and the number of copies.</p>
+    <div class="code-block"><span class="code-label">Delphi &mdash; a function that builds the ID</span>
+<pre><code><span class="kw">function</span> <span class="cls">TLibraryBook</span>.GenerateID : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  Result := UpperCase(Copy(fTitle, <span class="num">1</span>, <span class="num">4</span>) +
+                      Copy(fAuthor, Length(fAuthor) - <span class="num">1</span>, <span class="num">2</span>)) +
+            IntToStr(fCopies);
+  <span class="cmt">// 'Long Walk to Freedom', 'Nelson Mandela', 3  gives  'LONGLA3'</span>
+<span class="kw">end</span>;</code></pre></div>
+    <p>The function only <em>returns</em> the text through <code>Result</code>; it does not store it. Whoever calls it decides what to do with the answer.</p>
+
+    <h3>A Constructor with Default Values and a Conditional ID</h3>
+    <p>A constructor does not have to take a value for every attribute. Some attributes can simply start with a sensible default. It can also make decisions: below, a book that arrives with the ID <code>'None'</code> is given a generated ID by calling the auxiliary method; a book that already has an ID keeps it.</p>
+    <div class="code-block"><span class="code-label">Delphi &mdash; defaults plus conditional initialisation</span>
+<pre><code><span class="kw">constructor</span> <span class="cls">TLibraryBook</span>.Create(sBookID, sTitle, sAuthor: <span class="kw2">string</span>; iCopies: <span class="kw2">integer</span>);
+<span class="kw">begin</span>
+  fBookID   := sBookID;
+  fTitle    := sTitle;
+  fAuthor   := sAuthor;
+  fCopies   := iCopies;
+  fWear     := <span class="num">2</span>;       <span class="cmt">// default: a new book is nearly like new</span>
+  fLoanDays := <span class="num">14</span>;      <span class="cmt">// default loan period</span>
+
+  <span class="kw">if</span> fBookID = <span class="str">'None'</span> <span class="kw">then</span>
+    fBookID := GenerateID;   <span class="cmt">// ask the auxiliary method for an ID</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">Trap &mdash; set the attributes before calling GenerateID</div>
+      <p><code>GenerateID</code> reads <code>fTitle</code>, <code>fAuthor</code> and <code>fCopies</code>. If you call it <em>before</em> those lines have run, it works with empty values and returns a wrong (or crashing) ID. Do the plain assignments first and the conditional step last.</p>
+    </div>
+
+    <h3>A Mutator with a Rule</h3>
+    <p>A mutator is not always a one-line assignment. It can change the attribute according to a rule: here a repair <em>reduces</em> the wear by 3 but never below the minimum of 1, and a report of damage sets the wear to the fixed value 10.</p>
+    <div class="code-block"><span class="code-label">Delphi &mdash; change an attribute using a rule</span>
+<pre><code><span class="kw">procedure</span> <span class="cls">TLibraryBook</span>.RecordCheck(sResult: <span class="kw2">string</span>);
+<span class="kw">begin</span>
+  <span class="kw">if</span> sResult = <span class="str">'Repaired'</span> <span class="kw">then</span>
+  <span class="kw">begin</span>
+    fWear := fWear - <span class="num">3</span>;
+    <span class="kw">if</span> fWear &lt; <span class="num">1</span> <span class="kw">then</span>
+      fWear := <span class="num">1</span>;                <span class="cmt">// never go below the minimum</span>
+  <span class="kw">end</span>;
+
+  <span class="kw">if</span> sResult = <span class="str">'Damaged'</span> <span class="kw">then</span>
+    fWear := <span class="num">10</span>;                 <span class="cmt">// special case: a fixed value</span>
+<span class="kw">end</span>;
+
+<span class="kw">procedure</span> <span class="cls">TLibraryBook</span>.SetLoanDays(iDays: <span class="kw2">integer</span>);
+<span class="kw">begin</span>
+  fLoanDays := iDays;
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TLibraryBook</span>.GetWear : <span class="kw2">integer</span>;
+<span class="kw">begin</span>
+  Result := fWear;
+<span class="kw">end</span>;</code></pre></div>
+
+    <h3>A Function That Returns a Date</h3>
+    <p>A <code>TDate</code> is really a number: the count of days since a starting date, so adding a whole number to a date moves it forward by that many days. A method can therefore take a date in, add an attribute, and return the new date. The caller converts the returned date to text with <code>DateToStr</code> to display it.</p>
+    <div class="code-block"><span class="code-label">Delphi &mdash; borrowed date + loan days = due date</span>
+<pre><code><span class="kw">function</span> <span class="cls">TLibraryBook</span>.DueDate(dBorrowed: <span class="kw2">TDate</span>) : <span class="kw2">TDate</span>;
+<span class="kw">begin</span>
+  Result := dBorrowed + fLoanDays;
+<span class="kw">end</span>;
+
+<span class="cmt">// in the form:</span>
+dBorrowed := Date;                                      <span class="cmt">// today</span>
+lblDue.Caption := DateToStr(objBook.DueDate(dBorrowed));</code></pre></div>
+
+    <h3>A Boolean Helper Method</h3>
+    <p>A method that answers a yes/no question returns a <code>boolean</code>. Combine the tests with <code>and</code> / <code>or</code>, and put <strong>each comparison in its own brackets</strong>.</p>
+    <div class="code-block"><span class="code-label">Delphi &mdash; two attribute tests in one answer</span>
+<pre><code><span class="kw">function</span> <span class="cls">TLibraryBook</span>.IsAvailable : <span class="kw2">boolean</span>;
+<span class="kw">begin</span>
+  Result := (fCopies &gt; <span class="num">0</span>) <span class="kw">and</span> (fWear &lt; <span class="num">8</span>);   <span class="cmt">// a copy is left AND it is in fair condition</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">Why the brackets matter</div>
+      <p>In Delphi <code>and</code> binds more tightly than <code>&gt;</code> or <code>&lt;</code>. Without the brackets, <code>fCopies &gt; 0 and fWear &lt; 8</code> is read in the wrong order and will not compile. Bracket every comparison.</p>
+    </div>
+
+    <h3>ToString with Line Breaks</h3>
+    <p>A <code>ToString</code> that must show one fact per line joins the pieces with the character <code>#13</code> (a carriage return). In a memo or RichEdit this starts a new line. A Windows line break is really the pair <code>#13#10</code> (carriage return + line feed); use that pair when the text is going into a single <code>Text</code> property or message box, or when a plain <code>#13</code> does not give a proper break.</p>
+    <div class="code-block"><span class="code-label">Delphi &mdash; a multi-line ToString</span>
+<pre><code><span class="kw">function</span> <span class="cls">TLibraryBook</span>.ToString : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  Result := fTitle + <span class="str">' ['</span> + fBookID + <span class="str">']'</span> + #13 +
+            <span class="str">'Author: '</span> + fAuthor + #13 +
+            <span class="str">'Copies: '</span> + IntToStr(fCopies) + #13 +
+            <span class="str">'Wear (1-10): '</span> + IntToStr(fWear) + #13 +
+            <span class="str">'Loan period: '</span> + IntToStr(fLoanDays) + <span class="str">' days'</span>;
+<span class="kw">end</span>;</code></pre></div>
+
+    <h3>Calling the Methods from the Form &mdash; Procedure, Accessor, CASE, Mutator</h3>
+    <p>A common pattern in the form is: call a procedure that changes the object, <strong>read the new state with an accessor</strong>, use that value as the selector of a <code>case</code> statement, and call a mutator in each branch. The ranges in the <code>case</code> use <code>..</code>.</p>
+    <div class="code-block"><span class="code-label">Delphi &mdash; apply a check, then set the loan period from the wear</span>
+<pre><code><span class="kw">procedure</span> TfrmLibrary.<span class="fn">btnCheckClick</span>(Sender: TObject);
+<span class="kw">begin</span>
+  objBook.RecordCheck(edtResult.Text);        <span class="cmt">// 1. change the wear</span>
+
+  <span class="kw">case</span> objBook.GetWear <span class="kw">of</span>                   <span class="cmt">// 2. the accessor result picks the branch</span>
+    <span class="num">1</span>..<span class="num">4</span>  : objBook.SetLoanDays(<span class="num">21</span>);        <span class="cmt">// 3. a mutator in every branch</span>
+    <span class="num">5</span>..<span class="num">7</span>  : objBook.SetLoanDays(<span class="num">14</span>);
+    <span class="num">8</span>..<span class="num">10</span> : objBook.SetLoanDays(<span class="num">7</span>);
+  <span class="kw">end</span>;
+
+  redOut.Lines.Clear;
+  redOut.Lines.Add(objBook.ToString);         <span class="cmt">// 4. show the refreshed object</span>
+<span class="kw">end</span>;</code></pre></div>
+
+    <h3>Object Lifetime in the Form</h3>
+    <p>When the object is created in one button and used in others, the object variable must be declared at <strong>form level</strong> (not inside one procedure) so every event can see it. Manage its lifetime in three places:</p>
+    <ul>
+      <li><strong>FormCreate</strong> &mdash; set the variable to <code>nil</code>: "no object exists yet".</li>
+      <li><strong>Before replacing an object</strong> &mdash; <code>Free</code> the old one, set the variable to <code>nil</code>, then create the new one. If you skip the <code>Free</code>, the old object stays in memory with nothing pointing to it (a memory leak).</li>
+      <li><strong>FormDestroy</strong> &mdash; <code>Free</code> the object and set the variable to <code>nil</code> when the form closes.</li>
+    </ul>
+    <div class="code-block"><span class="code-label">Delphi &mdash; create, replace and release an object</span>
+<pre><code><span class="kw">var</span>
+  objBook : <span class="cls">TLibraryBook</span>;          <span class="cmt">// form level: shared by all the events</span>
+
+<span class="kw">procedure</span> TfrmLibrary.<span class="fn">FormCreate</span>(Sender: TObject);
+<span class="kw">begin</span>
+  objBook := <span class="kw">nil</span>;
+<span class="kw">end</span>;
+
+<span class="kw">procedure</span> TfrmLibrary.<span class="fn">btnAddClick</span>(Sender: TObject);
+<span class="kw">begin</span>
+  objBook.Free;                   <span class="cmt">// release the old book (safe even when it is nil)</span>
+  objBook := <span class="kw">nil</span>;
+  objBook := <span class="cls">TLibraryBook</span>.Create(<span class="str">'None'</span>, edtTitle.Text, edtAuthor.Text, sedCopies.Value);
+  redOut.Lines.Add(objBook.ToString);
+<span class="kw">end</span>;
+
+<span class="kw">procedure</span> TfrmLibrary.<span class="fn">FormDestroy</span>(Sender: TObject);
+<span class="kw">begin</span>
+  objBook.Free;
+  objBook := <span class="kw">nil</span>;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">Trap &mdash; calling a method on an object that does not exist</div>
+      <p>If the user clicks the check button before any book has been created, <code>objBook</code> is still <code>nil</code> and <code>objBook.RecordCheck(...)</code> raises an access violation. Test with <code>if objBook = nil then ShowMessage('Create a book first')</code> before using it.</p>
+    </div>
+
     <!-- ═══════ DYNAMIC COMPONENTS ═══════ -->
     <h2>Dynamic Components — Creating Controls at Runtime</h2>
     <p>You already know that every Delphi control is an <strong>object of a class</strong> (a button is a <code>TButton</code>, a label is a <code>TLabel</code>). Because they are classes, you can <strong>create them in code while the program is running</strong> using the same <code>Create</code> constructor you use for your own classes &mdash; instead of dragging them onto the form at design time.</p>

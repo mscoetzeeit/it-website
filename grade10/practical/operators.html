@@ -70,6 +70,33 @@
       <p>The <code>MOD 10</code> / <code>DIV 10</code> loop is the key to counting digits, reversing a number, checking for a palindrome, or building the Luhn check digit of an ID. Swap what you do with <code>iDigit</code> and you have solved a whole family of questions.</p>
     </div>
 
+    <h3>Worked Example — Complete Groups and Leftovers</h3>
+    <p>Whenever items must be packed into groups of a fixed size, <code>DIV</code> and <code>MOD</code> work as a pair. <code>DIV</code> counts how many <strong>complete groups</strong> you can fill; <code>MOD</code> tells you how many items are <strong>left over</strong> once those groups are full.</p>
+    <p>Imagine the tuck shop has baked <strong>134 cupcakes</strong> for a fundraiser and each box holds <strong>12</strong>.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Question</th><th>Calculation</th><th>Answer</th></tr>
+      <tr><td>How many full boxes?</td><td><code>134 DIV 12</code></td><td><code>11</code> (11 &times; 12 = 132)</td></tr>
+      <tr><td>How many cupcakes are left over?</td><td><code>134 MOD 12</code></td><td><code>2</code> (134 &minus; 132)</td></tr>
+      <tr><td>Check</td><td><code>11 * 12 + 2</code></td><td><code>134</code> &mdash; we got every cupcake back</td></tr>
+    </table></div>
+    <div class="code-block"><span class="code-label">Delphi — boxes and leftovers</span>
+<pre><code><span class="kw">const</span>
+  BOX_SIZE = <span class="num">12</span>;
+<span class="kw">var</span>
+  iCakes, iFullBoxes, iLeftover : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iCakes     := StrToInt(edtCakes.Text);     <span class="cmt">// e.g. 134</span>
+  iFullBoxes := iCakes <span class="kw">div</span> BOX_SIZE;      <span class="cmt">// 11 complete boxes</span>
+  iLeftover  := iCakes <span class="kw">mod</span> BOX_SIZE;      <span class="cmt">// 2 cupcakes that do not fill a box</span>
+  memOut.Lines.Add(<span class="str">'Full boxes: '</span> + IntToStr(iFullBoxes));
+  memOut.Lines.Add(<span class="str">'Left over:  '</span> + IntToStr(iLeftover));
+<span class="kw">end</span>;</code></pre></div>
+    <p>The same pair converts a total into bigger and smaller units. A movie marathon of <code>435</code> minutes is <code>435 DIV 60 = 7</code> hours and <code>435 MOD 60 = 15</code> minutes &mdash; 7 h 15 min.</p>
+    <div class="callout tip">
+      <div class="callout-title">What if the leftovers also need a box?</div>
+      <p>The 2 leftover cupcakes still need somewhere to go, so the shop needs <strong>12 boxes</strong> in total, not 11. You can get this by adding one extra box whenever the leftover is more than zero, or by rounding a real division up with <code>Ceil</code> (see <em>Real Division with Floor and Ceil</em> further down). Decide first whether the question wants <em>complete</em> groups or <em>all</em> items packed.</p>
+    </div>
+
     <h2>Operator Precedence (Order of Operations)</h2>
     <div class="tbl-wrap"><table>
       <tr><th>Priority</th><th>Operators</th></tr>
@@ -83,6 +110,47 @@
 result := (<span class="num">2</span> + <span class="num">3</span>) * <span class="num">4</span>;       <span class="cmt">// = 20  (brackets first)</span>
 result := <span class="num">10</span> <span class="kw">DIV</span> <span class="num">2</span> + <span class="num">3</span>;      <span class="cmt">// = 8   (DIV first)</span></code></pre></div>
 
+    <h2>Percentages — Discounts and Percentage Change</h2>
+    <p>Percentages are just divisions by 100, so they are easy to calculate once you know which value goes where. Always store the amounts in <code>Real</code> variables, because money and percentages seldom come out as whole numbers.</p>
+
+    <h3>Working Out a Discount</h3>
+    <p>A discount is worked out like VAT, except that you <strong>subtract</strong> it instead of adding it. A school jersey costs R450 and is on sale at 12% off:</p>
+    <div class="code-block"><span class="code-label">Delphi — price after a discount</span>
+<pre><code><span class="kw">const</span>
+  DISCOUNT_RATE = <span class="num">12</span>;     <span class="cmt">// percent</span>
+<span class="kw">var</span>
+  rPrice, rDiscount, rFinal : <span class="kw2">Real</span>;
+<span class="kw">begin</span>
+  rPrice    := <span class="num">450</span>;
+  rDiscount := rPrice * DISCOUNT_RATE / <span class="num">100</span>;   <span class="cmt">// 450 * 12 / 100 = 54</span>
+  rFinal    := rPrice - rDiscount;                <span class="cmt">// 450 - 54 = 396</span>
+  lblFinal.Caption := FloatToStrF(rFinal, ffCurrency, <span class="num">8</span>, <span class="num">2</span>);
+<span class="kw">end</span>;</code></pre></div>
+    <p>A shortcut that gives the same answer: the customer pays <code>(100 - 12)</code> percent of the price, so <code>rFinal := rPrice * (100 - DISCOUNT_RATE) / 100;</code>.</p>
+
+    <h3>Percentage Change</h3>
+    <p>How much did something go up or down, compared with where it started? Subtract the <strong>old</strong> value from the <strong>new</strong> value, divide by the <strong>old</strong> value, and multiply by 100:</p>
+    <p><strong>percentage change = (new &minus; old) &divide; old &times; 100</strong></p>
+    <p>A <strong>positive</strong> answer means an increase; a <strong>negative</strong> answer means a decrease.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Situation</th><th>Old</th><th>New</th><th>Working</th><th>Change</th></tr>
+      <tr><td>Taxi fare goes up</td><td>R18</td><td>R21</td><td>(21 &minus; 18) / 18 &times; 100</td><td><code>+16.67%</code> (increase)</td></tr>
+      <tr><td>Sports bag on sale</td><td>R650</td><td>R520</td><td>(520 &minus; 650) / 650 &times; 100</td><td><code>-20%</code> (decrease)</td></tr>
+    </table></div>
+    <div class="code-block"><span class="code-label">Delphi — percentage change</span>
+<pre><code><span class="kw">var</span>
+  rOld, rNew, rChange : <span class="kw2">Real</span>;
+<span class="kw">begin</span>
+  rOld    := StrToFloat(edtOld.Text);       <span class="cmt">// e.g. 650</span>
+  rNew    := StrToFloat(edtNew.Text);       <span class="cmt">// e.g. 520</span>
+  rChange := (rNew - rOld) / rOld * <span class="num">100</span>;     <span class="cmt">// -20</span>
+  lblChange.Caption := FloatToStrF(rChange, ffFixed, <span class="num">8</span>, <span class="num">1</span>) + <span class="str">'%'</span>;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">Trap — divide by the OLD value</div>
+      <p>The comparison always starts from where you began, so the old value is the denominator. Dividing by the new value gives the wrong answer. Also remember the brackets around <code>(rNew - rOld)</code> &mdash; without them, precedence would divide first. And if the old value could be 0, check for that before dividing.</p>
+    </div>
+
     <h2>Mathematical Functions</h2>
     <p>Add <code>Math</code> to your <code>uses</code> section to access power, floor, ceil etc.</p>
     <div class="tbl-wrap"><table>
@@ -90,7 +158,7 @@ result := <span class="num">10</span> <span class="kw">DIV</span> <span class="n
       <tr><td><code>sqr(x)</code></td><td>x squared (x²)</td><td><code>sqr(4)</code></td><td><code>16</code></td></tr>
       <tr><td><code>sqrt(x)</code></td><td>Square root</td><td><code>sqrt(16)</code></td><td><code>4.0</code></td></tr>
       <tr><td><code>power(x,n)</code></td><td>x to the power of n</td><td><code>power(5,3)</code></td><td><code>125</code></td></tr>
-      <tr><td><code>round(x)</code></td><td>Round to nearest integer</td><td><code>round(5.68)</code></td><td><code>6</code></td></tr>
+      <tr><td><code>round(x)</code></td><td>Round to nearest integer (an exact .5 goes to the even neighbour &mdash; see below)</td><td><code>round(5.68)</code></td><td><code>6</code></td></tr>
       <tr><td><code>trunc(x)</code></td><td>Remove decimal (truncate)</td><td><code>trunc(5.68)</code></td><td><code>5</code></td></tr>
       <tr><td><code>floor(x)</code></td><td>Round DOWN</td><td><code>floor(3.76)</code></td><td><code>3</code></td></tr>
       <tr><td><code>ceil(x)</code></td><td>Round UP</td><td><code>ceil(3.76)</code></td><td><code>4</code></td></tr>
@@ -100,6 +168,56 @@ result := <span class="num">10</span> <span class="kw">DIV</span> <span class="n
       <tr><td><code>random(n)</code></td><td>Random number from 0 to n-1</td><td><code>random(10)</code></td><td>0–9</td></tr>
       <tr><td><code>RoundTo(x,-n)</code></td><td>Round to n decimal places</td><td><code>RoundTo(12.3456,-2)</code></td><td><code>12.35</code></td></tr>
     </table></div>
+
+    <h3>Round, Trunc, Floor and Ceil — Which One?</h3>
+    <p>All four turn a real number into a whole number, but they do it differently. <code>Floor</code> and <code>Ceil</code> need the <code>Math</code> unit; <code>Round</code> and <code>Trunc</code> do not.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Value</th><th><code>Round</code></th><th><code>Trunc</code></th><th><code>Floor</code></th><th><code>Ceil</code></th></tr>
+      <tr><td><code>2.7</code></td><td>3</td><td>2</td><td>2</td><td>3</td></tr>
+      <tr><td><code>2.5</code></td><td>2</td><td>2</td><td>2</td><td>3</td></tr>
+      <tr><td><code>3.5</code></td><td>4</td><td>3</td><td>3</td><td>4</td></tr>
+      <tr><td><code>-2.7</code></td><td>-3</td><td>-2</td><td>-3</td><td>-2</td></tr>
+    </table></div>
+    <ul>
+      <li><code>Floor</code> always goes <strong>down</strong> towards the smaller whole number, and <code>Ceil</code> always goes <strong>up</strong>. For negative numbers that means they point in opposite directions to what many learners expect: <code>Floor(-2.7)</code> is <code>-3</code>.</li>
+      <li><code>Trunc</code> simply <strong>chops off</strong> the decimals, so it moves towards zero. For positive numbers it matches <code>Floor</code>; for negative numbers it matches <code>Ceil</code>.</li>
+      <li><code>Round</code> finds the <strong>nearest</strong> whole number. When the value is exactly halfway (<code>.5</code>), Delphi rounds to the <strong>even</strong> neighbour, so <code>Round(2.5)</code> is <code>2</code> but <code>Round(3.5)</code> is <code>4</code>.</li>
+    </ul>
+    <div class="callout warning">
+      <div class="callout-title">Trap — Round does not always round .5 up</div>
+      <p>The rounding you learnt in primary school (always round .5 up) is <em>not</em> what <code>Round</code> does. Delphi uses &quot;ties go to the even number&quot;, so <code>Round(4.5)</code> is <code>4</code> and <code>Round(5.5)</code> is <code>6</code>. If you need a particular direction, use <code>Floor</code> or <code>Ceil</code> instead of <code>Round</code>.</p>
+    </div>
+
+    <h3>Real Division with Floor and Ceil — How Many Do You Need?</h3>
+    <p>Many counting questions follow the same pattern: use <code>/</code> (real division, so the decimals are kept), then decide which way to round the answer.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Round with&hellip;</th><th>Use when&hellip;</th><th>Typical wording</th></tr>
+      <tr><td><code>Floor</code></td><td>You may <strong>not exceed</strong> a limit, so a partly affordable item does not count.</td><td>&quot;How many can I afford / fit / buy?&quot;</td></tr>
+      <tr><td><code>Ceil</code></td><td>You must <strong>cover everything</strong>, even if the last container is only partly used.</td><td>&quot;How many are needed / required?&quot;</td></tr>
+    </table></div>
+    <div class="code-block"><span class="code-label">Delphi — Floor: how many pies can R500 buy?</span>
+<pre><code><span class="kw">var</span>
+  rBudget, rPieCost : <span class="kw2">Real</span>;
+  iPies : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  rBudget  := <span class="num">500</span>;
+  rPieCost := <span class="num">18.50</span>;
+  iPies := Floor(rBudget / rPieCost);   <span class="cmt">// 500 / 18.50 = 27.027... -> 27</span>
+<span class="kw">end</span>;</code></pre></div>
+    <p>27 pies cost R499.50, which fits. A 28th pie would push the total to R518, which is over budget &mdash; so the partly affordable pie is thrown away.</p>
+    <div class="code-block"><span class="code-label">Delphi — Ceil: how many minibus taxis for a school trip?</span>
+<pre><code><span class="kw">var</span>
+  iLearners, iSeats, iTaxis : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iLearners := <span class="num">62</span>;
+  iSeats    := <span class="num">15</span>;
+  iTaxis := Ceil(iLearners / iSeats);   <span class="cmt">// 62 / 15 = 4.133... -> 5</span>
+<span class="kw">end</span>;</code></pre></div>
+    <p>Four taxis carry only 60 learners, so a fifth is needed for the last two. Every learner must get a seat, so we round <strong>up</strong>.</p>
+    <div class="callout tip">
+      <div class="callout-title">Why not just use Round?</div>
+      <p>Rounding to the <em>nearest</em> whole number can go the wrong way: <code>Round(4.133)</code> is <code>4</code> taxis and two learners are left standing, and <code>Round(27.6)</code> would be 28 pies and an overspent budget. Pick <code>Floor</code> or <code>Ceil</code> based on the situation, not on how close the decimal is. For whole numbers that are not negative, <code>a DIV b</code> gives the same answer as <code>Floor(a / b)</code>.</p>
+    </div>
 
     <h2>Inc and Dec</h2>
     <div class="tbl-wrap"><table>

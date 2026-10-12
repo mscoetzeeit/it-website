@@ -51,6 +51,7 @@
       <table>
         <tr><th>Data Type</th><th>What it stores</th><th>Examples</th><th>Quotes?</th></tr>
         <tr><td><code>Integer</code></td><td>Whole numbers (positive &amp; negative, no decimals)</td><td><code>3</code>, <code>-15</code>, <code>1250</code></td><td>No</td></tr>
+        <tr><td><code>Int64</code></td><td>Very large whole numbers (see below)</td><td><code>3000000000</code></td><td>No</td></tr>
         <tr><td><code>Real</code></td><td>Numbers with decimals (floating point)</td><td><code>3.14</code>, <code>-13.24</code>, <code>125.89</code></td><td>No</td></tr>
         <tr><td><code>String</code></td><td>One or more characters — text</td><td><code>'Banana'</code>, <code>'23.45'</code>, <code>'@!jkl'</code></td><td>Single quotes <code>'…'</code></td></tr>
         <tr><td><code>Char</code></td><td>A single character only</td><td><code>'S'</code>, <code>'!'</code>, <code>'a'</code></td><td>Single quotes <code>'…'</code></td></tr>
@@ -64,6 +65,23 @@
       <div class="code-block"><span class="code-label">Delphi</span>
 <pre><code>rTotalStock := iBoxesIn + iBoxesReturned;   <span class="cmt">// fine — a whole number fits happily into a Real</span>
 iBoxesIn    := rTotalStock * 2;             <span class="cmt">// rejected — a Real value won't fit into an Integer</span></code></pre></div>
+    </div>
+
+    <h3>When Integer Is Not Big Enough — Int64</h3>
+    <p>An <code>Integer</code> can only hold whole numbers from about <strong>-2.1 billion to +2.1 billion</strong> (exactly -2 147 483 648 to 2 147 483 647). Go past that and the value overflows and gives a wrong answer, or crashes the program. For bigger whole numbers use <code>Int64</code>, which holds values up to about <strong>9.2 &times; 10<sup>18</sup></strong>.</p>
+    <p>A good example is money counted in cents: a municipal budget of R30 million is 3 000 000 000 cents, which is too big for an <code>Integer</code>. Another is a factorial: 13! is already 6 227 020 800, and <code>Int64</code> can hold factorials up to 20!.</p>
+    <div class="code-block"><span class="code-label">Delphi — Int64 for a big total</span>
+<pre><code><span class="kw">var</span>
+  iBudgetCents : <span class="kw2">Int64</span>;     <span class="cmt">// Integer would overflow here</span>
+  iProjectCents : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iBudgetCents := <span class="num">3000000000</span>;
+  iProjectCents := <span class="num">950000000</span>;
+  iBudgetCents := iBudgetCents - iProjectCents;   <span class="cmt">// a smaller whole number fits into an Int64 happily</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">Pick the smallest type that is safe</div>
+      <p>Use <code>Integer</code> for everyday counting (ages, marks, quantities). Reach for <code>Int64</code> only when a total or a product could realistically pass 2 billion. Use <code>Real</code> instead when the value needs decimals &mdash; <code>Int64</code> still holds whole numbers only.</p>
     </div>
 
     <h2>Variables</h2>
@@ -317,6 +335,64 @@ rVatAmount := rCostPrice * VAT;
 rTotal     := rCostPrice + rVatAmount;</code></pre>
     </div>
 
+    <h2>Ordinal Types</h2>
+    <p>An <strong>ordinal type</strong> is a type whose values can be listed in a fixed order, one after the other, so that every value has a definite <em>next</em> and <em>previous</em> value. Ordinal types are the only ones allowed for a <code>for</code> loop counter, for the selector of a <code>case</code> statement, and for <code>Inc</code>, <code>Dec</code> and <code>Ord</code>.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Ordinal</th><th>Not ordinal</th></tr>
+      <tr><td><code>Integer</code> (and <code>Int64</code>) &mdash; after 7 comes 8</td><td><code>Real</code> &mdash; there are endless values between 2.5 and 2.6, so no value has a &quot;next&quot; one</td></tr>
+      <tr><td><code>Char</code> &mdash; after 'C' comes 'D'</td><td><code>String</code> &mdash; text of any length has no single position in a list</td></tr>
+      <tr><td><code>Boolean</code> &mdash; <code>False</code> then <code>True</code></td><td></td></tr>
+      <tr><td>Enumerated and subrange types (below)</td><td></td></tr>
+    </table></div>
+    <div class="callout tip">
+      <div class="callout-title">Why it matters</div>
+      <p>This is why you can write <code>for cLetter := 'A' to 'Z' do</code> or <code>Inc(iCount)</code>, but you cannot write <code>for rValue := 1.0 to 2.0 do</code> or use a <code>string</code> as the selector of a <code>case</code> statement.</p>
+    </div>
+
+    <h3>Enumerated Types</h3>
+    <p>An <strong>enumerated type</strong> is a type <em>you</em> define by listing every value it may have, in words. A variable of that type can hold only one of the listed names, which makes your code easier to read than using codes like 1, 2 and 3. The list goes in a <code>type</code> section, near the top of the unit above the form class; the variable is then declared as normal.</p>
+    <div class="code-block"><span class="code-label">Delphi — an enumerated type for fee payments</span>
+<pre><code><span class="kw">type</span>
+  TPayStatus = (Unpaid, Deposit, PaidInFull);   <span class="cmt">// the only three values allowed</span>
+
+<span class="kw">procedure</span> TForm1.<span class="fn">btnCheckClick</span>(Sender: TObject);
+<span class="kw">var</span>
+  ePay : TPayStatus;
+<span class="kw">begin</span>
+  ePay := Deposit;
+  <span class="kw">case</span> ePay <span class="kw">of</span>
+    Unpaid     : lblNote.Caption := <span class="str">'Please pay the fees'</span>;
+    Deposit    : lblNote.Caption := <span class="str">'Balance still outstanding'</span>;
+    PaidInFull : lblNote.Caption := <span class="str">'Thank you'</span>;
+  <span class="kw">end</span>;
+  memOut.Lines.Add(IntToStr(Ord(ePay)));         <span class="cmt">// shows 1, the position in the list</span>
+<span class="kw">end</span>;</code></pre></div>
+    <p>The values are numbered from <code>0</code> in the order you list them (<code>Unpaid</code> = 0, <code>Deposit</code> = 1, <code>PaidInFull</code> = 2), and <code>Ord</code> gives you that number. You can compare them, too: <code>ePay &lt; PaidInFull</code> is <code>True</code> for both <code>Unpaid</code> and <code>Deposit</code>.</p>
+    <div class="callout warning">
+      <div class="callout-title">Trap — enumerated values are not text</div>
+      <p>You cannot assign <code>'Deposit'</code> (in quotes) to an enumerated variable, and you cannot pass one straight into <code>ShowMessage</code> or <code>IntToStr</code>. Use a <code>case</code> statement to turn each value into the text you want to display, or <code>Ord</code> to get its number.</p>
+    </div>
+
+    <h3>Subrange Types</h3>
+    <p>A <strong>subrange type</strong> restricts an ordinal type to a stretch of its values. Write the lowest and highest value with two dots between them. It documents what values are legal, and lets Delphi catch mistakes &mdash; for instance a constant outside the range is rejected when you compile.</p>
+    <div class="code-block"><span class="code-label">Delphi — subrange types</span>
+<pre><code><span class="kw">type</span>
+  TMark   = <span class="num">0</span>..<span class="num">100</span>;       <span class="cmt">// whole numbers 0 to 100 only</span>
+  TLetter = <span class="str">'A'</span>..<span class="str">'E'</span>;     <span class="cmt">// only the characters A to E</span>
+
+<span class="kw">var</span>
+  iMark : TMark;
+  cSymbol : TLetter;
+<span class="kw">begin</span>
+  iMark   := <span class="num">76</span>;       <span class="cmt">// fine</span>
+  cSymbol := <span class="str">'C'</span>;      <span class="cmt">// fine</span>
+  iMark   := <span class="num">120</span>;      <span class="cmt">// rejected: 120 is outside 0..100</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">Enumerated or subrange?</div>
+      <p>Use an <strong>enumerated</strong> type when you have a small set of <em>named</em> choices (payment status, ticket type). Use a <strong>subrange</strong> when the values are ordinary numbers or letters but only part of the range makes sense (a mark, a month number 1..12). Neither replaces input validation: a value typed by the user still needs checking before it is stored.</p>
+    </div>
+
     <h2>Type Conversion</h2>
     <p>Components like <code>TEdit</code> only hold strings. You must convert to the right type before using in calculations.</p>
     <div class="tbl-wrap">
@@ -342,6 +418,23 @@ rTotal     := rCostPrice + rVatAmount;</code></pre>
   <span class="kw">else</span>
     ShowMessage(<span class="str">'Not a valid number!'</span>);   <span class="cmt">// iCode = position of the bad character</span>
 <span class="kw">end</span>;</code></pre></div>
+    </div>
+
+    <h3>The Str Procedure &mdash; Number to String</h3>
+    <p><code>IntToStr</code> and <code>FloatToStr</code> are <em>functions</em>: they hand the text back to you. <code>Str</code> does the same job as a <em>procedure</em>: you give it a number and a string variable, and it places the text in that variable. It can also format the number in the same step by writing <code>value:width:decimals</code>.</p>
+    <div class="code-block"><span class="code-label">Delphi — Str(number, stringVariable)</span>
+<pre><code><span class="kw">var</span>
+  sCount, sPrice : <span class="kw2">string</span>;
+  rPrice : <span class="kw2">real</span>;
+<span class="kw">begin</span>
+  rPrice := <span class="num">24.5</span>;
+  Str(<span class="num">42</span>, sCount);                    <span class="cmt">// sCount = '42'</span>
+  Str(rPrice:<span class="num">0</span>:<span class="num">2</span>, sPrice);             <span class="cmt">// sPrice = '24.50'</span>
+  lblOut.Caption := <span class="str">'Price: R'</span> + sPrice;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">Always format a Real with Str</div>
+      <p>Write the real value as <code>rPrice:0:2</code> &mdash; the <code>0</code> means &quot;use as much space as needed&quot; and the <code>2</code> is the number of decimal places. Without the formatting part, a <code>Real</code> comes out in long scientific notation that is no use on a form.</p>
     </div>
 
     <h3>Formatting Real Numbers</h3>

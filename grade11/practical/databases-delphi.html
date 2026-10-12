@@ -318,6 +318,112 @@ dm.tblStudents.Sort := <span class="str">'Grade ASC, Surname ASC'</span>; <span 
   lblResult.Caption := sTopName + <span class="str">' scored the highest: '</span> + IntToStr(iHighest);
 <span class="kw">end</span>;</code></pre></div>
 
+  <h2>Searching For and Editing All Matching Records</h2>
+  <p>The earlier search example stops at the first match. Often you need to change <em>every</em> record that matches &mdash; for example every learner whose surname contains the text the user typed. The loop visits every record, tests each one, and only puts a record into edit mode when it matches.</p>
+  <p>The test uses <code>Pos</code>, exactly as you use it on any string. If <code>Pos</code> returns a number greater than 0, the search text appears somewhere inside the field. Converting both sides with <code>UpperCase</code> stops capital letters from causing a mismatch.</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; capitalise the surname of every match</span>
+<pre><code><span class="kw">var</span>
+  sFind : <span class="kw2">String</span>;
+<span class="kw">begin</span>
+  sFind := UpperCase(edtSearch.Text);
+  dm.tblStudents.First;
+  <span class="kw">while not</span> dm.tblStudents.Eof <span class="kw">do</span>
+  <span class="kw">begin</span>
+    <span class="kw">if</span> Pos(sFind, UpperCase(dm.tblStudents[<span class="str">'Surname'</span>])) &gt; <span class="num">0</span> <span class="kw">then</span>
+    <span class="kw">begin</span>
+      dm.tblStudents.Edit;                                  <span class="cmt">// only matching records get edited</span>
+      dm.tblStudents[<span class="str">'Surname'</span>] := UpperCase(dm.tblStudents[<span class="str">'Surname'</span>]);
+      dm.tblStudents.Post;                                  <span class="cmt">// save the change</span>
+      memOut.Lines.Add(dm.tblStudents[<span class="str">'Name'</span>] + <span class="str">' '</span> + dm.tblStudents[<span class="str">'Surname'</span>]);
+    <span class="kw">end</span>;
+    dm.tblStudents.Next;                                    <span class="cmt">// ALWAYS move on, match or not</span>
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">Edit, change, Post &mdash; for each record</div>
+    <p>Every record you change needs its own <code>Edit</code> &hellip; <code>Post</code> pair, and both must sit <em>inside</em> the <code>if</code>. The <code>Next</code> goes <em>outside</em> the <code>if</code>, so the loop moves on whether or not the record matched. Put <code>Next</code> inside the <code>if</code> and the loop gets stuck on the first non-matching record forever.</p>
+  </div>
+
+  <h2>Deleting All Records That Match a Condition</h2>
+  <p>Deleting several records follows the same loop, but there is one important difference. When you call <code>Delete</code>, the dataset <strong>automatically moves on</strong> to the record that came after the deleted one. The pointer is already sitting on a fresh, unchecked record. If you called <code>Next</code> as well, you would jump over that record without ever testing it.</p>
+  <p>So only call <code>Next</code> when you did <em>not</em> delete:</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; remove every Grade 12 learner at year-end</span>
+<pre><code>dm.tblStudents.First;
+<span class="kw">while not</span> dm.tblStudents.Eof <span class="kw">do</span>
+<span class="kw">begin</span>
+  <span class="kw">if</span> dm.tblStudents[<span class="str">'Grade'</span>] = <span class="num">12</span> <span class="kw">then</span>
+    dm.tblStudents.Delete                <span class="cmt">// no semicolon: the else belongs to this if</span>
+  <span class="kw">else</span>
+    dm.tblStudents.Next;                 <span class="cmt">// only move on when nothing was deleted</span>
+<span class="kw">end</span>;</code></pre></div>
+  <div class="callout warning">
+    <div class="callout-title">TRAP: Delete followed by Next skips a record</div>
+    <p>Imagine two Grade 12 learners sitting one after the other. If you write <code>Delete; Next;</code>, the first one is deleted, the pointer lands on the second, and <code>Next</code> immediately moves past it &mdash; so the second learner is never checked and survives. Use the <code>if &hellip; Delete else Next</code> pattern above. Remember too that deleting cannot be undone, so confirm with the user before running a loop like this.</p>
+  </div>
+
+  <h2>Calculating an Average From a Table</h2>
+  <p>Finding an average needs two running values as you loop: a <strong>total</strong> and a <strong>count</strong>. Add the field to the total and add 1 to the count for each record that qualifies. After the loop, divide. The count can only be 0 if no record qualified, and dividing by 0 is an error, so test the count first.</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; average mark of the Grade 11 learners</span>
+<pre><code><span class="kw">var</span>
+  rTotal, rAverage : <span class="kw2">Real</span>;
+  iCount : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  rTotal := <span class="num">0</span>;
+  iCount := <span class="num">0</span>;
+  dm.tblStudents.First;
+  <span class="kw">while not</span> dm.tblStudents.Eof <span class="kw">do</span>
+  <span class="kw">begin</span>
+    <span class="kw">if</span> dm.tblStudents[<span class="str">'Grade'</span>] = <span class="num">11</span> <span class="kw">then</span>
+    <span class="kw">begin</span>
+      rTotal := rTotal + dm.tblStudents[<span class="str">'Mark'</span>];
+      Inc(iCount);
+    <span class="kw">end</span>;
+    dm.tblStudents.Next;
+  <span class="kw">end</span>;
+
+  <span class="kw">if</span> iCount &gt; <span class="num">0</span> <span class="kw">then</span>
+  <span class="kw">begin</span>
+    rAverage := rTotal / iCount;
+    lblResult.Caption := <span class="str">'Grade 11 average: '</span> + FloatToStrF(rAverage, ffFixed, <span class="num">5</span>, <span class="num">1</span>);
+  <span class="kw">end</span>
+  <span class="kw">else</span>
+    lblResult.Caption := <span class="str">'There are no Grade 11 learners yet.'</span>;
+<span class="kw">end</span>;</code></pre></div>
+  <p>To average <em>every</em> record, leave out the <code>if</code> on the grade and add each mark unconditionally. The guard on <code>iCount</code> stays.</p>
+
+  <h2>Counting Related Records With Nested Loops</h2>
+  <p>Suppose each learner record stores a <code>ClassID</code> that matches the <code>ClassID</code> of a record in <code>tblClasses</code>. To show, for each class, how many learners belong to it, you need a loop <em>inside</em> a loop:</p>
+  <ul>
+    <li>The <strong>outer</strong> loop visits every class (the parent table).</li>
+    <li>For each class, the <strong>inner</strong> loop scans all the learners (the child table) and counts those whose <code>ClassID</code> matches.</li>
+  </ul>
+  <p>Two things must happen <em>inside the outer loop</em>, before the inner loop begins: set the count back to 0, and move the child table back to its first record with <code>First</code>. If you skip either, the second class starts with the first class's count, or starts with the child table already sitting at its end, so nothing is counted at all.</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; number of learners in each class</span>
+<pre><code><span class="kw">var</span>
+  iCount : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  dm.tblClasses.First;
+  <span class="kw">while not</span> dm.tblClasses.Eof <span class="kw">do</span>              <span class="cmt">// outer loop: every class</span>
+  <span class="kw">begin</span>
+    iCount := <span class="num">0</span>;                              <span class="cmt">// reset for THIS class</span>
+    dm.tblStudents.First;                     <span class="cmt">// restart the child table for THIS class</span>
+    <span class="kw">while not</span> dm.tblStudents.Eof <span class="kw">do</span>          <span class="cmt">// inner loop: every learner</span>
+    <span class="kw">begin</span>
+      <span class="kw">if</span> dm.tblClasses[<span class="str">'ClassID'</span>] = dm.tblStudents[<span class="str">'ClassID'</span>] <span class="kw">then</span>
+        Inc(iCount);
+      dm.tblStudents.Next;
+    <span class="kw">end</span>;
+
+    <span class="kw">if</span> iCount &gt; <span class="num">0</span> <span class="kw">then</span>                         <span class="cmt">// skip classes with no learners</span>
+      memOut.Lines.Add(dm.tblClasses[<span class="str">'ClassName'</span>] + <span class="str">': '</span> + IntToStr(iCount));
+    dm.tblClasses.Next;                       <span class="cmt">// next class</span>
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">Each loop moves its own table</div>
+    <p>The outer loop must call <code>tblClasses.Next</code> and the inner loop must call <code>tblStudents.Next</code>. Mixing them up leaves one of the loops unable to finish. Because the learners are scanned once for <em>every</em> class, this is fine for the small tables used in school projects, but it gets slow with thousands of records.</p>
+  </div>
+
   <h2>Linked Tables (Master-Detail)</h2>
   <p>Two related tables can be <strong>linked</strong> so that selecting a record in the <strong>master</strong> (parent) table automatically shows only the matching records in the <strong>detail</strong> (child) table — for example, click a class and see only that class's learners. The link is made on the shared key field (the foreign key in the detail table matching the primary key in the master).</p>
   <div class="code-block"><span class="code-label">Delphi — set these on the DETAIL table</span>

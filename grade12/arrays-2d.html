@@ -71,6 +71,35 @@ myArray[<span class="num">2</span>,<span class="num">1</span>] := <span class="n
   <div class="callout-title">Why not PadLeft?</div>
   <p>Newer Delphi versions have a built-in <code>.PadLeft()</code> string helper that does this in one call, but it is not part of CAPS. The <code>WHILE</code> loop above achieves the same result — adding a space in front of the number until it is 5 characters wide — using only <code>Length</code>, string concatenation and a loop, all of which are already CAPS-examinable.</p>
 </div>
+<h3>Building the Whole Grid as One String</h3>
+<p>Another way to display the grid is to build <strong>one long string</strong> that holds every row, and give it to a RichEdit in a single step. The outer loop handles the rows and the inner loop handles the columns. After each value we add a <strong>tab</strong> (<code>#9</code>) so the columns line up, and after each finished row we add a <strong>line break</strong> (<code>#13#10</code>). Here <code>arrSales</code> holds tuckshop sales (row = item, column = day) and <code>iRows</code> and <code>iCols</code> say how many rows and columns are in use.</p>
+<div class="code-block"><span class="code-label">Delphi — grid string built row by row, shown in a RichEdit</span>
+<pre><code><span class="kw">var</span>
+  r, c          : <span class="kw2">Integer</span>;
+  sLine, sGrid  : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  sGrid := <span class="str">''</span>;                                   <span class="cmt">// the whole grid starts empty</span>
+  <span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> iRows <span class="kw">do</span>
+  <span class="kw">begin</span>
+    sLine := <span class="str">''</span>;                                 <span class="cmt">// each row starts a fresh line</span>
+    <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> iCols <span class="kw">do</span>
+      sLine := sLine + IntToStr(arrSales[r, c]) + #9;   <span class="cmt">// value, then a tab</span>
+    sGrid := sGrid + sLine + #13#10;              <span class="cmt">// finished row, then a new line</span>
+  <span class="kw">end</span>;
+  redGrid.Text := sGrid;                          <span class="cmt">// show everything at once</span>
+<span class="kw">end</span>;</code></pre></div>
+<div class="callout warning">
+  <div class="callout-title">Trap — where each string is reset</div>
+  <p><code>sGrid</code> is cleared <em>before</em> both loops (once), <code>sLine</code> is cleared at the start of <em>every row</em> (inside the outer loop), and <code>redGrid.Text</code> is assigned <em>after</em> both loops. Clear <code>sLine</code> in the wrong place and the rows run into each other; assign the Text inside the loop and you only see the last row.</p>
+</div>
+<h3>TStringGrid as an Alternative Display</h3>
+<p>The <code>TStringGrid</code> component (listed in the CAPS component list for Grades 11 and 12) shows a real table with cells and gridlines. You fill it cell by cell with the <code>Cells</code> property — but note that <code>Cells</code> takes the <strong>column first, then the row</strong>, the opposite order from your array. A new string grid has one fixed header row and one fixed header column at index 0, so the data for <code>arrSales[r, c]</code> fits neatly into <code>Cells[c, r]</code>.</p>
+<div class="code-block"><span class="code-label">Delphi — show the array in a TStringGrid</span>
+<pre><code>strSales.RowCount := iRows + <span class="num">1</span>;     <span class="cmt">// +1 for the fixed header row</span>
+strSales.ColCount := iCols + <span class="num">1</span>;     <span class="cmt">// +1 for the fixed header column</span>
+<span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> iRows <span class="kw">do</span>
+  <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> iCols <span class="kw">do</span>
+    strSales.Cells[c, r] := IntToStr(arrSales[r, c]);   <span class="cmt">// [column, row]!</span></code></pre></div>
 <h2>Calculations on 2D Arrays</h2>
 <p>A big reason for using a grid is to add things up. The trick is knowing which index to <strong>fix</strong> and which to <strong>vary</strong>. If you think of the class register again: a <strong>row total</strong> is one learner's marks added across all subjects, while a <strong>column total</strong> is one subject's marks added across all learners.</p>
 <h3>Row total</h3>
@@ -150,6 +179,97 @@ myArray[<span class="num">2</span>,<span class="num">1</span>] := <span class="n
 <div class="callout tip">
   <div class="callout-title">The pattern to remember</div>
   <p><strong>Row calculation</strong> → fix the row, loop the columns (one learner across all subjects). <strong>Column calculation</strong> → fix the column, loop the rows (one subject down all learners). To find a "best/worst", store the <em>index</em> as you go — that index links straight back to the parallel <code>arrName</code>.</p>
+</div>
+
+<h2>Changing, Moving and Removing Elements</h2>
+<p>A 2D array is usually declared bigger than the data you currently have. Two counters, <code>iRows</code> and <code>iCols</code>, record how much of it is <strong>in use</strong>, and every loop runs to those counters — not to the declared size. The examples below all use this array of tuckshop sales:</p>
+<div class="code-block"><span class="code-label">Delphi — declarations for the next four examples</span>
+<pre><code><span class="kw">const</span>
+  MAXROWS = <span class="num">10</span>;
+  MAXCOLS = <span class="num">5</span>;
+<span class="kw">var</span>
+  arrSales     : <span class="kw">array</span>[<span class="num">1</span>..MAXROWS, <span class="num">1</span>..MAXCOLS] <span class="kw">of</span> <span class="kw2">Integer</span>;
+  iRows, iCols : <span class="kw2">Integer</span>;        <span class="cmt">// how many rows / columns are actually filled</span>
+  r, c, iTemp  : <span class="kw2">Integer</span>;</code></pre></div>
+
+<h3>Replace a single element</h3>
+<p>Name the row and column and assign the new value. Whatever was in that cell is overwritten.</p>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>arrSales[iRow, iCol] := iNewValue;</code></pre></div>
+
+<h3>Swap two specified elements</h3>
+<p>You cannot simply copy one cell onto the other, because the first value would be lost. Park it in a temporary variable first, exactly as when swapping two ordinary variables.</p>
+<div class="code-block"><span class="code-label">Delphi — swap arrSales[r1,c1] with arrSales[r2,c2]</span>
+<pre><code>iTemp := arrSales[r1, c1];                <span class="cmt">// 1. save the first value</span>
+arrSales[r1, c1] := arrSales[r2, c2];     <span class="cmt">// 2. second value moves to the first cell</span>
+arrSales[r2, c2] := iTemp;                <span class="cmt">// 3. saved value goes into the second cell</span></code></pre></div>
+
+<h3>Delete a row</h3>
+<p>A fixed-size array cannot actually get shorter — it keeps its capacity. To "delete" a row you copy every later row <strong>one position up</strong>, over the row being removed, and then reduce the occupied row count by one so the leftover last row is ignored. To delete row 3 of 6: row 4 is copied into row 3, row 5 into row 4, row 6 into row 5, and <code>iRows</code> becomes 5.</p>
+<div class="code-block"><span class="code-label">Delphi — remove row iDelRow</span>
+<pre><code><span class="kw">for</span> r := iDelRow <span class="kw">to</span> iRows - <span class="num">1</span> <span class="kw">do</span>       <span class="cmt">// stop one row early: r + 1 must still be in use</span>
+  <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> iCols <span class="kw">do</span>
+    arrSales[r, c] := arrSales[r + <span class="num">1</span>, c];   <span class="cmt">// copy the next row up</span>
+Dec(iRows);                             <span class="cmt">// one row fewer in use</span></code></pre></div>
+<div class="callout warning">
+  <div class="callout-title">Trap — the loop must stop at iRows - 1</div>
+  <p>If the outer loop runs all the way to <code>iRows</code>, the last pass reads <code>arrSales[iRows + 1, c]</code>, a row that is not in use — and if the array is full, one that does not exist at all, which crashes with a range error. Also work from the deleted row downwards, never upwards, or you copy over rows you have not moved yet.</p>
+</div>
+
+<h3>Transpose a matrix into a second array</h3>
+<p>To <strong>transpose</strong> a grid is to turn its rows into columns. The cell at row <code>r</code>, column <code>c</code> in the original goes to row <code>c</code>, column <code>r</code> in the copy. Because the dimensions swap, a rectangular matrix needs a <strong>second array declared with the dimensions the other way round</strong>.</p>
+<div class="code-block"><span class="code-label">Delphi — copy arrSales into arrFlip, rows and columns exchanged</span>
+<pre><code><span class="kw">var</span>
+  arrFlip : <span class="kw">array</span>[<span class="num">1</span>..MAXCOLS, <span class="num">1</span>..MAXROWS] <span class="kw">of</span> <span class="kw2">Integer</span>;   <span class="cmt">// dimensions swapped</span>
+<span class="kw">begin</span>
+  <span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> iRows <span class="kw">do</span>
+    <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> iCols <span class="kw">do</span>
+      arrFlip[c, r] := arrSales[r, c];
+  <span class="cmt">// arrFlip now uses iCols rows and iRows columns</span>
+<span class="kw">end</span>;</code></pre></div>
+<div class="tbl-wrap"><table>
+  <tr><th>Original (2 rows × 3 columns)</th><th>Transposed (3 rows × 2 columns)</th></tr>
+  <tr><td>10 &nbsp; 20 &nbsp; 30<br>40 &nbsp; 50 &nbsp; 60</td><td>10 &nbsp; 40<br>20 &nbsp; 50<br>30 &nbsp; 60</td></tr>
+</table></div>
+
+<h2>Worked Example — Building Each Row from the Row Above</h2>
+<p>Some patterns are not typed in; they are <strong>calculated</strong>. Here we have a grid of 6 rows and 11 columns. Rows 1 and 2 are supplied. For every later row, each <strong>interior</strong> cell is the sum of the <strong>two diagonal neighbours above it</strong> — the cell in the previous row one column to the left, plus the cell in the previous row one column to the right. The first and last columns are never touched and stay 0.</p>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th></tr>
+  <tr><td><strong>Row 1</strong></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+  <tr><td><strong>Row 2</strong></td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+  <tr><td><strong>Row 3</strong></td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>4</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
+  <tr><td><strong>Row 4</strong></td><td>0</td><td>0</td><td>2</td><td>0</td><td>6</td><td>0</td><td>6</td><td>0</td><td>2</td><td>0</td><td>0</td></tr>
+  <tr><td><strong>Row 5</strong></td><td>0</td><td>2</td><td>0</td><td>8</td><td>0</td><td>12</td><td>0</td><td>8</td><td>0</td><td>2</td><td>0</td></tr>
+  <tr><td><strong>Row 6</strong></td><td>0</td><td>0</td><td>10</td><td>0</td><td>20</td><td>0</td><td>20</td><td>0</td><td>10</td><td>0</td><td>0</td></tr>
+</table></div>
+<p>Check one cell by hand: row 3, column 6 = row 2 column 5 (which is 2) + row 2 column 7 (which is 2) = 4.</p>
+<div class="code-block"><span class="code-label">Delphi — fill rows 3 to 6 from the row above</span>
+<pre><code><span class="kw">const</span>
+  ROWS = <span class="num">6</span>;
+  COLS = <span class="num">11</span>;
+<span class="kw">var</span>
+  arrPat : <span class="kw">array</span>[<span class="num">1</span>..ROWS, <span class="num">1</span>..COLS] <span class="kw">of</span> <span class="kw2">Integer</span>;
+  r, c   : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  <span class="cmt">// clear every cell so the untouched edge columns really are 0</span>
+  <span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> ROWS <span class="kw">do</span>
+    <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> COLS <span class="kw">do</span>
+      arrPat[r, c] := <span class="num">0</span>;
+
+  <span class="cmt">// the two supplied rows</span>
+  arrPat[<span class="num">1</span>, <span class="num">6</span>] := <span class="num">2</span>;
+  arrPat[<span class="num">2</span>, <span class="num">5</span>] := <span class="num">2</span>;
+  arrPat[<span class="num">2</span>, <span class="num">7</span>] := <span class="num">2</span>;
+
+  <span class="cmt">// rows 3 to 6: top to bottom, interior columns only</span>
+  <span class="kw">for</span> r := <span class="num">3</span> <span class="kw">to</span> ROWS <span class="kw">do</span>
+    <span class="kw">for</span> c := <span class="num">2</span> <span class="kw">to</span> COLS - <span class="num">1</span> <span class="kw">do</span>
+      arrPat[r, c] := arrPat[r - <span class="num">1</span>, c - <span class="num">1</span>] + arrPat[r - <span class="num">1</span>, c + <span class="num">1</span>];
+<span class="kw">end</span>;</code></pre></div>
+<div class="callout tip">
+  <div class="callout-title">Why these loop limits?</div>
+  <p><strong>Rows from 3 to ROWS, top to bottom:</strong> each row depends on the one above it, so the row above must already be finished when you reach it. <strong>Columns from 2 to COLS - 1:</strong> a cell in column 1 would need <code>arrPat[r - 1, 0]</code> and one in column 11 would need <code>arrPat[r - 1, 12]</code>; neither column exists, so those edge cells are skipped and keep their 0.</p>
 </div>
 
 <div class="quiz" data-title="Quick Quiz &mdash; 2D Arrays">

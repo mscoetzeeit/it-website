@@ -145,6 +145,38 @@ qryStudents.Open;</code></pre></div>
 <span class="sql-kw">WHERE</span> CDName <span class="sql-kw">LIKE</span> <span class="str">"%s"</span>        <span class="cmt">-- ends with s</span>
 <span class="sql-kw">WHERE</span> Code   <span class="sql-kw">LIKE</span> <span class="str">"A__"</span>       <span class="cmt">-- starts with A followed by exactly 2 chars</span></code></pre></div>
 
+  <h3>LIKE with Text Typed by the User</h3>
+  <p>When the search word comes from an Edit, you build the pattern by gluing the wildcard symbols onto the text in Delphi. A <code>%</code> on <em>each side</em> means "the text may appear anywhere in the field"; a <code>%</code> on one side only means "starts with" or "ends with".</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; search a field for the text in an Edit</span>
+<pre><code>sFind := edtFind.Text;
+sSQL  := <span class="str">'SELECT Title, Summary '</span> +
+         <span class="str">'FROM tblBooks '</span> +
+         <span class="str">'WHERE Summary LIKE "%'</span> + sFind + <span class="str">'%"'</span>;
+<span class="cmt">// if the user types  rugby  the finished SQL ends:  WHERE Summary LIKE "%rugby%"</span>
+
+qryBooks.Close;
+qryBooks.SQL.Text := sSQL;
+qryBooks.Open;</code></pre></div>
+  <div class="callout warning">
+    <div class="callout-title">Check which wildcard your database expects</div>
+    <p>A Delphi program talking to the database through ADO normally uses <code>%</code> (many characters) and <code>_</code> (one character), which is what the examples on this page use. Access's own query designer uses <code>*</code> and <code>?</code> instead. Use whichever symbol the supplied database responds to &mdash; if a <code>LIKE</code> query returns nothing when you know there are matches, the wildcard is the first thing to check. Also note that if the typed text itself contains a double quote, the string breaks; the parameterised version further down avoids that problem.</p>
+  </div>
+
+  <h3>Alternatives and Missing Values in a Built String</h3>
+  <p><code>IN</code> is a shorthand for several <code>OR</code> tests on the <em>same</em> field. For a missing value, always test with <code>IS NULL</code> &mdash; the equals sign never matches a Null.</p>
+  <div class="code-block"><span class="code-label">SQL &mdash; IN and IS NULL</span>
+<pre><code><span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblTrips <span class="sql-kw">WHERE</span> Destination <span class="sql-kw">IN</span> (<span class="str">"Paarl"</span>, <span class="str">"Stellenbosch"</span>);
+<span class="cmt">-- identical to: Destination = "Paarl" OR Destination = "Stellenbosch"</span>
+
+<span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblTrips <span class="sql-kw">WHERE</span> DriverCell <span class="sql-kw">IS NULL</span>;     <span class="cmt">-- no cell number captured</span>
+<span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblTrips <span class="sql-kw">WHERE</span> DriverCell = <span class="sql-kw">NULL</span>;      <span class="cmt">-- WRONG: matches nothing, ever</span></code></pre></div>
+  <p>When one condition must hold <em>together with</em> a choice between alternatives, put the alternatives in brackets &mdash; the same brackets you would use in the SQL window, just inside a Delphi string:</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; grouped alternatives inside a built string</span>
+<pre><code>sSQL := <span class="str">'SELECT * FROM tblTrips '</span> +
+        <span class="str">'WHERE (Destination = "Paarl" OR Destination = "Stellenbosch") '</span> +
+        <span class="str">'AND Fare &gt;= 80'</span>;
+<span class="cmt">// without the brackets, the fare test would apply to Stellenbosch trips only</span></code></pre></div>
+
   <h2>ORDER BY &mdash; Sorting Results</h2>
   <div class="code-block"><span class="code-label">SQL</span>
 <pre><code><span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblCD <span class="sql-kw">ORDER BY</span> Artist;             <span class="cmt">-- ascending (default)</span>
@@ -182,6 +214,25 @@ qryStudents.Open;</code></pre></div>
     <p><strong>WHERE</strong> filters individual records <em>before</em> grouping. <strong>HAVING</strong> filters groups <em>after</em> GROUP BY. If you have both, WHERE runs first.</p>
   </div>
 
+  <h3>Joined Tables, ROUND(AVG) and HAVING Together</h3>
+  <p>A typical longer query combines everything: two tables linked in the <code>WHERE</code> clause, a group per record of the "one" table, a rounded average, and a filter on that average. Here every taxi rank has many trips, and we want the ranks whose average fare is above R45.</p>
+  <div class="code-block"><span class="code-label">SQL &mdash; relationship in WHERE, groups filtered by HAVING</span>
+<pre><code><span class="sql-kw">SELECT</span> R.RankName, <span class="sql-fn">ROUND</span>(<span class="sql-fn">AVG</span>(T.Fare), <span class="num">2</span>) <span class="sql-kw">AS</span> AvgFare
+<span class="sql-kw">FROM</span> tblRanks R, tblTrips T
+<span class="sql-kw">WHERE</span> R.RankID = T.RankID
+<span class="sql-kw">GROUP BY</span> R.RankName
+<span class="sql-kw">HAVING</span> <span class="sql-fn">AVG</span>(T.Fare) &gt; <span class="num">45</span>;</code></pre></div>
+  <ol>
+    <li><strong>WHERE R.RankID = T.RankID</strong> matches each trip to its rank (the primary key and foreign key). You may add ordinary conditions here too, e.g. <code>AND T.TripDate &gt;= #2026/09/01#</code>, which discard individual trips <em>before</em> any averaging.</li>
+    <li><strong>GROUP BY</strong> collects the remaining trips into one group per rank.</li>
+    <li><strong>AVG</strong> and <strong>ROUND</strong> are worked out once for each group.</li>
+    <li><strong>HAVING</strong> then keeps only the groups whose average passes the test.</li>
+  </ol>
+  <div class="callout warning">
+    <div class="callout-title">Trap &mdash; you cannot use the alias in HAVING</div>
+    <p>Access does not let <code>HAVING</code> (or <code>WHERE</code>) use a name you created with <code>AS</code>. Repeat the calculation: <code>HAVING AVG(T.Fare) &gt; 45</code>, not <code>HAVING AvgFare &gt; 45</code>. Also never put an aggregate such as <code>AVG(...)</code> in <code>WHERE</code> &mdash; the groups do not exist yet at that stage.</p>
+  </div>
+
   <h2>SQL String &amp; Math Functions</h2>
   <div class="tbl-wrap"><table>
     <tr><th>Function</th><th>Returns</th><th>Example</th></tr>
@@ -194,11 +245,62 @@ qryStudents.Open;</code></pre></div>
     <tr><td><code>FORMAT(field, "0.00")</code></td><td>Formatted string</td><td><code>FORMAT(Price, "R0.00")</code></td></tr>
   </table></div>
 
+  <h3>Joining Text with &amp;</h3>
+  <p>In Access SQL the <code>&amp;</code> operator joins pieces of text into one value. Any text you type yourself goes in quotes; field names do not. Give the joined result a heading with <code>AS</code>, otherwise the column gets a meaningless default name.</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; two fields and a separator in one labelled column</span>
+<pre><code>qryLearners.Close;
+qryLearners.SQL.Text :=
+  <span class="str">'SELECT Surname &amp; ", " &amp; Name AS FullName, Grade '</span> +
+  <span class="str">'FROM tblLearners '</span> +
+  <span class="str">'ORDER BY Surname'</span>;
+qryLearners.Open;
+<span class="cmt">// FullName column shows:  Dlamini, Thandi</span></code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">Two languages, two joining symbols</div>
+    <p>The <code>+</code> in the Delphi code joins the Delphi string pieces together while you build the statement. The <code>&amp;</code> sits <em>inside</em> the quotes and is part of the SQL that Access will run. Do not mix them up.</p>
+  </div>
+
+  <h3>Calculating with Numeric Text</h3>
+  <p>Some codes are stored as text but hold numbers in fixed positions. You can cut the digits out with <code>LEFT</code>, <code>RIGHT</code> or <code>MID</code> and then do arithmetic on them, naming the answer with <code>AS</code>. Suppose a shop's <code>SlotCode</code> is stored as <code>"0817"</code>: the first two characters are the opening hour and the last two are the closing hour.</p>
+  <div class="code-block"><span class="code-label">SQL &mdash; arithmetic on pieces of a text field</span>
+<pre><code><span class="sql-kw">SELECT</span> ShopName, SlotCode,
+       <span class="sql-fn">RIGHT</span>(SlotCode, <span class="num">2</span>) - <span class="sql-fn">LEFT</span>(SlotCode, <span class="num">2</span>) <span class="sql-kw">AS</span> HoursOpen
+<span class="sql-kw">FROM</span> tblShops;
+<span class="cmt">-- "0817":  RIGHT = "17",  LEFT = "08"   17 - 8 = 9 hours</span></code></pre></div>
+  <div class="callout warning">
+    <div class="callout-title">Trap &mdash; only digits can be subtracted</div>
+    <p><code>LEFT</code>, <code>RIGHT</code> and <code>MID</code> return <em>text</em>. Access quietly treats that text as a number when it consists purely of digits, but a stray letter or space in the piece will make the calculation fail. Always check which character positions hold the digits before choosing the numbers in <code>LEFT(field, n)</code> and <code>RIGHT(field, n)</code>.</p>
+  </div>
+
   <h2>Date Functions</h2>
   <div class="code-block"><span class="code-label">SQL &mdash; date examples</span>
 <pre><code><span class="sql-kw">SELECT</span> Name, <span class="sql-fn">YEAR</span>(BirthDate) <span class="sql-kw">AS</span> BirthYear <span class="sql-kw">FROM</span> tblStudents;
 <span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblOrders <span class="sql-kw">WHERE</span> <span class="sql-fn">MONTH</span>(OrderDate) = <span class="num">12</span>;     <span class="cmt">-- December orders</span>
 <span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblStudents <span class="sql-kw">WHERE</span> <span class="sql-fn">YEAR</span>(BirthDate) = <span class="num">2008</span>;</code></pre></div>
+
+  <h3>Day, Month and Year as Separate Columns</h3>
+  <p><code>DAY</code>, <code>MONTH</code> and <code>YEAR</code> each return a whole number, so you can show them in their own columns or use them in a condition or calculation.</p>
+  <div class="code-block"><span class="code-label">SQL &mdash; all three date parts</span>
+<pre><code><span class="sql-kw">SELECT</span> TripID,
+       <span class="sql-fn">DAY</span>(TripDate)   <span class="sql-kw">AS</span> TripDay,
+       <span class="sql-fn">MONTH</span>(TripDate) <span class="sql-kw">AS</span> TripMonth,
+       <span class="sql-fn">YEAR</span>(TripDate)  <span class="sql-kw">AS</span> TripYear
+<span class="sql-kw">FROM</span> tblTrips;</code></pre></div>
+
+  <h3>Today and Date Ranges</h3>
+  <p><code>Date()</code> gives today's date in Access SQL. To select all the records for one day, do not use <code>=</code>. A field that stores a date <em>and</em> a time (for example 2026/10/02 14:35) is later than the date at midnight, so an equals test skips it. Instead, start from the beginning of the day and stop just before the beginning of the next day.</p>
+  <div class="code-block"><span class="code-label">SQL &mdash; whole-day range, including any time of day</span>
+<pre><code><span class="cmt">-- every trip on 2 October 2026</span>
+<span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblTrips
+<span class="sql-kw">WHERE</span> TripDate &gt;= #2026/10/02# <span class="sql-kw">AND</span> TripDate &lt; #2026/10/03#;
+
+<span class="cmt">-- every trip today (Date() + 1 is tomorrow)</span>
+<span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblTrips
+<span class="sql-kw">WHERE</span> TripDate &gt;= <span class="sql-fn">Date</span>() <span class="sql-kw">AND</span> TripDate &lt; <span class="sql-fn">Date</span>() + <span class="num">1</span>;</code></pre></div>
+  <div class="callout warning">
+    <div class="callout-title">Trap &mdash; &lt;= or BETWEEN on the last day</div>
+    <p><code>TripDate &lt;= #2026/10/02#</code> (and a <code>BETWEEN</code> ending on that date) also stops at midnight, so a trip at 14:35 on that day is lost. Using "less than the <em>next</em> day" keeps every moment of the last day inside the range.</p>
+  </div>
 
   <h2>INSERT, UPDATE, DELETE</h2>
   <div class="code-block"><span class="code-label">SQL &mdash; modifying data</span>
@@ -229,6 +331,33 @@ qryStudents.ExecSQL;   <span class="cmt">// use ExecSQL (not Open) for INSERT/UP
   <div class="callout tip">
     <div class="callout-title">QuotedStr vs parameters</div>
     <p><code>QuotedStr</code> is a quick way to build a query from a string variable, but a <strong>parameterised query</strong> (below) is the safer, preferred technique — it avoids manually matching quotes and is more resistant to SQL injection.</p>
+  </div>
+
+  <h3>Running a Built SQL String: Open or ExecSQL?</h3>
+  <p>Once the statement is stored in <code>SQL.Text</code> you must run it &mdash; and the method depends on whether the statement gives records back.</p>
+  <div class="tbl-wrap"><table>
+    <tr><th>Kind of statement</th><th>Gives records back?</th><th>Run it with</th></tr>
+    <tr><td><code>SELECT</code></td><td>Yes &mdash; a result set to display or loop through</td><td><code>.Open</code></td></tr>
+    <tr><td><code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></td><td>No &mdash; they only change the table</td><td><code>.ExecSQL</code></td></tr>
+  </table></div>
+  <div class="code-block"><span class="code-label">Delphi &mdash; one query component, both kinds of statement</span>
+<pre><code><span class="cmt">// A query that returns records: Close, set the text, Open</span>
+qryTrips.Close;
+qryTrips.SQL.Text := sSQL;
+qryTrips.Open;
+
+<span class="cmt">// An action query: Close, set the text, ExecSQL</span>
+qryTrips.Close;
+qryTrips.SQL.Text := <span class="str">'UPDATE tblTrips SET Fare = Fare * 1.1 WHERE Destination = "Paarl"'</span>;
+qryTrips.ExecSQL;
+
+<span class="cmt">// ExecSQL loads nothing, so run a SELECT again to see the change</span>
+qryTrips.Close;
+qryTrips.SQL.Text := <span class="str">'SELECT * FROM tblTrips'</span>;
+qryTrips.Open;</code></pre></div>
+  <div class="callout warning">
+    <div class="callout-title">Trap &mdash; Close first, and match the method to the statement</div>
+    <p>Always call <code>Close</code> before you change <code>SQL.Text</code>. Using <code>Open</code> on an INSERT, UPDATE or DELETE raises an error because there is no result set to open, while using <code>ExecSQL</code> on a SELECT runs it but shows you nothing. Assigning to <code>SQL.Text</code> replaces the old statement completely, so no <code>Clear</code> is needed.</p>
   </div>
 
   <h2>Parameterised Queries</h2>

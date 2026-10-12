@@ -323,6 +323,38 @@ qryStudents.Open;</code></pre></div>
 <span class="sql-kw">WHERE</span> CDName <span class="sql-kw">LIKE</span> <span class="str">"%s"</span>        <span class="cmt">-- ends with s</span>
 <span class="sql-kw">WHERE</span> Code   <span class="sql-kw">LIKE</span> <span class="str">"A__"</span>       <span class="cmt">-- starts with A followed by exactly 2 chars</span></code></pre></div>
 
+  <h3>LIKE with Text Typed by the User</h3>
+  <p>When the search word comes from an Edit, you build the pattern by gluing the wildcard symbols onto the text in Delphi. A <code>%</code> on <em>each side</em> means "the text may appear anywhere in the field"; a <code>%</code> on one side only means "starts with" or "ends with".</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; search a field for the text in an Edit</span>
+<pre><code>sFind := edtFind.Text;
+sSQL  := <span class="str">'SELECT Title, Summary '</span> +
+         <span class="str">'FROM tblBooks '</span> +
+         <span class="str">'WHERE Summary LIKE "%'</span> + sFind + <span class="str">'%"'</span>;
+<span class="cmt">// if the user types  rugby  the finished SQL ends:  WHERE Summary LIKE "%rugby%"</span>
+
+qryBooks.Close;
+qryBooks.SQL.Text := sSQL;
+qryBooks.Open;</code></pre></div>
+  <div class="callout warning">
+    <div class="callout-title">Check which wildcard your database expects</div>
+    <p>A Delphi program talking to the database through ADO normally uses <code>%</code> (many characters) and <code>_</code> (one character), which is what the examples on this page use. Access's own query designer uses <code>*</code> and <code>?</code> instead. Use whichever symbol the supplied database responds to &mdash; if a <code>LIKE</code> query returns nothing when you know there are matches, the wildcard is the first thing to check. Also note that if the typed text itself contains a double quote, the string breaks; the parameterised version further down avoids that problem.</p>
+  </div>
+
+  <h3>Alternatives and Missing Values in a Built String</h3>
+  <p><code>IN</code> is a shorthand for several <code>OR</code> tests on the <em>same</em> field. For a missing value, always test with <code>IS NULL</code> &mdash; the equals sign never matches a Null.</p>
+  <div class="code-block"><span class="code-label">SQL &mdash; IN and IS NULL</span>
+<pre><code><span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblTrips <span class="sql-kw">WHERE</span> Destination <span class="sql-kw">IN</span> (<span class="str">"Paarl"</span>, <span class="str">"Stellenbosch"</span>);
+<span class="cmt">-- identical to: Destination = "Paarl" OR Destination = "Stellenbosch"</span>
+
+<span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblTrips <span class="sql-kw">WHERE</span> DriverCell <span class="sql-kw">IS NULL</span>;     <span class="cmt">-- no cell number captured</span>
+<span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblTrips <span class="sql-kw">WHERE</span> DriverCell = <span class="sql-kw">NULL</span>;      <span class="cmt">-- WRONG: matches nothing, ever</span></code></pre></div>
+  <p>When one condition must hold <em>together with</em> a choice between alternatives, put the alternatives in brackets &mdash; the same brackets you would use in the SQL window, just inside a Delphi string:</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; grouped alternatives inside a built string</span>
+<pre><code>sSQL := <span class="str">'SELECT * FROM tblTrips '</span> +
+        <span class="str">'WHERE (Destination = "Paarl" OR Destination = "Stellenbosch") '</span> +
+        <span class="str">'AND Fare &gt;= 80'</span>;
+<span class="cmt">// without the brackets, the fare test would apply to Stellenbosch trips only</span></code></pre></div>
+
   <h2>ORDER BY &mdash; Sorting Results</h2>
   <div class="code-block"><span class="code-label">SQL</span>
 <pre><code><span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblCD <span class="sql-kw">ORDER BY</span> Artist;             <span class="cmt">-- ascending (default)</span>
@@ -360,6 +392,25 @@ qryStudents.Open;</code></pre></div>
     <p><strong>WHERE</strong> filters individual records <em>before</em> grouping. <strong>HAVING</strong> filters groups <em>after</em> GROUP BY. If you have both, WHERE runs first.</p>
   </div>
 
+  <h3>Joined Tables, ROUND(AVG) and HAVING Together</h3>
+  <p>A typical longer query combines everything: two tables linked in the <code>WHERE</code> clause, a group per record of the "one" table, a rounded average, and a filter on that average. Here every taxi rank has many trips, and we want the ranks whose average fare is above R45.</p>
+  <div class="code-block"><span class="code-label">SQL &mdash; relationship in WHERE, groups filtered by HAVING</span>
+<pre><code><span class="sql-kw">SELECT</span> R.RankName, <span class="sql-fn">ROUND</span>(<span class="sql-fn">AVG</span>(T.Fare), <span class="num">2</span>) <span class="sql-kw">AS</span> AvgFare
+<span class="sql-kw">FROM</span> tblRanks R, tblTrips T
+<span class="sql-kw">WHERE</span> R.RankID = T.RankID
+<span class="sql-kw">GROUP BY</span> R.RankName
+<span class="sql-kw">HAVING</span> <span class="sql-fn">AVG</span>(T.Fare) &gt; <span class="num">45</span>;</code></pre></div>
+  <ol>
+    <li><strong>WHERE R.RankID = T.RankID</strong> matches each trip to its rank (the primary key and foreign key). You may add ordinary conditions here too, e.g. <code>AND T.TripDate &gt;= #2026/09/01#</code>, which discard individual trips <em>before</em> any averaging.</li>
+    <li><strong>GROUP BY</strong> collects the remaining trips into one group per rank.</li>
+    <li><strong>AVG</strong> and <strong>ROUND</strong> are worked out once for each group.</li>
+    <li><strong>HAVING</strong> then keeps only the groups whose average passes the test.</li>
+  </ol>
+  <div class="callout warning">
+    <div class="callout-title">Trap &mdash; you cannot use the alias in HAVING</div>
+    <p>Access does not let <code>HAVING</code> (or <code>WHERE</code>) use a name you created with <code>AS</code>. Repeat the calculation: <code>HAVING AVG(T.Fare) &gt; 45</code>, not <code>HAVING AvgFare &gt; 45</code>. Also never put an aggregate such as <code>AVG(...)</code> in <code>WHERE</code> &mdash; the groups do not exist yet at that stage.</p>
+  </div>
+
   <h2>SQL String &amp; Math Functions</h2>
   <div class="tbl-wrap"><table>
     <tr><th>Function</th><th>Returns</th><th>Example</th></tr>
@@ -372,11 +423,62 @@ qryStudents.Open;</code></pre></div>
     <tr><td><code>FORMAT(field, "0.00")</code></td><td>Formatted string</td><td><code>FORMAT(Price, "R0.00")</code></td></tr>
   </table></div>
 
+  <h3>Joining Text with &amp;</h3>
+  <p>In Access SQL the <code>&amp;</code> operator joins pieces of text into one value. Any text you type yourself goes in quotes; field names do not. Give the joined result a heading with <code>AS</code>, otherwise the column gets a meaningless default name.</p>
+  <div class="code-block"><span class="code-label">Delphi &mdash; two fields and a separator in one labelled column</span>
+<pre><code>qryLearners.Close;
+qryLearners.SQL.Text :=
+  <span class="str">'SELECT Surname &amp; ", " &amp; Name AS FullName, Grade '</span> +
+  <span class="str">'FROM tblLearners '</span> +
+  <span class="str">'ORDER BY Surname'</span>;
+qryLearners.Open;
+<span class="cmt">// FullName column shows:  Dlamini, Thandi</span></code></pre></div>
+  <div class="callout tip">
+    <div class="callout-title">Two languages, two joining symbols</div>
+    <p>The <code>+</code> in the Delphi code joins the Delphi string pieces together while you build the statement. The <code>&amp;</code> sits <em>inside</em> the quotes and is part of the SQL that Access will run. Do not mix them up.</p>
+  </div>
+
+  <h3>Calculating with Numeric Text</h3>
+  <p>Some codes are stored as text but hold numbers in fixed positions. You can cut the digits out with <code>LEFT</code>, <code>RIGHT</code> or <code>MID</code> and then do arithmetic on them, naming the answer with <code>AS</code>. Suppose a shop's <code>SlotCode</code> is stored as <code>"0817"</code>: the first two characters are the opening hour and the last two are the closing hour.</p>
+  <div class="code-block"><span class="code-label">SQL &mdash; arithmetic on pieces of a text field</span>
+<pre><code><span class="sql-kw">SELECT</span> ShopName, SlotCode,
+       <span class="sql-fn">RIGHT</span>(SlotCode, <span class="num">2</span>) - <span class="sql-fn">LEFT</span>(SlotCode, <span class="num">2</span>) <span class="sql-kw">AS</span> HoursOpen
+<span class="sql-kw">FROM</span> tblShops;
+<span class="cmt">-- "0817":  RIGHT = "17",  LEFT = "08"   17 - 8 = 9 hours</span></code></pre></div>
+  <div class="callout warning">
+    <div class="callout-title">Trap &mdash; only digits can be subtracted</div>
+    <p><code>LEFT</code>, <code>RIGHT</code> and <code>MID</code> return <em>text</em>. Access quietly treats that text as a number when it consists purely of digits, but a stray letter or space in the piece will make the calculation fail. Always check which character positions hold the digits before choosing the numbers in <code>LEFT(field, n)</code> and <code>RIGHT(field, n)</code>.</p>
+  </div>
+
   <h2>Date Functions</h2>
   <div class="code-block"><span class="code-label">SQL &mdash; date examples</span>
 <pre><code><span class="sql-kw">SELECT</span> Name, <span class="sql-fn">YEAR</span>(BirthDate) <span class="sql-kw">AS</span> BirthYear <span class="sql-kw">FROM</span> tblStudents;
 <span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblOrders <span class="sql-kw">WHERE</span> <span class="sql-fn">MONTH</span>(OrderDate) = <span class="num">12</span>;     <span class="cmt">-- December orders</span>
 <span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblStudents <span class="sql-kw">WHERE</span> <span class="sql-fn">YEAR</span>(BirthDate) = <span class="num">2008</span>;</code></pre></div>
+
+  <h3>Day, Month and Year as Separate Columns</h3>
+  <p><code>DAY</code>, <code>MONTH</code> and <code>YEAR</code> each return a whole number, so you can show them in their own columns or use them in a condition or calculation.</p>
+  <div class="code-block"><span class="code-label">SQL &mdash; all three date parts</span>
+<pre><code><span class="sql-kw">SELECT</span> TripID,
+       <span class="sql-fn">DAY</span>(TripDate)   <span class="sql-kw">AS</span> TripDay,
+       <span class="sql-fn">MONTH</span>(TripDate) <span class="sql-kw">AS</span> TripMonth,
+       <span class="sql-fn">YEAR</span>(TripDate)  <span class="sql-kw">AS</span> TripYear
+<span class="sql-kw">FROM</span> tblTrips;</code></pre></div>
+
+  <h3>Today and Date Ranges</h3>
+  <p><code>Date()</code> gives today's date in Access SQL. To select all the records for one day, do not use <code>=</code>. A field that stores a date <em>and</em> a time (for example 2026/10/02 14:35) is later than the date at midnight, so an equals test skips it. Instead, start from the beginning of the day and stop just before the beginning of the next day.</p>
+  <div class="code-block"><span class="code-label">SQL &mdash; whole-day range, including any time of day</span>
+<pre><code><span class="cmt">-- every trip on 2 October 2026</span>
+<span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblTrips
+<span class="sql-kw">WHERE</span> TripDate &gt;= #2026/10/02# <span class="sql-kw">AND</span> TripDate &lt; #2026/10/03#;
+
+<span class="cmt">-- every trip today (Date() + 1 is tomorrow)</span>
+<span class="sql-kw">SELECT</span> * <span class="sql-kw">FROM</span> tblTrips
+<span class="sql-kw">WHERE</span> TripDate &gt;= <span class="sql-fn">Date</span>() <span class="sql-kw">AND</span> TripDate &lt; <span class="sql-fn">Date</span>() + <span class="num">1</span>;</code></pre></div>
+  <div class="callout warning">
+    <div class="callout-title">Trap &mdash; &lt;= or BETWEEN on the last day</div>
+    <p><code>TripDate &lt;= #2026/10/02#</code> (and a <code>BETWEEN</code> ending on that date) also stops at midnight, so a trip at 14:35 on that day is lost. Using "less than the <em>next</em> day" keeps every moment of the last day inside the range.</p>
+  </div>
 
   <h2>INSERT, UPDATE, DELETE</h2>
   <div class="code-block"><span class="code-label">SQL &mdash; modifying data</span>
@@ -407,6 +509,33 @@ qryStudents.ExecSQL;   <span class="cmt">// use ExecSQL (not Open) for INSERT/UP
   <div class="callout tip">
     <div class="callout-title">QuotedStr vs parameters</div>
     <p><code>QuotedStr</code> is a quick way to build a query from a string variable, but a <strong>parameterised query</strong> (below) is the safer, preferred technique — it avoids manually matching quotes and is more resistant to SQL injection.</p>
+  </div>
+
+  <h3>Running a Built SQL String: Open or ExecSQL?</h3>
+  <p>Once the statement is stored in <code>SQL.Text</code> you must run it &mdash; and the method depends on whether the statement gives records back.</p>
+  <div class="tbl-wrap"><table>
+    <tr><th>Kind of statement</th><th>Gives records back?</th><th>Run it with</th></tr>
+    <tr><td><code>SELECT</code></td><td>Yes &mdash; a result set to display or loop through</td><td><code>.Open</code></td></tr>
+    <tr><td><code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></td><td>No &mdash; they only change the table</td><td><code>.ExecSQL</code></td></tr>
+  </table></div>
+  <div class="code-block"><span class="code-label">Delphi &mdash; one query component, both kinds of statement</span>
+<pre><code><span class="cmt">// A query that returns records: Close, set the text, Open</span>
+qryTrips.Close;
+qryTrips.SQL.Text := sSQL;
+qryTrips.Open;
+
+<span class="cmt">// An action query: Close, set the text, ExecSQL</span>
+qryTrips.Close;
+qryTrips.SQL.Text := <span class="str">'UPDATE tblTrips SET Fare = Fare * 1.1 WHERE Destination = "Paarl"'</span>;
+qryTrips.ExecSQL;
+
+<span class="cmt">// ExecSQL loads nothing, so run a SELECT again to see the change</span>
+qryTrips.Close;
+qryTrips.SQL.Text := <span class="str">'SELECT * FROM tblTrips'</span>;
+qryTrips.Open;</code></pre></div>
+  <div class="callout warning">
+    <div class="callout-title">Trap &mdash; Close first, and match the method to the statement</div>
+    <p>Always call <code>Close</code> before you change <code>SQL.Text</code>. Using <code>Open</code> on an INSERT, UPDATE or DELETE raises an error because there is no result set to open, while using <code>ExecSQL</code> on a SELECT runs it but shows you nothing. Assigning to <code>SQL.Text</code> replaces the old statement completely, so no <code>Clear</code> is needed.</p>
   </div>
 
   <h2>Parameterised Queries</h2>
@@ -1084,6 +1213,175 @@ memOut.Lines.Add(objCat.ToString);           <span class="cmt">// 'Whiskers, Age
 objCat.SetName(<span class="str">'Felix'</span>);
 lblName.Caption := objCat.GetName;           <span class="cmt">// 'Felix'</span></code></pre></div>
 
+    <!-- ═══════ WORKED EXAMPLE: TLibraryBook ═══════ -->
+    <h2>Worked Example &mdash; Methods with Logic (TLibraryBook)</h2>
+    <p>The classes above only copy values in and out. Real tasks ask for methods that <strong>build</strong>, <strong>decide</strong> and <strong>calculate</strong>. We will use a new class, <code>TLibraryBook</code>, to practise each technique. A school library keeps a title, an author, the number of copies, a <em>wear</em> rating from 1 (like new) to 10 (falling apart) and the number of days a book may be borrowed.</p>
+    <div class="code-block"><span class="code-label">Delphi &mdash; the class declaration</span>
+<pre><code><span class="kw">type</span>
+  <span class="cls">TLibraryBook</span> = <span class="kw">class</span>
+  <span class="kw">private</span>
+    fBookID   : <span class="kw2">string</span>;
+    fTitle    : <span class="kw2">string</span>;
+    fAuthor   : <span class="kw2">string</span>;
+    fCopies   : <span class="kw2">integer</span>;
+    fWear     : <span class="kw2">integer</span>;     <span class="cmt">// 1 = like new ... 10 = falling apart</span>
+    fLoanDays : <span class="kw2">integer</span>;     <span class="cmt">// how many days it may be borrowed</span>
+    <span class="kw">function</span> GenerateID : <span class="kw2">string</span>;   <span class="cmt">// auxiliary: only used inside the class</span>
+  <span class="kw">public</span>
+    <span class="kw">constructor</span> Create(sBookID, sTitle, sAuthor: <span class="kw2">string</span>; iCopies: <span class="kw2">integer</span>);
+    <span class="kw">function</span>    GetWear : <span class="kw2">integer</span>;
+    <span class="kw">procedure</span>   SetLoanDays(iDays: <span class="kw2">integer</span>);
+    <span class="kw">procedure</span>   RecordCheck(sResult: <span class="kw2">string</span>);
+    <span class="kw">function</span>    DueDate(dBorrowed: <span class="kw2">TDate</span>) : <span class="kw2">TDate</span>;
+    <span class="kw">function</span>    IsAvailable : <span class="kw2">boolean</span>;
+    <span class="kw">function</span>    ToString : <span class="kw2">string</span>;
+  <span class="kw">end</span>;</code></pre></div>
+
+    <h3>Generating and Returning an ID</h3>
+    <p>An ID is often built from pieces of other attributes. <code>Copy(text, start, count)</code> cuts out part of a string. To get the <em>last</em> two characters, start at <code>Length(text) - 1</code> and copy 2. Numbers must be converted with <code>IntToStr</code> before they can be joined to text, and <code>UpperCase</code> makes the letters capitals. Here the ID is the first four letters of the title, the last two letters of the author, and the number of copies.</p>
+    <div class="code-block"><span class="code-label">Delphi &mdash; a function that builds the ID</span>
+<pre><code><span class="kw">function</span> <span class="cls">TLibraryBook</span>.GenerateID : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  Result := UpperCase(Copy(fTitle, <span class="num">1</span>, <span class="num">4</span>) +
+                      Copy(fAuthor, Length(fAuthor) - <span class="num">1</span>, <span class="num">2</span>)) +
+            IntToStr(fCopies);
+  <span class="cmt">// 'Long Walk to Freedom', 'Nelson Mandela', 3  gives  'LONGLA3'</span>
+<span class="kw">end</span>;</code></pre></div>
+    <p>The function only <em>returns</em> the text through <code>Result</code>; it does not store it. Whoever calls it decides what to do with the answer.</p>
+
+    <h3>A Constructor with Default Values and a Conditional ID</h3>
+    <p>A constructor does not have to take a value for every attribute. Some attributes can simply start with a sensible default. It can also make decisions: below, a book that arrives with the ID <code>'None'</code> is given a generated ID by calling the auxiliary method; a book that already has an ID keeps it.</p>
+    <div class="code-block"><span class="code-label">Delphi &mdash; defaults plus conditional initialisation</span>
+<pre><code><span class="kw">constructor</span> <span class="cls">TLibraryBook</span>.Create(sBookID, sTitle, sAuthor: <span class="kw2">string</span>; iCopies: <span class="kw2">integer</span>);
+<span class="kw">begin</span>
+  fBookID   := sBookID;
+  fTitle    := sTitle;
+  fAuthor   := sAuthor;
+  fCopies   := iCopies;
+  fWear     := <span class="num">2</span>;       <span class="cmt">// default: a new book is nearly like new</span>
+  fLoanDays := <span class="num">14</span>;      <span class="cmt">// default loan period</span>
+
+  <span class="kw">if</span> fBookID = <span class="str">'None'</span> <span class="kw">then</span>
+    fBookID := GenerateID;   <span class="cmt">// ask the auxiliary method for an ID</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">Trap &mdash; set the attributes before calling GenerateID</div>
+      <p><code>GenerateID</code> reads <code>fTitle</code>, <code>fAuthor</code> and <code>fCopies</code>. If you call it <em>before</em> those lines have run, it works with empty values and returns a wrong (or crashing) ID. Do the plain assignments first and the conditional step last.</p>
+    </div>
+
+    <h3>A Mutator with a Rule</h3>
+    <p>A mutator is not always a one-line assignment. It can change the attribute according to a rule: here a repair <em>reduces</em> the wear by 3 but never below the minimum of 1, and a report of damage sets the wear to the fixed value 10.</p>
+    <div class="code-block"><span class="code-label">Delphi &mdash; change an attribute using a rule</span>
+<pre><code><span class="kw">procedure</span> <span class="cls">TLibraryBook</span>.RecordCheck(sResult: <span class="kw2">string</span>);
+<span class="kw">begin</span>
+  <span class="kw">if</span> sResult = <span class="str">'Repaired'</span> <span class="kw">then</span>
+  <span class="kw">begin</span>
+    fWear := fWear - <span class="num">3</span>;
+    <span class="kw">if</span> fWear &lt; <span class="num">1</span> <span class="kw">then</span>
+      fWear := <span class="num">1</span>;                <span class="cmt">// never go below the minimum</span>
+  <span class="kw">end</span>;
+
+  <span class="kw">if</span> sResult = <span class="str">'Damaged'</span> <span class="kw">then</span>
+    fWear := <span class="num">10</span>;                 <span class="cmt">// special case: a fixed value</span>
+<span class="kw">end</span>;
+
+<span class="kw">procedure</span> <span class="cls">TLibraryBook</span>.SetLoanDays(iDays: <span class="kw2">integer</span>);
+<span class="kw">begin</span>
+  fLoanDays := iDays;
+<span class="kw">end</span>;
+
+<span class="kw">function</span> <span class="cls">TLibraryBook</span>.GetWear : <span class="kw2">integer</span>;
+<span class="kw">begin</span>
+  Result := fWear;
+<span class="kw">end</span>;</code></pre></div>
+
+    <h3>A Function That Returns a Date</h3>
+    <p>A <code>TDate</code> is really a number: the count of days since a starting date, so adding a whole number to a date moves it forward by that many days. A method can therefore take a date in, add an attribute, and return the new date. The caller converts the returned date to text with <code>DateToStr</code> to display it.</p>
+    <div class="code-block"><span class="code-label">Delphi &mdash; borrowed date + loan days = due date</span>
+<pre><code><span class="kw">function</span> <span class="cls">TLibraryBook</span>.DueDate(dBorrowed: <span class="kw2">TDate</span>) : <span class="kw2">TDate</span>;
+<span class="kw">begin</span>
+  Result := dBorrowed + fLoanDays;
+<span class="kw">end</span>;
+
+<span class="cmt">// in the form:</span>
+dBorrowed := Date;                                      <span class="cmt">// today</span>
+lblDue.Caption := DateToStr(objBook.DueDate(dBorrowed));</code></pre></div>
+
+    <h3>A Boolean Helper Method</h3>
+    <p>A method that answers a yes/no question returns a <code>boolean</code>. Combine the tests with <code>and</code> / <code>or</code>, and put <strong>each comparison in its own brackets</strong>.</p>
+    <div class="code-block"><span class="code-label">Delphi &mdash; two attribute tests in one answer</span>
+<pre><code><span class="kw">function</span> <span class="cls">TLibraryBook</span>.IsAvailable : <span class="kw2">boolean</span>;
+<span class="kw">begin</span>
+  Result := (fCopies &gt; <span class="num">0</span>) <span class="kw">and</span> (fWear &lt; <span class="num">8</span>);   <span class="cmt">// a copy is left AND it is in fair condition</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">Why the brackets matter</div>
+      <p>In Delphi <code>and</code> binds more tightly than <code>&gt;</code> or <code>&lt;</code>. Without the brackets, <code>fCopies &gt; 0 and fWear &lt; 8</code> is read in the wrong order and will not compile. Bracket every comparison.</p>
+    </div>
+
+    <h3>ToString with Line Breaks</h3>
+    <p>A <code>ToString</code> that must show one fact per line joins the pieces with the character <code>#13</code> (a carriage return). In a memo or RichEdit this starts a new line. A Windows line break is really the pair <code>#13#10</code> (carriage return + line feed); use that pair when the text is going into a single <code>Text</code> property or message box, or when a plain <code>#13</code> does not give a proper break.</p>
+    <div class="code-block"><span class="code-label">Delphi &mdash; a multi-line ToString</span>
+<pre><code><span class="kw">function</span> <span class="cls">TLibraryBook</span>.ToString : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  Result := fTitle + <span class="str">' ['</span> + fBookID + <span class="str">']'</span> + #13 +
+            <span class="str">'Author: '</span> + fAuthor + #13 +
+            <span class="str">'Copies: '</span> + IntToStr(fCopies) + #13 +
+            <span class="str">'Wear (1-10): '</span> + IntToStr(fWear) + #13 +
+            <span class="str">'Loan period: '</span> + IntToStr(fLoanDays) + <span class="str">' days'</span>;
+<span class="kw">end</span>;</code></pre></div>
+
+    <h3>Calling the Methods from the Form &mdash; Procedure, Accessor, CASE, Mutator</h3>
+    <p>A common pattern in the form is: call a procedure that changes the object, <strong>read the new state with an accessor</strong>, use that value as the selector of a <code>case</code> statement, and call a mutator in each branch. The ranges in the <code>case</code> use <code>..</code>.</p>
+    <div class="code-block"><span class="code-label">Delphi &mdash; apply a check, then set the loan period from the wear</span>
+<pre><code><span class="kw">procedure</span> TfrmLibrary.<span class="fn">btnCheckClick</span>(Sender: TObject);
+<span class="kw">begin</span>
+  objBook.RecordCheck(edtResult.Text);        <span class="cmt">// 1. change the wear</span>
+
+  <span class="kw">case</span> objBook.GetWear <span class="kw">of</span>                   <span class="cmt">// 2. the accessor result picks the branch</span>
+    <span class="num">1</span>..<span class="num">4</span>  : objBook.SetLoanDays(<span class="num">21</span>);        <span class="cmt">// 3. a mutator in every branch</span>
+    <span class="num">5</span>..<span class="num">7</span>  : objBook.SetLoanDays(<span class="num">14</span>);
+    <span class="num">8</span>..<span class="num">10</span> : objBook.SetLoanDays(<span class="num">7</span>);
+  <span class="kw">end</span>;
+
+  redOut.Lines.Clear;
+  redOut.Lines.Add(objBook.ToString);         <span class="cmt">// 4. show the refreshed object</span>
+<span class="kw">end</span>;</code></pre></div>
+
+    <h3>Object Lifetime in the Form</h3>
+    <p>When the object is created in one button and used in others, the object variable must be declared at <strong>form level</strong> (not inside one procedure) so every event can see it. Manage its lifetime in three places:</p>
+    <ul>
+      <li><strong>FormCreate</strong> &mdash; set the variable to <code>nil</code>: "no object exists yet".</li>
+      <li><strong>Before replacing an object</strong> &mdash; <code>Free</code> the old one, set the variable to <code>nil</code>, then create the new one. If you skip the <code>Free</code>, the old object stays in memory with nothing pointing to it (a memory leak).</li>
+      <li><strong>FormDestroy</strong> &mdash; <code>Free</code> the object and set the variable to <code>nil</code> when the form closes.</li>
+    </ul>
+    <div class="code-block"><span class="code-label">Delphi &mdash; create, replace and release an object</span>
+<pre><code><span class="kw">var</span>
+  objBook : <span class="cls">TLibraryBook</span>;          <span class="cmt">// form level: shared by all the events</span>
+
+<span class="kw">procedure</span> TfrmLibrary.<span class="fn">FormCreate</span>(Sender: TObject);
+<span class="kw">begin</span>
+  objBook := <span class="kw">nil</span>;
+<span class="kw">end</span>;
+
+<span class="kw">procedure</span> TfrmLibrary.<span class="fn">btnAddClick</span>(Sender: TObject);
+<span class="kw">begin</span>
+  objBook.Free;                   <span class="cmt">// release the old book (safe even when it is nil)</span>
+  objBook := <span class="kw">nil</span>;
+  objBook := <span class="cls">TLibraryBook</span>.Create(<span class="str">'None'</span>, edtTitle.Text, edtAuthor.Text, sedCopies.Value);
+  redOut.Lines.Add(objBook.ToString);
+<span class="kw">end</span>;
+
+<span class="kw">procedure</span> TfrmLibrary.<span class="fn">FormDestroy</span>(Sender: TObject);
+<span class="kw">begin</span>
+  objBook.Free;
+  objBook := <span class="kw">nil</span>;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">Trap &mdash; calling a method on an object that does not exist</div>
+      <p>If the user clicks the check button before any book has been created, <code>objBook</code> is still <code>nil</code> and <code>objBook.RecordCheck(...)</code> raises an access violation. Test with <code>if objBook = nil then ShowMessage('Create a book first')</code> before using it.</p>
+    </div>
+
     <!-- ═══════ DYNAMIC COMPONENTS ═══════ -->
     <h2>Dynamic Components — Creating Controls at Runtime</h2>
     <p>You already know that every Delphi control is an <strong>object of a class</strong> (a button is a <code>TButton</code>, a label is a <code>TLabel</code>). Because they are classes, you can <strong>create them in code while the program is running</strong> using the same <code>Create</code> constructor you use for your own classes &mdash; instead of dragging them onto the form at design time.</p>
@@ -1208,6 +1506,35 @@ myArray[<span class="num">2</span>,<span class="num">1</span>] := <span class="n
   <div class="callout-title">Why not PadLeft?</div>
   <p>Newer Delphi versions have a built-in <code>.PadLeft()</code> string helper that does this in one call, but it is not part of CAPS. The <code>WHILE</code> loop above achieves the same result — adding a space in front of the number until it is 5 characters wide — using only <code>Length</code>, string concatenation and a loop, all of which are already CAPS-examinable.</p>
 </div>
+<h3>Building the Whole Grid as One String</h3>
+<p>Another way to display the grid is to build <strong>one long string</strong> that holds every row, and give it to a RichEdit in a single step. The outer loop handles the rows and the inner loop handles the columns. After each value we add a <strong>tab</strong> (<code>#9</code>) so the columns line up, and after each finished row we add a <strong>line break</strong> (<code>#13#10</code>). Here <code>arrSales</code> holds tuckshop sales (row = item, column = day) and <code>iRows</code> and <code>iCols</code> say how many rows and columns are in use.</p>
+<div class="code-block"><span class="code-label">Delphi — grid string built row by row, shown in a RichEdit</span>
+<pre><code><span class="kw">var</span>
+  r, c          : <span class="kw2">Integer</span>;
+  sLine, sGrid  : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  sGrid := <span class="str">''</span>;                                   <span class="cmt">// the whole grid starts empty</span>
+  <span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> iRows <span class="kw">do</span>
+  <span class="kw">begin</span>
+    sLine := <span class="str">''</span>;                                 <span class="cmt">// each row starts a fresh line</span>
+    <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> iCols <span class="kw">do</span>
+      sLine := sLine + IntToStr(arrSales[r, c]) + #9;   <span class="cmt">// value, then a tab</span>
+    sGrid := sGrid + sLine + #13#10;              <span class="cmt">// finished row, then a new line</span>
+  <span class="kw">end</span>;
+  redGrid.Text := sGrid;                          <span class="cmt">// show everything at once</span>
+<span class="kw">end</span>;</code></pre></div>
+<div class="callout warning">
+  <div class="callout-title">Trap — where each string is reset</div>
+  <p><code>sGrid</code> is cleared <em>before</em> both loops (once), <code>sLine</code> is cleared at the start of <em>every row</em> (inside the outer loop), and <code>redGrid.Text</code> is assigned <em>after</em> both loops. Clear <code>sLine</code> in the wrong place and the rows run into each other; assign the Text inside the loop and you only see the last row.</p>
+</div>
+<h3>TStringGrid as an Alternative Display</h3>
+<p>The <code>TStringGrid</code> component (listed in the CAPS component list for Grades 11 and 12) shows a real table with cells and gridlines. You fill it cell by cell with the <code>Cells</code> property — but note that <code>Cells</code> takes the <strong>column first, then the row</strong>, the opposite order from your array. A new string grid has one fixed header row and one fixed header column at index 0, so the data for <code>arrSales[r, c]</code> fits neatly into <code>Cells[c, r]</code>.</p>
+<div class="code-block"><span class="code-label">Delphi — show the array in a TStringGrid</span>
+<pre><code>strSales.RowCount := iRows + <span class="num">1</span>;     <span class="cmt">// +1 for the fixed header row</span>
+strSales.ColCount := iCols + <span class="num">1</span>;     <span class="cmt">// +1 for the fixed header column</span>
+<span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> iRows <span class="kw">do</span>
+  <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> iCols <span class="kw">do</span>
+    strSales.Cells[c, r] := IntToStr(arrSales[r, c]);   <span class="cmt">// [column, row]!</span></code></pre></div>
 <h2>Calculations on 2D Arrays</h2>
 <p>A big reason for using a grid is to add things up. The trick is knowing which index to <strong>fix</strong> and which to <strong>vary</strong>. If you think of the class register again: a <strong>row total</strong> is one learner's marks added across all subjects, while a <strong>column total</strong> is one subject's marks added across all learners.</p>
 <h3>Row total</h3>
@@ -1287,6 +1614,97 @@ myArray[<span class="num">2</span>,<span class="num">1</span>] := <span class="n
 <div class="callout tip">
   <div class="callout-title">The pattern to remember</div>
   <p><strong>Row calculation</strong> → fix the row, loop the columns (one learner across all subjects). <strong>Column calculation</strong> → fix the column, loop the rows (one subject down all learners). To find a "best/worst", store the <em>index</em> as you go — that index links straight back to the parallel <code>arrName</code>.</p>
+</div>
+
+<h2>Changing, Moving and Removing Elements</h2>
+<p>A 2D array is usually declared bigger than the data you currently have. Two counters, <code>iRows</code> and <code>iCols</code>, record how much of it is <strong>in use</strong>, and every loop runs to those counters — not to the declared size. The examples below all use this array of tuckshop sales:</p>
+<div class="code-block"><span class="code-label">Delphi — declarations for the next four examples</span>
+<pre><code><span class="kw">const</span>
+  MAXROWS = <span class="num">10</span>;
+  MAXCOLS = <span class="num">5</span>;
+<span class="kw">var</span>
+  arrSales     : <span class="kw">array</span>[<span class="num">1</span>..MAXROWS, <span class="num">1</span>..MAXCOLS] <span class="kw">of</span> <span class="kw2">Integer</span>;
+  iRows, iCols : <span class="kw2">Integer</span>;        <span class="cmt">// how many rows / columns are actually filled</span>
+  r, c, iTemp  : <span class="kw2">Integer</span>;</code></pre></div>
+
+<h3>Replace a single element</h3>
+<p>Name the row and column and assign the new value. Whatever was in that cell is overwritten.</p>
+<div class="code-block"><span class="code-label">Delphi</span>
+<pre><code>arrSales[iRow, iCol] := iNewValue;</code></pre></div>
+
+<h3>Swap two specified elements</h3>
+<p>You cannot simply copy one cell onto the other, because the first value would be lost. Park it in a temporary variable first, exactly as when swapping two ordinary variables.</p>
+<div class="code-block"><span class="code-label">Delphi — swap arrSales[r1,c1] with arrSales[r2,c2]</span>
+<pre><code>iTemp := arrSales[r1, c1];                <span class="cmt">// 1. save the first value</span>
+arrSales[r1, c1] := arrSales[r2, c2];     <span class="cmt">// 2. second value moves to the first cell</span>
+arrSales[r2, c2] := iTemp;                <span class="cmt">// 3. saved value goes into the second cell</span></code></pre></div>
+
+<h3>Delete a row</h3>
+<p>A fixed-size array cannot actually get shorter — it keeps its capacity. To "delete" a row you copy every later row <strong>one position up</strong>, over the row being removed, and then reduce the occupied row count by one so the leftover last row is ignored. To delete row 3 of 6: row 4 is copied into row 3, row 5 into row 4, row 6 into row 5, and <code>iRows</code> becomes 5.</p>
+<div class="code-block"><span class="code-label">Delphi — remove row iDelRow</span>
+<pre><code><span class="kw">for</span> r := iDelRow <span class="kw">to</span> iRows - <span class="num">1</span> <span class="kw">do</span>       <span class="cmt">// stop one row early: r + 1 must still be in use</span>
+  <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> iCols <span class="kw">do</span>
+    arrSales[r, c] := arrSales[r + <span class="num">1</span>, c];   <span class="cmt">// copy the next row up</span>
+Dec(iRows);                             <span class="cmt">// one row fewer in use</span></code></pre></div>
+<div class="callout warning">
+  <div class="callout-title">Trap — the loop must stop at iRows - 1</div>
+  <p>If the outer loop runs all the way to <code>iRows</code>, the last pass reads <code>arrSales[iRows + 1, c]</code>, a row that is not in use — and if the array is full, one that does not exist at all, which crashes with a range error. Also work from the deleted row downwards, never upwards, or you copy over rows you have not moved yet.</p>
+</div>
+
+<h3>Transpose a matrix into a second array</h3>
+<p>To <strong>transpose</strong> a grid is to turn its rows into columns. The cell at row <code>r</code>, column <code>c</code> in the original goes to row <code>c</code>, column <code>r</code> in the copy. Because the dimensions swap, a rectangular matrix needs a <strong>second array declared with the dimensions the other way round</strong>.</p>
+<div class="code-block"><span class="code-label">Delphi — copy arrSales into arrFlip, rows and columns exchanged</span>
+<pre><code><span class="kw">var</span>
+  arrFlip : <span class="kw">array</span>[<span class="num">1</span>..MAXCOLS, <span class="num">1</span>..MAXROWS] <span class="kw">of</span> <span class="kw2">Integer</span>;   <span class="cmt">// dimensions swapped</span>
+<span class="kw">begin</span>
+  <span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> iRows <span class="kw">do</span>
+    <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> iCols <span class="kw">do</span>
+      arrFlip[c, r] := arrSales[r, c];
+  <span class="cmt">// arrFlip now uses iCols rows and iRows columns</span>
+<span class="kw">end</span>;</code></pre></div>
+<div class="tbl-wrap"><table>
+  <tr><th>Original (2 rows × 3 columns)</th><th>Transposed (3 rows × 2 columns)</th></tr>
+  <tr><td>10 &nbsp; 20 &nbsp; 30<br>40 &nbsp; 50 &nbsp; 60</td><td>10 &nbsp; 40<br>20 &nbsp; 50<br>30 &nbsp; 60</td></tr>
+</table></div>
+
+<h2>Worked Example — Building Each Row from the Row Above</h2>
+<p>Some patterns are not typed in; they are <strong>calculated</strong>. Here we have a grid of 6 rows and 11 columns. Rows 1 and 2 are supplied. For every later row, each <strong>interior</strong> cell is the sum of the <strong>two diagonal neighbours above it</strong> — the cell in the previous row one column to the left, plus the cell in the previous row one column to the right. The first and last columns are never touched and stay 0.</p>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th></tr>
+  <tr><td><strong>Row 1</strong></td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+  <tr><td><strong>Row 2</strong></td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+  <tr><td><strong>Row 3</strong></td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>4</td><td>0</td><td>2</td><td>0</td><td>0</td><td>0</td></tr>
+  <tr><td><strong>Row 4</strong></td><td>0</td><td>0</td><td>2</td><td>0</td><td>6</td><td>0</td><td>6</td><td>0</td><td>2</td><td>0</td><td>0</td></tr>
+  <tr><td><strong>Row 5</strong></td><td>0</td><td>2</td><td>0</td><td>8</td><td>0</td><td>12</td><td>0</td><td>8</td><td>0</td><td>2</td><td>0</td></tr>
+  <tr><td><strong>Row 6</strong></td><td>0</td><td>0</td><td>10</td><td>0</td><td>20</td><td>0</td><td>20</td><td>0</td><td>10</td><td>0</td><td>0</td></tr>
+</table></div>
+<p>Check one cell by hand: row 3, column 6 = row 2 column 5 (which is 2) + row 2 column 7 (which is 2) = 4.</p>
+<div class="code-block"><span class="code-label">Delphi — fill rows 3 to 6 from the row above</span>
+<pre><code><span class="kw">const</span>
+  ROWS = <span class="num">6</span>;
+  COLS = <span class="num">11</span>;
+<span class="kw">var</span>
+  arrPat : <span class="kw">array</span>[<span class="num">1</span>..ROWS, <span class="num">1</span>..COLS] <span class="kw">of</span> <span class="kw2">Integer</span>;
+  r, c   : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  <span class="cmt">// clear every cell so the untouched edge columns really are 0</span>
+  <span class="kw">for</span> r := <span class="num">1</span> <span class="kw">to</span> ROWS <span class="kw">do</span>
+    <span class="kw">for</span> c := <span class="num">1</span> <span class="kw">to</span> COLS <span class="kw">do</span>
+      arrPat[r, c] := <span class="num">0</span>;
+
+  <span class="cmt">// the two supplied rows</span>
+  arrPat[<span class="num">1</span>, <span class="num">6</span>] := <span class="num">2</span>;
+  arrPat[<span class="num">2</span>, <span class="num">5</span>] := <span class="num">2</span>;
+  arrPat[<span class="num">2</span>, <span class="num">7</span>] := <span class="num">2</span>;
+
+  <span class="cmt">// rows 3 to 6: top to bottom, interior columns only</span>
+  <span class="kw">for</span> r := <span class="num">3</span> <span class="kw">to</span> ROWS <span class="kw">do</span>
+    <span class="kw">for</span> c := <span class="num">2</span> <span class="kw">to</span> COLS - <span class="num">1</span> <span class="kw">do</span>
+      arrPat[r, c] := arrPat[r - <span class="num">1</span>, c - <span class="num">1</span>] + arrPat[r - <span class="num">1</span>, c + <span class="num">1</span>];
+<span class="kw">end</span>;</code></pre></div>
+<div class="callout tip">
+  <div class="callout-title">Why these loop limits?</div>
+  <p><strong>Rows from 3 to ROWS, top to bottom:</strong> each row depends on the one above it, so the row above must already be finished when you reach it. <strong>Columns from 2 to COLS - 1:</strong> a cell in column 1 would need <code>arrPat[r - 1, 0]</code> and one in column 11 would need <code>arrPat[r - 1, 12]</code>; neither column exists, so those edge cells are skipped and keep their 0.</p>
 </div>
 </section>
 

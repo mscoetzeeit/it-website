@@ -238,6 +238,114 @@ rLowest  := MinValue(arrPrices);</code></pre></div>
   <p>Delphi will happily compile <code>arrNames[50]</code> even if <code>arrNames</code> was declared as <code>[1..30]</code> &mdash; the mistake only surfaces while the program is <em>running</em>, as a range-check/IndexOutOfBounds error the moment that line executes. Whenever an index comes from user input or from a component like <code>ItemIndex</code>, validate it against the array's real bounds before using it.</p>
 </div>
 
+<!-- ═══════ FREQUENCY ARRAYS ═══════ -->
+<h2>Frequency Arrays &mdash; Counting With Ord</h2>
+<p>Every character has a numeric code. <code>Ord(c)</code> gives the code of a character and <code>Chr(n)</code> turns a code back into a character. A few codes worth knowing:</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Character</th><th>Code</th></tr>
+  <tr><td><code>' '</code> (space)</td><td>32</td></tr>
+  <tr><td><code>'0'</code> to <code>'9'</code></td><td>48 to 57</td></tr>
+  <tr><td><code>'A'</code> to <code>'Z'</code></td><td>65 to 90</td></tr>
+  <tr><td><code>'a'</code> to <code>'z'</code></td><td>97 to 122</td></tr>
+</table></div>
+<p>Because the code is a whole number, it can be used directly as an <strong>index</strong>. A <em>frequency array</em> keeps one counter per possible character, and the character's code decides which counter to add to. No searching is needed &mdash; the character takes you straight to its own counter.</p>
+<div class="code-block"><span class="code-label">Delphi &mdash; count every ASCII character in a text</span>
+<pre><code><span class="kw">var</span>
+  arrFreq : <span class="kw">array</span> [<span class="num">0</span>..<span class="num">127</span>] <span class="kw">of</span> <span class="kw2">Integer</span>;
+  sText   : <span class="kw2">string</span>;
+  i       : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  sText := <span class="str">'Mzansi'</span>;
+  <span class="kw">for</span> i := <span class="num">0</span> <span class="kw">to</span> <span class="num">127</span> <span class="kw">do</span>
+    arrFreq[i] := <span class="num">0</span>;                         <span class="cmt">// every counter starts at zero</span>
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sText) <span class="kw">do</span>
+    Inc(arrFreq[Ord(sText[i])]);            <span class="cmt">// the code picks the counter</span>
+
+  <span class="kw">for</span> i := <span class="num">0</span> <span class="kw">to</span> <span class="num">127</span> <span class="kw">do</span>
+    <span class="kw">if</span> arrFreq[i] &gt; <span class="num">0</span> <span class="kw">then</span>
+      memOut.Lines.Add(Chr(i) + <span class="str">': '</span> + IntToStr(arrFreq[i]));
+<span class="kw">end</span>;</code></pre></div>
+<div class="callout warning">
+  <div class="callout-title">TRAP: assume plain ASCII text</div>
+  <p>The array above only has room for codes 0 to 127. A character with a bigger code (for example some accented letters) would index outside the array and cause a range error. This pattern is meant for plain English text.</p>
+</div>
+<h3>Letters Only: Ord(c) &minus; Ord('A')</h3>
+<p>If you only care about the 26 letters, a 0..127 array wastes space. Convert to capitals first, then subtract the code of <code>'A'</code> so that A becomes index 0, B becomes 1, and Z becomes 25. To display, reverse the calculation with <code>Chr(Ord('A') + i)</code>.</p>
+<div class="code-block"><span class="code-label">Delphi &mdash; letter frequencies (A to Z only)</span>
+<pre><code><span class="kw">var</span>
+  arrLetters : <span class="kw">array</span> [<span class="num">0</span>..<span class="num">25</span>] <span class="kw">of</span> <span class="kw2">Integer</span>;
+  sText : <span class="kw2">string</span>;
+  cCh   : <span class="kw2">Char</span>;
+  i     : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  sText := UpperCase(<span class="str">'Springbok rugby'</span>);
+  <span class="kw">for</span> i := <span class="num">0</span> <span class="kw">to</span> <span class="num">25</span> <span class="kw">do</span>
+    arrLetters[i] := <span class="num">0</span>;
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sText) <span class="kw">do</span>
+  <span class="kw">begin</span>
+    cCh := sText[i];
+    <span class="kw">if</span> cCh <span class="kw">IN</span> [<span class="str">'A'</span>..<span class="str">'Z'</span>] <span class="kw">then</span>                  <span class="cmt">// ignore spaces and symbols</span>
+      Inc(arrLetters[Ord(cCh) - Ord(<span class="str">'A'</span>)]);
+  <span class="kw">end</span>;
+  <span class="kw">for</span> i := <span class="num">0</span> <span class="kw">to</span> <span class="num">25</span> <span class="kw">do</span>
+    <span class="kw">if</span> arrLetters[i] &gt; <span class="num">0</span> <span class="kw">then</span>
+      memOut.Lines.Add(Chr(Ord(<span class="str">'A'</span>) + i) + <span class="str">' = '</span> + IntToStr(arrLetters[i]));
+<span class="kw">end</span>;</code></pre></div>
+
+<h3>Anagram Check (Balance Array)</h3>
+<p>Two words are <strong>anagrams</strong> when they use exactly the same letters the same number of times (<code>ALERT</code> and <code>ALTER</code>). Use one 26-slot array as a balance sheet: <strong>add 1</strong> for every letter of the first word, <strong>subtract 1</strong> for every letter of the second. If the words are anagrams, every slot ends on 0. Assume both words are already in capitals with no spaces.</p>
+<div class="code-block"><span class="code-label">Delphi &mdash; anagram test</span>
+<pre><code><span class="kw">var</span>
+  arrBalance : <span class="kw">array</span> [<span class="num">0</span>..<span class="num">25</span>] <span class="kw">of</span> <span class="kw2">Integer</span>;
+  sOne, sTwo : <span class="kw2">string</span>;
+  i : <span class="kw2">Integer</span>;
+  bAnagram : <span class="kw2">Boolean</span>;
+<span class="kw">begin</span>
+  sOne := <span class="str">'ALERT'</span>;
+  sTwo := <span class="str">'ALTER'</span>;
+  <span class="kw">for</span> i := <span class="num">0</span> <span class="kw">to</span> <span class="num">25</span> <span class="kw">do</span>
+    arrBalance[i] := <span class="num">0</span>;
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sOne) <span class="kw">do</span>
+    Inc(arrBalance[Ord(sOne[i]) - Ord(<span class="str">'A'</span>)]);
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sTwo) <span class="kw">do</span>
+    Dec(arrBalance[Ord(sTwo[i]) - Ord(<span class="str">'A'</span>)]);
+
+  bAnagram := <span class="kw">True</span>;
+  <span class="kw">for</span> i := <span class="num">0</span> <span class="kw">to</span> <span class="num">25</span> <span class="kw">do</span>
+    <span class="kw">if</span> arrBalance[i] &lt;&gt; <span class="num">0</span> <span class="kw">then</span>
+      bAnagram := <span class="kw">False</span>;
+<span class="kw">end</span>;</code></pre></div>
+
+<h3>Pangram Check (Seen Array)</h3>
+<p>A <strong>pangram</strong> is a sentence that contains every letter of the alphabet at least once. Use a Boolean array with one slot per letter, all starting at <code>False</code>. Every time you meet a letter, switch its slot to <code>True</code>. Repeating a letter does not help you fill in a missing one, so the sentence is a pangram only if <em>all 26</em> slots end up <code>True</code>.</p>
+<div class="code-block"><span class="code-label">Delphi &mdash; pangram test</span>
+<pre><code><span class="kw">var</span>
+  arrSeen : <span class="kw">array</span> [<span class="num">0</span>..<span class="num">25</span>] <span class="kw">of</span> <span class="kw2">Boolean</span>;
+  sLine : <span class="kw2">string</span>;
+  cCh : <span class="kw2">Char</span>;
+  i : <span class="kw2">Integer</span>;
+  bPangram : <span class="kw2">Boolean</span>;
+<span class="kw">begin</span>
+  sLine := <span class="str">'Pack my box with five dozen liquor jugs.'</span>;
+  <span class="kw">for</span> i := <span class="num">0</span> <span class="kw">to</span> <span class="num">25</span> <span class="kw">do</span>
+    arrSeen[i] := <span class="kw">False</span>;
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sLine) <span class="kw">do</span>
+  <span class="kw">begin</span>
+    cCh := UpCase(sLine[i]);
+    <span class="kw">if</span> cCh <span class="kw">IN</span> [<span class="str">'A'</span>..<span class="str">'Z'</span>] <span class="kw">then</span>
+      arrSeen[Ord(cCh) - Ord(<span class="str">'A'</span>)] := <span class="kw">True</span>;
+  <span class="kw">end</span>;
+
+  bPangram := <span class="kw">True</span>;
+  <span class="kw">for</span> i := <span class="num">0</span> <span class="kw">to</span> <span class="num">25</span> <span class="kw">do</span>
+    <span class="kw">if not</span> arrSeen[i] <span class="kw">then</span>
+      bPangram := <span class="kw">False</span>;
+<span class="kw">end</span>;</code></pre></div>
+<div class="callout tip">
+  <div class="callout-title">Same idea, three jobs</div>
+  <p>Counting letters, comparing two words and checking for a full alphabet all use the same trick: <code>Ord(letter) - Ord('A')</code> turns a letter into an array index. None of these need sorted data.</p>
+</div>
+
 <!-- ═══════ LINEAR SEARCH ═══════ -->
 <h2>Linear Search</h2>
 <div class="code-block"><span class="code-label">Delphi</span>
@@ -255,6 +363,20 @@ rLowest  := MinValue(arrPrices);</code></pre></div>
   <div class="callout-title">Pick the right search for the job</div>
   <p>The code above stops the loop with <code>Break</code> as soon as one match turns up &mdash; correct when you only expect a single match (e.g. one learner's ID number). If instead you needed <em>every</em> occurrence (e.g. every learner who chose "Physics"), you would drop the flag and <code>Break</code>, and simply let the loop run to the end, adding each match found along the way. Once the array is sorted, binary search (below) beats both approaches for speed.</p>
 </div>
+
+<h3>Linear Search Without a Flag (Position 0 = Not Found)</h3>
+<p>You can also do a search without a Boolean variable at all. Array positions start at 1, so <code>0</code> can never be a real position. That makes <code>0</code> a perfect way to say "nothing found yet". Set the answer to 0, and only save a position if the answer is still 0 &mdash; this keeps the <em>first</em> match even though the loop runs to the end.</p>
+<div class="code-block"><span class="code-label">Delphi &mdash; linear search using position 0 as "not found"</span>
+<pre><code>iPos := <span class="num">0</span>;
+<span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> iCount <span class="kw">do</span>
+  <span class="kw">if</span> (arrNames[i] = sSearch) <span class="kw">and</span> (iPos = <span class="num">0</span>) <span class="kw">then</span>
+    iPos := i;
+
+<span class="kw">if</span> iPos &gt; <span class="num">0</span> <span class="kw">then</span>
+  ShowMessage(sSearch + <span class="str">' is at position '</span> + IntToStr(iPos))
+<span class="kw">else</span>
+  ShowMessage(<span class="str">'Not found'</span>);</code></pre></div>
+<p>Neither linear search version needs the array to be sorted.</p>
 
 <!-- ═══════ BINARY SEARCH ═══════ -->
 <h2>Binary Search (sorted array)</h2>
@@ -582,6 +704,124 @@ bFound := <span class="kw">False</span>;
       iTemp := arrMarks[i]; arrMarks[i] := arrMarks[j]; arrMarks[j] := iTemp;
     <span class="kw">end</span>;</code></pre></div>
 
+<!-- ═══════ EDITING ARRAYS ═══════ -->
+<h2>Inserting, Deleting, Removing Duplicates and Merging</h2>
+<p>An array of fixed size cannot really "grow" or "shrink", so these algorithms work with a <strong>count variable</strong> (<code>iCount</code>) that says how many slots are actually in use. The array is declared bigger than you need (for example <code>array[1..Max]</code>), and everything after position <code>iCount</code> is simply ignored. Always loop to <code>iCount</code>, never to <code>Max</code>.</p>
+
+<h3>Insert an Element at a Position</h3>
+<p>To squeeze a value into the middle, you first have to make a gap. Shift the elements to the <strong>right</strong>, starting from the <strong>end</strong>. If you started at the front you would copy the same value over and over and destroy the data.</p>
+<ol>
+  <li>Make sure there is spare room (<code>iCount &lt; Max</code>).</li>
+  <li>Loop from <code>iCount</code> down to the insert position, copying each element one place to the right.</li>
+  <li>Put the new value in the gap.</li>
+  <li>Increase the count with <code>Inc(iCount)</code>.</li>
+</ol>
+<div class="code-block"><span class="code-label">Delphi &mdash; insert 70 at position 3 of [45, 62, 78, 90]</span>
+<pre><code><span class="kw">if</span> iCount &lt; Max <span class="kw">then</span>
+<span class="kw">begin</span>
+  <span class="kw">for</span> i := iCount <span class="kw">downto</span> iPlace <span class="kw">do</span>
+    arrScores[i + <span class="num">1</span>] := arrScores[i];    <span class="cmt">// shift right, last element first</span>
+  arrScores[iPlace] := iNew;                <span class="cmt">// drop the new value into the gap</span>
+  Inc(iCount);
+<span class="kw">end</span>;
+<span class="cmt">// with iPlace = 3 and iNew = 70 the used part is now [45, 62, 70, 78, 90]</span></code></pre></div>
+
+<h3>Delete an Element</h3>
+<p>Deleting works in the opposite direction. Shift everything after the deleted position one place to the <strong>left</strong>, starting from the front, so the next value overwrites the one you are removing. Then reduce the count.</p>
+<div class="code-block"><span class="code-label">Delphi &mdash; delete position 2 of [45, 62, 70, 78, 90]</span>
+<pre><code><span class="kw">for</span> i := iPlace <span class="kw">to</span> iCount - <span class="num">1</span> <span class="kw">do</span>
+  arrScores[i] := arrScores[i + <span class="num">1</span>];      <span class="cmt">// shift left, first element first</span>
+Dec(iCount);
+<span class="cmt">// with iPlace = 2 the used part is now [45, 70, 78, 90]</span></code></pre></div>
+<div class="callout warning">
+  <div class="callout-title">TRAP: shift in the right direction</div>
+  <p>Insert shifts <strong>right, from the end</strong> (<code>downto</code>). Delete shifts <strong>left, from the front</strong> (<code>to</code>). Mixing the directions overwrites values you still need. Also remember the count: forgetting <code>Inc(iCount)</code> or <code>Dec(iCount)</code> means your later loops will miss the new value or show a leftover one.</p>
+</div>
+
+<h3>Remove Duplicates Into a Second Array</h3>
+<p>Instead of deleting from the original, build a <strong>second array</strong> that only receives a value if it is not already in there. For each value in the original, search the new array. If it was not found, append it.</p>
+<div class="code-block"><span class="code-label">Delphi &mdash; ['N2','R300','N2','M5','R300'] becomes ['N2','R300','M5']</span>
+<pre><code>iNewCount := <span class="num">0</span>;
+<span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> iCount <span class="kw">do</span>
+<span class="kw">begin</span>
+  bDuplicate := <span class="kw">False</span>;
+  <span class="kw">for</span> j := <span class="num">1</span> <span class="kw">to</span> iNewCount <span class="kw">do</span>
+    <span class="kw">if</span> arrNew[j] = arrRoutes[i] <span class="kw">then</span>
+      bDuplicate := <span class="kw">True</span>;
+  <span class="kw">if not</span> bDuplicate <span class="kw">then</span>
+  <span class="kw">begin</span>
+    Inc(iNewCount);
+    arrNew[iNewCount] := arrRoutes[i];
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</code></pre></div>
+<p>The first occurrence of each value is kept, and the original order is preserved. Make sure <code>arrNew</code> is declared big enough to hold as many values as the original. The data does <strong>not</strong> need to be sorted.</p>
+
+<h3>Merge Two Arrays (Concatenate)</h3>
+<p>Joining two arrays end to end is simple: copy the first one into the result, then copy the second one starting just after it. The result is <em>not</em> sorted &mdash; it is just list A followed by list B.</p>
+<div class="code-block"><span class="code-label">Delphi &mdash; concatenate arrA and arrB into arrC</span>
+<pre><code><span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> iCountA <span class="kw">do</span>
+  arrC[i] := arrA[i];
+<span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> iCountB <span class="kw">do</span>
+  arrC[iCountA + i] := arrB[i];
+iCountC := iCountA + iCountB;</code></pre></div>
+
+<h3>Merge Two Sorted Arrays (Result Stays Sorted)</h3>
+<p>If <strong>both arrays are already sorted ascending</strong>, you can merge them into one sorted array without sorting again. Keep one position marker per input array (<code>i</code> for A, <code>j</code> for B) and one for the result (<code>k</code>). Compare the two values the markers point at, copy the <em>smaller</em> one and move only that marker forward. When one array runs out, copy whatever is left of the other.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Step</th><th>A[i]</th><th>B[j]</th><th>Copied to result</th></tr>
+  <tr><td>1</td><td>3</td><td>4</td><td>3 (A is smaller)</td></tr>
+  <tr><td>2</td><td>8</td><td>4</td><td>4</td></tr>
+  <tr><td>3</td><td>8</td><td>9</td><td>8</td></tr>
+  <tr><td>4</td><td>15</td><td>9</td><td>9</td></tr>
+  <tr><td>5</td><td>15</td><td>20</td><td>15 &mdash; A is now finished</td></tr>
+  <tr><td>left over</td><td>&ndash;</td><td>20, 25</td><td>20, 25</td></tr>
+</table></div>
+<div class="code-block"><span class="code-label">Delphi &mdash; merge sorted [3, 8, 15] and [4, 9, 20, 25]</span>
+<pre><code>i := <span class="num">1</span>;  j := <span class="num">1</span>;  k := <span class="num">0</span>;
+<span class="kw">while</span> (i &lt;= iCountA) <span class="kw">and</span> (j &lt;= iCountB) <span class="kw">do</span>
+<span class="kw">begin</span>
+  Inc(k);
+  <span class="kw">if</span> arrA[i] &lt;= arrB[j] <span class="kw">then</span>
+  <span class="kw">begin</span>
+    arrC[k] := arrA[i];
+    Inc(i);
+  <span class="kw">end</span>
+  <span class="kw">else</span>
+  <span class="kw">begin</span>
+    arrC[k] := arrB[j];
+    Inc(j);
+  <span class="kw">end</span>;
+<span class="kw">end</span>;
+
+<span class="cmt">// only one of these two loops will actually run</span>
+<span class="kw">while</span> i &lt;= iCountA <span class="kw">do</span>
+<span class="kw">begin</span>
+  Inc(k);
+  arrC[k] := arrA[i];
+  Inc(i);
+<span class="kw">end</span>;
+<span class="kw">while</span> j &lt;= iCountB <span class="kw">do</span>
+<span class="kw">begin</span>
+  Inc(k);
+  arrC[k] := arrB[j];
+  Inc(j);
+<span class="kw">end</span>;
+<span class="cmt">// arrC = [3, 4, 8, 9, 15, 20, 25]</span></code></pre></div>
+
+<div class="callout">
+  <div class="callout-title">Which of these need sorted data?</div>
+  <div class="tbl-wrap"><table>
+    <tr><th>Algorithm</th><th>Needs sorted data?</th></tr>
+    <tr><td>Linear search (with or without a flag)</td><td>No</td></tr>
+    <tr><td>Binary search</td><td><strong>Yes</strong></td></tr>
+    <tr><td>Insert at a given position, delete at a given position</td><td>No (insert at the <em>correct</em> position to keep an already-sorted array sorted)</td></tr>
+    <tr><td>Remove duplicates (second array method)</td><td>No</td></tr>
+    <tr><td>Concatenate two arrays</td><td>No (and the result is not sorted)</td></tr>
+    <tr><td>Merge two sorted arrays</td><td><strong>Yes &mdash; both inputs must be sorted the same way</strong></td></tr>
+    <tr><td>Frequency, anagram and pangram arrays</td><td>No</td></tr>
+  </table></div>
+</div>
+
 <!-- ═══════ DATE METHODS ═══════ -->
 <h2>Date Methods (Grade 11)</h2>
 <p>Delphi has built-in functions for working with dates — required for Grade 11 Term 1.</p>
@@ -613,6 +853,56 @@ iAge := YearOf(Now) - YearOf(dtpBirth.Date); <span class="cmt">// e.g. 17</span>
   ShowMessage(<span class="str">'This is a leap year'</span>)
 <span class="kw">else</span>
   ShowMessage(<span class="str">'Not a leap year'</span>);</code></pre></div>
+
+<h3>The Leap Year Rule Done By Hand</h3>
+<p>Sometimes you are asked to work without <code>IsLeapYear</code>. A year is a leap year when it is divisible by 400, <em>or</em> it is divisible by 4 but <em>not</em> by 100. So 2024 and 2000 are leap years; 1900 and 2026 are not.</p>
+<div class="code-block"><span class="code-label">Delphi &mdash; leap year without IsLeapYear</span>
+<pre><code>bLeap := (iYear <span class="kw">mod</span> <span class="num">400</span> = <span class="num">0</span>) <span class="kw">or</span>
+         ((iYear <span class="kw">mod</span> <span class="num">4</span> = <span class="num">0</span>) <span class="kw">and</span> (iYear <span class="kw">mod</span> <span class="num">100</span> &lt;&gt; <span class="num">0</span>));</code></pre></div>
+
+<h3>Age From a Birth Date</h3>
+<p>Subtracting the two years, as in the quick example above, is only <em>approximately</em> right. It gives the age the person will be <em>some time this year</em>. If the birthday has not happened yet this year, the real age is one less. A birthday has not been reached when today's month is before the birth month, or the months are equal but today's day is before the birth day.</p>
+<div class="code-block"><span class="code-label">Delphi &mdash; exact age in years</span>
+<pre><code>iAge := YearOf(dtToday) - YearOf(dtBorn);
+<span class="kw">if</span> (MonthOf(dtToday) &lt; MonthOf(dtBorn)) <span class="kw">or</span>
+   ((MonthOf(dtToday) = MonthOf(dtBorn)) <span class="kw">and</span> (DayOf(dtToday) &lt; DayOf(dtBorn))) <span class="kw">then</span>
+  Dec(iAge);                  <span class="cmt">// birthday still to come this year</span>
+<span class="cmt">// born 12 Aug 2008, today 3 May 2026:  2026 - 2008 = 18, birthday not reached, so 17</span></code></pre></div>
+
+<h3>Days Between Two Dates Without Date-Difference Routines</h3>
+<p>The idea: turn each date into a single <strong>day number</strong> (how many days have passed since the start of year 1), then subtract. The earlier date gives the smaller number, so <em>later minus earlier</em> is the number of elapsed days. To build a day number:</p>
+<ol>
+  <li>Take the number of <strong>completed years</strong>: <code>iYear - 1</code>. Each one has 365 days.</li>
+  <li>Add one extra day for every leap year in that stretch: <code>DIV 4</code>, then subtract the century years that are not leap years (<code>DIV 100</code>), then add back those divisible by 400 (<code>DIV 400</code>).</li>
+  <li>Add the days of every completed month this year, using a table of month lengths (February = 28).</li>
+  <li>If this year is a leap year and the date is after February, add 1 more day.</li>
+  <li>Add the day of the month.</li>
+</ol>
+<div class="code-block"><span class="code-label">Delphi &mdash; a day-number function and the difference</span>
+<pre><code><span class="kw">function</span> DayNumber(iYear, iMonth, iDay: <span class="kw2">Integer</span>): <span class="kw2">Integer</span>;
+<span class="kw">const</span>
+  arrMonthLen : <span class="kw">array</span> [<span class="num">1</span>..<span class="num">12</span>] <span class="kw">of</span> <span class="kw2">Integer</span> =
+    (<span class="num">31</span>, <span class="num">28</span>, <span class="num">31</span>, <span class="num">30</span>, <span class="num">31</span>, <span class="num">30</span>, <span class="num">31</span>, <span class="num">31</span>, <span class="num">30</span>, <span class="num">31</span>, <span class="num">30</span>, <span class="num">31</span>);
+<span class="kw">var</span>
+  iDone, m : <span class="kw2">Integer</span>;
+  bLeap : <span class="kw2">Boolean</span>;
+<span class="kw">begin</span>
+  iDone  := iYear - <span class="num">1</span>;                                       <span class="cmt">// completed years</span>
+  Result := iDone * <span class="num">365</span> + iDone <span class="kw">div</span> <span class="num">4</span> - iDone <span class="kw">div</span> <span class="num">100</span> + iDone <span class="kw">div</span> <span class="num">400</span>;
+  bLeap  := (iYear <span class="kw">mod</span> <span class="num">400</span> = <span class="num">0</span>) <span class="kw">or</span>
+            ((iYear <span class="kw">mod</span> <span class="num">4</span> = <span class="num">0</span>) <span class="kw">and</span> (iYear <span class="kw">mod</span> <span class="num">100</span> &lt;&gt; <span class="num">0</span>));
+  <span class="kw">for</span> m := <span class="num">1</span> <span class="kw">to</span> iMonth - <span class="num">1</span> <span class="kw">do</span>
+    Result := Result + arrMonthLen[m];                 <span class="cmt">// completed months</span>
+  <span class="kw">if</span> bLeap <span class="kw">and</span> (iMonth &gt; <span class="num">2</span>) <span class="kw">then</span>
+    Inc(Result);                                       <span class="cmt">// 29 Feb has already happened</span>
+  Result := Result + iDay;
+<span class="kw">end</span>;
+
+<span class="cmt">// 25 Feb 2024 to 2 March 2024</span>
+iDays := DayNumber(<span class="num">2024</span>, <span class="num">3</span>, <span class="num">2</span>) - DayNumber(<span class="num">2024</span>, <span class="num">2</span>, <span class="num">25</span>);   <span class="cmt">// 738947 - 738941 = 6</span></code></pre></div>
+<div class="callout tip">
+  <div class="callout-title">Elapsed days, not inclusive days</div>
+  <p>Subtracting the two day numbers counts the days <em>between</em> the dates, so the starting day itself is not counted. If a question wants both the first and last day included, add 1. Check the working with 2024: 25 Feb to 29 Feb is 4 days, then 1 Mar and 2 Mar bring it to 6, because 2024 is a leap year.</p>
 
 <div class="quiz" data-title="Quick Quiz &mdash; 1D Arrays">
   <div class="quiz-q" data-a="0">

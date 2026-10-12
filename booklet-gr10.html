@@ -1373,6 +1373,7 @@ pgcMain.ActivePage := TabSheet3;</code></pre></div>
       <table>
         <tr><th>Data Type</th><th>What it stores</th><th>Examples</th><th>Quotes?</th></tr>
         <tr><td><code>Integer</code></td><td>Whole numbers (positive &amp; negative, no decimals)</td><td><code>3</code>, <code>-15</code>, <code>1250</code></td><td>No</td></tr>
+        <tr><td><code>Int64</code></td><td>Very large whole numbers (see below)</td><td><code>3000000000</code></td><td>No</td></tr>
         <tr><td><code>Real</code></td><td>Numbers with decimals (floating point)</td><td><code>3.14</code>, <code>-13.24</code>, <code>125.89</code></td><td>No</td></tr>
         <tr><td><code>String</code></td><td>One or more characters — text</td><td><code>'Banana'</code>, <code>'23.45'</code>, <code>'@!jkl'</code></td><td>Single quotes <code>'…'</code></td></tr>
         <tr><td><code>Char</code></td><td>A single character only</td><td><code>'S'</code>, <code>'!'</code>, <code>'a'</code></td><td>Single quotes <code>'…'</code></td></tr>
@@ -1386,6 +1387,23 @@ pgcMain.ActivePage := TabSheet3;</code></pre></div>
       <div class="code-block"><span class="code-label">Delphi</span>
 <pre><code>rTotalStock := iBoxesIn + iBoxesReturned;   <span class="cmt">// fine — a whole number fits happily into a Real</span>
 iBoxesIn    := rTotalStock * 2;             <span class="cmt">// rejected — a Real value won't fit into an Integer</span></code></pre></div>
+    </div>
+
+    <h3>When Integer Is Not Big Enough — Int64</h3>
+    <p>An <code>Integer</code> can only hold whole numbers from about <strong>-2.1 billion to +2.1 billion</strong> (exactly -2 147 483 648 to 2 147 483 647). Go past that and the value overflows and gives a wrong answer, or crashes the program. For bigger whole numbers use <code>Int64</code>, which holds values up to about <strong>9.2 &times; 10<sup>18</sup></strong>.</p>
+    <p>A good example is money counted in cents: a municipal budget of R30 million is 3 000 000 000 cents, which is too big for an <code>Integer</code>. Another is a factorial: 13! is already 6 227 020 800, and <code>Int64</code> can hold factorials up to 20!.</p>
+    <div class="code-block"><span class="code-label">Delphi — Int64 for a big total</span>
+<pre><code><span class="kw">var</span>
+  iBudgetCents : <span class="kw2">Int64</span>;     <span class="cmt">// Integer would overflow here</span>
+  iProjectCents : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iBudgetCents := <span class="num">3000000000</span>;
+  iProjectCents := <span class="num">950000000</span>;
+  iBudgetCents := iBudgetCents - iProjectCents;   <span class="cmt">// a smaller whole number fits into an Int64 happily</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">Pick the smallest type that is safe</div>
+      <p>Use <code>Integer</code> for everyday counting (ages, marks, quantities). Reach for <code>Int64</code> only when a total or a product could realistically pass 2 billion. Use <code>Real</code> instead when the value needs decimals &mdash; <code>Int64</code> still holds whole numbers only.</p>
     </div>
 
     <h2>Variables</h2>
@@ -1639,6 +1657,64 @@ rVatAmount := rCostPrice * VAT;
 rTotal     := rCostPrice + rVatAmount;</code></pre>
     </div>
 
+    <h2>Ordinal Types</h2>
+    <p>An <strong>ordinal type</strong> is a type whose values can be listed in a fixed order, one after the other, so that every value has a definite <em>next</em> and <em>previous</em> value. Ordinal types are the only ones allowed for a <code>for</code> loop counter, for the selector of a <code>case</code> statement, and for <code>Inc</code>, <code>Dec</code> and <code>Ord</code>.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Ordinal</th><th>Not ordinal</th></tr>
+      <tr><td><code>Integer</code> (and <code>Int64</code>) &mdash; after 7 comes 8</td><td><code>Real</code> &mdash; there are endless values between 2.5 and 2.6, so no value has a &quot;next&quot; one</td></tr>
+      <tr><td><code>Char</code> &mdash; after 'C' comes 'D'</td><td><code>String</code> &mdash; text of any length has no single position in a list</td></tr>
+      <tr><td><code>Boolean</code> &mdash; <code>False</code> then <code>True</code></td><td></td></tr>
+      <tr><td>Enumerated and subrange types (below)</td><td></td></tr>
+    </table></div>
+    <div class="callout tip">
+      <div class="callout-title">Why it matters</div>
+      <p>This is why you can write <code>for cLetter := 'A' to 'Z' do</code> or <code>Inc(iCount)</code>, but you cannot write <code>for rValue := 1.0 to 2.0 do</code> or use a <code>string</code> as the selector of a <code>case</code> statement.</p>
+    </div>
+
+    <h3>Enumerated Types</h3>
+    <p>An <strong>enumerated type</strong> is a type <em>you</em> define by listing every value it may have, in words. A variable of that type can hold only one of the listed names, which makes your code easier to read than using codes like 1, 2 and 3. The list goes in a <code>type</code> section, near the top of the unit above the form class; the variable is then declared as normal.</p>
+    <div class="code-block"><span class="code-label">Delphi — an enumerated type for fee payments</span>
+<pre><code><span class="kw">type</span>
+  TPayStatus = (Unpaid, Deposit, PaidInFull);   <span class="cmt">// the only three values allowed</span>
+
+<span class="kw">procedure</span> TForm1.<span class="fn">btnCheckClick</span>(Sender: TObject);
+<span class="kw">var</span>
+  ePay : TPayStatus;
+<span class="kw">begin</span>
+  ePay := Deposit;
+  <span class="kw">case</span> ePay <span class="kw">of</span>
+    Unpaid     : lblNote.Caption := <span class="str">'Please pay the fees'</span>;
+    Deposit    : lblNote.Caption := <span class="str">'Balance still outstanding'</span>;
+    PaidInFull : lblNote.Caption := <span class="str">'Thank you'</span>;
+  <span class="kw">end</span>;
+  memOut.Lines.Add(IntToStr(Ord(ePay)));         <span class="cmt">// shows 1, the position in the list</span>
+<span class="kw">end</span>;</code></pre></div>
+    <p>The values are numbered from <code>0</code> in the order you list them (<code>Unpaid</code> = 0, <code>Deposit</code> = 1, <code>PaidInFull</code> = 2), and <code>Ord</code> gives you that number. You can compare them, too: <code>ePay &lt; PaidInFull</code> is <code>True</code> for both <code>Unpaid</code> and <code>Deposit</code>.</p>
+    <div class="callout warning">
+      <div class="callout-title">Trap — enumerated values are not text</div>
+      <p>You cannot assign <code>'Deposit'</code> (in quotes) to an enumerated variable, and you cannot pass one straight into <code>ShowMessage</code> or <code>IntToStr</code>. Use a <code>case</code> statement to turn each value into the text you want to display, or <code>Ord</code> to get its number.</p>
+    </div>
+
+    <h3>Subrange Types</h3>
+    <p>A <strong>subrange type</strong> restricts an ordinal type to a stretch of its values. Write the lowest and highest value with two dots between them. It documents what values are legal, and lets Delphi catch mistakes &mdash; for instance a constant outside the range is rejected when you compile.</p>
+    <div class="code-block"><span class="code-label">Delphi — subrange types</span>
+<pre><code><span class="kw">type</span>
+  TMark   = <span class="num">0</span>..<span class="num">100</span>;       <span class="cmt">// whole numbers 0 to 100 only</span>
+  TLetter = <span class="str">'A'</span>..<span class="str">'E'</span>;     <span class="cmt">// only the characters A to E</span>
+
+<span class="kw">var</span>
+  iMark : TMark;
+  cSymbol : TLetter;
+<span class="kw">begin</span>
+  iMark   := <span class="num">76</span>;       <span class="cmt">// fine</span>
+  cSymbol := <span class="str">'C'</span>;      <span class="cmt">// fine</span>
+  iMark   := <span class="num">120</span>;      <span class="cmt">// rejected: 120 is outside 0..100</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">Enumerated or subrange?</div>
+      <p>Use an <strong>enumerated</strong> type when you have a small set of <em>named</em> choices (payment status, ticket type). Use a <strong>subrange</strong> when the values are ordinary numbers or letters but only part of the range makes sense (a mark, a month number 1..12). Neither replaces input validation: a value typed by the user still needs checking before it is stored.</p>
+    </div>
+
     <h2>Type Conversion</h2>
     <p>Components like <code>TEdit</code> only hold strings. You must convert to the right type before using in calculations.</p>
     <div class="tbl-wrap">
@@ -1664,6 +1740,23 @@ rTotal     := rCostPrice + rVatAmount;</code></pre>
   <span class="kw">else</span>
     ShowMessage(<span class="str">'Not a valid number!'</span>);   <span class="cmt">// iCode = position of the bad character</span>
 <span class="kw">end</span>;</code></pre></div>
+    </div>
+
+    <h3>The Str Procedure &mdash; Number to String</h3>
+    <p><code>IntToStr</code> and <code>FloatToStr</code> are <em>functions</em>: they hand the text back to you. <code>Str</code> does the same job as a <em>procedure</em>: you give it a number and a string variable, and it places the text in that variable. It can also format the number in the same step by writing <code>value:width:decimals</code>.</p>
+    <div class="code-block"><span class="code-label">Delphi — Str(number, stringVariable)</span>
+<pre><code><span class="kw">var</span>
+  sCount, sPrice : <span class="kw2">string</span>;
+  rPrice : <span class="kw2">real</span>;
+<span class="kw">begin</span>
+  rPrice := <span class="num">24.5</span>;
+  Str(<span class="num">42</span>, sCount);                    <span class="cmt">// sCount = '42'</span>
+  Str(rPrice:<span class="num">0</span>:<span class="num">2</span>, sPrice);             <span class="cmt">// sPrice = '24.50'</span>
+  lblOut.Caption := <span class="str">'Price: R'</span> + sPrice;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">Always format a Real with Str</div>
+      <p>Write the real value as <code>rPrice:0:2</code> &mdash; the <code>0</code> means &quot;use as much space as needed&quot; and the <code>2</code> is the number of decimal places. Without the formatting part, a <code>Real</code> comes out in long scientific notation that is no use on a form.</p>
     </div>
 
     <h3>Formatting Real Numbers</h3>
@@ -1802,6 +1895,33 @@ lblPrice.Caption := FloatToStrF(rPrice, ffFixed,    <span class="num">4</span>, 
       <p>The <code>MOD 10</code> / <code>DIV 10</code> loop is the key to counting digits, reversing a number, checking for a palindrome, or building the Luhn check digit of an ID. Swap what you do with <code>iDigit</code> and you have solved a whole family of questions.</p>
     </div>
 
+    <h3>Worked Example — Complete Groups and Leftovers</h3>
+    <p>Whenever items must be packed into groups of a fixed size, <code>DIV</code> and <code>MOD</code> work as a pair. <code>DIV</code> counts how many <strong>complete groups</strong> you can fill; <code>MOD</code> tells you how many items are <strong>left over</strong> once those groups are full.</p>
+    <p>Imagine the tuck shop has baked <strong>134 cupcakes</strong> for a fundraiser and each box holds <strong>12</strong>.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Question</th><th>Calculation</th><th>Answer</th></tr>
+      <tr><td>How many full boxes?</td><td><code>134 DIV 12</code></td><td><code>11</code> (11 &times; 12 = 132)</td></tr>
+      <tr><td>How many cupcakes are left over?</td><td><code>134 MOD 12</code></td><td><code>2</code> (134 &minus; 132)</td></tr>
+      <tr><td>Check</td><td><code>11 * 12 + 2</code></td><td><code>134</code> &mdash; we got every cupcake back</td></tr>
+    </table></div>
+    <div class="code-block"><span class="code-label">Delphi — boxes and leftovers</span>
+<pre><code><span class="kw">const</span>
+  BOX_SIZE = <span class="num">12</span>;
+<span class="kw">var</span>
+  iCakes, iFullBoxes, iLeftover : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iCakes     := StrToInt(edtCakes.Text);     <span class="cmt">// e.g. 134</span>
+  iFullBoxes := iCakes <span class="kw">div</span> BOX_SIZE;      <span class="cmt">// 11 complete boxes</span>
+  iLeftover  := iCakes <span class="kw">mod</span> BOX_SIZE;      <span class="cmt">// 2 cupcakes that do not fill a box</span>
+  memOut.Lines.Add(<span class="str">'Full boxes: '</span> + IntToStr(iFullBoxes));
+  memOut.Lines.Add(<span class="str">'Left over:  '</span> + IntToStr(iLeftover));
+<span class="kw">end</span>;</code></pre></div>
+    <p>The same pair converts a total into bigger and smaller units. A movie marathon of <code>435</code> minutes is <code>435 DIV 60 = 7</code> hours and <code>435 MOD 60 = 15</code> minutes &mdash; 7 h 15 min.</p>
+    <div class="callout tip">
+      <div class="callout-title">What if the leftovers also need a box?</div>
+      <p>The 2 leftover cupcakes still need somewhere to go, so the shop needs <strong>12 boxes</strong> in total, not 11. You can get this by adding one extra box whenever the leftover is more than zero, or by rounding a real division up with <code>Ceil</code> (see <em>Real Division with Floor and Ceil</em> further down). Decide first whether the question wants <em>complete</em> groups or <em>all</em> items packed.</p>
+    </div>
+
     <h2>Operator Precedence (Order of Operations)</h2>
     <div class="tbl-wrap"><table>
       <tr><th>Priority</th><th>Operators</th></tr>
@@ -1815,6 +1935,47 @@ lblPrice.Caption := FloatToStrF(rPrice, ffFixed,    <span class="num">4</span>, 
 result := (<span class="num">2</span> + <span class="num">3</span>) * <span class="num">4</span>;       <span class="cmt">// = 20  (brackets first)</span>
 result := <span class="num">10</span> <span class="kw">DIV</span> <span class="num">2</span> + <span class="num">3</span>;      <span class="cmt">// = 8   (DIV first)</span></code></pre></div>
 
+    <h2>Percentages — Discounts and Percentage Change</h2>
+    <p>Percentages are just divisions by 100, so they are easy to calculate once you know which value goes where. Always store the amounts in <code>Real</code> variables, because money and percentages seldom come out as whole numbers.</p>
+
+    <h3>Working Out a Discount</h3>
+    <p>A discount is worked out like VAT, except that you <strong>subtract</strong> it instead of adding it. A school jersey costs R450 and is on sale at 12% off:</p>
+    <div class="code-block"><span class="code-label">Delphi — price after a discount</span>
+<pre><code><span class="kw">const</span>
+  DISCOUNT_RATE = <span class="num">12</span>;     <span class="cmt">// percent</span>
+<span class="kw">var</span>
+  rPrice, rDiscount, rFinal : <span class="kw2">Real</span>;
+<span class="kw">begin</span>
+  rPrice    := <span class="num">450</span>;
+  rDiscount := rPrice * DISCOUNT_RATE / <span class="num">100</span>;   <span class="cmt">// 450 * 12 / 100 = 54</span>
+  rFinal    := rPrice - rDiscount;                <span class="cmt">// 450 - 54 = 396</span>
+  lblFinal.Caption := FloatToStrF(rFinal, ffCurrency, <span class="num">8</span>, <span class="num">2</span>);
+<span class="kw">end</span>;</code></pre></div>
+    <p>A shortcut that gives the same answer: the customer pays <code>(100 - 12)</code> percent of the price, so <code>rFinal := rPrice * (100 - DISCOUNT_RATE) / 100;</code>.</p>
+
+    <h3>Percentage Change</h3>
+    <p>How much did something go up or down, compared with where it started? Subtract the <strong>old</strong> value from the <strong>new</strong> value, divide by the <strong>old</strong> value, and multiply by 100:</p>
+    <p><strong>percentage change = (new &minus; old) &divide; old &times; 100</strong></p>
+    <p>A <strong>positive</strong> answer means an increase; a <strong>negative</strong> answer means a decrease.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Situation</th><th>Old</th><th>New</th><th>Working</th><th>Change</th></tr>
+      <tr><td>Taxi fare goes up</td><td>R18</td><td>R21</td><td>(21 &minus; 18) / 18 &times; 100</td><td><code>+16.67%</code> (increase)</td></tr>
+      <tr><td>Sports bag on sale</td><td>R650</td><td>R520</td><td>(520 &minus; 650) / 650 &times; 100</td><td><code>-20%</code> (decrease)</td></tr>
+    </table></div>
+    <div class="code-block"><span class="code-label">Delphi — percentage change</span>
+<pre><code><span class="kw">var</span>
+  rOld, rNew, rChange : <span class="kw2">Real</span>;
+<span class="kw">begin</span>
+  rOld    := StrToFloat(edtOld.Text);       <span class="cmt">// e.g. 650</span>
+  rNew    := StrToFloat(edtNew.Text);       <span class="cmt">// e.g. 520</span>
+  rChange := (rNew - rOld) / rOld * <span class="num">100</span>;     <span class="cmt">// -20</span>
+  lblChange.Caption := FloatToStrF(rChange, ffFixed, <span class="num">8</span>, <span class="num">1</span>) + <span class="str">'%'</span>;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">Trap — divide by the OLD value</div>
+      <p>The comparison always starts from where you began, so the old value is the denominator. Dividing by the new value gives the wrong answer. Also remember the brackets around <code>(rNew - rOld)</code> &mdash; without them, precedence would divide first. And if the old value could be 0, check for that before dividing.</p>
+    </div>
+
     <h2>Mathematical Functions</h2>
     <p>Add <code>Math</code> to your <code>uses</code> section to access power, floor, ceil etc.</p>
     <div class="tbl-wrap"><table>
@@ -1822,7 +1983,7 @@ result := <span class="num">10</span> <span class="kw">DIV</span> <span class="n
       <tr><td><code>sqr(x)</code></td><td>x squared (x²)</td><td><code>sqr(4)</code></td><td><code>16</code></td></tr>
       <tr><td><code>sqrt(x)</code></td><td>Square root</td><td><code>sqrt(16)</code></td><td><code>4.0</code></td></tr>
       <tr><td><code>power(x,n)</code></td><td>x to the power of n</td><td><code>power(5,3)</code></td><td><code>125</code></td></tr>
-      <tr><td><code>round(x)</code></td><td>Round to nearest integer</td><td><code>round(5.68)</code></td><td><code>6</code></td></tr>
+      <tr><td><code>round(x)</code></td><td>Round to nearest integer (an exact .5 goes to the even neighbour &mdash; see below)</td><td><code>round(5.68)</code></td><td><code>6</code></td></tr>
       <tr><td><code>trunc(x)</code></td><td>Remove decimal (truncate)</td><td><code>trunc(5.68)</code></td><td><code>5</code></td></tr>
       <tr><td><code>floor(x)</code></td><td>Round DOWN</td><td><code>floor(3.76)</code></td><td><code>3</code></td></tr>
       <tr><td><code>ceil(x)</code></td><td>Round UP</td><td><code>ceil(3.76)</code></td><td><code>4</code></td></tr>
@@ -1832,6 +1993,56 @@ result := <span class="num">10</span> <span class="kw">DIV</span> <span class="n
       <tr><td><code>random(n)</code></td><td>Random number from 0 to n-1</td><td><code>random(10)</code></td><td>0–9</td></tr>
       <tr><td><code>RoundTo(x,-n)</code></td><td>Round to n decimal places</td><td><code>RoundTo(12.3456,-2)</code></td><td><code>12.35</code></td></tr>
     </table></div>
+
+    <h3>Round, Trunc, Floor and Ceil — Which One?</h3>
+    <p>All four turn a real number into a whole number, but they do it differently. <code>Floor</code> and <code>Ceil</code> need the <code>Math</code> unit; <code>Round</code> and <code>Trunc</code> do not.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Value</th><th><code>Round</code></th><th><code>Trunc</code></th><th><code>Floor</code></th><th><code>Ceil</code></th></tr>
+      <tr><td><code>2.7</code></td><td>3</td><td>2</td><td>2</td><td>3</td></tr>
+      <tr><td><code>2.5</code></td><td>2</td><td>2</td><td>2</td><td>3</td></tr>
+      <tr><td><code>3.5</code></td><td>4</td><td>3</td><td>3</td><td>4</td></tr>
+      <tr><td><code>-2.7</code></td><td>-3</td><td>-2</td><td>-3</td><td>-2</td></tr>
+    </table></div>
+    <ul>
+      <li><code>Floor</code> always goes <strong>down</strong> towards the smaller whole number, and <code>Ceil</code> always goes <strong>up</strong>. For negative numbers that means they point in opposite directions to what many learners expect: <code>Floor(-2.7)</code> is <code>-3</code>.</li>
+      <li><code>Trunc</code> simply <strong>chops off</strong> the decimals, so it moves towards zero. For positive numbers it matches <code>Floor</code>; for negative numbers it matches <code>Ceil</code>.</li>
+      <li><code>Round</code> finds the <strong>nearest</strong> whole number. When the value is exactly halfway (<code>.5</code>), Delphi rounds to the <strong>even</strong> neighbour, so <code>Round(2.5)</code> is <code>2</code> but <code>Round(3.5)</code> is <code>4</code>.</li>
+    </ul>
+    <div class="callout warning">
+      <div class="callout-title">Trap — Round does not always round .5 up</div>
+      <p>The rounding you learnt in primary school (always round .5 up) is <em>not</em> what <code>Round</code> does. Delphi uses &quot;ties go to the even number&quot;, so <code>Round(4.5)</code> is <code>4</code> and <code>Round(5.5)</code> is <code>6</code>. If you need a particular direction, use <code>Floor</code> or <code>Ceil</code> instead of <code>Round</code>.</p>
+    </div>
+
+    <h3>Real Division with Floor and Ceil — How Many Do You Need?</h3>
+    <p>Many counting questions follow the same pattern: use <code>/</code> (real division, so the decimals are kept), then decide which way to round the answer.</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Round with&hellip;</th><th>Use when&hellip;</th><th>Typical wording</th></tr>
+      <tr><td><code>Floor</code></td><td>You may <strong>not exceed</strong> a limit, so a partly affordable item does not count.</td><td>&quot;How many can I afford / fit / buy?&quot;</td></tr>
+      <tr><td><code>Ceil</code></td><td>You must <strong>cover everything</strong>, even if the last container is only partly used.</td><td>&quot;How many are needed / required?&quot;</td></tr>
+    </table></div>
+    <div class="code-block"><span class="code-label">Delphi — Floor: how many pies can R500 buy?</span>
+<pre><code><span class="kw">var</span>
+  rBudget, rPieCost : <span class="kw2">Real</span>;
+  iPies : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  rBudget  := <span class="num">500</span>;
+  rPieCost := <span class="num">18.50</span>;
+  iPies := Floor(rBudget / rPieCost);   <span class="cmt">// 500 / 18.50 = 27.027... -> 27</span>
+<span class="kw">end</span>;</code></pre></div>
+    <p>27 pies cost R499.50, which fits. A 28th pie would push the total to R518, which is over budget &mdash; so the partly affordable pie is thrown away.</p>
+    <div class="code-block"><span class="code-label">Delphi — Ceil: how many minibus taxis for a school trip?</span>
+<pre><code><span class="kw">var</span>
+  iLearners, iSeats, iTaxis : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iLearners := <span class="num">62</span>;
+  iSeats    := <span class="num">15</span>;
+  iTaxis := Ceil(iLearners / iSeats);   <span class="cmt">// 62 / 15 = 4.133... -> 5</span>
+<span class="kw">end</span>;</code></pre></div>
+    <p>Four taxis carry only 60 learners, so a fifth is needed for the last two. Every learner must get a seat, so we round <strong>up</strong>.</p>
+    <div class="callout tip">
+      <div class="callout-title">Why not just use Round?</div>
+      <p>Rounding to the <em>nearest</em> whole number can go the wrong way: <code>Round(4.133)</code> is <code>4</code> taxis and two learners are left standing, and <code>Round(27.6)</code> would be 28 pies and an overspent budget. Pick <code>Floor</code> or <code>Ceil</code> based on the situation, not on how close the decimal is. For whole numbers that are not negative, <code>a DIV b</code> gives the same answer as <code>Floor(a / b)</code>.</p>
+    </div>
 
     <h2>Inc and Dec</h2>
     <div class="tbl-wrap"><table>
@@ -2678,6 +2889,359 @@ ShowMessage(<span class="str">'Jackpot landed after '</span> + IntToStr(iSpins) 
       <div class="callout-title">Trap — Break vs Exit</div>
       <p>Ask yourself: <strong>"Should the code after the loop still run?"</strong> If yes, use <code>Break</code>. If no &mdash; the whole procedure should stop &mdash; use <code>Exit</code>. Also remember that <code>Break</code> in a <em>nested</em> loop only stops the loop it is written in; the outer loop carries on.</p>
     </div>
+
+    <h2>Number Algorithms with Loops</h2>
+    <p>Loops really show their strength when you combine them with <code>MOD</code> and <code>DIV</code> to investigate numbers. The algorithms below are the standard ones: each is written first as plain steps, then as Delphi code, then checked with a small trace. Use <code>uses Math</code> for <code>Power</code> in the later examples.</p>
+    <div class="callout tip">
+      <div class="callout-title">The idea behind most of them</div>
+      <p><code>a MOD b = 0</code> means <strong>b divides exactly into a</strong>, so b is a <strong>factor</strong> of a. Test every possible divisor with a loop and you can answer almost any question about factors.</p>
+    </div>
+
+    <h3>Listing All the Factors of a Number</h3>
+    <ol>
+      <li>Start with an empty text variable for the answers.</li>
+      <li>For every divisor from 1 up to the number itself:</li>
+      <li>If the number MOD the divisor is 0, add the divisor to the text.</li>
+    </ol>
+    <div class="code-block"><span class="code-label">Delphi — all factors of a number</span>
+<pre><code><span class="kw">var</span>
+  iNumber, iDivisor : <span class="kw2">Integer</span>;
+  sFactors : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  iNumber  := StrToInt(edtNumber.Text);      <span class="cmt">// e.g. 36</span>
+  sFactors := <span class="str">''</span>;
+  <span class="kw">for</span> iDivisor := <span class="num">1</span> <span class="kw">to</span> iNumber <span class="kw">do</span>
+    <span class="kw">if</span> iNumber <span class="kw">mod</span> iDivisor = <span class="num">0</span> <span class="kw">then</span>
+      sFactors := sFactors + IntToStr(iDivisor) + <span class="str">' '</span>;
+  lblOut.Caption := sFactors;                <span class="cmt">// 1 2 3 4 6 9 12 18 36</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="tbl-wrap"><table>
+      <tr><th>iDivisor</th><th>36 MOD iDivisor</th><th>Factor?</th></tr>
+      <tr><td>1</td><td>0</td><td>Yes &mdash; added</td></tr>
+      <tr><td>2</td><td>0</td><td>Yes &mdash; added</td></tr>
+      <tr><td>3</td><td>0</td><td>Yes &mdash; added</td></tr>
+      <tr><td>4</td><td>0</td><td>Yes &mdash; added</td></tr>
+      <tr><td>5</td><td>1</td><td>No</td></tr>
+      <tr><td>6</td><td>0</td><td>Yes &mdash; added</td></tr>
+      <tr><td>7</td><td>1</td><td>No</td></tr>
+      <tr><td>8</td><td>4</td><td>No</td></tr>
+      <tr><td>9</td><td>0</td><td>Yes &mdash; added</td></tr>
+    </table></div>
+    <p>The table stops at 9 to save space, but the loop carries on all the way to 36. Notice that both <strong>1</strong> and <strong>the number itself</strong> are always factors.</p>
+
+    <h3>Prime and Composite Numbers</h3>
+    <p>A <strong>prime</strong> number is greater than 1 and has <strong>exactly two</strong> factors: 1 and itself. A <strong>composite</strong> number is greater than 1 and has <strong>more than two</strong> factors. The number <strong>1 is neither</strong>, because it has only one factor.</p>
+    <p>So the algorithm is to <em>count</em> the factors with the same loop as above, then judge the count.</p>
+    <ol>
+      <li>Set the factor count to 0.</li>
+      <li>For every divisor from 1 up to the number: if the number MOD the divisor is 0, add 1 to the count.</li>
+      <li>If the number is greater than 1 and the count is exactly 2, it is prime.</li>
+      <li>If the number is greater than 1 and the count is more than 2, it is composite.</li>
+    </ol>
+    <div class="code-block"><span class="code-label">Delphi — prime, composite or neither</span>
+<pre><code><span class="kw">var</span>
+  iNumber, iDivisor, iCount : <span class="kw2">Integer</span>;
+  bPrime, bComposite : <span class="kw2">Boolean</span>;
+<span class="kw">begin</span>
+  iNumber := StrToInt(edtNumber.Text);       <span class="cmt">// e.g. 31</span>
+  iCount  := <span class="num">0</span>;                             <span class="cmt">// initialise BEFORE the loop</span>
+  <span class="kw">for</span> iDivisor := <span class="num">1</span> <span class="kw">to</span> iNumber <span class="kw">do</span>
+    <span class="kw">if</span> iNumber <span class="kw">mod</span> iDivisor = <span class="num">0</span> <span class="kw">then</span>
+      Inc(iCount);
+
+  bPrime     := (iNumber &gt; <span class="num">1</span>) <span class="kw">and</span> (iCount = <span class="num">2</span>);
+  bComposite := (iNumber &gt; <span class="num">1</span>) <span class="kw">and</span> (iCount &gt; <span class="num">2</span>);
+
+  <span class="kw">if</span> bPrime <span class="kw">then</span>
+    lblOut.Caption := <span class="str">'Prime'</span>
+  <span class="kw">else if</span> bComposite <span class="kw">then</span>
+    lblOut.Caption := <span class="str">'Composite'</span>
+  <span class="kw">else</span>
+    lblOut.Caption := <span class="str">'Neither prime nor composite'</span>;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="tbl-wrap"><table>
+      <tr><th>Number</th><th>Factors found</th><th>iCount</th><th>Result</th></tr>
+      <tr><td>31</td><td>1, 31</td><td>2</td><td>Prime</td></tr>
+      <tr><td>21</td><td>1, 3, 7, 21</td><td>4</td><td>Composite</td></tr>
+      <tr><td>1</td><td>1</td><td>1</td><td>Neither</td></tr>
+    </table></div>
+    <div class="callout warning">
+      <div class="callout-title">Trap — the number 1</div>
+      <p>Do not shortcut the composite test to <code>bComposite := NOT bPrime</code>. That would call 1 (and 0) composite, when they are neither. Keep the <code>iNumber &gt; 1</code> check in both tests so the rules match the definitions exactly, and keep the brackets around each comparison.</p>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title">Stopping early</div>
+      <p>Once the count reaches 3 the number can no longer be prime, so you could leave the loop with <code>Break</code> (see <em>Stopping Early</em> above) instead of testing every remaining divisor. The simple full loop is still the one to learn first.</p>
+    </div>
+
+    <h3>Perfect Squares</h3>
+    <p>A <strong>perfect square</strong> is a whole number multiplied by itself, such as 49 (7 &times; 7) or 81 (9 &times; 9). No loop is needed: take the square root, chop off the decimals with <code>Trunc</code>, square the result, and see whether you get the original number back. If the square root had decimals, the square of the chopped value cannot match. (Use a non-negative number, because <code>Sqrt</code> of a negative value is a runtime error.)</p>
+    <div class="code-block"><span class="code-label">Delphi — perfect square check</span>
+<pre><code><span class="kw">var</span>
+  iNumber, iRoot : <span class="kw2">Integer</span>;
+  bSquare : <span class="kw2">Boolean</span>;
+<span class="kw">begin</span>
+  iNumber := StrToInt(edtNumber.Text);       <span class="cmt">// e.g. 81</span>
+  iRoot   := Trunc(Sqrt(iNumber));           <span class="cmt">// Sqrt(81) = 9.0  -> 9</span>
+  bSquare := (iRoot * iRoot) = iNumber;      <span class="cmt">// 9 * 9 = 81 -> True</span>
+<span class="kw">end</span>;</code></pre></div>
+    <p>With 50: <code>Sqrt(50)</code> is 7.07&hellip;, <code>Trunc</code> gives 7, and 7 &times; 7 = 49, which is not 50, so 50 is <em>not</em> a perfect square.</p>
+
+    <h3>Perfect Numbers</h3>
+    <p>A <strong>perfect number</strong> equals the sum of its <strong>proper factors</strong> &mdash; all its factors <em>except the number itself</em>. For 28 the proper factors are 1, 2, 4, 7 and 14, and 1 + 2 + 4 + 7 + 14 = 28, so 28 is perfect. For 12 they add up to 1 + 2 + 3 + 4 + 6 = 16, so it is not.</p>
+    <p>No proper factor can be bigger than half the number, so the loop only needs to run from 1 to <code>iNumber DIV 2</code>. That also keeps the number itself out of the sum.</p>
+    <div class="code-block"><span class="code-label">Delphi — perfect number check</span>
+<pre><code><span class="kw">var</span>
+  iNumber, iDivisor, iSum : <span class="kw2">Integer</span>;
+  bPerfect : <span class="kw2">Boolean</span>;
+<span class="kw">begin</span>
+  iNumber := StrToInt(edtNumber.Text);       <span class="cmt">// e.g. 28</span>
+  iSum    := <span class="num">0</span>;
+  <span class="kw">for</span> iDivisor := <span class="num">1</span> <span class="kw">to</span> iNumber <span class="kw">div</span> <span class="num">2</span> <span class="kw">do</span>   <span class="cmt">// 1 to 14</span>
+    <span class="kw">if</span> iNumber <span class="kw">mod</span> iDivisor = <span class="num">0</span> <span class="kw">then</span>
+      iSum := iSum + iDivisor;
+  bPerfect := iSum = iNumber;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">Trap — do not add the number itself</div>
+      <p>If the loop ran up to <code>iNumber</code>, the number would be added as its own factor and every number would fail the test (the sum would always be too big). Stopping at <code>iNumber DIV 2</code> avoids that.</p>
+    </div>
+
+    <h3>Factorial</h3>
+    <p>The factorial of n, written <strong>n!</strong>, is every whole number from 1 up to n multiplied together. So 7! = 1 &times; 2 &times; 3 &times; 4 &times; 5 &times; 6 &times; 7 = 5 040. By definition 0! = 1.</p>
+    <ol>
+      <li>Set a running product to <strong>1</strong>.</li>
+      <li>For every counter value from 1 up to n, multiply the product by the counter.</li>
+    </ol>
+    <div class="code-block"><span class="code-label">Delphi — factorial with a FOR loop</span>
+<pre><code><span class="kw">var</span>
+  i, iNumber : <span class="kw2">Integer</span>;
+  iFactorial : <span class="kw2">Int64</span>;
+<span class="kw">begin</span>
+  iNumber    := StrToInt(edtNumber.Text);    <span class="cmt">// e.g. 7</span>
+  iFactorial := <span class="num">1</span>;                          <span class="cmt">// start at 1, NOT 0</span>
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> iNumber <span class="kw">do</span>
+    iFactorial := iFactorial * i;
+  lblOut.Caption := IntToStr(iFactorial);    <span class="cmt">// 5040</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="tbl-wrap"><table>
+      <tr><th>i</th><th>iFactorial after the pass</th></tr>
+      <tr><td>(before loop)</td><td>1</td></tr>
+      <tr><td>1</td><td>1</td></tr>
+      <tr><td>2</td><td>2</td></tr>
+      <tr><td>3</td><td>6</td></tr>
+      <tr><td>4</td><td>24</td></tr>
+      <tr><td>5</td><td>120</td></tr>
+      <tr><td>6</td><td>720</td></tr>
+      <tr><td>7</td><td>5040</td></tr>
+    </table></div>
+    <div class="callout tip">
+      <div class="callout-title">Why Int64?</div>
+      <p>Factorials grow very quickly: 13! is already 6 227 020 800, which is too big for an <code>Integer</code>. An <code>Int64</code> variable can hold factorials up to 20!. If <code>iNumber</code> is 0 the loop does not run at all, so the answer stays at 1 &mdash; exactly right for 0!. The same calculation can also be written with recursion; see the <a href="../../grade12/recursion.html">Grade 12 Recursion page</a>.</p>
+    </div>
+
+    <h3>The Fibonacci Sequence</h3>
+    <p>In the Fibonacci sequence each term is the sum of the two terms before it: <strong>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, &hellip;</strong>. A loop keeps track of the <em>previous</em> and <em>current</em> terms, builds the next one, and then slides both along.</p>
+    <ol>
+      <li>Set previous to 0 and current to 1, and start with an empty text variable.</li>
+      <li>Repeat for the number of terms wanted:</li>
+      <li>Add the previous term to the text; then next := previous + current; previous := current; current := next.</li>
+    </ol>
+    <div class="code-block"><span class="code-label">Delphi — the first ten Fibonacci terms</span>
+<pre><code><span class="kw">var</span>
+  i, iTerms, iPrev, iCurr, iNext : <span class="kw2">Integer</span>;
+  sSeries : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  iTerms  := <span class="num">10</span>;
+  iPrev   := <span class="num">0</span>;
+  iCurr   := <span class="num">1</span>;
+  sSeries := <span class="str">''</span>;
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> iTerms <span class="kw">do</span>
+  <span class="kw">begin</span>
+    sSeries := sSeries + IntToStr(iPrev) + <span class="str">' '</span>;
+    iNext   := iPrev + iCurr;      <span class="cmt">// build the new term first</span>
+    iPrev   := iCurr;              <span class="cmt">// then slide both values along</span>
+    iCurr   := iNext;
+  <span class="kw">end</span>;
+  lblOut.Caption := sSeries;       <span class="cmt">// 0 1 1 2 3 5 8 13 21 34</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="tbl-wrap"><table>
+      <tr><th>Pass</th><th>Term added (iPrev)</th><th>iNext</th><th>iPrev after</th><th>iCurr after</th></tr>
+      <tr><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+      <tr><td>2</td><td>1</td><td>2</td><td>1</td><td>2</td></tr>
+      <tr><td>3</td><td>1</td><td>3</td><td>2</td><td>3</td></tr>
+      <tr><td>4</td><td>2</td><td>5</td><td>3</td><td>5</td></tr>
+    </table></div>
+    <p>Read pass 3 as an example: iPrev is 1 and iCurr is 2, so 1 is added to the text, <code>iNext := 1 + 2</code> gives 3, and the slide makes iPrev = 2 and iCurr = 3.</p>
+    <div class="callout tip">
+      <div class="callout-title">Order matters when you slide</div>
+      <p>If you overwrite <code>iPrev</code> or <code>iCurr</code> before <code>iNext</code> has been worked out, an old value is lost for good. It is the same idea as swapping two variables with a temporary one: always save a value before you replace it.</p>
+    </div>
+
+    <h3>Greatest Common Divisor (GCD) and Lowest Common Multiple (LCM)</h3>
+    <p>The <strong>GCD</strong> of two numbers is the largest number that divides exactly into both. <strong>Euclid&rsquo;s method</strong> finds it with remainders: divide the first number by the second and keep the remainder, then let the second number become the first and the remainder become the second. Repeat until the remainder is 0. The last non-zero divisor is the GCD. We don&rsquo;t know in advance how many repeats are needed, so a <code>while</code> loop is the right choice.</p>
+    <div class="code-block"><span class="code-label">Delphi — GCD by Euclid, then LCM</span>
+<pre><code><span class="kw">var</span>
+  iFirst, iSecond, iA, iB, iRemainder, iGCD, iLCM : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iFirst  := StrToInt(edtFirst.Text);        <span class="cmt">// e.g. 84</span>
+  iSecond := StrToInt(edtSecond.Text);       <span class="cmt">// e.g. 36</span>
+
+  iA := iFirst;                              <span class="cmt">// work on copies so the originals survive</span>
+  iB := iSecond;
+  <span class="kw">while</span> iB &lt;&gt; <span class="num">0</span> <span class="kw">do</span>
+  <span class="kw">begin</span>
+    iRemainder := iA <span class="kw">mod</span> iB;
+    iA := iB;
+    iB := iRemainder;
+  <span class="kw">end</span>;
+  iGCD := iA;                                <span class="cmt">// the last non-zero divisor</span>
+
+  iLCM := (iFirst <span class="kw">div</span> iGCD) * iSecond;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="tbl-wrap"><table>
+      <tr><th>Pass</th><th>iA</th><th>iB</th><th>iA MOD iB</th></tr>
+      <tr><td>1</td><td>84</td><td>36</td><td>12</td></tr>
+      <tr><td>2</td><td>36</td><td>12</td><td>0</td></tr>
+      <tr><td>stop</td><td>12</td><td>0</td><td>&mdash; iB is 0, loop ends</td></tr>
+    </table></div>
+    <p>So <strong>GCD(84, 36) = 12</strong>. The <strong>LCM</strong> is the smallest number that both numbers divide into exactly. It follows from the GCD: <code>LCM = (first DIV GCD) &times; second</code>, so (84 DIV 12) &times; 36 = 7 &times; 36 = <strong>252</strong>. Check: 252 &divide; 84 = 3 and 252 &divide; 36 = 7, both exact.</p>
+    <div class="callout tip">
+      <div class="callout-title">Divide first, then multiply</div>
+      <p>Doing the <code>DIV</code> before the multiplication keeps the intermediate number small, which helps avoid overflow with large values, and because the GCD divides exactly into the first number the <code>DIV</code> loses nothing.</p>
+    </div>
+
+    <h3>Converting Decimal to Binary, Octal or Hexadecimal</h3>
+    <p>To write a decimal number in another base, repeatedly divide by that base. Each time, the <strong>remainder</strong> (<code>MOD</code>) is the next digit &mdash; working from the <em>right-hand</em> end of the answer &mdash; and the <strong>quotient</strong> (<code>DIV</code>) is what remains to be converted. Stop when the quotient reaches 0.</p>
+    <p>Two small tricks make the code short:</p>
+    <ul>
+      <li>A constant string <code>'0123456789ABCDEF'</code> acts as a <strong>digit lookup</strong>. A remainder of 0 to 15 picks the matching character. Because strings start at position 1, the digit for remainder <code>r</code> is <code>sDigits[r + 1]</code>, which also turns 10 to 15 into A to F automatically.</li>
+      <li>Each new digit is the <em>next one to the left</em>, so it is <strong>added to the front</strong> of the result (<code>digit + sResult</code>), not to the back.</li>
+    </ul>
+    <p>A <code>repeat</code> loop is used so that the number 0 still produces one digit (<code>'0'</code>).</p>
+    <div class="code-block"><span class="code-label">Delphi — decimal to base 2, 8 or 16</span>
+<pre><code><span class="kw">const</span>
+  sDigits = <span class="str">'0123456789ABCDEF'</span>;
+<span class="kw">var</span>
+  iNumber, iWork, iBase, iRemainder : <span class="kw2">Integer</span>;
+  sResult : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  iNumber := StrToInt(edtNumber.Text);       <span class="cmt">// e.g. 77</span>
+  iBase   := <span class="num">2</span>;                             <span class="cmt">// change to 8 for octal or 16 for hexadecimal</span>
+  iWork   := iNumber;                        <span class="cmt">// the loop destroys iWork, so keep iNumber</span>
+  sResult := <span class="str">''</span>;
+  <span class="kw">repeat</span>
+    iRemainder := iWork <span class="kw">mod</span> iBase;
+    sResult    := sDigits[iRemainder + <span class="num">1</span>] + sResult;   <span class="cmt">// new digit goes in FRONT</span>
+    iWork      := iWork <span class="kw">div</span> iBase;
+  <span class="kw">until</span> iWork = <span class="num">0</span>;
+  lblOut.Caption := sResult;
+<span class="kw">end</span>;</code></pre></div>
+    <p>Tracing <strong>77 in base 2</strong>:</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Pass</th><th>iWork before</th><th>iWork MOD 2</th><th>sResult after</th><th>iWork after (DIV 2)</th></tr>
+      <tr><td>1</td><td>77</td><td>1</td><td><code>'1'</code></td><td>38</td></tr>
+      <tr><td>2</td><td>38</td><td>0</td><td><code>'01'</code></td><td>19</td></tr>
+      <tr><td>3</td><td>19</td><td>1</td><td><code>'101'</code></td><td>9</td></tr>
+      <tr><td>4</td><td>9</td><td>1</td><td><code>'1101'</code></td><td>4</td></tr>
+      <tr><td>5</td><td>4</td><td>0</td><td><code>'01101'</code></td><td>2</td></tr>
+      <tr><td>6</td><td>2</td><td>0</td><td><code>'001101'</code></td><td>1</td></tr>
+      <tr><td>7</td><td>1</td><td>1</td><td><code>'1001101'</code></td><td>0 &mdash; stop</td></tr>
+    </table></div>
+    <p>So 77 is <code>1001101</code> in binary. With <code>iBase := 8</code> the same loop gives <code>115</code> (77 = 1 &times; 64 + 1 &times; 8 + 5), and with <code>iBase := 16</code> it gives <code>4D</code>, because the remainder 13 picks the letter D from the lookup string.</p>
+
+    <h3>Converting Binary or Octal to Decimal</h3>
+    <p>Going the other way, every digit has a <strong>place value</strong> of <code>base ^ exponent</code>. Work from the <strong>right</strong>: the last digit has exponent 0, the next one exponent 1, and so on. Multiply each digit by its place value and add everything up. The <code>Power</code> function (from the <code>Math</code> unit) does the raising to a power.</p>
+    <div class="code-block"><span class="code-label">Delphi — binary or octal text to decimal</span>
+<pre><code><span class="kw">var</span>
+  sText : <span class="kw2">string</span>;
+  i, iDigit, iExp, iBase : <span class="kw2">Integer</span>;
+  rDecimal : <span class="kw2">Real</span>;
+<span class="kw">begin</span>
+  sText    := edtValue.Text;                 <span class="cmt">// e.g. '110101'</span>
+  iBase    := <span class="num">2</span>;                            <span class="cmt">// use 8 for octal text such as '247'</span>
+  rDecimal := <span class="num">0</span>;
+  iExp     := <span class="num">0</span>;
+  <span class="kw">for</span> i := Length(sText) <span class="kw">downto</span> <span class="num">1</span> <span class="kw">do</span>      <span class="cmt">// right to left</span>
+  <span class="kw">begin</span>
+    iDigit   := StrToInt(sText[i]);
+    rDecimal := rDecimal + iDigit * Power(iBase, iExp);
+    Inc(iExp);
+  <span class="kw">end</span>;
+  lblOut.Caption := FloatToStrF(rDecimal, ffFixed, <span class="num">8</span>, <span class="num">0</span>);   <span class="cmt">// 53</span>
+<span class="kw">end</span>;</code></pre></div>
+    <p>Tracing <strong>110101</strong> in base 2, from the right:</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Digit</th><th>iExp</th><th>Power(2, iExp)</th><th>Digit &times; place value</th><th>Running total</th></tr>
+      <tr><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+      <tr><td>0</td><td>1</td><td>2</td><td>0</td><td>1</td></tr>
+      <tr><td>1</td><td>2</td><td>4</td><td>4</td><td>5</td></tr>
+      <tr><td>0</td><td>3</td><td>8</td><td>0</td><td>5</td></tr>
+      <tr><td>1</td><td>4</td><td>16</td><td>16</td><td>21</td></tr>
+      <tr><td>1</td><td>5</td><td>32</td><td>32</td><td>53</td></tr>
+    </table></div>
+    <p>So <code>110101</code> in binary is <strong>53</strong>. Setting <code>iBase := 8</code> and entering <code>247</code> gives 2 &times; 64 + 4 &times; 8 + 7 = <strong>167</strong>.</p>
+    <div class="callout tip">
+      <div class="callout-title">An alternative way to get the digit</div>
+      <p>Instead of <code>StrToInt(sText[i])</code> you can write <code>Ord(sText[i]) - Ord('0')</code>. The characters <code>'0'</code> to <code>'9'</code> are stored one after the other in the ASCII table, so subtracting the code for <code>'0'</code> leaves the digit&rsquo;s own value.</p>
+    </div>
+
+    <h3>Converting Hexadecimal to Decimal</h3>
+    <p>Hexadecimal works exactly the same way, with base 16 &mdash; but some of its digits are letters. <strong>A to F stand for 10 to 15</strong>, and <code>StrToInt</code> cannot read letters, so each character must first be turned into its value. A <code>case</code> statement does this neatly: digits <code>'0'</code> to <code>'9'</code> go through <code>StrToInt</code>, and each letter is listed with its value.</p>
+    <div class="code-block"><span class="code-label">Delphi — hexadecimal to decimal using CASE</span>
+<pre><code><span class="kw">var</span>
+  sHex : <span class="kw2">string</span>;
+  rDecimal : <span class="kw2">Real</span>;
+  iPos, iValue, iExp : <span class="kw2">Integer</span>;
+  cChar : <span class="kw2">Char</span>;
+<span class="kw">begin</span>
+  sHex     := InputBox(<span class="str">'Hexadecimal'</span>, <span class="str">'Enter a hex value:'</span>, <span class="str">'1C5'</span>);
+  rDecimal := <span class="num">0</span>;
+  iExp     := <span class="num">0</span>;
+  <span class="kw">for</span> iPos := Length(sHex) <span class="kw">downto</span> <span class="num">1</span> <span class="kw">do</span>
+  <span class="kw">begin</span>
+    cChar := UpCase(sHex[iPos]);             <span class="cmt">// accept 'c' as well as 'C'</span>
+    <span class="kw">case</span> cChar <span class="kw">of</span>
+      <span class="str">'0'</span>..<span class="str">'9'</span> : iValue := StrToInt(cChar);
+      <span class="str">'A'</span> : iValue := <span class="num">10</span>;
+      <span class="str">'B'</span> : iValue := <span class="num">11</span>;
+      <span class="str">'C'</span> : iValue := <span class="num">12</span>;
+      <span class="str">'D'</span> : iValue := <span class="num">13</span>;
+      <span class="str">'E'</span> : iValue := <span class="num">14</span>;
+      <span class="str">'F'</span> : iValue := <span class="num">15</span>;
+    <span class="kw">end</span>;
+    rDecimal := rDecimal + iValue * Power(<span class="num">16</span>, iExp);
+    Inc(iExp);
+  <span class="kw">end</span>;
+  ShowMessage(FloatToStrF(rDecimal, ffFixed, <span class="num">8</span>, <span class="num">0</span>));   <span class="cmt">// 453</span>
+<span class="kw">end</span>;</code></pre></div>
+    <p>For <code>1C5</code>: the 5 has exponent 0 (5 &times; 1 = 5), the C is 12 with exponent 1 (12 &times; 16 = 192), and the 1 has exponent 2 (1 &times; 256 = 256). Total: 5 + 192 + 256 = <strong>453</strong>.</p>
+
+    <h4>Alternative — letting Ord do the work</h4>
+    <p>Instead of listing six letters, use the fact that <code>'A'</code> to <code>'F'</code> are consecutive in the ASCII table. The distance of a letter from <code>'A'</code> is <code>Ord(c) - Ord('A')</code>, and since A is worth 10 you simply add 10. For <code>'C'</code> that is 67 &minus; 65 + 10 = 12.</p>
+    <div class="code-block"><span class="code-label">Delphi — the same conversion using Ord with grouped CASE ranges</span>
+<pre><code><span class="kw">for</span> iPos := Length(sHex) <span class="kw">downto</span> <span class="num">1</span> <span class="kw">do</span>
+<span class="kw">begin</span>
+  <span class="kw">case</span> UpCase(sHex[iPos]) <span class="kw">of</span>
+    <span class="str">'0'</span>..<span class="str">'9'</span> : iValue := Ord(sHex[iPos]) - Ord(<span class="str">'0'</span>);
+    <span class="str">'A'</span>..<span class="str">'F'</span> : iValue := Ord(UpCase(sHex[iPos])) - Ord(<span class="str">'A'</span>) + <span class="num">10</span>;
+  <span class="kw">end</span>;
+  rDecimal := rDecimal + iValue * Power(<span class="num">16</span>, iExp);
+  Inc(iExp);
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">Trap — the right-to-left order</div>
+      <p>The exponent must start at 0 on the <em>last</em> character. If you loop from the front (<code>for iPos := 1 to Length(sHex)</code>) with the exponent starting at 0, every digit gets the wrong place value. Either loop with <code>downto</code>, as above, or start the exponent at <code>Length(sHex) - 1</code> and count down.</p>
+    </div>
+
+    <h3>Which Loop for Which Algorithm?</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Algorithm</th><th>Loop used</th><th>Why</th></tr>
+      <tr><td>Factors, prime test, perfect number, factorial, Fibonacci</td><td><code>for</code></td><td>The number of repeats is known: 1 to n, or a chosen number of terms.</td></tr>
+      <tr><td>GCD (Euclid)</td><td><code>while</code></td><td>Nobody knows how many remainders are needed; it might even be zero if the second number is 0.</td></tr>
+      <tr><td>Decimal to another base</td><td><code>repeat</code></td><td>Unknown number of divisions, but at least one digit must be produced, even for 0.</td></tr>
+      <tr><td>Binary, octal or hexadecimal to decimal</td><td><code>for &hellip; downto</code></td><td>One pass per character, from the last one to the first.</td></tr>
+    </table></div>
 </section>
 
 <section class="chapter" id="ch07">
@@ -2833,6 +3397,160 @@ sNewText := <span class="fn">Copy</span>(sSourceText, <span class="num">1</span>
   sName      := Copy(sFullName, iCommaPos + <span class="num">2</span>, Length(sFullName));
   lblOut.Caption := <span class="str">'Name: '</span> + sName + <span class="str">'  Surname: '</span> + sSurname;
 <span class="kw">end</span>;</code></pre></div>
+
+    <h3>Count the Words in a Sentence (Even With Extra Spaces)</h3>
+    <p>Counting the spaces and adding 1 only works when every word is separated by <em>exactly one</em> space. As soon as a learner types two spaces in a row, the answer is wrong. The reliable approach is to count the moments where a <strong>new word begins</strong>: a non-space character that arrives while you were <em>not</em> already inside a word. A Boolean flag, <code>bInWord</code>, remembers which state you are in.</p>
+    <div class="code-block"><span class="code-label">Delphi — count words using an inWord flag</span>
+<pre><code><span class="kw">var</span>
+  sSentence: <span class="kw2">string</span>;
+  i, iWords: <span class="kw2">Integer</span>;
+  bInWord: <span class="kw2">Boolean</span>;
+<span class="kw">begin</span>
+  sSentence := edtSentence.Text;     <span class="cmt">// e.g. 'Eskom  load   shedding is back'</span>
+  iWords  := <span class="num">0</span>;
+  bInWord := <span class="kw">False</span>;
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sSentence) <span class="kw">do</span>
+    <span class="kw">if</span> sSentence[i] = <span class="str">' '</span> <span class="kw">then</span>
+      bInWord := <span class="kw">False</span>               <span class="cmt">// a space ends any word we were in</span>
+    <span class="kw">else</span> <span class="kw">if</span> bInWord = <span class="kw">False</span> <span class="kw">then</span>   <span class="cmt">// a letter, and we were NOT in a word yet</span>
+    <span class="kw">begin</span>
+      Inc(iWords);                   <span class="cmt">// a new word starts here</span>
+      bInWord := <span class="kw">True</span>;
+    <span class="kw">end</span>;
+  lblResult.Caption := <span class="str">'Words: '</span> + IntToStr(iWords);   <span class="cmt">// 5</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">Count transitions, not spaces</div>
+      <p>In <code>'Eskom  load   shedding is back'</code> there are 7 spaces but only 5 words. The counter only goes up on the character where a word <em>starts</em>, so extra spaces never matter.</p>
+    </div>
+
+    <h3>Remove Characters by Building a New String</h3>
+    <p>You cannot "pull" a character out of the middle of a string with a loop easily, and you should not <code>Delete</code> inside a <code>for</code> loop (the positions shift under you). The safe pattern is to start with an <strong>empty result string</strong>, look at every character of the original, and append only the characters you want to keep.</p>
+    <div class="code-block"><span class="code-label">Delphi — remove all digits (keep everything else)</span>
+<pre><code><span class="kw">var</span>
+  sText, sClean: <span class="kw2">string</span>;
+  i: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  sText  := <span class="str">'Bo2k3aap7'</span>;
+  sClean := <span class="str">''</span>;
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sText) <span class="kw">do</span>
+    <span class="kw">if</span> <span class="kw">not</span> (sText[i] <span class="kw">IN</span> [<span class="str">'0'</span>..<span class="str">'9'</span>]) <span class="kw">then</span>
+      sClean := sClean + sText[i];
+  <span class="cmt">// sClean = 'Bokaap'</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="code-block"><span class="code-label">Delphi — keep only letters and digits (remove symbols)</span>
+<pre><code>sClean := <span class="str">''</span>;
+<span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sText) <span class="kw">do</span>
+  <span class="kw">if</span> sText[i] <span class="kw">IN</span> [<span class="str">'A'</span>..<span class="str">'Z'</span>, <span class="str">'a'</span>..<span class="str">'z'</span>, <span class="str">'0'</span>..<span class="str">'9'</span>] <span class="kw">then</span>
+    sClean := sClean + sText[i];
+<span class="cmt">// 'Sipho#12!_Ngcobo'  becomes  'Sipho12Ngcobo'</span></code></pre></div>
+    <div class="code-block"><span class="code-label">Delphi — remove every space</span>
+<pre><code>sClean := <span class="str">''</span>;
+<span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sText) <span class="kw">do</span>
+  <span class="kw">if</span> sText[i] &lt;&gt; <span class="str">' '</span> <span class="kw">then</span>
+    sClean := sClean + sText[i];
+<span class="cmt">// '082 555 1234'  becomes  '0825551234'</span></code></pre></div>
+    <p>All three versions share the same skeleton; only the <code>if</code> condition changes. Notice the character ranges: <code>'A'..'Z'</code> means "every character from A to Z" and only works inside a set.</p>
+
+    <h3>Extract Each Word (Tokens) With Pos, Copy and Delete</h3>
+    <p>To split a sentence into its words, keep finding the next space, copy everything in front of it, then <code>Delete</code> that piece (and the space) from a <strong>working copy</strong> so the next word moves to the front. Two details make it work:</p>
+    <ul>
+      <li>Add one extra space to the end of the working copy, so the <em>last</em> word also has a space after it.</li>
+      <li>Only use a token if it is not an empty string. Two spaces in a row produce an empty token, and you must skip it.</li>
+    </ul>
+    <div class="code-block"><span class="code-label">Delphi — list every word in a memo</span>
+<pre><code><span class="kw">var</span>
+  sWork, sToken: <span class="kw2">string</span>;
+  iSpace: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  sWork := edtSentence.Text + <span class="str">' '</span>;     <span class="cmt">// e.g. 'Pap en  vleis  op Sondag'</span>
+  memOut.Clear;
+  iSpace := Pos(<span class="str">' '</span>, sWork);
+  <span class="kw">while</span> iSpace &gt; <span class="num">0</span> <span class="kw">do</span>
+  <span class="kw">begin</span>
+    sToken := Copy(sWork, <span class="num">1</span>, iSpace - <span class="num">1</span>);   <span class="cmt">// the text before the space</span>
+    <span class="kw">if</span> sToken &lt;&gt; <span class="str">''</span> <span class="kw">then</span>                      <span class="cmt">// skip empty tokens</span>
+      memOut.Lines.Add(sToken);
+    Delete(sWork, <span class="num">1</span>, iSpace);              <span class="cmt">// remove the token AND its space</span>
+    iSpace := Pos(<span class="str">' '</span>, sWork);              <span class="cmt">// find the next space</span>
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</code></pre></div>
+    <p>The same pattern splits on any separator. For comma-separated data, append <code>','</code> instead of a space and search for <code>','</code>. Because the loop destroys <code>sWork</code>, the original text in <code>edtSentence</code> stays untouched.</p>
+
+    <h3>Pick a Random Word From a Sentence</h3>
+    <p>A common trick is to choose a random <em>space</em>, throw away everything up to and including it, and then take the word that now sits at the front. Assume the sentence has single spaces and ends with a full stop.</p>
+    <ol>
+      <li>Pick a random position between 1 and the length. Repeat until the character at that position is a space.</li>
+      <li><code>Delete</code> from position 1 up to and including that space.</li>
+      <li>Find the next space with <code>Pos</code>. If there is one, copy the characters before it.</li>
+      <li>If there is no further space, you picked the last space: copy what is left, except the final full stop.</li>
+    </ol>
+    <div class="code-block"><span class="code-label">Delphi — random word after a random space</span>
+<pre><code><span class="kw">var</span>
+  sRest, sPick: <span class="kw2">string</span>;
+  iPlace, iSpace: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  Randomize;                                 <span class="cmt">// once, e.g. in FormCreate</span>
+  sRest := <span class="str">'Table Mountain is covered in cloud.'</span>;
+  <span class="kw">repeat</span>
+    iPlace := Random(Length(sRest)) + <span class="num">1</span>;   <span class="cmt">// Random(n) gives 0..n-1, so add 1</span>
+  <span class="kw">until</span> sRest[iPlace] = <span class="str">' '</span>;
+  Delete(sRest, <span class="num">1</span>, iPlace);                <span class="cmt">// remove everything up to the chosen space</span>
+  iSpace := Pos(<span class="str">' '</span>, sRest);
+  <span class="kw">if</span> iSpace &gt; <span class="num">0</span> <span class="kw">then</span>
+    sPick := Copy(sRest, <span class="num">1</span>, iSpace - <span class="num">1</span>)
+  <span class="kw">else</span>
+    sPick := Copy(sRest, <span class="num">1</span>, Length(sRest) - <span class="num">1</span>);   <span class="cmt">// last word: drop the full stop</span>
+  lblWord.Caption := sPick;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">TRAP: Random(n) never returns n</div>
+      <p><code>Random(Length(sRest))</code> gives a number from <code>0</code> to <code>Length - 1</code>. Position 0 does not exist in a string, so always add 1 to land in the range <code>1..Length</code>. Also remember that the <code>repeat</code> loop would never finish if the sentence contained no spaces at all.</p>
+    </div>
+
+    <h3>Palindrome Test</h3>
+    <p>A <strong>palindrome</strong> reads the same forwards and backwards (for example <code>RACECAR</code>). Build the reverse with a <code>downto</code> loop, then compare the two strings with <code>=</code>. This assumes the text has already been <em>normalised</em>: all the same case and no spaces or punctuation (use <code>UpperCase</code> and the remove-spaces pattern above first).</p>
+    <div class="code-block"><span class="code-label">Delphi — is it a palindrome?</span>
+<pre><code><span class="kw">var</span>
+  sWord, sBack: <span class="kw2">string</span>;
+  i: <span class="kw2">Integer</span>;
+  bPalindrome: <span class="kw2">Boolean</span>;
+<span class="kw">begin</span>
+  sWord := <span class="str">'RACECAR'</span>;
+  sBack := <span class="str">''</span>;
+  <span class="kw">for</span> i := Length(sWord) <span class="kw">downto</span> <span class="num">1</span> <span class="kw">do</span>
+    sBack := sBack + sWord[i];
+  bPalindrome := (sWord = sBack);     <span class="cmt">// True for RACECAR, False for KAROO</span>
+<span class="kw">end</span>;</code></pre></div>
+
+    <h3>Replace Characters In Place</h3>
+    <p>Because a string is a row of characters you can number, you can <em>overwrite</em> one character by assigning to its position. Replacing keeps the length the same, whereas <code>Insert</code> makes the string longer.</p>
+    <div class="code-block"><span class="code-label">Delphi — replace every hyphen with a space</span>
+<pre><code><span class="kw">var</span>
+  sPhone: <span class="kw2">string</span>;
+  i: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  sPhone := <span class="str">'021-555-0147'</span>;
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sPhone) <span class="kw">do</span>
+    <span class="kw">if</span> sPhone[i] = <span class="str">'-'</span> <span class="kw">then</span>
+      sPhone[i] := <span class="str">' '</span>;
+  <span class="cmt">// sPhone = '021 555 0147'  (still 12 characters)</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout">
+      <div class="callout-title">Replace vs Insert</div>
+      <p><code>sPhone[4] := ' '</code> <em>overwrites</em> the character at position 4. <code>Insert(' ', sPhone, 4)</code> <em>squeezes a new space in</em> and pushes the rest to the right, so the string grows by one. Copy the text into a string variable first; you cannot assign to one character of <code>edtPhone.Text</code> directly.</p>
+    </div>
+
+    <h3>Test Membership With IN</h3>
+    <p><code>IN</code> asks "is this single character one of the members of this set?" The result is Boolean, so it is perfect inside an <code>if</code>. A set can list characters, or use a range such as <code>'0'..'9'</code>.</p>
+    <div class="code-block"><span class="code-label">Delphi — IN with a set</span>
+<pre><code>bVowel := cLetter <span class="kw">IN</span> [<span class="str">'A'</span>,<span class="str">'E'</span>,<span class="str">'I'</span>,<span class="str">'O'</span>,<span class="str">'U'</span>];
+<span class="kw">if</span> sCode[<span class="num">1</span>] <span class="kw">IN</span> [<span class="str">'0'</span>..<span class="str">'9'</span>] <span class="kw">then</span>
+  ShowMessage(<span class="str">'Starts with a digit'</span>);</code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">TRAP: IN is not a substring search</div>
+      <p><code>IN</code> only tests one character against a set of characters. It cannot tell you whether the text <code>'Pty'</code> appears inside a company name. To search for a piece of text, use <code>Pos</code> and check whether the answer is greater than 0: <code>if Pos('Pty', sName) &gt; 0 then ...</code></p>
+    </div>
 
     <h2>Worked Example — Reading a South African ID Number</h2>
     <p>A South African ID number is a 13-digit string that packs several pieces of information into fixed positions — a favourite exam question because it uses <code>Length</code>, <code>Copy</code> and the index <code>[ ]</code> all at once.</p>

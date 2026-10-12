@@ -171,6 +171,160 @@ sNewText := <span class="fn">Copy</span>(sSourceText, <span class="num">1</span>
   lblOut.Caption := <span class="str">'Name: '</span> + sName + <span class="str">'  Surname: '</span> + sSurname;
 <span class="kw">end</span>;</code></pre></div>
 
+    <h3>Count the Words in a Sentence (Even With Extra Spaces)</h3>
+    <p>Counting the spaces and adding 1 only works when every word is separated by <em>exactly one</em> space. As soon as a learner types two spaces in a row, the answer is wrong. The reliable approach is to count the moments where a <strong>new word begins</strong>: a non-space character that arrives while you were <em>not</em> already inside a word. A Boolean flag, <code>bInWord</code>, remembers which state you are in.</p>
+    <div class="code-block"><span class="code-label">Delphi — count words using an inWord flag</span>
+<pre><code><span class="kw">var</span>
+  sSentence: <span class="kw2">string</span>;
+  i, iWords: <span class="kw2">Integer</span>;
+  bInWord: <span class="kw2">Boolean</span>;
+<span class="kw">begin</span>
+  sSentence := edtSentence.Text;     <span class="cmt">// e.g. 'Eskom  load   shedding is back'</span>
+  iWords  := <span class="num">0</span>;
+  bInWord := <span class="kw">False</span>;
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sSentence) <span class="kw">do</span>
+    <span class="kw">if</span> sSentence[i] = <span class="str">' '</span> <span class="kw">then</span>
+      bInWord := <span class="kw">False</span>               <span class="cmt">// a space ends any word we were in</span>
+    <span class="kw">else</span> <span class="kw">if</span> bInWord = <span class="kw">False</span> <span class="kw">then</span>   <span class="cmt">// a letter, and we were NOT in a word yet</span>
+    <span class="kw">begin</span>
+      Inc(iWords);                   <span class="cmt">// a new word starts here</span>
+      bInWord := <span class="kw">True</span>;
+    <span class="kw">end</span>;
+  lblResult.Caption := <span class="str">'Words: '</span> + IntToStr(iWords);   <span class="cmt">// 5</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout tip">
+      <div class="callout-title">Count transitions, not spaces</div>
+      <p>In <code>'Eskom  load   shedding is back'</code> there are 7 spaces but only 5 words. The counter only goes up on the character where a word <em>starts</em>, so extra spaces never matter.</p>
+    </div>
+
+    <h3>Remove Characters by Building a New String</h3>
+    <p>You cannot "pull" a character out of the middle of a string with a loop easily, and you should not <code>Delete</code> inside a <code>for</code> loop (the positions shift under you). The safe pattern is to start with an <strong>empty result string</strong>, look at every character of the original, and append only the characters you want to keep.</p>
+    <div class="code-block"><span class="code-label">Delphi — remove all digits (keep everything else)</span>
+<pre><code><span class="kw">var</span>
+  sText, sClean: <span class="kw2">string</span>;
+  i: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  sText  := <span class="str">'Bo2k3aap7'</span>;
+  sClean := <span class="str">''</span>;
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sText) <span class="kw">do</span>
+    <span class="kw">if</span> <span class="kw">not</span> (sText[i] <span class="kw">IN</span> [<span class="str">'0'</span>..<span class="str">'9'</span>]) <span class="kw">then</span>
+      sClean := sClean + sText[i];
+  <span class="cmt">// sClean = 'Bokaap'</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="code-block"><span class="code-label">Delphi — keep only letters and digits (remove symbols)</span>
+<pre><code>sClean := <span class="str">''</span>;
+<span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sText) <span class="kw">do</span>
+  <span class="kw">if</span> sText[i] <span class="kw">IN</span> [<span class="str">'A'</span>..<span class="str">'Z'</span>, <span class="str">'a'</span>..<span class="str">'z'</span>, <span class="str">'0'</span>..<span class="str">'9'</span>] <span class="kw">then</span>
+    sClean := sClean + sText[i];
+<span class="cmt">// 'Sipho#12!_Ngcobo'  becomes  'Sipho12Ngcobo'</span></code></pre></div>
+    <div class="code-block"><span class="code-label">Delphi — remove every space</span>
+<pre><code>sClean := <span class="str">''</span>;
+<span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sText) <span class="kw">do</span>
+  <span class="kw">if</span> sText[i] &lt;&gt; <span class="str">' '</span> <span class="kw">then</span>
+    sClean := sClean + sText[i];
+<span class="cmt">// '082 555 1234'  becomes  '0825551234'</span></code></pre></div>
+    <p>All three versions share the same skeleton; only the <code>if</code> condition changes. Notice the character ranges: <code>'A'..'Z'</code> means "every character from A to Z" and only works inside a set.</p>
+
+    <h3>Extract Each Word (Tokens) With Pos, Copy and Delete</h3>
+    <p>To split a sentence into its words, keep finding the next space, copy everything in front of it, then <code>Delete</code> that piece (and the space) from a <strong>working copy</strong> so the next word moves to the front. Two details make it work:</p>
+    <ul>
+      <li>Add one extra space to the end of the working copy, so the <em>last</em> word also has a space after it.</li>
+      <li>Only use a token if it is not an empty string. Two spaces in a row produce an empty token, and you must skip it.</li>
+    </ul>
+    <div class="code-block"><span class="code-label">Delphi — list every word in a memo</span>
+<pre><code><span class="kw">var</span>
+  sWork, sToken: <span class="kw2">string</span>;
+  iSpace: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  sWork := edtSentence.Text + <span class="str">' '</span>;     <span class="cmt">// e.g. 'Pap en  vleis  op Sondag'</span>
+  memOut.Clear;
+  iSpace := Pos(<span class="str">' '</span>, sWork);
+  <span class="kw">while</span> iSpace &gt; <span class="num">0</span> <span class="kw">do</span>
+  <span class="kw">begin</span>
+    sToken := Copy(sWork, <span class="num">1</span>, iSpace - <span class="num">1</span>);   <span class="cmt">// the text before the space</span>
+    <span class="kw">if</span> sToken &lt;&gt; <span class="str">''</span> <span class="kw">then</span>                      <span class="cmt">// skip empty tokens</span>
+      memOut.Lines.Add(sToken);
+    Delete(sWork, <span class="num">1</span>, iSpace);              <span class="cmt">// remove the token AND its space</span>
+    iSpace := Pos(<span class="str">' '</span>, sWork);              <span class="cmt">// find the next space</span>
+  <span class="kw">end</span>;
+<span class="kw">end</span>;</code></pre></div>
+    <p>The same pattern splits on any separator. For comma-separated data, append <code>','</code> instead of a space and search for <code>','</code>. Because the loop destroys <code>sWork</code>, the original text in <code>edtSentence</code> stays untouched.</p>
+
+    <h3>Pick a Random Word From a Sentence</h3>
+    <p>A common trick is to choose a random <em>space</em>, throw away everything up to and including it, and then take the word that now sits at the front. Assume the sentence has single spaces and ends with a full stop.</p>
+    <ol>
+      <li>Pick a random position between 1 and the length. Repeat until the character at that position is a space.</li>
+      <li><code>Delete</code> from position 1 up to and including that space.</li>
+      <li>Find the next space with <code>Pos</code>. If there is one, copy the characters before it.</li>
+      <li>If there is no further space, you picked the last space: copy what is left, except the final full stop.</li>
+    </ol>
+    <div class="code-block"><span class="code-label">Delphi — random word after a random space</span>
+<pre><code><span class="kw">var</span>
+  sRest, sPick: <span class="kw2">string</span>;
+  iPlace, iSpace: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  Randomize;                                 <span class="cmt">// once, e.g. in FormCreate</span>
+  sRest := <span class="str">'Table Mountain is covered in cloud.'</span>;
+  <span class="kw">repeat</span>
+    iPlace := Random(Length(sRest)) + <span class="num">1</span>;   <span class="cmt">// Random(n) gives 0..n-1, so add 1</span>
+  <span class="kw">until</span> sRest[iPlace] = <span class="str">' '</span>;
+  Delete(sRest, <span class="num">1</span>, iPlace);                <span class="cmt">// remove everything up to the chosen space</span>
+  iSpace := Pos(<span class="str">' '</span>, sRest);
+  <span class="kw">if</span> iSpace &gt; <span class="num">0</span> <span class="kw">then</span>
+    sPick := Copy(sRest, <span class="num">1</span>, iSpace - <span class="num">1</span>)
+  <span class="kw">else</span>
+    sPick := Copy(sRest, <span class="num">1</span>, Length(sRest) - <span class="num">1</span>);   <span class="cmt">// last word: drop the full stop</span>
+  lblWord.Caption := sPick;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">TRAP: Random(n) never returns n</div>
+      <p><code>Random(Length(sRest))</code> gives a number from <code>0</code> to <code>Length - 1</code>. Position 0 does not exist in a string, so always add 1 to land in the range <code>1..Length</code>. Also remember that the <code>repeat</code> loop would never finish if the sentence contained no spaces at all.</p>
+    </div>
+
+    <h3>Palindrome Test</h3>
+    <p>A <strong>palindrome</strong> reads the same forwards and backwards (for example <code>RACECAR</code>). Build the reverse with a <code>downto</code> loop, then compare the two strings with <code>=</code>. This assumes the text has already been <em>normalised</em>: all the same case and no spaces or punctuation (use <code>UpperCase</code> and the remove-spaces pattern above first).</p>
+    <div class="code-block"><span class="code-label">Delphi — is it a palindrome?</span>
+<pre><code><span class="kw">var</span>
+  sWord, sBack: <span class="kw2">string</span>;
+  i: <span class="kw2">Integer</span>;
+  bPalindrome: <span class="kw2">Boolean</span>;
+<span class="kw">begin</span>
+  sWord := <span class="str">'RACECAR'</span>;
+  sBack := <span class="str">''</span>;
+  <span class="kw">for</span> i := Length(sWord) <span class="kw">downto</span> <span class="num">1</span> <span class="kw">do</span>
+    sBack := sBack + sWord[i];
+  bPalindrome := (sWord = sBack);     <span class="cmt">// True for RACECAR, False for KAROO</span>
+<span class="kw">end</span>;</code></pre></div>
+
+    <h3>Replace Characters In Place</h3>
+    <p>Because a string is a row of characters you can number, you can <em>overwrite</em> one character by assigning to its position. Replacing keeps the length the same, whereas <code>Insert</code> makes the string longer.</p>
+    <div class="code-block"><span class="code-label">Delphi — replace every hyphen with a space</span>
+<pre><code><span class="kw">var</span>
+  sPhone: <span class="kw2">string</span>;
+  i: <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  sPhone := <span class="str">'021-555-0147'</span>;
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> Length(sPhone) <span class="kw">do</span>
+    <span class="kw">if</span> sPhone[i] = <span class="str">'-'</span> <span class="kw">then</span>
+      sPhone[i] := <span class="str">' '</span>;
+  <span class="cmt">// sPhone = '021 555 0147'  (still 12 characters)</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout">
+      <div class="callout-title">Replace vs Insert</div>
+      <p><code>sPhone[4] := ' '</code> <em>overwrites</em> the character at position 4. <code>Insert(' ', sPhone, 4)</code> <em>squeezes a new space in</em> and pushes the rest to the right, so the string grows by one. Copy the text into a string variable first; you cannot assign to one character of <code>edtPhone.Text</code> directly.</p>
+    </div>
+
+    <h3>Test Membership With IN</h3>
+    <p><code>IN</code> asks "is this single character one of the members of this set?" The result is Boolean, so it is perfect inside an <code>if</code>. A set can list characters, or use a range such as <code>'0'..'9'</code>.</p>
+    <div class="code-block"><span class="code-label">Delphi — IN with a set</span>
+<pre><code>bVowel := cLetter <span class="kw">IN</span> [<span class="str">'A'</span>,<span class="str">'E'</span>,<span class="str">'I'</span>,<span class="str">'O'</span>,<span class="str">'U'</span>];
+<span class="kw">if</span> sCode[<span class="num">1</span>] <span class="kw">IN</span> [<span class="str">'0'</span>..<span class="str">'9'</span>] <span class="kw">then</span>
+  ShowMessage(<span class="str">'Starts with a digit'</span>);</code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">TRAP: IN is not a substring search</div>
+      <p><code>IN</code> only tests one character against a set of characters. It cannot tell you whether the text <code>'Pty'</code> appears inside a company name. To search for a piece of text, use <code>Pos</code> and check whether the answer is greater than 0: <code>if Pos('Pty', sName) &gt; 0 then ...</code></p>
+    </div>
+
     <h2>Worked Example — Reading a South African ID Number</h2>
     <p>A South African ID number is a 13-digit string that packs several pieces of information into fixed positions — a favourite exam question because it uses <code>Length</code>, <code>Copy</code> and the index <code>[ ]</code> all at once.</p>
     <div class="tbl-wrap"><table>

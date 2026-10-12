@@ -317,6 +317,135 @@ ShowMessage(<span class="str">'Top learner: '</span> + arrName[iTopPos] + <span 
 <span class="kw">end</span>;</code></pre></div>
 <p>That completes the full <strong>read → process → write</strong> cycle: read the data in, work with it in arrays, then save the results back out to a new file.</p>
 
+<h2>Reading a File Made of Groups Into Parallel Arrays</h2>
+<p>Not every file has one record per line. Sometimes a record is a small <strong>group of lines</strong>: a heading line you do not need, a name, a variable number of values, and then a <strong>blank line</strong> that separates it from the next group. Because the number of value lines changes from group to group, a plain "one <code>ReadLn</code> per record" will not work. Instead, use an inner loop that keeps reading <em>until it meets the blank line</em>.</p>
+<div class="callout">
+  <div class="callout-title">The scenario</div>
+  <p>A township market keeps a file <code>Stalls.txt</code>. Each group starts with a stall label (which we ignore), then the owner's name, then one line per sale in rand, then a blank line. Stall 3 had no sales yet, so its group goes straight from the name to the blank line.</p>
+</div>
+<div class="code-block"><span class="code-label">Stalls.txt</span>
+<pre><code>Stall 1
+Thandi Mokoena
+24.50
+18.00
+31.25
+
+Stall 2
+Sipho Dlamini
+55.00
+42.50
+
+Stall 3
+Lerato Naidoo
+
+Stall 4
+Pieter Jacobs
+30.00
+28.00
+32.00
+30.00
+</code></pre></div>
+<p>We want to know, for each stall, <strong>how many sales</strong> there were and <strong>the total takings</strong>, stored in three parallel arrays that share one index per stall:</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Index</th><th><code>arrOwner</code></th><th><code>arrSaleCount</code></th><th><code>arrTakings</code></th></tr>
+  <tr><td>1</td><td>Thandi Mokoena</td><td>3</td><td>73.75</td></tr>
+  <tr><td>2</td><td>Sipho Dlamini</td><td>2</td><td>97.50</td></tr>
+  <tr><td>3</td><td>Lerato Naidoo</td><td>0</td><td>0</td></tr>
+  <tr><td>4</td><td>Pieter Jacobs</td><td>4</td><td>120.00</td></tr>
+</table></div>
+
+<h3>Step 1 &mdash; Read each group</h3>
+<ol>
+  <li>For every pass of the outer <code>while not EOF</code> loop, one whole group is read, so count one more entry with <code>Inc</code>.</li>
+  <li>Read the label line into a throw-away variable (we do not need it, but we must still move past it).</li>
+  <li>Read the owner's name straight into the array.</li>
+  <li>Read the next line. If it is blank the group has no sales; otherwise it is the first sale.</li>
+  <li>Reset the sale counter and total to 0 <em>for this group</em>, then loop while the line is not blank: count it, add its value, read the next line.</li>
+  <li>When the blank line is reached, store the counter and the total at the same index as the name.</li>
+</ol>
+<div class="code-block"><span class="code-label">Delphi &mdash; groups into parallel arrays</span>
+<pre><code><span class="kw">const</span>
+  MaxStalls = <span class="num">30</span>;
+<span class="kw">var</span>
+  arrOwner     : <span class="kw">array</span> [<span class="num">1</span>..MaxStalls] <span class="kw">of</span> <span class="kw2">string</span>;
+  arrSaleCount : <span class="kw">array</span> [<span class="num">1</span>..MaxStalls] <span class="kw">of</span> <span class="kw2">Integer</span>;
+  arrTakings   : <span class="kw">array</span> [<span class="num">1</span>..MaxStalls] <span class="kw">of</span> <span class="kw2">Real</span>;
+  iEntries     : <span class="kw2">Integer</span>;
+
+<span class="cmt">// ... inside the button's event handler:</span>
+<span class="kw">var</span>
+  tFile : TextFile;
+  sLabel, sLine : <span class="kw2">string</span>;
+  iSales : <span class="kw2">Integer</span>;
+  rTotal : <span class="kw2">Real</span>;
+<span class="kw">begin</span>
+  iEntries := <span class="num">0</span>;
+  AssignFile(tFile, <span class="str">'Stalls.txt'</span>);
+  Reset(tFile);
+  <span class="kw">while not</span> EOF(tFile) <span class="kw">do</span>
+  <span class="kw">begin</span>
+    Inc(iEntries);
+    ReadLn(tFile, sLabel);                     <span class="cmt">// 'Stall 1' - skipped</span>
+    ReadLn(tFile, arrOwner[iEntries]);         <span class="cmt">// the owner's name</span>
+    ReadLn(tFile, sLine);                      <span class="cmt">// first sale, or a blank line</span>
+    iSales := <span class="num">0</span>;                             <span class="cmt">// reset for EVERY group</span>
+    rTotal := <span class="num">0</span>;
+    <span class="kw">while</span> sLine &lt;&gt; <span class="str">''</span> <span class="kw">do</span>
+    <span class="kw">begin</span>
+      Inc(iSales);
+      rTotal := rTotal + StrToFloat(sLine);
+      ReadLn(tFile, sLine);                    <span class="cmt">// next sale, or the blank separator</span>
+    <span class="kw">end</span>;
+    arrSaleCount[iEntries] := iSales;
+    arrTakings[iEntries]   := rTotal;
+  <span class="kw">end</span>;
+  CloseFile(tFile);
+<span class="kw">end</span>;</code></pre></div>
+<div class="callout warning">
+  <div class="callout-title">TRAP: reset the counters inside the outer loop</div>
+  <p>If <code>iSales := 0</code> and <code>rTotal := 0</code> sit <em>above</em> the outer loop, the second stall carries on adding to the first stall's numbers. They belong inside the loop, just before the inner <code>while</code>. Also, this pattern assumes the file is well formed: <strong>every group, including the last, is followed by a blank line</strong>. If the last blank line is missing, the final <code>ReadLn</code> tries to read past the end of the file and the program crashes.</p>
+</div>
+<div class="callout tip">
+  <div class="callout-title">StrToFloat and your regional settings</div>
+  <p><code>StrToFloat</code> expects the decimal separator your computer is set up for. If a file uses a full stop (<code>24.50</code>) but the computer's regional settings use a comma, the conversion fails. Make sure the data file and the machine agree, or your program will raise an error on the very first sale line.</p>
+</div>
+
+<h3>Step 2 &mdash; Find the highest average and show every stall that ties</h3>
+<p>The average sale for a stall is <code>takings / sale count</code>. Two things must be handled carefully:</p>
+<ul>
+  <li><strong>Skip stalls with 0 sales.</strong> They have nothing to average, and dividing by 0 would crash the program (or give nonsense). Test <code>arrSaleCount[i] &gt; 0</code> before dividing.</li>
+  <li><strong>Ties.</strong> Keep a text variable of the winning names. If a stall's average <em>equals</em> the best so far, <strong>add</strong> its name to the text. If it is <em>bigger</em>, the old names no longer qualify, so <strong>replace</strong> the text with just this name and store the new best average.</li>
+</ul>
+<div class="code-block"><span class="code-label">Delphi &mdash; highest average, all ties displayed</span>
+<pre><code><span class="kw">var</span>
+  i : <span class="kw2">Integer</span>;
+  rAvg, rBestAvg : <span class="kw2">Real</span>;
+  sWinners : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  rBestAvg := <span class="num">0</span>;
+  sWinners := <span class="str">''</span>;                                   <span class="cmt">// always set it explicitly</span>
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> iEntries <span class="kw">do</span>
+    <span class="kw">if</span> arrSaleCount[i] &gt; <span class="num">0</span> <span class="kw">then</span>                 <span class="cmt">// ignore stalls with no sales</span>
+    <span class="kw">begin</span>
+      rAvg := arrTakings[i] / arrSaleCount[i];
+      <span class="kw">if</span> rAvg = rBestAvg <span class="kw">then</span>
+        sWinners := sWinners + arrOwner[i] + #13        <span class="cmt">// tie: add to the list</span>
+      <span class="kw">else</span> <span class="kw">if</span> rAvg &gt; rBestAvg <span class="kw">then</span>
+      <span class="kw">begin</span>
+        sWinners := arrOwner[i] + #13;                  <span class="cmt">// new leader: start a fresh list</span>
+        rBestAvg := rAvg;
+      <span class="kw">end</span>;
+    <span class="kw">end</span>;
+  redOut.Lines.Add(sWinners);
+  redOut.Lines.Add(<span class="str">'Highest average sale: R'</span> +
+                   FloatToStrF(rBestAvg, ffFixed, <span class="num">8</span>, <span class="num">2</span>));
+<span class="kw">end</span>;</code></pre></div>
+<p>For the sample file the averages are Thandi R24.58, Sipho R48.75 and Pieter R30.00, so Sipho is displayed alone. Lerato is skipped entirely. If two stalls both averaged R48.75, both names would appear.</p>
+<div class="callout">
+  <div class="callout-title">Why the same index works</div>
+  <p>Because <code>arrOwner</code>, <code>arrSaleCount</code> and <code>arrTakings</code> are parallel, the value of <code>i</code> that you use to calculate an average also gives you the right owner's name. The calculation and the name never get separated.</p>
+</div>
+
 <h2>Working with More Than One Text File at a Time</h2>
 <p>A practical question will sometimes ask you to read from one existing file and, in the same pass, sort its lines into two or more new files depending on a condition. Reusing the <code>marks.txt</code> file from the worked example above, here is a program that reads it once and writes each learner's surname into either <code>Pass.txt</code> or <code>Fail.txt</code> depending on their mark. The file being read only ever needs <code>Reset</code>; every file being created or overwritten needs its own <code>Rewrite</code> call, and all three files stay open together inside a single <code>while not EOF</code> loop.</p>
 <div class="code-block"><span class="code-label">Delphi &mdash; split marks.txt into Pass.txt and Fail.txt</span>

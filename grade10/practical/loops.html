@@ -447,6 +447,359 @@ ShowMessage(<span class="str">'Jackpot landed after '</span> + IntToStr(iSpins) 
       <p>Ask yourself: <strong>"Should the code after the loop still run?"</strong> If yes, use <code>Break</code>. If no &mdash; the whole procedure should stop &mdash; use <code>Exit</code>. Also remember that <code>Break</code> in a <em>nested</em> loop only stops the loop it is written in; the outer loop carries on.</p>
     </div>
 
+    <h2>Number Algorithms with Loops</h2>
+    <p>Loops really show their strength when you combine them with <code>MOD</code> and <code>DIV</code> to investigate numbers. The algorithms below are the standard ones: each is written first as plain steps, then as Delphi code, then checked with a small trace. Use <code>uses Math</code> for <code>Power</code> in the later examples.</p>
+    <div class="callout tip">
+      <div class="callout-title">The idea behind most of them</div>
+      <p><code>a MOD b = 0</code> means <strong>b divides exactly into a</strong>, so b is a <strong>factor</strong> of a. Test every possible divisor with a loop and you can answer almost any question about factors.</p>
+    </div>
+
+    <h3>Listing All the Factors of a Number</h3>
+    <ol>
+      <li>Start with an empty text variable for the answers.</li>
+      <li>For every divisor from 1 up to the number itself:</li>
+      <li>If the number MOD the divisor is 0, add the divisor to the text.</li>
+    </ol>
+    <div class="code-block"><span class="code-label">Delphi — all factors of a number</span>
+<pre><code><span class="kw">var</span>
+  iNumber, iDivisor : <span class="kw2">Integer</span>;
+  sFactors : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  iNumber  := StrToInt(edtNumber.Text);      <span class="cmt">// e.g. 36</span>
+  sFactors := <span class="str">''</span>;
+  <span class="kw">for</span> iDivisor := <span class="num">1</span> <span class="kw">to</span> iNumber <span class="kw">do</span>
+    <span class="kw">if</span> iNumber <span class="kw">mod</span> iDivisor = <span class="num">0</span> <span class="kw">then</span>
+      sFactors := sFactors + IntToStr(iDivisor) + <span class="str">' '</span>;
+  lblOut.Caption := sFactors;                <span class="cmt">// 1 2 3 4 6 9 12 18 36</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="tbl-wrap"><table>
+      <tr><th>iDivisor</th><th>36 MOD iDivisor</th><th>Factor?</th></tr>
+      <tr><td>1</td><td>0</td><td>Yes &mdash; added</td></tr>
+      <tr><td>2</td><td>0</td><td>Yes &mdash; added</td></tr>
+      <tr><td>3</td><td>0</td><td>Yes &mdash; added</td></tr>
+      <tr><td>4</td><td>0</td><td>Yes &mdash; added</td></tr>
+      <tr><td>5</td><td>1</td><td>No</td></tr>
+      <tr><td>6</td><td>0</td><td>Yes &mdash; added</td></tr>
+      <tr><td>7</td><td>1</td><td>No</td></tr>
+      <tr><td>8</td><td>4</td><td>No</td></tr>
+      <tr><td>9</td><td>0</td><td>Yes &mdash; added</td></tr>
+    </table></div>
+    <p>The table stops at 9 to save space, but the loop carries on all the way to 36. Notice that both <strong>1</strong> and <strong>the number itself</strong> are always factors.</p>
+
+    <h3>Prime and Composite Numbers</h3>
+    <p>A <strong>prime</strong> number is greater than 1 and has <strong>exactly two</strong> factors: 1 and itself. A <strong>composite</strong> number is greater than 1 and has <strong>more than two</strong> factors. The number <strong>1 is neither</strong>, because it has only one factor.</p>
+    <p>So the algorithm is to <em>count</em> the factors with the same loop as above, then judge the count.</p>
+    <ol>
+      <li>Set the factor count to 0.</li>
+      <li>For every divisor from 1 up to the number: if the number MOD the divisor is 0, add 1 to the count.</li>
+      <li>If the number is greater than 1 and the count is exactly 2, it is prime.</li>
+      <li>If the number is greater than 1 and the count is more than 2, it is composite.</li>
+    </ol>
+    <div class="code-block"><span class="code-label">Delphi — prime, composite or neither</span>
+<pre><code><span class="kw">var</span>
+  iNumber, iDivisor, iCount : <span class="kw2">Integer</span>;
+  bPrime, bComposite : <span class="kw2">Boolean</span>;
+<span class="kw">begin</span>
+  iNumber := StrToInt(edtNumber.Text);       <span class="cmt">// e.g. 31</span>
+  iCount  := <span class="num">0</span>;                             <span class="cmt">// initialise BEFORE the loop</span>
+  <span class="kw">for</span> iDivisor := <span class="num">1</span> <span class="kw">to</span> iNumber <span class="kw">do</span>
+    <span class="kw">if</span> iNumber <span class="kw">mod</span> iDivisor = <span class="num">0</span> <span class="kw">then</span>
+      Inc(iCount);
+
+  bPrime     := (iNumber &gt; <span class="num">1</span>) <span class="kw">and</span> (iCount = <span class="num">2</span>);
+  bComposite := (iNumber &gt; <span class="num">1</span>) <span class="kw">and</span> (iCount &gt; <span class="num">2</span>);
+
+  <span class="kw">if</span> bPrime <span class="kw">then</span>
+    lblOut.Caption := <span class="str">'Prime'</span>
+  <span class="kw">else if</span> bComposite <span class="kw">then</span>
+    lblOut.Caption := <span class="str">'Composite'</span>
+  <span class="kw">else</span>
+    lblOut.Caption := <span class="str">'Neither prime nor composite'</span>;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="tbl-wrap"><table>
+      <tr><th>Number</th><th>Factors found</th><th>iCount</th><th>Result</th></tr>
+      <tr><td>31</td><td>1, 31</td><td>2</td><td>Prime</td></tr>
+      <tr><td>21</td><td>1, 3, 7, 21</td><td>4</td><td>Composite</td></tr>
+      <tr><td>1</td><td>1</td><td>1</td><td>Neither</td></tr>
+    </table></div>
+    <div class="callout warning">
+      <div class="callout-title">Trap — the number 1</div>
+      <p>Do not shortcut the composite test to <code>bComposite := NOT bPrime</code>. That would call 1 (and 0) composite, when they are neither. Keep the <code>iNumber &gt; 1</code> check in both tests so the rules match the definitions exactly, and keep the brackets around each comparison.</p>
+    </div>
+    <div class="callout tip">
+      <div class="callout-title">Stopping early</div>
+      <p>Once the count reaches 3 the number can no longer be prime, so you could leave the loop with <code>Break</code> (see <em>Stopping Early</em> above) instead of testing every remaining divisor. The simple full loop is still the one to learn first.</p>
+    </div>
+
+    <h3>Perfect Squares</h3>
+    <p>A <strong>perfect square</strong> is a whole number multiplied by itself, such as 49 (7 &times; 7) or 81 (9 &times; 9). No loop is needed: take the square root, chop off the decimals with <code>Trunc</code>, square the result, and see whether you get the original number back. If the square root had decimals, the square of the chopped value cannot match. (Use a non-negative number, because <code>Sqrt</code> of a negative value is a runtime error.)</p>
+    <div class="code-block"><span class="code-label">Delphi — perfect square check</span>
+<pre><code><span class="kw">var</span>
+  iNumber, iRoot : <span class="kw2">Integer</span>;
+  bSquare : <span class="kw2">Boolean</span>;
+<span class="kw">begin</span>
+  iNumber := StrToInt(edtNumber.Text);       <span class="cmt">// e.g. 81</span>
+  iRoot   := Trunc(Sqrt(iNumber));           <span class="cmt">// Sqrt(81) = 9.0  -> 9</span>
+  bSquare := (iRoot * iRoot) = iNumber;      <span class="cmt">// 9 * 9 = 81 -> True</span>
+<span class="kw">end</span>;</code></pre></div>
+    <p>With 50: <code>Sqrt(50)</code> is 7.07&hellip;, <code>Trunc</code> gives 7, and 7 &times; 7 = 49, which is not 50, so 50 is <em>not</em> a perfect square.</p>
+
+    <h3>Perfect Numbers</h3>
+    <p>A <strong>perfect number</strong> equals the sum of its <strong>proper factors</strong> &mdash; all its factors <em>except the number itself</em>. For 28 the proper factors are 1, 2, 4, 7 and 14, and 1 + 2 + 4 + 7 + 14 = 28, so 28 is perfect. For 12 they add up to 1 + 2 + 3 + 4 + 6 = 16, so it is not.</p>
+    <p>No proper factor can be bigger than half the number, so the loop only needs to run from 1 to <code>iNumber DIV 2</code>. That also keeps the number itself out of the sum.</p>
+    <div class="code-block"><span class="code-label">Delphi — perfect number check</span>
+<pre><code><span class="kw">var</span>
+  iNumber, iDivisor, iSum : <span class="kw2">Integer</span>;
+  bPerfect : <span class="kw2">Boolean</span>;
+<span class="kw">begin</span>
+  iNumber := StrToInt(edtNumber.Text);       <span class="cmt">// e.g. 28</span>
+  iSum    := <span class="num">0</span>;
+  <span class="kw">for</span> iDivisor := <span class="num">1</span> <span class="kw">to</span> iNumber <span class="kw">div</span> <span class="num">2</span> <span class="kw">do</span>   <span class="cmt">// 1 to 14</span>
+    <span class="kw">if</span> iNumber <span class="kw">mod</span> iDivisor = <span class="num">0</span> <span class="kw">then</span>
+      iSum := iSum + iDivisor;
+  bPerfect := iSum = iNumber;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">Trap — do not add the number itself</div>
+      <p>If the loop ran up to <code>iNumber</code>, the number would be added as its own factor and every number would fail the test (the sum would always be too big). Stopping at <code>iNumber DIV 2</code> avoids that.</p>
+    </div>
+
+    <h3>Factorial</h3>
+    <p>The factorial of n, written <strong>n!</strong>, is every whole number from 1 up to n multiplied together. So 7! = 1 &times; 2 &times; 3 &times; 4 &times; 5 &times; 6 &times; 7 = 5 040. By definition 0! = 1.</p>
+    <ol>
+      <li>Set a running product to <strong>1</strong>.</li>
+      <li>For every counter value from 1 up to n, multiply the product by the counter.</li>
+    </ol>
+    <div class="code-block"><span class="code-label">Delphi — factorial with a FOR loop</span>
+<pre><code><span class="kw">var</span>
+  i, iNumber : <span class="kw2">Integer</span>;
+  iFactorial : <span class="kw2">Int64</span>;
+<span class="kw">begin</span>
+  iNumber    := StrToInt(edtNumber.Text);    <span class="cmt">// e.g. 7</span>
+  iFactorial := <span class="num">1</span>;                          <span class="cmt">// start at 1, NOT 0</span>
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> iNumber <span class="kw">do</span>
+    iFactorial := iFactorial * i;
+  lblOut.Caption := IntToStr(iFactorial);    <span class="cmt">// 5040</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="tbl-wrap"><table>
+      <tr><th>i</th><th>iFactorial after the pass</th></tr>
+      <tr><td>(before loop)</td><td>1</td></tr>
+      <tr><td>1</td><td>1</td></tr>
+      <tr><td>2</td><td>2</td></tr>
+      <tr><td>3</td><td>6</td></tr>
+      <tr><td>4</td><td>24</td></tr>
+      <tr><td>5</td><td>120</td></tr>
+      <tr><td>6</td><td>720</td></tr>
+      <tr><td>7</td><td>5040</td></tr>
+    </table></div>
+    <div class="callout tip">
+      <div class="callout-title">Why Int64?</div>
+      <p>Factorials grow very quickly: 13! is already 6 227 020 800, which is too big for an <code>Integer</code>. An <code>Int64</code> variable can hold factorials up to 20!. If <code>iNumber</code> is 0 the loop does not run at all, so the answer stays at 1 &mdash; exactly right for 0!. The same calculation can also be written with recursion; see the <a href="../../grade12/recursion.html">Grade 12 Recursion page</a>.</p>
+    </div>
+
+    <h3>The Fibonacci Sequence</h3>
+    <p>In the Fibonacci sequence each term is the sum of the two terms before it: <strong>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, &hellip;</strong>. A loop keeps track of the <em>previous</em> and <em>current</em> terms, builds the next one, and then slides both along.</p>
+    <ol>
+      <li>Set previous to 0 and current to 1, and start with an empty text variable.</li>
+      <li>Repeat for the number of terms wanted:</li>
+      <li>Add the previous term to the text; then next := previous + current; previous := current; current := next.</li>
+    </ol>
+    <div class="code-block"><span class="code-label">Delphi — the first ten Fibonacci terms</span>
+<pre><code><span class="kw">var</span>
+  i, iTerms, iPrev, iCurr, iNext : <span class="kw2">Integer</span>;
+  sSeries : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  iTerms  := <span class="num">10</span>;
+  iPrev   := <span class="num">0</span>;
+  iCurr   := <span class="num">1</span>;
+  sSeries := <span class="str">''</span>;
+  <span class="kw">for</span> i := <span class="num">1</span> <span class="kw">to</span> iTerms <span class="kw">do</span>
+  <span class="kw">begin</span>
+    sSeries := sSeries + IntToStr(iPrev) + <span class="str">' '</span>;
+    iNext   := iPrev + iCurr;      <span class="cmt">// build the new term first</span>
+    iPrev   := iCurr;              <span class="cmt">// then slide both values along</span>
+    iCurr   := iNext;
+  <span class="kw">end</span>;
+  lblOut.Caption := sSeries;       <span class="cmt">// 0 1 1 2 3 5 8 13 21 34</span>
+<span class="kw">end</span>;</code></pre></div>
+    <div class="tbl-wrap"><table>
+      <tr><th>Pass</th><th>Term added (iPrev)</th><th>iNext</th><th>iPrev after</th><th>iCurr after</th></tr>
+      <tr><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+      <tr><td>2</td><td>1</td><td>2</td><td>1</td><td>2</td></tr>
+      <tr><td>3</td><td>1</td><td>3</td><td>2</td><td>3</td></tr>
+      <tr><td>4</td><td>2</td><td>5</td><td>3</td><td>5</td></tr>
+    </table></div>
+    <p>Read pass 3 as an example: iPrev is 1 and iCurr is 2, so 1 is added to the text, <code>iNext := 1 + 2</code> gives 3, and the slide makes iPrev = 2 and iCurr = 3.</p>
+    <div class="callout tip">
+      <div class="callout-title">Order matters when you slide</div>
+      <p>If you overwrite <code>iPrev</code> or <code>iCurr</code> before <code>iNext</code> has been worked out, an old value is lost for good. It is the same idea as swapping two variables with a temporary one: always save a value before you replace it.</p>
+    </div>
+
+    <h3>Greatest Common Divisor (GCD) and Lowest Common Multiple (LCM)</h3>
+    <p>The <strong>GCD</strong> of two numbers is the largest number that divides exactly into both. <strong>Euclid&rsquo;s method</strong> finds it with remainders: divide the first number by the second and keep the remainder, then let the second number become the first and the remainder become the second. Repeat until the remainder is 0. The last non-zero divisor is the GCD. We don&rsquo;t know in advance how many repeats are needed, so a <code>while</code> loop is the right choice.</p>
+    <div class="code-block"><span class="code-label">Delphi — GCD by Euclid, then LCM</span>
+<pre><code><span class="kw">var</span>
+  iFirst, iSecond, iA, iB, iRemainder, iGCD, iLCM : <span class="kw2">Integer</span>;
+<span class="kw">begin</span>
+  iFirst  := StrToInt(edtFirst.Text);        <span class="cmt">// e.g. 84</span>
+  iSecond := StrToInt(edtSecond.Text);       <span class="cmt">// e.g. 36</span>
+
+  iA := iFirst;                              <span class="cmt">// work on copies so the originals survive</span>
+  iB := iSecond;
+  <span class="kw">while</span> iB &lt;&gt; <span class="num">0</span> <span class="kw">do</span>
+  <span class="kw">begin</span>
+    iRemainder := iA <span class="kw">mod</span> iB;
+    iA := iB;
+    iB := iRemainder;
+  <span class="kw">end</span>;
+  iGCD := iA;                                <span class="cmt">// the last non-zero divisor</span>
+
+  iLCM := (iFirst <span class="kw">div</span> iGCD) * iSecond;
+<span class="kw">end</span>;</code></pre></div>
+    <div class="tbl-wrap"><table>
+      <tr><th>Pass</th><th>iA</th><th>iB</th><th>iA MOD iB</th></tr>
+      <tr><td>1</td><td>84</td><td>36</td><td>12</td></tr>
+      <tr><td>2</td><td>36</td><td>12</td><td>0</td></tr>
+      <tr><td>stop</td><td>12</td><td>0</td><td>&mdash; iB is 0, loop ends</td></tr>
+    </table></div>
+    <p>So <strong>GCD(84, 36) = 12</strong>. The <strong>LCM</strong> is the smallest number that both numbers divide into exactly. It follows from the GCD: <code>LCM = (first DIV GCD) &times; second</code>, so (84 DIV 12) &times; 36 = 7 &times; 36 = <strong>252</strong>. Check: 252 &divide; 84 = 3 and 252 &divide; 36 = 7, both exact.</p>
+    <div class="callout tip">
+      <div class="callout-title">Divide first, then multiply</div>
+      <p>Doing the <code>DIV</code> before the multiplication keeps the intermediate number small, which helps avoid overflow with large values, and because the GCD divides exactly into the first number the <code>DIV</code> loses nothing.</p>
+    </div>
+
+    <h3>Converting Decimal to Binary, Octal or Hexadecimal</h3>
+    <p>To write a decimal number in another base, repeatedly divide by that base. Each time, the <strong>remainder</strong> (<code>MOD</code>) is the next digit &mdash; working from the <em>right-hand</em> end of the answer &mdash; and the <strong>quotient</strong> (<code>DIV</code>) is what remains to be converted. Stop when the quotient reaches 0.</p>
+    <p>Two small tricks make the code short:</p>
+    <ul>
+      <li>A constant string <code>'0123456789ABCDEF'</code> acts as a <strong>digit lookup</strong>. A remainder of 0 to 15 picks the matching character. Because strings start at position 1, the digit for remainder <code>r</code> is <code>sDigits[r + 1]</code>, which also turns 10 to 15 into A to F automatically.</li>
+      <li>Each new digit is the <em>next one to the left</em>, so it is <strong>added to the front</strong> of the result (<code>digit + sResult</code>), not to the back.</li>
+    </ul>
+    <p>A <code>repeat</code> loop is used so that the number 0 still produces one digit (<code>'0'</code>).</p>
+    <div class="code-block"><span class="code-label">Delphi — decimal to base 2, 8 or 16</span>
+<pre><code><span class="kw">const</span>
+  sDigits = <span class="str">'0123456789ABCDEF'</span>;
+<span class="kw">var</span>
+  iNumber, iWork, iBase, iRemainder : <span class="kw2">Integer</span>;
+  sResult : <span class="kw2">string</span>;
+<span class="kw">begin</span>
+  iNumber := StrToInt(edtNumber.Text);       <span class="cmt">// e.g. 77</span>
+  iBase   := <span class="num">2</span>;                             <span class="cmt">// change to 8 for octal or 16 for hexadecimal</span>
+  iWork   := iNumber;                        <span class="cmt">// the loop destroys iWork, so keep iNumber</span>
+  sResult := <span class="str">''</span>;
+  <span class="kw">repeat</span>
+    iRemainder := iWork <span class="kw">mod</span> iBase;
+    sResult    := sDigits[iRemainder + <span class="num">1</span>] + sResult;   <span class="cmt">// new digit goes in FRONT</span>
+    iWork      := iWork <span class="kw">div</span> iBase;
+  <span class="kw">until</span> iWork = <span class="num">0</span>;
+  lblOut.Caption := sResult;
+<span class="kw">end</span>;</code></pre></div>
+    <p>Tracing <strong>77 in base 2</strong>:</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Pass</th><th>iWork before</th><th>iWork MOD 2</th><th>sResult after</th><th>iWork after (DIV 2)</th></tr>
+      <tr><td>1</td><td>77</td><td>1</td><td><code>'1'</code></td><td>38</td></tr>
+      <tr><td>2</td><td>38</td><td>0</td><td><code>'01'</code></td><td>19</td></tr>
+      <tr><td>3</td><td>19</td><td>1</td><td><code>'101'</code></td><td>9</td></tr>
+      <tr><td>4</td><td>9</td><td>1</td><td><code>'1101'</code></td><td>4</td></tr>
+      <tr><td>5</td><td>4</td><td>0</td><td><code>'01101'</code></td><td>2</td></tr>
+      <tr><td>6</td><td>2</td><td>0</td><td><code>'001101'</code></td><td>1</td></tr>
+      <tr><td>7</td><td>1</td><td>1</td><td><code>'1001101'</code></td><td>0 &mdash; stop</td></tr>
+    </table></div>
+    <p>So 77 is <code>1001101</code> in binary. With <code>iBase := 8</code> the same loop gives <code>115</code> (77 = 1 &times; 64 + 1 &times; 8 + 5), and with <code>iBase := 16</code> it gives <code>4D</code>, because the remainder 13 picks the letter D from the lookup string.</p>
+
+    <h3>Converting Binary or Octal to Decimal</h3>
+    <p>Going the other way, every digit has a <strong>place value</strong> of <code>base ^ exponent</code>. Work from the <strong>right</strong>: the last digit has exponent 0, the next one exponent 1, and so on. Multiply each digit by its place value and add everything up. The <code>Power</code> function (from the <code>Math</code> unit) does the raising to a power.</p>
+    <div class="code-block"><span class="code-label">Delphi — binary or octal text to decimal</span>
+<pre><code><span class="kw">var</span>
+  sText : <span class="kw2">string</span>;
+  i, iDigit, iExp, iBase : <span class="kw2">Integer</span>;
+  rDecimal : <span class="kw2">Real</span>;
+<span class="kw">begin</span>
+  sText    := edtValue.Text;                 <span class="cmt">// e.g. '110101'</span>
+  iBase    := <span class="num">2</span>;                            <span class="cmt">// use 8 for octal text such as '247'</span>
+  rDecimal := <span class="num">0</span>;
+  iExp     := <span class="num">0</span>;
+  <span class="kw">for</span> i := Length(sText) <span class="kw">downto</span> <span class="num">1</span> <span class="kw">do</span>      <span class="cmt">// right to left</span>
+  <span class="kw">begin</span>
+    iDigit   := StrToInt(sText[i]);
+    rDecimal := rDecimal + iDigit * Power(iBase, iExp);
+    Inc(iExp);
+  <span class="kw">end</span>;
+  lblOut.Caption := FloatToStrF(rDecimal, ffFixed, <span class="num">8</span>, <span class="num">0</span>);   <span class="cmt">// 53</span>
+<span class="kw">end</span>;</code></pre></div>
+    <p>Tracing <strong>110101</strong> in base 2, from the right:</p>
+    <div class="tbl-wrap"><table>
+      <tr><th>Digit</th><th>iExp</th><th>Power(2, iExp)</th><th>Digit &times; place value</th><th>Running total</th></tr>
+      <tr><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+      <tr><td>0</td><td>1</td><td>2</td><td>0</td><td>1</td></tr>
+      <tr><td>1</td><td>2</td><td>4</td><td>4</td><td>5</td></tr>
+      <tr><td>0</td><td>3</td><td>8</td><td>0</td><td>5</td></tr>
+      <tr><td>1</td><td>4</td><td>16</td><td>16</td><td>21</td></tr>
+      <tr><td>1</td><td>5</td><td>32</td><td>32</td><td>53</td></tr>
+    </table></div>
+    <p>So <code>110101</code> in binary is <strong>53</strong>. Setting <code>iBase := 8</code> and entering <code>247</code> gives 2 &times; 64 + 4 &times; 8 + 7 = <strong>167</strong>.</p>
+    <div class="callout tip">
+      <div class="callout-title">An alternative way to get the digit</div>
+      <p>Instead of <code>StrToInt(sText[i])</code> you can write <code>Ord(sText[i]) - Ord('0')</code>. The characters <code>'0'</code> to <code>'9'</code> are stored one after the other in the ASCII table, so subtracting the code for <code>'0'</code> leaves the digit&rsquo;s own value.</p>
+    </div>
+
+    <h3>Converting Hexadecimal to Decimal</h3>
+    <p>Hexadecimal works exactly the same way, with base 16 &mdash; but some of its digits are letters. <strong>A to F stand for 10 to 15</strong>, and <code>StrToInt</code> cannot read letters, so each character must first be turned into its value. A <code>case</code> statement does this neatly: digits <code>'0'</code> to <code>'9'</code> go through <code>StrToInt</code>, and each letter is listed with its value.</p>
+    <div class="code-block"><span class="code-label">Delphi — hexadecimal to decimal using CASE</span>
+<pre><code><span class="kw">var</span>
+  sHex : <span class="kw2">string</span>;
+  rDecimal : <span class="kw2">Real</span>;
+  iPos, iValue, iExp : <span class="kw2">Integer</span>;
+  cChar : <span class="kw2">Char</span>;
+<span class="kw">begin</span>
+  sHex     := InputBox(<span class="str">'Hexadecimal'</span>, <span class="str">'Enter a hex value:'</span>, <span class="str">'1C5'</span>);
+  rDecimal := <span class="num">0</span>;
+  iExp     := <span class="num">0</span>;
+  <span class="kw">for</span> iPos := Length(sHex) <span class="kw">downto</span> <span class="num">1</span> <span class="kw">do</span>
+  <span class="kw">begin</span>
+    cChar := UpCase(sHex[iPos]);             <span class="cmt">// accept 'c' as well as 'C'</span>
+    <span class="kw">case</span> cChar <span class="kw">of</span>
+      <span class="str">'0'</span>..<span class="str">'9'</span> : iValue := StrToInt(cChar);
+      <span class="str">'A'</span> : iValue := <span class="num">10</span>;
+      <span class="str">'B'</span> : iValue := <span class="num">11</span>;
+      <span class="str">'C'</span> : iValue := <span class="num">12</span>;
+      <span class="str">'D'</span> : iValue := <span class="num">13</span>;
+      <span class="str">'E'</span> : iValue := <span class="num">14</span>;
+      <span class="str">'F'</span> : iValue := <span class="num">15</span>;
+    <span class="kw">end</span>;
+    rDecimal := rDecimal + iValue * Power(<span class="num">16</span>, iExp);
+    Inc(iExp);
+  <span class="kw">end</span>;
+  ShowMessage(FloatToStrF(rDecimal, ffFixed, <span class="num">8</span>, <span class="num">0</span>));   <span class="cmt">// 453</span>
+<span class="kw">end</span>;</code></pre></div>
+    <p>For <code>1C5</code>: the 5 has exponent 0 (5 &times; 1 = 5), the C is 12 with exponent 1 (12 &times; 16 = 192), and the 1 has exponent 2 (1 &times; 256 = 256). Total: 5 + 192 + 256 = <strong>453</strong>.</p>
+
+    <h4>Alternative — letting Ord do the work</h4>
+    <p>Instead of listing six letters, use the fact that <code>'A'</code> to <code>'F'</code> are consecutive in the ASCII table. The distance of a letter from <code>'A'</code> is <code>Ord(c) - Ord('A')</code>, and since A is worth 10 you simply add 10. For <code>'C'</code> that is 67 &minus; 65 + 10 = 12.</p>
+    <div class="code-block"><span class="code-label">Delphi — the same conversion using Ord with grouped CASE ranges</span>
+<pre><code><span class="kw">for</span> iPos := Length(sHex) <span class="kw">downto</span> <span class="num">1</span> <span class="kw">do</span>
+<span class="kw">begin</span>
+  <span class="kw">case</span> UpCase(sHex[iPos]) <span class="kw">of</span>
+    <span class="str">'0'</span>..<span class="str">'9'</span> : iValue := Ord(sHex[iPos]) - Ord(<span class="str">'0'</span>);
+    <span class="str">'A'</span>..<span class="str">'F'</span> : iValue := Ord(UpCase(sHex[iPos])) - Ord(<span class="str">'A'</span>) + <span class="num">10</span>;
+  <span class="kw">end</span>;
+  rDecimal := rDecimal + iValue * Power(<span class="num">16</span>, iExp);
+  Inc(iExp);
+<span class="kw">end</span>;</code></pre></div>
+    <div class="callout warning">
+      <div class="callout-title">Trap — the right-to-left order</div>
+      <p>The exponent must start at 0 on the <em>last</em> character. If you loop from the front (<code>for iPos := 1 to Length(sHex)</code>) with the exponent starting at 0, every digit gets the wrong place value. Either loop with <code>downto</code>, as above, or start the exponent at <code>Length(sHex) - 1</code> and count down.</p>
+    </div>
+
+    <h3>Which Loop for Which Algorithm?</h3>
+    <div class="tbl-wrap"><table>
+      <tr><th>Algorithm</th><th>Loop used</th><th>Why</th></tr>
+      <tr><td>Factors, prime test, perfect number, factorial, Fibonacci</td><td><code>for</code></td><td>The number of repeats is known: 1 to n, or a chosen number of terms.</td></tr>
+      <tr><td>GCD (Euclid)</td><td><code>while</code></td><td>Nobody knows how many remainders are needed; it might even be zero if the second number is 0.</td></tr>
+      <tr><td>Decimal to another base</td><td><code>repeat</code></td><td>Unknown number of divisions, but at least one digit must be produced, even for 0.</td></tr>
+      <tr><td>Binary, octal or hexadecimal to decimal</td><td><code>for &hellip; downto</code></td><td>One pass per character, from the last one to the first.</td></tr>
+    </table></div>
+
     <div class="quiz" data-title="Quick Quiz &mdash; Loops">
       <div class="quiz-q" data-a="0">
         <p class="quiz-text">You know exactly how many times to repeat. Which loop is best?</p>
