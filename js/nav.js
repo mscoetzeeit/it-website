@@ -114,6 +114,7 @@
     + '<div class="dropdown-section">Exam Resources</div>'
     + '<a href="' + r + 'exam-practice/index.html">&#128221; Exam Practice (Q &amp; memos)</a>'
     + '<a href="' + r + 'past-papers.html">&#128193; Past Papers (Google Drive)</a>'
+    + '<a href="' + r + 'workbooks/index.html">&#9999;&#65039; Think &amp; Write Workbooks</a>'
     + '<a href="' + r + 'exam-extras.html">&#9889; Exam Extras (Out-of-CAPS)</a>'
     + '</div></li>'
 

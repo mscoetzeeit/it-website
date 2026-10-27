@@ -1,0 +1,230 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Grade 10 Term 3 workbook</title><style>
+@page{ size:A4; margin:13mm 14mm 15mm 14mm; @bottom-center{ content:counter(page); font:8pt Arial,sans-serif; color:#555; } }
+*{ box-sizing:border-box; }
+body{ font:10.5pt/1.45 'Segoe UI',Arial,sans-serif; color:#111; margin:0; }
+h1{ font-size:27pt; margin:.2em 0 .1em; line-height:1.1; }
+h2{ font-size:13pt; margin:1em 0 .3em; }
+h3{ font-size:11pt; margin:0 0 .35em; }
+p{ margin:.25em 0 .5em; }
+.pb{ break-before:page; }
+.cover{ min-height:250mm; break-after:page; }
+.badge{ display:inline-block; background:#0e7490; color:#fff; padding:.25em .8em; font-weight:700; letter-spacing:.05em; font-size:10pt; border-radius:3px; margin-top:6mm; }
+.cover .tagline{ font-size:12pt; color:#444; }
+.idbox{ border:2px solid #111; padding:3mm 4mm; margin:6mm 0; font-weight:600; display:flex; flex-direction:column; gap:3mm; }
+.fl{ display:inline-block; border-bottom:1px solid #111; width:105mm; } .fl.s{ width:45mm; }
+.how li,.toc li{ margin:.25em 0; }
+.plan{ border-left:4px solid #0e7490; background:#f1f1f1; padding:3mm 4mm; margin-top:6mm; font-size:9.5pt; }
+.unithead{ background:#0e7490; color:#fff; padding:3.5mm 5mm; border-radius:3px; font-size:16pt; margin-top:0; display:flex; align-items:baseline; gap:4mm; }
+.unithead .un{ font-size:9.5pt; letter-spacing:.08em; border:1.5px solid #fff; padding:.1em .5em; border-radius:2px; }
+.goal{ font-size:11pt; }
+.can{ border:1.5px solid #111; padding:2.5mm 4mm; margin:2mm 0 4mm; break-inside:avoid; }
+.ask{ margin-top:1.5mm; } .can ul{ list-style:none; margin:.3em 0 0; padding:0; columns:2; column-gap:6mm; } .can li{ margin:.2em 0; break-inside:avoid; }
+.cb{ display:inline-block; width:3.6mm; height:3.6mm; border:1.3px solid #111; margin-right:2mm; vertical-align:-.5mm; }
+.blk{ border:1.2px solid #999; border-radius:3px; padding:2.5mm 4mm 3mm; margin:0 0 3mm; break-inside:avoid; }
+.blk h3 .num{ background:#111; color:#fff; border-radius:2px; padding:0 .4em; margin-right:.5em; font-size:9.5pt; }
+.think{ border:1.6px dashed #111; background:#f4f4f4; position:relative; padding-top:8mm; }
+.learn{ border-left:5px solid #0e7490; background:#fff; position:relative; padding-top:8mm; }
+.ribbon{ position:absolute; top:0; left:4mm; background:#111; color:#fff; font:700 7.5pt Arial,sans-serif; letter-spacing:.06em; padding:.25em .7em; border-radius:0 0 3px 3px; }
+.ribbon.alt{ background:#0e7490; }
+.txt p:first-child{ margin-top:0; } .txt ul,.txt ol{ margin:.3em 0 .3em 1.2em; padding:0; }
+.mk{ float:right; font-weight:700; font-size:9.5pt; border:1.3px solid #111; border-radius:3px; padding:0 .4em; }
+.lines{ height:calc(var(--n)*8mm); background:repeating-linear-gradient(to bottom,transparent 0,transparent 7.5mm,#8a8a8a 7.5mm,#8a8a8a 8mm); margin-top:1mm; }
+.blank{ display:inline-block; border-bottom:1.3px solid #111; height:1.05em; vertical-align:-.15em; margin:0 .15em; }
+.ans{ background:#dfe9f6; font-weight:700; padding:0 .25em; border-radius:2px; }
+.code{ margin:1.5mm 0 2.5mm; break-inside:avoid; } .code .lab{ display:inline-block; font:7.5pt Consolas,monospace; background:#e8e8e8; border:1px solid #aaa; border-bottom:none; padding:.1em .6em; border-radius:3px 3px 0 0; }
+pre{ margin:0; background:#f7f7f7; border:1px solid #aaa; border-radius:0 3px 3px 3px; padding:2mm 3mm; font:9pt/1.4 Consolas,'Courier New',monospace; white-space:pre-wrap; }
+pre i.c{ color:#555; }
+table{ border-collapse:collapse; }
+table.tr{ width:100%; margin-top:2mm; } table.tr th,table.tr td{ border:1.2px solid #111; padding:0 2mm; height:7.6mm; text-align:center; font-size:10pt; }
+table.tr th{ background:#e4e4e4; font-size:9pt; } table.big td{ height:9.5mm; text-align:left; }
+td.a{ background:#dfe9f6; font-weight:700; } td.fillcell{ background:#fff; }
+table.pick{ width:100%; } table.pick td{ border-bottom:1px solid #ccc; padding:1.4mm 2mm; vertical-align:top; } table.pick td.n{ width:7mm; font-weight:700; } table.pick td.o{ width:62mm; white-space:nowrap; }
+.opt{ border:1.3px solid #111; border-radius:10px; padding:0 .6em; font-weight:700; } .opt.ok{ background:#dfe9f6; }
+.lbrow{ display:flex; flex-wrap:wrap; gap:0; margin:2mm 0; } .lb{ width:9mm; height:11mm; border:1.3px solid #111; margin-right:-1.3px; text-align:center; font:700 12pt Consolas,monospace; padding-top:3.2mm; position:relative; }
+.lb .ix{ position:absolute; top:.2mm; left:1mm; font:7pt Arial,sans-serif; font-weight:400; color:#444; }
+.ng{ display:grid; grid-template-columns:repeat(var(--c),12mm); gap:0; margin:2mm 0; } .nb{ border:1.3px solid #111; margin:0 -1.3px -1.3px 0; text-align:center; padding:2.6mm 0; font:600 11pt Arial,sans-serif; height:11mm; }
+.selfcheck{ border-color:#111; background:#fafafa; } .small{ font-size:8.5pt; color:#444; }
+.memo-ans{ background:#dfe9f6; border:1px solid #7e97c2; border-radius:3px; padding:2mm 3mm; margin-top:2mm; font-size:10pt; }
+.memo-ans pre{ background:#eef3fb; } .tag{ font:700 7.5pt Arial,sans-serif; letter-spacing:.06em; background:#2b4d86; color:#fff; padding:.15em .5em; border-radius:2px; margin-right:2mm; }
+.teachernote{ background:#fff6d6; border-color:#c9a400; } .teachernote .tag{ background:#8a6d00; }
+.testmeta{ display:flex; gap:10mm; border:1.5px solid #111; padding:2.5mm 4mm; font-size:11pt; margin-bottom:3mm; }
+.sec{ background:#e4e4e4; padding:1.6mm 3mm; border-left:5px solid #0e7490; margin:4mm 0 2.5mm; break-after:avoid; }
+.note{ font-style:italic; margin:0 0 2mm; }
+.bar{ display:flex; justify-content:space-between; align-items:center; gap:10px; font:14px Arial,sans-serif; padding:10px 14px; background:#f1f5f9; border-bottom:1px solid #cbd5e1; }
+.bar a{ color:#0e7490; text-decoration:none; font-weight:600; }
+.bar button{ background:#0e7490; color:#fff; border:0; border-radius:6px; padding:8px 14px; font:600 14px Arial,sans-serif; cursor:pointer; }
+@media screen{ html{ background:#e5e7eb; } body{ max-width:210mm; margin:0 auto; padding:0 8mm 10mm; background:#fff; } .bar{ margin:0 -8mm 6mm; } }
+@media print{ .bar{ display:none; } }
+</style></head><body><div class="bar"><a href="index.html">&larr; All workbooks</a><span>Print double-sided, A4, black and white</span><button onclick="window.print()">Print / save as PDF</button></div><section class="cover"><div class="badge">GRADE 10 &middot; TERM 3</div><h1>Loops, Strings &amp; Number Detectives</h1><p class="tagline">A pencil-and-paper workbook: think it through first, learn the Delphi, then prove you can do it.</p><div class="idbox"><div>Name: <span class="fl"></span></div><div>Class: <span class="fl s"></span> Date: <span class="fl s"></span></div></div><h2>How to use this workbook</h2><ol class="how"><li>Work with a <b>pencil</b>. Mistakes are how we learn: rub out and try again.</li><li>Start each unit with <b>Think First</b>. Try it on your own before you read the explanation.</li><li>Read <b>Learn It</b>, then do the activities. Trace tables and code are written <b>by hand</b>.</li><li>At the end of each unit, tick the &ldquo;I can&rdquo; boxes you are sure of. Write down anything you still want to ask.</li><li>The <b>checkpoint test</b> is done under test conditions, with no notes.</li></ol><h2>In this workbook</h2><ol class="toc"><li>Doing things again and again</li><li>Keep going until&hellip;</li><li>Strings from first principles</li><li>Number detectives</li><li>Term checkpoint test</li></ol><div class="plan"><b>Matches the Annual Teaching Plan:</b> Term 3 &mdash; FOR, WHILE and REPEAT loops; string handling from first principles; Ord and Chr; prime numbers, GCD and LCM.</div></section>
+<h2 class="unithead pb"><span class="un">UNIT 1</span>Doing things again and again</h2><p class="goal">A computer is brilliant at repeating a task without getting bored. First you will see why that is useful, then you will meet the FOR loop.</p><div class="can"><b>By the end of this unit I can:</b> <span class="small">(tick each box when you are sure)</span><ul><li><span class='cb'></span>spot the part of a task that repeats</li><li><span class='cb'></span>explain what a loop is in my own words</li><li><span class='cb'></span>trace a FOR loop (counting up and down) by hand</li><li><span class='cb'></span>write a FOR loop in Delphi</li></ul><div class="small ask">One thing I want to ask my teacher: <span class="fl" style="width:98mm"></span></div></div>
+<div class="blk think"><div class="ribbon">THINK FIRST &middot; no computer needed</div><h3><span class="num">1.1</span>The robot staircase </h3><div class="txt">A robot understands only two commands: <b>UP</b> (one block up) and <b>RIGHT</b> (one block right). Write the commands it needs to climb a staircase with <b>5 steps</b> (each step is one UP and one RIGHT).<br>Then rewrite your instructions using the word <b>REPEAT</b> so that you write far less.</div><div class="lines" style="--n:6"></div></div>
+<div class="blk"><h3><span class="num">1.2</span>The tuck shop running total <span class="mk">[4]</span></h3><p>A pie costs R12. Complete the running total after each pie is bought.</p><table class="tr big"><tr><th>Pies bought</th><th>Running total (R)</th></tr><tr><td>1</td><td class="fillcell"></td></tr><tr><td>2</td><td class="fillcell"></td></tr><tr><td>3</td><td class="fillcell"></td></tr><tr><td>4</td><td class="fillcell"></td></tr><tr><td>5</td><td class="fillcell"></td></tr><tr><td>6</td><td class="fillcell"></td></tr><tr><td>7</td><td class="fillcell"></td></tr><tr><td>8</td><td class="fillcell"></td></tr></table></div>
+<div class="blk"><h3><span class="num">1.3</span>Spot the pattern <span class="mk">[3]</span></h3><p>Look at your table. <b>What is done again and again?</b> <b>What changes</b> each time? <b>What stays the same</b>?</p><div class="lines" style="--n:4"></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>What is a loop?</h3><div class="txt">A <b>loop</b> repeats a set of instructions. Before you write any loop, answer three questions:<ol><li>What must be <b>repeated</b>?</li><li>How many times, or <b>until when</b>?</li><li>What <b>changes</b> each time round?</li></ol>Delphi has three loops. The <b>FOR</b> loop is used when you know <b>how many times</b> to repeat.</div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>The FOR loop</h3><div class="txt"><b>iCount</b> is the <b>counter</b>. It starts at 1 and Delphi adds 1 to it every time round, all by itself, until it passes 5. Everything between <b>begin</b> and <b>end</b> is the <b>loop body</b>. To count backwards write <b>downto</b> instead of <b>to</b>. You do not need begin&hellip;end if the body is only one statement.</div><div class="code"><span class="lab">Delphi</span><pre><b>var</b>
+  iCount, iTotal : Integer;
+<b>begin</b>
+  iTotal := 0;
+  <b>for</b> iCount := 1 <b>to</b> 5 <b>do</b>
+  <b>begin</b>
+    iTotal := iTotal + iCount;
+  <b>end</b>;
+  ShowMessage(IntToStr(iTotal));   <i class="c">// shows 15</i>
+<b>end</b>;</pre></div></div>
+<div class="blk"><h3><span class="num">1.4</span>Fill in the blanks <span class="mk">[4]</span></h3><div class="txt">In a FOR loop the variable after the word <b>for</b> is called the <span class="blank" style="min-width:10ch"></span>. It increases by <span class="blank" style="min-width:4ch"></span> every time round. We use a FOR loop when we know <span class="blank" style="min-width:19ch"></span> to repeat. To count backwards we write <span class="blank" style="min-width:9ch"></span> instead of <b>to</b>.</div></div>
+<div class="blk"><h3><span class="num">1.5</span>Be the computer: counting up <span class="mk">[5]</span></h3><p>Complete the table for the loop in <i>Learn It</i> (the FOR loop that adds 1 to 5). Write the value of <b>iTotal after</b> each pass.</p><div class="code"><span class="lab">Delphi</span><pre>iTotal := 0;
+<b>for</b> iCount := 1 <b>to</b> 5 <b>do</b>
+  iTotal := iTotal + iCount;</pre></div><table class="tr"><tr><th>iCount</th><th>iTotal after this pass</th></tr><tr><td>1</td><td></td></tr><tr><td>2</td><td></td></tr><tr><td>3</td><td></td></tr><tr><td>4</td><td></td></tr><tr><td>5</td><td></td></tr></table></div>
+<div class="blk"><h3><span class="num">1.6</span>Be the computer: counting down <span class="mk">[4]</span></h3><p>Trace this loop. Start with iResult = 100.</p><div class="code"><span class="lab">Delphi</span><pre>iResult := 100;
+<b>for</b> i := 4 <b>downto</b> 1 <b>do</b>
+  iResult := iResult - i * 5;</pre></div><table class="tr"><tr><th>i</th><th>iResult after this pass</th></tr><tr><td>4</td><td></td></tr><tr><td>3</td><td></td></tr><tr><td>2</td><td></td></tr><tr><td>1</td><td></td></tr></table></div>
+<div class="blk"><h3><span class="num">1.7</span>Predict the output <span class="mk">[3]</span></h3><p>Write exactly what appears in <b>memOut</b> when this code runs.</p><div class="code"><span class="lab">Delphi</span><pre><b>for</b> i := 1 <b>to</b> 4 <b>do</b>
+  memOut.Lines.Add(IntToStr(i) + ' x 3 = ' + IntToStr(i * 3));</pre></div><div class="lines" style="--n:4"></div></div>
+<div class="blk"><h3><span class="num">1.8</span>Write it: times table <span class="mk">[4]</span></h3><p>Write a FOR loop that displays the <b>7 times table</b> from 1 to 10 in <b>memTable</b> (for example: <i>1 x 7 = 7</i>).</p><div class="lines" style="--n:7"></div></div>
+<div class="blk"><h3><span class="num">1.9</span>Write it: Gauss's trick <span class="mk">[4]</span></h3><p>Write the code to add up all the whole numbers from <b>1 to 100</b> and display the answer in <b>lblTotal</b>. Include your variable declarations. (The answer should be 5050.)</p><div class="lines" style="--n:9"></div></div>
+<div class="blk"><h3><span class="num">1.10</span>Write it: countdown <span class="mk">[3]</span></h3><p>Display the numbers <b>10 down to 1</b> in <b>memOut</b>, and then the words <b>Lift off!</b> once the loop has finished.</p><div class="lines" style="--n:6"></div></div>
+
+<h2 class="unithead pb"><span class="un">UNIT 2</span>Keep going until&hellip;</h2><p class="goal">Sometimes nobody knows in advance how many times a task must be repeated. You keep going <i>until</i> something happens. This is where WHILE and REPEAT come in.</p><div class="can"><b>By the end of this unit I can:</b> <span class="small">(tick each box when you are sure)</span><ul><li><span class='cb'></span>explain the difference between WHILE and REPEAT</li><li><span class='cb'></span>choose the correct loop for a problem</li><li><span class='cb'></span>trace WHILE and REPEAT loops</li><li><span class='cb'></span>find mistakes that stop a loop from ending</li><li><span class='cb'></span>use a sentinel value to stop a loop</li></ul><div class="small ask">One thing I want to ask my teacher: <span class="fl" style="width:98mm"></span></div></div>
+<div class="blk think"><div class="ribbon">THINK FIRST &middot; no computer needed</div><h3><span class="num">2.1</span>Guess my number </h3><div class="txt">Play with a partner. Your partner secretly writes a number from <b>1 to 20</b> on a scrap of paper. You guess; they answer <b>HIGHER</b>, <b>LOWER</b> or <b>CORRECT</b>. Write each guess below. Play twice.<br><br>Round 1 guesses: ______________________________ &nbsp; Round 2 guesses: ______________________________<br><br>Could you have known in advance how many guesses you would need? What made you stop?</div><div class="lines" style="--n:3"></div></div>
+<div class="blk think"><div class="ribbon">THINK FIRST &middot; no computer needed</div><h3><span class="num">2.2</span>The ATM </h3><div class="txt">Write, in everyday English, the steps an ATM follows to check your PIN when you might type it wrong. Use the words <b>keep</b> and <b>until</b>.</div><div class="lines" style="--n:5"></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>WHILE and REPEAT</h3><div class="txt"><b>WHILE</b> checks its condition <b>first</b>. It keeps going <b>while</b> the condition is True, so it may run <b>zero</b> times. <b>REPEAT&hellip;UNTIL</b> checks <b>last</b>. It keeps going <b>until</b> the condition becomes True, so it always runs <b>at least once</b>. A special value that tells the loop to stop (like 0 or -1) is called a <b>sentinel</b>. Inside the loop you must <b>change</b> something, otherwise the condition never changes and the loop never ends.</div><div class="code"><span class="lab">Delphi</span><pre><i class="c">// WHILE: test first. Sentinel = 0</i>
+iNum := StrToInt(InputBox('Input', 'Number (0 to stop):', ''));
+<b>while</b> iNum &lt;&gt; 0 <b>do</b>
+<b>begin</b>
+  iTotal := iTotal + iNum;
+  iNum := StrToInt(InputBox('Input', 'Number (0 to stop):', ''));
+<b>end</b>;
+
+<i class="c">// REPEAT: test last. Keeps asking until the age is valid</i>
+<b>repeat</b>
+  iAge := StrToInt(InputBox('Age', 'Enter your age (14 to 19):', ''));
+<b>until</b> (iAge &gt;= 14) <b>and</b> (iAge &lt;= 19);</pre></div></div>
+<div class="blk"><h3><span class="num">2.3</span>Compare the loops <span class="mk">[6]</span></h3><p>Complete the table.</p><table class="tr big"><tr><th></th><th>WHILE ... DO</th><th>REPEAT ... UNTIL</th></tr><tr><td>When is the condition tested?</td><td class="fillcell"></td><td class="fillcell"></td></tr><tr><td>Fewest times the body can run</td><td class="fillcell"></td><td class="fillcell"></td></tr><tr><td>The loop continues while the condition is&hellip;</td><td class="fillcell"></td><td class="fillcell"></td></tr></table></div>
+<div class="blk"><h3><span class="num">2.4</span>Which loop? <span class="mk">[6]</span></h3><p>Circle the loop that suits each problem best.</p><table class="pick"><tr><td class="n">1</td><td>Display the numbers 1 to 50.</td><td class="o"><span class="opt">FOR</span>&nbsp;&nbsp;<span class="opt">WHILE</span>&nbsp;&nbsp;<span class="opt">REPEAT</span></td></tr><tr><td class="n">2</td><td>Keep asking for a password until it is correct (it must be asked at least once).</td><td class="o"><span class="opt">FOR</span>&nbsp;&nbsp;<span class="opt">WHILE</span>&nbsp;&nbsp;<span class="opt">REPEAT</span></td></tr><tr><td class="n">3</td><td>Add up numbers until the user types -1. The user might type -1 straight away.</td><td class="o"><span class="opt">FOR</span>&nbsp;&nbsp;<span class="opt">WHILE</span>&nbsp;&nbsp;<span class="opt">REPEAT</span></td></tr><tr><td class="n">4</td><td>Print the 12 times table.</td><td class="o"><span class="opt">FOR</span>&nbsp;&nbsp;<span class="opt">WHILE</span>&nbsp;&nbsp;<span class="opt">REPEAT</span></td></tr><tr><td class="n">5</td><td>Roll a die until a 6 comes up.</td><td class="o"><span class="opt">FOR</span>&nbsp;&nbsp;<span class="opt">WHILE</span>&nbsp;&nbsp;<span class="opt">REPEAT</span></td></tr><tr><td class="n">6</td><td>Read marks until the user types 0, where 0 may be the very first entry.</td><td class="o"><span class="opt">FOR</span>&nbsp;&nbsp;<span class="opt">WHILE</span>&nbsp;&nbsp;<span class="opt">REPEAT</span></td></tr></table></div>
+<div class="blk"><h3><span class="num">2.5</span>Be the computer: WHILE <span class="mk">[6]</span></h3><p>Trace this code. For each pass, write whether the condition is True or False <b>before</b> the body runs, then the values <b>after</b> the body. The last row is the check that stops the loop.</p><div class="code"><span class="lab">Delphi</span><pre>iNum := 100;
+iCount := 0;
+<b>while</b> iNum &gt; 10 <b>do</b>
+<b>begin</b>
+  iNum := iNum <b>div</b> 2;
+  Inc(iCount);
+<b>end</b>;</pre></div><table class="tr"><tr><th>Check</th><th>iNum > 10 ?</th><th>iNum</th><th>iCount</th></tr><tr><td>1</td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td></tr><tr><td>4</td><td></td><td></td><td></td></tr><tr><td>5</td><td></td><td></td><td></td></tr></table></div>
+<div class="blk"><h3><span class="num">2.6</span>Be the computer: REPEAT <span class="mk">[5]</span></h3><p>The user types <b>12</b>, then <b>7</b>, then <b>20</b>, then <b>0</b>.</p><div class="code"><span class="lab">Delphi</span><pre>iTotal := 0;
+<b>repeat</b>
+  iNum := StrToInt(InputBox('Input', 'Number (0 to stop):', ''));
+  iTotal := iTotal + iNum;
+<b>until</b> iNum = 0;</pre></div><table class="tr"><tr><th>Typed</th><th>iNum</th><th>iTotal</th><th>iNum = 0 ?</th></tr><tr><td>12</td><td></td><td></td><td></td></tr><tr><td>7</td><td></td><td></td><td></td></tr><tr><td>20</td><td></td><td></td><td></td></tr><tr><td>0</td><td></td><td></td><td></td></tr></table></div>
+<div class="blk"><h3><span class="num">2.7</span>Think critically <span class="mk">[3]</span></h3><p>What is the final value of iTotal? Now imagine the sentinel had been <b>-1</b> instead of 0 and the same code was used. What would go wrong, and how could you fix it?</p><div class="lines" style="--n:4"></div></div>
+<div class="blk"><h3><span class="num">2.8</span>Debug: the endless loop <span class="mk">[3]</span></h3><p>This code should add 1 + 2 + 3 + 4 + 5, but the program freezes and then fails to display a result. Find <b>three</b> errors and write the corrections.</p><div class="code"><span class="lab">Delphi</span><pre><b>var</b>
+  iNum, iTotal : Integer;
+<b>begin</b>
+  iNum := 1;
+  <b>while</b> iNum &lt;= 5 <b>do</b>
+  <b>begin</b>
+    iTotal := iTotal + iNum;
+  <b>end</b>;
+  lblTotal.Caption := iTotal;
+<b>end</b>;</pre></div><div class="lines" style="--n:5"></div></div>
+<div class="blk"><h3><span class="num">2.9</span>Debug: roll a six <span class="mk">[2]</span></h3><p>This code should keep rolling a die until a 6 is rolled and then count the rolls. Find <b>two</b> errors.</p><div class="code"><span class="lab">Delphi</span><pre><b>repeat</b>
+  iPick := Random(6) + 1;
+  Inc(iRolls);
+<b>until</b> iPick &lt;&gt; 6;</pre></div><div class="lines" style="--n:4"></div></div>
+<div class="blk"><h3><span class="num">2.10</span>Write it: class average <span class="mk">[7]</span></h3><p>Write code that uses a loop to read marks with an InputBox until the user types <b>-1</b>. Then display the average in <b>lblAvg</b>. The -1 must <b>not</b> be counted. Only calculate the average if at least one mark was entered.</p><div class="lines" style="--n:12"></div></div>
+
+<h2 class="unithead pb"><span class="un">UNIT 3</span>Strings from first principles</h2><p class="goal">A string is just a row of characters, each with a position number. If you can walk along that row with a loop, you can count, search, reverse and change text without any built-in shortcuts.</p><div class="can"><b>By the end of this unit I can:</b> <span class="small">(tick each box when you are sure)</span><ul><li><span class='cb'></span>describe how a computer looks at a string one character at a time</li><li><span class='cb'></span>use a loop with s[i] and Length</li><li><span class='cb'></span>use Ord and Chr</li><li><span class='cb'></span>build a new string from an old one</li></ul><div class="small ask">One thing I want to ask my teacher: <span class="fl" style="width:98mm"></span></div></div>
+<div class="blk"><h3><span class="num">3.1</span>Be the computer </h3><p>Put your pencil on box 1. Move along one box at a time and count the letter <b>E</b>, exactly as a computer would. How many E's are there? Then write the steps you followed in order.</p><div class="lbrow"><div class="lb"><span class="ix">1</span>R</div><div class="lb"><span class="ix">2</span>E</div><div class="lb"><span class="ix">3</span>M</div><div class="lb"><span class="ix">4</span>E</div><div class="lb"><span class="ix">5</span>M</div><div class="lb"><span class="ix">6</span>B</div><div class="lb"><span class="ix">7</span>E</div><div class="lb"><span class="ix">8</span>R</div></div><div class="lines" style="--n:4"></div></div>
+<div class="blk"><h3><span class="num">3.2</span>Backwards </h3><p>Start at box 5 and read backwards to box 1, writing each letter as you go. What word do you get?</p><div class="lbrow"><div class="lb"><span class="ix">1</span>L</div><div class="lb"><span class="ix">2</span>O</div><div class="lb"><span class="ix">3</span>G</div><div class="lb"><span class="ix">4</span>I</div><div class="lb"><span class="ix">5</span>C</div></div><div class="lines" style="--n:2"></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Strings, positions and a loop</h3><div class="txt">In Delphi the <b>first character is at position 1</b> (not 0). <b>Length(s)</b> tells you how many characters there are, and <b>s[i]</b> gives the character at position <b>i</b>. A FOR loop from 1 to Length(s) visits every character. You can <b>build a new string</b> by adding characters to it with <b>+</b>.</div><div class="code"><span class="lab">Delphi</span><pre>sWord := 'LOGIC';
+<b>for</b> i := 1 <b>to</b> Length(sWord) <b>do</b>
+  memOut.Lines.Add(IntToStr(i) + ': ' + sWord[i]);
+<i class="c">// 1: L   2: O   3: G   4: I   5: C</i></pre></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Ord and Chr</h3><div class="txt">Every character has a number (its ASCII code). <b>Ord(c)</b> gives the number for a character and <b>Chr(n)</b> gives the character for a number. The letters of the alphabet are in order, so Chr(Ord('A') + 1) is 'B'. A lowercase letter is 32 more than its uppercase letter.</div><div class="code"><span class="lab">Delphi</span><pre>iCode := Ord('A');         <i class="c">// 65</i>
+cNext := Chr(iCode + 1);   <i class="c">// 'B'</i>
+cLower := Chr(Ord('A') + 32);   <i class="c">// 'a'</i></pre></div></div>
+<div class="blk"><h3><span class="num">3.3</span>ASCII codes <span class="mk">[5]</span></h3><p>Use Ord('A') = 65 and Ord('a') = 97 to complete the table. Count along the alphabet.</p><table class="tr big"><tr><th>Character</th><th>Ord() value</th></tr><tr><td>A</td><td class="fillcell"></td></tr><tr><td>C</td><td class="fillcell"></td></tr><tr><td>F</td><td class="fillcell"></td></tr><tr><td>Z</td><td class="fillcell"></td></tr><tr><td>d</td><td class="fillcell"></td></tr><tr><td>0</td><td class="fillcell"></td></tr><tr><td>5</td><td class="fillcell"></td></tr></table></div>
+<div class="blk"><h3><span class="num">3.4</span>Quick fire <span class="mk">[5]</span></h3><div class="txt">Ord('D') = <span class="blank" style="min-width:4ch"></span>. &nbsp; Chr(70) = <span class="blank" style="min-width:4ch"></span>. &nbsp; To turn the lowercase 'g' into uppercase, subtract <span class="blank" style="min-width:4ch"></span>. &nbsp; Chr(Ord('A') + 25) = <span class="blank" style="min-width:4ch"></span>. &nbsp; Ord('9') - Ord('0') = <span class="blank" style="min-width:4ch"></span>.</div></div>
+<div class="blk"><h3><span class="num">3.5</span>Be the computer: counting a letter <span class="mk">[6]</span></h3><p>Trace this code. Write <i>Yes</i> or <i>No</i> to show whether the letter is an E, and write the value of iCount after each pass.</p><div class="code"><span class="lab">Delphi</span><pre>sWord := 'REMEMBER';
+iCount := 0;
+<b>for</b> i := 1 <b>to</b> Length(sWord) <b>do</b>
+  <b>if</b> sWord[i] = 'E' <b>then</b>
+    Inc(iCount);</pre></div><table class="tr"><tr><th>i</th><th>sWord[i]</th><th>Is it 'E'?</th><th>iCount</th></tr><tr><td>1</td><td>R</td><td></td><td></td></tr><tr><td>2</td><td>E</td><td></td><td></td></tr><tr><td>3</td><td>M</td><td></td><td></td></tr><tr><td>4</td><td>E</td><td></td><td></td></tr><tr><td>5</td><td>M</td><td></td><td></td></tr><tr><td>6</td><td>B</td><td></td><td></td></tr><tr><td>7</td><td>E</td><td></td><td></td></tr><tr><td>8</td><td>R</td><td></td><td></td></tr></table></div>
+<div class="blk"><h3><span class="num">3.6</span>Predict the output <span class="mk">[3]</span></h3><p>What is displayed in <b>lblOut</b>? How many times does the loop body run?</p><div class="code"><span class="lab">Delphi</span><pre>sWord := 'ROBOT';
+sRev := '';
+<b>for</b> i := Length(sWord) <b>downto</b> 1 <b>do</b>
+  sRev := sRev + sWord[i];
+lblOut.Caption := sRev;</pre></div><div class="lines" style="--n:3"></div></div>
+<div class="blk"><h3><span class="num">3.7</span>Write it: count the spaces <span class="mk">[4]</span></h3><p>A sentence is stored in <b>sSentence</b>. Write the loop that counts how many <b>spaces</b> it contains and stores the answer in <b>iSpaces</b>.</p><div class="lines" style="--n:6"></div></div>
+<div class="blk"><h3><span class="num">3.8</span>Write it: remove the spaces <span class="mk">[5]</span></h3><p>Write code that builds a new string <b>sResult</b> containing the same characters as <b>sSentence</b> but <b>without any spaces</b>.</p><div class="lines" style="--n:7"></div></div>
+<div class="blk"><h3><span class="num">3.9</span>Write it: a secret code <span class="mk">[5]</span></h3><p>Each letter of the uppercase word in <b>sWord</b> is replaced by the next letter in the alphabet (A becomes B, B becomes C, and so on). Write code that puts the coded word in <b>sCoded</b>. You may assume the word has no letter Z.</p><div class="lines" style="--n:7"></div></div>
+<div class="blk"><h3><span class="num">3.10</span>Challenge: wrap around </h3><p>What goes wrong in the secret code if the word contains a <b>Z</b>? Rewrite the line inside your loop so that Z becomes A.</p><div class="lines" style="--n:5"></div></div>
+
+<h2 class="unithead pb"><span class="un">UNIT 4</span>Number detectives</h2><p class="goal">Factors, primes and common divisors are old ideas from maths. Here you will first investigate them with pencil and paper, then teach the computer to do the same.</p><div class="can"><b>By the end of this unit I can:</b> <span class="small">(tick each box when you are sure)</span><ul><li><span class='cb'></span>list the factors of a number</li><li><span class='cb'></span>explain what a prime number is</li><li><span class='cb'></span>test for a prime using a loop and MOD</li><li><span class='cb'></span>find the GCD using the remainder method</li><li><span class='cb'></span>find the LCM from the GCD</li></ul><div class="small ask">One thing I want to ask my teacher: <span class="fl" style="width:98mm"></span></div></div>
+<div class="blk"><h3><span class="num">4.1</span>Hunt for the primes <span class="mk">[4]</span></h3><p>A <b>prime number</b> has exactly two factors: 1 and itself. Use this method (invented by Eratosthenes over 2000 years ago):<ol><li>Cross out 1. It is not prime.</li><li>Circle 2. Cross out every other multiple of 2.</li><li>Circle the next number that is not crossed out (3). Cross out every other multiple of 3.</li><li>Keep going until every number is circled or crossed out.</li></ol>List the primes you found below.</p><div class="ng" style="--c:10"><div class="nb">1</div><div class="nb">2</div><div class="nb">3</div><div class="nb">4</div><div class="nb">5</div><div class="nb">6</div><div class="nb">7</div><div class="nb">8</div><div class="nb">9</div><div class="nb">10</div><div class="nb">11</div><div class="nb">12</div><div class="nb">13</div><div class="nb">14</div><div class="nb">15</div><div class="nb">16</div><div class="nb">17</div><div class="nb">18</div><div class="nb">19</div><div class="nb">20</div><div class="nb">21</div><div class="nb">22</div><div class="nb">23</div><div class="nb">24</div><div class="nb">25</div><div class="nb">26</div><div class="nb">27</div><div class="nb">28</div><div class="nb">29</div><div class="nb">30</div></div><div class="lines" style="--n:2"></div></div>
+<div class="blk think"><div class="ribbon">THINK FIRST &middot; no computer needed</div><h3><span class="num">4.2</span>Factor pairs </h3><div class="txt">Find all the <b>factors</b> of 24 by writing them as pairs that multiply to 24 (for example 1 &times; 24). Then answer: how many factors does the prime number 7 have? How many does the number 1 have?</div><div class="lines" style="--n:4"></div></div>
+<div class="blk think"><div class="ribbon">THINK FIRST &middot; no computer needed</div><h3><span class="num">4.3</span>GCD and LCM by hand <span class="mk">[4]</span></h3><div class="txt">List the factors of 12 and of 18. The biggest factor they share is the <b>GCD</b> (greatest common divisor). Then list the first six multiples of 12 and of 18. The smallest multiple they share is the <b>LCM</b> (lowest common multiple).</div><div class="lines" style="--n:5"></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Teaching the computer</h3><div class="txt"><b>x is a factor of n</b> when <b>n MOD x = 0</b> (no remainder). To test for a prime, <b>count the factors</b> by trying every number from 1 to n. A number is prime if it is greater than 1 <b>and</b> has exactly 2 factors.</div><div class="code"><span class="lab">Delphi</span><pre>iCount := 0;
+<b>for</b> iDivisor := 1 <b>to</b> iNumber <b>do</b>
+  <b>if</b> iNumber <b>mod</b> iDivisor = 0 <b>then</b>
+    Inc(iCount);
+bPrime := (iNumber &gt; 1) <b>and</b> (iCount = 2);</pre></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>The remainder method for GCD</h3><div class="txt">To find the GCD of two numbers, keep replacing the pair with (second number, remainder) until the remainder is 0. The last non-zero number is the GCD. Then <b>LCM = (first DIV GCD) &times; second</b>.</div><div class="code"><span class="lab">Delphi</span><pre>iA := 48;
+iB := 18;
+<b>while</b> iB &lt;&gt; 0 <b>do</b>
+<b>begin</b>
+  iRemainder := iA <b>mod</b> iB;
+  iA := iB;
+  iB := iRemainder;
+<b>end</b>;
+<i class="c">// iA now holds the GCD</i></pre></div></div>
+<div class="blk"><h3><span class="num">4.4</span>Be the computer: is 12 prime? <span class="mk">[8]</span></h3><p>iNumber = 12. Complete the table for every value of iDivisor.</p><div class="code"><span class="lab">Delphi</span><pre>iCount := 0;
+<b>for</b> iDivisor := 1 <b>to</b> 12 <b>do</b>
+  <b>if</b> 12 <b>mod</b> iDivisor = 0 <b>then</b>
+    Inc(iCount);</pre></div><table class="tr"><tr><th>iDivisor</th><th>12 MOD iDivisor</th><th>Factor?</th><th>iCount</th></tr><tr><td>1</td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td></tr><tr><td>4</td><td></td><td></td><td></td></tr><tr><td>5</td><td></td><td></td><td></td></tr><tr><td>6</td><td></td><td></td><td></td></tr><tr><td>7</td><td></td><td></td><td></td></tr><tr><td>8</td><td></td><td></td><td></td></tr><tr><td>9</td><td></td><td></td><td></td></tr><tr><td>10</td><td></td><td></td><td></td></tr><tr><td>11</td><td></td><td></td><td></td></tr><tr><td>12</td><td></td><td></td><td></td></tr></table></div>
+<div class="blk"><h3><span class="num">4.5</span>Conclusion <span class="mk">[2]</span></h3><p>Is 12 a prime number? Use your table to explain.</p><div class="lines" style="--n:2"></div></div>
+<div class="blk"><h3><span class="num">4.6</span>Be the computer: remainder method <span class="mk">[6]</span></h3><p>iA starts at 48 and iB starts at 18. Complete one row for each pass of the loop.</p><div class="code"><span class="lab">Delphi</span><pre><b>while</b> iB &lt;&gt; 0 <b>do</b>
+<b>begin</b>
+  iRemainder := iA <b>mod</b> iB;
+  iA := iB;
+  iB := iRemainder;
+<b>end</b>;</pre></div><table class="tr"><tr><th>Pass</th><th>iRemainder</th><th>iA after</th><th>iB after</th></tr><tr><td>1</td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td></tr></table></div>
+<div class="blk"><h3><span class="num">4.7</span>From GCD to LCM <span class="mk">[2]</span></h3><p>State the GCD of 48 and 18 from your table. Then calculate the LCM using <b>(48 DIV GCD) &times; 18</b>.</p><div class="lines" style="--n:2"></div></div>
+<div class="blk"><h3><span class="num">4.8</span>Write it: list the factors <span class="mk">[5]</span></h3><p>Write code that displays all the factors of <b>iNumber</b> in <b>lblOut</b>, separated by spaces (for 12 it would show <i>1 2 3 4 6 12</i>).</p><div class="lines" style="--n:7"></div></div>
+<div class="blk"><h3><span class="num">4.9</span>Challenge: all the primes up to 30 </h3><p>Use <b>nested loops</b> to display every prime number from 2 to 30 in <b>memOut</b>. Think: the inner loop is the prime test you already wrote. What must be reset for every new number?</p><div class="lines" style="--n:11"></div></div>
+
+<h2 class="unithead pb"><span class="un">TERM CHECKPOINT</span>Loops, strings and numbers</h2>
+<div class="testmeta"><div><b>Time:</b> 45 minutes</div><div><b>Total:</b> 44 marks</div><div><b>Mark:</b> ______ / 44</div></div>
+<p class="goal">No notes, no computer. Show all your working. Write Delphi code neatly and use correct indentation.</p>
+<h3 class="sec">SECTION A &mdash; Trace and predict <span class="mk">[12]</span></h3>
+<div class="blk"><h3><span class="num">A1</span> <span class="mk">[6]</span></h3><p>Trace this code. Show the value of iTotal <b>after</b> each pass.</p><div class="code"><span class="lab">Delphi</span><pre>iTotal := 0;
+<b>for</b> i := 1 <b>to</b> 6 <b>do</b>
+  <b>if</b> i <b>mod</b> 2 = 0 <b>then</b>
+    iTotal := iTotal + i;</pre></div><table class="tr"><tr><th>i</th><th>i MOD 2 = 0 ?</th><th>iTotal</th></tr><tr><td>1</td><td></td><td></td></tr><tr><td>2</td><td></td><td></td></tr><tr><td>3</td><td></td><td></td></tr><tr><td>4</td><td></td><td></td></tr><tr><td>5</td><td></td><td></td></tr><tr><td>6</td><td></td><td></td></tr></table></div>
+<div class="blk"><h3><span class="num">A2</span> <span class="mk">[3]</span></h3><p>What is the final value of iNum? How many times did the loop body run?</p><div class="code"><span class="lab">Delphi</span><pre>iNum := 3;
+<b>while</b> iNum &lt; 40 <b>do</b>
+  iNum := iNum * 2;</pre></div><div class="lines" style="--n:2"></div></div>
+<div class="blk"><h3><span class="num">A3</span> <span class="mk">[3]</span></h3><p>What does sOut contain at the end? Describe in one sentence what the code does.</p><div class="code"><span class="lab">Delphi</span><pre>sIn := 'GRADE';
+sOut := '';
+<b>for</b> i := 1 <b>to</b> Length(sIn) <b>do</b>
+  sOut := sIn[i] + sOut;</pre></div><div class="lines" style="--n:3"></div></div>
+<h3 class="sec">SECTION B &mdash; Concepts <span class="mk">[8]</span></h3>
+<div class="blk"><h3><span class="num">B1</span> <span class="mk">[4]</span></h3><p>Circle the best loop for each problem.</p><table class="pick"><tr><td class="n">1</td><td>Display every number from 1 to 20.</td><td class="o"><span class="opt">FOR</span>&nbsp;&nbsp;<span class="opt">WHILE</span>&nbsp;&nbsp;<span class="opt">REPEAT</span></td></tr><tr><td class="n">2</td><td>Ask for a password until it is correct (at least one attempt).</td><td class="o"><span class="opt">FOR</span>&nbsp;&nbsp;<span class="opt">WHILE</span>&nbsp;&nbsp;<span class="opt">REPEAT</span></td></tr><tr><td class="n">3</td><td>Read numbers until -1 is typed, which might be typed first.</td><td class="o"><span class="opt">FOR</span>&nbsp;&nbsp;<span class="opt">WHILE</span>&nbsp;&nbsp;<span class="opt">REPEAT</span></td></tr><tr><td class="n">4</td><td>Display the numbers 10 down to 1.</td><td class="o"><span class="opt">FOR</span>&nbsp;&nbsp;<span class="opt">WHILE</span>&nbsp;&nbsp;<span class="opt">REPEAT</span></td></tr></table></div>
+<div class="blk"><h3><span class="num">B2</span> <span class="mk">[2]</span></h3><p>Explain, in your own words, <b>one</b> difference between a WHILE loop and a REPEAT loop.</p><div class="lines" style="--n:3"></div></div>
+<div class="blk"><h3><span class="num">B3</span> <span class="mk">[2]</span></h3><div class="txt">Given that Ord('A') = 65 and Ord('a') = 97: Ord('C') = <span class="blank" style="min-width:4ch"></span> and Chr(100) = <span class="blank" style="min-width:4ch"></span>.</div></div>
+<h3 class="sec">SECTION C &mdash; Find the errors <span class="mk">[6]</span></h3>
+<div class="blk"><h3><span class="num">C1</span> <span class="mk">[3]</span></h3><p>This code should add the numbers 1 to 10. Find and correct <b>three</b> errors.</p><div class="code"><span class="lab">Delphi</span><pre><b>var</b>
+  i, iSum : Integer;
+<b>begin</b>
+  <b>for</b> i = 1 <b>to</b> 10 <b>do</b>
+  <b>begin</b>
+    iSum := iSum + i;
+  <b>end</b>;
+  lblSum.Caption := iSum;
+<b>end</b>;</pre></div><div class="lines" style="--n:4"></div></div>
+<div class="blk"><h3><span class="num">C2</span> <span class="mk">[3]</span></h3><p>This code should count the vowels in sWord but fails. Find the error and write the corrected line.</p><div class="code"><span class="lab">Delphi</span><pre>iCount := 0;
+<b>for</b> i := 0 <b>to</b> Length(sWord) <b>do</b>
+  <b>if</b> sWord[i] <b>in</b> ['A','E','I','O','U'] <b>then</b>
+    iCount := iCount + 1;</pre></div><div class="lines" style="--n:3"></div></div>
+<h3 class="sec">SECTION D &mdash; Write the code <span class="mk">[18]</span></h3>
+<div class="blk"><h3><span class="num">D1</span> <span class="mk">[6]</span></h3><p>Write code that displays the <b>sum of all the odd numbers from 1 to 49</b> in <b>lblOut</b>.</p><div class="lines" style="--n:9"></div></div>
+<div class="blk"><h3><span class="num">D2</span> <span class="mk">[6]</span></h3><p>A learner's name is typed in <b>edtName</b>. Write code that counts how many times the letter <b>A</b> (uppercase <b>or</b> lowercase) appears in the name and displays the answer in <b>lblCount</b>.</p><div class="lines" style="--n:10"></div></div>
+<div class="blk"><h3><span class="num">D3</span> <span class="mk">[6]</span></h3><p>Use a <b>REPEAT</b> loop to keep asking for a mark with an InputBox until the mark is from 0 to 100 inclusive. Then display <b>Mark accepted</b> using ShowMessage.</p><div class="lines" style="--n:10"></div></div>
+<div class="blk think"><div class="ribbon">COMING UP NEXT TERM &middot; warm-up</div><h3>A filing cabinet for the computer</h3><div class="txt">In Term 4 you will make your program <b>remember</b> things by saving them in a file and reading them back later. Before the Delphi, think about an ordinary school office.<br><br>The secretary must <b>(a)</b> put a new learner's details in a folder in the cabinet and <b>(b)</b> take them out again next week. Write the steps for each job in order. Think about opening, reading or writing, and what happens when you have finished.</div><div class="lines" style="--n:7"></div></div></body></html>
