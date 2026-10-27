@@ -1,0 +1,444 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Grade 11 Term 2 workbook</title><style>
+@page{ size:A4; margin:13mm 14mm 15mm 14mm; @bottom-center{ content:counter(page); font:8pt Arial,sans-serif; color:#555; } }
+*{ box-sizing:border-box; }
+body{ font:10.5pt/1.45 'Segoe UI',Arial,sans-serif; color:#111; margin:0; }
+h1{ font-size:27pt; margin:.2em 0 .1em; line-height:1.1; }
+h2{ font-size:13pt; margin:1em 0 .3em; }
+h3{ font-size:11pt; margin:0 0 .35em; }
+p{ margin:.25em 0 .5em; }
+.pb{ break-before:page; }
+.cover{ min-height:250mm; break-after:page; }
+.badge{ display:inline-block; background:#5b21b6; color:#fff; padding:.25em .8em; font-weight:700; letter-spacing:.05em; font-size:10pt; border-radius:3px; margin-top:6mm; }
+.cover .tagline{ font-size:12pt; color:#444; }
+.idbox{ border:2px solid #111; padding:3mm 4mm; margin:6mm 0; font-weight:600; display:flex; flex-direction:column; gap:3mm; }
+.fl{ display:inline-block; border-bottom:1px solid #111; width:105mm; } .fl.s{ width:45mm; }
+.how li,.toc li{ margin:.25em 0; }
+.plan{ border-left:4px solid #5b21b6; background:#f1f1f1; padding:3mm 4mm; margin-top:6mm; font-size:9.5pt; }
+.unithead{ background:#5b21b6; color:#fff; padding:3.5mm 5mm; border-radius:3px; font-size:16pt; margin-top:0; display:flex; align-items:baseline; gap:4mm; }
+.unithead .un{ font-size:9.5pt; letter-spacing:.08em; border:1.5px solid #fff; padding:.1em .5em; border-radius:2px; }
+.goal{ font-size:11pt; }
+.can{ border:1.5px solid #111; padding:2.5mm 4mm; margin:2mm 0 4mm; break-inside:avoid; }
+.ask{ margin-top:1.5mm; } .can ul{ list-style:none; margin:.3em 0 0; padding:0; columns:2; column-gap:6mm; } .can li{ margin:.2em 0; break-inside:avoid; }
+.cb{ display:inline-block; width:3.6mm; height:3.6mm; border:1.3px solid #111; margin-right:2mm; vertical-align:-.5mm; }
+.blk{ border:1.2px solid #999; border-radius:3px; padding:2.5mm 4mm 3mm; margin:0 0 3mm; break-inside:avoid; }
+.blk h3 .num{ background:#111; color:#fff; border-radius:2px; padding:0 .4em; margin-right:.5em; font-size:9.5pt; }
+.think{ border:1.6px dashed #111; background:#f4f4f4; position:relative; padding-top:8mm; }
+.learn{ border-left:5px solid #5b21b6; background:#fff; position:relative; padding-top:8mm; }
+.ribbon{ position:absolute; top:0; left:4mm; background:#111; color:#fff; font:700 7.5pt Arial,sans-serif; letter-spacing:.06em; padding:.25em .7em; border-radius:0 0 3px 3px; }
+.ribbon.alt{ background:#5b21b6; }
+.txt p:first-child{ margin-top:0; } .txt ul,.txt ol{ margin:.3em 0 .3em 1.2em; padding:0; }
+.mk{ float:right; font-weight:700; font-size:9.5pt; border:1.3px solid #111; border-radius:3px; padding:0 .4em; }
+.lines{ height:calc(var(--n)*8mm); background:repeating-linear-gradient(to bottom,transparent 0,transparent 7.5mm,#8a8a8a 7.5mm,#8a8a8a 8mm); margin-top:1mm; }
+.blank{ display:inline-block; border-bottom:1.3px solid #111; height:1.05em; vertical-align:-.15em; margin:0 .15em; }
+.ans{ background:#dfe9f6; font-weight:700; padding:0 .25em; border-radius:2px; }
+.code{ margin:1.5mm 0 2.5mm; break-inside:avoid; } .code .lab{ display:inline-block; font:7.5pt Consolas,monospace; background:#e8e8e8; border:1px solid #aaa; border-bottom:none; padding:.1em .6em; border-radius:3px 3px 0 0; }
+pre{ margin:0; background:#f7f7f7; border:1px solid #aaa; border-radius:0 3px 3px 3px; padding:2mm 3mm; font:9pt/1.4 Consolas,'Courier New',monospace; white-space:pre-wrap; }
+pre i.c{ color:#555; }
+table{ border-collapse:collapse; }
+table.tr{ width:100%; margin-top:2mm; } table.tr th,table.tr td{ border:1.2px solid #111; padding:0 2mm; height:7.6mm; text-align:center; font-size:10pt; }
+table.tr th{ background:#e4e4e4; font-size:9pt; } table.big td{ height:9.5mm; text-align:left; }
+td.a{ background:#dfe9f6; font-weight:700; } td.fillcell{ background:#fff; }
+table.pick{ width:100%; } table.pick td{ border-bottom:1px solid #ccc; padding:1.4mm 2mm; vertical-align:top; } table.pick td.n{ width:7mm; font-weight:700; } table.pick td.o{ width:62mm; white-space:nowrap; }
+.opt{ border:1.3px solid #111; border-radius:10px; padding:0 .6em; font-weight:700; } .opt.ok{ background:#dfe9f6; }
+.lbrow{ display:flex; flex-wrap:wrap; gap:0; margin:2mm 0; } .lb{ width:9mm; height:11mm; border:1.3px solid #111; margin-right:-1.3px; text-align:center; font:700 12pt Consolas,monospace; padding-top:3.2mm; position:relative; }
+.lb .ix{ position:absolute; top:.2mm; left:1mm; font:7pt Arial,sans-serif; font-weight:400; color:#444; }
+.drawbox{ border:1.4px solid #111; border-radius:3px; margin-top:1.5mm; background:#fff; }
+.drawbox.grid{ background-image:linear-gradient(#cfcfcf 1px,transparent 1px),linear-gradient(90deg,#cfcfcf 1px,transparent 1px); background-size:5mm 5mm; }
+.ng{ display:grid; grid-template-columns:repeat(var(--c),12mm); gap:0; margin:2mm 0; } .nb{ border:1.3px solid #111; margin:0 -1.3px -1.3px 0; text-align:center; padding:2.6mm 0; font:600 11pt Arial,sans-serif; height:11mm; }
+.selfcheck{ border-color:#111; background:#fafafa; } .small{ font-size:8.5pt; color:#444; }
+.memo-ans{ background:#dfe9f6; border:1px solid #7e97c2; border-radius:3px; padding:2mm 3mm; margin-top:2mm; font-size:10pt; }
+.memo-ans pre{ background:#eef3fb; } .tag{ font:700 7.5pt Arial,sans-serif; letter-spacing:.06em; background:#2b4d86; color:#fff; padding:.15em .5em; border-radius:2px; margin-right:2mm; }
+.teachernote{ background:#fff6d6; border-color:#c9a400; } .teachernote .tag{ background:#8a6d00; }
+.testmeta{ display:flex; gap:10mm; border:1.5px solid #111; padding:2.5mm 4mm; font-size:11pt; margin-bottom:3mm; }
+.sec{ background:#e4e4e4; padding:1.6mm 3mm; border-left:5px solid #5b21b6; margin:4mm 0 2.5mm; break-after:avoid; }
+.note{ font-style:italic; margin:0 0 2mm; }
+.bar{ display:flex; justify-content:space-between; align-items:center; gap:10px; font:14px Arial,sans-serif; padding:10px 14px; background:#f1f5f9; border-bottom:1px solid #cbd5e1; }
+.bar a{ color:#0e7490; text-decoration:none; font-weight:600; }
+.bar button{ background:#5b21b6; color:#fff; border:0; border-radius:6px; padding:8px 14px; font:600 14px Arial,sans-serif; cursor:pointer; }
+@media screen{ html{ background:#e5e7eb; } body{ max-width:210mm; margin:0 auto; padding:0 8mm 10mm; background:#fff; } .bar{ margin:0 -8mm 6mm; } }
+@media print{ .bar{ display:none; } }
+</style></head><body><div class="bar"><a href="index.html">&larr; All workbooks</a><span>Print double-sided, A4, black and white</span><button onclick="window.print()">Print / save as PDF</button></div><section class="cover"><div class="badge">GRADE 11 &middot; TERM 2</div><h1>Files, Helpers &amp; Life Online</h1><p class="tagline">A pencil-and-paper workbook: save data in files, build your own helpers, understand life online, then show what you know.</p><div class="idbox"><div>Name: <span class="fl"></span></div><div>Class: <span class="fl s"></span> Date: <span class="fl s"></span></div></div><h2>How to use this workbook</h2><ol class="how"><li>Work with a <b>pencil</b>. Mistakes are how we learn: rub out and try again.</li><li>Start each unit with <b>Think First</b>. Try it on your own before you read the explanation.</li><li>Read <b>Learn It</b>, then do the activities. Trace tables and code are written <b>by hand</b>.</li><li>At the end of each unit, tick the &ldquo;I can&rdquo; boxes you are sure of. Write down anything you still want to ask.</li><li>The <b>checkpoint test</b> is done under test conditions, with no notes.</li></ol><h2>In this workbook</h2><ol class="toc"><li>Remembering things</li><li>From file to arrays and reports</li><li>Helpers with names</li><li>Helpers that answer</li><li>Communication, mobile technology and security</li><li>What is a database?</li><li>Term checkpoint test</li></ol><div class="plan"><b>Matches the Annual Teaching Plan:</b> Term 2 &mdash; text files (physical and logical names, AssignFile, Reset, Rewrite, Append, ReadLn, WriteLn, EOF, CloseFile, FileExists, try..except), populating arrays from a file and generating reports; procedures and functions with value parameters and input validation; e-communication, mobile technology, shaping and throttling, protocols, data security, blockchain, digitalisation and the gig economy; DBMS, database types and careers.</div></section>
+<h2 class="unithead pb"><span class="un">UNIT 1</span>Remembering things</h2><p class="goal">Variables forget everything the moment a program closes. A text file remembers. You will learn the few commands that connect to a file, read it, write to it and close it, and how to stop your program crashing when the file is missing.</p><div class="can"><b>By the end of this unit I can:</b> <span class="small">(tick each box when you are sure)</span><ul><li><span class='cb'></span>explain why a program needs a text file</li><li><span class='cb'></span>explain the physical and the logical file name</li><li><span class='cb'></span>choose between Reset, Rewrite and Append</li><li><span class='cb'></span>trace a loop that reads a file with <b>while not EOF</b></li><li><span class='cb'></span>write code that reads, writes and appends</li><li><span class='cb'></span>protect my program with FileExists and try..except</li></ul><div class="small ask">One thing I want to ask my teacher: <span class="fl" style="width:98mm"></span></div></div>
+<div class="blk think"><div class="ribbon">THINK FIRST &middot; no computer needed</div><h3><span class="num">1.1</span>The ruler game <span class="mk">[3]</span></h3><div class="txt">Work with a partner. Your partner writes five names on five lines of a page: <i>Zinhle, Thabo, Aisha, Pieter, Naledi</i>. Lay a ruler <b>just above line 1</b>. To &ldquo;read a line&rdquo;, say aloud the line <b>directly below the ruler</b>, write it on your own page, then slide the ruler down by one line. The ruler has gone past the last line when there is nothing left to read. Play it through.<br><br>(a) How many lines were you able to read? (b) What is wrong with asking for a sixth line? (c) Where must the ruler be if you want to read the whole page again?</div><div class="lines" style="--n:3"></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Why files? And two names for one file</h3><div class="txt">A variable lives in <b>RAM</b>, which is wiped when the program closes or the power goes off in load shedding. A <b>text file</b> lives on the disk, so the data is still there tomorrow. It holds plain characters in <b>lines</b>, just like Notepad. Even a number in a text file is only text, so convert it with <b>StrToInt</b> before you calculate with it.<br><br>Picture your school locker. The number painted on the locker door is its real address: the <b>physical file name</b>, such as <b>Sales.txt</b> on the disk. The key tag in your bag is how <i>you</i> talk about it: the <b>logical file name</b>, a variable of type <b>TextFile</b>. <b>AssignFile</b> attaches the tag to the locker, so it must come first.</div><div class="code"><span class="lab">Delphi</span><pre><b>var</b>
+  tFile : TextFile;                  <i class="c">// logical name: a variable in the program</i>
+<b>begin</b>
+  AssignFile(tFile, 'Sales.txt');    <i class="c">// link it to the physical name on the disk</i>
+  <i class="c">// from here on the commands use tFile, never the physical name</i></pre></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>The file commands</h3><div class="txt">Every file job follows the same pattern: <b>link, open, work, close</b>.<table class="tr" style="margin:1mm 0 2mm"><tr><th>Command</th><th>What it does</th></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>AssignFile</b>(tFile, 'Data.txt')</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Links the logical name to the physical name. Always first.</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>Reset</b>(tFile)</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Opens an <i>existing</i> file for <b>reading</b>, at line 1.</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>Rewrite</b>(tFile)</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Creates a <b>new, empty</b> file for writing. If the file exists, <b>everything in it is erased</b>.</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>Append</b>(tFile)</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Opens an <i>existing</i> file for writing at the <b>end</b>. Old lines are kept.</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>ReadLn</b>(tFile, sLine)</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Reads one line into sLine and moves on to the next line.</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>WriteLn</b>(tFile, sText)</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Writes sText to the file as one new line.</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>EOF</b>(tFile)</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">True when there is nothing left to read.</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>CloseFile</b>(tFile)</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Saves and closes the file. Never forget it.</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>FileExists</b>('Data.txt')</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">True if that file is on the disk. Takes the physical name.</td></tr></table>In this course every file job is written <b>from first principles</b> with these commands. There is no one-line shortcut for reading or saving a whole file.</div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Reading, writing and appending</h3><div class="txt"><b>while not EOF(tFile)</b> means &ldquo;keep going while there is still something left to read&rdquo;. Each ReadLn takes one line and moves the position on, so the loop reaches the end by itself. To save data use <b>Rewrite</b> for a fresh file, or <b>Append</b> to add to the end of an existing one. The very first time a program runs there is no file yet, and Append would fail, so it asks FileExists first.</div><div class="code"><span class="lab">Delphi</span><pre><i class="c">// READ every line</i>
+AssignFile(tFile, 'Names.txt');
+Reset(tFile);
+<b>while</b> <b>not</b> EOF(tFile) <b>do</b>
+<b>begin</b>
+  ReadLn(tFile, sLine);        <i class="c">// one line per pass</i>
+  memOut.Lines.Add(sLine);
+<b>end</b>;
+CloseFile(tFile);
+
+<i class="c">// ADD a line, or create the file the first time</i>
+AssignFile(tFile, 'Sales.txt');
+<b>if</b> FileExists('Sales.txt') <b>then</b>
+  Append(tFile)
+<b>else</b>
+  Rewrite(tFile);
+WriteLn(tFile, edtItem.Text + ',' + edtPrice.Text);
+CloseFile(tFile);</pre></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>When the file is missing</h3><div class="txt">Reset on a file that does not exist makes the program crash. There are two ways to be safe. <b>FileExists</b> asks <i>before</i> opening. <b>try..except</b> runs the risky code in the <b>try</b> part; if an error happens, Delphi jumps straight to the <b>except</b> part, skips the rest of the try part, and the program carries on. File errors are of the type <b>EInOutError</b>. Many programmers use both.</div><div class="code"><span class="lab">Delphi</span><pre><i class="c">// Method 1: ask first</i>
+<b>if</b> FileExists('Names.txt') <b>then</b>
+  ...
+<b>else</b>
+  ShowMessage('Names.txt was not found');
+
+<i class="c">// Method 2: try..except</i>
+AssignFile(tFile, 'Names.txt');
+try
+  Reset(tFile);                 <i class="c">// error here if the file is missing</i>
+  ...                           <i class="c">// read the lines</i>
+  CloseFile(tFile);
+except
+  on E: EInOutError <b>do</b>
+    ShowMessage('Could not read Names.txt');
+<b>end</b>;</pre></div></div>
+<div class="blk"><h3><span class="num">1.2</span>Reset, Rewrite or Append? <span class="mk">[5]</span></h3><p>Circle the command that opens the file correctly for the job.</p><table class="pick"><tr><td class="n">1</td><td>Show every learner name from Names.txt in a memo.</td><td class="o"><span class="opt">Reset</span>&nbsp;&nbsp;<span class="opt">Rewrite</span>&nbsp;&nbsp;<span class="opt">Append</span></td></tr><tr><td class="n">2</td><td>At the start of each term, start a fresh Attendance.txt and throw away the old one.</td><td class="o"><span class="opt">Reset</span>&nbsp;&nbsp;<span class="opt">Rewrite</span>&nbsp;&nbsp;<span class="opt">Append</span></td></tr><tr><td class="n">3</td><td>Add a new sale to the bottom of Sales.txt without losing the earlier sales.</td><td class="o"><span class="opt">Reset</span>&nbsp;&nbsp;<span class="opt">Rewrite</span>&nbsp;&nbsp;<span class="opt">Append</span></td></tr><tr><td class="n">4</td><td>Save the very first high score, when the file does not exist yet.</td><td class="o"><span class="opt">Reset</span>&nbsp;&nbsp;<span class="opt">Rewrite</span>&nbsp;&nbsp;<span class="opt">Append</span></td></tr><tr><td class="n">5</td><td>Add a late-comer to the end of Latecomers.txt.</td><td class="o"><span class="opt">Reset</span>&nbsp;&nbsp;<span class="opt">Rewrite</span>&nbsp;&nbsp;<span class="opt">Append</span></td></tr></table></div>
+<div class="blk"><h3><span class="num">1.3</span>Where does the program jump? <span class="mk">[3]</span></h3><p>Missing.txt does <b>not</b> exist. Write exactly what <b>memOut</b> shows after this code has run.</p><div class="code"><span class="lab">Delphi</span><pre>AssignFile(tFile, 'Missing.txt');
+memOut.Lines.Add('Start');
+try
+  Reset(tFile);
+  memOut.Lines.Add('Opened');
+  CloseFile(tFile);
+except
+  memOut.Lines.Add('Problem');
+<b>end</b>;
+memOut.Lines.Add('Finish');</pre></div><div class="lines" style="--n:2"></div></div>
+<div class="blk"><h3><span class="num">1.4</span>Be the computer: read and remember <span class="mk">[6]</span></h3><p>Queue.txt holds four lines: <b>Zinhle</b>, <b>Thabo</b>, <b>Aisha</b> and <b>Pieter</b>. Complete a row for every check of the loop; the values are those <b>after</b> the body has run. The last row is the check that stops the loop, so the values stay the same.</p><div class="code"><span class="lab">Delphi</span><pre>sInitials := '';
+iCount := 0;
+AssignFile(tFile, 'Queue.txt');
+Reset(tFile);
+<b>while</b> <b>not</b> EOF(tFile) <b>do</b>
+<b>begin</b>
+  ReadLn(tFile, sLine);
+  Inc(iCount);
+  sInitials := sInitials + Copy(sLine, 1, 1);
+<b>end</b>;
+CloseFile(tFile);</pre></div><table class="tr"><tr><th>Check</th><th>EOF(tFile)</th><th>sLine</th><th>iCount</th><th>sInitials</th></tr><tr><td>1</td><td></td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td><td></td></tr><tr><td>4</td><td></td><td></td><td></td><td></td></tr><tr><td>5</td><td></td><td></td><td></td><td></td></tr></table></div>
+<div class="blk"><h3><span class="num">1.5</span>Debug: the endless reader <span class="mk">[3]</span></h3><p>This code should add up the numbers in Stock.txt (one whole number per line) and show the total. It never stops and may crash. Find <b>three</b> errors and write the corrections.</p><div class="code"><span class="lab">Delphi</span><pre>AssignFile(tFile, 'Stock.txt');
+Reset(tFile);
+iTotal := 0;
+<b>while</b> <b>not</b> EOF(tFile) <b>do</b>
+<b>begin</b>
+  iTotal := iTotal + StrToInt(sLine);
+<b>end</b>;
+lblTotal.Caption := IntToStr(iTotal);</pre></div><div class="lines" style="--n:3"></div></div>
+<div class="blk"><h3><span class="num">1.6</span>Write it: list the names <span class="mk">[8]</span></h3><p><b>Names.txt</b> holds one learner name per line. Write code that shows every name in <b>memOut</b> with its number in front (<i>1. Zinhle</i>) and shows <i>5 names</i> (the real count) in <b>lblCount</b>. If the file does not exist, show the message <i>Names.txt was not found</i>. Variables tFile, sLine and iCount are declared.</p><div class="lines" style="--n:8"></div></div>
+<div class="blk"><h3><span class="num">1.7</span>Write it: record a sale <span class="mk">[6]</span></h3><p>The item is typed in <b>edtItem</b> and its price in <b>edtPrice</b>. Write code that adds one line such as <i>Pie,12</i> to the <b>end</b> of <b>Sales.txt</b>, keeping all earlier sales. If Sales.txt does not exist yet, it must be created.</p><div class="lines" style="--n:5"></div></div>
+
+<h2 class="unithead pb"><span class="un">UNIT 2</span>From file to arrays and reports</h2><p class="goal">Real programs read a whole file into arrays, work with the data, and write a neat report back out. In this unit you practise the full journey: read, split, store, process, report.</p><div class="can"><b>By the end of this unit I can:</b> <span class="small">(tick each box when you are sure)</span><ul><li><span class='cb'></span>read the lines of a file into parallel arrays</li><li><span class='cb'></span>split a line at its commas with Pos, Copy and Delete</li><li><span class='cb'></span>keep count of how many lines were read</li><li><span class='cb'></span>total and count values using the arrays</li><li><span class='cb'></span>write a text report to a new file</li></ul><div class="small ask">One thing I want to ask my teacher: <span class="fl" style="width:98mm"></span></div></div>
+<div class="blk think"><div class="ribbon">THINK FIRST &middot; no computer needed</div><h3><span class="num">2.1</span>Cut along the commas </h3><div class="txt">The tuck shop keeps its stock in <b>Stock.txt</b>. Each line is one slip: <i>item, price in rand, quantity</i>.<br><span style="display:inline-block;vertical-align:top;border:1.3px solid #111;background:#f7f7f7;margin:1mm 4mm 1mm 0;white-space:pre"><span style="display:block;background:#e0e0e0;border-bottom:1px solid #111;font:700 7.5pt Arial,sans-serif;padding:.3mm 2.5mm">Stock.txt</span><span style="display:block;font:9pt/1.4 Consolas,monospace;padding:1mm 3mm">Bread,18,12
+Milk,24,8
+Eggs,55,5
+Sugar,32,10
+Rice,45,4</span></span><br>Imagine you cut every slip at its commas and sort the pieces into three piles: item names, prices and quantities. Place the pieces in the table below. Then answer: the third price pile holds 55. How do you find the item name and the quantity that go with it?</div><div class="lines" style="--n:2"></div></div>
+<div class="blk"><h3><span class="num">2.2</span>Sort the slips into piles <span class="mk">[5]</span></h3><p>Write each piece from Stock.txt in the correct pile.</p><table class="tr big"><tr><th>Slip number</th><th>Item pile</th><th>Price pile (R)</th><th>Quantity pile</th></tr><tr><td>1</td><td class="fillcell"></td><td class="fillcell"></td><td class="fillcell"></td></tr><tr><td>2</td><td class="fillcell"></td><td class="fillcell"></td><td class="fillcell"></td></tr><tr><td>3</td><td class="fillcell"></td><td class="fillcell"></td><td class="fillcell"></td></tr><tr><td>4</td><td class="fillcell"></td><td class="fillcell"></td><td class="fillcell"></td></tr><tr><td>5</td><td class="fillcell"></td><td class="fillcell"></td><td class="fillcell"></td></tr></table></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>From a line of text to parallel arrays</h3><div class="txt">Each line of the file is one <b>record</b> and the commas separate its <b>fields</b>. We keep each field in its own array. The arrays are <b>parallel</b>: position 3 of every array belongs to the same item. We do not know how many lines the file has, so the arrays are declared with a constant <b>MAX</b> and a counter <b>iCount</b> remembers how many places were really filled.<br><b>Pos(',', s)</b> gives the position of the first comma. <b>Copy(s, start, length)</b> takes a piece. <b>Delete(s, start, length)</b> cuts a piece away, so after taking a field we delete it and its comma.</div><div class="code"><span class="lab">Delphi</span><pre><b>const</b>
+  MAX = 50;
+<b>var</b>
+  arrItem  : array[1..MAX] <b>of</b> String;
+  arrPrice : array[1..MAX] <b>of</b> Integer;
+  arrQty   : array[1..MAX] <b>of</b> Integer;
+  iCount   : Integer;                  <i class="c">// how many items were really read</i>
+
+<i class="c">// ----- in the event handler</i>
+iCount := 0;
+AssignFile(tFile, 'Stock.txt');
+Reset(tFile);
+<b>while</b> (<b>not</b> EOF(tFile)) <b>and</b> (iCount &lt; MAX) <b>do</b>
+<b>begin</b>
+  ReadLn(tFile, sLine);                <i class="c">// e.g. 'Sugar,32,10'</i>
+  Inc(iCount);                         <i class="c">// the next free place</i>
+  iPos := Pos(',', sLine);
+  arrItem[iCount] := Copy(sLine, 1, iPos - 1);
+  Delete(sLine, 1, iPos);              <i class="c">// '32,10' is left</i>
+  iPos := Pos(',', sLine);
+  arrPrice[iCount] := StrToInt(Copy(sLine, 1, iPos - 1));
+  Delete(sLine, 1, iPos);              <i class="c">// '10' is left</i>
+  arrQty[iCount] := StrToInt(sLine);
+<b>end</b>;
+CloseFile(tFile);</pre></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Using the arrays, then writing a report</h3><div class="txt">After reading, every loop runs from <b>1 to iCount</b>, never to MAX. The usual patterns work as before: a running total, a counter, and <i>highest so far</i> where we remember the <b>index</b> of the winner, because that same index also gives the winner's other fields. A report has three parts: a <b>heading</b> written once, a <b>body</b> written inside a loop, and a <b>summary</b> written once. Use <b>Rewrite</b> so that each report starts fresh.</div><div class="code"><span class="lab">Delphi</span><pre>AssignFile(tOut, 'Report.txt');
+Rewrite(tOut);
+WriteLn(tOut, 'TUCK SHOP STOCK');              <i class="c">// heading: once</i>
+<b>for</b> i := 1 <b>to</b> iCount <b>do</b>                        <i class="c">// body: repeats</i>
+  WriteLn(tOut, arrItem[i] + ': R' + IntToStr(arrPrice[i]));
+WriteLn(tOut, 'Items: ' + IntToStr(iCount));   <i class="c">// summary: once</i>
+CloseFile(tOut);</pre></div></div>
+<div class="blk"><h3><span class="num">2.3</span>Be the computer: split one line <span class="mk">[6]</span></h3><p>Trace the seven numbered statements for the line <b>Sugar,32,10</b>. After each statement write the value of <b>iPos</b>, what <b>sLine</b> holds, and the value stored in an array (write a dash if nothing is stored).</p><div class="code"><span class="lab">Delphi</span><pre>sLine := 'Sugar,32,10';
+iPos := Pos(',', sLine);                              <i class="c">// 1</i>
+arrItem[4] := Copy(sLine, 1, iPos - 1);               <i class="c">// 2</i>
+Delete(sLine, 1, iPos);                               <i class="c">// 3</i>
+iPos := Pos(',', sLine);                              <i class="c">// 4</i>
+arrPrice[4] := StrToInt(Copy(sLine, 1, iPos - 1));    <i class="c">// 5</i>
+Delete(sLine, 1, iPos);                               <i class="c">// 6</i>
+arrQty[4] := StrToInt(sLine);                         <i class="c">// 7</i></pre></div><table class="tr"><tr><th>Statement</th><th>iPos</th><th>sLine afterwards</th><th>Value stored</th></tr><tr><td>1</td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td></tr><tr><td>4</td><td></td><td></td><td></td></tr><tr><td>5</td><td></td><td></td><td></td></tr><tr><td>6</td><td></td><td></td><td></td></tr><tr><td>7</td><td></td><td></td><td></td></tr></table></div>
+<div class="blk"><h3><span class="num">2.4</span>Debug: reading into arrays <span class="mk">[4]</span></h3><p>Menu.txt has lines such as <i>Pie,12</i>. This code should read it into arrItem (String) and arrPrice (Integer). Find <b>four</b> errors.</p><div class="code"><span class="lab">Delphi</span><pre>iCount := 0;
+AssignFile(tFile, 'Menu.txt');
+Reset(tFile);
+<b>while</b> <b>not</b> EOF(tFile) <b>do</b>
+<b>begin</b>
+  ReadLn(tFile, sLine);
+  iPos := Pos(',', sLine);
+  arrItem[iCount] := Copy(sLine, 1, iPos);
+  Delete(sLine, 1, iPos);
+  arrPrice[iCount] := sLine;
+  Inc(iCount);
+<b>end</b>;</pre></div><div class="lines" style="--n:4"></div></div>
+<div class="blk"><h3><span class="num">2.5</span>Write it: routes and fares <span class="mk">[7]</span></h3><p><b>Fares.txt</b> has one route on each line in the form <i>Route,Fare,Seats</i> (for example <i>Bellville,22,15</i>). The arrays <b>arrRoute</b> (String), <b>arrFare</b> and <b>arrSeats</b> (Integer) and the variables below are declared. Write the statements that replace the comment, so that every line is split into the three arrays.</p><div class="code"><span class="lab">Delphi</span><pre>iCount := 0;
+AssignFile(tFile, 'Fares.txt');
+Reset(tFile);
+<b>while</b> (<b>not</b> EOF(tFile)) <b>and</b> (iCount &lt; MAX) <b>do</b>
+<b>begin</b>
+  ReadLn(tFile, sLine);
+  <i class="c">// your statements go here</i>
+<b>end</b>;
+CloseFile(tFile);</pre></div><div class="lines" style="--n:6"></div></div>
+<div class="blk"><h3><span class="num">2.6</span>Write it: a stock report <span class="mk">[9]</span></h3><p>The arrays arrItem, arrPrice and arrQty and the counter iCount are already filled. Write code that creates <b>StockReport.txt</b> in this form. The value of an item is its price times its quantity; the last line holds the total of all the values.<br><span style="display:inline-block;vertical-align:top;border:1.3px solid #111;background:#f7f7f7;margin:1mm 4mm 1mm 0;white-space:pre"><span style="display:block;background:#e0e0e0;border-bottom:1px solid #111;font:700 7.5pt Arial,sans-serif;padding:.3mm 2.5mm">StockReport.txt (first, second and last line)</span><span style="display:block;font:9pt/1.4 Consolas,monospace;padding:1mm 3mm">TUCK SHOP STOCK
+Bread: R18 x 12 = R216
+...
+Total stock value: R1183</span></span></p><div class="lines" style="--n:7"></div></div>
+
+<h2 class="unithead pb"><span class="un">UNIT 3</span>Helpers with names</h2><p class="goal">As programs grow, one long block of code becomes hard to read and to fix. A <b>procedure</b> is a named helper: write the steps once, then call its name whenever you need them. You will also learn how to hand a helper some information, and who is allowed to see which variable.</p><div class="can"><b>By the end of this unit I can:</b> <span class="small">(tick each box when you are sure)</span><ul><li><span class='cb'></span>explain why programs are split into procedures</li><li><span class='cb'></span>write and call a procedure without parameters</li><li><span class='cb'></span>write and call a procedure with value parameters</li><li><span class='cb'></span>explain parameter, argument and value parameter</li><li><span class='cb'></span>trace calls to find what is displayed</li><li><span class='cb'></span>tell local variables from global variables</li></ul><div class="small ask">One thing I want to ask my teacher: <span class="fl" style="width:98mm"></span></div></div>
+<div class="blk think"><div class="ribbon">THINK FIRST &middot; no computer needed</div><h3><span class="num">3.1</span>Name that routine </h3><div class="txt">The prefects read out the morning programme: <i>Stand up. Face the flag. Sing the anthem. Sit down. Read the notices. Stand up. Face the flag. Say the school pledge. Sit down. Welcome the visitors. Stand up. Face the flag. Say the prayer. Sit down. Go to class.</i><br>(a) Find the group of steps that repeats. (b) Give the group a short name. (c) Rewrite the programme as short as you can using that name. (d) One part of the group is different each time. How could you tell the helper which one to use?</div><div class="lines" style="--n:2"></div></div>
+<div class="blk think"><div class="ribbon">THINK FIRST &middot; no computer needed</div><h3><span class="num">3.2</span>The photocopy </h3><div class="txt">Work with a partner. Write <b>iMark = 50</b> on a card: this is your variable. Your partner is the helper. Copy the 50 onto a scrap of paper and hand <b>the scrap</b> to the helper. The helper adds 10 to the number on the scrap and writes <i>Inside: 60</i> on the board.<br>(a) What does your card show now? (b) Did the helper change your card? (c) What would have been different if you had handed over your original card?</div><div class="lines" style="--n:2"></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Procedures: write once, call by name</h3><div class="txt">A <b>procedure</b> does a job but does not hand an answer back. Write it once, give it a name, and <b>call</b> it by writing its name as a statement. This avoids repeating code, makes the program easier to read and means a mistake is fixed in one place only. In a form, a procedure is declared in the <b>private</b> section of the class and written in the implementation section with <b>TForm1.</b> in front of its name, just like an event handler.</div><div class="code"><span class="lab">Delphi</span><pre><b>type</b>
+  TForm1 = <b>class</b>(TForm)
+    ...
+  <b>private</b>
+    <b>procedure</b> ShowBanner;                    <i class="c">// declaration</i>
+  ...
+implementation
+<b>procedure</b> TForm1.ShowBanner;               <i class="c">// definition</i>
+<b>begin</b>
+  memOut.Lines.Add('*****************');
+  memOut.Lines.Add('  KASI TUCK SHOP');
+  memOut.Lines.Add('*****************');
+<b>end</b>;
+
+<b>procedure</b> TForm1.btnStartClick(Sender: TObject);
+<b>begin</b>
+  ShowBanner;                              <i class="c">// call</i>
+  memOut.Lines.Add('Open 7:00 to 16:00');
+  ShowBanner;                              <i class="c">// call again</i>
+<b>end</b>;</pre></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Value parameters</h3><div class="txt">A <b>parameter</b> is a placeholder in the procedure's header that receives information. An <b>argument</b> is the actual value you give when you call. The number, order and types of the arguments must match the parameters. A <b>value parameter</b> receives a <b>copy</b>: the procedure may change its copy, but the caller's variable stays as it was.</div><div class="code"><span class="lab">Delphi</span><pre><b>procedure</b> TForm1.ShowLine(sItem: String; iPrice: Integer);   <i class="c">// 2 parameters</i>
+<b>begin</b>
+  memOut.Lines.Add(sItem + ': R' + IntToStr(iPrice));
+<b>end</b>;
+
+<i class="c">// calls: the values in the brackets are the arguments</i>
+ShowLine('Bread', 18);
+ShowLine(arrItem[3], arrPrice[3]);        <i class="c">// arguments can be expressions</i></pre></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Local and global variables</h3><div class="txt">A variable declared inside a procedure (and the procedure's own parameters) is <b>local</b>: it exists only while that procedure runs and no other code can see it. A variable declared at the top of the unit, below <i>Form1: TForm1</i>, is <b>global</b>: every procedure can read and change it and it keeps its value while the program runs. Prefer local variables and parameters; use global variables only for values that really are shared, such as the arrays and iCount that hold the data from a file. Set a global variable to a value yourself before you use it. (Think of a reminder in your own diary, which only you can read, and a notice on the staffroom board, which everybody can read and change.)</div><div class="code"><span class="lab">Delphi</span><pre><b>var</b>
+  Form1  : TForm1;
+  iTotal : Integer;                <i class="c">// global: all procedures can use it</i>
+
+<b>procedure</b> TForm1.AddToTotal(iAmount: Integer);
+<b>var</b>
+  iDouble : Integer;               <i class="c">// local: only exists in here</i>
+<b>begin</b>
+  iDouble := iAmount * 2;
+  iTotal := iTotal + iDouble;      <i class="c">// changes the global</i>
+<b>end</b>;</pre></div></div>
+<div class="blk"><h3><span class="num">3.3</span>Debug: the average helper <span class="mk">[3]</span></h3><p>This code should show the average of 240 and 8 in <b>lblAvg</b> using a procedure. Find <b>three</b> errors.</p><div class="code"><span class="lab">Delphi</span><pre><b>procedure</b> TForm1.ShowAverage(iTotal, iCount);
+<b>var</b>
+  rAvg : Real;
+<b>begin</b>
+  rAvg := iTotal / iCount;
+  lblAvg.Caption := FloatToStrF(rAvg, ffFixed, 8, 1);
+<b>end</b>;
+
+<i class="c">// in the button (iTotal holds 240, iCount holds 8)</i>
+ShowAverage(iTotal);
+lblNote.Caption := FloatToStr(rAvg);</pre></div><div class="lines" style="--n:3"></div></div>
+<div class="blk"><h3><span class="num">3.4</span>Be the computer: calls and scope <span class="mk">[7]</span></h3><p><b>iTotal</b> is global and starts at 0. Each call adds the price plus a 10% service fee (whole rands only) to the total. Complete a row for each call. The last row is for the final statement.</p><div class="code"><span class="lab">Delphi</span><pre><b>procedure</b> TForm1.Sell(sItem: String; iPrice: Integer);
+<b>var</b>
+  iFee : Integer;
+<b>begin</b>
+  iFee := iPrice <b>div</b> 10;
+  iTotal := iTotal + iPrice + iFee;
+  memOut.Lines.Add(sItem + ' R' + IntToStr(iPrice + iFee));
+<b>end</b>;
+
+<i class="c">// in the button</i>
+iTotal := 0;
+Sell('Airtime', 50);
+Sell('Chips', 12);
+Sell('Pie', 25);
+memOut.Lines.Add('Total R' + IntToStr(iTotal));</pre></div><table class="tr"><tr><th>Call</th><th>iPrice</th><th>iFee (local)</th><th>Line added to memOut</th><th>iTotal after</th></tr><tr><td>Sell('Airtime', 50)</td><td></td><td></td><td></td><td></td></tr><tr><td>Sell('Chips', 12)</td><td></td><td></td><td></td><td></td></tr><tr><td>Sell('Pie', 25)</td><td></td><td></td><td></td><td></td></tr><tr><td>Last statement</td><td></td><td></td><td></td><td></td></tr></table></div>
+<div class="blk"><h3><span class="num">3.5</span>Write it: a times-table helper <span class="mk">[6]</span></h3><p>Write a procedure <b>ShowTable</b> with one value parameter, <b>iNumber</b> (Integer), that displays that number's times table from 1 to 12 in <b>memTable</b> (for example <i>3 x 7 = 21</i>). Then write the button code that calls it for 7 and for 12. You do not need to write the declaration in the private section.</p><div class="lines" style="--n:10"></div></div>
+
+<h2 class="unithead pb"><span class="un">UNIT 4</span>Helpers that answer</h2><p class="goal">A procedure does a job. A <b>function</b> does a job and hands a value back, like an assistant who comes back from the shelf with the price. Functions let you calculate or check something in one place and use the answer anywhere, and they are the best tool for checking that what a user typed is valid.</p><div class="can"><b>By the end of this unit I can:</b> <span class="small">(tick each box when you are sure)</span><ul><li><span class='cb'></span>explain how a function differs from a procedure</li><li><span class='cb'></span>write a function that returns a value with Result</li><li><span class='cb'></span>call a function inside an expression or a condition</li><li><span class='cb'></span>write functions with and without parameters</li><li><span class='cb'></span>write a Boolean function to validate input</li><li><span class='cb'></span>choose between a procedure and a function</li></ul><div class="small ask">One thing I want to ask my teacher: <span class="fl" style="width:98mm"></span></div></div>
+<div class="blk think"><div class="ribbon">THINK FIRST &middot; no computer needed</div><h3><span class="num">4.1</span>The mystery machine <span class="mk">[3]</span></h3><div class="txt">A machine takes in a number and gives a number out. Study what it did:<table class="tr" style="margin:1mm 0 2mm"><tr><th>Number in</th><th>1</th><th>2</th><th>5</th><th>0</th><th>10</th></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm">Number out</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">4</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">7</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">16</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">1</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">31</td></tr></table>(a) What will come out if you put in 8? (b) Describe the rule in words. (c) Write the rule as one line of Delphi, using <b>n</b> for the number that goes in.</div><div class="lines" style="--n:2"></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Functions: a job that returns a value</h3><div class="txt">A <b>function</b> is written like a procedure but its header ends with a colon and the <b>return type</b>. The answer is stored in the special variable <b>Result</b>. A function has no meaning on its own: the call must be <b>used</b>, so assign it, display it or test it. A procedure call, by contrast, is a statement on its own. A function may have no parameters (then write no brackets) or several. To choose between the two kinds of method ask: <b>do I need an answer back?</b> If yes, write a function; if the method only has to <i>do</i> something, such as display, clear or write to a file, write a procedure. A function that calculates should not also display: let the caller decide what to do with the answer.</div><div class="code"><span class="lab">Delphi</span><pre><b>function</b> TForm1.CalcVat(rPrice: Real): Real;      <i class="c">// one parameter, returns a Real</i>
+<b>begin</b>
+  <b>Result</b> := rPrice * 0.15;
+<b>end</b>;
+
+<b>function</b> TForm1.RollDie: Integer;                  <i class="c">// no parameters</i>
+<b>begin</b>
+  <b>Result</b> := Random(6) + 1;
+<b>end</b>;
+
+<i class="c">// using them</i>
+rVat := CalcVat(200);                              <i class="c">// 30</i>
+lblVat.Caption := FloatToStrF(CalcVat(StrToFloat(edtPrice.Text)), ffFixed, 8, 2);
+iRoll := RollDie;                                  <i class="c">// no brackets</i>
+<b>if</b> RollDie = 6 <b>then</b>
+  ShowMessage('A six!');</pre></div></div>
+<div class="blk"><h3><span class="num">4.2</span>Be the computer: call the function <span class="mk">[5]</span></h3><p>Work out what each call returns. Here is the function:</p><div class="code"><span class="lab">Delphi</span><pre><b>function</b> TForm1.Level(iMark: Integer): Integer;
+<b>begin</b>
+  <b>if</b> iMark &gt;= 80 <b>then</b> <b>Result</b> := 7
+  <b>else</b> <b>if</b> iMark &gt;= 70 <b>then</b> <b>Result</b> := 6
+  <b>else</b> <b>if</b> iMark &gt;= 60 <b>then</b> <b>Result</b> := 5
+  <b>else</b> <b>if</b> iMark &gt;= 50 <b>then</b> <b>Result</b> := 4
+  <b>else</b> <b>if</b> iMark &gt;= 40 <b>then</b> <b>Result</b> := 3
+  <b>else</b> <b>if</b> iMark &gt;= 30 <b>then</b> <b>Result</b> := 2
+  <b>else</b> <b>Result</b> := 1;
+<b>end</b>;</pre></div><table class="tr"><tr><th>Call</th><th>Result</th></tr><tr><td>Level(85)</td><td></td></tr><tr><td>Level(64)</td><td></td></tr><tr><td>Level(50)</td><td></td></tr><tr><td>Level(49)</td><td></td></tr><tr><td>Level(12)</td><td></td></tr></table></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Validation with a Boolean function</h3><div class="txt"><b>Validation</b> checks that data is acceptable (a sensible range, the right length, the right type of characters) before the program uses it. A function that returns <b>Boolean</b> is perfect: it answers True (valid) or False (not valid) and can be used straight in an <b>if</b> or a <b>repeat..until</b>. Validation checks only that the data is reasonable, not that it is true.</div><div class="code"><span class="lab">Delphi</span><pre><b>function</b> TForm1.IsValidMark(iMark: Integer): Boolean;
+<b>begin</b>
+  <b>Result</b> := (iMark &gt;= 0) <b>and</b> (iMark &lt;= 100);       <i class="c">// range check</i>
+<b>end</b>;
+
+<b>function</b> TForm1.IsValidCell(sCell: String): Boolean;
+<b>var</b>
+  i : Integer;
+<b>begin</b>
+  <b>Result</b> := (Length(sCell) = 10) <b>and</b> (Copy(sCell, 1, 1) = '0');   <i class="c">// length and format</i>
+  <b>for</b> i := 1 <b>to</b> Length(sCell) <b>do</b>
+    <b>if</b> <b>not</b> (sCell[i] <b>in</b> ['0'..'9']) <b>then</b>                           <i class="c">// type check</i>
+      <b>Result</b> := <b>False</b>;
+<b>end</b>;
+
+<i class="c">// keep asking until the answer is valid</i>
+<b>repeat</b>
+  sCell := InputBox('Cell number', 'Enter 10 digits starting with 0:', '');
+<b>until</b> IsValidCell(sCell);</pre></div></div>
+<div class="blk"><h3><span class="num">4.3</span>Procedure or function? <span class="mk">[6]</span></h3><p>Circle the better choice for each task.</p><table class="pick"><tr><td class="n">1</td><td>Show a welcome banner in a memo.</td><td class="o"><span class="opt">Procedure</span>&nbsp;&nbsp;<span class="opt">Function</span></td></tr><tr><td class="n">2</td><td>Calculate the price of an item including VAT.</td><td class="o"><span class="opt">Procedure</span>&nbsp;&nbsp;<span class="opt">Function</span></td></tr><tr><td class="n">3</td><td>Check whether a cell number is valid.</td><td class="o"><span class="opt">Procedure</span>&nbsp;&nbsp;<span class="opt">Function</span></td></tr><tr><td class="n">4</td><td>Clear all the edit boxes on the form.</td><td class="o"><span class="opt">Procedure</span>&nbsp;&nbsp;<span class="opt">Function</span></td></tr><tr><td class="n">5</td><td>Work out the average of the marks in an array.</td><td class="o"><span class="opt">Procedure</span>&nbsp;&nbsp;<span class="opt">Function</span></td></tr><tr><td class="n">6</td><td>Display the times table of a number.</td><td class="o"><span class="opt">Procedure</span>&nbsp;&nbsp;<span class="opt">Function</span></td></tr></table></div>
+<div class="blk"><h3><span class="num">4.4</span>Debug: two functions <span class="mk">[4]</span></h3><p>Find <b>four</b> errors in this code. The program should show the average of 240 and 8 and a pass/fail decision.</p><div class="code"><span class="lab">Delphi</span><pre><b>function</b> TForm1.IsPass(iMark : Integer) : Boolean;
+<b>begin</b>
+  <b>if</b> iMark &gt;= 50 <b>then</b>
+    <b>Result</b> := <b>True</b>;
+<b>end</b>;
+
+<b>function</b> TForm1.CalcAverage(iTotal, iCount : Integer) : Integer;
+<b>begin</b>
+  <b>Result</b> := iTotal / iCount;
+<b>end</b>;
+
+<i class="c">// in the button</i>
+CalcAverage(240, 8);
+lblAvg.Caption := IntToStr(rAvg);</pre></div><div class="lines" style="--n:4"></div></div>
+<div class="blk"><h3><span class="num">4.5</span>Write it: a PIN check <span class="mk">[9]</span></h3><p>A PIN is valid only if it has <b>exactly 4 characters</b> and they are <b>all digits</b>. Write a Boolean function <b>IsValidPin(sPin: String)</b>. Then write the code for the button that keeps asking for a PIN with an InputBox until a valid one is entered.</p><div class="lines" style="--n:10"></div></div>
+
+<h2 class="unithead pb"><span class="un">UNIT 5</span>Communication, mobile technology and security</h2><p class="goal">Paper 2 asks you to explain, compare and discuss. In this unit you meet the ways we communicate online, the technology in your pocket and the ideas that keep data safe. You also practise answering in <b>paragraphs</b>: a marker reads a whole paragraph, but may stop crediting a list after the first few bullets.</p><div class="can"><b>By the end of this unit I can:</b> <span class="small">(tick each box when you are sure)</span><ul><li><span class='cb'></span>tell the e-communication forms apart and say if each is synchronous or asynchronous</li><li><span class='cb'></span>explain GPS, Bluetooth, Wi-Fi, access points and 4G/5G</li><li><span class='cb'></span>explain shaping, throttling, SMTP, POP3 and IMAP</li><li><span class='cb'></span>explain strong passwords, encryption and multi-layer verification</li><li><span class='cb'></span>explain what a blockchain is and why it is hard to cheat</li><li><span class='cb'></span>describe digitalisation and the gig economy</li><li><span class='cb'></span>write a theory answer as a paragraph, not a list</li></ul><div class="small ask">One thing I want to ask my teacher: <span class="fl" style="width:98mm"></span></div></div>
+<div class="blk think"><div class="ribbon">THINK FIRST &middot; no computer needed</div><h3><span class="num">5.1</span>Sports day is cancelled </h3><div class="txt">It rains on the morning of sports day and the principal must tell 800 learners and parents by 06:30. Many parents have no data bundle, some only have old phones with no apps, and the school also has a page on social media.<br>(a) Name two different ways to reach everybody and give a reason for each. (b) Which of your choices works without the internet? (c) For which kind of message must both people be online at the same moment?</div><div class="lines" style="--n:3"></div></div>
+<div class="blk"><h3><span class="num">5.2</span>The secret shift <span class="mk">[4]</span></h3><p>Long before computers, people hid messages by moving every letter a fixed number of places along the alphabet. In the message below every letter was moved <b>3 places forward</b> (A became D, B became E and so on). Move each letter <b>3 places back</b> to read it. Then hide your own word: write TAXI with every letter moved <b>5 places forward</b>.</p><div class="lbrow"><div class="lb"><span class="ix">1</span>O</div><div class="lb"><span class="ix">2</span>R</div><div class="lb"><span class="ix">3</span>D</div><div class="lb"><span class="ix">4</span>G</div><div class="lb"><span class="ix">5</span>V</div><div class="lb"><span class="ix">6</span>K</div><div class="lb"><span class="ix">7</span>H</div><div class="lb"><span class="ix">8</span>G</div><div class="lb"><span class="ix">9</span>G</div><div class="lb"><span class="ix">10</span>L</div><div class="lb"><span class="ix">11</span>Q</div><div class="lb"><span class="ix">12</span>J</div></div><div class="lines" style="--n:2"></div></div>
+<div class="blk"><h3><span class="num">5.3</span>The honest notebook and the cheat <span class="mk">[6]</span></h3><p>Four friends share a notebook that records who paid whom, one page per payment. To make cheating hard every page also shows a <b>fingerprint</b>: <b>the last two digits of (the amount + 3 &times; the fingerprint of the page before)</b>. Page 1 uses 0 as the fingerprint of the page before. Work out the fingerprint of every page. (Example: page 2 = last two digits of 20 + 3 &times; 50 = 170, so the fingerprint is 70.) Then a cheat secretly changes the amount on page 2 from R20 to <b>R80</b>: recalculate the fingerprints of all four pages with the same rule.</p><table class="tr big"><tr><th>Page</th><th>Amount (R)</th><th>Fingerprint</th><th>Cheat: amount now (R)</th><th>Cheat: new fingerprint</th></tr><tr><td>1</td><td>50</td><td class="fillcell"></td><td>50</td><td class="fillcell"></td></tr><tr><td>2</td><td>20</td><td class="fillcell"></td><td>80</td><td class="fillcell"></td></tr><tr><td>3</td><td>75</td><td class="fillcell"></td><td>75</td><td class="fillcell"></td></tr><tr><td>4</td><td>40</td><td class="fillcell"></td><td>40</td><td class="fillcell"></td></tr></table></div>
+<div class="blk"><h3><span class="num">5.4</span>What does the cheat have to do? <span class="mk">[3]</span></h3><p>The friends each keep a copy of the notebook. In two or three sentences, explain how the fingerprints show that page 2 was changed, and why it is so much work for a cheat to hide it.</p><div class="lines" style="--n:3"></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Ways to communicate online</h3><div class="txt">E-communication means sending and receiving information with electronic devices and the internet.<table class="tr" style="margin:1mm 0 2mm"><tr><th>Form</th><th>What it is</th><th>Good to know</th></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>Microblogging</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Very short public posts shared with followers (for example on X)</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Quick news that is easy to reshare</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>SMS</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm">A short text sent over the cellular network</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Needs <i>no internet</i>; banks use it for one-time PINs</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>Instant messaging</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Real-time chat, voice notes and pictures over the internet, one-to-one or in groups (WhatsApp)</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Free over data or Wi-Fi; informal</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>Social media</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Websites and apps where people make profiles, share and interact (Facebook, Instagram, TikTok)</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Huge audience; privacy and digital footprint risks</td></tr></table></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Video, audio and calls</h3><div class="txt"><table class="tr" style="margin:1mm 0 2mm"><tr><th>Form</th><th>What it is</th><th>Good to know</th></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>Videocasting</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm">A video series published on a channel such as YouTube, recorded or live</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Viewers choose when to watch</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>Podcasting</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm">An audio series you subscribe to and download</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Can be played offline</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>VoIP</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Voice (and video) calls carried over the internet instead of the phone network</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Free between users of the same app; needs a stable connection, enough bandwidth and low delay (latency)</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>Video conferencing</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm">A live meeting where several people see and hear each other (Teams, Meet, Zoom)</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Shows facial expressions; uses a lot of data</td></tr></table>Communication is <b>synchronous</b> when everybody takes part at the same moment (a call or a live video meeting) and <b>asynchronous</b> when the receiver can answer later (SMS, e-mail, a podcast episode).</div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Mobile devices and wireless technologies</h3><div class="txt">A <b>smartphone</b> is a pocket computer with a touchscreen, camera, GPS and an <b>app store</b>. A <b>feature phone</b> makes calls and sends SMS with a few extras but has no full app store. Other mobile devices are <b>tablets</b> and <b>wearables</b> such as smartwatches. An <b>app</b> is a program for a mobile device, downloaded from an app store; a <b>browser</b> opens websites. Mobility is convenient, but battery life, small screens and the cost of data are limits.<table class="tr" style="margin:1mm 0 2mm"><tr><th>Technology</th><th>What it does</th><th>Remember</th></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>GPS</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm">A receiver works out its position from the signals of satellites</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Powers navigation and e-hailing apps; it only listens, it does not send</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>Bluetooth</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm">A short-range wireless link between two devices</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">About 10 m: earphones, speakers, a car's hands-free kit</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>Wi-Fi</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm">A wireless link to a network and the internet through a router</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Tens of metres: home, school, office</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>Access point</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm">A device that connects Wi-Fi devices to the wired network</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">A school uses many so that every classroom has a signal</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>4G / 5G</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Mobile internet through the cellular towers of a network provider</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Works across the country; 5G is faster and has less delay</td></tr></table></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Shaping, throttling and protocols</h3><div class="txt">A <b>protocol</b> is a set of rules that devices follow so that they understand each other. Internet service providers (ISPs) also manage how fast your connection is. <b>Shaping</b> means the ISP gives some types of traffic priority over others, for example video calls over large downloads, to keep the network running smoothly. <b>Throttling</b> means the ISP deliberately slows your connection, for example after you have used up the fast data in your package.<table class="tr" style="margin:1mm 0 2mm"><tr><th>Protocol</th><th>Its job</th></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>SMTP</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm"><i>Sends</i> e-mail from your program to the mail server and on to the receiver's server</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>POP3</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm"><i>Downloads</i> e-mail to one device, normally removing it from the server</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>IMAP</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Lets you read e-mail while it <i>stays on the server</i>, so every device shows the same mailbox</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>VoIP</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Carries a voice call as data across the internet</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm"><b>HTTPS</b></td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Fetches web pages with encryption (the padlock)</td></tr></table></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Passwords, encryption and multi-layer verification</h3><div class="txt">A <b>strong password</b> is long (at least 12 characters), mixes upper case, lower case, digits and symbols, is not based on your name or birth year, and is <b>different for every account</b>, so that one leak does not open everything. <b>Encryption</b> scrambles data (<i>plaintext</i>) into unreadable <i>ciphertext</i> using a method and a secret <b>key</b>. Only someone with the right key can turn it back. It protects data that is stored (an encrypted phone) and data on the move (HTTPS and WhatsApp). <b>Multi-layer (multi-factor) verification</b> asks for more than one proof of who you are, taken from different groups: something you <i>know</i> (a password or PIN), something you <i>have</i> (your phone, which receives a one-time PIN) or something you <i>are</i> (a fingerprint or face). A thief who steals only the password still cannot get in.</div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Blockchain, digitalisation and the gig economy</h3><div class="txt">A <b>blockchain</b> is a digital ledger (record book) kept as a chain of <b>blocks</b>. Each block holds a group of records and the fingerprint of the block before it, so the blocks are linked. Copies are kept on many computers, with no single owner, so nobody can quietly change one block: it would no longer match the next one, and the other copies would disagree. Its purpose is to record transactions in a way that is open, shared and very hard to cheat. Cryptocurrencies such as Bitcoin use it, and so do systems that track goods from farm to shop.<br><br><b>Digitalisation</b> means moving tasks from paper and people to digital systems. It brings speed, accuracy and new jobs, but some routine jobs disappear and people without devices or data are left behind. The <b>gig economy</b> is work made up of short jobs (&ldquo;gigs&rdquo;) arranged through online platforms, such as e-hailing drivers, food couriers and freelancers. Workers choose their hours and can earn extra money, but have no job security, no paid leave or pension and an unpredictable income.</div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Answer in paragraphs, not lists</h3><div class="txt">A marker reads <b>every</b> sentence of a paragraph, but may stop crediting a bullet list after the first few bullets. Give each point a <b>statement</b>, an <b>explanation</b> (because&hellip;) and an <b>example</b> (for example&hellip;). Check the marks: each mark needs one separate, explained point.<br><br><b>Question:</b> Explain what throttling is. [3]<br><b>Model answer:</b> &ldquo;Throttling is when an internet service provider deliberately slows down a customer's connection. This usually happens after the customer has used all the fast data in their package, so videos buffer and downloads take much longer. For example, a learner who has used up 10 GB may find that the connection crawls until the next month starts.&rdquo;</div></div>
+<div class="blk"><h3><span class="num">5.5</span>Match the term <span class="mk">[10]</span></h3><p>Write the term from the word bank next to its description.<br><i>Word bank: access point &middot; Bluetooth &middot; GPS &middot; IMAP &middot; microblogging &middot; podcasting &middot; POP3 &middot; SMS &middot; SMTP &middot; VoIP</i></p><table class="tr big"><tr><th>Description</th><th>Term<span style="display:inline-block;width:38mm;height:1px"></span></th></tr><tr><td>Needs no internet; sent over the cellular network</td><td class="fillcell"></td></tr><tr><td>Very short public posts that followers can read and reshare</td><td class="fillcell"></td></tr><tr><td>An audio series you subscribe to and can play offline</td><td class="fillcell"></td></tr><tr><td>Voice calls carried over the internet</td><td class="fillcell"></td></tr><tr><td>Sends an e-mail from your program to the mail server</td><td class="fillcell"></td></tr><tr><td>Downloads e-mail to one device, normally removing it from the server</td><td class="fillcell"></td></tr><tr><td>Keeps e-mail on the server so that your phone and laptop show the same mailbox</td><td class="fillcell"></td></tr><tr><td>Works out a position from the signals of satellites</td><td class="fillcell"></td></tr><tr><td>A short-range wireless link between a phone and earphones</td><td class="fillcell"></td></tr><tr><td>Connects Wi-Fi devices to the wired network</td><td class="fillcell"></td></tr></table></div>
+<div class="blk"><h3><span class="num">5.6</span>Shaping or throttling? <span class="mk">[4]</span></h3><p>Zinhle's provider lets her video calls run smoothly even when her brother downloads large games, but after she has used 20 GB it slows her whole line. Name the practice in each case and explain the difference in a short paragraph.</p><div class="lines" style="--n:4"></div></div>
+<div class="blk"><h3><span class="num">5.7</span>Encryption in a paragraph <span class="mk">[4]</span></h3><p>Explain what encryption is, and how it protects the photos on a phone that has been stolen.</p><div class="lines" style="--n:4"></div></div>
+<div class="blk"><h3><span class="num">5.8</span>Passwords and multi-layer verification <span class="mk">[5]</span></h3><p>Thandi uses the password <i>thandi2008</i> for her e-mail, her banking app and her social media. In a paragraph, explain why this is risky and how multi-layer (multi-factor) verification would make her banking app safer.</p><div class="lines" style="--n:5"></div></div>
+<div class="blk"><h3><span class="num">5.9</span>Blockchain in a paragraph <span class="mk">[4]</span></h3><p>Explain what a blockchain is, and why it is very hard to change an old record on it.</p><div class="lines" style="--n:4"></div></div>
+<div class="blk"><h3><span class="num">5.10</span>Digitalisation and the gig economy <span class="mk">[4]</span></h3><p>Mr Dube drives for an e-hailing app and has no other job. Discuss <b>two advantages</b> and <b>two disadvantages</b> of this kind of work for him. Write full sentences.</p><div class="lines" style="--n:5"></div></div>
+
+<h2 class="unithead pb"><span class="un">UNIT 6</span>What is a database?</h2><p class="goal">Next term you will use databases in Delphi. This unit is the paper-based preparation: what a database and a DBMS are, why a DBMS beats a paper register or a text file, the different kinds of database, and the people who work with them.</p><div class="can"><b>By the end of this unit I can:</b> <span class="small">(tick each box when you are sure)</span><ul><li><span class='cb'></span>define a database and a DBMS</li><li><span class='cb'></span>name the functions of a DBMS and give examples of DBMS software</li><li><span class='cb'></span>name the parts of a table: field, record and primary key</li><li><span class='cb'></span>tell desktop, server and distributed databases apart</li><li><span class='cb'></span>name three database careers and say what each person does</li><li><span class='cb'></span>explain why a DBMS is better than a paper register or a text file</li></ul><div class="small ask">One thing I want to ask my teacher: <span class="fl" style="width:98mm"></span></div></div>
+<div class="blk think"><div class="ribbon">THINK FIRST &middot; no computer needed</div><h3><span class="num">6.1</span>The paper register </h3><div class="txt">This is a page of the school's paper register.<table class="tr" style="margin:1mm 0 2mm"><tr><th>LearnerNo</th><th>Surname</th><th>Name</th><th>Grade</th><th>Cell</th></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm">1001</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Mokoena</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Thabo</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">11</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">082 555 0101</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm">1002</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Naidoo</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Priya</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">10</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">083 555 0102</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm">1003</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Botha</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Jan</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">11</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">084 555 0103</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm">1004</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Dlamini</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Zinhle</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">12</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">072 555 0104</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm">1005</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Khumalo</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Sipho</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">11</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">073 555 0105</td></tr><tr><td style="text-align:left;height:auto;padding:0.8mm 2mm">1006</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Pillay</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">Aisha</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">10</td><td style="text-align:left;height:auto;padding:0.8mm 2mm">074 555 0106</td></tr></table>(a) List the Grade 11 learners. (b) Find the cell number of learner 1004. (c) The real register has 1&nbsp;200 learners. Would (b) still be quick, and what would make it quicker? (d) The principal and the office each keep their own copy. Zinhle gets a new cell number: the office updates its copy but the principal's copy is not changed. What goes wrong?</div><div class="lines" style="--n:4"></div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Database and DBMS</h3><div class="txt">A <b>database</b> is an organised collection of related data, stored in <b>tables</b> so that it can be found, changed and shared quickly. In a table each <b>row</b> is a <b>record</b> (everything about one learner or product) and each <b>column</b> is a <b>field</b> (one kind of information). The <b>primary key</b> is the field that is different for every record and so identifies it, such as LearnerNo.<br><br>A <b>DBMS</b> (database management system) is the <b>software</b> that creates a database and manages it. Its functions are to: <b>store and organise</b> the data; let users <b>retrieve</b> it by searching, sorting and filtering (<i>querying</i>); <b>add, change and delete</b> records while <b>validating</b> them; control who may do what (<b>security</b>); make <b>backups</b> and recover after a crash; let <b>many users</b> work at once; and produce <b>reports</b>. Examples are Microsoft Access, MySQL, Microsoft SQL Server, Oracle and PostgreSQL. Delphi is not a DBMS: a Delphi program <i>connects</i> to one.</div></div>
+<div class="blk learn"><div class="ribbon alt">LEARN IT</div><h3>Types of database and database careers</h3><div class="txt">A <b>desktop (personal) database</b> is stored on one computer and used by one person or a few, such as an Access database for a small shop. A <b>server (centralised) database</b> is stored on a central server and many users reach it over a network, such as a school's admin system used by the teachers and the office. A <b>distributed database</b> is spread over several computers or servers in different places that work together and keep one another up to date, such as a bank's records or a national learner database used in every province.<br><br>A <b>database administrator (DBA)</b> looks after the database: security, backups, user access and keeping it fast. A <b>database programmer (developer)</b> writes the queries and code that let applications use the data. A <b>database analyst</b> studies what the organisation needs and designs the tables and how they are linked.</div></div>
+<div class="blk"><h3><span class="num">6.2</span>Desktop, server or distributed? <span class="mk">[4]</span></h3><p>Circle the type of database that fits best.</p><table class="pick"><tr><td class="n">1</td><td>A teacher keeps her marks in an Access database on her own laptop.</td><td class="o"><span class="opt">Desktop</span>&nbsp;&nbsp;<span class="opt">Server</span>&nbsp;&nbsp;<span class="opt">Distributed</span></td></tr><tr><td class="n">2</td><td>All the teachers and the school office use one admin system that is stored on the school's server.</td><td class="o"><span class="opt">Desktop</span>&nbsp;&nbsp;<span class="opt">Server</span>&nbsp;&nbsp;<span class="opt">Distributed</span></td></tr><tr><td class="n">3</td><td>A bank keeps copies of its customer records in Johannesburg, Durban and Cape Town, and the copies keep one another up to date.</td><td class="o"><span class="opt">Desktop</span>&nbsp;&nbsp;<span class="opt">Server</span>&nbsp;&nbsp;<span class="opt">Distributed</span></td></tr><tr><td class="n">4</td><td>The spaza shop owner keeps a small stock database on the shop's only computer.</td><td class="o"><span class="opt">Desktop</span>&nbsp;&nbsp;<span class="opt">Server</span>&nbsp;&nbsp;<span class="opt">Distributed</span></td></tr></table></div>
+<div class="blk"><h3><span class="num">6.3</span>Match the term <span class="mk">[8]</span></h3><p>Write the term from the word bank next to the situation.<br><i>Word bank: backup &middot; database administrator &middot; database analyst &middot; database programmer &middot; multi-user access &middot; querying &middot; security &middot; validation</i></p><table class="tr big"><tr><th>Situation</th><th>Term<span style="display:inline-block;width:38mm;height:1px"></span></th></tr><tr><td>A learner's mark of 150 is rejected.</td><td class="fillcell"></td></tr><tr><td>Only the office staff can change fees; teachers may only view them.</td><td class="fillcell"></td></tr><tr><td>The disk crashes at night, but the data is restored the next morning.</td><td class="fillcell"></td></tr><tr><td>Ten teachers capture marks at the same time without overwriting one another.</td><td class="fillcell"></td></tr><tr><td>The principal asks for all Grade 11 learners who owe fees and the answer appears in seconds.</td><td class="fillcell"></td></tr><tr><td>Designs the tables and how they are linked.</td><td class="fillcell"></td></tr><tr><td>Makes sure backups are made and only authorised users can log in.</td><td class="fillcell"></td></tr><tr><td>Writes the queries and code that let an app read and update the data.</td><td class="fillcell"></td></tr></table></div>
+<div class="blk"><h3><span class="num">6.4</span>A DBMS or a text file? <span class="mk">[4]</span></h3><p>This term you stored data in text files. Think about searching, checking the data, several users and security. Explain, in a paragraph, why a school should use a DBMS rather than text files to keep the records of 1&nbsp;200 learners.</p><div class="lines" style="--n:6"></div></div>
+<div class="blk"><h3><span class="num">6.5</span>Design a table <span class="mk">[6]</span></h3><p>Design the table <b>tblProduct</b> for the tuck shop. On the grid draw a table with <b>five field names as headings</b>, circle the <b>primary key</b> and fill in <b>three records</b> of sample data.</p><div class="drawbox grid" style="height:34mm"></div></div>
+
+<h2 class="unithead pb"><span class="un">TERM CHECKPOINT</span>Files, methods and communication</h2>
+<div class="testmeta"><div><b>Time:</b> 90 minutes</div><div><b>Total:</b> 64 marks</div><div><b>Mark:</b> ______ / 64</div></div>
+<p class="goal">No notes, no computer. Show all your working. Write Delphi code neatly and use correct indentation.</p>
+<h3 class="sec">SECTION A &mdash; Trace and predict <span class="mk">[10]</span></h3>
+<div class="blk"><h3><span class="num">A1</span> <span class="mk">[6]</span></h3><p>Quiz.txt holds four lines:<br><span style="display:inline-block;vertical-align:top;border:1.3px solid #111;background:#f7f7f7;margin:1mm 4mm 1mm 0;white-space:pre"><span style="display:block;background:#e0e0e0;border-bottom:1px solid #111;font:700 7.5pt Arial,sans-serif;padding:.3mm 2.5mm">Quiz.txt</span><span style="display:block;font:9pt/1.4 Consolas,monospace;padding:1mm 3mm">Thabo,14
+Aisha,9
+Lwazi,17
+Mpho,12</span></span><br>Complete a row for every check of the loop. The last row is the check that ends the loop.</p><div class="code"><span class="lab">Delphi</span><pre>iCount := 0;
+iPass := 0;
+AssignFile(tFile, 'Quiz.txt');
+Reset(tFile);
+<b>while</b> <b>not</b> EOF(tFile) <b>do</b>
+<b>begin</b>
+  ReadLn(tFile, sLine);
+  Inc(iCount);
+  iPos := Pos(',', sLine);
+  arrName[iCount] := Copy(sLine, 1, iPos - 1);
+  arrMark[iCount] := StrToInt(Copy(sLine, iPos + 1, Length(sLine)));
+  <b>if</b> arrMark[iCount] &gt;= 12 <b>then</b>
+    Inc(iPass);
+<b>end</b>;
+CloseFile(tFile);</pre></div><table class="tr"><tr><th>Check</th><th>EOF(tFile)</th><th>iCount</th><th>arrMark[iCount]</th><th>iPass</th></tr><tr><td>1</td><td></td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td><td></td></tr><tr><td>4</td><td></td><td></td><td></td><td></td></tr><tr><td>5</td><td></td><td></td><td></td><td></td></tr></table></div>
+<div class="blk"><h3><span class="num">A2</span> <span class="mk">[4]</span></h3><p><b>iGlobal</b> is a global variable. Write exactly what <b>memOut</b> shows.</p><div class="code"><span class="lab">Delphi</span><pre><b>procedure</b> TForm1.Boost(iScore: Integer);
+<b>begin</b>
+  iScore := iScore * 2;
+  iGlobal := iGlobal + iScore;
+<b>end</b>;
+
+<i class="c">// in the button</i>
+iGlobal := 0;
+iMark := 10;
+Boost(iMark);
+Boost(iMark + 3);
+memOut.Lines.Add('iMark = ' + IntToStr(iMark));
+memOut.Lines.Add('iGlobal = ' + IntToStr(iGlobal));</pre></div><div class="lines" style="--n:3"></div></div>
+<h3 class="sec">SECTION B &mdash; Find the errors <span class="mk">[6]</span></h3>
+<div class="blk"><h3><span class="num">B1</span> <span class="mk">[3]</span></h3><p>This code should add the name typed in <b>edtName</b> as a new line at the <b>end</b> of the existing file <b>Visitors.txt</b>, keeping the old lines. Find and correct <b>three</b> errors.</p><div class="code"><span class="lab">Delphi</span><pre>AssignFile(tFile, 'Visitors.txt');
+Rewrite(tFile);
+WriteLn(edtName.Text);
+CloseFile(tFile)
+ShowMessage('Saved');</pre></div><div class="lines" style="--n:3"></div></div>
+<div class="blk"><h3><span class="num">B2</span> <span class="mk">[3]</span></h3><p>This function should return True when an age is from 14 to 19 (inclusive), and the button should use it. Find and correct <b>three</b> errors.</p><div class="code"><span class="lab">Delphi</span><pre><b>function</b> TForm1.IsValidAge(iAge : Integer) : Boolean;
+<b>begin</b>
+  <b>if</b> (iAge &gt;= 14) <b>or</b> (iAge &lt;= 19) <b>then</b>
+    <b>Result</b> := <b>True</b>;
+<b>end</b>;
+
+<b>procedure</b> TForm1.btnCheckClick(Sender: TObject);
+<b>var</b>
+  iAge : Integer;
+<b>begin</b>
+  iAge := StrToInt(edtAge.Text);
+  <b>if</b> IsValidAge <b>then</b>
+    ShowMessage('Age accepted')
+  <b>else</b>
+    ShowMessage('Age must be 14 to 19');
+<b>end</b>;</pre></div><div class="lines" style="--n:4"></div></div>
+<h3 class="sec">SECTION C &mdash; Theory <span class="mk">[18]</span></h3>
+<div class="blk"><h3><span class="num">C1</span> <span class="mk">[5]</span></h3><p>Choose the word from the word bank for each description.<br><i>Word bank: access point &middot; Bluetooth &middot; GPS &middot; IMAP &middot; SMTP</i></p><table class="tr big"><tr><th>Description</th><th>Answer<span style="display:inline-block;width:38mm;height:1px"></span></th></tr><tr><td>The protocol that sends e-mail</td><td class="fillcell"></td></tr><tr><td>Keeps e-mail on the server so that every device shows the same mailbox</td><td class="fillcell"></td></tr><tr><td>A short-range link between a phone and earphones</td><td class="fillcell"></td></tr><tr><td>Works out a position from satellite signals</td><td class="fillcell"></td></tr><tr><td>Connects Wi-Fi devices to the wired network</td><td class="fillcell"></td></tr></table></div>
+<div class="blk"><h3><span class="num">C2</span> <span class="mk">[3]</span></h3><p>Differentiate between <b>shaping</b> and <b>throttling</b>.</p><div class="lines" style="--n:3"></div></div>
+<div class="blk"><h3><span class="num">C3</span> <span class="mk">[4]</span></h3><p>Explain how <b>encryption</b> and <b>multi-layer verification</b> each help to protect an online bank account. Write in sentences.</p><div class="lines" style="--n:4"></div></div>
+<div class="blk"><h3><span class="num">C4</span> <span class="mk">[3]</span></h3><p>Explain what a <b>blockchain</b> is and why it is difficult to change an old record on it.</p><div class="lines" style="--n:4"></div></div>
+<div class="blk"><h3><span class="num">C5</span> <span class="mk">[3]</span></h3><p>Define a <b>DBMS</b> and describe <b>two</b> of its functions.</p><div class="lines" style="--n:4"></div></div>
+<h3 class="sec">SECTION D &mdash; Write the code <span class="mk">[30]</span></h3>
+<div class="blk"><h3><span class="num">D1</span> <span class="mk">[9]</span></h3><p><b>Results.txt</b> has one learner on each line in the form <i>Name,Mark</i> (for example <i>Nomsa,72</i>). The constant <b>MAX = 50</b> and the global arrays <b>arrName</b> (String), <b>arrMark</b> (Integer) and the global counter <b>iCount</b> are declared. (In all the code questions MAX, arrName, arrMark and iCount are declared as global; declare any other variables that you use.) Write a procedure <b>LoadResults</b> with <b>no parameters</b> that reads the file into the arrays and sets iCount. If the file does not exist it must show <i>Results.txt not found</i>.</p><div class="lines" style="--n:11"></div></div>
+<div class="blk"><h3><span class="num">D2</span> <span class="mk">[4]</span></h3><p>Write a function <b>CalcAverage</b> with no parameters that returns, as a Real, the average of the marks in arrMark (positions 1 to iCount). If iCount is 0 it must return 0. (For the marks 72, 45, 88, 50, 63 the answer is 63.6.)</p><div class="lines" style="--n:6"></div></div>
+<div class="blk"><h3><span class="num">D3</span> <span class="mk">[6]</span></h3><p>Write a procedure <b>ShowAbove</b> with one value parameter, <b>iLimit</b> (Integer), that displays in <b>memOut</b> the name and mark of every learner whose mark is <b>greater than iLimit</b>, in the form <i>Sizwe: 88</i>. Then write the button line that calls it with the limit 60.</p><div class="lines" style="--n:7"></div></div>
+<div class="blk"><h3><span class="num">D4</span> <span class="mk">[6]</span></h3><p>The arrays and iCount are filled. Write code that creates <b>ResultsReport.txt</b>. The first line is the heading, then one line for each learner in the form <i>Nomsa: 72 PASS</i> (50 or more is a PASS, otherwise FAIL), and a last line that shows how many learners passed, such as <i>Passed: 4</i>.<br><span style="display:inline-block;vertical-align:top;border:1.3px solid #111;background:#f7f7f7;margin:1mm 4mm 1mm 0;white-space:pre"><span style="display:block;background:#e0e0e0;border-bottom:1px solid #111;font:700 7.5pt Arial,sans-serif;padding:.3mm 2.5mm">ResultsReport.txt</span><span style="display:block;font:9pt/1.4 Consolas,monospace;padding:1mm 3mm">RESULTS REPORT
+Nomsa: 72 PASS
+Pieter: 45 FAIL
+...
+Passed: 4</span></span></p><div class="lines" style="--n:9"></div></div>
+<div class="blk"><h3><span class="num">D5</span> <span class="mk">[5]</span></h3><p>A password is valid only if it has <b>at least 8 characters</b> and contains <b>at least one digit</b>. Write a Boolean function <b>IsValidPassword</b> with one String parameter <b>sPass</b>.</p><div class="lines" style="--n:7"></div></div>
+<div class="blk think"><div class="ribbon">COMING UP NEXT TERM &middot; warm-up</div><h3>Registers and library cards</h3><div class="txt">In Term 3 you will use Delphi to work with <b>tables</b> that live in a database. Before you touch a computer, think about two paper systems.<br><br><b>1. The class register.</b> Each learner has a row. The columns are LearnerNo, Surname, Name and Cell. (a) What is one row called? What is one column called? (b) Which column must never be the same for two learners?<br><br><b>2. The library card box.</b> Each time a learner borrows a book, the librarian writes a card with the learner's name, cell number, the book title and the date due. Zinhle borrows three books this month. (c) Which pieces of information are written down three times? (d) What could go wrong if Zinhle's cell number changes? (e) How could the librarian store the cell number only <b>once</b> and still know which books Zinhle has?</div><div class="lines" style="--n:9"></div></div></body></html>
