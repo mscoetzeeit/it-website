@@ -101,6 +101,28 @@ PNAV_RE  = re.compile(r'<div class="page-nav">.*?</div>\s*', re.DOTALL)
 IMG_RE   = re.compile(r'((?:\.\./)+)images/')
 
 
+DIV_TOKEN = re.compile(r'<div\b|</div>')
+
+
+def strip_quizzes(html):
+    """Remove the interactive <div class="quiz"> blocks: their answer buttons do nothing on paper.
+    The block contains nested divs, so walk the tags and cut at the matching </div>."""
+    start_re = re.compile(r'\s*<div class="quiz"')
+    while True:
+        m = start_re.search(html)
+        if not m:
+            return html
+        depth, end = 0, None
+        for t in DIV_TOKEN.finditer(html, m.end() - len('<div class="quiz"')):
+            depth += 1 if t.group(0).startswith('<div') else -1
+            if depth == 0:
+                end = t.end()
+                break
+        if end is None:
+            raise RuntimeError("unbalanced quiz block")
+        html = html[:m.start()] + html[end:]
+
+
 def extract(path):
     with io.open(os.path.join(ROOT, path), encoding="utf-8") as fh:
         html = fh.read()
@@ -111,6 +133,7 @@ def extract(path):
     body = CRUMB_RE.sub("", body)
     body = PNAV_RE.sub("", body)
     body = IMG_RE.sub("images/", body)          # ../../images/ -> images/
+    body = strip_quizzes(body)
     return body.strip()
 
 

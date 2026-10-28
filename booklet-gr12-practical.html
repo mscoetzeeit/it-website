@@ -595,30 +595,6 @@ qryStudents.First;
     <div class="callout-title">Why a parameter, not string-joining?</div>
     <p>Using <code>:pName</code> and <code>ParamByName</code> is safer and cleaner than gluing the user's text straight into the SQL string — it avoids quote/type errors and blocks <strong>SQL injection</strong> (see <a href="cybercrime.html">Cybercrime</a>). The wildcard <code>'%'</code> is added to the <em>value</em>, so a partial surname still matches.</p>
   </div>
-
-  <div class="quiz" data-title="Quick Quiz &mdash; SQL">
-    <div class="quiz-q" data-a="1">
-      <p class="quiz-text">Which SQL clause filters which records are returned?</p>
-      <button class="quiz-opt">ORDER BY</button>
-      <button class="quiz-opt">WHERE</button>
-      <button class="quiz-opt">GROUP BY</button>
-      <p class="quiz-why">WHERE filters rows by a condition. ORDER BY sorts; GROUP BY groups for aggregates.</p>
-    </div>
-    <div class="quiz-q" data-a="0">
-      <p class="quiz-text">Which clause sorts the results of a query?</p>
-      <button class="quiz-opt">ORDER BY</button>
-      <button class="quiz-opt">WHERE</button>
-      <button class="quiz-opt">HAVING</button>
-      <p class="quiz-why">ORDER BY sorts the result set (ASC or DESC).</p>
-    </div>
-    <div class="quiz-q" data-a="2">
-      <p class="quiz-text">Which function counts the number of records?</p>
-      <button class="quiz-opt">SUM</button>
-      <button class="quiz-opt">AVG</button>
-      <button class="quiz-opt">COUNT</button>
-      <p class="quiz-why">COUNT(*) returns the number of records. SUM totals and AVG averages a field.</p>
-    </div>
-  </div>
 </section>
 
 <section class="chapter" id="ch01">
@@ -702,30 +678,6 @@ qryData.Open;</code></pre></div>
     <tr><td>Ambiguous field name (e.g. just <code>Name</code> when both tables have it)</td><td>SQL error</td><td>Always prefix: <code>tblStudents.Name</code></td></tr>
     <tr><td>Not calling <code>qryData.Close</code> before changing SQL</td><td>Runtime error</td><td>Always close first</td></tr>
   </table></div>
-
-  <div class="quiz" data-title="Quick Quiz &mdash; SQL Joins">
-    <div class="quiz-q" data-a="1">
-      <p class="quiz-text">In CAPS, two tables are most often joined using the&hellip;</p>
-      <button class="quiz-opt">GROUP BY clause</button>
-      <button class="quiz-opt">WHERE clause</button>
-      <button class="quiz-opt">ORDER BY clause</button>
-      <p class="quiz-why">You match the key fields in the WHERE clause, e.g. <code>WHERE A.ID = B.ID</code>.</p>
-    </div>
-    <div class="quiz-q" data-a="0">
-      <p class="quiz-text">Forgetting the matching condition when joining two tables produces a&hellip;</p>
-      <button class="quiz-opt">Cartesian product</button>
-      <button class="quiz-opt">Syntax error</button>
-      <button class="quiz-opt">Primary key</button>
-      <p class="quiz-why">Every row of one table pairs with every row of the other &mdash; far too many rows.</p>
-    </div>
-    <div class="quiz-q" data-a="2">
-      <p class="quiz-text">When both joined tables have a field called <code>Name</code>, in the query you must&hellip;</p>
-      <button class="quiz-opt">Rename the tables</button>
-      <button class="quiz-opt">Delete one field</button>
-      <button class="quiz-opt">Prefix it with the table name</button>
-      <p class="quiz-why">Write <code>tblLearner.Name</code> so SQL knows which table&rsquo;s Name you mean.</p>
-    </div>
-  </div>
 </section>
 
 <section class="chapter" id="ch02">
@@ -1468,30 +1420,6 @@ lblDue.Caption := DateToStr(objBook.DueDate(dBorrowed));</code></pre></div>
       <div class="callout-title">Avoid memory leaks</div>
       <p>If you create a component with <code>Create(nil)</code> (no owner), <strong>you</strong> must free it yourself with <code>btnDynamic.Free;</code> when you are done, otherwise it stays in memory. Passing the form as the owner lets Delphi clean up for you automatically.</p>
     </div>
-
-    <div class="quiz" data-title="Quick Quiz &mdash; OOP">
-      <div class="quiz-q" data-a="1">
-        <p class="quiz-text">An actual instance created from a class is called a(n):</p>
-        <button class="quiz-opt">Method</button>
-        <button class="quiz-opt">Object</button>
-        <button class="quiz-opt">Attribute</button>
-        <p class="quiz-why">A class is the blueprint; an object is an actual instance built from it.</p>
-      </div>
-      <div class="quiz-q" data-a="0">
-        <p class="quiz-text">Hiding an object's data and exposing it only through methods is:</p>
-        <button class="quiz-opt">Encapsulation</button>
-        <button class="quiz-opt">Inheritance</button>
-        <button class="quiz-opt">Polymorphism</button>
-        <p class="quiz-why">Encapsulation keeps attributes private and controls access through public methods.</p>
-      </div>
-      <div class="quiz-q" data-a="2">
-        <p class="quiz-text">The special method that creates an object and sets its starting values is the:</p>
-        <button class="quiz-opt">Accessor</button>
-        <button class="quiz-opt">Mutator</button>
-        <button class="quiz-opt">Constructor</button>
-        <p class="quiz-why">The constructor (Create) builds the object and initialises its attributes.</p>
-      </div>
-    </div>
 </section>
 
 <section class="chapter" id="ch03">
@@ -1768,30 +1696,6 @@ Dec(iRows);                             <span class="cmt">// one row fewer in us
   <div class="callout-title">Why these loop limits?</div>
   <p><strong>Rows from 3 to ROWS, top to bottom:</strong> each row depends on the one above it, so the row above must already be finished when you reach it. <strong>Columns from 2 to COLS - 1:</strong> a cell in column 1 would need <code>arrPat[r - 1, 0]</code> and one in column 11 would need <code>arrPat[r - 1, 12]</code>; neither column exists, so those edge cells are skipped and keep their 0.</p>
 </div>
-
-<div class="quiz" data-title="Quick Quiz &mdash; 2D Arrays">
-  <div class="quiz-q" data-a="1">
-    <p class="quiz-text">A two-dimensional array element is accessed using&hellip;</p>
-    <button class="quiz-opt">One index</button>
-    <button class="quiz-opt">Two indices (row, column)</button>
-    <button class="quiz-opt">No index</button>
-    <p class="quiz-why">e.g. <code>arr[r, c]</code> &mdash; the first picks the row, the second the column.</p>
-  </div>
-  <div class="quiz-q" data-a="0">
-    <p class="quiz-text">To total the values in <strong>one row</strong>, you keep the row fixed and loop the&hellip;</p>
-    <button class="quiz-opt">Columns</button>
-    <button class="quiz-opt">Rows</button>
-    <button class="quiz-opt">Nothing</button>
-    <p class="quiz-why">Hold the row number constant and move across every column in that row.</p>
-  </div>
-  <div class="quiz-q" data-a="2">
-    <p class="quiz-text">To process (fill/total) an <strong>entire</strong> 2D array you normally use&hellip;</p>
-    <button class="quiz-opt">One loop</button>
-    <button class="quiz-opt">No loop</button>
-    <button class="quiz-opt">Two nested loops</button>
-    <p class="quiz-why">An outer loop for the rows and an inner loop for the columns visits every cell.</p>
-  </div>
-</div>
 </section>
 
 <section class="chapter" id="ch04">
@@ -1879,29 +1783,6 @@ lblResult.Caption := IntToStr(Factorial(<span class="num">5</span>));  <span cla
   <li><strong>Test with small values first</strong> — trace through manually</li>
   <li><strong>Use a function</strong> (not procedure) so it can return a value</li>
 </ol>
-<div class="quiz" data-title="Quick Quiz &mdash; Recursion">
-  <div class="quiz-q" data-a="1">
-    <p class="quiz-text">A method that calls <strong>itself</strong> is described as&hellip;</p>
-    <button class="quiz-opt">Iterative</button>
-    <button class="quiz-opt">Recursive</button>
-    <button class="quiz-opt">Parallel</button>
-    <p class="quiz-why">Recursion solves a problem by calling itself on a smaller version of it.</p>
-  </div>
-  <div class="quiz-q" data-a="0">
-    <p class="quiz-text">The condition that stops a recursive method from calling itself again is the&hellip;</p>
-    <button class="quiz-opt">Base case</button>
-    <button class="quiz-opt">Recursive case</button>
-    <button class="quiz-opt">Loop</button>
-    <p class="quiz-why">The base case returns an answer directly, ending the chain of calls.</p>
-  </div>
-  <div class="quiz-q" data-a="2">
-    <p class="quiz-text">A recursive method with <strong>no</strong> base case will cause a&hellip;</p>
-    <button class="quiz-opt">Syntax error</button>
-    <button class="quiz-opt">Logic warning</button>
-    <button class="quiz-opt">Stack overflow</button>
-    <p class="quiz-why">It calls itself forever until the call stack runs out of memory.</p>
-  </div>
-</div>
 </section>
 
 <section class="chapter" id="ch05">

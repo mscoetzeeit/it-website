@@ -1096,30 +1096,6 @@ iDays := DayNumber(<span class="num">2024</span>, <span class="num">3</span>, <s
   <div class="callout-title">Elapsed days, not inclusive days</div>
   <p>Subtracting the two day numbers counts the days <em>between</em> the dates, so the starting day itself is not counted. If a question wants both the first and last day included, add 1. Check the working with 2024: 25 Feb to 29 Feb is 4 days, then 1 Mar and 2 Mar bring it to 6, because 2024 is a leap year.</p>
 </div>
-
-<div class="quiz" data-title="Quick Quiz &mdash; 1D Arrays">
-  <div class="quiz-q" data-a="0">
-    <p class="quiz-text">Before a binary search will work, the array must be:</p>
-    <button class="quiz-opt">Sorted</button>
-    <button class="quiz-opt">Reversed</button>
-    <button class="quiz-opt">Empty</button>
-    <p class="quiz-why">Binary search repeatedly halves the list, which only works if it is sorted first.</p>
-  </div>
-  <div class="quiz-q" data-a="1">
-    <p class="quiz-text">When you sort one of two parallel arrays, you must:</p>
-    <button class="quiz-opt">Leave the other array unchanged</button>
-    <button class="quiz-opt">Swap the other array at the same index too</button>
-    <button class="quiz-opt">Delete the other array</button>
-    <p class="quiz-why">Parallel arrays share an index, so every swap must be applied to both to keep records together.</p>
-  </div>
-  <div class="quiz-q" data-a="2">
-    <p class="quiz-text">A bubble sort works by repeatedly comparing:</p>
-    <button class="quiz-opt">The first and last items</button>
-    <button class="quiz-opt">Random items</button>
-    <button class="quiz-opt">Adjacent items</button>
-    <p class="quiz-why">Bubble sort compares neighbouring (adjacent) elements and swaps them if out of order.</p>
-  </div>
-</div>
 </section>
 
 <section class="chapter" id="ch01">
@@ -1646,30 +1622,6 @@ WriteLn(tFile, Format(<span class="str">'%12.2m'</span>, [rPrice]));   <span cla
   <div class="callout-title">Use a fixed-width font to check your columns</div>
   <p>Proportional fonts (like Arial) give each character a different width, so columns that line up perfectly in your code can look uneven when displayed. Set the output component's font to a <strong>fixed-width</strong> font such as <code>Courier New</code> so every character takes up exactly the same space and your columns line up visually.</p>
 </div>
-
-<div class="quiz" data-title="Quick Quiz &mdash; Text Files">
-  <div class="quiz-q" data-a="1">
-    <p class="quiz-text">Which command opens an <em>existing</em> text file for reading?</p>
-    <button class="quiz-opt">Rewrite</button>
-    <button class="quiz-opt">Reset</button>
-    <button class="quiz-opt">Append</button>
-    <p class="quiz-why">Reset opens an existing file for reading from the start. Rewrite creates/overwrites; Append adds to the end.</p>
-  </div>
-  <div class="quiz-q" data-a="0">
-    <p class="quiz-text">Which function returns True once the end of the file is reached?</p>
-    <button class="quiz-opt">EOF</button>
-    <button class="quiz-opt">Reset</button>
-    <button class="quiz-opt">CloseFile</button>
-    <p class="quiz-why">EOF (End Of File) becomes True after the last line, so loops know when to stop.</p>
-  </div>
-  <div class="quiz-q" data-a="2">
-    <p class="quiz-text">Which command creates a new file (or overwrites an existing one) for writing?</p>
-    <button class="quiz-opt">Reset</button>
-    <button class="quiz-opt">Append</button>
-    <button class="quiz-opt">Rewrite</button>
-    <p class="quiz-why">Rewrite creates a new empty file, wiping any existing contents.</p>
-  </div>
-</div>
 </section>
 
 <section class="chapter" id="ch02">
@@ -2024,29 +1976,6 @@ lblAvg.Caption := FloatToStr(rAvg);</code></pre></div>
   <li>Easier to update — change in one place, works everywhere</li>
   <li>Each method should perform only one task</li>
 </ul>
-<div class="quiz" data-title="Quick Quiz &mdash; Methods">
-  <div class="quiz-q" data-a="1">
-    <p class="quiz-text">Which kind of method <strong>returns a value</strong> back to where it was called?</p>
-    <button class="quiz-opt">A procedure</button>
-    <button class="quiz-opt">A function</button>
-    <button class="quiz-opt">An event</button>
-    <p class="quiz-why">A function returns a value; a procedure just performs an action.</p>
-  </div>
-  <div class="quiz-q" data-a="0">
-    <p class="quiz-text">Inside a Delphi function, the value you send back is stored in&hellip;</p>
-    <button class="quiz-opt">Result</button>
-    <button class="quiz-opt">Return</button>
-    <button class="quiz-opt">Output</button>
-    <p class="quiz-why">Assign to the automatic <code>Result</code> variable to return a value.</p>
-  </div>
-  <div class="quiz-q" data-a="2">
-    <p class="quiz-text">A placeholder listed in a method&rsquo;s declaration (that receives a value) is a&hellip;</p>
-    <button class="quiz-opt">Argument</button>
-    <button class="quiz-opt">Event</button>
-    <button class="quiz-opt">Parameter</button>
-    <p class="quiz-why">Parameters are declared with the method; arguments are the actual values passed in.</p>
-  </div>
-</div>
 </section>
 
 <section class="chapter" id="ch03">
@@ -2532,30 +2461,6 @@ DataField  → choose the field from the dropdown (e.g. "Surname")</code></pre><
   <div class="callout warning">
     <div class="callout-title">Why FormShow and not FormCreate?</div>
     <p>The Data Module is usually created <strong>after</strong> the main form. If you try to link the grid in the main form's <code>OnCreate</code> event, the Data Module does not exist yet and you get an <strong>access violation</strong> error. Use <code>OnShow</code>, which fires later, once everything exists.</p>
-  </div>
-
-  <div class="quiz" data-title="Quick Quiz &mdash; Delphi Databases">
-    <div class="quiz-q" data-a="1">
-      <p class="quiz-text">Before you change a field&rsquo;s value in code, you must first put the table into&hellip;</p>
-      <button class="quiz-opt">Post mode</button>
-      <button class="quiz-opt">Edit mode</button>
-      <button class="quiz-opt">Browse mode</button>
-      <p class="quiz-why">Call <code>tbl.Edit</code> first, change the field, then <code>tbl.Post</code> to save.</p>
-    </div>
-    <div class="quiz-q" data-a="0">
-      <p class="quiz-text">Which component supplies the records that a DBGrid displays?</p>
-      <button class="quiz-opt">DataSource</button>
-      <button class="quiz-opt">Label</button>
-      <button class="quiz-opt">Button</button>
-      <p class="quiz-why">A DBGrid&rsquo;s DataSource points to the dataset (e.g. a TADOTable).</p>
-    </div>
-    <div class="quiz-q" data-a="2">
-      <p class="quiz-text">After editing a record, which call <strong>saves</strong> the change to the table?</p>
-      <button class="quiz-opt">Edit</button>
-      <button class="quiz-opt">Insert</button>
-      <button class="quiz-opt">Post</button>
-      <p class="quiz-why"><code>Post</code> writes the pending change to the database.</p>
-    </div>
   </div>
 </section>
 

@@ -740,30 +740,6 @@ END</code></pre>
 <span class="kw">else</span>
   lblResult.Caption := IntToStr(iNum1) + <span class="str">' is NOT a factor of '</span> + IntToStr(iNum2);</code></pre>
     </div>
-
-    <div class="quiz" data-title="Quick Quiz &mdash; Algorithms">
-      <div class="quiz-q" data-a="1">
-        <p class="quiz-text">A clear, step-by-step set of instructions to solve a problem is called a(n)&hellip;</p>
-        <button class="quiz-opt">Flowchart</button>
-        <button class="quiz-opt">Algorithm</button>
-        <button class="quiz-opt">Variable</button>
-        <p class="quiz-why">An algorithm is the logic/steps; a flowchart is just one way to draw an algorithm.</p>
-      </div>
-      <div class="quiz-q" data-a="2">
-        <p class="quiz-text">In an <strong>IPO</strong> table, the <strong>P</strong> stands for&hellip;</p>
-        <button class="quiz-opt">Print</button>
-        <button class="quiz-opt">Program</button>
-        <button class="quiz-opt">Process</button>
-        <p class="quiz-why">IPO = Input &rarr; Process &rarr; Output: the processing turns input into output.</p>
-      </div>
-      <div class="quiz-q" data-a="1">
-        <p class="quiz-text">In a flowchart, which symbol is used for a <strong>decision</strong>?</p>
-        <button class="quiz-opt">Rectangle</button>
-        <button class="quiz-opt">Diamond</button>
-        <button class="quiz-opt">Oval</button>
-        <p class="quiz-why">A diamond asks a yes/no question; a rectangle is a process and an oval is start/stop.</p>
-      </div>
-    </div>
 </section>
 
 <section class="chapter" id="ch01">
@@ -1234,30 +1210,6 @@ Shape1.Brush.Color  := clRed;</code></pre>
       <div class="callout-title">Syntax Errors</div>
       <p>Forgetting the closing <strong>semicolon</strong> <code>;</code> on a statement causes a syntax error. There is <strong>never</strong> a semicolon before <code>else</code>. Begin/end pairs must always match.</p>
     </div>
-
-    <div class="quiz" data-title="Quick Quiz &mdash; Delphi Basics">
-      <div class="quiz-q" data-a="1">
-        <p class="quiz-text">In Delphi, the window you design your program&rsquo;s interface on is called the&hellip;</p>
-        <button class="quiz-opt">Unit</button>
-        <button class="quiz-opt">Form</button>
-        <button class="quiz-opt">Object Inspector</button>
-        <p class="quiz-why">You drop components onto the Form; the Object Inspector sets their properties.</p>
-      </div>
-      <div class="quiz-q" data-a="1">
-        <p class="quiz-text">Which property holds the text shown <em>on</em> a button?</p>
-        <button class="quiz-opt">Name</button>
-        <button class="quiz-opt">Caption</button>
-        <button class="quiz-opt">Text</button>
-        <p class="quiz-why">A TButton&rsquo;s visible label is its Caption; Name is the identifier you use in code.</p>
-      </div>
-      <div class="quiz-q" data-a="0">
-        <p class="quiz-text">Code that must run when a button is clicked is placed in its&hellip;</p>
-        <button class="quiz-opt">OnClick event</button>
-        <button class="quiz-opt">OnCreate event</button>
-        <button class="quiz-opt">OnChange event</button>
-        <p class="quiz-why">Double-clicking a button creates its OnClick event handler.</p>
-      </div>
-    </div>
 </section>
 
 <section class="chapter" id="ch02">
@@ -1397,29 +1349,6 @@ TabSheet2.TabVisible := <span class="kw">False</span>;
 
 <span class="cmt">// Jump to a specific tab</span>
 pgcMain.ActivePage := TabSheet3;</code></pre></div>
-<div class="quiz" data-title="Quick Quiz &mdash; Delphi Components">
-  <div class="quiz-q" data-a="1">
-    <p class="quiz-text">Which component lets the user pick <strong>one</strong> option from a drop-down list?</p>
-    <button class="quiz-opt">ListBox</button>
-    <button class="quiz-opt">ComboBox</button>
-    <button class="quiz-opt">Memo</button>
-    <p class="quiz-why">A ComboBox shows a drop-down; a Memo is for multiple lines of free text.</p>
-  </div>
-  <div class="quiz-q" data-a="0">
-    <p class="quiz-text">Which property gives the <strong>position</strong> of the selected item in a ListBox/ComboBox?</p>
-    <button class="quiz-opt">ItemIndex</button>
-    <button class="quiz-opt">Caption</button>
-    <button class="quiz-opt">Count</button>
-    <p class="quiz-why">ItemIndex is the 0-based position of the chosen item (&minus;1 means nothing selected).</p>
-  </div>
-  <div class="quiz-q" data-a="2">
-    <p class="quiz-text">A component that lets the user raise/lower a number with up&ndash;down arrows is a&hellip;</p>
-    <button class="quiz-opt">Label</button>
-    <button class="quiz-opt">Memo</button>
-    <button class="quiz-opt">SpinEdit</button>
-    <p class="quiz-why">A SpinEdit edits a whole number with arrow buttons; a Label only displays text.</p>
-  </div>
-</div>
 </section>
 
 <section class="chapter" id="ch03">
@@ -1900,30 +1829,6 @@ lblPrice.Caption := FloatToStrF(rPrice, ffFixed,    <span class="num">4</span>, 
       <div class="callout-title">Stop guessing, start watching</div>
       <p>It is tempting to change lines of code at random when the output looks wrong, hoping something sticks. That approach wastes time and can introduce new bugs on top of the original one. Watching the variables change value one line at a time pinpoints the exact instruction responsible, so the fix is targeted instead of accidental.</p>
     </div>
-
-    <div class="quiz" data-title="Quick Quiz &mdash; Data Types & Variables">
-      <div class="quiz-q" data-a="0">
-        <p class="quiz-text">Which data type stores whole numbers?</p>
-        <button class="quiz-opt">Integer</button>
-        <button class="quiz-opt">Real</button>
-        <button class="quiz-opt">String</button>
-        <p class="quiz-why">Integer stores whole numbers. Real stores decimals; String stores text.</p>
-      </div>
-      <div class="quiz-q" data-a="1">
-        <p class="quiz-text">In <code>sName := 'Jannie';</code> the value <code>'Jannie'</code> goes:</p>
-        <button class="quiz-opt">Into whatever is on the right</button>
-        <button class="quiz-opt">Into the variable on the left</button>
-        <button class="quiz-opt">Nowhere</button>
-        <p class="quiz-why">Assignment works right-to-left: the value on the right is stored in the variable (the "cup") on the left.</p>
-      </div>
-      <div class="quiz-q" data-a="2">
-        <p class="quiz-text">Which function converts the text in an Edit box to an integer?</p>
-        <button class="quiz-opt">FloatToStr</button>
-        <button class="quiz-opt">IntToStr</button>
-        <button class="quiz-opt">StrToInt</button>
-        <p class="quiz-why">StrToInt converts a string to an integer. IntToStr does the opposite.</p>
-      </div>
-    </div>
 </section>
 
 <section class="chapter" id="ch04">
@@ -2174,30 +2079,6 @@ result := <span class="num">10</span> <span class="kw">DIV</span> <span class="n
     <div class="callout tip">
       <div class="callout-title">Why the MOD 26?</div>
       <p>Without it, shifting a letter near the end of the alphabet (like 'X', 'Y' or 'Z') pushes past 'Z' into punctuation characters instead of wrapping back to 'A'. Subtracting <code>Ord('A')</code> first converts the letter to a 0–25 range, <code>MOD 26</code> wraps it, and adding <code>Ord('A')</code> back converts it to a real letter again.</p>
-    </div>
-
-    <div class="quiz" data-title="Quick Quiz &mdash; Operators">
-      <div class="quiz-q" data-a="1">
-        <p class="quiz-text">What is the result of <code>17 MOD 5</code>?</p>
-        <button class="quiz-opt">3</button>
-        <button class="quiz-opt">2</button>
-        <button class="quiz-opt">5</button>
-        <p class="quiz-why">MOD gives the remainder: 17 = 3&times;5 + 2, so 17 MOD 5 = 2.</p>
-      </div>
-      <div class="quiz-q" data-a="0">
-        <p class="quiz-text">What is the result of <code>17 DIV 5</code>?</p>
-        <button class="quiz-opt">3</button>
-        <button class="quiz-opt">2</button>
-        <button class="quiz-opt">3.4</button>
-        <p class="quiz-why">DIV gives the whole-number quotient: 17 DIV 5 = 3 (the .4 is discarded).</p>
-      </div>
-      <div class="quiz-q" data-a="2">
-        <p class="quiz-text">To test whether an integer <code>n</code> is <strong>even</strong>, you check&hellip;</p>
-        <button class="quiz-opt">n DIV 2 = 0</button>
-        <button class="quiz-opt">n * 2 = 0</button>
-        <button class="quiz-opt">n MOD 2 = 0</button>
-        <p class="quiz-why">An even number divides by 2 with no remainder, so n MOD 2 = 0.</p>
-      </div>
     </div>
 </section>
 
@@ -2566,30 +2447,6 @@ bPassed := iMark >= <span class="num">50</span>;</code></pre></div>
     <div class="callout tip">
       <div class="callout-title">IF or CASE — how to choose</div>
       <p>Use <strong>CASE</strong> when <em>one</em> variable maps to <em>many</em> ranges or values (the mark → symbol step). Use <strong>IF</strong> for a true/false test or when conditions combine different variables (the validation and the pass/fail steps). The pattern <strong>validate → work out → decide</strong> appears in almost every practical question.</p>
-    </div>
-
-    <div class="quiz" data-title="Quick Quiz &mdash; Decisions">
-      <div class="quiz-q" data-a="1">
-        <p class="quiz-text">Which structure is best when one variable is tested against many fixed values?</p>
-        <button class="quiz-opt">A long nested IF</button>
-        <button class="quiz-opt">CASE</button>
-        <button class="quiz-opt">WHILE</button>
-        <p class="quiz-why">CASE is cleaner than many nested IFs when matching one value against set options.</p>
-      </div>
-      <div class="quiz-q" data-a="0">
-        <p class="quiz-text">You must <strong>not</strong> put a semicolon on the line directly before&hellip;</p>
-        <button class="quiz-opt">ELSE</button>
-        <button class="quiz-opt">THEN</button>
-        <button class="quiz-opt">BEGIN</button>
-        <p class="quiz-why">A <code>;</code> before ELSE ends the IF early and causes a compile error.</p>
-      </div>
-      <div class="quiz-q" data-a="2">
-        <p class="quiz-text">The operator that checks whether a value is in a set such as <code>[1,3,5]</code> is&hellip;</p>
-        <button class="quiz-opt">AND</button>
-        <button class="quiz-opt">OR</button>
-        <button class="quiz-opt">IN</button>
-        <p class="quiz-why"><code>IN</code> tests set membership, e.g. <code>if ch in ['a','e','i'] then</code>.</p>
-      </div>
     </div>
 </section>
 
@@ -3375,30 +3232,6 @@ ShowMessage(<span class="str">'Jackpot landed after '</span> + IntToStr(iSpins) 
       <tr><td>Decimal to another base</td><td><code>repeat</code></td><td>Unknown number of divisions, but at least one digit must be produced, even for 0.</td></tr>
       <tr><td>Binary, octal or hexadecimal to decimal</td><td><code>for &hellip; downto</code></td><td>One pass per character, from the last one to the first.</td></tr>
     </table></div>
-
-    <div class="quiz" data-title="Quick Quiz &mdash; Loops">
-      <div class="quiz-q" data-a="0">
-        <p class="quiz-text">You know exactly how many times to repeat. Which loop is best?</p>
-        <button class="quiz-opt">FOR</button>
-        <button class="quiz-opt">WHILE</button>
-        <button class="quiz-opt">REPEAT&hellip;UNTIL</button>
-        <p class="quiz-why">A FOR loop is for a known, fixed number of repeats.</p>
-      </div>
-      <div class="quiz-q" data-a="2">
-        <p class="quiz-text">Which loop always runs its body at least once?</p>
-        <button class="quiz-opt">FOR</button>
-        <button class="quiz-opt">WHILE</button>
-        <button class="quiz-opt">REPEAT&hellip;UNTIL</button>
-        <p class="quiz-why">REPEAT&hellip;UNTIL checks the condition at the end, so the body always runs at least once.</p>
-      </div>
-      <div class="quiz-q" data-a="0">
-        <p class="quiz-text">A WHILE loop checks its condition:</p>
-        <button class="quiz-opt">Before each repeat</button>
-        <button class="quiz-opt">After each repeat</button>
-        <button class="quiz-opt">Never</button>
-        <p class="quiz-why">WHILE is a pre-conditional loop - it tests first, so it may run zero times.</p>
-      </div>
-    </div>
 </section>
 
 <section class="chapter" id="ch07">
@@ -3759,30 +3592,6 @@ sNewText := <span class="fn">Copy</span>(sSourceText, <span class="num">1</span>
     <div class="callout tip">
       <div class="callout-title">The check digit (Grade 11/12 extension)</div>
       <p>The 13th digit is a <strong>check digit</strong> worked out from the other 12 using the <strong>Luhn algorithm</strong>. A program can recalculate it and compare — if it does not match, the ID was mistyped. That step adds a loop and some arithmetic on top of the string work shown here.</p>
-    </div>
-
-    <div class="quiz" data-title="Quick Quiz &mdash; String Manipulation">
-      <div class="quiz-q" data-a="1">
-        <p class="quiz-text">Which function returns the position of a substring in a string?</p>
-        <button class="quiz-opt">Copy</button>
-        <button class="quiz-opt">Pos</button>
-        <button class="quiz-opt">Length</button>
-        <p class="quiz-why">Pos returns the position of the first occurrence of a substring (0 if not found).</p>
-      </div>
-      <div class="quiz-q" data-a="0">
-        <p class="quiz-text">Which function extracts a section of a string?</p>
-        <button class="quiz-opt">Copy</button>
-        <button class="quiz-opt">Delete</button>
-        <button class="quiz-opt">Pos</button>
-        <p class="quiz-why">Copy(source, start, length) extracts a substring without changing the original.</p>
-      </div>
-      <div class="quiz-q" data-a="0">
-        <p class="quiz-text">In Delphi, the first character of a string is at position:</p>
-        <button class="quiz-opt">1</button>
-        <button class="quiz-opt">0</button>
-        <button class="quiz-opt">-1</button>
-        <p class="quiz-why">Delphi strings are 1-based: the first character is position 1.</p>
-      </div>
     </div>
 </section>
 
