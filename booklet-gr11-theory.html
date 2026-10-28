@@ -1,0 +1,1945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ms Coetzee IT - Grade 11 Theory Study Reference (Printable Booklet)</title>
+<style>
+/* ============ B&W PRINTABLE BOOKLET - GRADE 11 Theory Study Reference ============ */
+:root{ --ink:#111; --soft:#333; --faint:#555; --line:#888; --rule:#ccc; --panel:#f4f4f4; --head:#eaeaea; --grade:#6d28d9; }
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ font-size:11.5pt; }
+body{
+  background:#fff; color:var(--ink);
+  font-family:'Segoe UI', system-ui, Arial, sans-serif;
+  line-height:1.55;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+a{ color:var(--ink); text-decoration:none; }
+
+/* ---- page geometry + footer page numbers (print) ---- */
+@page{
+  size:A4;
+  margin:18mm 16mm 16mm 16mm;
+  @bottom-center{ content:counter(page); font-family:Arial, sans-serif; font-size:9pt; color:#555; }
+}
+
+.sheet{ max-width:760px; margin:0 auto; padding:24px; }
+
+/* ---- COVER ---- */
+.cover{ text-align:center; padding-top:22vh; page-break-after:always; break-after:page; }
+.cover .brand{ font-size:14pt; letter-spacing:.25em; text-transform:uppercase; color:var(--faint); }
+.cover .gradenum{ font-size:64pt; font-weight:800; color:var(--grade); line-height:1; margin:.3em 0 .1em; }
+.cover h1{ font-size:30pt; font-weight:800; letter-spacing:-.02em; line-height:1.1; margin:.1em 0 .3em; }
+.cover .sub{ font-size:13pt; color:var(--soft); max-width:30em; margin:0 auto 2.5em; }
+.cover .grades{ font-size:11pt; color:var(--faint); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); display:inline-block; padding:.6em 1.4em; }
+.cover .foot{ margin-top:3em; font-size:9.5pt; color:var(--faint); }
+
+/* ---- TABLE OF CONTENTS (front of this grade's booklet) ---- */
+.toc{ page-break-after:always; break-after:page; }
+.toc h2{ font-size:20pt; border-bottom:2px solid var(--grade); padding-bottom:.3em; margin-bottom:1em; }
+.toc ul{ list-style:none; }
+.toc-sub{ font-weight:700; font-size:9.5pt; text-transform:uppercase; letter-spacing:.08em; color:var(--faint); margin:1em 0 .3em; border-bottom:1px solid var(--rule); padding-bottom:.2em; }
+.toc-item{ margin:.12em 0 .12em 1.2em; font-size:10.5pt; }
+.toc-item a{ color:var(--ink); }
+.toc-item a::before{ content:"\2022"; color:var(--line); margin-right:.6em; }
+
+/* ---- CHAPTER ---- */
+.chapter{ page-break-before:always; break-before:page; }
+.chapter-tag{ font-size:8.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--grade); margin-bottom:.4em; }
+
+/* ---- WIDOW/ORPHAN CONTROL FOR HEADINGS ----
+   A heading must never be left alone as the last line on a page with its
+   own content pushed to the next page. break-after:avoid-page forces the
+   heading to move down WITH whatever follows it, rather than being
+   orphaned. break-inside:avoid-page stops a heading's own text (when it
+   wraps to two lines) from being split across a page boundary either. */
+h1,h2,h3,h4,h5,h6{ break-after:avoid-page; break-inside:avoid-page; page-break-after:avoid; page-break-inside:avoid; }
+
+h1{ font-size:21pt; font-weight:800; letter-spacing:-.01em; line-height:1.15; margin-bottom:.35em; }
+h2{ font-size:15pt; font-weight:700; margin:1.4em 0 .5em; padding-bottom:.25em; border-bottom:1px solid var(--grade); }
+h3{ font-size:12.5pt; font-weight:700; margin:1em 0 .35em; }
+h4{ font-size:11pt; font-weight:700; margin:.9em 0 .3em; }
+
+/* General widow/orphan control for body text: never leave a single stray
+   line of a paragraph alone at the top or bottom of a printed page. */
+p,li,td{ orphans:3; widows:3; }
+
+ul,ol{ margin:.4em 0 .8em 1.4em; }
+li{ margin-bottom:.2em; }
+strong{ font-weight:700; }
+
+.grade-badge{ font-size:7.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.08em; border:1px solid var(--line); padding:.12em .45em; border-radius:3px; vertical-align:middle; margin-left:.4em; color:var(--soft); white-space:nowrap; }
+
+.page-intro{ font-size:11.5pt; color:var(--soft); margin-bottom:1.2em; padding-bottom:.8em; border-bottom:1px solid var(--rule); }
+
+/* ---- CALLOUTS ---- */
+.callout{ border:1px solid var(--rule); border-left:3px solid var(--grade); background:var(--panel); padding:.6em .9em; margin:.9em 0; border-radius:0 4px 4px 0; page-break-inside:avoid; break-inside:avoid-page; }
+.callout-title{ font-size:8.5pt; font-weight:800; text-transform:uppercase; letter-spacing:.07em; color:var(--soft); margin-bottom:.3em; }
+.callout p{ margin:0; }
+
+/* ---- HARD-BLOCK BANNER ---- solid black/white for "cannot be used/assessed"
+   warnings, since colour (red) would just print as grey on a B&W printer. */
+.hard-block{ background:#111; color:#fff; font-weight:800; text-align:center; padding:.55em .9em; border-radius:4px; margin:.5em 0 1em; font-size:10pt; page-break-inside:avoid; break-inside:avoid-page; }
+
+/* ---- TABLES ---- */
+.tbl-wrap{ margin:.9em 0; overflow:visible; }
+table{ width:100%; border-collapse:collapse; font-size:9.5pt; page-break-inside:avoid; break-inside:avoid-page; }
+th{ background:var(--head); text-align:left; padding:.4em .6em; font-size:8.5pt; text-transform:uppercase; letter-spacing:.04em; color:var(--soft); border:1px solid var(--rule); }
+td{ padding:.4em .6em; border:1px solid var(--rule); vertical-align:top; }
+
+/* ---- DEFINITION GRID ---- */
+.def-grid{ display:grid; grid-template-columns:max-content 1fr; gap:.3em 1.2em; margin:.8em 0; }
+.def-term{ font-weight:700; }
+
+/* ---- CODE ---- */
+.code-block{ margin:.9em 0; page-break-inside:avoid; break-inside:avoid-page; }
+.code-label{ display:inline-block; background:var(--head); border:1px solid var(--rule); border-bottom:none; padding:.18em .6em; font-size:8pt; color:var(--soft); border-radius:4px 4px 0 0; font-family:'Consolas','Courier New',monospace; }
+pre{ background:var(--panel); border:1px solid var(--rule); border-radius:0 4px 4px 4px; padding:.7em .9em; overflow:visible; white-space:pre-wrap; word-wrap:break-word; font-size:9pt; line-height:1.45; font-family:'Consolas','Courier New',monospace; }
+pre.no-label{ border-radius:4px; }
+code{ font-family:'Consolas','Courier New',monospace; }
+p code,li code,td code,th code{ background:var(--panel); border:1px solid var(--rule); padding:0 .25em; border-radius:3px; font-size:.92em; color:var(--ink); }
+/* syntax tokens -> monochrome */
+.kw,.kw2,.sql-kw{ color:var(--ink); font-weight:700; }
+.str,.num,.fn,.cls,.sql-fn{ color:var(--ink); }
+.cmt{ color:var(--faint); font-style:italic; }
+
+/* ---- BADGES / TAGS ---- */
+.badge,.extra-tag{ display:inline-block; font-size:7.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:.1em .45em; border:1px solid var(--line); border-radius:3px; color:var(--soft); }
+
+/* ---- IMAGES ---- */
+img{ max-width:100%; height:auto; }
+.img-float-right{ float:right; margin:0 0 .8em 1em; max-width:200px; border:1px solid var(--rule); padding:4px; border-radius:4px; }
+.img-float-left{ float:left; margin:0 1em .8em 0; max-width:200px; border:1px solid var(--rule); padding:4px; border-radius:4px; }
+.img-center{ display:block; margin:.8em auto; max-width:100%; border:1px solid var(--rule); padding:4px; border-radius:4px; }
+.img-caption{ text-align:center; font-size:8.5pt; color:var(--faint); margin:.2em 0 .9em; }
+
+.hw-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:.7em; margin:.9em 0; page-break-inside:avoid; }
+.hw-card{ border:1px solid var(--rule); border-radius:6px; padding:.5em; text-align:center; page-break-inside:avoid; break-inside:avoid-page; }
+.hw-card img{ width:100%; max-height:100px; object-fit:contain; margin-bottom:.3em; }
+.hw-card-name,.hw-card .hw-name{ font-size:9pt; font-weight:700; margin-bottom:.15em; }
+.hw-card-desc,.hw-card .hw-desc{ font-size:8pt; color:var(--faint); line-height:1.35; }
+
+.delphi-panel{ border:1px solid var(--rule); border-radius:6px; overflow:hidden; margin:.8em 0; page-break-inside:avoid; break-inside:avoid-page; }
+.delphi-panel img{ width:100%; display:block; }
+.delphi-panel .dp-label{ padding:.35em .6em; font-size:8.5pt; font-weight:700; color:var(--soft); background:var(--head); border-top:1px solid var(--rule); }
+.clearfix::after{ content:""; display:table; clear:both; }
+
+/* ---- TERM PLANNER PAGES ---- */
+.term-block{ border:1px solid var(--rule); border-radius:6px; margin-bottom:1.1em; overflow:hidden; page-break-inside:avoid; break-inside:avoid-page; }
+.term-header{ padding:.6em .9em; display:flex; align-items:center; gap:.8em; border-bottom:1px solid var(--rule); background:var(--panel); }
+.term-num{ font-size:15pt; font-weight:800; min-width:2em; color:var(--grade); }
+.term-title{ font-size:10.5pt; font-weight:700; }
+.term-subtitle{ font-size:8.5pt; color:var(--faint); margin-top:.1em; }
+.term-body{ display:grid; grid-template-columns:1fr 1fr; }
+.term-col{ padding:.7em .9em; }
+.term-col:first-child{ border-right:1px solid var(--rule); }
+.term-col-title{ font-size:8pt; text-transform:uppercase; letter-spacing:.07em; color:var(--faint); margin-bottom:.4em; font-weight:700; }
+.term-links{ list-style:none; margin:0; padding:0; }
+.term-links li{ margin-bottom:.2em; }
+.term-links a{ font-size:9pt; display:flex; align-items:center; gap:.4em; }
+.tl-dot,.tl-plain{ width:5px; height:5px; border-radius:50%; background:var(--ink); flex-shrink:0; }
+.tl-plain{ background:var(--line); }
+
+/* ---- EXAM EXTRAS ---- */
+.extras-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:.7em; margin:.9em 0; }
+.extra-card{ border:1px solid var(--rule); border-left:3px solid var(--grade); border-radius:0 4px 4px 0; padding:.6em .8em; page-break-inside:avoid; break-inside:avoid-page; }
+.extra-card h4{ font-size:9.5pt; margin:.25em 0 .3em; }
+.extra-card p{ font-size:8.5pt; color:var(--faint); margin:0; }
+
+/* ---- SVG DIAGRAMS -> dark-on-white ----
+   Flatten the dark-theme diagrams to white shapes, dark outlines, dark text.
+   Text is forced dark with !important so labels stay readable on the now-white
+   shapes (boxes, flowchart diamonds, pyramid levels are all <rect>/<polygon>). */
+svg{ max-width:100%; height:auto; }
+svg text{ fill:#111 !important; }
+svg [fill]{ fill:#fff; }
+svg [stroke]{ stroke:#222; }
+svg rect,svg polygon,svg ellipse,svg circle,svg path,svg line,svg polyline,svg g{ stroke:#333; }
+svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
+
+@media print{
+  .sheet{ max-width:none; padding:0; }
+  a{ color:var(--ink) !important; }
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- COVER -->
+  <section class="cover">
+    <div class="brand">Ms Coetzee &middot; Information Technology</div>
+    <div class="gradenum">11</div>
+    <h1>Grade 11 Theory Study Reference</h1>
+    <p class="sub">A printable guide to the theory for Grade 11 (Paper 2 content), with the year planner and exam extras.</p>
+    <div class="grades">Theory &nbsp;&bull;&nbsp; Term Planner &nbsp;&bull;&nbsp; Exam Extras</div>
+    <div class="foot">CAPS-aligned &middot; Printable booklet edition</div>
+  </section>
+
+  <!-- TABLE OF CONTENTS (front of this grade's booklet) -->
+  <section class="toc">
+    <h2>Contents &mdash; Grade 11 Theory</h2>
+    <ul>
+<li class="toc-sub">Theory</li>
+<li class="toc-item"><a href="#ch00">Motherboard & Hardware</a></li>
+<li class="toc-item"><a href="#ch01">Processing Techniques</a></li>
+<li class="toc-item"><a href="#ch02">Database Management</a></li>
+<li class="toc-item"><a href="#ch03">Networks & Protocols</a></li>
+<li class="toc-item"><a href="#ch04">Mobile Technology</a></li>
+<li class="toc-item"><a href="#ch05">Computer Management</a></li>
+<li class="toc-item"><a href="#ch06">E-Communications</a></li>
+<li class="toc-item"><a href="#ch07">Internet & Multimedia</a></li>
+<li class="toc-item"><a href="#ch08">Internet Services</a></li>
+<li class="toc-item"><a href="#ch09">Social Implications</a></li>
+<li class="toc-sub">Term Planner</li>
+<li class="toc-item"><a href="#ch10">Grade 11 - By Term</a></li>
+<li class="toc-sub">Exam Resources</li>
+<li class="toc-item"><a href="#ch11">Exam Extras (Out-of-CAPS)</a></li>
+    </ul>
+  </section>
+
+  <!-- CHAPTERS -->
+<section class="chapter" id="ch00">
+  <div class="chapter-tag">Grade 11 &middot; Theory</div>
+<h1>Motherboard &amp; Hardware <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">A deeper look at what is inside the system unit — the motherboard, its components, buses, expansion cards, and how data flows between parts.</p>
+<div class="term-divider"><span class="term-divider-badge">T1</span><span class="term-divider-label">Term 1 &middot; Motherboard &amp; Hardware Components</span></div>
+<h2>The Motherboard</h2>
+<p>The motherboard is a large printed circuit board that connects and provides power to all hardware components. It is the central hub of the computer.</p>
+<div class="callout"><div class="callout-title">ANALOGY — the motherboard is a city</div><p>Think of the motherboard as a <strong>city</strong>. The components (CPU, RAM, GPU) are the <strong>buildings</strong>; the <strong>buses</strong> are the roads that carry traffic (data) between them; the <strong>power connectors</strong> are the electricity grid; and the <strong>slots and ports</strong> are parking bays where new buildings — expansion cards and devices — plug in. Nothing works alone: everything is linked by the roads of the motherboard.</p></div>
+<h3>Key Motherboard Components</h3>
+<div class="tbl-wrap"><table>
+  <tr><th>Component</th><th>Description</th></tr>
+  <tr><td><strong>BIOS chip</strong></td><td>Basic Input/Output System — first instructions when PC starts. Stored on ROM. Performs POST.</td></tr>
+  <tr><td><strong>CPU socket (ZIF)</strong></td><td>Connects the CPU to the motherboard</td></tr>
+  <tr><td><strong>DIMM slots</strong></td><td>RAM slots</td></tr>
+  <tr><td><strong>PCI / PCIe slots</strong></td><td>Add expansion cards (GPU, sound card, NIC)</td></tr>
+  <tr><td><strong>SATA ports</strong></td><td>Connect internal storage (HDD, SSD)</td></tr>
+  <tr><td><strong>Power connector</strong></td><td>Supplies power from PSU to all components</td></tr>
+  <tr><td><strong>RAM (DIMM)</strong></td><td>Volatile short-term memory for active programs</td></tr>
+  <tr><td><strong>ROM</strong></td><td>Read-Only Memory — stores BIOS firmware permanently</td></tr>
+</table></div>
+<h2>BIOS Functions</h2>
+<ul>
+  <li>Performs the <strong>POST</strong> (Power-On Self-Test) — checks RAM, keyboard, storage</li>
+  <li>Identifies and initialises hardware devices</li>
+  <li>Locates the bootloader and hands control to the OS</li>
+  <li>Provides low-level system settings</li>
+</ul>
+<h2>Motherboard Buses</h2>
+<p>A <strong>bus</strong> is a set of wires that transfers data between components.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Bus type</th><th>Purpose</th></tr>
+  <tr><td><strong>Data bus</strong></td><td>Transfers data and instructions between components</td></tr>
+  <tr><td><strong>Address bus</strong></td><td>Carries the physical memory address of data</td></tr>
+  <tr><td><strong>Control bus</strong></td><td>CPU sends signals to coordinate actions</td></tr>
+  <tr><td><strong>Power bus</strong></td><td>Delivers electricity to components</td></tr>
+  <tr><td><strong>Internal bus</strong></td><td>Links CPU and main memory</td></tr>
+  <tr><td><strong>External bus</strong></td><td>Interface for peripherals (USB, SATA, PCIe)</td></tr>
+</table></div>
+<h3>Bus vs Point-to-Point Connections</h3>
+<p>Not every connection on the motherboard is a shared bus. A <strong>bus</strong> is a shared pathway — several devices can use the same lines to send and receive data (e.g. multiple USB devices sharing one USB controller). A <strong>point-to-point connection</strong> is a direct, dedicated link between exactly two components, with no other device sharing the line — this makes it faster and more efficient because there is no waiting for the line to be free.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Connection type</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>Bus</strong></td><td>Shared pathway — multiple devices can use it</td><td>USB devices sharing a USB bus</td></tr>
+  <tr><td><strong>Point-to-point</strong></td><td>Direct dedicated link between two components only</td><td>CPU ↔ RAM via a dedicated memory channel; GPU ↔ VRAM inside a graphics card; NVMe SSD ↔ CPU via PCIe lanes</td></tr>
+</table></div>
+<h2>Expansion Cards</h2>
+<p>An <strong>expansion card</strong> plugs into a PCI or PCIe slot to add extra functionality that the motherboard does not already provide.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Expansion card</th><th>Adds</th></tr>
+  <tr><td><strong>Graphics card (GPU)</strong></td><td>Faster, dedicated graphics rendering</td></tr>
+  <tr><td><strong>Sound card</strong></td><td>Improved sound quality or surround sound</td></tr>
+  <tr><td><strong>Network / Wi-Fi card</strong></td><td>Wired or wireless network connectivity</td></tr>
+  <tr><td><strong>TV capture card</strong></td><td>Captures and stores video from a TV signal</td></tr>
+  <tr><td><strong>Storage controller card</strong></td><td>Adds extra or faster hard-drive connections</td></tr>
+</table></div>
+<h2>Data Flow Between Components</h2>
+<p><strong>Storage → RAM → CPU:</strong> Data is loaded from slow storage into fast RAM, then the CPU fetches from RAM for processing.</p>
+<p><strong>RAM → VRAM → GPU:</strong> Graphics data is moved from RAM to VRAM so the GPU can render images without burdening the CPU.</p>
+<h2>Cache Memory</h2>
+<p>Cache is a very small, very fast memory located close to (or inside) the CPU. It stores frequently used instructions so the CPU does not have to wait for slower RAM.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Level</th><th>Speed</th><th>Size</th></tr>
+  <tr><td>L1</td><td>Fastest</td><td>Smallest (inside each core)</td></tr>
+  <tr><td>L2</td><td>Fast</td><td>Larger</td></tr>
+  <tr><td>L3</td><td>Moderate</td><td>Largest (shared across cores)</td></tr>
+</table></div>
+<h3>Types of Caching</h3>
+<p><strong>Caching</strong> means keeping a copy of frequently used data somewhere faster to fetch it from. It happens at several levels of a computer system:</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>What it stores</th><th>Speeds up</th></tr>
+  <tr><td><strong>Cache memory</strong></td><td>Frequently used data and instructions, kept on or near the CPU</td><td>Processing — the CPU avoids waiting for slower RAM</td></tr>
+  <tr><td><strong>Disk caching</strong></td><td>Recently or frequently read disk data, held in RAM</td><td>File access — avoids re-reading the slow drive</td></tr>
+  <tr><td><strong>Web caching</strong></td><td>Recently visited web pages and images, stored by the browser</td><td>Browsing — pages load faster on a return visit</td></tr>
+</table></div>
+<h2>Modular Design</h2>
+<p>Motherboards use a <strong>modular design</strong> — individual components (RAM, CPU, GPU) can be upgraded or replaced without replacing the whole computer.</p>
+<div class="quiz" data-title="Quick Quiz &mdash; Hardware (Gr 11)">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">The main circuit board that connects all the components together is the&hellip;</p>
+    <button class="quiz-opt">CPU</button>
+    <button class="quiz-opt">Motherboard</button>
+    <button class="quiz-opt">RAM</button>
+    <p class="quiz-why">Everything plugs into the motherboard, which links the CPU, RAM, storage, etc.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Small, very fast memory built into/near the CPU to speed it up is&hellip;</p>
+    <button class="quiz-opt">Cache</button>
+    <button class="quiz-opt">ROM</button>
+    <button class="quiz-opt">Virtual memory</button>
+    <p class="quiz-why">Cache holds data the CPU is likely to need next, avoiding slower RAM trips.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">The pathways that carry data between components are called&hellip;</p>
+    <button class="quiz-opt">Slots</button>
+    <button class="quiz-opt">Ports</button>
+    <button class="quiz-opt">Buses</button>
+    <p class="quiz-why">A bus is a set of wires that transports data/addresses/control signals.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch01">
+  <div class="chapter-tag">Grade 11 &middot; Theory</div>
+<h1>Processing Techniques <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">Modern computers can execute multiple tasks simultaneously using multitasking, multithreading and multiprocessing. This page also covers operating-system types, virtual memory, compilers and interpreters.</p>
+<div class="term-divider"><span class="term-divider-badge">T1</span><span class="term-divider-label">Term 1 &middot; Processing Techniques &amp; Operating Systems</span></div>
+<h2>Types of Operating Systems</h2>
+<p>You met the main operating-system (OS) types in Grade 10 — <strong>stand-alone</strong> (desktop), <strong>network/server</strong>, <strong>embedded</strong> and <strong>mobile</strong>. In Grade 11 you must be able to <strong>compare</strong> them in terms of <strong>cost, size, hardware needed and platform</strong>.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>OS type</th><th>Cost</th><th>Size</th><th>Hardware needed</th><th>Platform / typical use</th></tr>
+  <tr><td><strong>Stand-alone (desktop)</strong><br><small>Windows 11, macOS, Ubuntu</small></td><td>Moderate (home/pro editions)</td><td>Large</td><td>A full PC or laptop (multi-core CPU, several GB RAM, large disk)</td><td>One personal computer for everyday tasks</td></tr>
+  <tr><td><strong>Network / server</strong><br><small>Windows Server, Linux server</small></td><td>Expensive (often per-user / per-device licensing)</td><td>Large</td><td>A powerful, reliable server (lots of RAM and storage, redundancy)</td><td>Manages a network, its users and shared resources</td></tr>
+  <tr><td><strong>Embedded</strong><br><small>router, smart TV, ATM, car system</small></td><td>Low (usually built in, once-off)</td><td>Very small</td><td>Minimal — a small chip with very little memory</td><td>Controls one dedicated device or appliance</td></tr>
+  <tr><td><strong>Mobile</strong><br><small>Android, iOS</small></td><td>Usually free with the device</td><td>Small to medium</td><td>Phone/tablet hardware (touchscreen, power-efficient ARM CPU, battery)</td><td>Touchscreen mobile devices; optimised for battery life</td></tr>
+</table></div>
+<div class="callout"><div class="callout-title">ENRICHMENT &mdash; Real-time OS (RTOS)</div><p>A <strong>real-time operating system</strong> is built to respond within a guaranteed, fixed time. It is used where a late response is dangerous or useless &mdash; for example medical equipment, aircraft and industrial control systems. (Beyond the core CAPS list, but good to recognise.)</p></div>
+<h2>Processing Techniques (T1)</h2>
+<p><strong>A processing technique</strong> is a method the operating system and CPU use to handle more than one job at a time so the computer feels fast and responsive. In the early days a computer could only do one thing from start to finish before moving on. Today we expect to type an email, listen to music and download a file all at once — and these techniques are what make that possible.</p>
+<h3>Why Do We Need This?</h3>
+<p>A CPU is incredibly fast, but a human is slow. While you pause to think about your next sentence, the CPU is sitting idle for millions of cycles. Processing techniques let the computer fill those gaps with other work, so no time is wasted and every program feels like it is running "at the same time".</p>
+<div class="callout"><div class="callout-title">THINK OF A CHEF IN A KITCHEN</div><p>Imagine one chef preparing several dishes. <strong>Multitasking</strong> is the chef stirring one pot, then quickly turning to chop onions, then back to the pot — one pair of hands switching between jobs so fast it looks simultaneous. <strong>Multithreading</strong> is one big recipe (say a curry) broken into steps that move along together — the sauce simmers while the rice cooks, all part of the same dish. <strong>Multiprocessing</strong> is hiring several chefs (CPU cores), each cooking a whole dish at the same moment in real parallel.</p></div>
+<div class="tbl-wrap"><table>
+  <tr><th>Technique</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>Multitasking</strong></td><td>OS rapidly switches between multiple programs, giving the illusion of simultaneous execution</td><td>Listening to music while browsing the web</td></tr>
+  <tr><td><strong>Multithreading</strong></td><td>A single program is divided into threads that run concurrently</td><td>Browser: separate threads for UI, downloads, rendering, scripts</td></tr>
+  <tr><td><strong>Multiprocessing</strong></td><td>Multiple CPU cores execute tasks truly in parallel</td><td>A quad-core CPU running 4 tasks simultaneously</td></tr>
+</table></div>
+<ul>
+  <li><strong>Multitasking</strong> – running several programs at once by switching rapidly between them. Only one task truly runs at any instant, but the switching is so quick it feels simultaneous.</li>
+  <li><strong>Multithreading</strong> – splitting a single program into smaller "threads" that progress together, so one slow part (like a download) does not freeze the rest of the program.</li>
+  <li><strong>Multiprocessing</strong> – using two or more CPU cores to genuinely execute different tasks at the same time. This is real parallelism, not an illusion.</li>
+</ul>
+<p><strong>Note:</strong> The key difference to remember is that multitasking and multithreading <em>share</em> one processor by taking turns, while multiprocessing uses <em>multiple</em> processors to do work truly at the same moment.</p>
+<h2>Virtual Memory</h2>
+<p><strong>Virtual memory</strong> is storage space on the hard drive that the operating system uses as if it were extra RAM. When the real RAM fills up, the OS borrows a slice of the much larger (but much slower) hard drive to keep programs running instead of crashing.</p>
+<h3>Why Do We Need This?</h3>
+<p>RAM is expensive and limited. Without virtual memory, the moment your RAM filled up the computer would simply refuse to open the next program. Virtual memory acts as a safety valve so you can keep working even when memory is tight.</p>
+<div class="callout"><div class="callout-title">A DESK AND A FILING CABINET</div><p>Picture your <strong>RAM</strong> as the top of your desk — small, but everything on it is right in front of you and instantly reachable. The <strong>hard drive</strong> is a big filing cabinet across the room — it holds far more, but you must get up and fetch things from it. When your desk overflows, you move papers you are not using right now into the cabinet (virtual memory) and fetch them back when you need them. It works, but every trip to the cabinet wastes time.</p></div>
+<p>When RAM is full, the OS uses a section of the hard drive as temporary RAM — called <strong>virtual memory</strong>.</p>
+<ul>
+  <li>Programs not currently in use are swapped from RAM to virtual memory</li>
+  <li>When needed again, they are swapped back into RAM</li>
+  <li>Allows more programs to run than physical RAM would normally allow</li>
+  <li>Much slower than real RAM — heavy use causes <strong>thrashing</strong> (performance crash)</li>
+</ul>
+<p><strong>Thrashing</strong> is what happens when the computer spends more time swapping data back and forth between RAM and virtual memory than it spends doing actual useful work. The hard drive light stays on constantly, the mouse stutters, and everything slows to a crawl. In our desk analogy, thrashing is when your desk is so small that you are constantly running to the filing cabinet and back, never getting anything done.</p>
+<h3>Solutions when thrashing occurs:</h3>
+<ul>
+  <li>Close unnecessary background apps</li>
+  <li>Increase physical RAM</li>
+  <li>Upgrade to 64-bit OS</li>
+  <li>Install smaller, lighter alternative programs in place of large ones, where possible</li>
+</ul>
+<h2>Compilers vs Interpreters</h2>
+<p>Computers only understand <strong>machine code</strong> (binary 1s and 0s), but humans write in readable programming languages. A <strong>translator</strong> is needed to bridge that gap. There are two main kinds, and the difference is all about <em>when</em> the translation happens.</p>
+<ul>
+  <li><strong>Compiler</strong> – a translator that converts the <em>entire</em> source code into machine code in one go, before the program ever runs, producing a standalone executable file.</li>
+  <li><strong>Interpreter</strong> – a translator that reads and runs the code <em>one line at a time</em>, translating each line just as it is about to be executed.</li>
+</ul>
+<div class="callout"><div class="callout-title">TWO KINDS OF TRANSLATOR</div><p>Think of translating a book. A <strong>compiler</strong> is like a translator who sits down and translates the whole book into a finished printed copy — slow to prepare, but afterwards anyone can read it instantly. An <strong>interpreter</strong> is like a live human interpreter standing next to a speaker, translating each sentence out loud as it is spoken — you can start immediately, but it is slower overall because translation happens during the conversation.</p></div>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Compiler</th><th>Interpreter</th></tr>
+  <tr><td><strong>How it works</strong></td><td>Translates entire source code to machine code at once</td><td>Reads and executes one line at a time</td></tr>
+  <tr><td><strong>Speed</strong></td><td>Slower to open program, faster once running</td><td>Faster to open, slower while running</td></tr>
+  <tr><td><strong>On error</strong></td><td>Stops completely — program never opens</td><td>Runs until error is hit, then crashes</td></tr>
+  <tr><td><strong>Examples</strong></td><td>Delphi, C++</td><td>Python, JavaScript</td></tr>
+</table></div>
+<h2>Virtualisation</h2>
+<p><strong>Virtualisation</strong> is the technique of using software to create a "virtual" computer — called a <strong>virtual machine</strong> — that runs inside your real computer as if it were a separate physical machine with its own operating system.</p>
+<h3>Why Do We Need This?</h3>
+<p>One powerful computer can be split into several virtual machines, so a single server can do the work of many. This saves money, electricity and space, and lets you safely test risky software in a sealed-off environment without endangering your real system.</p>
+<div class="callout"><div class="callout-title">A BUILDING WITH SEPARATE FLATS</div><p>Imagine one large building (your physical computer). Virtualisation divides it into several self-contained flats (virtual machines). Each flat has its own front door, kitchen and tenants (its own operating system and programs), and what happens in one flat does not affect the others — yet they all share the same building, plumbing and electricity (the real hardware).</p></div>
+<p><strong>Example:</strong> Running Windows on a Mac, or a single cloud server hosting dozens of separate websites, each in its own virtual machine.</p>
+<h3>Why Use a Virtual Machine?</h3>
+<ul>
+  <li><strong>Try a new OS safely</strong> — test an operating system like Ubuntu without installing it directly on your real computer.</li>
+  <li><strong>Test risky software</strong> — install a program you are not sure is safe. If it turns out to contain malware, you simply delete the whole virtual machine and your real computer is untouched.</li>
+  <li><strong>Backup and transfer</strong> — the image of a virtual hard drive can be used to back up a system, or move all its data and settings onto a new physical computer.</li>
+  <li><strong>Cross-platform app development</strong> — mobile developers can test an app on many different versions of Android and iOS using virtual machines, instead of buying hundreds of physical devices.</li>
+</ul>
+<h2>Programming Languages</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Description</th><th>Examples</th></tr>
+  <tr><td><strong>Low-level</strong></td><td>Close to machine code; fast and efficient; hard to read</td><td>Assembly language</td></tr>
+  <tr><td><strong>High-level</strong></td><td>English-like; easier to write and understand; compiled or interpreted</td><td>Delphi, Python, Java, C++</td></tr>
+</table></div>
+<h2>Types of Errors</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Error Type</th><th>Description</th></tr>
+  <tr><td><strong>Syntax</strong></td><td>Code typed incorrectly — won't compile</td></tr>
+  <tr><td><strong>Runtime</strong></td><td>Crashes while running (e.g. divide by zero)</td></tr>
+  <tr><td><strong>Logical</strong></td><td>Runs but gives wrong output</td></tr>
+  <tr><td><strong>Overflow</strong></td><td>Calculation result too large for the data type</td></tr>
+</table></div>
+<div class="quiz" data-title="Quick Quiz &mdash; Processing Techniques">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Splitting a single program into parts that run at the same time is:</p>
+    <button class="quiz-opt">Multitasking</button>
+    <button class="quiz-opt">Multithreading</button>
+    <button class="quiz-opt">Multiprocessing</button>
+    <p class="quiz-why">Multithreading splits ONE program into threads. Multitasking switches between programs; multiprocessing uses multiple cores.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">Using hard-drive space as if it were extra RAM is called:</p>
+    <button class="quiz-opt">Caching</button>
+    <button class="quiz-opt">Thrashing</button>
+    <button class="quiz-opt">Virtual memory</button>
+    <p class="quiz-why">Virtual memory borrows disk space when RAM is full. Thrashing is excessive swapping.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Which translator converts the entire program to machine code before it runs?</p>
+    <button class="quiz-opt">Compiler</button>
+    <button class="quiz-opt">Interpreter</button>
+    <button class="quiz-opt">Debugger</button>
+    <p class="quiz-why">A compiler translates all the code at once up front; an interpreter does it line by line while running.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch02">
+  <div class="chapter-tag">Grade 11 &middot; Theory</div>
+<h1>Database Management <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">A database is like a <strong>highly organised digital filing cabinet</strong> — instead of papers stuffed into folders, your data is stored in neat tables with rows and columns, so you can find, sort and filter it in seconds. A <strong>DBMS</strong> (Database Management System) is the software that manages it all.</p>
+
+<!-- ═══════ KEY TERMS ═══════ -->
+<h2>Key Terms</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Term</th><th>Definition</th></tr>
+  <tr><td><strong>Database</strong></td><td>An organised collection of data stored in tables</td></tr>
+  <tr><td><strong>Table</strong></td><td>Rows and columns storing one type of entity (e.g. Students)</td></tr>
+  <tr><td><strong>Record</strong></td><td>One complete row — all data about one item</td></tr>
+  <tr><td><strong>Field</strong></td><td>One column — a specific attribute (e.g. Surname, Age)</td></tr>
+  <tr><td><strong>Primary key</strong></td><td>Unique field that identifies each record (e.g. StudentID)</td></tr>
+  <tr><td><strong>Foreign key</strong></td><td>A field that links to the primary key of another table</td></tr>
+  <tr><td><strong>DBMS</strong></td><td>Database Management System — software to create, manage and query databases</td></tr>
+</table></div>
+
+<div class="term-divider"><span class="term-divider-badge">T2</span><span class="term-divider-label">Term 2 &middot; DBMS, Database Types &amp; Careers</span></div>
+
+<!-- ═══════ DBMS COMPARISON ═══════ -->
+<h2>Common DBMS Software</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>DBMS</th><th>Type</th><th>Cost</th><th>Use Case</th></tr>
+  <tr><td><strong>Microsoft Access</strong></td><td>Desktop</td><td>Paid (MS Office)</td><td>Small databases, school/office, learning, Grade 11–12 IT practicals</td></tr>
+  <tr><td><strong>MySQL</strong></td><td>Open-source server</td><td>Free</td><td>Web applications, websites (used with PHP)</td></tr>
+  <tr><td><strong>Oracle</strong></td><td>Enterprise server</td><td>Very expensive</td><td>Banks, airlines, hospitals — mission-critical systems</td></tr>
+  <tr><td><strong>PostgreSQL</strong></td><td>Open-source server</td><td>Free</td><td>Advanced queries, large datasets, analytics</td></tr>
+  <tr><td><strong>Microsoft SQL Server</strong></td><td>Enterprise server</td><td>Paid</td><td>Large corporate databases, Windows environments</td></tr>
+</table></div>
+
+<!-- ═══════ DATABASE TYPES ═══════ -->
+<h2>Database Types by Usage</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>Desktop / Personal</strong></td><td>Single user, stored locally on one computer</td><td>MS Access for a school IT project</td></tr>
+  <tr><td><strong>Server / Centralised</strong></td><td>Multi-user, stored on a server, accessed over a network</td><td>School administration system accessed by teachers and admin</td></tr>
+  <tr><td><strong>Distributed</strong></td><td>Spread across multiple locations/servers, synchronised</td><td>A national learner database accessed from all provinces</td></tr>
+</table></div>
+
+<!-- ═══════ DATABASE CAREERS ═══════ -->
+<h2>Database Careers</h2>
+<ul>
+  <li><strong>DBA (Database Administrator)</strong> — maintains security, backups, performance tuning</li>
+  <li><strong>Database Programmer / Developer</strong> — writes queries, stored procedures, applications</li>
+  <li><strong>Database Analyst</strong> — designs structure, models relationships, plans migrations</li>
+  <li><strong>Data Scientist</strong> — analyses large datasets to find patterns and insights</li>
+  <li><strong>Project Manager</strong> — manages database projects, budgets and teams</li>
+</ul>
+
+<div class="term-divider"><span class="term-divider-badge">T3</span><span class="term-divider-label">Term 3 &middot; Database Design, Integrity &amp; Working With Data</span></div>
+
+<!-- ═══════ DATABASE TABLE SVG ═══════ -->
+<h2>What a Database Table Looks Like</h2>
+<p>A table in a database looks exactly like a spreadsheet grid. The table has a name, column headers (fields), and rows of data (records).</p>
+
+<div style="margin:1.25rem 0;overflow-x:auto">
+  <svg viewBox="0 0 720 250" width="720" height="250" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+    <rect width="720" height="250" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+
+    <!-- Table name banner -->
+    <rect x="16" y="12" width="688" height="30" rx="5" fill="#a78bfa" opacity="0.2" stroke="#a78bfa" stroke-width="1"/>
+    <text x="360" y="31" text-anchor="middle" fill="#a78bfa" font-size="13" font-weight="700">tblStudents</text>
+
+    <!-- Header row -->
+    <rect x="16" y="50" width="688" height="28" rx="3" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+    <!-- PK icon for StudentID -->
+    <text x="78"  y="68" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">StudentID  PK</text>
+    <text x="258" y="68" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="700">Name</text>
+    <text x="430" y="68" text-anchor="middle" fill="#e6edf3" font-size="11" font-weight="700">Grade</text>
+    <text x="600" y="68" text-anchor="middle" fill="#a78bfa" font-size="11" font-weight="700">ClassID  FK</text>
+    <!-- Column dividers -->
+    <line x1="160" y1="50" x2="160" y2="230" stroke="#30363d" stroke-width="1"/>
+    <line x1="350" y1="50" x2="350" y2="230" stroke="#30363d" stroke-width="1"/>
+    <line x1="510" y1="50" x2="510" y2="230" stroke="#30363d" stroke-width="1"/>
+
+    <!-- Row 1 -->
+    <rect x="16" y="78" width="688" height="36" rx="0" fill="#161b22"/>
+    <text x="78"  y="100" text-anchor="middle" fill="#22d3ee" font-size="11">1001</text>
+    <text x="258" y="100" text-anchor="middle" fill="#e6edf3" font-size="11">Alice Nkosi</text>
+    <text x="430" y="100" text-anchor="middle" fill="#e6edf3" font-size="11">11</text>
+    <text x="600" y="100" text-anchor="middle" fill="#a78bfa" font-size="11">C-01</text>
+
+    <!-- Row 2 -->
+    <rect x="16" y="114" width="688" height="36" rx="0" fill="#21262d"/>
+    <text x="78"  y="136" text-anchor="middle" fill="#22d3ee" font-size="11">1002</text>
+    <text x="258" y="136" text-anchor="middle" fill="#e6edf3" font-size="11">Bob Dlamini</text>
+    <text x="430" y="136" text-anchor="middle" fill="#e6edf3" font-size="11">11</text>
+    <text x="600" y="136" text-anchor="middle" fill="#a78bfa" font-size="11">C-02</text>
+
+    <!-- Row 3 -->
+    <rect x="16" y="150" width="688" height="36" rx="0" fill="#161b22"/>
+    <text x="78"  y="172" text-anchor="middle" fill="#22d3ee" font-size="11">1003</text>
+    <text x="258" y="172" text-anchor="middle" fill="#e6edf3" font-size="11">Callie van Wyk</text>
+    <text x="430" y="172" text-anchor="middle" fill="#e6edf3" font-size="11">10</text>
+    <text x="600" y="172" text-anchor="middle" fill="#a78bfa" font-size="11">C-01</text>
+
+    <!-- Bottom border -->
+    <line x1="16" y1="186" x2="704" y2="186" stroke="#30363d" stroke-width="1"/>
+
+    <!-- Legend -->
+    <rect x="16" y="200" width="14" height="14" rx="2" fill="#fbbf24" opacity="0.6"/>
+    <text x="36" y="212" fill="#fbbf24" font-size="9">Primary Key (PK) — unique, cannot repeat</text>
+    <rect x="290" y="200" width="14" height="14" rx="2" fill="#a78bfa" opacity="0.6"/>
+    <text x="310" y="212" fill="#a78bfa" font-size="9">Foreign Key (FK) — links to another table</text>
+    <text x="360" y="235" text-anchor="middle" fill="#8b949e" font-size="9">Each ROW = one record (one student).   Each COLUMN = one field (one attribute).</text>
+  </svg>
+</div>
+
+<!-- ═══════ PRIMARY KEY vs FOREIGN KEY ═══════ -->
+<h2>Primary Key vs Foreign Key</h2>
+<p>Keys are what make databases powerful — they link tables together so you do not repeat data.</p>
+
+<div style="margin:1.25rem 0;overflow-x:auto">
+  <svg viewBox="0 0 720 200" width="720" height="200" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+    <rect width="720" height="200" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+
+    <!-- tblStudents -->
+    <rect x="16" y="16" width="280" height="168" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+    <rect x="16" y="16" width="280" height="24" rx="6" fill="#a78bfa" opacity="0.2" stroke="#a78bfa" stroke-width="1"/>
+    <text x="156" y="32" text-anchor="middle" fill="#a78bfa" font-size="11" font-weight="700">tblStudents</text>
+    <!-- Fields -->
+    <rect x="26" y="48" width="260" height="24" rx="3" fill="#fbbf24" opacity="0.15" stroke="#fbbf24" stroke-width="1"/>
+    <text x="36" y="64" fill="#fbbf24" font-size="10" font-weight="700">StudentID  (PK) — unique</text>
+    <text x="36" y="88" fill="#e6edf3" font-size="10">Name</text>
+    <text x="36" y="108" fill="#e6edf3" font-size="10">Grade</text>
+    <rect x="26" y="118" width="260" height="22" rx="3" fill="#a78bfa" opacity="0.15" stroke="#a78bfa" stroke-width="1"/>
+    <text x="36" y="133" fill="#a78bfa" font-size="10" font-weight="700">ClassID  (FK) → tblClasses.ClassID</text>
+    <text x="36" y="160" fill="#8b949e" font-size="9">ClassID links THIS record to a class</text>
+
+    <!-- Arrow in middle -->
+    <line x1="296" y1="100" x2="424" y2="100" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <defs>
+      <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#22d3ee"/>
+      </marker>
+    </defs>
+    <text x="358" y="92" text-anchor="middle" fill="#22d3ee" font-size="9">FK links</text>
+    <text x="358" y="104" text-anchor="middle" fill="#22d3ee" font-size="9">to PK</text>
+
+    <!-- tblClasses -->
+    <rect x="424" y="16" width="280" height="168" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+    <rect x="424" y="16" width="280" height="24" rx="6" fill="#22d3ee" opacity="0.15" stroke="#22d3ee" stroke-width="1"/>
+    <text x="564" y="32" text-anchor="middle" fill="#22d3ee" font-size="11" font-weight="700">tblClasses</text>
+    <rect x="434" y="48" width="260" height="24" rx="3" fill="#fbbf24" opacity="0.15" stroke="#fbbf24" stroke-width="1"/>
+    <text x="444" y="64" fill="#fbbf24" font-size="10" font-weight="700">ClassID  (PK) — e.g. C-01</text>
+    <text x="444" y="88" fill="#e6edf3" font-size="10">ClassName</text>
+    <text x="444" y="108" fill="#e6edf3" font-size="10">TeacherName</text>
+    <text x="444" y="128" fill="#e6edf3" font-size="10">RoomNumber</text>
+    <text x="444" y="160" fill="#8b949e" font-size="9">One class can have many students</text>
+  </svg>
+</div>
+
+<div class="tbl-wrap"><table>
+  <tr><th>Key Type</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>Primary Key (PK)</strong></td><td>Uniquely identifies each record. Cannot be NULL. Cannot repeat.</td><td>StudentID = 1001</td></tr>
+  <tr><td><strong>Foreign Key (FK)</strong></td><td>A field in one table that refers to the PK of another table.</td><td>ClassID in tblStudents → ClassID in tblClasses</td></tr>
+  <tr><td><strong>Composite Key</strong></td><td>Two or more fields combined to form a unique identifier.</td><td>StudentID + SubjectCode</td></tr>
+</table></div>
+
+<!-- ═══════ ERD SVG ═══════ -->
+<h2>Entity Relationship Diagram (ERD)</h2>
+<p>An ERD shows the tables in a database and how they are related. The line between tables shows the type of relationship (one-to-many, etc.).</p>
+
+<div style="margin:1.25rem 0;overflow-x:auto">
+  <svg viewBox="0 0 720 200" width="720" height="200" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+    <rect width="720" height="200" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+
+    <!-- tblClasses entity box -->
+    <rect x="30" y="40" width="220" height="120" rx="6" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
+    <rect x="30" y="40" width="220" height="26" rx="6" fill="#22d3ee" opacity="0.2"/>
+    <text x="140" y="57" text-anchor="middle" fill="#22d3ee" font-size="11" font-weight="700">tblClasses</text>
+    <text x="40" y="78" fill="#fbbf24" font-size="10">ClassID (PK)</text>
+    <text x="40" y="96" fill="#8b949e" font-size="10">ClassName</text>
+    <text x="40" y="114" fill="#8b949e" font-size="10">TeacherName</text>
+    <text x="40" y="132" fill="#8b949e" font-size="10">RoomNumber</text>
+
+    <!-- Relationship line — one-to-many -->
+    <!-- Straight line -->
+    <line x1="250" y1="100" x2="470" y2="100" stroke="#4ade80" stroke-width="2"/>
+    <!-- "1" side marker at Classes -->
+    <line x1="250" y1="88" x2="250" y2="112" stroke="#4ade80" stroke-width="2"/>
+    <!-- "many" crow's foot at Students -->
+    <line x1="470" y1="100" x2="456" y2="88" stroke="#4ade80" stroke-width="2"/>
+    <line x1="470" y1="100" x2="456" y2="112" stroke="#4ade80" stroke-width="2"/>
+    <line x1="470" y1="100" x2="456" y2="100" stroke="#4ade80" stroke-width="2"/>
+    <text x="360" y="88" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="700">1 : MANY</text>
+    <text x="265" y="88" fill="#4ade80" font-size="9">1</text>
+    <text x="455" y="86" fill="#4ade80" font-size="9">M</text>
+    <text x="360" y="118" text-anchor="middle" fill="#8b949e" font-size="9">One class can have many students</text>
+
+    <!-- tblStudents entity box -->
+    <rect x="470" y="40" width="220" height="130" rx="6" fill="#21262d" stroke="#a78bfa" stroke-width="1.5"/>
+    <rect x="470" y="40" width="220" height="26" rx="6" fill="#a78bfa" opacity="0.2"/>
+    <text x="580" y="57" text-anchor="middle" fill="#a78bfa" font-size="11" font-weight="700">tblStudents</text>
+    <text x="480" y="78" fill="#fbbf24" font-size="10">StudentID (PK)</text>
+    <text x="480" y="96" fill="#8b949e" font-size="10">Name</text>
+    <text x="480" y="114" fill="#8b949e" font-size="10">Grade</text>
+    <text x="480" y="132" fill="#a78bfa" font-size="10">ClassID (FK)</text>
+    <text x="480" y="150" fill="#8b949e" font-size="10">Email</text>
+  </svg>
+</div>
+
+<!-- ═══════ DATA TYPES ═══════ -->
+<h2>Database Field Data Types</h2>
+<p>Each field in a table has a data type that controls what kind of data can be stored.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Data Type</th><th>Also Called</th><th>Description</th><th>SA School Example</th></tr>
+  <tr><td><strong>Text / Short Text</strong></td><td>VARCHAR, String</td><td>Letters, numbers, symbols — max 255 chars</td><td>Student name, school name</td></tr>
+  <tr><td><strong>Number</strong></td><td>Integer, Long Integer</td><td>Whole numbers or decimals (for calculations)</td><td>Mark out of 100, age</td></tr>
+  <tr><td><strong>Date/Time</strong></td><td>DateTime</td><td>Dates and/or times stored as numeric values internally</td><td>Date of birth, test date</td></tr>
+  <tr><td><strong>Yes/No</strong></td><td>Boolean</td><td>Only two values: True/False, Yes/No, 1/0</td><td>Has paid school fees, is a prefect</td></tr>
+  <tr><td><strong>AutoNumber</strong></td><td>Identity, Auto-increment</td><td>Automatically assigns the next unique integer — ideal for PK</td><td>StudentID, RecordID</td></tr>
+  <tr><td><strong>Currency</strong></td><td>Money, Decimal</td><td>Monetary values with fixed decimal precision</td><td>Fee amount, textbook cost</td></tr>
+  <tr><td><strong>Memo / Long Text</strong></td><td>Text (large)</td><td>Longer text — more than 255 characters</td><td>Teacher comments, notes</td></tr>
+  <tr><td><strong>OLE Object</strong></td><td>Blob</td><td>Stores files — images, documents, audio</td><td>Student photo, report PDF</td></tr>
+</table></div>
+
+<!-- ═══════ METADATA ═══════ -->
+<h2>Metadata</h2>
+<p><strong>Metadata</strong> is "data about data" — information that describes other data, rather than being the actual content itself. It helps you organise, categorise, search and correctly interpret data.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Data</th><th>Example Metadata</th></tr>
+  <tr><td>A photograph</td><td>Date taken, camera type, GPS location</td></tr>
+  <tr><td>A document</td><td>Author, creation date, date last revised</td></tr>
+  <tr><td>A database field</td><td>Data type, size, constraints (e.g. required, max length)</td></tr>
+</table></div>
+
+<!-- ═══════ TABLE RELATIONSHIPS ═══════ -->
+<h2>Table Relationships</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Relationship</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>One-to-One</strong></td><td>One record in Table A links to exactly one record in Table B</td><td>Student ↔ Locker (each student has one locker)</td></tr>
+  <tr><td><strong>One-to-Many</strong></td><td>One record in Table A links to many records in Table B</td><td>Class → Students (one class has many students)</td></tr>
+  <tr><td><strong>Many-to-Many</strong></td><td>Many records in A link to many records in B (needs a linking table)</td><td>Students ↔ Subjects (students take many subjects; subjects have many students)</td></tr>
+</table></div>
+
+<!-- ═══════ DATA QUALITY ═══════ -->
+<h2>Data Quality Characteristics</h2>
+<p>Data quality means the data is <strong>fit for purpose</strong>. Poor quality data leads to wrong decisions.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Characteristic</th><th>Meaning</th><th>SA School Example</th></tr>
+  <tr><td><strong>Accuracy</strong></td><td>Data is correct and free from errors</td><td>A learner's mark recorded as 78, not 87 (transposition error)</td></tr>
+  <tr><td><strong>Correctness</strong></td><td>Data conforms to defined rules and constraints</td><td>Grade field only contains values 8–12</td></tr>
+  <tr><td><strong>Currency</strong></td><td>Data is up to date — not outdated</td><td>A learner's address updated after they move house</td></tr>
+  <tr><td><strong>Completeness</strong></td><td>All required data is present — no blank fields where required</td><td>Every learner record has a valid ID number and grade</td></tr>
+  <tr><td><strong>Relevance</strong></td><td>Only data that is needed is stored</td><td>A school database does not need to store a learner's favourite colour</td></tr>
+</table></div>
+
+<!-- ═══════ DATA INTEGRITY ═══════ -->
+<h2>Data Integrity</h2>
+<p><strong>Data integrity</strong> ensures data is accurate, consistent and reliable over its entire lifetime.</p>
+<ul>
+  <li><strong>Physical integrity</strong> — protection from hardware failure using RAID, backups, and UPS.</li>
+  <li><strong>Logical integrity</strong> — data follows rules: input validation, referential integrity, access control.</li>
+  <li><strong>Referential integrity</strong> — a FK value must exist as a PK in the related table (no orphan records).</li>
+</ul>
+
+<!-- ═══════ VALIDATION ═══════ -->
+<h2>Validation Types</h2>
+<p>Validation checks that data entered is <strong>reasonable and in the correct format</strong> — it does not check if data is true, just if it is acceptable.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Check</th><th>Description</th><th>SA School Example</th></tr>
+  <tr><td><strong>Format check</strong></td><td>Data matches required pattern or structure</td><td>Email must contain @ and a dot — <code>alice@school.co.za</code></td></tr>
+  <tr><td><strong>Range check</strong></td><td>Value falls within acceptable minimum and maximum</td><td>Test mark must be between 0 and 100</td></tr>
+  <tr><td><strong>Type check</strong></td><td>Data entered is the correct data type</td><td>Age field must be a number, not text</td></tr>
+  <tr><td><strong>Presence check</strong></td><td>The field must not be blank (required)</td><td>Surname cannot be empty — every learner must have a surname</td></tr>
+  <tr><td><strong>Check digit</strong></td><td>A calculated digit is appended and re-calculated to verify correctness</td><td>SA ID number: last digit is a check digit</td></tr>
+  <tr><td><strong>Lookup check</strong></td><td>Value must match an item in a predefined list</td><td>Province field: only one of the 9 SA province names allowed</td></tr>
+  <tr><td><strong>Consistency check</strong></td><td>Two or more fields must be logically consistent</td><td>Date of Birth must match the learner's stated age</td></tr>
+</table></div>
+
+<!-- ═══════ MANUAL VS ELECTRONIC ═══════ -->
+<h2>Manual vs Electronic Methods</h2>
+<p>Data doesn't have to live in a computer database — it can also be recorded and processed by hand. Comparing the two shows why databases and DBMS software are so valuable.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Method</th><th>Description</th><th>Advantages</th><th>Disadvantages</th></tr>
+  <tr><td><strong>Manual</strong></td><td>Recording and processing data by hand — no computer involved (e.g. registers, index cards, paper forms)</td><td>No electricity or computer needed; simple for very small datasets</td><td>Slow; prone to errors (typos, miscalculations); hard to search, sort or summarise large amounts of data</td></tr>
+  <tr><td><strong>Electronic</strong></td><td>Using a computer and software (e.g. a DBMS) to capture, store and process data</td><td>Fast access and processing of large datasets; less prone to error when validation rules are used; easy to search, sort, filter and generate reports; many users can access data at once</td><td>Needs electricity and working hardware/software; security risks if not managed properly</td></tr>
+</table></div>
+
+<!-- ═══════ CREATING & MAINTAINING ═══════ -->
+<h2>Creating and Maintaining a Database</h2>
+<p>Setting up a working database is a process, not a single step:</p>
+<ol>
+  <li><strong>Design the table</strong> — decide the purpose (e.g. track student information), the fields (columns) needed, and set a primary key (e.g. StudentID) so every record is unique.</li>
+  <li><strong>Insert / import data</strong> — add records manually through a form (e.g. an MS Access form), or import them in bulk from a spreadsheet or CSV file.</li>
+  <li><strong>Edit / update data</strong> — correct mistakes or update values as information changes (e.g. a learner moves up a grade).</li>
+  <li><strong>Delete data</strong> — remove records that are no longer needed or were entered incorrectly.</li>
+</ol>
+
+<!-- ═══════ PROCESSING DATA ═══════ -->
+<h2>Processing Data: Sort, Query, Filter, Report</h2>
+<p>Once data is stored, a DBMS lets you turn it into useful information in several ways:</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Technique</th><th>Purpose</th><th>Example</th></tr>
+  <tr><td><strong>Sorting</strong></td><td>Arrange records in a specific order</td><td>Sort students alphabetically by Surname, or by Mark from highest to lowest</td></tr>
+  <tr><td><strong>Querying</strong></td><td>Retrieve specific records that answer a question you ask the database</td><td>"Find all students in Grade 11"; "List students older than 16"</td></tr>
+  <tr><td><strong>Filtering</strong></td><td>Display only the records that meet a condition, hiding the rest</td><td>Show only students with Grade = 12</td></tr>
+  <tr><td><strong>Generating reports</strong></td><td>Summarise or present data in a readable format — tables, charts or dashboards</td><td>Count of students in each grade; average age of students; list of email addresses</td></tr>
+</table></div>
+<div class="callout tip">
+  <div class="callout-title">Looking ahead</div>
+  <p>You will practise <em>Filter</em> and <em>Sort</em> for real using <code>TADOTable</code> in <a href="../practical/databases-delphi.html">Databases in Delphi</a>, and full <strong>querying</strong> with SQL next year in Grade 12.</p>
+</div>
+
+<div class="quiz" data-title="Quick Quiz &mdash; Databases">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Software used to create and manage a database is a&hellip;</p>
+    <button class="quiz-opt">Spreadsheet</button>
+    <button class="quiz-opt">DBMS</button>
+    <button class="quiz-opt">Browser</button>
+    <p class="quiz-why">A DBMS (Database Management System) stores, secures and queries the data.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">A field whose value <strong>uniquely</strong> identifies each record is the&hellip;</p>
+    <button class="quiz-opt">Primary key</button>
+    <button class="quiz-opt">Foreign key</button>
+    <button class="quiz-opt">Sort key</button>
+    <p class="quiz-why">A primary key is unique and never empty; a foreign key links to another table.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">Checking that entered data is reasonable and in the right format is&hellip;</p>
+    <button class="quiz-opt">Verification</button>
+    <button class="quiz-opt">Encryption</button>
+    <button class="quiz-opt">Validation</button>
+    <p class="quiz-why">Validation checks it&rsquo;s sensible; verification checks it was captured correctly.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch03">
+  <div class="chapter-tag">Grade 11 &middot; Theory</div>
+<h1>Networks &amp; Protocols <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">Building on Grade 10 networks — this page covers topologies, network devices in depth, protocols, VoIP, VPN and acceptable use.</p>
+<div class="term-divider"><span class="term-divider-badge">T1</span><span class="term-divider-label">Term 1 &middot; Networks, Protocols &amp; Devices</span></div>
+<h2>Network Topologies</h2>
+<p>A <strong>network topology</strong> is the layout or "shape" of a network — it describes how the computers and devices are physically or logically arranged and connected to one another. The topology you choose affects how easy the network is to set up, how it copes with a fault, and how easy it is to add new devices later.</p>
+<h3>Star Topology</h3>
+<p>In a <strong>star topology</strong> every device connects to one central point — usually a switch. Nothing connects directly to anything else; all traffic passes through the middle.</p>
+<div class="callout">
+  <div class="callout-title">ANALOGY</div>
+  <p>Picture a bicycle wheel: the hub in the centre is the switch, and each spoke is a cable running out to one computer. If a single spoke breaks the rest of the wheel is fine — but if the hub itself fails, the whole wheel falls apart. That is exactly why a star network keeps working when one PC fails, yet goes completely down if the central switch fails.</p>
+</div>
+<div class="tbl-wrap"><table>
+  <tr><th>Topology</th><th>Layout</th><th>Advantages</th><th>Disadvantages</th></tr>
+  <tr><td><strong>Star</strong></td><td>All devices connect to a central switch</td><td>One failure doesn't affect others; easy to add devices</td><td>If switch fails, entire network fails</td></tr>
+  <tr><td><strong>Ring</strong></td><td>Devices in a closed loop</td><td>Equal opportunity to transmit; no collision</td><td>One break can down the whole network</td></tr>
+</table></div>
+
+<h3>Ring Topology in Detail</h3>
+<p>In a <strong>ring topology</strong>, every device connects to exactly two neighbours, forming a closed loop. Data travels in a single direction around the ring, passing through each device in turn — every node acts as a <strong>repeater</strong>, regenerating the signal and passing it on to the next node until it reaches its destination.</p>
+
+<div style="margin:1.25rem 0;overflow-x:auto">
+  <svg viewBox="0 0 400 320" width="400" height="320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit;display:block;margin:0 auto">
+    <rect width="400" height="320" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+    <text x="200" y="26" text-anchor="middle" fill="#e6edf3" font-size="13" font-weight="700">Ring Topology</text>
+    <circle cx="200" cy="175" r="105" fill="none" stroke="#4ade80" stroke-width="2"/>
+    <!-- Nodes -->
+    <rect x="170" y="52" width="60" height="34" rx="5" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="200" y="73" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">PC 1</text>
+    <rect x="292" y="140" width="60" height="34" rx="5" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="322" y="161" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">PC 2</text>
+    <rect x="248" y="252" width="60" height="34" rx="5" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="278" y="273" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">PC 3</text>
+    <rect x="92" y="252" width="60" height="34" rx="5" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="122" y="273" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">PC 4</text>
+    <rect x="48" y="140" width="60" height="34" rx="5" fill="#161b22" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="78" y="161" text-anchor="middle" fill="#22d3ee" font-size="10" font-weight="700">PC 5</text>
+    <!-- Direction arrow -->
+    <path d="M 296 100 A 105 105 0 0 1 320 140" fill="none" stroke="#fbbf24" stroke-width="2" marker-end="url(#ringarrow)"/>
+    <defs>
+      <marker id="ringarrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#fbbf24"/>
+      </marker>
+    </defs>
+    <text x="200" y="300" text-anchor="middle" fill="#8b949e" font-size="9">Data travels one direction; each PC repeats the signal to the next</text>
+  </svg>
+</div>
+
+<div class="tbl-wrap"><table>
+  <tr><th>Advantages</th><th>Disadvantages</th></tr>
+  <tr><td>Organised and efficient — each node gets an equal opportunity to transmit, and one-way flow reduces data collisions</td><td>Single point of failure — one broken cable or dead device can bring the whole ring down (unless it's a dual-ring setup)</td></tr>
+  <tr><td>No central server required to control connectivity between workstations</td><td>Hard to troubleshoot — difficult to identify exactly where a fault occurred</td></tr>
+  <tr><td></td><td>Reliability depends on every single connection in the loop working</td></tr>
+</table></div>
+
+<h2>Thin vs Thick Client</h2>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Thin Client</th><th>Thick (Fat) Client</th></tr>
+  <tr><td>Processing</td><td>Done mostly on server</td><td>Done on local computer</td></tr>
+  <tr><td>Storage</td><td>Minimal local storage</td><td>Large local storage</td></tr>
+  <tr><td>Cost</td><td>Cheaper</td><td>More expensive</td></tr>
+  <tr><td>Example</td><td>School lab PC connected to server</td><td>Personal desktop PC</td></tr>
+</table></div>
+<h2>Key Protocols</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Protocol</th><th>Purpose</th></tr>
+  <tr><td><strong>HTTP</strong></td><td>Transfer web pages (unencrypted)</td></tr>
+  <tr><td><strong>HTTPS</strong></td><td>Secure web transfer (SSL/TLS encryption)</td></tr>
+  <tr><td><strong>SMTP</strong></td><td>Send emails</td></tr>
+  <tr><td><strong>POP3</strong></td><td>Download emails to device</td></tr>
+  <tr><td><strong>IMAP</strong></td><td>Access emails online without downloading</td></tr>
+  <tr><td><strong>FTP</strong></td><td>Transfer large files between computers</td></tr>
+  <tr><td><strong>VoIP</strong></td><td>Voice calls over the Internet</td></tr>
+</table></div>
+<h2>VoIP</h2>
+<p><strong>Voice over Internet Protocol</strong> allows phone/video calls using the Internet instead of traditional phone lines.</p>
+<p>Your voice is broken into tiny digital packets, sent across the internet just like any other data, and reassembled at the other end. Because it rides on your existing internet connection, calls to other VoIP users are usually free no matter how far away they are — which makes it far cheaper than a traditional long-distance phone call.</p>
+<ul>
+  <li>Examples: WhatsApp calls, Skype, Discord, Zoom</li>
+  <li>Requires: stable internet, low latency, sufficient bandwidth</li>
+</ul>
+<h2>VPN</h2>
+<p>A <strong>Virtual Private Network</strong> creates an encrypted "tunnel" over the Internet.</p>
+<ul>
+  <li>Allows remote users to access a private network securely</li>
+  <li>Hides IP address and encrypts all data in transit</li>
+  <li>Used by companies for remote workers</li>
+</ul>
+<h2>Internet vs Intranet vs Extranet</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Network</th><th>Access</th><th>Description</th></tr>
+  <tr><td><strong>Internet</strong></td><td>Public</td><td>Global network open to all</td></tr>
+  <tr><td><strong>Intranet</strong></td><td>Private</td><td>Internal company/school network</td></tr>
+  <tr><td><strong>Extranet</strong></td><td>Controlled external</td><td>Intranet accessible from outside (VPN)</td></tr>
+</table></div>
+<h2>Acceptable Use Policies (AUP)</h2>
+<p>Rules governing how ICT resources may be used in an organisation. Key rules:</p>
+<ul>
+  <li>No downloading illegal content</li>
+  <li>Use computers for educational/work purposes</li>
+  <li>No cyberbullying or harassment</li>
+  <li>Respect copyright laws</li>
+</ul>
+<div class="quiz" data-title="Quick Quiz &mdash; Networks & Protocols">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">The amount of data that can be sent over a network in a given time is:</p>
+    <button class="quiz-opt">Latency</button>
+    <button class="quiz-opt">Bandwidth</button>
+    <button class="quiz-opt">A data cap</button>
+    <p class="quiz-why">Bandwidth is how much data can travel per second (measured in bits per second).</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">Which protocol is used to SEND email?</p>
+    <button class="quiz-opt">POP3</button>
+    <button class="quiz-opt">IMAP</button>
+    <button class="quiz-opt">SMTP</button>
+    <p class="quiz-why">SMTP sends email. POP3 and IMAP are used to receive/access it.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">A secure, encrypted "tunnel" to a private network over the internet is a:</p>
+    <button class="quiz-opt">VPN</button>
+    <button class="quiz-opt">VoIP</button>
+    <button class="quiz-opt">LAN</button>
+    <p class="quiz-why">A VPN (Virtual Private Network) encrypts your connection over the public internet.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch04">
+  <div class="chapter-tag">Grade 11 &middot; Theory</div>
+<h1>Mobile Technology <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">Mobile devices have transformed communication and computing. This page covers smartphones, tablets, wireless technologies, and location-based services.</p>
+
+<div class="term-divider"><span class="term-divider-badge">T2</span><span class="term-divider-label">Term 2 &middot; Mobile Devices &amp; Wireless Technology</span></div>
+
+<h2>What Is Mobile Technology (T2)?</h2>
+<p><strong>Mobile technology</strong> is any portable, wireless technology that lets you communicate, compute and access information while on the move, without being tied to a desk or a cable. The key idea is <em>mobility</em>: the device travels with you, connects wirelessly, and runs off its own battery.</p>
+<p>In South Africa mobile technology is especially important. Many people first reach the internet not through a desktop PC but through a smartphone, because data on a phone is often cheaper and more accessible than a fixed-line connection at home. This makes the smartphone the main computer in millions of households.</p>
+
+<h2>Common Mobile Devices Explained</h2>
+<ul>
+  <li><strong>Smartphone</strong> – a pocket-sized computer that combines a phone, camera, GPS, web browser and thousands of apps. It connects through Wi-Fi and the cellular network and is by far the most common mobile device in South Africa. Its key feature is a connection to an <strong>app store</strong> — a centralised portal where users search for and download software applications.</li>
+  <li><strong>Feature phone</strong> – a step between a basic mobile phone and a smartphone. It can send multimedia messages, play music, take photos and browse the internet in a limited way, but unlike a smartphone it does not run a full mobile OS or third-party apps — it comes with extra features rather than functioning as a true pocket computer.</li>
+  <li><strong>Tablet</strong> – a larger touchscreen device, ideal for reading, watching media and light productivity. The bigger screen makes it more comfortable than a phone, but it is less pocket-friendly.</li>
+  <li><strong>Phablet</strong> – a device between a smartphone and a tablet (screen roughly 5.5"–7"), offering a bigger display while remaining somewhat portable.</li>
+  <li><strong>Wearables</strong> – devices worn on the body, such as smartwatches and fitness bands. They track health data like heart rate and steps, and show notifications from your phone.</li>
+  <li><strong>Smart camera</strong> – a digital camera with a built-in operating system (often Android), touchscreen, on-device image processing and Wi-Fi, so photos can be edited and shared straight from the camera or sent wirelessly to a phone.</li>
+  <li><strong>GPS</strong> – the <strong>Global Positioning System</strong> uses signals from satellites to work out exactly where a device is on Earth, which is what powers navigation apps.</li>
+  <li><strong>Bluetooth</strong> – a short-range wireless technology (about 10m) used to connect devices to each other, such as wireless earphones, keyboards or a car's hands-free system.</li>
+  <li><strong>Wi-Fi</strong> – a wireless technology that connects devices to the internet through a router or hotspot over a medium range, usually inside a home, school or office.</li>
+  <li><strong>4G and 5G</strong> – generations of mobile cellular internet. <strong>4G</strong> gave us reliable mobile browsing and video; <strong>5G</strong> is far faster and more responsive, enabling things like real-time video and large numbers of connected smart devices.</li>
+</ul>
+
+<h2>Advantages and Limitations of Mobile Technology (T2)</h2>
+<p><strong>Advantages</strong> – you can work, bank, learn and communicate from anywhere; devices are convenient and always with you; and a single phone replaces many separate gadgets (camera, torch, calculator, GPS).</p>
+<p><strong>Limitations</strong> – small screens and keyboards are harder to work on for long periods; battery life is limited; mobile data can be expensive in South Africa; and the constant connection raises privacy, security and "always-on" distraction concerns.</p>
+
+<h2>Mobile Device Types</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Device</th><th>Key Features</th></tr>
+  <tr><td><strong>Smartphone</strong></td><td>High-res touchscreen, app store, camera, Wi-Fi, cellular, GPS</td></tr>
+  <tr><td><strong>Feature phone</strong></td><td>Calls, SMS and a few extras (camera, music); no full app store or mobile OS</td></tr>
+  <tr><td><strong>Tablet</strong></td><td>Larger screen (7"+), touch input, iOS/Android, media and productivity apps</td></tr>
+  <tr><td><strong>Phablet</strong></td><td>Screen 5.5"–7", between a smartphone and a tablet</td></tr>
+  <tr><td><strong>Smartwatch / Wearable</strong></td><td>Fitness tracking, heart rate, notifications, GPS</td></tr>
+  <tr><td><strong>eReader</strong></td><td>E-ink display, long battery, sunlight readable, primarily for books</td></tr>
+  <tr><td><strong>Smart camera</strong></td><td>Built-in OS and touchscreen, on-device editing, Wi-Fi sharing</td></tr>
+  <tr><td><strong>GPS device</strong></td><td>Satellite navigation, location tracking</td></tr>
+</table></div>
+<h2>Wireless Technologies</h2>
+<div class="callout"><div class="callout-title">ANALOGY — range is like your voice</div><p>The wireless technologies differ mainly in <strong>range</strong>, and you can picture it by how far your voice carries. <strong>NFC</strong> (a few centimetres) is like whispering right into someone's ear — you must almost touch. <strong>Bluetooth</strong> (~10&nbsp;m) is like chatting across a room. <strong>Wi-Fi</strong> (tens of metres) is like calling out across a whole house or hall. <strong>4G/5G cellular</strong> (kilometres) is like using a phone to reach someone in another town. The shorter the range, generally the less power it uses.</p></div>
+<div class="tbl-wrap"><table>
+  <tr><th>Technology</th><th>Range</th><th>Speed</th><th>Use</th></tr>
+  <tr><td><strong>Bluetooth</strong></td><td>~10m</td><td>Low–medium</td><td>Headphones, keyboards, file sharing</td></tr>
+  <tr><td><strong>Wi-Fi</strong></td><td>10–100m</td><td>High</td><td>Internet access via router/hotspot</td></tr>
+  <tr><td><strong>4G/LTE</strong></td><td>Nationwide</td><td>5–100 Mbps</td><td>Mobile internet on the go</td></tr>
+  <tr><td><strong>5G</strong></td><td>Nationwide</td><td>50 Mbps–10 Gbps</td><td>IoT, real-time VR, autonomous vehicles</td></tr>
+  <tr><td><strong>NFC</strong></td><td>~4cm</td><td>Low</td><td>Contactless payments, tap-to-share</td></tr>
+</table></div>
+<h2>Location-Based Computing (LBC)</h2>
+<p>Software that uses your device's location (via GPS, Wi-Fi, cellular) to provide customised services.</p>
+<h3>Examples</h3>
+<ul>
+  <li>Weather apps showing your local forecast</li>
+  <li>Uber/Bolt finding the nearest driver</li>
+  <li>Food delivery apps delivering to your address</li>
+  <li>Google Maps navigation</li>
+</ul>
+<h3>Social Implications of LBC</h3>
+<div class="tbl-wrap"><table>
+  <tr><th>Benefit</th><th>Risk</th></tr>
+  <tr><td>Navigation and route planning</td><td>Privacy — organisations track your movements</td></tr>
+  <tr><td>Emergency services can locate you</td><td>Stalking risk</td></tr>
+  <tr><td>Personalised services</td><td>Targeted advertising without consent</td></tr>
+  <tr><td>Find lost/stolen devices</td><td>Data sold to third parties</td></tr>
+</table></div>
+<h2>Connection Speed — Shaping and Throttling</h2>
+<ul>
+  <li><strong>Shaping</strong> — ISP prioritises certain traffic types (e.g. video gets priority over downloads)</li>
+  <li><strong>Throttling</strong> — ISP intentionally slows your speed after you exceed a data cap</li>
+</ul>
+<div class="quiz" data-title="Quick Quiz &mdash; Mobile Technology">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Which wireless technology has the <strong>shortest</strong> range (a few cm, for tap-to-pay)?</p>
+    <button class="quiz-opt">Bluetooth</button>
+    <button class="quiz-opt">NFC</button>
+    <button class="quiz-opt">Wi-Fi</button>
+    <p class="quiz-why">NFC works only when devices nearly touch; Bluetooth and Wi-Fi reach much further.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">GPS works out your location using signals from&hellip;</p>
+    <button class="quiz-opt">Satellites</button>
+    <button class="quiz-opt">Cell towers only</button>
+    <button class="quiz-opt">Wi-Fi routers only</button>
+    <p class="quiz-why">GPS receivers calculate position from several orbiting satellites.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">An app that shows the nearest driver or shop is using&hellip;</p>
+    <button class="quiz-opt">Encryption</button>
+    <button class="quiz-opt">A firewall</button>
+    <button class="quiz-opt">Location-based services</button>
+    <p class="quiz-why">Location-based computing uses your position (GPS/cell/Wi-Fi) to give local results.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch05">
+  <div class="chapter-tag">Grade 11 &middot; Theory</div>
+<h1>Computer Management <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">Safeguarding a computer system requires understanding threats, knowing how malware works, and applying the right remedies.</p>
+<div class="callout"><div class="callout-title">ANALOGY — your computer is a house</div><p>Keeping a computer safe is like protecting a <strong>house</strong>. The <strong>threats</strong> are burglars, fires and floods (malware, hackers, power surges, spills). The <strong>remedies</strong> are your security measures: a <strong>firewall</strong> is the perimeter wall and gate, <strong>antivirus</strong> is the alarm and guard dog, <strong>passwords and access rights</strong> are the locks on each door, a <strong>UPS</strong> is a generator for when the power fails, and a <strong>backup</strong> is a copy of your valuables kept safely off-site. No single measure is enough on its own — you layer them.</p></div>
+<div class="term-divider"><span class="term-divider-badge">T1</span><span class="term-divider-label">Term 1 &middot; Threats, Malware &amp; Data Protection</span></div>
+<h2>Human Error Threats</h2>
+<ul>
+  <li>Sharing sensitive information with wrong people</li>
+  <li>Writing down or reusing passwords</li>
+  <li>Clicking links without verifying them</li>
+  <li>Leaving devices unlocked / unattended</li>
+  <li>Accidentally deleting valuable data</li>
+  <li>Entering incorrect data &mdash; <strong>GIGO</strong> ("Garbage In, Garbage Out"): if the input is wrong, the output will be wrong too</li>
+</ul>
+<h2>Physical Threats</h2>
+<ul>
+  <li>Theft of devices or storage media</li>
+  <li>Hard drive mechanical failure (moving parts)</li>
+  <li>Power surges or outages damaging hardware</li>
+  <li>Water/liquid spills causing short circuits</li>
+</ul>
+<h2>Malware</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Description</th></tr>
+  <tr><td><strong>Virus</strong></td><td>Attaches to files; replicates when file is run; causes damage</td></tr>
+  <tr><td><strong>Worm</strong></td><td>Spreads across networks without user action</td></tr>
+  <tr><td><strong>Trojan</strong></td><td>Disguised as useful software; gives attacker back-door access</td></tr>
+  <tr><td><strong>Rootkit</strong></td><td>Hides in OS; gives remote attacker control; avoids detection</td></tr>
+  <tr><td><strong>Ransomware</strong></td><td>Encrypts data; demands payment to restore access</td></tr>
+  <tr><td><strong>Spyware</strong></td><td>Secretly monitors activity and steals data</td></tr>
+  <tr><td><strong>Adware</strong></td><td>Displays unwanted pop-up advertisements</td></tr>
+</table></div>
+<h2>Network Vulnerabilities</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Attack</th><th>Description</th></tr>
+  <tr><td><strong>Phishing</strong></td><td>Fake official-looking emails to steal credentials</td></tr>
+  <tr><td><strong>Pharming</strong></td><td>Redirects users to fake websites</td></tr>
+  <tr><td><strong>Spoofing</strong></td><td>Forges sender addresses to impersonate someone</td></tr>
+  <tr><td><strong>SQL Injection</strong></td><td>Malicious SQL commands entered via web forms</td></tr>
+</table></div>
+<h2>Remedies and Protection</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Remedy</th><th>Purpose</th></tr>
+  <tr><td><strong>Antivirus</strong></td><td>Detects, removes and prevents malware infections</td></tr>
+  <tr><td><strong>Firewall</strong></td><td>Filters all incoming and outgoing network traffic</td></tr>
+  <tr><td><strong>Strong passwords</strong></td><td>8+ chars; mix of uppercase, lowercase, numbers, symbols; unique per site</td></tr>
+  <tr><td><strong>User access rights</strong></td><td>Users only access files they are authorised for</td></tr>
+  <tr><td><strong>Encryption</strong></td><td>Scrambles data so it cannot be read if intercepted</td></tr>
+  <tr><td><strong>UPS</strong></td><td>Keeps computer running during power failure</td></tr>
+  <tr><td><strong>Software updates</strong></td><td>Patches fix known security vulnerabilities</td></tr>
+  <tr><td><strong>2FA / MFA</strong></td><td>Requires additional verification beyond just a password</td></tr>
+</table></div>
+<h2>Reasons for Data Loss</h2>
+<p><strong>Data loss</strong> occurs when files become unavailable, corrupted or destroyed. Knowing <em>why</em> data is lost helps you choose the right safeguard for each cause.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Cause</th><th>Example</th><th>Safeguard</th></tr>
+  <tr><td><strong>Human error</strong></td><td>Deleting, overwriting or formatting the wrong files</td><td>Backups; access rights; confirmation prompts</td></tr>
+  <tr><td><strong>Hardware failure</strong></td><td>Hard-drive crash, worn-out or faulty storage</td><td>Backups; replace ageing drives</td></tr>
+  <tr><td><strong>Power problems</strong></td><td>Surges or sudden outages corrupt open files</td><td>UPS; surge protector</td></tr>
+  <tr><td><strong>Malware</strong></td><td>Viruses and ransomware delete, corrupt or encrypt data</td><td>Antivirus; updates; offline backups</td></tr>
+  <tr><td><strong>Theft</strong></td><td>Stolen laptop, phone or storage media</td><td>Encryption; off-site/cloud backup</td></tr>
+  <tr><td><strong>Natural disaster</strong></td><td>Fire, flood or lightning destroys equipment</td><td>Off-site / cloud backup</td></tr>
+  <tr><td><strong>File corruption</strong></td><td>Crashes or bad sectors leave files unreadable</td><td>Disk Check; backups</td></tr>
+</table></div>
+<div class="callout tip"><div class="callout-title">Key point</div><p>The single most effective protection against <em>all</em> these causes is a regular, off-site <strong>backup</strong> — see below.</p></div>
+<h2>Backups</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Description</th><th>Restore speed</th></tr>
+  <tr><td><strong>Full backup</strong></td><td>Copy all files every time</td><td>Fastest</td></tr>
+  <tr><td><strong>Incremental</strong></td><td>Only files changed since last backup (any type)</td><td>Slowest to restore</td></tr>
+  <tr><td><strong>Differential</strong></td><td>Files changed since last full backup</td><td>Moderate</td></tr>
+</table></div>
+<h3>Backup Locations</h3>
+<ul>
+  <li><strong>Local</strong> — external HDD at same location (fast, but vulnerable to fire/theft)</li>
+  <li><strong>Off-site</strong> — physical device at another location (protects against local disaster)</li>
+  <li><strong>Cloud</strong> — Google Drive, OneDrive (automatic, accessible anywhere)</li>
+</ul>
+<div class="callout tip"><div class="callout-title">3-2-1 Backup Rule</div><p><strong>3</strong> copies, on <strong>2</strong> different media types, <strong>1</strong> stored off-site or in the cloud.</p></div>
+<div class="quiz" data-title="Quick Quiz &mdash; Computer Management">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Malware that encrypts your data and demands payment to unlock it is:</p>
+    <button class="quiz-opt">Spyware</button>
+    <button class="quiz-opt">Ransomware</button>
+    <button class="quiz-opt">Adware</button>
+    <p class="quiz-why">Ransomware locks or encrypts data and demands a ransom to restore access.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Which malware spreads across a network on its own, without user action?</p>
+    <button class="quiz-opt">A worm</button>
+    <button class="quiz-opt">A virus</button>
+    <button class="quiz-opt">A trojan</button>
+    <p class="quiz-why">A worm self-replicates across networks. A virus needs a file to be run; a trojan is disguised software.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">The 3-2-1 backup rule says to keep how many copies of your data?</p>
+    <button class="quiz-opt">1</button>
+    <button class="quiz-opt">2</button>
+    <button class="quiz-opt">3</button>
+    <p class="quiz-why">3 copies, on 2 different media, with 1 stored off-site.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch06">
+  <div class="chapter-tag">Grade 11 &middot; Theory</div>
+<h1>E-Communications <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">Mobile and wireless communication forms — blogs, podcasts, VoIP, instant messaging, video conferencing and webinars.</p>
+
+<div class="term-divider"><span class="term-divider-badge">T2</span><span class="term-divider-label">Term 2 &middot; E-Communication Forms &amp; VoIP</span></div>
+
+<h2>What Are E-Communications?</h2>
+<p><strong>E-communication</strong> (electronic communication) is any way of sending and receiving information using electronic devices and the internet, instead of paper or face-to-face talking. It covers everything from a short WhatsApp message to a live video meeting with people on different continents.</p>
+
+<h2>The Communication Forms Explained</h2>
+<ul>
+  <li><strong>Blogging</strong> – a <strong>blog</strong> is a regularly updated online journal where one person or organisation publishes articles ("posts"), with the newest post at the top. It is mostly one-way: the author writes, readers read. Think of it as a public diary anyone can visit.</li>
+  <li><strong>Microblogging</strong> – the same idea as blogging but with <em>very short</em> posts, like on X (Twitter). It is designed for quick, frequent updates shared with followers rather than long articles.</li>
+  <li><strong>SMS</strong> – a <strong>Short Message Service</strong> text message sent over the cellular network. Its great strength is that it needs <em>no internet</em>, which is why banks still use it for one-time PINs.</li>
+  <li><strong>Instant Messaging (IM)</strong> – real-time text and media chat over the internet, such as WhatsApp. Messages arrive instantly and you can chat one-on-one or in groups.</li>
+  <li><strong>VoIP</strong> – <strong>Voice over Internet Protocol</strong> carries your voice (and video) over the internet instead of the old telephone network, so calls between VoIP users are usually free.</li>
+  <li><strong>Video Conferencing</strong> – a live meeting where several people see and hear each other on video at the same time, such as on Zoom or Teams. Because you can see faces, it captures nonverbal cues that a phone call cannot.</li>
+  <li><strong>Vlogging / Videocasting</strong> – like blogging, but the "posts" are videos instead of text, published regularly to a channel such as YouTube or TikTok. It can be pre-recorded or streamed live.</li>
+  <li><strong>Webinar</strong> – short for "web seminar": a live, structured online presentation to an audience, usually with interactive features like polls and a Q&amp;A session. Unlike an informal video call, it typically has a host presenting to many attendees.</li>
+  <li><strong>Podcasting</strong> – an audio series you can download and listen to offline, like a radio show on demand. Listeners subscribe and new episodes arrive automatically.</li>
+</ul>
+<div class="callout">
+  <div class="callout-title">ANALOGY</div>
+  <p>A blog is like a public diary, microblogging is like shouting a quick headline across a crowd, and a podcast is like your own radio station that listeners can tune into whenever they choose.</p>
+</div>
+
+<h2>Mobile/Wireless E-Communication Forms</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Form</th><th>Description</th><th>Examples</th></tr>
+  <tr><td><strong>Blogging</strong></td><td>Online journal; one-way content; new posts appear at top</td><td>WordPress, Blogger, Medium</td></tr>
+  <tr><td><strong>Microblogging</strong></td><td>Very short posts (text/image/video) shared with followers</td><td>X/Twitter (280 chars)</td></tr>
+  <tr><td><strong>SMS</strong></td><td>160-char text via mobile network; no internet needed</td><td>Cell provider; bank OTPs</td></tr>
+  <tr><td><strong>Instant Messaging</strong></td><td>Free real-time text/media over internet; group chats</td><td>WhatsApp, Telegram, Signal</td></tr>
+  <tr><td><strong>Vlogging / Videocasting</strong></td><td>Video content; pre-recorded or live-streamed</td><td>YouTube, TikTok</td></tr>
+  <tr><td><strong>Podcasting</strong></td><td>Audio-only series; downloadable for offline listening</td><td>Spotify Podcasts, Apple Podcasts</td></tr>
+  <tr><td><strong>VoIP</strong></td><td>Voice/video calls over internet; free to other VoIP users</td><td>WhatsApp calls, Skype, Discord</td></tr>
+  <tr><td><strong>Video Conferencing</strong></td><td>Live multi-person video; includes nonverbal communication</td><td>Zoom, Google Meet, MS Teams</td></tr>
+  <tr><td><strong>Webinar</strong></td><td>Online seminar with interactive features (polls, Q&amp;A)</td><td>Zoom Webinars, Teams Live</td></tr>
+</table></div>
+<h2>Synchronous vs Asynchronous Communication</h2>
+<p>E-communication can be grouped by <em>when</em> the people involved take part:</p>
+<ul>
+  <li><strong>Synchronous communication</strong> happens in <strong>real time</strong> — everyone takes part at the same moment, like a live conversation (e.g. a VoIP/phone call, video conference, or live instant-messaging chat).</li>
+  <li><strong>Asynchronous communication</strong> does <strong>not</strong> happen at the same time — you send a message and the receiver replies whenever it suits them (e.g. email, SMS, a forum post or a blog).</li>
+</ul>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Synchronous</th><th>Asynchronous</th></tr>
+  <tr><td><strong>Timing</strong></td><td>Real time, at the same moment</td><td>Time-delayed; reply when convenient</td></tr>
+  <tr><td><strong>Everyone online together?</strong></td><td>Yes — all parties must be available at once</td><td>No</td></tr>
+  <tr><td><strong>Examples</strong></td><td>VoIP/phone call, video conference, live chat</td><td>Email, SMS, blog, forum, voicemail</td></tr>
+  <tr><td><strong>Best for</strong></td><td>Quick discussion and instant feedback</td><td>Detailed messages; different time zones</td></tr>
+</table></div>
+<h2>Advantages and Disadvantages of Key Forms</h2>
+<h3>Instant Messaging</h3>
+<div class="tbl-wrap"><table>
+  <tr><th>Advantages</th><th>Disadvantages</th></tr>
+  <tr><td>Free to send; delivery confirmation</td><td>Not permanently backed up by default</td></tr>
+  <tr><td>Group conversations and media sharing</td><td>Too informal for professional use</td></tr>
+  <tr><td>Works globally instantly</td><td>Can be a distraction; creates pressure to respond</td></tr>
+</table></div>
+<h3>Video Conferencing</h3>
+<div class="tbl-wrap"><table>
+  <tr><th>Advantages</th><th>Disadvantages</th></tr>
+  <tr><td>Free calls; shows nonverbal cues</td><td>Requires fast, stable internet</td></tr>
+  <tr><td>Enables remote education and work</td><td>High data consumption</td></tr>
+  <tr><td>Can be recorded for later viewing</td><td>All participants must be available simultaneously</td></tr>
+</table></div>
+<h2>VoIP Requirements</h2>
+<ul>
+  <li>Stable, high-speed internet connection</li>
+  <li>Low latency (minimal delay)</li>
+  <li>Sufficient bandwidth for voice/video packets</li>
+  <li>Microphone and speakers/headset</li>
+</ul>
+<h2>Types of Email Accounts</h2>
+<p>Not all email addresses come from the same place. Where your account is hosted affects how you access it and what happens if you switch internet providers.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Description</th><th>Advantages</th><th>Disadvantages</th></tr>
+  <tr><td><strong>ISP-based</strong></td><td>Provided by your Internet Service Provider and usually accessed through an email client (e.g. Outlook). Example: <code>name@mweb.co.za</code></td><td>Reliable; often more secure</td><td>You lose the account if you switch providers</td></tr>
+  <tr><td><strong>Web-based</strong></td><td>A free service accessed through any web browser. Example: <code>name@gmail.com</code></td><td>Portable — access from any device; independent of any ISP; cloud storage; mobile apps</td><td>Needs an internet connection; storage limits (though usually generous)</td></tr>
+</table></div>
+
+<h2>Data Security in E-Communications</h2>
+<p>Because e-communications travel across networks that strangers also use, keeping your messages private and your accounts safe is essential. A few key ideas help here: <strong>HTTPS</strong> encrypts the link between your browser and a website; <strong>end-to-end encryption</strong> scrambles a message so that only the sender and the intended receiver can read it — not even the service in the middle; and <strong>multi-factor authentication (MFA)</strong> adds a second proof of identity (like a code on your phone) on top of your password, so a stolen password alone is not enough to break in.</p>
+<ul>
+  <li>Use HTTPS for all web communication</li>
+  <li>End-to-end encryption (only sender and receiver can read)</li>
+  <li>Strong, unique passwords per account</li>
+  <li>Multi-factor authentication (MFA)</li>
+  <li>Avoid public Wi-Fi for sensitive communications</li>
+</ul>
+<div class="quiz" data-title="Quick Quiz &mdash; E-communications (Gr 11)">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Making voice and video calls over the internet is known as&hellip;</p>
+    <button class="quiz-opt">SMS</button>
+    <button class="quiz-opt">VoIP</button>
+    <button class="quiz-opt">A blog</button>
+    <p class="quiz-why">VoIP (e.g. WhatsApp/Skype calls) sends voice as data packets over the internet.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">A regularly updated online journal with the newest entries at the top is a&hellip;</p>
+    <button class="quiz-opt">Blog</button>
+    <button class="quiz-opt">Wiki</button>
+    <button class="quiz-opt">Firewall</button>
+    <p class="quiz-why">A blog is one author&rsquo;s posts; a wiki is edited collaboratively by many people.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">An audio series you subscribe to and download to listen to offline is a&hellip;</p>
+    <button class="quiz-opt">Webinar</button>
+    <button class="quiz-opt">Vlog</button>
+    <button class="quiz-opt">Podcast</button>
+    <p class="quiz-why">A podcast is episodic audio; a vlog is video and a webinar is a live online seminar.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch07">
+  <div class="chapter-tag">Grade 11 &middot; Theory</div>
+<h1>Internet &amp; Multimedia <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">The evolution of the web, Big Data concepts, streaming vs downloading, multimedia formats and compression technologies.</p>
+<div class="term-divider"><span class="term-divider-badge">T4</span><span class="term-divider-label">Term 4 &middot; Internet Evolution, Big Data &amp; Multimedia</span></div>
+<h2>Evolution of the Web</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Era</th><th>Name</th><th>Characteristics</th></tr>
+  <tr><td><strong>Web 1.0</strong></td><td>Read-only Web</td><td>Static HTML pages; users can only read, not interact. (1990s)</td></tr>
+  <tr><td><strong>Web 2.0</strong></td><td>Read-Write Web</td><td>Interactive content; user-generated content; social media; blogs; wikis. (2000s–present)</td></tr>
+  <tr><td><strong>Web 3.0</strong></td><td>Semantic / Intelligent Web</td><td>AI-driven; understands meaning; personalised; decentralised (blockchain). (Emerging)</td></tr>
+</table></div>
+<h2>Big Data Concepts</h2>
+<p>Big Data refers to extremely large and complex datasets that traditional software cannot process effectively.</p>
+<h3>The 3 Vs of Big Data</h3>
+<div class="tbl-wrap"><table>
+  <tr><th>V</th><th>Meaning</th></tr>
+  <tr><td><strong>Volume</strong></td><td>Massive amounts of data generated every second</td></tr>
+  <tr><td><strong>Velocity</strong></td><td>Speed at which data is created and must be processed</td></tr>
+  <tr><td><strong>Variety</strong></td><td>Data comes in many forms: text, images, video, sensor data, etc.</td></tr>
+</table></div>
+<h3>Uses of Big Data</h3>
+<ul>
+  <li>Healthcare: predict patient risk and personalise treatment</li>
+  <li>Retail: recommend products based on browsing and purchase history</li>
+  <li>Banking: detect fraud in real time</li>
+  <li>Government: optimise traffic, predict crime</li>
+</ul>
+<h2>Multimedia on the Internet</h2>
+<h3>Download vs Streaming</h3>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Downloading</th><th>Streaming</th></tr>
+  <tr><td><strong>How it works</strong></td><td>Entire file transferred before playback</td><td>Plays in real time as data arrives</td></tr>
+  <tr><td><strong>Storage</strong></td><td>Saves a local copy</td><td>No local copy stored</td></tr>
+  <tr><td><strong>Internet required</strong></td><td>Only during download</td><td>Continuously during playback</td></tr>
+  <tr><td><strong>Examples</strong></td><td>Downloading a movie file</td><td>Netflix, YouTube, Spotify</td></tr>
+</table></div>
+<h3>Live Broadcasts</h3>
+<p>Content streamed in real time as it happens — no pre-recording. Examples: live sport, news, gaming streams, webinars, online concerts.</p>
+<h3>VOD and IPTV</h3>
+<ul>
+  <li><strong>VOD (Video on Demand)</strong>: watch any content at any time — Netflix, Showmax, Disney+</li>
+  <li><strong>IPTV</strong>: TV over the internet; allows pausing live TV, time-shifting, catch-up TV</li>
+</ul>
+<h2>Compression Technology</h2>
+<p>Compression reduces file size to speed up transfer and save storage. The trade-off: higher compression = smaller file but lower quality.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Format</th><th>Type</th><th>Used for</th></tr>
+  <tr><td><strong>MP3</strong></td><td>Lossy audio</td><td>Music — removes sounds humans can barely hear</td></tr>
+  <tr><td><strong>JPEG</strong></td><td>Lossy image</td><td>Photos — removes fine detail to reduce size</td></tr>
+  <tr><td><strong>PNG</strong></td><td>Lossless image</td><td>Logos, screenshots — no quality loss</td></tr>
+  <tr><td><strong>MPEG-4 (MP4)</strong></td><td>Lossy video</td><td>Online streaming — high quality, smaller file</td></tr>
+  <tr><td><strong>MPEG-2</strong></td><td>Lossy video</td><td>DVDs and early digital TV (older standard)</td></tr>
+  <tr><td><strong>ZIP / RAR</strong></td><td>Lossless general</td><td>Files and folders — full recovery on decompression</td></tr>
+</table></div>
+<div class="callout"><div class="callout-title">Lossy vs Lossless</div><p><strong>Lossy</strong>: permanently removes data to get smaller files. Cannot fully recover original.<br><strong>Lossless</strong>: compresses without losing data. Decompressed file is identical to original.</p></div>
+<div class="quiz" data-title="Quick Quiz &mdash; Internet (Gr 11)">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">The interactive, user-generated &lsquo;social&rsquo; web (sharing, comments, wikis) is&hellip;</p>
+    <button class="quiz-opt">Web 1.0</button>
+    <button class="quiz-opt">Web 2.0</button>
+    <button class="quiz-opt">Web 0.5</button>
+    <p class="quiz-why">Web 2.0 lets users create content; Web 1.0 was mostly read-only pages.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Compression that permanently drops some detail to shrink files (MP3, JPEG) is&hellip;</p>
+    <button class="quiz-opt">Lossy</button>
+    <button class="quiz-opt">Lossless</button>
+    <button class="quiz-opt">RAW</button>
+    <p class="quiz-why">Lossy throws away data you&rsquo;re unlikely to notice; lossless keeps everything.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">Playing content as it arrives, without downloading the whole file first, is&hellip;</p>
+    <button class="quiz-opt">Buffering</button>
+    <button class="quiz-opt">Caching</button>
+    <button class="quiz-opt">Streaming</button>
+    <p class="quiz-why">Streaming plays live/on-demand media on the fly; buffering is the small pre-load.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch08">
+  <div class="chapter-tag">Grade 11 &middot; Theory</div>
+<h1>Internet Services <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">Types of websites, supporting web technologies, security services, and internet-related careers.</p>
+<div class="term-divider"><span class="term-divider-badge">T4</span><span class="term-divider-label">Term 4 &middot; Websites, Online Services &amp; Security</span></div>
+<h2>Internet Services</h2>
+<p><strong>An internet service</strong> is any facility the internet provides that lets people find, share, communicate or transact online — from browsing websites to streaming video to online banking. The websites you visit are the most visible internet service, and they come in many types depending on their purpose.</p>
+<h2>Types of Websites</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Purpose</th><th>Examples</th></tr>
+  <tr><td><strong>E-commerce</strong></td><td>Sell goods or services online</td><td>Takealot, Amazon</td></tr>
+  <tr><td><strong>Informational</strong></td><td>Provide reference information</td><td>Wikipedia, government sites</td></tr>
+  <tr><td><strong>Educational</strong></td><td>Online courses and learning</td><td>Khan Academy, Siyavula</td></tr>
+  <tr><td><strong>Entertainment</strong></td><td>Videos, music, games</td><td>Netflix, YouTube, Spotify</td></tr>
+  <tr><td><strong>News</strong></td><td>Daily current events</td><td>News24, BBC</td></tr>
+  <tr><td><strong>Social networking</strong></td><td>User profiles, sharing, interaction</td><td>Facebook, Instagram, X</td></tr>
+  <tr><td><strong>Search engine</strong></td><td>Find information on the web</td><td>Google, Bing</td></tr>
+</table></div>
+<h2>Online Services</h2>
+<p>Beyond browsing websites, the internet lets you carry out real transactions and access services that used to require visiting somewhere in person.</p>
+<ul>
+  <li><strong>Online / internet banking</strong> — checking balances, making payments (EFT) and transferring money through a bank's website or app, e.g. FNB App, Capitec app</li>
+  <li><strong>Online bookings and reservations</strong> — tickets, hotels, flights, restaurant tables, e.g. Webtickets, Booking.com</li>
+  <li><strong>E-learning</strong> — digital learning platforms for lessons, assessments and resources, e.g. Siyavula, Google Classroom</li>
+</ul>
+<div class="tbl-wrap"><table>
+  <tr><th>Benefits</th><th>Issues / Concerns</th></tr>
+  <tr><td>Faster, convenient, 24/7 access — no need to queue in person</td><td>Security and password vulnerability</td></tr>
+  <tr><td>Reduces need for physical travel; saves time and cost</td><td>Fraud and phishing attacks targeting account details</td></tr>
+  <tr><td>Enables access for remote learners and rural users</td><td>Excludes people without internet access (digital divide)</td></tr>
+  <tr><td></td><td>Reduced face-to-face interaction</td></tr>
+</table></div>
+
+<h2>Static vs Dynamic Websites</h2>
+<p>Not all websites are built the same way. A <strong>static website</strong> shows the same fixed pages to everyone, and only changes when the developer manually edits the HTML files. A <strong>dynamic website</strong> builds its pages on the spot, pulling fresh content out of a database every time you visit, so what you see can differ from what the next person sees.</p>
+<div class="callout"><div class="callout-title">A PRINTED POSTER vs A DIGITAL NOTICEBOARD</div><p>A <strong>static site</strong> is like a printed poster on a wall — it says exactly the same thing to everyone until someone takes it down and pins up a new one. A <strong>dynamic site</strong> is like a digital noticeboard wired to a computer — it can greet you by name, show your shopping cart, and update prices automatically because it fetches the latest information each time.</p></div>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Static</th><th>Dynamic</th></tr>
+  <tr><td><strong>Content</strong></td><td>Fixed HTML; only changes when developer edits</td><td>Generated from a database on demand</td></tr>
+  <tr><td><strong>Database</strong></td><td>No</td><td>Yes</td></tr>
+  <tr><td><strong>Speed</strong></td><td>Faster (no processing needed)</td><td>Slightly slower</td></tr>
+  <tr><td><strong>Security risk</strong></td><td>Lower</td><td>Higher (SQL injection, data breaches)</td></tr>
+  <tr><td><strong>Examples</strong></td><td>Simple portfolio, info page</td><td>Online shops, social media, news sites</td></tr>
+</table></div>
+<h2>HTTP vs HTTPS</h2>
+<p><strong>HTTP (HyperText Transfer Protocol)</strong> is the set of rules browsers and web servers use to send web pages to each other. <strong>HTTPS</strong> is the same protocol with an added layer of security (the "S" stands for Secure) that encrypts the data so nobody can read it while it travels across the internet.</p>
+<h3>Why Does the "S" Matter?</h3>
+<p>When you log in to your bank or type in your password, that information passes through many computers on its way across the internet. With plain HTTP, anyone who intercepts it can read it. HTTPS scrambles it into nonsense that only the destination can unlock.</p>
+<div class="callout warning"><div class="callout-title">A POSTCARD vs A LOCKED ENVELOPE</div><p>Sending data over <strong>HTTP</strong> is like writing your message on a <strong>postcard</strong> — every postal worker who handles it can read it along the way. Sending data over <strong>HTTPS</strong> is like sealing it inside a <strong>locked envelope</strong> that only the person you are writing to has the key to open. Always look for the padlock and "https://" before typing anything personal.</p></div>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>HTTP</th><th>HTTPS</th></tr>
+  <tr><td>Encryption</td><td>None — plain text</td><td>SSL/TLS — encrypted</td></tr>
+  <tr><td>Browser padlock</td><td>No</td><td>Yes</td></tr>
+  <tr><td>Use for</td><td>Non-sensitive public pages</td><td>Login, banking, any personal data</td></tr>
+</table></div>
+<h2>Security Services</h2>
+<h3>Multi-Factor Authentication (MFA)</h3>
+<p>Requires more than one proof of identity. Examples: password + SMS code; password + fingerprint.</p>
+<ul>
+  <li><strong>Advantages</strong>: much harder for attackers to access accounts</li>
+  <li><strong>Limitations</strong>: requires additional device; SMS can be intercepted</li>
+</ul>
+<h3>One-Time PIN (OTP)</h3>
+<p>A code sent to your device, valid for one login only. Prevents replay attacks even if code is intercepted later.</p>
+<h3>Security Token</h3>
+<p>A hardware device or app that generates a new code every 30–60 seconds. More secure than SMS-based OTPs.</p>
+<h2>Internet-Related Careers</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Career</th><th>Role</th></tr>
+  <tr><td><strong>Web Designer</strong></td><td>Designs visual layout and user experience of websites (colours, fonts, layout)</td></tr>
+  <tr><td><strong>Web Developer / Author</strong></td><td>Writes HTML, CSS and JavaScript to build and maintain websites</td></tr>
+  <tr><td><strong>Graphics &amp; Multimedia Designer</strong></td><td>Creates logos, icons, animations, videos and interactive media</td></tr>
+  <tr><td><strong>Database Administrator</strong></td><td>Manages website databases, security, backups and performance</td></tr>
+  <tr><td><strong>SEO Specialist</strong></td><td>Optimises websites to rank higher in search results</td></tr>
+  <tr><td><strong>Cybersecurity Analyst</strong></td><td>Monitors and protects systems from attacks</td></tr>
+</table></div>
+<div class="quiz" data-title="Quick Quiz &mdash; Internet Services (Gr 11)">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">A website whose content is built per request (often from a database) is&hellip;</p>
+    <button class="quiz-opt">Static</button>
+    <button class="quiz-opt">Dynamic</button>
+    <button class="quiz-opt">Offline</button>
+    <p class="quiz-why">Dynamic pages change (per user/time); static pages show the same fixed HTML.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">The &lsquo;s&rsquo; in <strong>HTTPS</strong> means the connection is&hellip;</p>
+    <button class="quiz-opt">Secure (encrypted)</button>
+    <button class="quiz-opt">Slower</button>
+    <button class="quiz-opt">Simple</button>
+    <p class="quiz-why">HTTPS encrypts the data between browser and server so it can&rsquo;t be read en route.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">A one-time code sent to your phone to prove it&rsquo;s really you is an&hellip;</p>
+    <button class="quiz-opt">ISP</button>
+    <button class="quiz-opt">SEO</button>
+    <button class="quiz-opt">OTP</button>
+    <p class="quiz-why">An OTP (one-time PIN) is a second factor used in multi-factor authentication.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch09">
+  <div class="chapter-tag">Grade 11 &middot; Theory</div>
+<h1>Social Implications <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">The impact of technology on society — covering IoT, Big Data, the Fourth Industrial Revolution, cybercrime, and digital ethics.</p>
+
+<div class="callout tip">
+  <div class="callout-title">This topic comes back all year</div>
+  <p>Social implications are revisited every term rather than taught once. The sections below are grouped by the term where each topic is <em>introduced</em> on the Year Planner — but all of it stays examinable afterwards.</p>
+</div>
+
+<div class="term-divider"><span class="term-divider-badge">T2</span><span class="term-divider-label">Term 2 &middot; Digitalisation, the Gig Economy &amp; Blockchain</span></div>
+
+<h2>Digitalisation and the 4IR</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Effect</th><th>Positive</th><th>Negative</th></tr>
+  <tr><td>Employment</td><td>New IT-related jobs created</td><td>Many routine jobs automated away</td></tr>
+  <tr><td>Efficiency</td><td>Faster, more accurate processes</td><td>Over-reliance on technology</td></tr>
+  <tr><td>Access</td><td>Global connectivity and knowledge sharing</td><td>Digital divide widens</td></tr>
+  <tr><td>Privacy</td><td>Better security systems</td><td>Constant surveillance and data collection</td></tr>
+</table></div>
+<h2>The Gig Economy</h2>
+<p>The <strong>gig economy</strong> is a labour market built on short-term, flexible jobs or "gigs" (freelance or on-demand work) rather than permanent employment, usually arranged through online platforms.</p>
+<ul>
+  <li><strong>Examples:</strong> Uber/Bolt drivers, Mr D and other food-delivery couriers, freelancers on Fiverr or Upwork.</li>
+  <li><strong>Advantages:</strong> flexible hours, work from anywhere, an easy source of extra income.</li>
+  <li><strong>Disadvantages:</strong> no job security, no benefits (paid leave, medical aid, pension), and an unpredictable income.</li>
+</ul>
+<h2>Blockchain</h2>
+<p>A distributed digital ledger where data is stored in linked, tamper-resistant "blocks".</p>
+<ul>
+  <li>Decentralised — no single owner</li>
+  <li>Highly secure — changing one block breaks the chain</li>
+  <li>Used for: cryptocurrency (Bitcoin), smart contracts, supply chain tracking</li>
+</ul>
+
+<div class="term-divider"><span class="term-divider-badge">T3</span><span class="term-divider-label">Term 3 &middot; Cybercrime</span></div>
+
+<h2>Cybercrime</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Crime</th><th>Description</th></tr>
+  <tr><td><strong>Identity theft</strong></td><td>Stealing personal info to commit fraud</td></tr>
+  <tr><td><strong>Business data theft</strong></td><td>Stealing company secrets or customer databases</td></tr>
+  <tr><td><strong>Ransomware</strong></td><td>Encrypting company data and demanding ransom</td></tr>
+  <tr><td><strong>SQL Injection</strong></td><td>Inserting malicious SQL into web forms to access databases</td></tr>
+</table></div>
+
+<div class="term-divider"><span class="term-divider-badge">T4</span><span class="term-divider-label">Term 4 &middot; IoT, Big Data &amp; Protecting Your Identity</span></div>
+
+<h2>Internet of Things (IoT)</h2>
+<p>A network of physical devices embedded with sensors and internet connectivity that collect and exchange data automatically.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Category</th><th>Examples</th></tr>
+  <tr><td>Smart home</td><td>Smart fridges, thermostats, security cameras</td></tr>
+  <tr><td>Connected cars</td><td>Real-time traffic, remote diagnostics</td></tr>
+  <tr><td>Healthcare</td><td>Remote patient monitoring, smart wearables</td></tr>
+  <tr><td>Agriculture</td><td>Soil sensors, weather monitoring for crop yields</td></tr>
+  <tr><td>Smart cities</td><td>Adaptive lighting, smart bins, traffic management</td></tr>
+</table></div>
+<h2>Big Data</h2>
+<p>Extremely large and complex datasets that traditional software cannot handle. Characteristics: <strong>Volume</strong>, <strong>Velocity</strong>, <strong>Variety</strong>.</p>
+<ul>
+  <li><strong>Healthcare</strong>: track vitals, predict illnesses</li>
+  <li><strong>Marketing</strong>: personalised advertising</li>
+  <li><strong>Banking</strong>: fraud detection</li>
+  <li><strong>Risk</strong>: privacy erosion, data breaches, discrimination</li>
+</ul>
+<h2>Crowdsourcing</h2>
+<p><strong>Crowdsourcing</strong> is getting ideas, content, services or funding by asking a <strong>large group of people</strong> (the "crowd"), usually online, rather than from traditional employees or suppliers. The internet makes it possible to reach huge numbers of contributors quickly.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Example</th></tr>
+  <tr><td>Crowdfunding (raising money)</td><td>Kickstarter, BackaBuddy, GoFundMe</td></tr>
+  <tr><td>Knowledge / content</td><td>Wikipedia, Stack Overflow, OpenStreetMap</td></tr>
+  <tr><td>Reviews &amp; ratings</td><td>Google Maps reviews, TripAdvisor</td></tr>
+  <tr><td>Problem solving / micro-tasks</td><td>Citizen-science projects, design competitions</td></tr>
+</table></div>
+<p><strong>Benefit:</strong> taps into a wide range of skills and ideas cheaply and quickly. <strong>Risk:</strong> contributions may be inaccurate, biased or unverified.</p>
+
+<h2>Privacy: Advantages &amp; Disadvantages</h2>
+<p><strong>Privacy</strong> is your right to control what personal information is collected about you and how it is used. Technology constantly gathers data — what you browse, buy, watch and where you go — which brings real convenience but also serious risks. In an exam you must be able to argue <em>both</em> sides.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Advantages of data collection</th><th>Disadvantages / privacy risks</th></tr>
+  <tr><td>Personalised services and recommendations (Netflix, online shops)</td><td>Constant tracking and surveillance of your activity</td></tr>
+  <tr><td>Faster, more convenient use (saved details, auto-login)</td><td>Personal data sold to third parties without consent</td></tr>
+  <tr><td>Better security — fraud and identity-theft detection</td><td>Data breaches can expose millions of records</td></tr>
+  <tr><td>Relevant, targeted advertising</td><td>Profiling can lead to discrimination (insurance, jobs)</td></tr>
+  <tr><td>Services improved by analysing user behaviour</td><td>Loss of anonymity; stalking risk from location data</td></tr>
+</table></div>
+<h3>Protecting Your Privacy</h3>
+<ul>
+  <li>Adjust privacy settings on social media and apps</li>
+  <li>Limit the personal information you share online</li>
+  <li>Review app permissions (location, camera, contacts)</li>
+  <li>Use strong, unique passwords and 2FA</li>
+  <li>Know your rights under <strong>POPIA</strong> — SA law protecting personal information</li>
+</ul>
+<h2>Digital Footprint</h2>
+<p>The trail of data you leave online. <strong>Active</strong>: data you intentionally share (posts, forms). <strong>Passive</strong>: data collected without your knowledge (cookies, browsing history).</p>
+<p>Implications: affects reputation, privacy, can be used by employers or cybercriminals.</p>
+<div class="quiz" data-title="Quick Quiz &mdash; Social Implications (Gr 11)">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Everyday objects with sensors, connected to the internet, make up the&hellip;</p>
+    <button class="quiz-opt">DBMS</button>
+    <button class="quiz-opt">Internet of Things (IoT)</button>
+    <button class="quiz-opt">Intranet</button>
+    <p class="quiz-why">IoT = smart devices (fridges, watches, sensors) that send/receive data online.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">The three classic &lsquo;V&rsquo;s of Big Data are Volume, Velocity and&hellip;</p>
+    <button class="quiz-opt">Validity</button>
+    <button class="quiz-opt">Value</button>
+    <button class="quiz-opt">Variety</button>
+    <p class="quiz-why">Volume (amount), Velocity (speed) and Variety (many different types/formats).</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">A decentralised, tamper-resistant digital ledger of linked blocks is a&hellip;</p>
+    <button class="quiz-opt">Blockchain</button>
+    <button class="quiz-opt">Botnet</button>
+    <button class="quiz-opt">Cookie</button>
+    <p class="quiz-why">Each block is chained to the previous one, so records can&rsquo;t be changed unnoticed.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch10">
+  <div class="chapter-tag">Grade 11 &middot; Term Planner</div>
+<h1>Grade 11 &mdash; Year Planner <span class="grade-badge">Grade 11</span></h1>
+<p class="page-intro">Based on the 2026 IT CAPS. Grade 11 introduces 1D arrays, text files, user-defined methods and databases. Note: SQL, OOP and 2D Arrays are <strong>Grade 12</strong> topics.</p>
+<div class="callout warning"><div class="callout-title">A year planner &mdash; not a test scope</div><p>This shows <strong>when</strong> each topic is taught during the year &mdash; it is <strong>not</strong> a list of what any single test covers. Any work done so far this year, plus the foundational work from earlier grades, can still be assessed, so don't study only the current term's topics.</p></div>
+
+<div class="term-block">
+  <div class="term-header"><div class="term-num">T1</div><div><div class="term-title">Term 1 &bull; January &ndash; March</div><div class="term-subtitle">1D arrays, nested loops, date methods; hardware depth, processing &amp; networks</div></div></div>
+  <div class="term-body">
+    <div class="term-col"><div class="term-col-title">&#128300; Practical (Paper 1)</div>
+      <ul class="term-links">
+        <li><a href="grade11/practical/arrays.html"><span class="tl-dot"></span>1D arrays: concept, declaration, population</a></li>
+        <li><a href="grade11/practical/arrays.html"><span class="tl-dot"></span>Nested FOR loops with arrays</a></li>
+        <li><a href="grade11/practical/arrays.html"><span class="tl-dot"></span>Array calculations (sum, average, min, max)</a></li>
+        <li><a href="grade11/practical/arrays.html"><span class="tl-dot"></span>Linear search</a></li>
+        <li><a href="grade11/practical/arrays.html"><span class="tl-dot"></span>Binary search (sorted array)</a></li>
+        <li><a href="grade11/practical/arrays.html"><span class="tl-dot"></span>Bubble sort &amp; selection sort</a></li>
+        <li><a href="grade11/practical/arrays.html"><span class="tl-dot"></span>Parallel arrays</a></li>
+        <li><a href="grade10/practical/strings.html"><span class="tl-dot"></span>Extend string methods from Grade 10</a></li>
+        <li><a href="grade11/practical/arrays.html"><span class="tl-dot"></span>Date methods: DateToStr, TimeToStr, IsLeapYear</a></li>
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Binary number &#8596; decimal conversions in code</li>
+      </ul>
+    </div>
+    <div class="term-col"><div class="term-col-title">&#128216; Theory (Paper 2)</div>
+      <ul class="term-links">
+        <li><a href="grade11/theory/hardware-gr11.html"><span class="tl-dot"></span>Motherboard: components, slots, buses</a></li>
+        <li><a href="grade11/theory/hardware-gr11.html"><span class="tl-dot"></span>BIOS/UEFI &amp; POST</a></li>
+        <li><a href="grade11/theory/hardware-gr11.html"><span class="tl-dot"></span>Cache memory (L1/L2/L3) &amp; caching</a></li>
+        <li><a href="grade11/theory/hardware-gr11.html"><span class="tl-dot"></span>RAM vs ROM in depth; HDD vs SSD</a></li>
+        <li><a href="grade11/theory/hardware-gr11.html"><span class="tl-dot"></span>Computer performance factors</a></li>
+        <li><a href="grade11/theory/processing.html"><span class="tl-dot"></span>OS types (stand-alone, embedded, network)</a></li>
+        <li><a href="grade11/theory/processing.html"><span class="tl-dot"></span>Compilers vs interpreters</a></li>
+        <li><a href="grade11/theory/processing.html"><span class="tl-dot"></span>Multitasking, multithreading, multiprocessing</a></li>
+        <li><a href="grade11/theory/processing.html"><span class="tl-dot"></span>Virtual memory &amp; virtualisation/VMs</a></li>
+        <li><a href="grade11/theory/networks-gr11.html"><span class="tl-dot"></span>Network topology (star), NIC, modem, switch, router</a></li>
+        <li><a href="grade11/theory/networks-gr11.html"><span class="tl-dot"></span>VoIP, Intranet/Extranet, VPN, location-based computing</a></li>
+        <li><a href="grade11/theory/social-gr11.html"><span class="tl-dot"></span>Social: LBC implications, AUP, capabilities &amp; limitations</a></li>
+        <li><a href="grade11/theory/computer-management.html"><span class="tl-dot"></span>Computer management: threats, malware, remedies, backups</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="term-block">
+  <div class="term-header"><div class="term-num">T2</div><div><div class="term-title">Term 2 &bull; April &ndash; June (incl. mid-year exam)</div><div class="term-subtitle">Text files &amp; user-defined methods; e-communications, digitalisation &amp; databases intro</div></div></div>
+  <div class="term-body">
+    <div class="term-col"><div class="term-col-title">&#128300; Practical (Paper 1)</div>
+      <ul class="term-links">
+        <li><a href="grade11/practical/text-files.html"><span class="tl-dot"></span>Text files: physical vs logical file names</a></li>
+        <li><a href="grade11/practical/text-files.html"><span class="tl-dot"></span>AssignFile, Reset, Rewrite, Append, CloseFile</a></li>
+        <li><a href="grade11/practical/text-files.html"><span class="tl-dot"></span>ReadLn, WriteLn, EOF</a></li>
+        <li><a href="grade11/practical/text-files.html"><span class="tl-dot"></span>FileExists check &amp; exception handling</a></li>
+        <li><a href="grade11/practical/text-files.html"><span class="tl-dot"></span>Reading multiple lines; populating arrays from file</a></li>
+        <li><a href="grade11/practical/text-files.html"><span class="tl-dot"></span>Writing/appending; generating text reports</a></li>
+        <li><a href="grade11/practical/methods.html"><span class="tl-dot"></span>User-defined procedures (no parameters)</a></li>
+        <li><a href="grade11/practical/methods.html"><span class="tl-dot"></span>Procedures with value parameters</a></li>
+        <li><a href="grade11/practical/methods.html"><span class="tl-dot"></span>User-defined functions (return values)</a></li>
+        <li><a href="grade11/practical/methods.html"><span class="tl-dot"></span>Functions with parameters</a></li>
+        <li><a href="grade11/practical/methods.html"><span class="tl-dot"></span>Input validation using methods</a></li>
+      </ul>
+    </div>
+    <div class="term-col"><div class="term-col-title">&#128216; Theory (Paper 2)</div>
+      <ul class="term-links">
+        <li><a href="grade11/theory/e-communications-gr11.html"><span class="tl-dot"></span>Microblogging, SMS, instant messaging, social media</a></li>
+        <li><a href="grade11/theory/e-communications-gr11.html"><span class="tl-dot"></span>Video casting, podcasting, VoIP, video conferencing</a></li>
+        <li><a href="grade11/theory/mobile-tech.html"><span class="tl-dot"></span>Mobile devices, browsers, apps</a></li>
+        <li><a href="grade11/theory/mobile-tech.html"><span class="tl-dot"></span>GPS, 4G/5G, Bluetooth, Wi-Fi, access points</a></li>
+        <li><a href="grade11/theory/mobile-tech.html"><span class="tl-dot"></span>Shaping, throttling, protocols (POP3, SMTP, IMAP, VoIP)</a></li>
+        <li><a href="grade11/theory/e-communications-gr11.html"><span class="tl-dot"></span>Data security: passwords, encryption, multi-layer verification</a></li>
+        <li><a href="grade11/theory/e-communications-gr11.html"><span class="tl-dot"></span>Blockchain: definition &amp; purpose</a></li>
+        <li><a href="grade11/theory/social-gr11.html"><span class="tl-dot"></span>Digitalisation effects, gig economy</a></li>
+        <li><a href="grade11/theory/social-gr11.html"><span class="tl-dot"></span>Online services, video conferencing, social media &amp; influencing</a></li>
+        <li><a href="grade11/theory/social-gr11.html"><span class="tl-dot"></span>Future careers: digital forensics, 3D printing, privacy consultant</a></li>
+        <li><a href="grade11/theory/social-gr11.html"><span class="tl-dot"></span>Remote work, office automation, robotics, AI overview</a></li>
+        <li><a href="grade11/theory/databases.html"><span class="tl-dot"></span>DBMS: definition, functions, examples</a></li>
+        <li><a href="grade11/theory/databases.html"><span class="tl-dot"></span>Database types (desktop, server, distributed)</a></li>
+        <li><a href="grade11/theory/databases.html"><span class="tl-dot"></span>Database careers (DBA, programmer, analyst)</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="term-block">
+  <div class="term-header"><div class="term-num">T3</div><div><div class="term-title">Term 3 &bull; July &ndash; September</div><div class="term-subtitle">Databases in Delphi (NO SQL yet); database design &amp; data integrity</div></div></div>
+  <div class="term-body">
+    <div class="term-col"><div class="term-col-title">&#128300; Practical (Paper 1)</div>
+      <ul class="term-links">
+        <li><a href="grade11/practical/databases-delphi.html"><span class="tl-dot"></span>Connect to a database by path in code</a></li>
+        <li><a href="grade11/practical/databases-delphi.html"><span class="tl-dot"></span>TADOConnection, TADOTable, DataSource, DBGrid</a></li>
+        <li><a href="grade11/practical/databases-delphi.html"><span class="tl-dot"></span>Navigate records (First, Next, Eof)</a></li>
+        <li><a href="grade11/practical/databases-delphi.html"><span class="tl-dot"></span>Access field values with code</a></li>
+        <li><a href="grade11/practical/databases-delphi.html"><span class="tl-dot"></span>Insert, Edit, Delete, Post records</a></li>
+        <li><a href="grade11/practical/databases-delphi.html"><span class="tl-dot"></span>Search/filter records using code (no SQL)</a></li>
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Multi-form GUI design</li>
+        <div class="callout warning" style="margin:.75rem 0 0;padding:.6rem 1rem;font-size:.82rem"><div class="callout-title">Note</div>SQL is Grade 12 work. Gr11 uses TADOTable + code only.</div>
+      </ul>
+    </div>
+    <div class="term-col"><div class="term-col-title">&#128216; Theory (Paper 2)</div>
+      <ul class="term-links">
+        <li><a href="grade11/theory/databases.html"><span class="tl-dot"></span>Data quality: accuracy, correctness, currency, completeness</a></li>
+        <li><a href="grade11/theory/databases.html"><span class="tl-dot"></span>Data validation: format, type, range, check digit</a></li>
+        <li><a href="grade11/theory/databases.html"><span class="tl-dot"></span>Records, fields &amp; field types</a></li>
+        <li><a href="grade11/theory/databases.html"><span class="tl-dot"></span>Tables &amp; relationships (1:1, 1:M, M:M)</a></li>
+        <li><a href="grade11/theory/databases.html"><span class="tl-dot"></span>Referential integrity &amp; ERDs</a></li>
+        <li><a href="grade11/theory/databases.html"><span class="tl-dot"></span>Creating a simple database (design, maintain, query)</a></li>
+        <li><a href="grade11/theory/social-gr11.html"><span class="tl-dot"></span>Effects of computer &amp; human error on data</a></li>
+        <li><a href="grade11/theory/social-gr11.html"><span class="tl-dot"></span>Effects of cybercrime (identity theft, ransomware, SQL injection)</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="term-block">
+  <div class="term-header"><div class="term-num">T4</div><div><div class="term-title">Term 4 &bull; October &ndash; November (PAT due + exams)</div><div class="term-subtitle">Internet/IoT/Big Data theory; PAT finalization</div></div></div>
+  <div class="term-body">
+    <div class="term-col"><div class="term-col-title">&#128300; Practical (Paper 1)</div>
+      <ul class="term-links">
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>PAT finalization</li>
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Revision of all T1&ndash;T3 practical</li>
+      </ul>
+    </div>
+    <div class="term-col"><div class="term-col-title">&#128216; Theory (Paper 2)</div>
+      <ul class="term-links">
+        <li><a href="grade11/theory/internet-gr11.html"><span class="tl-dot"></span>Evolution of internet (IoT characteristics &amp; uses, 4IR)</a></li>
+        <li><a href="grade11/theory/internet-gr11.html"><span class="tl-dot"></span>Big Data (Volume, Variety, Velocity)</a></li>
+        <li><a href="grade11/theory/internet-gr11.html"><span class="tl-dot"></span>Download vs streaming, live broadcasts, VOD, IPTV</a></li>
+        <li><a href="grade11/theory/internet-gr11.html"><span class="tl-dot"></span>Compression: lossy vs lossless (MP3, JPEG, MPEG-4)</a></li>
+        <li><a href="grade11/theory/internet-services-gr11.html"><span class="tl-dot"></span>Static vs dynamic websites</a></li>
+        <li><a href="grade11/theory/internet-services-gr11.html"><span class="tl-dot"></span>Location-based services, HTTP vs HTTPS</a></li>
+        <li><a href="grade11/theory/internet-services-gr11.html"><span class="tl-dot"></span>MFA, OTP, security tokens</a></li>
+        <li><a href="grade11/theory/internet-services-gr11.html"><span class="tl-dot"></span>Internet careers (web designer, developer, multimedia designer)</a></li>
+        <li><a href="grade11/theory/social-gr11.html"><span class="tl-dot"></span>Social implications of Big Data, IoT &amp; globalisation</a></li>
+        <li><a href="grade11/theory/social-gr11.html"><span class="tl-dot"></span>4IR: effects on employment &amp; society</a></li>
+        <li><a href="grade11/theory/social-gr11.html"><span class="tl-dot"></span>Protecting online identity &amp; digital footprint</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch11">
+  <div class="chapter-tag">Grade 11 &middot; Exam Resources</div>
+<h1>Exam Extras <span class="grade-badge" style="background:rgba(74,222,128,.15);color:#4ade80">Out-of-CAPS</span></h1>
+  <p class="page-intro">These topics are not explicitly required by CAPS but have appeared in NSC past papers (2015–2024). Knowing them can mean the difference between a pass and a distinction.</p>
+
+  <div class="callout warning">
+    <div class="callout-title">How to use this page</div>
+    <p>Items marked <span class="badge badge-blue">P1</span> appear in Paper 1 (practical/Delphi), <span class="badge badge-purple">P2</span> in Paper 2 (theory), and <span class="badge badge-green">Both</span> in either paper. These are <em>supplementary</em> — master your CAPS content first.</p>
+  </div>
+
+  <!-- SOFTWARE DEVELOPMENT PROCESS -->
+  <h2 id="dev-process">The Software Development Process</h2>
+  <p>CAPS never teaches "how to plan a whole program" as one topic — instead it hands you the individual planning tools (IPO tables, TOE charts, pseudocode) at different points across Grade 10 and 11. Strung together in order, those tools form a complete process for turning a vague idea into a finished, working program. None of this is examinable on its own, but following it will make your PAT — and any open-ended practical question — far less overwhelming.</p>
+
+  <ol style="margin:0.75rem 0 0 1.25rem; display:flex; flex-direction:column; gap:1rem">
+    <li>
+      <strong>Pin down exactly what the program must do.</strong> A one-line description ("a till program") is not enough to start coding from — write out every input the program will receive, every calculation or decision it must make, and every output it must produce. This is the same information an <strong>IPO table</strong> asks for (<a href="grade10/practical/algorithms.html">Grade 10 T1, Algorithms &amp; Problem Solving</a>), just applied to the whole program instead of one calculation.
+    </li>
+    <li>
+      <strong>Sketch the interface before placing a single component.</strong> Decide which forms the user will see, what components sit on each one, and how the user moves between them. Keep the same layout, colours and button placement on every form — a program that looks different from screen to screen feels unfinished even when the code is solid.
+    </li>
+    <li>
+      <strong>Map out which event triggers which task.</strong> For every button, checkbox or form event, list precisely what must happen when it fires — this is exactly what a <strong>TOE (Task–Object–Event) chart</strong> is for (also covered on the <a href="grade10/practical/algorithms.html">Algorithms &amp; Problem Solving</a> page). Doing this before writing code stops the common mistake of half-remembering what a button was supposed to do halfway through typing its handler.
+    </li>
+    <li>
+      <strong>Break the plan into procedures and functions before typing the body of any of them.</strong> Decide which pieces of logic will repeat, which need a return value and which don't, and what needs to pass between them as parameters — this is where the <a href="grade11/practical/methods.html">Procedures &amp; Functions</a> (Grade 11 T2) content and the local-vs-global variable rules on that page earn their keep.
+    </li>
+    <li>
+      <strong>Write the code in small, testable pieces</strong> rather than the whole program at once — build and run after every procedure or two so that when something breaks, you know it's in the last few lines you typed, not buried somewhere in 200 lines you haven't tested yet.
+    </li>
+    <li>
+      <strong>Test with data designed to break it, not just data that works.</strong> Run the program with an empty text box, a negative number, the largest and smallest values it should accept, and anything else a careless user might type — this is the mindset behind the <a href="grade10/practical/decisions.html">Input Validation</a> content (Grade 10 T2). Where something goes wrong before you can even see the output, Delphi's debugger (breakpoints, F8 stepping, the Watch List — see <a href="grade10/practical/data-types.html">Data Types &amp; Variables</a>) will show you exactly which line is responsible.
+    </li>
+  </ol>
+
+  <div class="callout tip">
+    <div class="callout-title">Why bother with all of this for a PAT?</div>
+    <p>A PAT is marked over months, revisited many times, and often built on by a partner or by future-you after a long break. Time spent planning up front — even just a page of notes on what each form does — is what makes it possible to pick the project back up in Term 4 and still understand your own Term 2 code.</p>
+  </div>
+
+  <!-- PRACTICAL EXTRAS -->
+  <h2 id="practical-extras">Practical Extras — Paper 1 (Delphi)</h2>
+  <p>These Delphi functions, components and techniques are not listed in CAPS but appear regularly in exam questions or are needed to solve exam problems efficiently.</p>
+
+  <div class="extras-grid">
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>StringReplace()</h4>
+      <p>Replaces all or first occurrence of a substring within a string.<br>
+      <code>s := StringReplace(s, 'old', 'new', [rfReplaceAll]);</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Format() function</h4>
+      <p>Formats numbers/strings with precise control — <code>Format('%.2f', [rVal])</code> gives 2 decimal places. More powerful than FloatToStrF.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Random() &amp; Randomize()</h4>
+      <p>Generate random integers. Always call <code>Randomize;</code> first to seed the generator. <code>Random(100)</code> returns 0–99.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>TOpenDialog / TSaveDialog</h4>
+      <p>Let users browse for files at runtime.<br>
+      <code>if OpenDialog1.Execute then sFile := OpenDialog1.FileName;</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>DateToStr() &amp; StrToDate()</h4>
+      <p>Convert between TDate values and string representation. Used with TDateTimePicker.<br>
+      <code>sDate := DateToStr(dtpDate.Date);</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Try…Except…End (Exception Handling)</h4>
+      <p>Catch runtime errors gracefully — e.g. invalid StrToInt input.<br>
+      <code>try iNum := StrToInt(edtNum.Text); except ShowMessage('Invalid'); end;</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Memo.Lines.Count</h4>
+      <p>Returns the number of lines in a Memo. Often used in loops to process all memo lines.<br>
+      <code>for i := 0 to Memo1.Lines.Count - 1 do</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>SameText() / CompareText()</h4>
+      <p>Case-insensitive string comparison — avoids problems when user types 'yes', 'YES' or 'Yes'.<br>
+      <code>if SameText(sInput, 'yes') then</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>IntToHex() &amp; HexToInt()</h4>
+      <p>Convert integers to hexadecimal strings and back. Sometimes tested in conjunction with number systems theory.<br>
+      <code>sHex := IntToHex(255, 4); // = '00FF'</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Odd() &amp; Even() functions</h4>
+      <p>Built-in boolean checks — cleaner than MOD 2.<br>
+      <code>if Odd(iNum) then // true if iNum is odd</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Break &amp; Continue in loops</h4>
+      <p><code>Break</code> stops the rest of the loop from processing. <code>Continue</code> skips the rest of the current pass and moves on to the next iteration. Both appear in exam solutions — know the difference. (<code>Break</code> vs <code>Exit</code> is taught on the <a href="grade10/practical/loops.html">Loops</a> page.)</p>
+    </div>
+  </div>
+
+  <!-- THEORY EXTRAS -->
+  <h2 id="theory-extras">Theory Extras — Paper 2</h2>
+  <p>These theory topics have appeared in NSC Theory papers but sit at the edge of or outside the formal CAPS scope. They typically appear in social implications or "current technology" questions.</p>
+
+  <div class="extras-grid">
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Artificial Intelligence (AI) &amp; Machine Learning</h4>
+      <p>AI appears regularly in social implications questions — automation of jobs, AI decision-making, bias in AI, chatbots. Not deeply technical — understand the concept and its social effects.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Blockchain Technology</h4>
+      <p>A distributed digital ledger of linked blocks. Used in cryptocurrency, supply chain, and secure records. Appeared in Gr12 theory papers. Know: what it is, how it works, and 2 uses.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Deep Fakes</h4>
+      <p>AI-generated fake videos or audio that appear authentic. Social implications question topic — impacts on trust, truth, and politics. Know the definition and two risks.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Dark Web</h4>
+      <p>A part of the internet not indexed by search engines, accessed via special software (Tor). Used for anonymity — legal and illegal uses. Appeared in theory cybercrime questions.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Net Neutrality</h4>
+      <p>The principle that all internet traffic should be treated equally — ISPs cannot throttle or prioritise certain content. A social/political IT topic.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>IPv6</h4>
+      <p>The successor to IPv4 — uses 128-bit addresses (vs 32-bit) to solve address exhaustion. Format: 2001:0db8:85a3::8a2e:0370:7334. Know why it was introduced.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>RAID Levels (0, 1, 5)</h4>
+      <p>RAID 0: speed (striping, no redundancy). RAID 1: mirroring (exact copy). RAID 5: striping with parity (balance of speed + fault tolerance). CAPS only mentions RAID in general — exams go deeper.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Steganography</h4>
+      <p>Hiding secret information within ordinary files (images, audio) without detection. Different from encryption — encryption scrambles data; steganography hides its existence. Appeared in theory questions.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Smart Contracts</h4>
+      <p>Self-executing contracts where terms are written in code on a blockchain. No middlemen needed. Related to blockchain technology — appeared in Gr12 social implications.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Edge Computing</h4>
+      <p>Processing data close to where it is generated (the "edge" of the network) rather than sending it all to a central cloud server. Reduces latency — important for IoT and 5G.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Bus Network Topology</h4>
+      <p>All devices share a single communication line (the bus). Not in the current CAPS but appeared in older papers. Advantage: cheap. Disadvantage: single point of failure; performance drops with more devices.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Mesh Network Topology</h4>
+      <p>Each device connects to several others, so data has more than one possible path. Not in the current CAPS (it sits under "network innovation"). Advantage: very reliable — traffic reroutes if a link fails. Disadvantage: expensive, many connections needed. It's how "mesh Wi-Fi" systems work.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Social Engineering</h4>
+      <p>Manipulating people (rather than systems) to reveal confidential information. Includes pretexting, baiting, tailgating. Appears in cybercrime theory questions.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-both">Both</span>
+      <h4>Number System Conversions</h4>
+      <p>Exams frequently ask you to <em>convert</em> values — not just explain systems. Practise: decimal↔binary, decimal↔hex, binary↔hex. Know the place values (powers of 2 and 16).</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>POPIA (Protection of Personal Information Act)</h4>
+      <p>South African law governing how personal data must be collected, stored, and protected. Appears in privacy and legal implications questions. Know: what it is, who it protects, and 2 requirements.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Cybercrimes Act (2020)</h4>
+      <p>SA legislation that criminalises hacking, ransomware, online fraud, and malicious communications. Often referenced in cybercrime theory questions for Gr12.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Digital Twins</h4>
+      <p>A virtual replica of a physical object or system, updated in real time from sensor data. Used in engineering, manufacturing, and smart cities. Appeared in 4IR/IoT questions.</p>
+    </div>
+  </div>
+
+  <!-- DELPHI FUNCTIONS REFERENCE -->
+  <h2 id="delphi-functions">Complete Delphi Functions Quick Reference</h2>
+  <p>A comprehensive reference of all Delphi functions you need to know — both CAPS-required and commonly appearing in exams.</p>
+
+  <h3>String Functions</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Function/Procedure</th><th>What it does</th><th>Example</th></tr>
+    <tr><td><code>Length(s)</code></td><td>Returns number of characters</td><td><code>Length('Hello') = 5</code></td></tr>
+    <tr><td><code>Pos(find, source)</code></td><td>Position of substring (0 if not found)</td><td><code>Pos('lo','Hello') = 4</code></td></tr>
+    <tr><td><code>Copy(source, start, len)</code></td><td>Extract substring</td><td><code>Copy('Hello',2,3) = 'ell'</code></td></tr>
+    <tr><td><code>Insert(text, var s, pos)</code></td><td>Insert text into string at position</td><td><code>Insert('!','Hello',6) → 'Hello!'</code></td></tr>
+    <tr><td><code>Delete(var s, pos, len)</code></td><td>Remove characters from string</td><td><code>Delete(s,1,3)</code></td></tr>
+    <tr><td><code>UpperCase(s)</code></td><td>All uppercase</td><td><code>UpperCase('hi') = 'HI'</code></td></tr>
+    <tr><td><code>LowerCase(s)</code></td><td>All lowercase</td><td><code>LowerCase('HI') = 'hi'</code></td></tr>
+    <tr><td><code>Trim(s)</code></td><td>Remove leading/trailing spaces</td><td><code>Trim('  Hi  ') = 'Hi'</code></td></tr>
+    <tr><td><code>StringReplace(s,old,new,flags)</code></td><td>Replace substring(s)</td><td><code>StringReplace(s,'a','e',[rfReplaceAll])</code></td></tr>
+    <tr><td><code>SameText(s1,s2)</code></td><td>Case-insensitive comparison (boolean)</td><td><code>SameText('Yes','yes') = True</code></td></tr>
+    <tr><td><code>Concat(s1,s2)</code></td><td>Join two strings (same as +)</td><td><code>Concat('Hel','lo')</code></td></tr>
+    <tr><td><code>s[i]</code></td><td>Character at index i (1-based)</td><td><code>s[1]</code> = first character</td></tr>
+  </table></div>
+
+  <h3>Math Functions</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Function</th><th>What it does</th><th>Example</th></tr>
+    <tr><td><code>Sqr(x)</code></td><td>x squared (x²)</td><td><code>Sqr(4) = 16</code></td></tr>
+    <tr><td><code>Sqrt(x)</code></td><td>Square root</td><td><code>Sqrt(16) = 4</code></td></tr>
+    <tr><td><code>Power(base, exp)</code></td><td>base to the power of exp</td><td><code>Power(2,8) = 256</code></td></tr>
+    <tr><td><code>Round(x)</code></td><td>Round to nearest integer</td><td><code>Round(4.6) = 5</code></td></tr>
+    <tr><td><code>Trunc(x)</code></td><td>Remove decimal (truncate toward zero)</td><td><code>Trunc(4.9) = 4</code></td></tr>
+    <tr><td><code>Ceil(x)</code></td><td>Round UP to integer</td><td><code>Ceil(4.1) = 5</code></td></tr>
+    <tr><td><code>Floor(x)</code></td><td>Round DOWN to integer</td><td><code>Floor(4.9) = 4</code></td></tr>
+    <tr><td><code>Abs(x)</code></td><td>Absolute value</td><td><code>Abs(-5) = 5</code></td></tr>
+    <tr><td><code>Random(n)</code></td><td>Random integer 0 to n-1</td><td><code>Random(6)+1</code> simulates a die</td></tr>
+    <tr><td><code>Randomize</code></td><td>Seed the random generator (call once)</td><td>Call before Random()</td></tr>
+    <tr><td><code>Inc(x)</code> / <code>Inc(x,n)</code></td><td>Increment by 1 or n</td><td><code>Inc(i) ≡ i := i+1</code></td></tr>
+    <tr><td><code>Dec(x)</code> / <code>Dec(x,n)</code></td><td>Decrement by 1 or n</td><td><code>Dec(i,3) ≡ i := i-3</code></td></tr>
+    <tr><td><code>Odd(n)</code></td><td>True if n is odd</td><td><code>Odd(3) = True</code></td></tr>
+    <tr><td><code>Pi</code></td><td>Returns π (3.14159…)</td><td><code>rArea := Pi * Sqr(r)</code></td></tr>
+  </table></div>
+
+  <h3>Type Conversion Functions</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Function</th><th>Converts</th><th>Example</th></tr>
+    <tr><td><code>StrToInt(s)</code></td><td>String → Integer</td><td><code>StrToInt('42') = 42</code></td></tr>
+    <tr><td><code>StrToFloat(s)</code></td><td>String → Real</td><td><code>StrToFloat('3.14')</code></td></tr>
+    <tr><td><code>StrToIntDef(s, default)</code></td><td>String → Integer (safe — returns default if invalid)</td><td><code>StrToIntDef(edtNum.Text, 0)</code></td></tr>
+    <tr><td><code>IntToStr(n)</code></td><td>Integer → String</td><td><code>IntToStr(42) = '42'</code></td></tr>
+    <tr><td><code>FloatToStr(r)</code></td><td>Real → String</td><td><code>FloatToStr(3.14)</code></td></tr>
+    <tr><td><code>FloatToStrF(r, fmt, digits, dec)</code></td><td>Formatted real → String</td><td><code>FloatToStrF(r, ffFixed, 6, 2)</code></td></tr>
+    <tr><td><code>Ord(c)</code></td><td>Char → Integer (ASCII value)</td><td><code>Ord('A') = 65</code></td></tr>
+    <tr><td><code>Chr(n)</code></td><td>Integer → Char</td><td><code>Chr(65) = 'A'</code></td></tr>
+    <tr><td><code>UpCase(c)</code></td><td>Single char to uppercase</td><td><code>UpCase('a') = 'A'</code></td></tr>
+    <tr><td><code>IntToHex(n, digits)</code></td><td>Integer → Hex string</td><td><code>IntToHex(255,2) = 'FF'</code></td></tr>
+    <tr><td><code>DateToStr(d)</code></td><td>TDate → String</td><td><code>DateToStr(Now)</code></td></tr>
+    <tr><td><code>FormatFloat(fmt, r)</code></td><td>Real → formatted string</td><td><code>FormatFloat('#,##0.00', 1234.5)</code></td></tr>
+  </table></div>
+
+  <!-- PAST PAPER TIPS -->
+  <h2 id="past-paper-tips">Past Paper Patterns &amp; Tips</h2>
+
+  <h3>Paper 1 (Practical) — What Always Appears</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Section</th><th>What to expect</th><th>Common traps</th></tr>
+    <tr><td><strong>Q1: General programming</strong></td><td>Strings, loops, decisions, calculations (~30–40 marks)</td><td>Off-by-one errors in loops; forgetting to initialise variables</td></tr>
+    <tr><td><strong>Q2: Arrays &amp; files</strong></td><td>1D/2D arrays, text file reading/writing (~20–25 marks)</td><td>Using wrong index (0 vs 1-based); not closing file</td></tr>
+    <tr><td><strong>Q3: OOP</strong></td><td>Class with constructor, accessors, mutators, toString (~25–30 marks)</td><td>Calling Create on the object var (not class name); forgetting Result in functions</td></tr>
+    <tr><td><strong>Q4: Database/SQL</strong></td><td>TADOQuery, SQL statements including JOIN (~20–25 marks)</td><td>Not calling qry.Close before changing SQL; wrong JOIN ON condition</td></tr>
+    <tr><td><strong>Recursion (Gr12)</strong></td><td>Write a recursive function; trace it (~10–15 marks)</td><td>Missing base case; not returning Result</td></tr>
+  </table></div>
+
+  <h3>Paper 2 (Theory) — What Always Appears</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Topic</th><th>Typical mark allocation</th><th>What examiners look for</th></tr>
+    <tr><td>Hardware &amp; software</td><td>15–20 marks</td><td>Specific advantages/disadvantages; real-world examples</td></tr>
+    <tr><td>Networks &amp; internet</td><td>20–25 marks</td><td>Correct terminology; topology advantages/disadvantages</td></tr>
+    <tr><td>Databases &amp; normalisation</td><td>20–30 marks</td><td>Correct normal form identification; proper primary/foreign key use</td></tr>
+    <tr><td>Social implications</td><td>20–25 marks</td><td>Balance of positive AND negative effects; specific examples</td></tr>
+    <tr><td>Cybercrime</td><td>10–15 marks (Gr12)</td><td>Correct crime type names; effects on both victim and business</td></tr>
+    <tr><td>Current technology (IoT, AI, VR)</td><td>10–15 marks (Gr12)</td><td>Practical application examples; social implications</td></tr>
+  </table></div>
+
+  <h3>General Exam Advice</h3>
+  <div class="callout tip">
+    <div class="callout-title">Top 5 mark-saving habits</div>
+    <ul style="margin:0.5rem 0 0 1.25rem">
+      <li>Read the question twice — and write your Paper 2 answers in sentences or short paragraphs, never bullet points, whatever the command word is. Markers only credit the first few bullets, but they must read a whole paragraph</li>
+      <li>Never leave a practical question blank — partial marks are awarded for correct structure</li>
+      <li>In SQL: always check your WHERE condition matches the question's criteria exactly</li>
+      <li>In OOP: write the constructor first — it sets up all the attributes you'll use elsewhere</li>
+      <li>In theory: "advantage AND disadvantage" means you need both for full marks</li>
+    </ul>
+  </div>
+</section>
+
+</div>
+</body>
+</html>

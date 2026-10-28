@@ -11,11 +11,12 @@
 .bk-wrap{max-width:900px;margin:0 auto;padding:2.5rem 2rem 4rem;width:100%}
 .bk-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin:1.5rem 0}
 .bk-card{display:block;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.4rem;text-decoration:none;transition:border-color .15s,transform .15s}
-.bk-card:hover{transform:translateY(-2px);text-decoration:none}
+.bk-card:hover{transform:translateY(-2px)}
 .bk-card .bkn{font-size:2.2rem;font-weight:800;line-height:1}
 .bk-card h3{margin:.4rem 0 .3rem;color:var(--text)}
 .bk-card p{font-size:.85rem;color:var(--muted);margin:0 0 .7rem}
-.bk-open{display:inline-block;font-size:.85rem;font-weight:700;color:#fff;padding:.35rem .8rem;border-radius:6px}
+.bk-open{display:inline-block;font-size:.85rem;font-weight:700;color:#fff;padding:.35rem .8rem;border-radius:6px;text-decoration:none;margin:0 .35rem .35rem 0}
+.bk-open:hover{opacity:.9;color:#fff;text-decoration:none}
 .bk-card.g10{border-top:3px solid var(--gr10)}.bk-card.g10 .bkn{color:var(--gr10)}.bk-card.g10 .bk-open{background:var(--gr10)}
 .bk-card.g11{border-top:3px solid var(--gr11)}.bk-card.g11 .bkn{color:var(--gr11)}.bk-card.g11 .bk-open{background:var(--gr11)}
 .bk-card.g12{border-top:3px solid var(--gr12)}.bk-card.g12 .bkn{color:var(--gr12)}.bk-card.g12 .bk-open{background:var(--gr12)}
@@ -27,13 +28,15 @@
 <div class="bk-wrap">
   <div class="breadcrumb"><a href="index.html">Home</a><span class="breadcrumb-sep">&rsaquo;</span><span>Printable Study Booklets</span></div>
   <h1>Printable Study Booklets</h1>
-  <p class="page-intro">One booklet per grade, with the practical and theory notes for that grade in a single printable document. Each one starts with a contents page, so you can find any topic quickly and print it for studying away from the screen.</p>
+  <p class="page-intro">Two printable booklets for every grade: one for the <strong>practical</strong> (Delphi programming, Paper&nbsp;1) work and one for the <strong>theory</strong> (Paper&nbsp;2) work. Each starts with a contents page, so you can find any topic quickly and print just the half you need.</p>
 
   <div class="bk-cards">
-    <a class="bk-card g10" href="booklet-gr10.html"><div class="bkn">10</div><h3>Grade 10 Booklet</h3><p>Everything for Grade 10 in one printable study reference.</p><span class="bk-open">Open booklet</span></a>
-    <a class="bk-card g11" href="booklet-gr11.html"><div class="bkn">11</div><h3>Grade 11 Booklet</h3><p>Everything for Grade 11 in one printable study reference.</p><span class="bk-open">Open booklet</span></a>
-    <a class="bk-card g12" href="booklet-gr12.html"><div class="bkn">12</div><h3>Grade 12 Booklet</h3><p>Everything for Grade 12 in one printable study reference.</p><span class="bk-open">Open booklet</span></a>
+    <div class="bk-card g10"><div class="bkn">10</div><h3>Grade 10</h3><p>Algorithms, Delphi, variables, decisions, loops and strings; plus hardware, software, networks and the internet.</p><a class="bk-open" href="booklet-gr10-practical.html">Practical booklet</a><a class="bk-open" href="booklet-gr10-theory.html">Theory booklet</a></div>
+    <div class="bk-card g11"><div class="bkn">11</div><h3>Grade 11</h3><p>Arrays, text files, procedures and functions, databases in Delphi; plus processing, networks, mobile technology and social implications.</p><a class="bk-open" href="booklet-gr11-practical.html">Practical booklet</a><a class="bk-open" href="booklet-gr11-theory.html">Theory booklet</a></div>
+    <div class="bk-card g12"><div class="bkn">12</div><h3>Grade 12</h3><p>SQL, OOP, 2D arrays and recursion; plus databases, cloud, AI, cybercrime and the internet.</p><a class="bk-open" href="booklet-gr12-practical.html">Practical booklet</a><a class="bk-open" href="booklet-gr12-theory.html">Theory booklet</a></div>
   </div>
+
+  <p class="pp-note" style="font-size:.85rem;color:var(--muted)">Each booklet also includes the year planner for its grade and the Exam Extras page, because both are useful for practical and theory revision.</p>
 
   <div class="callout tip">
     <div class="callout-title">How to print</div>

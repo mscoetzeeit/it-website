@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Build three print-ready, black-and-white booklets (booklet-gr10.html,
-booklet-gr11.html, booklet-gr12.html) from the content pages of the
-Ms Coetzee IT website - one booklet per grade, instead of a single
-combined document.
+Build six print-ready, black-and-white booklets from the content pages of the
+Ms Coetzee IT website - a Practical and a Theory booklet for each grade
+(booklet-gr10-practical.html, booklet-gr10-theory.html, and the same for
+grades 11 and 12).
 
 - Pulls the <main class="content"> body out of every page (in the canonical
   nav.js order), drops the web chrome (top nav, sidebar, breadcrumb, prev/next).
@@ -12,7 +12,8 @@ combined document.
 - Adds a cover page and a table of contents at the FRONT of each grade's
   booklet, scoped to that grade only.
 - Appends that grade's Year Planner and the shared Exam Extras page as the
-  final chapters of each booklet.
+  final chapters of each booklet (they help both the practical and the theory
+  half, so both booklets carry them).
 - Ships a light, B&W print stylesheet that also recolours the inline dark-theme
   SVG diagrams to dark-on-white so they print cleanly, with widow/orphan
   control so headings are never stranded alone at the bottom of a page.
@@ -113,12 +114,31 @@ def extract(path):
     return body.strip()
 
 
-def build_grade(grade, info):
+PARTS = {
+    "practical": {
+        "sub": "Practical",
+        "title": "Practical Study Reference",
+        "blurb": "A printable guide to the practical Delphi programming for Grade {g} (Paper 1 skills), with the year planner and exam extras.",
+        "cover_line": "Practical &nbsp;&bull;&nbsp; Term Planner &nbsp;&bull;&nbsp; Exam Extras",
+    },
+    "theory": {
+        "sub": "Theory",
+        "title": "Theory Study Reference",
+        "blurb": "A printable guide to the theory for Grade {g} (Paper 2 content), with the year planner and exam extras.",
+        "cover_line": "Theory &nbsp;&bull;&nbsp; Term Planner &nbsp;&bull;&nbsp; Exam Extras",
+    },
+}
+SHARED = ("Term Planner", "Exam Resources")
+
+
+def build_grade(grade, info, part):
+    cfg = PARTS[part]
+    selected = [c for c in info["chapters"] if c[0] == cfg["sub"] or c[0] in SHARED]
     chapters = []
     toc_rows = []
     last_sub = None
 
-    for i, (sub, path, title) in enumerate(info["chapters"]):
+    for i, (sub, path, title) in enumerate(selected):
         cid = "ch%02d" % i
         body = extract(path)
 
@@ -138,17 +158,22 @@ def build_grade(grade, info):
     out = (TEMPLATE
            .replace("{{GRADE}}", grade)
            .replace("{{COLOUR}}", info["colour"])
+           .replace("{{PART_TITLE}}", cfg["title"])
+           .replace("{{PART_SUB}}", cfg["sub"])
+           .replace("{{PART_BLURB}}", cfg["blurb"].format(g=grade))
+           .replace("{{PART_COVER_LINE}}", cfg["cover_line"])
            .replace("{{TOC}}", toc_html)
            .replace("{{CHAPTERS}}", chapters_html))
-    out_name = "booklet-gr%s.html" % grade
+    out_name = "booklet-gr%s-%s.html" % (grade, part)
     with io.open(os.path.join(ROOT, out_name), "w", encoding="utf-8") as fh:
         fh.write(out)
-    print("Wrote %s with %d chapters." % (out_name, len(info["chapters"])))
+    print("Wrote %s with %d chapters." % (out_name, len(selected)))
 
 
 def build():
     for grade, info in GRADE_PAGES.items():
-        build_grade(grade, info)
+        for part in PARTS:
+            build_grade(grade, info, part)
 
 
 TEMPLATE = u"""<!DOCTYPE html>
@@ -156,9 +181,9 @@ TEMPLATE = u"""<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ms Coetzee IT - Grade {{GRADE}} Study Reference (Printable Booklet)</title>
+<title>Ms Coetzee IT - Grade {{GRADE}} {{PART_TITLE}} (Printable Booklet)</title>
 <style>
-/* ============ B&W PRINTABLE BOOKLET - GRADE {{GRADE}} ============ */
+/* ============ B&W PRINTABLE BOOKLET - GRADE {{GRADE}} {{PART_TITLE}} ============ */
 :root{ --ink:#111; --soft:#333; --faint:#555; --line:#888; --rule:#ccc; --panel:#f4f4f4; --head:#eaeaea; --grade:{{COLOUR}}; }
 *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
 html{ font-size:11.5pt; }
@@ -324,15 +349,15 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
   <section class="cover">
     <div class="brand">Ms Coetzee &middot; Information Technology</div>
     <div class="gradenum">{{GRADE}}</div>
-    <h1>Grade {{GRADE}} Study Reference</h1>
-    <p class="sub">A complete printable guide to Information Technology for Grade {{GRADE}} - practical Delphi programming and theory.</p>
-    <div class="grades">Practical &nbsp;&bull;&nbsp; Theory &nbsp;&bull;&nbsp; Term Planner &nbsp;&bull;&nbsp; Exam Extras</div>
+    <h1>Grade {{GRADE}} {{PART_TITLE}}</h1>
+    <p class="sub">{{PART_BLURB}}</p>
+    <div class="grades">{{PART_COVER_LINE}}</div>
     <div class="foot">CAPS-aligned &middot; Printable booklet edition</div>
   </section>
 
   <!-- TABLE OF CONTENTS (front of this grade's booklet) -->
   <section class="toc">
-    <h2>Contents &mdash; Grade {{GRADE}}</h2>
+    <h2>Contents &mdash; Grade {{GRADE}} {{PART_SUB}}</h2>
     <ul>
 {{TOC}}
     </ul>

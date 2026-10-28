@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ms Coetzee IT - Grade 12 Theory Study Reference (Printable Booklet)</title>
+<style>
+/* ============ B&W PRINTABLE BOOKLET - GRADE 12 Theory Study Reference ============ */
+:root{ --ink:#111; --soft:#333; --faint:#555; --line:#888; --rule:#ccc; --panel:#f4f4f4; --head:#eaeaea; --grade:#b45309; }
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ font-size:11.5pt; }
+body{
+  background:#fff; color:var(--ink);
+  font-family:'Segoe UI', system-ui, Arial, sans-serif;
+  line-height:1.55;
+  -webkit-print-color-adjust:exact; print-color-adjust:exact;
+}
+a{ color:var(--ink); text-decoration:none; }
+
+/* ---- page geometry + footer page numbers (print) ---- */
+@page{
+  size:A4;
+  margin:18mm 16mm 16mm 16mm;
+  @bottom-center{ content:counter(page); font-family:Arial, sans-serif; font-size:9pt; color:#555; }
+}
+
+.sheet{ max-width:760px; margin:0 auto; padding:24px; }
+
+/* ---- COVER ---- */
+.cover{ text-align:center; padding-top:22vh; page-break-after:always; break-after:page; }
+.cover .brand{ font-size:14pt; letter-spacing:.25em; text-transform:uppercase; color:var(--faint); }
+.cover .gradenum{ font-size:64pt; font-weight:800; color:var(--grade); line-height:1; margin:.3em 0 .1em; }
+.cover h1{ font-size:30pt; font-weight:800; letter-spacing:-.02em; line-height:1.1; margin:.1em 0 .3em; }
+.cover .sub{ font-size:13pt; color:var(--soft); max-width:30em; margin:0 auto 2.5em; }
+.cover .grades{ font-size:11pt; color:var(--faint); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); display:inline-block; padding:.6em 1.4em; }
+.cover .foot{ margin-top:3em; font-size:9.5pt; color:var(--faint); }
+
+/* ---- TABLE OF CONTENTS (front of this grade's booklet) ---- */
+.toc{ page-break-after:always; break-after:page; }
+.toc h2{ font-size:20pt; border-bottom:2px solid var(--grade); padding-bottom:.3em; margin-bottom:1em; }
+.toc ul{ list-style:none; }
+.toc-sub{ font-weight:700; font-size:9.5pt; text-transform:uppercase; letter-spacing:.08em; color:var(--faint); margin:1em 0 .3em; border-bottom:1px solid var(--rule); padding-bottom:.2em; }
+.toc-item{ margin:.12em 0 .12em 1.2em; font-size:10.5pt; }
+.toc-item a{ color:var(--ink); }
+.toc-item a::before{ content:"\2022"; color:var(--line); margin-right:.6em; }
+
+/* ---- CHAPTER ---- */
+.chapter{ page-break-before:always; break-before:page; }
+.chapter-tag{ font-size:8.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--grade); margin-bottom:.4em; }
+
+/* ---- WIDOW/ORPHAN CONTROL FOR HEADINGS ----
+   A heading must never be left alone as the last line on a page with its
+   own content pushed to the next page. break-after:avoid-page forces the
+   heading to move down WITH whatever follows it, rather than being
+   orphaned. break-inside:avoid-page stops a heading's own text (when it
+   wraps to two lines) from being split across a page boundary either. */
+h1,h2,h3,h4,h5,h6{ break-after:avoid-page; break-inside:avoid-page; page-break-after:avoid; page-break-inside:avoid; }
+
+h1{ font-size:21pt; font-weight:800; letter-spacing:-.01em; line-height:1.15; margin-bottom:.35em; }
+h2{ font-size:15pt; font-weight:700; margin:1.4em 0 .5em; padding-bottom:.25em; border-bottom:1px solid var(--grade); }
+h3{ font-size:12.5pt; font-weight:700; margin:1em 0 .35em; }
+h4{ font-size:11pt; font-weight:700; margin:.9em 0 .3em; }
+
+/* General widow/orphan control for body text: never leave a single stray
+   line of a paragraph alone at the top or bottom of a printed page. */
+p,li,td{ orphans:3; widows:3; }
+
+ul,ol{ margin:.4em 0 .8em 1.4em; }
+li{ margin-bottom:.2em; }
+strong{ font-weight:700; }
+
+.grade-badge{ font-size:7.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.08em; border:1px solid var(--line); padding:.12em .45em; border-radius:3px; vertical-align:middle; margin-left:.4em; color:var(--soft); white-space:nowrap; }
+
+.page-intro{ font-size:11.5pt; color:var(--soft); margin-bottom:1.2em; padding-bottom:.8em; border-bottom:1px solid var(--rule); }
+
+/* ---- CALLOUTS ---- */
+.callout{ border:1px solid var(--rule); border-left:3px solid var(--grade); background:var(--panel); padding:.6em .9em; margin:.9em 0; border-radius:0 4px 4px 0; page-break-inside:avoid; break-inside:avoid-page; }
+.callout-title{ font-size:8.5pt; font-weight:800; text-transform:uppercase; letter-spacing:.07em; color:var(--soft); margin-bottom:.3em; }
+.callout p{ margin:0; }
+
+/* ---- HARD-BLOCK BANNER ---- solid black/white for "cannot be used/assessed"
+   warnings, since colour (red) would just print as grey on a B&W printer. */
+.hard-block{ background:#111; color:#fff; font-weight:800; text-align:center; padding:.55em .9em; border-radius:4px; margin:.5em 0 1em; font-size:10pt; page-break-inside:avoid; break-inside:avoid-page; }
+
+/* ---- TABLES ---- */
+.tbl-wrap{ margin:.9em 0; overflow:visible; }
+table{ width:100%; border-collapse:collapse; font-size:9.5pt; page-break-inside:avoid; break-inside:avoid-page; }
+th{ background:var(--head); text-align:left; padding:.4em .6em; font-size:8.5pt; text-transform:uppercase; letter-spacing:.04em; color:var(--soft); border:1px solid var(--rule); }
+td{ padding:.4em .6em; border:1px solid var(--rule); vertical-align:top; }
+
+/* ---- DEFINITION GRID ---- */
+.def-grid{ display:grid; grid-template-columns:max-content 1fr; gap:.3em 1.2em; margin:.8em 0; }
+.def-term{ font-weight:700; }
+
+/* ---- CODE ---- */
+.code-block{ margin:.9em 0; page-break-inside:avoid; break-inside:avoid-page; }
+.code-label{ display:inline-block; background:var(--head); border:1px solid var(--rule); border-bottom:none; padding:.18em .6em; font-size:8pt; color:var(--soft); border-radius:4px 4px 0 0; font-family:'Consolas','Courier New',monospace; }
+pre{ background:var(--panel); border:1px solid var(--rule); border-radius:0 4px 4px 4px; padding:.7em .9em; overflow:visible; white-space:pre-wrap; word-wrap:break-word; font-size:9pt; line-height:1.45; font-family:'Consolas','Courier New',monospace; }
+pre.no-label{ border-radius:4px; }
+code{ font-family:'Consolas','Courier New',monospace; }
+p code,li code,td code,th code{ background:var(--panel); border:1px solid var(--rule); padding:0 .25em; border-radius:3px; font-size:.92em; color:var(--ink); }
+/* syntax tokens -> monochrome */
+.kw,.kw2,.sql-kw{ color:var(--ink); font-weight:700; }
+.str,.num,.fn,.cls,.sql-fn{ color:var(--ink); }
+.cmt{ color:var(--faint); font-style:italic; }
+
+/* ---- BADGES / TAGS ---- */
+.badge,.extra-tag{ display:inline-block; font-size:7.5pt; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:.1em .45em; border:1px solid var(--line); border-radius:3px; color:var(--soft); }
+
+/* ---- IMAGES ---- */
+img{ max-width:100%; height:auto; }
+.img-float-right{ float:right; margin:0 0 .8em 1em; max-width:200px; border:1px solid var(--rule); padding:4px; border-radius:4px; }
+.img-float-left{ float:left; margin:0 1em .8em 0; max-width:200px; border:1px solid var(--rule); padding:4px; border-radius:4px; }
+.img-center{ display:block; margin:.8em auto; max-width:100%; border:1px solid var(--rule); padding:4px; border-radius:4px; }
+.img-caption{ text-align:center; font-size:8.5pt; color:var(--faint); margin:.2em 0 .9em; }
+
+.hw-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:.7em; margin:.9em 0; page-break-inside:avoid; }
+.hw-card{ border:1px solid var(--rule); border-radius:6px; padding:.5em; text-align:center; page-break-inside:avoid; break-inside:avoid-page; }
+.hw-card img{ width:100%; max-height:100px; object-fit:contain; margin-bottom:.3em; }
+.hw-card-name,.hw-card .hw-name{ font-size:9pt; font-weight:700; margin-bottom:.15em; }
+.hw-card-desc,.hw-card .hw-desc{ font-size:8pt; color:var(--faint); line-height:1.35; }
+
+.delphi-panel{ border:1px solid var(--rule); border-radius:6px; overflow:hidden; margin:.8em 0; page-break-inside:avoid; break-inside:avoid-page; }
+.delphi-panel img{ width:100%; display:block; }
+.delphi-panel .dp-label{ padding:.35em .6em; font-size:8.5pt; font-weight:700; color:var(--soft); background:var(--head); border-top:1px solid var(--rule); }
+.clearfix::after{ content:""; display:table; clear:both; }
+
+/* ---- TERM PLANNER PAGES ---- */
+.term-block{ border:1px solid var(--rule); border-radius:6px; margin-bottom:1.1em; overflow:hidden; page-break-inside:avoid; break-inside:avoid-page; }
+.term-header{ padding:.6em .9em; display:flex; align-items:center; gap:.8em; border-bottom:1px solid var(--rule); background:var(--panel); }
+.term-num{ font-size:15pt; font-weight:800; min-width:2em; color:var(--grade); }
+.term-title{ font-size:10.5pt; font-weight:700; }
+.term-subtitle{ font-size:8.5pt; color:var(--faint); margin-top:.1em; }
+.term-body{ display:grid; grid-template-columns:1fr 1fr; }
+.term-col{ padding:.7em .9em; }
+.term-col:first-child{ border-right:1px solid var(--rule); }
+.term-col-title{ font-size:8pt; text-transform:uppercase; letter-spacing:.07em; color:var(--faint); margin-bottom:.4em; font-weight:700; }
+.term-links{ list-style:none; margin:0; padding:0; }
+.term-links li{ margin-bottom:.2em; }
+.term-links a{ font-size:9pt; display:flex; align-items:center; gap:.4em; }
+.tl-dot,.tl-plain{ width:5px; height:5px; border-radius:50%; background:var(--ink); flex-shrink:0; }
+.tl-plain{ background:var(--line); }
+
+/* ---- EXAM EXTRAS ---- */
+.extras-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:.7em; margin:.9em 0; }
+.extra-card{ border:1px solid var(--rule); border-left:3px solid var(--grade); border-radius:0 4px 4px 0; padding:.6em .8em; page-break-inside:avoid; break-inside:avoid-page; }
+.extra-card h4{ font-size:9.5pt; margin:.25em 0 .3em; }
+.extra-card p{ font-size:8.5pt; color:var(--faint); margin:0; }
+
+/* ---- SVG DIAGRAMS -> dark-on-white ----
+   Flatten the dark-theme diagrams to white shapes, dark outlines, dark text.
+   Text is forced dark with !important so labels stay readable on the now-white
+   shapes (boxes, flowchart diamonds, pyramid levels are all <rect>/<polygon>). */
+svg{ max-width:100%; height:auto; }
+svg text{ fill:#111 !important; }
+svg [fill]{ fill:#fff; }
+svg [stroke]{ stroke:#222; }
+svg rect,svg polygon,svg ellipse,svg circle,svg path,svg line,svg polyline,svg g{ stroke:#333; }
+svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
+
+@media print{
+  .sheet{ max-width:none; padding:0; }
+  a{ color:var(--ink) !important; }
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- COVER -->
+  <section class="cover">
+    <div class="brand">Ms Coetzee &middot; Information Technology</div>
+    <div class="gradenum">12</div>
+    <h1>Grade 12 Theory Study Reference</h1>
+    <p class="sub">A printable guide to the theory for Grade 12 (Paper 2 content), with the year planner and exam extras.</p>
+    <div class="grades">Theory &nbsp;&bull;&nbsp; Term Planner &nbsp;&bull;&nbsp; Exam Extras</div>
+    <div class="foot">CAPS-aligned &middot; Printable booklet edition</div>
+  </section>
+
+  <!-- TABLE OF CONTENTS (front of this grade's booklet) -->
+  <section class="toc">
+    <h2>Contents &mdash; Grade 12 Theory</h2>
+    <ul>
+<li class="toc-sub">Theory</li>
+<li class="toc-item"><a href="#ch00">Data Collection & Warehousing</a></li>
+<li class="toc-item"><a href="#ch01">Relational Databases & Normalisation</a></li>
+<li class="toc-item"><a href="#ch02">Hardware & Performance</a></li>
+<li class="toc-item"><a href="#ch03">Cloud Computing, AI, VR & AR</a></li>
+<li class="toc-item"><a href="#ch04">Internet Technologies</a></li>
+<li class="toc-item"><a href="#ch05">Networks & Remote Access</a></li>
+<li class="toc-item"><a href="#ch06">Communication Technologies</a></li>
+<li class="toc-item"><a href="#ch07">Cybercrime & Safeguards</a></li>
+<li class="toc-item"><a href="#ch08">Social Implications</a></li>
+<li class="toc-sub">Term Planner</li>
+<li class="toc-item"><a href="#ch09">Grade 12 - By Term</a></li>
+<li class="toc-sub">Exam Resources</li>
+<li class="toc-item"><a href="#ch10">Exam Extras (Out-of-CAPS)</a></li>
+    </ul>
+  </section>
+
+  <!-- CHAPTERS -->
+<section class="chapter" id="ch00">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Data Collection &amp; Warehousing <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">Modern databases are fed by many automated data collection methods. Large organisations store historical data in warehouses for analysis and decision-making.</p>
+<div class="term-divider"><span class="term-divider-badge">T1</span><span class="term-divider-label">Term 1 &middot; Data Collection &amp; Warehousing</span></div>
+<h2>Methods of Data Collection</h2>
+<p><strong>Data collection</strong> is the process of gathering raw facts and figures from many different sources so that they can be stored, processed and turned into useful information. In the old days a person sat with a clipboard and wrote everything down by hand. Today most data is collected <strong>automatically</strong> — every time you swipe a card, drive under an e-toll gantry or tap a website, data is being captured about you without anyone writing a single thing.</p>
+<div class="callout"><div class="callout-title">WHY THIS MATTERS</div><p>A database is only as good as the data inside it. The more accurate, complete and up-to-date the collected data is, the better the decisions an organisation can make. Automated collection means more data, collected faster, with fewer human mistakes.</p></div>
+<p><strong>Example:</strong> When you scan your Pick n Pay Smart Shopper card at the till, the shop instantly records what you bought, when, where and for how much — that single swipe feeds a database that the shop later uses to send you targeted specials.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Method</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>Forms (manual)</strong></td><td>User types data directly into a form</td><td>School registration, job application</td></tr>
+  <tr><td><strong>Web forms</strong></td><td>Online interactive pages with GUI components (dropdowns, checkboxes)</td><td>Online survey, account sign-up</td></tr>
+  <tr><td><strong>RFID tags</strong></td><td>Wireless chips store ID data, read without contact</td><td>Library books, inventory, e-toll, access cards</td></tr>
+  <tr><td><strong>Digital sensors</strong></td><td>Gather environmental data automatically</td><td>Temperature sensors, motion detectors</td></tr>
+  <tr><td><strong>Cookies</strong></td><td>Small files stored by websites to record browsing behaviour and preferences</td><td>Login sessions, shopping carts, ad targeting</td></tr>
+  <tr><td><strong>Transaction tracking</strong></td><td>Records each purchase: date, time, location, product, amount</td><td>Credit card transactions, loyalty cards</td></tr>
+  <tr><td><strong>Mobile apps</strong></td><td>Collect app usage, location, device data</td><td>Uber location tracking, fitness app steps</td></tr>
+</table></div>
+<h2>Static vs Dynamic Location Data</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>Static</strong></td><td>Fixed, does not change once recorded</td><td>Address of a shop, GPS coordinates of a landmark</td></tr>
+  <tr><td><strong>Dynamic</strong></td><td>Changes as the object moves, updated continuously</td><td>Uber driver location, delivery truck tracking</td></tr>
+</table></div>
+<h2>Data Warehousing</h2>
+<p>A <strong>data warehouse</strong> is a large central storage system that collects and consolidates <strong>historical</strong> data from many separate source databases into one single place, so that it can be analysed for trends and decision-making.</p>
+<p>Think of it like this: a normal database is like the till at one Pick n Pay branch — it records today's sales as they happen. A data warehouse is like head office in Cape Town, where the sales from <em>every</em> branch in the country, going back many years, are all poured into one giant store. Head office does not use this to ring up a sale; they use it to spot the big picture — which products sell best in winter, which branches are growing, where to open the next store.</p>
+<div class="callout"><div class="callout-title">KEY CHARACTERISTICS</div><p><strong>Central</strong> – one single store that brings many sources together.<br><strong>Historical</strong> – it keeps years of old data, not just today's transactions.<br><strong>Read-mostly</strong> – data is loaded in and then read for reports; it is not constantly changed.<br><strong>Subject-oriented</strong> – organised around topics like "sales" or "customers" for easy analysis.</p></div>
+<p><strong>Note:</strong> Because a warehouse holds so much data from so many sources, the data must first be <em>cleaned</em> and put into a consistent format before it is loaded in — otherwise the same customer might appear three different ways and the analysis would be wrong.</p>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Database</th><th>Data Warehouse</th></tr>
+  <tr><td><strong>Purpose</strong></td><td>Day-to-day transactions</td><td>Historical analysis and reporting</td></tr>
+  <tr><td><strong>Data</strong></td><td>Current transactions only</td><td>Historical data from many sources</td></tr>
+  <tr><td><strong>Operations</strong></td><td>Read + write (INSERT, UPDATE, DELETE)</td><td>Mostly read (SELECT, reports)</td></tr>
+  <tr><td><strong>Used by</strong></td><td>Operational staff</td><td>Analysts, management, BI tools</td></tr>
+</table></div>
+<div class="callout"><div class="callout-title">Metadata</div><p><strong>Metadata</strong> is data that describes other data. It doesn't tell you the actual content, but tells you facts <em>about</em> that content — e.g. a photo's metadata might include the file size, the date it was created, the camera used and the GPS location, without saying anything about what's actually in the photo. Metadata is what lets you search, sort and organise large amounts of data efficiently.</p></div>
+<h3>Centralised vs Distributed Databases</h3>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Centralised database</th><th>Distributed database</th></tr>
+  <tr><td><strong>Where data lives</strong></td><td>Stored and managed on a single server</td><td>Spread across multiple servers/locations</td></tr>
+  <tr><td><strong>Main advantage</strong></td><td>Simpler to manage, secure and back up</td><td>Better performance for users in different locations; no single point of failure</td></tr>
+  <tr><td><strong>Main disadvantage</strong></td><td>If that one server fails, the whole system is unavailable</td><td>More complex to keep all copies of the data consistent (synchronisation)</td></tr>
+  <tr><td><strong>Typical use</strong></td><td>A small business with one office</td><td>A large company with branches/customers in many regions, or cloud-based services</td></tr>
+</table></div>
+<div class="callout tip">
+  <div class="callout-title">EXAM ANGLE — centralised vs distributed</div>
+  <p>The usual question just asks you to distinguish the two — focus on the "single server" vs "spread across multiple servers/locations" distinction, since that's the core of almost every mark allocation.</p>
+</div>
+<h2>Data Mining</h2>
+<p><strong>Data mining</strong> is the process of analysing very large datasets to discover hidden patterns, trends and useful relationships that a human could never spot by eye. The name is a good clue: just as a gold miner digs through tonnes of rock to find a few grams of gold, data mining digs through millions of records to find the valuable nuggets of knowledge buried inside.</p>
+<h3 id="why-mine">Why Do Companies Mine Data?</h3>
+<p>Companies collect enormous amounts of data, but raw data on its own is useless — it is just numbers and words. Data mining turns that raw data into <strong>insight</strong> they can act on. For example, Pick n Pay's Smart Shopper data might reveal that customers who buy nappies on a Friday evening also tend to buy snacks — so the shop places those products near each other and increases sales. Nobody told the computer to look for that link; the pattern was <em>mined</em> out of the data.</p>
+<h3>Process</h3>
+<ol>
+  <li><strong>Extract relevant data</strong> — use SQL to pull only the required subset</li>
+  <li><strong>Look for patterns</strong> — analyse for trends, correlations, anomalies</li>
+  <li><strong>Discover knowledge</strong> — turn patterns into actionable insights</li>
+</ol>
+<h3>Applications</h3>
+<ul>
+  <li><strong>Marketing</strong>: target campaigns based on customer age, interests, behaviour</li>
+  <li><strong>Healthcare</strong>: predict patient risk factors from historical data</li>
+  <li><strong>Government</strong>: determine social grant thresholds</li>
+  <li><strong>Social media</strong>: Facebook mines your likes to suggest friends and content</li>
+</ul>
+<h2>Caring for Data</h2>
+<p><strong>Caring for data</strong> means protecting the accuracy, security and availability of an organisation's data throughout its life. Data is one of the most valuable assets a company owns — often worth more than its buildings or equipment — because decisions, money and reputations all depend on it. Poor data leads to poor decisions, and lost data can shut a business down completely.</p>
+<div class="callout warning"><div class="callout-title">IMPORTANT RULE</div><p>"Garbage in, garbage out." If incorrect data goes into the system, only incorrect information can come out — no matter how clever your analysis is. This is why validation and verification at the point of capture are so important.</p></div>
+<p>Below are the main ways an organisation looks after its data. Notice how each one protects against a different danger — wrong data, lost data, or stolen data.</p>
+<ul>
+  <li><strong>Validation</strong> — ensure entered data meets rules (format, range, type)</li>
+  <li><strong>Verification</strong> — ensure data is correct and intentional (double entry, confirmation)</li>
+  <li><strong>Logging</strong> — audit trail recording who changed what and when</li>
+  <li><strong>Access control</strong> — passwords, user rights, encryption</li>
+  <li><strong>Parallel data sets</strong> — duplicate copies in separate locations for disaster recovery</li>
+</ul>
+<div class="quiz" data-title="Quick Quiz &mdash; Data Management">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">A large central store of historical data from many sources, used for analysis, is a&hellip;</p>
+    <button class="quiz-opt">Spreadsheet</button>
+    <button class="quiz-opt">Data warehouse</button>
+    <button class="quiz-opt">Cookie</button>
+    <p class="quiz-why">A data warehouse gathers data for reporting/analysis, not day-to-day transactions.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Examining huge data sets to uncover hidden patterns and trends is&hellip;</p>
+    <button class="quiz-opt">Data mining</button>
+    <button class="quiz-opt">Data capture</button>
+    <button class="quiz-opt">Normalisation</button>
+    <p class="quiz-why">Data mining digs through big data to find useful relationships.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">Tags read by radio waves to track stock or assets automatically use&hellip;</p>
+    <button class="quiz-opt">GPS</button>
+    <button class="quiz-opt">OTP</button>
+    <button class="quiz-opt">RFID</button>
+    <p class="quiz-why">RFID tags respond to a reader&rsquo;s radio signal, so items are logged without typing.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch01">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Relational Databases &amp; Normalisation <span class="grade-badge">Grade 12</span></h1>
+  <p class="page-intro">A relational database stores data in structured tables linked together. Normalisation is the process of cleaning up a database design to remove repetition and prevent errors.</p>
+
+  <div class="term-divider"><span class="term-divider-badge">T1</span><span class="term-divider-label">Term 1 &middot; Relational Databases &amp; Normalisation</span></div>
+
+  <h2>What is a Relational Database?</h2>
+  <p>A relational database stores data in <strong>tables</strong> (also called relations). Each table represents one type of thing — for example, a table for students, a separate table for subjects. Tables are then <strong>linked</strong> together using key fields.</p>
+
+  <!-- TABLE DIAGRAM SVG -->
+  <div style="margin:1.5rem 0;overflow-x:auto">
+    <svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:640px">
+      <!-- tblStudents -->
+      <rect x="20" y="10" width="260" height="200" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+      <rect x="20" y="10" width="260" height="34" rx="6" fill="#fbbf24" opacity="0.2"/>
+      <rect x="20" y="10" width="260" height="34" fill="none" stroke="#fbbf24" stroke-width="1.5" rx="6"/>
+      <text x="150" y="33" text-anchor="middle" font-size="13" font-weight="700" fill="#fbbf24" font-family="Consolas,monospace">tblStudents</text>
+      <!-- headers -->
+      <rect x="21" y="44" width="258" height="24" fill="#21262d"/>
+      <text x="35" y="61" font-size="11" fill="#8b949e" font-family="Consolas,monospace">StudentID</text>
+      <text x="120" y="61" font-size="11" fill="#8b949e" font-family="Consolas,monospace">Name</text>
+      <text x="200" y="61" font-size="11" fill="#8b949e" font-family="Consolas,monospace">ClassID</text>
+      <!-- PK indicator -->
+      <text x="22" y="61" font-size="11" fill="#fbbf24">🔑</text>
+      <!-- row 1 -->
+      <line x1="21" y1="68" x2="279" y2="68" stroke="#30363d"/>
+      <text x="35" y="83" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">1</text>
+      <text x="120" y="83" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">Alice</text>
+      <text x="200" y="83" font-size="11" fill="#22d3ee" font-family="Consolas,monospace">C01</text>
+      <!-- row 2 -->
+      <line x1="21" y1="91" x2="279" y2="91" stroke="#30363d"/>
+      <text x="35" y="106" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">2</text>
+      <text x="120" y="106" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">Bob</text>
+      <text x="200" y="106" font-size="11" fill="#22d3ee" font-family="Consolas,monospace">C02</text>
+      <!-- row 3 -->
+      <line x1="21" y1="114" x2="279" y2="114" stroke="#30363d"/>
+      <text x="35" y="129" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">3</text>
+      <text x="120" y="129" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">Carol</text>
+      <text x="200" y="129" font-size="11" fill="#22d3ee" font-family="Consolas,monospace">C01</text>
+      <text x="35" y="185" font-size="10" fill="#4ade80" font-family="sans-serif">PK: StudentID</text>
+      <text x="35" y="200" font-size="10" fill="#22d3ee" font-family="sans-serif">FK: ClassID → tblClasses</text>
+
+      <!-- Arrow -->
+      <line x1="200" y1="106" x2="360" y2="106" stroke="#22d3ee" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#22d3ee"/>
+        </marker>
+      </defs>
+      <text x="290" y="100" font-size="10" fill="#22d3ee" font-family="sans-serif">FK links to PK</text>
+
+      <!-- tblClasses -->
+      <rect x="360" y="10" width="260" height="200" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+      <rect x="360" y="10" width="260" height="34" rx="6" fill="#fbbf24" opacity="0.2"/>
+      <rect x="360" y="10" width="260" height="34" fill="none" stroke="#fbbf24" stroke-width="1.5" rx="6"/>
+      <text x="490" y="33" text-anchor="middle" font-size="13" font-weight="700" fill="#fbbf24" font-family="Consolas,monospace">tblClasses</text>
+      <rect x="361" y="44" width="258" height="24" fill="#21262d"/>
+      <text x="375" y="61" font-size="11" fill="#8b949e" font-family="Consolas,monospace">ClassID</text>
+      <text x="450" y="61" font-size="11" fill="#8b949e" font-family="Consolas,monospace">ClassName</text>
+      <text x="362" y="61" font-size="11" fill="#fbbf24">🔑</text>
+      <line x1="361" y1="68" x2="619" y2="68" stroke="#30363d"/>
+      <text x="375" y="83" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">C01</text>
+      <text x="450" y="83" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">12A</text>
+      <line x1="361" y1="91" x2="619" y2="91" stroke="#30363d"/>
+      <text x="375" y="106" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">C02</text>
+      <text x="450" y="106" font-size="11" fill="#e6edf3" font-family="Consolas,monospace">12B</text>
+      <text x="375" y="185" font-size="10" fill="#4ade80" font-family="sans-serif">PK: ClassID</text>
+    </svg>
+  </div>
+
+  <h2>Key Fields</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Key Type</th><th>Description</th><th>Example</th></tr>
+    <tr><td><strong>Primary Key (PK)</strong></td><td>Uniquely identifies each record. No duplicates, no blanks.</td><td><code>StudentID</code> in tblStudents</td></tr>
+    <tr><td><strong>Foreign Key (FK)</strong></td><td>A field that links to the primary key of another table. Creates the relationship.</td><td><code>ClassID</code> in tblStudents → links to tblClasses</td></tr>
+    <tr><td><strong>Composite Key</strong></td><td>Two or more fields combined to create a unique identifier</td><td><code>StudentID + SubjectID</code> in tblMarks</td></tr>
+    <tr><td><strong>Alternate Key</strong></td><td>Could be a primary key but wasn&apos;t chosen as one</td><td>Email address (also unique, but ID was chosen as PK)</td></tr>
+  </table></div>
+  <div class="callout warning">
+    <div class="callout-title">Trap — PK vs FK</div>
+    <p>One field can be <strong>both</strong> — a primary key in its own table and a foreign key where it's used to link into another table. The rule to remember: a <strong>primary key</strong> may never be null or duplicated, but a <strong>foreign key</strong> is allowed to be null (e.g. a student who hasn&apos;t been assigned a class yet).</p>
+  </div>
+
+  <h2>Referential Integrity</h2>
+  <p>Referential integrity is a rule that ensures relationships between tables remain consistent. It means: <strong>a foreign key value must always match an existing primary key value</strong> in the related table.</p>
+  <div class="callout warning">
+    <div class="callout-title">Example of violating referential integrity</div>
+    <p>If ClassID <code>C03</code> doesn&apos;t exist in tblClasses, you cannot add a student with ClassID = <code>C03</code>. The database will reject this to prevent orphan records (records with no matching parent).</p>
+  </div>
+
+  <h2>Entity Relationship Diagram (ERD)</h2>
+  <p>An <strong>ERD</strong> is a diagram that shows the <strong>entities</strong> (tables) in a database and the <strong>relationships</strong> between them. Each box is a table; the line between boxes shows how they relate. You are often asked to <em>draw</em> one in the exam, so practise the crow's-foot notation below.</p>
+
+  <div style="margin:1.25rem 0;overflow-x:auto">
+    <svg viewBox="0 0 720 200" width="720" height="200" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;font-family:inherit">
+      <rect width="720" height="200" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+      <!-- tblBooks entity -->
+      <rect x="30" y="40" width="220" height="120" rx="6" fill="#21262d" stroke="#fbbf24" stroke-width="1.5"/>
+      <rect x="30" y="40" width="220" height="26" rx="6" fill="#fbbf24" opacity="0.2"/>
+      <text x="140" y="57" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">tblBooks</text>
+      <text x="40" y="78" fill="#fbbf24" font-size="10">BookID (PK)</text>
+      <text x="40" y="96" fill="#8b949e" font-size="10">Title</text>
+      <text x="40" y="114" fill="#8b949e" font-size="10">Author</text>
+      <text x="40" y="132" fill="#8b949e" font-size="10">Genre</text>
+      <!-- relationship line one-to-many -->
+      <line x1="250" y1="100" x2="470" y2="100" stroke="#4ade80" stroke-width="2"/>
+      <line x1="262" y1="88" x2="262" y2="112" stroke="#4ade80" stroke-width="2"/>
+      <text x="250" y="84" fill="#4ade80" font-size="11" font-weight="700">1</text>
+      <!-- crow's foot at many side -->
+      <line x1="470" y1="100" x2="456" y2="88" stroke="#4ade80" stroke-width="2"/>
+      <line x1="470" y1="100" x2="456" y2="100" stroke="#4ade80" stroke-width="2"/>
+      <line x1="470" y1="100" x2="456" y2="112" stroke="#4ade80" stroke-width="2"/>
+      <text x="430" y="84" fill="#4ade80" font-size="11" font-weight="700">&infin;</text>
+      <!-- tblLoans entity -->
+      <rect x="470" y="40" width="220" height="120" rx="6" fill="#21262d" stroke="#22d3ee" stroke-width="1.5"/>
+      <rect x="470" y="40" width="220" height="26" rx="6" fill="#22d3ee" opacity="0.2"/>
+      <text x="580" y="57" text-anchor="middle" fill="#22d3ee" font-size="11" font-weight="700">tblLoans</text>
+      <text x="480" y="78" fill="#22d3ee" font-size="10">LoanID (PK)</text>
+      <text x="480" y="96" fill="#a78bfa" font-size="10">BookID (FK)</text>
+      <text x="480" y="114" fill="#8b949e" font-size="10">DateBorrowed</text>
+      <text x="480" y="132" fill="#8b949e" font-size="10">DateReturned</text>
+    </svg>
+  </div>
+  <p>The relationship is created by putting the <strong>primary key</strong> of the "one" table into the "many" table as a <strong>foreign key</strong> (here <code>BookID</code> links <code>tblBooks</code> to <code>tblLoans</code>).</p>
+
+  <h3>Types of Relationships</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Relationship</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td><strong>One-to-One (1:1)</strong></td><td>One record links to exactly one record in the other table</td><td>One person &harr; one ID number</td></tr>
+    <tr><td><strong>One-to-Many (1:&infin;)</strong></td><td>One record links to many records in the other table</td><td>One book can appear in many loans</td></tr>
+    <tr><td><strong>Many-to-Many (&infin;:&infin;)</strong></td><td>Many records link to many records &mdash; resolved with a third "link" table</td><td>Students &harr; Activities (via a link table)</td></tr>
+  </table></div>
+  <div class="callout tip">
+    <div class="callout-title">Many-to-many needs a link table</div>
+    <p>A relational database can't store a many-to-many relationship directly. You break it into two one-to-many relationships using a <strong>junction/link table</strong> (e.g. <code>tblLoans</code> links books and borrowers).</p>
+  </div>
+
+  <h2>Physical vs Logical Integrity</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Type</th><th>What it protects</th><th>How it is ensured</th></tr>
+    <tr><td><strong>Physical integrity</strong></td><td>The data is not lost or damaged by hardware failure, power loss or disaster</td><td>RAID, UPS, regular backups, off-site storage</td></tr>
+    <tr><td><strong>Logical integrity</strong></td><td>The data stays correct, consistent and valid <em>within</em> the database</td><td>Validation rules, referential integrity, record locking</td></tr>
+  </table></div>
+  <div class="callout">
+    <div class="callout-title">Record locking</div>
+    <p><strong>Record locking</strong> temporarily "locks" a record while one user is editing it, so that a second user cannot change the same record at the same time. This prevents two users overwriting each other's changes and keeps the data consistent (a key way to protect <em>logical</em> integrity in a multi-user database).</p>
+  </div>
+
+  <h2>Database Anomalies</h2>
+  <p>When a database is poorly designed (not normalised), three types of errors can occur when working with data:</p>
+  <div class="tbl-wrap"><table>
+    <tr><th>Anomaly</th><th>When it happens</th><th>Example</th></tr>
+    <tr><td><strong>Insertion anomaly</strong></td><td>You can&apos;t add new data without first adding other unrelated data</td><td>Can&apos;t add a new class until at least one student enrols in it</td></tr>
+    <tr><td><strong>Deletion anomaly</strong></td><td>Deleting one record accidentally removes other important data</td><td>Deleting the only student in a class also deletes the class&apos;s information</td></tr>
+    <tr><td><strong>Modification anomaly</strong></td><td>Changing one value means updating many rows — and missing some creates inconsistency</td><td>A teacher&apos;s name appears in 50 student records; update one and the others are wrong</td></tr>
+  </table></div>
+  <div class="callout tip">
+    <div class="callout-title">The fix: Normalisation</div>
+    <p>Normalisation splits large, messy tables into smaller, focused tables and links them properly. This eliminates all three anomalies.</p>
+  </div>
+
+  <h2>Spot the Design Errors — Exam Checklist</h2>
+  <p>A common Section D question gives you a badly designed table and asks you to identify the faults. Run the table through this checklist in order:</p>
+  <div class="tbl-wrap"><table>
+    <tr><th>Design fault</th><th>Why it&apos;s a problem</th><th>Fix</th></tr>
+    <tr><td><strong>Unsuitable primary key</strong></td><td>A surname, e-mail or cellphone number can repeat or change over time</td><td>Use an autonumber ID field that is unique and never changes</td></tr>
+    <tr><td><strong>Non-atomic field</strong></td><td>A cell holding more than one piece of data, e.g. a full name or a full address in one field</td><td>Split into separate fields (Name &rarr; FirstName + Surname)</td></tr>
+    <tr><td><strong>Data stored in field names</strong></td><td>Columns named <code>2024</code>, <code>2025</code>, <code>2026</code> — adding a new year means redesigning the table</td><td>Store the year as <em>data</em> in a field, not as a column heading</td></tr>
+    <tr><td><strong>Descriptive data duplicated with a foreign key</strong></td><td>Storing both <code>TeacherID</code> and <code>TeacherSurname</code> in the child table is redundant</td><td>Store only the foreign key; retrieve the rest through the relationship</td></tr>
+    <tr><td><strong>Inconsistent or ambiguous naming</strong></td><td>Fields named <code>Name1</code>, <code>Nm</code>, or a mix of naming styles</td><td>Use clear, consistent, descriptive field names throughout</td></tr>
+  </table></div>
+
+  <h4>Worked example: tblClubMembers as given</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>MemberName</th><th>Activities</th><th>Coach</th><th>CoachCell</th></tr>
+    <tr><td>Lindiwe Zulu</td><td>Chess, Debating</td><td>Mr Adams</td><td>0821234567</td></tr>
+    <tr><td>Sam Petersen</td><td>Chess</td><td>Mr Adams</td><td>0821234567</td></tr>
+  </table></div>
+  <p style="color:var(--muted);font-size:.875rem">❌ No primary key &middot; MemberName is not atomic (first name + surname) &middot; Activities holds multiple values in one cell &middot; Coach and CoachCell are redundant, repeated for every member</p>
+  <h4>Corrected design</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>Table</th><th>Fields</th></tr>
+    <tr><td><code>tblCoach</code></td><td>CoachID (PK), FirstName, Surname, CellNumber</td></tr>
+    <tr><td><code>tblMember</code></td><td>MemberID (PK), FirstName, Surname</td></tr>
+    <tr><td><code>tblActivity</code></td><td>ActivityID (PK), ActivityName, CoachID (FK)</td></tr>
+    <tr><td><code>tblMemberActivity</code></td><td>MemberID (FK), ActivityID (FK) &mdash; composite PK, resolves the many-to-many between members and activities</td></tr>
+  </table></div>
+
+  <h2>Normalisation — The Three Normal Forms</h2>
+  <p><strong>Normalisation</strong> is the systematic process of organising the fields and tables of a relational database, by applying a set of rules called <strong>normal forms</strong>, in order to reduce data redundancy and prevent insertion, deletion and modification anomalies.</p>
+  <div class="callout"><div class="callout-title">Think of it this way</div><p>Imagine one giant spreadsheet where every order repeats the customer's full name, address and phone number. If a customer moves house you must change it in <em>dozens</em> of rows — and if you miss one, the data disagrees with itself. <strong>Normalisation</strong> is like splitting that mess into tidy, single-topic tables: one <strong>Customers</strong> table (each customer stored <em>once</em>) and one <strong>Orders</strong> table that just points back with the customer's ID (a <strong>foreign key</strong>). Now a change is made in one place only. The three normal forms are simply three tidy-up rules you apply in order.</p></div>
+
+  <h3>First Normal Form (1NF)</h3>
+  <p>A table is in 1NF when:</p>
+  <ul>
+    <li>Every cell contains a <strong>single value</strong> (no lists of values in one cell)</li>
+    <li>There are no <strong>repeating groups</strong> of columns</li>
+    <li>Every record is <strong>unique</strong> (has a primary key)</li>
+  </ul>
+  <h4>Not in 1NF:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID</th><th>Name</th><th>Subjects</th></tr>
+    <tr><td>1</td><td>Alice</td><td>Maths, IT, English</td></tr>
+  </table></div>
+  <p style="color:var(--muted);font-size:.875rem">❌ Problem: Three values in one cell (Subjects column)</p>
+  <h4>In 1NF:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID</th><th>Name</th><th>Subject</th></tr>
+    <tr><td>1</td><td>Alice</td><td>Maths</td></tr>
+    <tr><td>1</td><td>Alice</td><td>IT</td></tr>
+    <tr><td>1</td><td>Alice</td><td>English</td></tr>
+  </table></div>
+
+  <h3>Second Normal Form (2NF)</h3>
+  <p>A table is in 2NF when it is in 1NF <strong>AND</strong> every non-key field depends on the <em>whole</em> primary key (not just part of it). This only matters when the primary key is a composite key.</p>
+  <h4>Example violation:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID (PK)</th><th>SubjectID (PK)</th><th>StudentName</th><th>Mark</th></tr>
+    <tr><td>1</td><td>IT</td><td>Alice</td><td>85</td></tr>
+  </table></div>
+  <p style="color:var(--muted);font-size:.875rem">❌ Problem: StudentName only depends on StudentID, not on (StudentID + SubjectID) together</p>
+  <h4>In 2NF — split the table:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID (PK)</th><th>StudentName</th></tr>
+    <tr><td>1</td><td>Alice</td></tr>
+  </table></div>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID (PK+FK)</th><th>SubjectID (PK)</th><th>Mark</th></tr>
+    <tr><td>1</td><td>IT</td><td>85</td></tr>
+  </table></div>
+
+  <h3>Third Normal Form (3NF)</h3>
+  <p>A table is in 3NF when it is in 2NF <strong>AND</strong> no non-key field depends on another non-key field (no transitive dependency).</p>
+  <h4>Example violation:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID (PK)</th><th>Name</th><th>GradeLevel</th><th>GradeDescription</th></tr>
+    <tr><td>1</td><td>Alice</td><td>12</td><td>Matric</td></tr>
+  </table></div>
+  <p style="color:var(--muted);font-size:.875rem">❌ Problem: GradeDescription depends on GradeLevel (a non-key field), not on StudentID</p>
+  <h4>In 3NF — split it:</h4>
+  <div class="tbl-wrap"><table>
+    <tr><th>StudentID (PK)</th><th>Name</th><th>GradeLevel (FK)</th></tr>
+    <tr><td>1</td><td>Alice</td><td>12</td></tr>
+  </table></div>
+  <div class="tbl-wrap"><table>
+    <tr><th>GradeLevel (PK)</th><th>GradeDescription</th></tr>
+    <tr><td>12</td><td>Matric</td></tr>
+  </table></div>
+
+  <h2>Quick Normalisation Checklist</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Normal Form</th><th>Check for</th><th>Fix by</th></tr>
+    <tr><td><strong>1NF</strong></td><td>Multiple values in one cell? Repeating columns?</td><td>Split into separate rows; add PK</td></tr>
+    <tr><td><strong>2NF</strong></td><td>Non-key field depends on only PART of the composite PK?</td><td>Move that field to its own table</td></tr>
+    <tr><td><strong>3NF</strong></td><td>Non-key field depends on another non-key field?</td><td>Move the dependency to its own table</td></tr>
+  </table></div>
+
+  <h2>Good Database Characteristics</h2>
+  <div class="tbl-wrap"><table>
+    <tr><th>Characteristic</th><th>Meaning</th></tr>
+    <tr><td><strong>Data integrity</strong></td><td>Data is accurate, consistent and complete throughout its lifecycle</td></tr>
+    <tr><td><strong>Data independence</strong></td><td>Changing the database structure doesn&apos;t break the programs that use it</td></tr>
+    <tr><td><strong>Data redundancy</strong></td><td>Minimum — the same data should not be stored in multiple places</td></tr>
+    <tr><td><strong>Data security</strong></td><td>Only authorised users can access or modify data</td></tr>
+    <tr><td><strong>Ease of maintenance</strong></td><td>The database design makes it simple to insert, update and delete without causing problems</td></tr>
+  </table></div>
+  <div class="callout warning">
+    <div class="callout-title">Trap — data integrity vs data redundancy</div>
+    <p>Redundancy (the same data stored in more than one place) is usually what <em>causes</em> integrity failures — update one copy and forget the other, and the data disagrees with itself. But not all redundancy is bad: a <strong>backup</strong> is deliberate, planned redundancy. Only accidental, unplanned duplication threatens integrity.</p>
+  </div>
+
+  <div class="quiz" data-title="Quick Quiz &mdash; Relational Databases">
+    <div class="quiz-q" data-a="0">
+      <p class="quiz-text">A field whose value uniquely identifies each record in a table is the:</p>
+      <button class="quiz-opt">Primary key</button>
+      <button class="quiz-opt">Foreign key</button>
+      <button class="quiz-opt">Composite key</button>
+      <p class="quiz-why">The primary key uniquely identifies every record in its table.</p>
+    </div>
+    <div class="quiz-q" data-a="1">
+      <p class="quiz-text">A field that refers to the primary key of another table is a:</p>
+      <button class="quiz-opt">Primary key</button>
+      <button class="quiz-opt">Foreign key</button>
+      <button class="quiz-opt">Candidate key</button>
+      <p class="quiz-why">A foreign key links a record to a matching primary key in another table.</p>
+    </div>
+    <div class="quiz-q" data-a="0">
+      <p class="quiz-text">The main goal of normalisation is to:</p>
+      <button class="quiz-opt">Remove data redundancy</button>
+      <button class="quiz-opt">Add more tables for fun</button>
+      <button class="quiz-opt">Make typing faster</button>
+      <p class="quiz-why">Normalisation removes duplicated data (redundancy) and the errors it causes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="chapter" id="ch02">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Hardware &amp; Performance <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">Mobile device hardware, factors that affect computer performance, and choosing the right system for a user's needs.</p>
+<div class="term-divider"><span class="term-divider-badge">T1</span><span class="term-divider-label">Term 1 &middot; Mobile Hardware &amp; Performance Factors</span></div>
+<h2>Mobile Technology Hardware</h2>
+<p>Smartphones have similar hardware to desktops but in miniaturised form. Key differences:</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Component</th><th>Desktop</th><th>Smartphone</th></tr>
+  <tr><td>CPU</td><td>Separate chip; very powerful; many cores</td><td>SoC (System on a Chip) — CPU+GPU+modem+RAM in one chip</td></tr>
+  <tr><td>Input</td><td>Keyboard and mouse</td><td>Touchscreen; virtual keyboard</td></tr>
+  <tr><td>Display</td><td>Large external monitor</td><td>Small built-in touchscreen</td></tr>
+  <tr><td>Connectivity</td><td>Wired NIC or Wi-Fi card</td><td>Built-in Bluetooth, Wi-Fi, 4G/5G, GPS, NFC</td></tr>
+  <tr><td>Battery</td><td>Plugged in; no battery constraint</td><td>Limited battery; performance vs battery trade-off</td></tr>
+</table></div>
+<h2>Mobile Constraints</h2>
+<ul>
+  <li><strong>Battery life</strong>: limited capacity must last the whole day; processing power directly affects battery drain</li>
+  <li><strong>Form factor</strong>: miniaturised components mean less cooling and tighter power limits</li>
+  <li><strong>Screen size</strong>: limited display area affects usability for complex tasks</li>
+  <li><strong>Input limitations</strong>: touchscreen less precise than physical keyboard/mouse for complex input</li>
+</ul>
+<h2>Factors Influencing Computer Performance</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Factor</th><th>How it affects performance</th></tr>
+  <tr><td><strong>CPU clock speed (GHz)</strong></td><td>Higher = more instructions per second; faster processing</td></tr>
+  <tr><td><strong>CPU cores</strong></td><td>More cores = better multitasking and parallel processing</td></tr>
+  <tr><td><strong>RAM amount and speed</strong></td><td>More RAM = more programs running simultaneously; higher speed = faster data transfer to CPU</td></tr>
+  <tr><td><strong>Cache size (L1/L2/L3)</strong></td><td>Larger cache = CPU waits less for data from RAM</td></tr>
+  <tr><td><strong>GPU clock speed</strong></td><td>Higher GPU speed = faster graphics rendering; important for gaming and video</td></tr>
+  <tr><td><strong>Storage type (HDD vs SSD)</strong></td><td>SSD gives dramatically faster boot times and application loading</td></tr>
+  <tr><td><strong>NIC speed (Mbps)</strong></td><td>Faster NIC = faster downloads, streaming, network file transfers</td></tr>
+  <tr><td><strong>Operating system</strong></td><td>Outdated OS causes compatibility issues, security risks and slower operation</td></tr>
+</table></div>
+<h2>HDD vs SSD — Summary</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Feature</th><th>HDD</th><th>SSD</th></tr>
+  <tr><td>Speed</td><td>Slow (mechanical)</td><td>Very fast</td></tr>
+  <tr><td>Durability</td><td>Fragile (moving parts)</td><td>Durable (no moving parts)</td></tr>
+  <tr><td>Noise</td><td>Audible spinning</td><td>Silent</td></tr>
+  <tr><td>Cost per GB</td><td>Cheaper</td><td>More expensive</td></tr>
+  <tr><td>Boot time</td><td>Long (30–60 seconds)</td><td>Very short (5–15 seconds)</td></tr>
+</table></div>
+<h2>Motivating a Computer System for a User</h2>
+<p>When recommending a computer, match the components to the user's needs:</p>
+<div class="tbl-wrap"><table>
+  <tr><th>User type</th><th>Recommended specs</th></tr>
+  <tr><td>Office/admin worker</td><td>Moderate CPU, 8GB RAM, SSD, integrated graphics</td></tr>
+  <tr><td>Graphic designer / video editor</td><td>Fast multi-core CPU, 16–32GB RAM, dedicated GPU, large SSD</td></tr>
+  <tr><td>Gamer</td><td>Fast CPU, 16GB+ RAM, high-end dedicated GPU, fast SSD</td></tr>
+  <tr><td>Student</td><td>Mid-range CPU, 8GB RAM, SSD, Wi-Fi, long battery (laptop)</td></tr>
+  <tr><td>Server / database host</td><td>Many cores, large ECC RAM, RAID storage, redundant power</td></tr>
+</table></div>
+<div class="quiz" data-title="Quick Quiz &mdash; Hardware (Gr 12)">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">For everyday tasks, which upgrade usually gives the biggest real speed boost?</p>
+    <button class="quiz-opt">A faster printer</button>
+    <button class="quiz-opt">More RAM and an SSD</button>
+    <button class="quiz-opt">A bigger monitor</button>
+    <p class="quiz-why">More RAM reduces swapping and an SSD loads programs/files far faster than an HDD.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">An SSD is faster than a magnetic hard drive mainly because it&hellip;</p>
+    <button class="quiz-opt">Has no moving parts</button>
+    <button class="quiz-opt">Is physically larger</button>
+    <button class="quiz-opt">Uses the internet</button>
+    <p class="quiz-why">SSDs use flash memory, so there&rsquo;s no spinning platter or seek delay.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">The biggest design constraint on mobile devices is usually&hellip;</p>
+    <button class="quiz-opt">Screen colour</button>
+    <button class="quiz-opt">The keyboard</button>
+    <button class="quiz-opt">Battery/power vs processing</button>
+    <p class="quiz-why">Mobiles must balance performance against limited battery, heat and size.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch03">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Cloud Computing, AI, VR &amp; AR <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">Grade 12 Term 2 theory: cloud computing, Artificial Intelligence, Virtual Reality, Augmented Reality, Mixed Reality and virtualisation — all new Software topics in the updated CAPS.</p>
+
+<div class="term-divider"><span class="term-divider-badge">T2</span><span class="term-divider-label">Term 2 &middot; Cloud Computing, AI, VR &amp; AR</span></div>
+
+<h2>Artificial Intelligence (AI)</h2>
+<p>AI refers to computer systems that can perform tasks that normally require human intelligence — such as learning, reasoning, decision-making and pattern recognition.</p>
+<h3>What is AI used for?</h3>
+<ul>
+  <li>Virtual assistants (Siri, Google Assistant, Alexa)</li>
+  <li>Recommendations (Netflix, Spotify, YouTube suggest content)</li>
+  <li>Fraud detection in banking</li>
+  <li>Medical diagnosis support</li>
+  <li>Autonomous vehicles (self-driving cars)</li>
+  <li>Chatbots for customer service</li>
+  <li>Image and facial recognition</li>
+</ul>
+<h3>Advantages of AI</h3>
+<ul>
+  <li>Processes vast amounts of data faster than humans</li>
+  <li>Works 24/7 without breaks or fatigue</li>
+  <li>Reduces human error in repetitive tasks</li>
+  <li>Enables automation of complex processes</li>
+</ul>
+<h3>Disadvantages and Limitations of AI</h3>
+<ul>
+  <li>Can be biased if trained on biased data</li>
+  <li>Job displacement — automating roles previously done by humans</li>
+  <li>No true understanding or common sense — only pattern matching</li>
+  <li>Security risks — AI can be used to create deepfakes or power cyberattacks</li>
+  <li>Expensive to develop and maintain</li>
+  <li>Privacy concerns with data collection required for AI training</li>
+</ul>
+<div class="callout">
+  <div class="callout-title">AI and accountability</div>
+  <p>When an AI system makes a decision on its own — e.g. a self-driving car choosing how to react, or a bank's AI declining a loan application — it raises the question of who is responsible if that decision is wrong or unfair: the company that built the AI, the company that deployed it, or the AI itself (which cannot be held legally responsible)? This is why most systems still allow a human to review or override an AI's decision, and why exam answers about AI limitations should mention accountability/bias alongside the more obvious "it might make mistakes".</p>
+</div>
+<h2>Cloud Computing</h2>
+<p>Software, storage and computing power delivered as a service over the Internet, rather than installed locally.</p>
+<div class="callout"><div class="callout-title">ANALOGY — cloud computing is like electricity</div><p>You don't build a power station in your back yard — you just plug into the wall and pay for what you use, and someone else runs the generators. Cloud computing works the same way: instead of buying and maintaining your own servers, you rent storage and computing power from a provider (Google, Microsoft, Amazon) over the internet and pay only for what you use. It scales up when you need more and down when you don't, exactly like drawing more or less electricity from the grid.</p></div>
+<div class="tbl-wrap"><table>
+  <tr><th>Advantage</th><th>Disadvantage</th></tr>
+  <tr><td>Scalable — capacity grows automatically</td><td>Requires internet connection</td></tr>
+  <tr><td>Affordable — pay only for what you use</td><td>Downtime affects all users</td></tr>
+  <tr><td>Accessible from any device anywhere</td><td>Security and privacy concerns</td></tr>
+  <tr><td>Maintained by experts; always updated</td><td>Ongoing subscription costs</td></tr>
+  <tr><td>Easy collaboration between users</td><td>Limited control over infrastructure</td></tr>
+</table></div>
+<div class="callout warning">
+  <div class="callout-title">Data ownership</div>
+  <p>When a business stores its data with a third-party cloud provider, it must be clear about who actually owns that data and who controls it. The business should understand the provider's policies on access, storage, backup and — critically — what happens to the data if it stops using that provider (can it be retrieved and deleted, or does the provider retain rights to it?). This is a concern distinct from general "security" — even a perfectly secure cloud service can still raise ownership questions.</p>
+</div>
+<h3>SaaS — Software as a Service</h3>
+<p>Applications accessed via browser with no local installation. Examples: Google Docs, Microsoft 365, Gmail.</p>
+<h3>Effect on Hardware</h3>
+<p>Cloud reduces the need for powerful local hardware — thin clients and low-spec devices can run complex software via the cloud. Businesses no longer need to buy expensive servers.</p>
+<h2>Virtualisation</h2>
+<p>Running multiple <strong>virtual machines</strong> on a single physical computer. Each VM has its own OS, RAM, storage and apps, isolated from others.</p>
+<h3>Benefits</h3>
+<ul>
+  <li>Cost savings — fewer physical servers needed</li>
+  <li>Test operating systems safely without affecting main computer</li>
+  <li>Disaster recovery — VM images can be backed up and restored</li>
+  <li>Green IT — fewer machines, less power and cooling</li>
+</ul>
+<h2>Virtual Reality (VR)</h2>
+<p>A fully artificial, immersive 3D environment created by software. The user is completely cut off from the real world.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Use Case</th><th>Example</th></tr>
+  <tr><td>Training</td><td>Military simulations, surgical training</td></tr>
+  <tr><td>Education</td><td>Virtual field trips, interactive lessons</td></tr>
+  <tr><td>Entertainment</td><td>VR gaming, virtual cinemas</td></tr>
+  <tr><td>Healthcare</td><td>Phobia treatment, pain management</td></tr>
+  <tr><td>Engineering</td><td>Virtual prototypes, architectural walkthroughs</td></tr>
+</table></div>
+<h3>Hardware Requirements for VR</h3>
+<ul>
+  <li>VR headset (e.g. Meta Quest, PlayStation VR)</li>
+  <li>Powerful GPU for real-time 3D rendering</li>
+  <li>Motion controllers / tracking sensors</li>
+  <li>High-speed processor and sufficient RAM</li>
+  <li><strong>Input devices</strong>: joysticks, tracking balls, controller wands, data gloves, trackpads, motion trackers and treadmills — used to navigate and interact within the virtual environment</li>
+  <li><strong>Output devices</strong>: present VR content back to the user through visual (headset display), auditory (headphones) and even <strong>haptic</strong> (touch/vibration feedback) displays</li>
+</ul>
+<h3>Limitations of VR</h3>
+<ul>
+  <li><strong>Software constraints</strong> — VR software has limited flexibility beyond what it was originally built to do</li>
+  <li><strong>Cannot simulate dynamic environments well</strong> — VR struggles to replicate the constantly changing nature of a real classroom or real-world situation</li>
+  <li><strong>Potential for addiction and social detachment</strong> — excessive VR use can become addictive and reduce real-world social connection because the experience feels artificial but immersive</li>
+</ul>
+<h2>Augmented Reality (AR)</h2>
+<p>Overlays computer-generated content on the real world — you still see reality, with digital elements added.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Use Case</th><th>Example</th></tr>
+  <tr><td>Retail</td><td>Preview furniture in your room before buying</td></tr>
+  <tr><td>Training</td><td>Step-by-step repair instructions overlaid on equipment</td></tr>
+  <tr><td>Navigation</td><td>AR arrows overlaid on road view</td></tr>
+  <tr><td>Marketing</td><td>Interactive product advertisements</td></tr>
+</table></div>
+<h3>Hardware Requirements for AR</h3>
+<ul>
+  <li>Battery life sufficient for extended use</li>
+  <li>Bluetooth / Wi-Fi connectivity</li>
+  <li>Wide field of view for realistic 3D overlay</li>
+  <li>On-board storage capacity and an operating system or web browser to run the AR software</li>
+  <li>Inputs/outputs such as buttons, eye tracking and an accelerometer, plus a microphone and speakers</li>
+  <li>Visual tracking capabilities — so the device knows where to anchor digital objects in the real world</li>
+</ul>
+<h3>Limitations of AR</h3>
+<ul>
+  <li>Rendering meaningful, realistic graphics is challenging</li>
+  <li>Scaling digital objects to the correct perspective is difficult</li>
+  <li>Smartphones have limited storage, processing power and battery</li>
+</ul>
+<div class="quiz" data-title="Quick Quiz &mdash; Cloud, VR &amp; AR">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Renting storage and processing power over the internet, on demand, is&hellip;</p>
+    <button class="quiz-opt">A LAN</button>
+    <button class="quiz-opt">Cloud computing</button>
+    <button class="quiz-opt">A firewall</button>
+    <p class="quiz-why">Cloud computing delivers IT resources as a service you pay for as you use them.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Full software delivered over the internet as a subscription is called&hellip;</p>
+    <button class="quiz-opt">SaaS</button>
+    <button class="quiz-opt">RAM</button>
+    <button class="quiz-opt">ROM</button>
+    <p class="quiz-why">SaaS (Software as a Service), e.g. Google Docs, runs in the browser, not installed.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">A fully computer-generated world you enter with a headset is&hellip;</p>
+    <button class="quiz-opt">Augmented reality</button>
+    <button class="quiz-opt">Mixed reality</button>
+    <button class="quiz-opt">Virtual reality</button>
+    <p class="quiz-why">VR replaces the real world; AR adds digital overlays onto the real world.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch04">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Internet Technologies <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">How the web works under the hood — search technologies, web technologies, online applications, and how data is stored and processed online.</p>
+<div class="term-divider"><span class="term-divider-badge">T3</span><span class="term-divider-label">Term 3 &middot; Internet &amp; Web Technologies</span></div>
+<h2>Search Technologies</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Description</th></tr>
+  <tr><td><strong>Keyword search</strong></td><td>Matches exact words in the query</td></tr>
+  <tr><td><strong>Semantic search</strong></td><td>Understands meaning and context behind words — interprets user intent, not just keywords</td></tr>
+  <tr><td><strong>Mediated search</strong></td><td>A middleman system filters results for a specific database or organisation (e.g. Google Scholar)</td></tr>
+  <tr><td><strong>SEO</strong></td><td>Search Engine Optimisation — techniques to make websites rank higher in search results (keywords, speed, mobile-friendly, backlinks)</td></tr>
+</table></div>
+<h2>Static vs Dynamic Websites</h2>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Static</th><th>Dynamic</th></tr>
+  <tr><td>Content</td><td>Fixed HTML — changes only if developer edits files</td><td>Generated on demand from a database</td></tr>
+  <tr><td>Database</td><td>No</td><td>Yes</td></tr>
+  <tr><td>Examples</td><td>Simple portfolio, business info page</td><td>Online shop, social media, news sites</td></tr>
+  <tr><td>Security risk</td><td>Low</td><td>Higher (SQL injection, data breaches)</td></tr>
+</table></div>
+<h2>Web Technologies</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Technology</th><th>Role</th><th>Example</th></tr>
+  <tr><td><strong>HTML</strong></td><td>Structure and content of web pages</td><td>Headings, paragraphs, links, images</td></tr>
+  <tr><td><strong>CSS</strong></td><td>Visual styling — colours, fonts, layout</td><td>Blue buttons, responsive grid</td></tr>
+  <tr><td><strong>JavaScript</strong></td><td>Client-side interactivity; runs in the browser</td><td>Form validation, dropdown menus, AJAX</td></tr>
+  <tr><td><strong>PHP</strong></td><td>Server-side scripting; processes forms, talks to databases</td><td>Login authentication, database queries</td></tr>
+  <tr><td><strong>SQL</strong></td><td>Query and manage database data</td><td>SELECT user data, INSERT orders</td></tr>
+  <tr><td><strong>XML</strong></td><td>Structured data exchange between systems</td><td>Product data feeds between websites</td></tr>
+  <tr><td><strong>RSS</strong></td><td>An XML-based feed format that lets users subscribe to a site and automatically receive new content as it is published</td><td>News headlines, blog posts, new podcast episodes</td></tr>
+</table></div>
+<h2>Storing Data Online</h2>
+<ul>
+  <li><strong>Cookies</strong> — small text files stored on the user's device by a website. Remember preferences, login sessions, shopping carts.</li>
+  <li><strong>Online databases</strong> — data stored on remote servers. Examples: Gmail messages, your social media posts.</li>
+  <li><strong>Online applications</strong> — programs that run over the internet rather than being installed on your local computer; they store data, execute instructions and present output entirely through the browser or app. Examples: Google Docs, Gmail, internet banking apps.</li>
+</ul>
+<h2>Running Instructions</h2>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>Client-side (browser)</th><th>Server-side (web server)</th></tr>
+  <tr><td><strong>Language</strong></td><td>JavaScript, AJAX</td><td>PHP, Python, Node.js</td></tr>
+  <tr><td><strong>Purpose</strong></td><td>Real-time page updates, validation, animations</td><td>Authentication, database access, processing</td></tr>
+  <tr><td><strong>AJAX</strong></td><td>Updates parts of a page without reloading</td><td>—</td></tr>
+</table></div>
+
+<h2>The Role of Scripting Languages</h2>
+<p>A scripting language is what turns a plain, static page into a website that actually <em>does</em> something. Its role always splits into two halves — what happens instantly in the visitor's browser, and what happens back on the web server — and an online store is a good way to see both halves at work at once.</p>
+
+<div class="callout">
+  <div class="callout-title">Client-side scripting (e.g. JavaScript)</div>
+  <p>Runs in the customer's own browser, so it can react instantly without waiting for the server. On an online store it could:</p>
+  <ul>
+    <li>Validate the checkout form before it is submitted — e.g. checking that a cellphone number field isn't empty or that the quantity entered is a valid positive number — so the customer sees the error immediately, without a round trip to the server.</li>
+    <li>Update the shopping cart total the instant a customer changes a quantity, with no need to reload the page.</li>
+    <li>Show or hide extra product information (e.g. a "Read more" description) when clicked.</li>
+  </ul>
+</div>
+<div class="callout">
+  <div class="callout-title">Server-side scripting (e.g. PHP)</div>
+  <p>Runs on the store's web server, so it's the only place that can safely reach the database. On an online store it could:</p>
+  <ul>
+    <li>Check the product database to confirm an item is still in stock before allowing checkout.</li>
+    <li>Calculate the order total and generate an order confirmation.</li>
+    <li>Securely process the customer's login and payment details.</li>
+    <li>Insert the new order into the database and update the stock level once payment succeeds.</li>
+  </ul>
+</div>
+
+<h2>HTTP vs HTTPS</h2>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>HTTP</th><th>HTTPS</th></tr>
+  <tr><td>Encryption</td><td>None — data sent in plain text</td><td>SSL/TLS encryption</td></tr>
+  <tr><td>Padlock</td><td>No padlock in browser</td><td>Padlock icon shown</td></tr>
+  <tr><td>Use</td><td>Non-sensitive public pages</td><td>Login, banking, shopping — any sensitive data</td></tr>
+</table></div>
+<div class="quiz" data-title="Quick Quiz &mdash; Internet Technologies">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Which language controls the <strong>visual styling</strong> (colours, layout, fonts) of a page?</p>
+    <button class="quiz-opt">HTML</button>
+    <button class="quiz-opt">CSS</button>
+    <button class="quiz-opt">SQL</button>
+    <p class="quiz-why">CSS styles the page; HTML supplies the structure/content.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Techniques used to help a website rank higher in search results are called&hellip;</p>
+    <button class="quiz-opt">SEO</button>
+    <button class="quiz-opt">AJAX</button>
+    <button class="quiz-opt">HTTPS</button>
+    <p class="quiz-why">SEO (Search Engine Optimisation) improves a site&rsquo;s visibility in search.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">Updating part of a web page without reloading the whole page typically uses&hellip;</p>
+    <button class="quiz-opt">CSS</button>
+    <button class="quiz-opt">XML alone</button>
+    <button class="quiz-opt">JavaScript/AJAX</button>
+    <p class="quiz-why">AJAX fetches data in the background so only part of the page refreshes.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch05">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Networks &amp; Remote Access <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">Essential network components, internet connection methods, file sharing, and remote access technologies.</p>
+<div class="term-divider"><span class="term-divider-badge">T3</span><span class="term-divider-label">Term 3 &middot; Networks &amp; Remote Access</span></div>
+<div class="callout">
+  <div class="callout-title">HAN — Home Area Network</div>
+  <p>A small-scale network connecting the devices within a single home — routers, computers, smart TVs, smart-home devices, etc. It's essentially a LAN (Local Area Network), just applied specifically to a residence rather than an office or school.</p>
+</div>
+<h2>Essential Network Hardware</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Component</th><th>Function</th></tr>
+  <tr><td><strong>NIC</strong></td><td>Network Interface Card — hardware that connects a device to a network (wired or wireless)</td></tr>
+  <tr><td><strong>Switch</strong></td><td>Connects devices on a LAN and forwards data only to the intended device (not broadcast like a hub)</td></tr>
+  <tr><td><strong>Router</strong></td><td>Connects different networks; routes packets; assigns IP addresses; acts as gateway to ISP</td></tr>
+  <tr><td><strong>Modem</strong></td><td>Converts digital signals to analogue for telephone lines (and back); connects to ISP</td></tr>
+  <tr><td><strong>Wireless access point</strong></td><td>Enables wireless devices to connect to a wired network via Wi-Fi</td></tr>
+  <tr><td><strong>All-in-one home router</strong></td><td>Combines modem + router + switch + Wi-Fi access point in one device</td></tr>
+</table></div>
+<div class="callout warning"><div class="callout-title">Trap — switch vs router</div><p>A <strong>switch</strong> only ever operates <em>within</em> one network — it forwards data to the correct device on the same LAN. A <strong>router</strong> operates <em>between</em> different networks and finds the best path from one to another. The box on your wall at home combines both — but in the exam, describe each function separately.</p></div>
+<h2>IP Address vs MAC Address</h2>
+<p>Every device on a network needs an address, but there are two different kinds working at the same time.</p>
+<div class="tbl-wrap"><table>
+  <tr><th></th><th>IP Address</th><th>MAC Address</th></tr>
+  <tr><td><strong>Assigned by</strong></td><td>The network, often automatically via DHCP</td><td>The manufacturer — burnt into the NIC</td></tr>
+  <tr><td><strong>Changes?</strong></td><td>Yes — a new one is assigned when the device joins a different network</td><td>No — permanent and globally unique</td></tr>
+  <tr><td><strong>Purpose</strong></td><td>Logical address used to route data between networks</td><td>Physical address used to identify a device on its own local network</td></tr>
+</table></div>
+<div class="callout warning"><div class="callout-title">Trap — IP vs MAC</div><p>A MAC address never changes, no matter which network the device connects to. An IP address usually <em>does</em> change — it identifies where a device currently is, not which physical device it is.</p></div>
+<h2>Wired Communication Media</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Medium</th><th>Speed</th><th>Range</th><th>Notes</th></tr>
+  <tr><td><strong>UTP cable</strong> (Ethernet)</td><td>Up to 10 Gbps</td><td>100m per segment</td><td>Common in offices and schools; easy to install</td></tr>
+  <tr><td><strong>Fibre optic</strong></td><td>Up to Tbps</td><td>Kilometres</td><td>Uses light; most secure; expensive to install</td></tr>
+  <tr><td><strong>Coaxial</strong></td><td>Moderate</td><td>Hundreds of meters</td><td>Older standard; still used in some broadband</td></tr>
+</table></div>
+<h2>Connecting to the Internet</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Technology</th><th>Description</th><th>Speed</th></tr>
+  <tr><td><strong>ADSL</strong></td><td>Uses telephone copper lines; download faster than upload</td><td>Up to ~20 Mbps</td></tr>
+  <tr><td><strong>Fibre</strong></td><td>Light through fibre optic cables; fastest and most reliable</td><td>100 Mbps–1 Gbps+</td></tr>
+  <tr><td><strong>WiMAX</strong></td><td>Long-range wireless; used in rural/remote areas</td><td>Moderate</td></tr>
+  <tr><td><strong>4G/LTE</strong></td><td>Mobile broadband; widely available</td><td>5–100 Mbps</td></tr>
+  <tr><td><strong>5G</strong></td><td>New generation mobile; very low latency; supports IoT</td><td>50 Mbps–10 Gbps</td></tr>
+  <tr><td><strong>Satellite</strong></td><td>Signal sent to/from an orbiting satellite; works almost anywhere, even where no cables or towers exist</td><td>Slower and higher latency than fibre or mobile data; often more expensive</td></tr>
+</table></div>
+<h2>Bandwidth, Data Caps &amp; Throttling</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Term</th><th>Measured in</th><th>Meaning</th></tr>
+  <tr><td><strong>Bandwidth</strong></td><td>Mbps (megabits per second)</td><td>How <em>fast</em> data can be transferred — the maximum capacity of the connection</td></tr>
+  <tr><td><strong>Data cap</strong></td><td>GB (gigabytes)</td><td>How <em>much</em> total data may be used in a billing period</td></tr>
+  <tr><td><strong>Throttling / shaping</strong></td><td>&mdash;</td><td>The ISP deliberately reducing speed — often once a data cap is exceeded, or for specific traffic types (e.g. streaming) at any time</td></tr>
+</table></div>
+<div class="callout warning"><div class="callout-title">Trap — capped vs throttled</div><p>Being <strong>capped</strong> doesn&apos;t slow you down at all — until you exceed the limit. Being <strong>shaped/throttled</strong> can slow specific traffic types at <em>any</em> time, cap or no cap. Don&apos;t confuse &quot;how fast&quot; (bandwidth), &quot;how much&quot; (data cap) and &quot;deliberately slowed&quot; (throttling).</p></div>
+<h2>File and Folder Sharing</h2>
+<p>On a network, users can share resources. Access can be restricted by permission level:</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Permission Level</th><th>What the user can do</th></tr>
+  <tr><td><strong>No access</strong></td><td>Cannot see the shared resource</td></tr>
+  <tr><td><strong>Read-only</strong></td><td>Can view/copy files but not modify or delete</td></tr>
+  <tr><td><strong>Read/Write</strong></td><td>Can view, copy, modify files</td></tr>
+  <tr><td><strong>Full control (Admin)</strong></td><td>Can do everything including change permissions</td></tr>
+</table></div>
+<h2>Remote Access</h2>
+<p>Accessing a device or network from a physically different location.</p>
+<div class="callout"><div class="callout-title">ANALOGY — a VPN is an armoured van</div><p>Sending private data across the open internet is like carrying cash through a busy public street — anyone could grab it. A <strong>VPN</strong> is like an <strong>armoured van</strong> driving through that same street: it builds a sealed, encrypted "tunnel" so that, even though your data travels over the public internet, no one on the outside can see or reach what is inside. That is how an employee at home can safely reach the private company network.</p></div>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Description</th><th>Example</th></tr>
+  <tr><td><strong>LAN remote access</strong></td><td>Access another computer in the same building</td><td>Shared folder on school server</td></tr>
+  <tr><td><strong>Internet remote access</strong></td><td>Access home/work resources from anywhere</td><td>Google Drive, OneDrive, Remote Desktop</td></tr>
+  <tr><td><strong>VPN</strong></td><td>Encrypted tunnel over internet; secure remote access to private network</td><td>Employee working from home via company VPN</td></tr>
+</table></div>
+<h2>Cloud Storage and Sharing</h2>
+<ul>
+  <li>Store and access files from any device, anywhere</li>
+  <li>Automatic backup and version history</li>
+  <li>Collaboration: multiple users edit the same file simultaneously</li>
+  <li>Examples: Google Drive, OneDrive, Dropbox</li>
+</ul>
+<h2>BitTorrent (Peer-to-Peer Sharing)</h2>
+<p>Files are split into small pieces and downloaded simultaneously from many peers.</p>
+<ul>
+  <li><strong>Legal uses</strong>: distributing Linux distros, large software updates</li>
+  <li><strong>Risks</strong>: often used for piracy; your IP is visible to all peers</li>
+</ul>
+<div class="quiz" data-title="Quick Quiz &mdash; Networks (Gr 12)">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Which home internet connection is generally the fastest and most stable?</p>
+    <button class="quiz-opt">ADSL</button>
+    <button class="quiz-opt">Fibre</button>
+    <button class="quiz-opt">3G</button>
+    <p class="quiz-why">Fibre carries data as light, giving high speed and low latency over copper/mobile.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">A secure, encrypted &lsquo;tunnel&rsquo; for safely reaching a private network remotely is a&hellip;</p>
+    <button class="quiz-opt">VPN</button>
+    <button class="quiz-opt">NIC</button>
+    <button class="quiz-opt">Modem</button>
+    <p class="quiz-why">A VPN encrypts your traffic, letting you use a private network over the internet.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">A typical home &lsquo;router&rsquo; box usually combines a modem, switch, router and&hellip;</p>
+    <button class="quiz-opt">Printer</button>
+    <button class="quiz-opt">Scanner</button>
+    <button class="quiz-opt">Wireless access point</button>
+    <p class="quiz-why">The built-in WAP provides the Wi-Fi for wireless devices.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch06">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Communication Technologies <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">This page focuses on how data is kept safe as it travels across a network — VPNs, encryption, digital certificates and authentication. For network hardware, internet access technologies and general remote access, see <a href="networks-gr12.html">Networks &amp; Remote Access</a>.</p>
+<div class="term-divider"><span class="term-divider-badge">T3</span><span class="term-divider-label">Term 3 &middot; VPNs, Encryption &amp; Secure Communication</span></div>
+<h2>VPN — Virtual Private Network</h2>
+<p>A VPN creates an encrypted tunnel over the Internet, allowing secure remote access to a private network. (See <a href="networks-gr12.html#">Networks &amp; Remote Access</a> for the armoured-van analogy and a worked example.)</p>
+<ul>
+  <li>Hides your IP address and location</li>
+  <li>All data is encrypted — safe on public Wi-Fi</li>
+  <li>Used by companies for remote workers to securely access internal systems</li>
+</ul>
+<h3>Risks of Allowing Remote Access to a Company Network</h3>
+<p>Letting employees connect to the company network from home or on the road introduces risks that don't exist when everyone works from a secured office network:</p>
+<ul>
+  <li><strong>Weaker home networks:</strong> an employee's home Wi-Fi is usually far less secure than the office network (weak passwords, outdated router firmware), making it easier for an attacker to intercept data or gain access to the connection.</li>
+  <li><strong>Lost or stolen devices:</strong> a laptop or phone used for remote access that is lost or stolen can give an unauthorised person direct entry into the company network, especially if it isn't password/PIN protected or its access isn't revoked quickly.</li>
+  <li><strong>Unsecured public Wi-Fi:</strong> connecting from a coffee shop or airport network makes it easier for someone else on that same network to intercept data.</li>
+</ul>
+<div class="callout"><p>This is exactly why VPNs, MFA and strong device security matter more for remote workers than for on-site staff.</p></div>
+<h2>Encryption &amp; Security</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Concept</th><th>Description</th></tr>
+  <tr><td><strong>Encryption</strong></td><td>Converts readable data into unreadable code. Only someone with the correct key can decrypt it.</td></tr>
+  <tr><td><strong>SSL/TLS</strong></td><td>Protocol securing communication between browser and server (HTTPS). Uses public/private key pairs.</td></tr>
+  <tr><td><strong>Digital certificate</strong></td><td>Issued by a trusted Certificate Authority. Verifies the website is legitimate.</td></tr>
+  <tr><td><strong>Firewall</strong></td><td>Filters incoming and outgoing traffic based on security rules</td></tr>
+  <tr><td><strong>MFA</strong></td><td>Multi-Factor Authentication — requires password + second factor (OTP, fingerprint)</td></tr>
+  <tr><td><strong>OTP</strong></td><td>One-Time PIN — valid for one login only; prevents replay attacks</td></tr>
+</table></div>
+<h3>Other Security Strategies (Besides MFA and SSL)</h3>
+<ul>
+  <li><strong>Strong password policies:</strong> requiring long, complex passwords that are changed regularly, and never reused across accounts.</li>
+  <li><strong>Regular software/security updates:</strong> patching known vulnerabilities before attackers can exploit them.</li>
+  <li><strong>Staff security-awareness training:</strong> teaching employees to recognise phishing emails and other social-engineering attempts, since people are often the weakest link, not the technology.</li>
+  <li><strong>Access control / user rights management:</strong> giving each user only the access they actually need for their job (the "principle of least privilege"), so a compromised account can't be used to reach everything.</li>
+</ul>
+<h2>Email &amp; Messaging Security</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Concept</th><th>Description</th></tr>
+  <tr><td><strong>Spam filtering</strong></td><td>Automatically detects and quarantines unsolicited/junk email before it reaches the inbox</td></tr>
+  <tr><td><strong>Email encryption</strong></td><td>Encrypts the message content so only the intended recipient's key can decrypt and read it</td></tr>
+  <tr><td><strong>End-to-end encryption</strong></td><td>Used by apps like WhatsApp/Signal — only the sender and recipient can read the message, not even the service provider</td></tr>
+  <tr><td><strong>Digital signature</strong></td><td>Confirms a message really came from the claimed sender and was not altered in transit</td></tr>
+</table></div>
+<div class="quiz" data-title="Quick Quiz &mdash; Communication Technologies">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Scrambling data so that only someone with the key can read it is&hellip;</p>
+    <button class="quiz-opt">Compression</button>
+    <button class="quiz-opt">Encryption</button>
+    <button class="quiz-opt">Caching</button>
+    <p class="quiz-why">Encryption protects confidentiality; only the correct key can decrypt it.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">A digital certificate issued by a trusted authority mainly confirms that a&hellip;</p>
+    <button class="quiz-opt">Website is genuine</button>
+    <button class="quiz-opt">File is small</button>
+    <button class="quiz-opt">Password is strong</button>
+    <p class="quiz-why">It verifies the site&rsquo;s identity and enables the secure (HTTPS) connection.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">SSL/TLS secures data using a matched pair of&hellip;</p>
+    <button class="quiz-opt">Usernames</button>
+    <button class="quiz-opt">Cookies</button>
+    <button class="quiz-opt">Public and private keys</button>
+    <p class="quiz-why">Data encrypted with the public key can only be decrypted with the private key.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch07">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Cybercrime &amp; Safeguards <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">Types of cybercrime, the people who commit them, their effects on individuals and organisations, and the safeguards used to prevent them.</p>
+<div class="term-divider"><span class="term-divider-badge">T2</span><span class="term-divider-label">Term 2 &middot; Cybercrime Types &amp; Safeguards</span></div>
+<h2>Computer Criminals</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Type</th><th>Description</th></tr>
+  <tr><td><strong>Hacker</strong></td><td>Gains unauthorised access to systems. White hat (ethical) vs Black hat (malicious).</td></tr>
+  <tr><td><strong>Cracker</strong></td><td>Breaks software protection or encryption for illegal access or distribution</td></tr>
+  <tr><td><strong>Script kiddie</strong></td><td>Uses pre-written tools without understanding them; less skilled</td></tr>
+  <tr><td><strong>Insider threat</strong></td><td>Current or former employee who misuses access privileges</td></tr>
+  <tr><td><strong>Cybercriminal</strong></td><td>Commits crime for financial gain (fraud, ransomware, identity theft)</td></tr>
+  <tr><td><strong>Cyber gang</strong></td><td>An organised group of criminals who work together to carry out large-scale cyberattacks</td></tr>
+  <tr><td><strong>Virus author</strong></td><td>A person who writes and releases malware such as viruses and worms</td></tr>
+</table></div>
+<h2>Types of Cybercrime</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Crime</th><th>Description</th></tr>
+  <tr><td><strong>Identity theft</strong></td><td>Stealing personal information to impersonate someone (open accounts, get loans)</td></tr>
+  <tr><td><strong>Phishing</strong></td><td>Fake emails that look official to steal credentials</td></tr>
+  <tr><td><strong>Pharming</strong></td><td>Redirecting users to fake websites to steal information</td></tr>
+  <tr><td><strong>Virus</strong></td><td>Malicious code that attaches itself to a host file and needs a user action (e.g. opening the file) to spread</td></tr>
+  <tr><td><strong>Worm</strong></td><td>Self-replicating malware that spreads across a network on its own — no user action needed</td></tr>
+  <tr><td><strong>Trojan (Trojan horse)</strong></td><td>Malware disguised as legitimate, useful software; does nothing until the user opens it</td></tr>
+  <tr><td><strong>Ransomware</strong></td><td>Encrypts victim's data; demands payment to restore access</td></tr>
+  <tr><td><strong>Business data theft</strong></td><td>Stealing trade secrets, customer databases, or financial records</td></tr>
+  <tr><td><strong>SQL Injection</strong></td><td>Inserting malicious SQL via web forms to manipulate or steal database data</td></tr>
+  <tr><td><strong>DDoS attack</strong></td><td>Distributed Denial of Service — overwhelming a server with traffic to take it offline</td></tr>
+  <tr><td><strong>Online fraud</strong></td><td>Scams, fake auctions, advance-fee fraud (419 scams)</td></tr>
+  <tr><td><strong>Cyberbullying</strong></td><td>Harassment, threats or humiliation via digital channels</td></tr>
+  <tr><td><strong>Piracy</strong></td><td>Illegally copying, distributing or using copyrighted software/media</td></tr>
+  <tr><td><strong>Bandwidth theft</strong></td><td>Using someone else's network/internet connection, or hotlinking their content, without permission</td></tr>
+  <tr><td><strong>Theft of time &amp; services</strong></td><td>Using an employer's computers, internet or work time for personal or unauthorised purposes</td></tr>
+  <tr><td><strong>Botnet / zombies</strong></td><td>A network of infected computers ("zombies") secretly controlled by an attacker, often used for DDoS attacks or spam</td></tr>
+  <tr><td><strong>Back door</strong></td><td>A hidden way to bypass normal security and gain remote access to a system</td></tr>
+  <tr><td><strong>Piggybacking</strong></td><td>Using someone else's internet connection or account without their permission (e.g. an unsecured Wi-Fi), or slipping in behind an authorised user</td></tr>
+  <tr><td><strong>Extortion (cyber-extortion)</strong></td><td>Threatening to damage, expose or block access to data/systems unless a payment is made (e.g. ransomware, DDoS threats)</td></tr>
+  <tr><td><strong>Spam</strong></td><td>Sending unsolicited bulk messages/email; wastes bandwidth and time and is often used to spread scams or malware</td></tr>
+</table></div>
+<div class="callout warning"><div class="callout-title">Trap — virus vs worm vs Trojan</div><p>Don&apos;t call every threat &quot;a virus&quot; — use the term the scenario points to. A <strong>virus</strong> needs a user to open/run something to spread. A <strong>worm</strong> spreads by itself across a network, no user action needed. A <strong>Trojan</strong> just pretends to be something useful until it&apos;s opened.</p></div>
+<div class="callout warning"><div class="callout-title">Trap — phishing vs pharming</div><p><strong>Phishing</strong> relies on the user clicking a fraudulent link. <strong>Pharming</strong> needs no user error at all — it redirects the user to a fake site even when they type the correct address, which is exactly why it&apos;s the more dangerous of the two.</p></div>
+<h2>Effects of Cybercrime</h2>
+<h3>On Individuals</h3>
+<ul>
+  <li>Financial loss — stolen money or fraudulent accounts opened in your name</li>
+  <li>Emotional distress and reputational damage</li>
+  <li>Legal complications if identity is used for crimes</li>
+  <li>Loss of private data (photos, documents)</li>
+</ul>
+<h3>On Businesses</h3>
+<ul>
+  <li>Financial loss from stolen funds, ransom payments, or system recovery</li>
+  <li>Loss of competitive advantage if trade secrets are stolen</li>
+  <li>Reputational damage and loss of customer trust</li>
+  <li>Legal penalties for failing to protect customer data</li>
+  <li>Operational downtime while systems are restored</li>
+</ul>
+<h2>Safeguards Against Cybercrime</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Safeguard</th><th>How it protects</th></tr>
+  <tr><td><strong>Antivirus / Antimalware</strong></td><td>Detects and removes malicious software</td></tr>
+  <tr><td><strong>Firewall</strong></td><td>Filters unauthorised network traffic</td></tr>
+  <tr><td><strong>Encryption</strong></td><td>Scrambles data so intercepted data is unreadable</td></tr>
+  <tr><td><strong>Strong passwords + MFA</strong></td><td>Makes accounts much harder to compromise</td></tr>
+  <tr><td><strong>Regular backups</strong></td><td>Allows recovery after ransomware or data loss</td></tr>
+  <tr><td><strong>Software updates / patches</strong></td><td>Fixes known vulnerabilities before criminals exploit them</td></tr>
+  <tr><td><strong>User training / awareness</strong></td><td>Educated users are less likely to click phishing links</td></tr>
+  <tr><td><strong>Access control</strong></td><td>Least-privilege principle: users only access what they need</td></tr>
+  <tr><td><strong>Input validation</strong></td><td>Prevents SQL injection by sanitising user input</td></tr>
+  <tr><td><strong>Digital certificates + HTTPS</strong></td><td>Verifies website legitimacy; encrypts all data in transit</td></tr>
+</table></div>
+<h2>SA Legal Context</h2>
+<p>In South Africa, cybercrime is covered by:</p>
+<ul>
+  <li><strong>Cybercrimes Act, 2020</strong>: criminalises hacking, ransomware, online fraud, malicious communications</li>
+  <li><strong>POPIA (Protection of Personal Information Act)</strong>: governs how personal data must be collected, stored and protected</li>
+  <li><strong>Electronic Communications and Transactions (ECT) Act</strong>: regulates e-commerce and online transactions</li>
+</ul>
+<div class="quiz" data-title="Quick Quiz &mdash; Cybercrime">
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Fake official-looking emails sent to trick you into giving login details is:</p>
+    <button class="quiz-opt">Phishing</button>
+    <button class="quiz-opt">Pharming</button>
+    <button class="quiz-opt">Spoofing</button>
+    <p class="quiz-why">Phishing uses fake emails/sites to steal credentials. Pharming redirects you to a fake site.</p>
+  </div>
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">Overwhelming a server with traffic until it goes offline is a:</p>
+    <button class="quiz-opt">Trojan</button>
+    <button class="quiz-opt">DDoS attack</button>
+    <button class="quiz-opt">Back door</button>
+    <p class="quiz-why">A DDoS (Distributed Denial of Service) attack floods a server so real users cannot reach it.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">Which South African law protects personal information?</p>
+    <button class="quiz-opt">Cybercrimes Act</button>
+    <button class="quiz-opt">ECT Act</button>
+    <button class="quiz-opt">POPIA</button>
+    <p class="quiz-why">POPIA (Protection of Personal Information Act) governs how personal data may be collected and used.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch08">
+  <div class="chapter-tag">Grade 12 &middot; Theory</div>
+<h1>Social Implications <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">How Big Data, data warehousing, globalisation and the 4IR affect society — privacy, employment, social media and the evolution of the web.</p>
+<div class="callout tip">
+  <div class="callout-title">This topic comes back all year</div>
+  <p>Social implications are revisited every term rather than taught once. The sections below are grouped by the term where each topic is <em>introduced</em> on the Year Planner — but all of it stays examinable afterwards. A few sections (globalisation, decision-making systems, protecting your identity) don't map to a single Year Planner bullet, so they are grouped with the closest related term.</p>
+</div>
+
+<div class="term-divider"><span class="term-divider-badge">T1</span><span class="term-divider-label">Term 1 &middot; Big Data, Mining &amp; Decision-Making</span></div>
+
+<h2>Social Implications of Big Data &amp; Data Mining</h2>
+<p><strong>Big Data</strong> is the term for datasets so enormous, fast-moving and varied that ordinary database tools cannot store or process them — think of every Facebook post, every WhatsApp message and every e-toll swipe in the country, all at once. When companies and governments <strong>mine</strong> this Big Data, the results affect real people's lives, and that brings both wonderful benefits and serious dangers.</p>
+<h3>Why Should We Care?</h3>
+<p>The same data that lets a hospital predict and prevent illness can also let an insurance company refuse you cover because your shopping habits suggest you eat unhealthily. The technology is neutral — it is <em>how</em> the data is used that creates the social problem. As IT students you must be able to argue both sides.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Positive</th><th>Negative</th></tr>
+  <tr><td>Healthcare: predict and prevent illness</td><td>Privacy erosion — habits tracked without full consent</td></tr>
+  <tr><td>Fraud detection in banking</td><td>Discrimination based on data profiles</td></tr>
+  <tr><td>Personalised education programmes</td><td>Security breaches expose millions of records</td></tr>
+  <tr><td>Better government services</td><td>Data sold to third parties without user knowledge</td></tr>
+  <tr><td>Precision agriculture: monitoring soil, weather and crop data to improve yields (e.g. a Free State maize farmer using sensor data to decide when to irrigate)</td><td>Small-scale farmers without access to this technology fall further behind larger commercial operations</td></tr>
+</table></div>
+<h2>Globalisation and the 4IR</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Aspect</th><th>Effect</th></tr>
+  <tr><td><strong>Globalisation</strong></td><td>World interconnected economically and culturally; faster trade; outsourcing; cultural exchange; increased competition</td></tr>
+  <tr><td><strong>4IR technologies</strong></td><td>AI, machine learning, IoT, robotics, automation, biotechnology, AR/VR, Big Data</td></tr>
+  <tr><td><strong>Jobs</strong></td><td>Routine jobs replaced by machines; new careers in data science, AI, cybersecurity</td></tr>
+  <tr><td><strong>Workers</strong></td><td>Must reskill constantly; digital literacy essential</td></tr>
+</table></div>
+<h3>Internet of Things (IoT)</h3>
+<p><strong>IoT</strong> refers to everyday physical devices — not just computers and phones — that are connected to the Internet so they can collect data, exchange it with other devices, and be monitored or controlled remotely. Examples include smart plugs, smart thermostats, security cameras, fitness trackers, smart fridges and smart streetlights.</p>
+<div class="callout tip">
+  <div class="callout-title">EXAM ANGLE — defining IoT</div>
+  <p>A full-mark IoT definition needs TWO parts: (1) the device is connected to the Internet, and (2) it collects/exchanges data or can be controlled remotely. "It's smart devices" on its own won't get full marks — the data/connectivity part is what the marker is looking for.</p>
+</div>
+<p>IoT links to several other Social Implications themes: <strong>privacy</strong> (data collected without the user's full awareness), <strong>security</strong> (each connected device is a potential entry point for attackers — see Botnets on the <a href="cybercrime.html">Cybercrime &amp; Safeguards</a> page), and the <strong>digital divide</strong> (IoT devices, and the Internet access they need, aren't affordable for everyone).</p>
+<h2>Decision-making &amp; Knowledge Systems</h2>
+<p>As the amount of data in the world explodes, organisations increasingly rely on software not just to <em>store</em> data, but to help people <strong>make decisions</strong> with it. Two related kinds of system come up in the exam, and they are easy to confuse.</p>
+<div class="tbl-wrap"><table>
+  <tr><th>System</th><th>What it does</th><th>Example</th></tr>
+  <tr><td><strong>Decision Support System (DSS)</strong></td><td>Analyses large amounts of data and presents it in a useful way (summaries, graphs, "what-if" models) so that a <em>human</em> can make a better-informed decision. It supports the decision — it does not make it.</td><td>A retail manager using sales dashboards to decide which stores to stock for winter</td></tr>
+  <tr><td><strong>Expert / knowledge-based system</strong></td><td>Captures the knowledge of human experts as a <strong>knowledge base</strong> of facts plus a set of rules (an <strong>inference engine</strong>), then uses them to give advice or a diagnosis — mimicking how an expert reasons.</td><td>A medical system that suggests likely diagnoses from a patient's symptoms</td></tr>
+</table></div>
+<div class="callout"><div class="callout-title">DSS vs Expert system</div><p>A <strong>DSS hands the data to a person</strong> to decide; an <strong>expert system tries to reach the conclusion itself</strong> using stored expert knowledge. Both rely on good-quality data — "garbage in, garbage out".</p></div>
+
+<div class="term-divider"><span class="term-divider-badge">T2</span><span class="term-divider-label">Term 2 &middot; Computer Management</span></div>
+
+<h2>Computer Management (Gr 12)</h2>
+<p>Key factors affecting computer performance and maintenance:</p>
+<ul>
+  <li><strong>Software</strong>: outdated software causes security risks and slower performance</li>
+  <li><strong>Security</strong>: antivirus, firewall, strong passwords</li>
+  <li><strong>Housekeeping</strong>: disk cleanup, defragmentation, archiving, compression</li>
+  <li><strong>Hard drive space</strong>: insufficient space causes performance issues (virtual memory relies on it)</li>
+  <li><strong>Corrupt files</strong>: use Disk Check (chkdsk) to detect and fix file-system errors; use S.M.A.R.T. to monitor drive health and predict failure before it happens</li>
+</ul>
+
+<div class="term-divider"><span class="term-divider-badge">T3</span><span class="term-divider-label">Term 3 &middot; Global Problem-Solving, Social Media &amp; Privacy</span></div>
+
+<h3>Distributed Computing Power — Solving Global Problems</h3>
+<p>Some problems are too big for any single computer — modelling climate change, searching for new medicines, or analysing astronomical data. <strong>Distributed computing</strong> splits one enormous task into many small pieces and shares them across thousands of computers (or cloud servers) that work on them at the same time, then combines the results.</p>
+<ul>
+  <li><strong>How it helps:</strong> harnesses spare processing power worldwide to tackle scientific and humanitarian problems no single organisation could afford alone.</li>
+  <li><strong>Examples:</strong> volunteer/grid projects where the public donate idle CPU time to disease, climate or space research; large cloud platforms renting out combined power on demand.</li>
+  <li><strong>Trade-offs:</strong> needs reliable network connectivity, raises questions about who controls the data, and the combined energy use can be significant.</li>
+</ul>
+<h2>The Evolving Web (Web 1.0 &rarr; 2.0 &rarr; 3.0)</h2>
+<p>The World Wide Web has moved through three broad phases, each more interactive and intelligent than the last:</p>
+<div class="tbl-wrap"><table>
+  <tr><th>Phase</th><th>Nickname</th><th>What it was like</th></tr>
+  <tr><td><strong>Web 1.0</strong></td><td>"Read-only"</td><td>Mostly static pages you could only view. A few people published; everyone else just consumed content.</td></tr>
+  <tr><td><strong>Web 2.0</strong></td><td>"Read-write"</td><td>The interactive, social web: <em>users</em> create the content — social media, wikis, blogs, comments and sharing. Two-way participation.</td></tr>
+  <tr><td><strong>Web 3.0</strong></td><td>"Semantic / intelligent web"</td><td>Machines understand the <em>meaning</em> of data (the semantic web); content is linked, personalised and AI-driven, giving smarter, more relevant results.</td></tr>
+</table></div>
+<h2>Evolution of Social Media and its Effects</h2>
+<ul>
+  <li><strong>Information overload</strong>: constant exposure to content makes it hard to focus or verify facts</li>
+  <li><strong>Personal data exposure</strong>: users voluntarily share location, habits, preferences</li>
+  <li><strong>Social engineering</strong>: attackers use social platforms to manipulate users into revealing information</li>
+  <li><strong>Wikis</strong>: collaborative knowledge (e.g. Wikipedia) — useful but reliability varies</li>
+  <li><strong>Cultural effects</strong>: global connectivity promotes exchange but can dilute local traditions</li>
+</ul>
+<h2>Smart-Home Technology and Accessibility</h2>
+<p>Smart-home and AI-driven devices can make a real difference for elderly or disabled users specifically because they remove the need to physically move around the house:</p>
+<ul>
+  <li><strong>Independence:</strong> voice-controlled or app-controlled lights, door locks and appliances mean a user with limited mobility doesn't need to get up, walk to a switch, or manipulate a small physical lock.</li>
+  <li><strong>Safety:</strong> smart security cameras and sensors can alert family or caregivers automatically if something seems wrong (e.g. a fall, or a door left unlocked), without the user having to act.</li>
+  <li><strong>Automation:</strong> routines — like lights switching on automatically at dusk, or the temperature adjusting itself — reduce the number of daily tasks a user has to perform manually.</li>
+</ul>
+<div class="callout warning">
+  <div class="callout-title">The trade-off — always give both sides</div>
+  <p>Cost is a real limiting factor here: these devices are usually expensive to buy, and need a reliable, paid Internet connection to keep working — which links this topic back to the <strong>digital divide</strong> (see that section).</p>
+</div>
+<h2>Privacy and Information Sharing</h2>
+<div class="tbl-wrap"><table>
+  <tr><th>Concept</th><th>Privacy implication</th></tr>
+  <tr><td><strong>Cookies</strong></td><td>Track browsing behaviour; can be used for targeted advertising</td></tr>
+  <tr><td><strong>Anonymity</strong></td><td>Enables free expression; also enables cyberbullying and illegal activity</td></tr>
+  <tr><td><strong>GUIDs</strong></td><td>Globally Unique Identifiers track behaviour across websites and apps</td></tr>
+  <tr><td><strong>Location data</strong></td><td>Apps continuously track movement; risk of stalking and profiling</td></tr>
+  <tr><td><strong>File sharing</strong></td><td>Piracy is illegal and harms creators; but sharing also enables legal distribution</td></tr>
+</table></div>
+<h2>POPIA — Protection of Personal Information Act</h2>
+<p><strong>POPIA</strong> is South Africa's law that controls how organisations may collect, store, use and share a person's personal information. It came into full effect on 1 July 2020, and it protects any person whose personal information is processed by a South African organisation (or a foreign one doing business here).</p>
+<p><strong>"Personal information" includes:</strong> name, ID number, contact details, email, location, financial information, biometric data (fingerprints, face scans), and special categories like health, religion or race.</p>
+<div class="callout"><div class="callout-title">The conditions for lawful processing</div><p>Organisations must: get the person's <strong>consent</strong> (or another lawful reason) before collecting data; only collect what is <strong>necessary</strong>, and only use it for the stated purpose; keep the data <strong>accurate</strong> and up to date; <strong>secure</strong> it against loss, damage or unauthorised access; let people <strong>see, correct or request deletion</strong> of their own data; and <strong>report data breaches</strong> to both the Information Regulator and the affected people.</p></div>
+<p><strong>Who enforces it:</strong> the Information Regulator — an independent body that can investigate complaints and issue fines (up to R10 million) or, for serious violations, prison sentences.</p>
+<div class="callout tip">
+  <div class="callout-title">EXAM ANGLE — POPIA</div>
+  <p>POPIA questions usually ask you to (a) name the act, or (b) apply it to a scenario — e.g. explain why a company storing customer emails and addresses without consent, or without securing that data, would be in breach of POPIA.</p>
+</div>
+<h2>Protecting Your Online Identity</h2>
+<ul>
+  <li>Use strong, unique passwords for every account</li>
+  <li>Enable Two-Factor Authentication (2FA)</li>
+  <li>Avoid posting sensitive personal information publicly</li>
+  <li>Verify links before clicking — beware of phishing</li>
+  <li>Keep software and antivirus updated</li>
+  <li>Only connect to trusted Wi-Fi networks</li>
+  <li>Periodically search your own name to see your digital footprint</li>
+</ul>
+<div class="quiz" data-title="Quick Quiz &mdash; Social Implications (Gr 12)">
+  <div class="quiz-q" data-a="1">
+    <p class="quiz-text">A system that captures an expert&rsquo;s knowledge as rules to give advice/diagnosis is a(n)&hellip;</p>
+    <button class="quiz-opt">Spreadsheet</button>
+    <button class="quiz-opt">Expert system</button>
+    <button class="quiz-opt">Firewall</button>
+    <p class="quiz-why">An expert system reasons over a knowledge base of rules, like a human specialist.</p>
+  </div>
+  <div class="quiz-q" data-a="0">
+    <p class="quiz-text">Splitting one huge task across many computers worldwide to share the work is&hellip;</p>
+    <button class="quiz-opt">Distributed computing</button>
+    <button class="quiz-opt">Normalisation</button>
+    <button class="quiz-opt">A botnet</button>
+    <p class="quiz-why">Distributed computing pools many machines&rsquo; power on one large problem.</p>
+  </div>
+  <div class="quiz-q" data-a="2">
+    <p class="quiz-text">Small text files a website stores on your device to remember you/your preferences are&hellip;</p>
+    <button class="quiz-opt">Caches</button>
+    <button class="quiz-opt">GUIDs</button>
+    <button class="quiz-opt">Cookies</button>
+    <p class="quiz-why">Cookies hold things like login state or settings &mdash; and can track you across sites.</p>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch09">
+  <div class="chapter-tag">Grade 12 &middot; Term Planner</div>
+<h1>Grade 12 &mdash; Year Planner <span class="grade-badge">Grade 12</span></h1>
+<p class="page-intro">Based on the 2026 IT CAPS. Grade 12 introduces SQL (Term 1), OOP &amp; 2D arrays (Term 2). Paper 2 is cumulative across all Grades 10&ndash;12.</p>
+<div class="callout warning"><div class="callout-title">A year planner &mdash; not a test scope</div><p>This shows <strong>when</strong> each topic is taught during the year &mdash; it is <strong>not</strong> a list of what any single test covers. Any work done so far this year, plus the foundational work from earlier grades, can still be assessed, so don't study only the current term's topics.</p></div>
+<div class="callout warning"><div class="callout-title">Grade 12 Exam Structure</div><p><strong>Paper 1</strong> (3 hrs): Delphi programming &mdash; SQL, OOP, 2D arrays, recursion, file handling, arrays, general programming.<br><strong>Paper 2</strong> (3 hrs): All theory from Gr10&ndash;12.</p></div>
+
+<div class="term-block">
+  <div class="term-header"><div class="term-num">T1</div><div><div class="term-title">Term 1 &bull; January &ndash; March</div><div class="term-subtitle">SQL (all statements + WHERE join); data management &amp; database design theory</div></div></div>
+  <div class="term-body">
+    <div class="term-col"><div class="term-col-title">&#128300; Practical (Paper 1)</div>
+      <ul class="term-links">
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>SELECT, FROM, WHERE, ORDER BY, DISTINCT</a></li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>Calculated fields, aliases (AS)</a></li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>LIKE, IN, BETWEEN, IS NULL, wildcards, dates (#)</a></li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>Aggregate: SUM, MIN, MAX, AVG, COUNT, TOP</a></li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>GROUP BY and HAVING</a></li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>INSERT, UPDATE, DELETE</a></li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>SQL functions: ROUND, INT, LENGTH, LEFT, RIGHT, MID, FORMAT</a></li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>Date functions: DAY, MONTH, YEAR, DATE</a></li>
+        <li><a href="grade12/sql-join.html"><span class="tl-dot"></span>Joining tables using WHERE (single join)</a></li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>Parameterised queries (one parameter)</a></li>
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>All SQL via TADOQuery in Delphi</li>
+      </ul>
+    </div>
+    <div class="term-col"><div class="term-col-title">&#128216; Theory (Paper 2)</div>
+      <ul class="term-links">
+        <li><a href="grade12/data-management.html"><span class="tl-dot"></span>Data collection: forms, RFID, cookies, transactions, loyalty cards</a></li>
+        <li><a href="grade12/data-management.html"><span class="tl-dot"></span>Data warehousing vs databases</a></li>
+        <li><a href="grade12/data-management.html"><span class="tl-dot"></span>Data mining: processes &amp; practical examples</a></li>
+        <li><a href="grade12/data-management.html"><span class="tl-dot"></span>Caring for data: validation, verification, integrity, access control</a></li>
+        <li><a href="grade12/relational-db.html"><span class="tl-dot"></span>Characteristics of a good database</a></li>
+        <li><a href="grade12/relational-db.html"><span class="tl-dot"></span>Referential integrity</a></li>
+        <li><a href="grade12/relational-db.html"><span class="tl-dot"></span>Database anomalies (insertion, deletion, modification)</a></li>
+        <li><a href="grade12/relational-db.html"><span class="tl-dot"></span>Normalisation: 1NF, 2NF, 3NF</a></li>
+        <li><a href="grade12/hardware-gr12.html"><span class="tl-dot"></span>Mobile hardware &amp; performance factors</a></li>
+        <li><a href="grade12/social-gr12.html"><span class="tl-dot"></span>Mobile tech privacy implications (personal &amp; business)</a></li>
+        <li><a href="grade12/social-gr12.html"><span class="tl-dot"></span>Big Data, warehousing &amp; mining: social implications</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="term-block">
+  <div class="term-header"><div class="term-num">T2</div><div><div class="term-title">Term 2 &bull; April &ndash; June (incl. mid-year exam)</div><div class="term-subtitle">OOP &amp; 2D arrays; cloud/AI/VR/AR, cybercrime</div></div></div>
+  <div class="term-body">
+    <div class="term-col"><div class="term-col-title">&#128300; Practical (Paper 1)</div>
+      <ul class="term-links">
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>OOP concepts: class, object, instance</a></li>
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>Non-parameterised &amp; parameterised constructors</a></li>
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>Private attributes vs public methods</a></li>
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>Accessor (Get) methods</a></li>
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>Mutator (Set) methods</a></li>
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>Auxiliary methods</a></li>
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>ToString method</a></li>
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>Correct instantiation of objects</a></li>
+        <li><a href="grade12/arrays-2d.html"><span class="tl-dot"></span>2D arrays: declaration &amp; syntax</a></li>
+        <li><a href="grade12/arrays-2d.html"><span class="tl-dot"></span>Populating with nested FOR loops</a></li>
+        <li><a href="grade12/arrays-2d.html"><span class="tl-dot"></span>Row totals, column totals, element access</a></li>
+      </ul>
+    </div>
+    <div class="term-col"><div class="term-col-title">&#128216; Theory (Paper 2)</div>
+      <ul class="term-links">
+        <li><a href="grade12/social-gr12.html"><span class="tl-dot"></span>Computer management: housekeeping, integrity, system protection</a></li>
+        <li><a href="grade12/cloud-vr-ar.html"><span class="tl-dot"></span>Cloud computing: SaaS, advantages, hardware effects</a></li>
+        <li><a href="grade12/cloud-vr-ar.html"><span class="tl-dot"></span>Artificial Intelligence (AI): uses, advantages, limitations</a></li>
+        <li><a href="grade12/cloud-vr-ar.html"><span class="tl-dot"></span>VR: uses, hardware/software requirements, limitations</a></li>
+        <li><a href="grade12/cloud-vr-ar.html"><span class="tl-dot"></span>AR &amp; Mixed Reality: uses, hardware, limitations</a></li>
+        <li><a href="grade12/cloud-vr-ar.html"><span class="tl-dot"></span>Virtualisation: uses &amp; benefits</a></li>
+        <li><a href="grade12/cybercrime.html"><span class="tl-dot"></span>Computer criminals: hackers, crackers, cyber gangs</a></li>
+        <li><a href="grade12/cybercrime.html"><span class="tl-dot"></span>Types of cybercrime: identity theft, ransomware, phishing, botnets</a></li>
+        <li><a href="grade12/cybercrime.html"><span class="tl-dot"></span>Effects of cybercrime</a></li>
+        <li><a href="grade12/cybercrime.html"><span class="tl-dot"></span>Safeguards against cybercrime</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="term-block">
+  <div class="term-header"><div class="term-num">T3</div><div><div class="term-title">Term 3 &bull; July &ndash; September (prelim + PAT due)</div><div class="term-subtitle">Consolidation; internet services, networks, communication security &amp; social implications</div></div></div>
+  <div class="term-body">
+    <div class="term-col"><div class="term-col-title">&#128300; Practical (Paper 1) &mdash; Consolidation</div>
+      <ul class="term-links">
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Past paper practice: full Paper 1 (2019&ndash;2025)</li>
+        <li><a href="grade12/sql.html"><span class="tl-dot"></span>Complex SQL (join + aggregate + GROUP BY)</a></li>
+        <li><a href="grade12/oop.html"><span class="tl-dot"></span>OOP multi-class scenarios</a></li>
+        <li><a href="grade12/arrays-2d.html"><span class="tl-dot"></span>2D array exam scenarios</a></li>
+        <li><a href="grade12/recursion.html"><span class="tl-dot"></span>Recursion varied problems &amp; tracing</a></li>
+        <li><a href="grade11/practical/text-files.html"><span class="tl-dot"></span>File handling &amp; CSV processing</a></li>
+        <li><a href="grade11/practical/arrays.html"><span class="tl-dot"></span>1D array sort/search/parallel</a></li>
+      </ul>
+    </div>
+    <div class="term-col"><div class="term-col-title">&#128216; Theory (Paper 2)</div>
+      <ul class="term-links">
+        <li><a href="grade12/internet-tech.html"><span class="tl-dot"></span>Semantic search, mediated search, SEO</a></li>
+        <li><a href="grade12/internet-tech.html"><span class="tl-dot"></span>Online apps: cookies, PHP/JS/XML, CSS, AJAX</a></li>
+        <li><a href="grade12/networks-gr12.html"><span class="tl-dot"></span>Switch, cables, wireless base station</a></li>
+        <li><a href="grade12/networks-gr12.html"><span class="tl-dot"></span>Internet connections: fibre, Wi-Fi, 4G/5G, satellite</a></li>
+        <li><a href="grade12/networks-gr12.html"><span class="tl-dot"></span>Sharing files/folders, user rights, BitTorrent</a></li>
+        <li><a href="grade12/networks-gr12.html"><span class="tl-dot"></span>Remote access (LAN, Internet, VPN)</a></li>
+        <li><a href="grade12/communication-tech.html"><span class="tl-dot"></span>SSL, public/private keys, digital certificates, firewall</a></li>
+        <li><a href="grade12/communication-tech.html"><span class="tl-dot"></span>Review Gr11 data security (blockchain, encryption, MFA)</a></li>
+        <li><a href="grade12/social-gr12.html"><span class="tl-dot"></span>Computers solving national/global problems</a></li>
+        <li><a href="grade12/social-gr12.html"><span class="tl-dot"></span>Social networking evolution &amp; its effects</a></li>
+        <li><a href="grade12/social-gr12.html"><span class="tl-dot"></span>Privacy: cookies, anonymity, GUIDs, file sharing</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="term-block">
+  <div class="term-header"><div class="term-num">T4</div><div><div class="term-title">Term 4 &bull; September &ndash; November &mdash; Final Exams</div><div class="term-subtitle">No new content &mdash; case studies, exam revision</div></div></div>
+  <div class="term-body">
+    <div class="term-col"><div class="term-col-title">&#128300; Paper 1 High-Priority Areas</div>
+      <ul class="term-links">
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Q1: General programming (strings, loops, decisions)</li>
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Q2: Arrays &amp; text file handling</li>
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Q3: OOP with multiple method types</li>
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Q4: SQL + database programming (incl. join)</li>
+      </ul>
+    </div>
+    <div class="term-col"><div class="term-col-title">&#128216; Paper 2 High-Priority Areas</div>
+      <ul class="term-links">
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Hardware, networks, internet (cumulative Gr10&ndash;12)</li>
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Normalisation (1NF/2NF/3NF) &mdash; always appears</li>
+        <li><span class="tl-plain" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--border);margin-right:.4rem"></span>Social implications &amp; cybercrime</li>
+        <li><a href="exam-extras.html"><span class="tl-dot"></span>Check Exam Extras for out-of-CAPS questions</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="chapter" id="ch10">
+  <div class="chapter-tag">Grade 12 &middot; Exam Resources</div>
+<h1>Exam Extras <span class="grade-badge" style="background:rgba(74,222,128,.15);color:#4ade80">Out-of-CAPS</span></h1>
+  <p class="page-intro">These topics are not explicitly required by CAPS but have appeared in NSC past papers (2015–2024). Knowing them can mean the difference between a pass and a distinction.</p>
+
+  <div class="callout warning">
+    <div class="callout-title">How to use this page</div>
+    <p>Items marked <span class="badge badge-blue">P1</span> appear in Paper 1 (practical/Delphi), <span class="badge badge-purple">P2</span> in Paper 2 (theory), and <span class="badge badge-green">Both</span> in either paper. These are <em>supplementary</em> — master your CAPS content first.</p>
+  </div>
+
+  <!-- SOFTWARE DEVELOPMENT PROCESS -->
+  <h2 id="dev-process">The Software Development Process</h2>
+  <p>CAPS never teaches "how to plan a whole program" as one topic — instead it hands you the individual planning tools (IPO tables, TOE charts, pseudocode) at different points across Grade 10 and 11. Strung together in order, those tools form a complete process for turning a vague idea into a finished, working program. None of this is examinable on its own, but following it will make your PAT — and any open-ended practical question — far less overwhelming.</p>
+
+  <ol style="margin:0.75rem 0 0 1.25rem; display:flex; flex-direction:column; gap:1rem">
+    <li>
+      <strong>Pin down exactly what the program must do.</strong> A one-line description ("a till program") is not enough to start coding from — write out every input the program will receive, every calculation or decision it must make, and every output it must produce. This is the same information an <strong>IPO table</strong> asks for (<a href="grade10/practical/algorithms.html">Grade 10 T1, Algorithms &amp; Problem Solving</a>), just applied to the whole program instead of one calculation.
+    </li>
+    <li>
+      <strong>Sketch the interface before placing a single component.</strong> Decide which forms the user will see, what components sit on each one, and how the user moves between them. Keep the same layout, colours and button placement on every form — a program that looks different from screen to screen feels unfinished even when the code is solid.
+    </li>
+    <li>
+      <strong>Map out which event triggers which task.</strong> For every button, checkbox or form event, list precisely what must happen when it fires — this is exactly what a <strong>TOE (Task–Object–Event) chart</strong> is for (also covered on the <a href="grade10/practical/algorithms.html">Algorithms &amp; Problem Solving</a> page). Doing this before writing code stops the common mistake of half-remembering what a button was supposed to do halfway through typing its handler.
+    </li>
+    <li>
+      <strong>Break the plan into procedures and functions before typing the body of any of them.</strong> Decide which pieces of logic will repeat, which need a return value and which don't, and what needs to pass between them as parameters — this is where the <a href="grade11/practical/methods.html">Procedures &amp; Functions</a> (Grade 11 T2) content and the local-vs-global variable rules on that page earn their keep.
+    </li>
+    <li>
+      <strong>Write the code in small, testable pieces</strong> rather than the whole program at once — build and run after every procedure or two so that when something breaks, you know it's in the last few lines you typed, not buried somewhere in 200 lines you haven't tested yet.
+    </li>
+    <li>
+      <strong>Test with data designed to break it, not just data that works.</strong> Run the program with an empty text box, a negative number, the largest and smallest values it should accept, and anything else a careless user might type — this is the mindset behind the <a href="grade10/practical/decisions.html">Input Validation</a> content (Grade 10 T2). Where something goes wrong before you can even see the output, Delphi's debugger (breakpoints, F8 stepping, the Watch List — see <a href="grade10/practical/data-types.html">Data Types &amp; Variables</a>) will show you exactly which line is responsible.
+    </li>
+  </ol>
+
+  <div class="callout tip">
+    <div class="callout-title">Why bother with all of this for a PAT?</div>
+    <p>A PAT is marked over months, revisited many times, and often built on by a partner or by future-you after a long break. Time spent planning up front — even just a page of notes on what each form does — is what makes it possible to pick the project back up in Term 4 and still understand your own Term 2 code.</p>
+  </div>
+
+  <!-- PRACTICAL EXTRAS -->
+  <h2 id="practical-extras">Practical Extras — Paper 1 (Delphi)</h2>
+  <p>These Delphi functions, components and techniques are not listed in CAPS but appear regularly in exam questions or are needed to solve exam problems efficiently.</p>
+
+  <div class="extras-grid">
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>StringReplace()</h4>
+      <p>Replaces all or first occurrence of a substring within a string.<br>
+      <code>s := StringReplace(s, 'old', 'new', [rfReplaceAll]);</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Format() function</h4>
+      <p>Formats numbers/strings with precise control — <code>Format('%.2f', [rVal])</code> gives 2 decimal places. More powerful than FloatToStrF.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Random() &amp; Randomize()</h4>
+      <p>Generate random integers. Always call <code>Randomize;</code> first to seed the generator. <code>Random(100)</code> returns 0–99.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>TOpenDialog / TSaveDialog</h4>
+      <p>Let users browse for files at runtime.<br>
+      <code>if OpenDialog1.Execute then sFile := OpenDialog1.FileName;</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>DateToStr() &amp; StrToDate()</h4>
+      <p>Convert between TDate values and string representation. Used with TDateTimePicker.<br>
+      <code>sDate := DateToStr(dtpDate.Date);</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Try…Except…End (Exception Handling)</h4>
+      <p>Catch runtime errors gracefully — e.g. invalid StrToInt input.<br>
+      <code>try iNum := StrToInt(edtNum.Text); except ShowMessage('Invalid'); end;</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Memo.Lines.Count</h4>
+      <p>Returns the number of lines in a Memo. Often used in loops to process all memo lines.<br>
+      <code>for i := 0 to Memo1.Lines.Count - 1 do</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>SameText() / CompareText()</h4>
+      <p>Case-insensitive string comparison — avoids problems when user types 'yes', 'YES' or 'Yes'.<br>
+      <code>if SameText(sInput, 'yes') then</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>IntToHex() &amp; HexToInt()</h4>
+      <p>Convert integers to hexadecimal strings and back. Sometimes tested in conjunction with number systems theory.<br>
+      <code>sHex := IntToHex(255, 4); // = '00FF'</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Odd() &amp; Even() functions</h4>
+      <p>Built-in boolean checks — cleaner than MOD 2.<br>
+      <code>if Odd(iNum) then // true if iNum is odd</code></p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p1">P1</span>
+      <h4>Break &amp; Continue in loops</h4>
+      <p><code>Break</code> stops the rest of the loop from processing. <code>Continue</code> skips the rest of the current pass and moves on to the next iteration. Both appear in exam solutions — know the difference. (<code>Break</code> vs <code>Exit</code> is taught on the <a href="grade10/practical/loops.html">Loops</a> page.)</p>
+    </div>
+  </div>
+
+  <!-- THEORY EXTRAS -->
+  <h2 id="theory-extras">Theory Extras — Paper 2</h2>
+  <p>These theory topics have appeared in NSC Theory papers but sit at the edge of or outside the formal CAPS scope. They typically appear in social implications or "current technology" questions.</p>
+
+  <div class="extras-grid">
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Artificial Intelligence (AI) &amp; Machine Learning</h4>
+      <p>AI appears regularly in social implications questions — automation of jobs, AI decision-making, bias in AI, chatbots. Not deeply technical — understand the concept and its social effects.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Blockchain Technology</h4>
+      <p>A distributed digital ledger of linked blocks. Used in cryptocurrency, supply chain, and secure records. Appeared in Gr12 theory papers. Know: what it is, how it works, and 2 uses.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Deep Fakes</h4>
+      <p>AI-generated fake videos or audio that appear authentic. Social implications question topic — impacts on trust, truth, and politics. Know the definition and two risks.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Dark Web</h4>
+      <p>A part of the internet not indexed by search engines, accessed via special software (Tor). Used for anonymity — legal and illegal uses. Appeared in theory cybercrime questions.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Net Neutrality</h4>
+      <p>The principle that all internet traffic should be treated equally — ISPs cannot throttle or prioritise certain content. A social/political IT topic.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>IPv6</h4>
+      <p>The successor to IPv4 — uses 128-bit addresses (vs 32-bit) to solve address exhaustion. Format: 2001:0db8:85a3::8a2e:0370:7334. Know why it was introduced.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>RAID Levels (0, 1, 5)</h4>
+      <p>RAID 0: speed (striping, no redundancy). RAID 1: mirroring (exact copy). RAID 5: striping with parity (balance of speed + fault tolerance). CAPS only mentions RAID in general — exams go deeper.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Steganography</h4>
+      <p>Hiding secret information within ordinary files (images, audio) without detection. Different from encryption — encryption scrambles data; steganography hides its existence. Appeared in theory questions.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Smart Contracts</h4>
+      <p>Self-executing contracts where terms are written in code on a blockchain. No middlemen needed. Related to blockchain technology — appeared in Gr12 social implications.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Edge Computing</h4>
+      <p>Processing data close to where it is generated (the "edge" of the network) rather than sending it all to a central cloud server. Reduces latency — important for IoT and 5G.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Bus Network Topology</h4>
+      <p>All devices share a single communication line (the bus). Not in the current CAPS but appeared in older papers. Advantage: cheap. Disadvantage: single point of failure; performance drops with more devices.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Mesh Network Topology</h4>
+      <p>Each device connects to several others, so data has more than one possible path. Not in the current CAPS (it sits under "network innovation"). Advantage: very reliable — traffic reroutes if a link fails. Disadvantage: expensive, many connections needed. It's how "mesh Wi-Fi" systems work.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Social Engineering</h4>
+      <p>Manipulating people (rather than systems) to reveal confidential information. Includes pretexting, baiting, tailgating. Appears in cybercrime theory questions.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-both">Both</span>
+      <h4>Number System Conversions</h4>
+      <p>Exams frequently ask you to <em>convert</em> values — not just explain systems. Practise: decimal↔binary, decimal↔hex, binary↔hex. Know the place values (powers of 2 and 16).</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>POPIA (Protection of Personal Information Act)</h4>
+      <p>South African law governing how personal data must be collected, stored, and protected. Appears in privacy and legal implications questions. Know: what it is, who it protects, and 2 requirements.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Cybercrimes Act (2020)</h4>
+      <p>SA legislation that criminalises hacking, ransomware, online fraud, and malicious communications. Often referenced in cybercrime theory questions for Gr12.</p>
+    </div>
+    <div class="extra-card">
+      <span class="extra-tag tag-p2">P2</span>
+      <h4>Digital Twins</h4>
+      <p>A virtual replica of a physical object or system, updated in real time from sensor data. Used in engineering, manufacturing, and smart cities. Appeared in 4IR/IoT questions.</p>
+    </div>
+  </div>
+
+  <!-- DELPHI FUNCTIONS REFERENCE -->
+  <h2 id="delphi-functions">Complete Delphi Functions Quick Reference</h2>
+  <p>A comprehensive reference of all Delphi functions you need to know — both CAPS-required and commonly appearing in exams.</p>
+
+  <h3>String Functions</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Function/Procedure</th><th>What it does</th><th>Example</th></tr>
+    <tr><td><code>Length(s)</code></td><td>Returns number of characters</td><td><code>Length('Hello') = 5</code></td></tr>
+    <tr><td><code>Pos(find, source)</code></td><td>Position of substring (0 if not found)</td><td><code>Pos('lo','Hello') = 4</code></td></tr>
+    <tr><td><code>Copy(source, start, len)</code></td><td>Extract substring</td><td><code>Copy('Hello',2,3) = 'ell'</code></td></tr>
+    <tr><td><code>Insert(text, var s, pos)</code></td><td>Insert text into string at position</td><td><code>Insert('!','Hello',6) → 'Hello!'</code></td></tr>
+    <tr><td><code>Delete(var s, pos, len)</code></td><td>Remove characters from string</td><td><code>Delete(s,1,3)</code></td></tr>
+    <tr><td><code>UpperCase(s)</code></td><td>All uppercase</td><td><code>UpperCase('hi') = 'HI'</code></td></tr>
+    <tr><td><code>LowerCase(s)</code></td><td>All lowercase</td><td><code>LowerCase('HI') = 'hi'</code></td></tr>
+    <tr><td><code>Trim(s)</code></td><td>Remove leading/trailing spaces</td><td><code>Trim('  Hi  ') = 'Hi'</code></td></tr>
+    <tr><td><code>StringReplace(s,old,new,flags)</code></td><td>Replace substring(s)</td><td><code>StringReplace(s,'a','e',[rfReplaceAll])</code></td></tr>
+    <tr><td><code>SameText(s1,s2)</code></td><td>Case-insensitive comparison (boolean)</td><td><code>SameText('Yes','yes') = True</code></td></tr>
+    <tr><td><code>Concat(s1,s2)</code></td><td>Join two strings (same as +)</td><td><code>Concat('Hel','lo')</code></td></tr>
+    <tr><td><code>s[i]</code></td><td>Character at index i (1-based)</td><td><code>s[1]</code> = first character</td></tr>
+  </table></div>
+
+  <h3>Math Functions</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Function</th><th>What it does</th><th>Example</th></tr>
+    <tr><td><code>Sqr(x)</code></td><td>x squared (x²)</td><td><code>Sqr(4) = 16</code></td></tr>
+    <tr><td><code>Sqrt(x)</code></td><td>Square root</td><td><code>Sqrt(16) = 4</code></td></tr>
+    <tr><td><code>Power(base, exp)</code></td><td>base to the power of exp</td><td><code>Power(2,8) = 256</code></td></tr>
+    <tr><td><code>Round(x)</code></td><td>Round to nearest integer</td><td><code>Round(4.6) = 5</code></td></tr>
+    <tr><td><code>Trunc(x)</code></td><td>Remove decimal (truncate toward zero)</td><td><code>Trunc(4.9) = 4</code></td></tr>
+    <tr><td><code>Ceil(x)</code></td><td>Round UP to integer</td><td><code>Ceil(4.1) = 5</code></td></tr>
+    <tr><td><code>Floor(x)</code></td><td>Round DOWN to integer</td><td><code>Floor(4.9) = 4</code></td></tr>
+    <tr><td><code>Abs(x)</code></td><td>Absolute value</td><td><code>Abs(-5) = 5</code></td></tr>
+    <tr><td><code>Random(n)</code></td><td>Random integer 0 to n-1</td><td><code>Random(6)+1</code> simulates a die</td></tr>
+    <tr><td><code>Randomize</code></td><td>Seed the random generator (call once)</td><td>Call before Random()</td></tr>
+    <tr><td><code>Inc(x)</code> / <code>Inc(x,n)</code></td><td>Increment by 1 or n</td><td><code>Inc(i) ≡ i := i+1</code></td></tr>
+    <tr><td><code>Dec(x)</code> / <code>Dec(x,n)</code></td><td>Decrement by 1 or n</td><td><code>Dec(i,3) ≡ i := i-3</code></td></tr>
+    <tr><td><code>Odd(n)</code></td><td>True if n is odd</td><td><code>Odd(3) = True</code></td></tr>
+    <tr><td><code>Pi</code></td><td>Returns π (3.14159…)</td><td><code>rArea := Pi * Sqr(r)</code></td></tr>
+  </table></div>
+
+  <h3>Type Conversion Functions</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Function</th><th>Converts</th><th>Example</th></tr>
+    <tr><td><code>StrToInt(s)</code></td><td>String → Integer</td><td><code>StrToInt('42') = 42</code></td></tr>
+    <tr><td><code>StrToFloat(s)</code></td><td>String → Real</td><td><code>StrToFloat('3.14')</code></td></tr>
+    <tr><td><code>StrToIntDef(s, default)</code></td><td>String → Integer (safe — returns default if invalid)</td><td><code>StrToIntDef(edtNum.Text, 0)</code></td></tr>
+    <tr><td><code>IntToStr(n)</code></td><td>Integer → String</td><td><code>IntToStr(42) = '42'</code></td></tr>
+    <tr><td><code>FloatToStr(r)</code></td><td>Real → String</td><td><code>FloatToStr(3.14)</code></td></tr>
+    <tr><td><code>FloatToStrF(r, fmt, digits, dec)</code></td><td>Formatted real → String</td><td><code>FloatToStrF(r, ffFixed, 6, 2)</code></td></tr>
+    <tr><td><code>Ord(c)</code></td><td>Char → Integer (ASCII value)</td><td><code>Ord('A') = 65</code></td></tr>
+    <tr><td><code>Chr(n)</code></td><td>Integer → Char</td><td><code>Chr(65) = 'A'</code></td></tr>
+    <tr><td><code>UpCase(c)</code></td><td>Single char to uppercase</td><td><code>UpCase('a') = 'A'</code></td></tr>
+    <tr><td><code>IntToHex(n, digits)</code></td><td>Integer → Hex string</td><td><code>IntToHex(255,2) = 'FF'</code></td></tr>
+    <tr><td><code>DateToStr(d)</code></td><td>TDate → String</td><td><code>DateToStr(Now)</code></td></tr>
+    <tr><td><code>FormatFloat(fmt, r)</code></td><td>Real → formatted string</td><td><code>FormatFloat('#,##0.00', 1234.5)</code></td></tr>
+  </table></div>
+
+  <!-- PAST PAPER TIPS -->
+  <h2 id="past-paper-tips">Past Paper Patterns &amp; Tips</h2>
+
+  <h3>Paper 1 (Practical) — What Always Appears</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Section</th><th>What to expect</th><th>Common traps</th></tr>
+    <tr><td><strong>Q1: General programming</strong></td><td>Strings, loops, decisions, calculations (~30–40 marks)</td><td>Off-by-one errors in loops; forgetting to initialise variables</td></tr>
+    <tr><td><strong>Q2: Arrays &amp; files</strong></td><td>1D/2D arrays, text file reading/writing (~20–25 marks)</td><td>Using wrong index (0 vs 1-based); not closing file</td></tr>
+    <tr><td><strong>Q3: OOP</strong></td><td>Class with constructor, accessors, mutators, toString (~25–30 marks)</td><td>Calling Create on the object var (not class name); forgetting Result in functions</td></tr>
+    <tr><td><strong>Q4: Database/SQL</strong></td><td>TADOQuery, SQL statements including JOIN (~20–25 marks)</td><td>Not calling qry.Close before changing SQL; wrong JOIN ON condition</td></tr>
+    <tr><td><strong>Recursion (Gr12)</strong></td><td>Write a recursive function; trace it (~10–15 marks)</td><td>Missing base case; not returning Result</td></tr>
+  </table></div>
+
+  <h3>Paper 2 (Theory) — What Always Appears</h3>
+  <div class="tbl-wrap"><table>
+    <tr><th>Topic</th><th>Typical mark allocation</th><th>What examiners look for</th></tr>
+    <tr><td>Hardware &amp; software</td><td>15–20 marks</td><td>Specific advantages/disadvantages; real-world examples</td></tr>
+    <tr><td>Networks &amp; internet</td><td>20–25 marks</td><td>Correct terminology; topology advantages/disadvantages</td></tr>
+    <tr><td>Databases &amp; normalisation</td><td>20–30 marks</td><td>Correct normal form identification; proper primary/foreign key use</td></tr>
+    <tr><td>Social implications</td><td>20–25 marks</td><td>Balance of positive AND negative effects; specific examples</td></tr>
+    <tr><td>Cybercrime</td><td>10–15 marks (Gr12)</td><td>Correct crime type names; effects on both victim and business</td></tr>
+    <tr><td>Current technology (IoT, AI, VR)</td><td>10–15 marks (Gr12)</td><td>Practical application examples; social implications</td></tr>
+  </table></div>
+
+  <h3>General Exam Advice</h3>
+  <div class="callout tip">
+    <div class="callout-title">Top 5 mark-saving habits</div>
+    <ul style="margin:0.5rem 0 0 1.25rem">
+      <li>Read the question twice — and write your Paper 2 answers in sentences or short paragraphs, never bullet points, whatever the command word is. Markers only credit the first few bullets, but they must read a whole paragraph</li>
+      <li>Never leave a practical question blank — partial marks are awarded for correct structure</li>
+      <li>In SQL: always check your WHERE condition matches the question's criteria exactly</li>
+      <li>In OOP: write the constructor first — it sets up all the attributes you'll use elsewhere</li>
+      <li>In theory: "advantage AND disadvantage" means you need both for full marks</li>
+    </ul>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
