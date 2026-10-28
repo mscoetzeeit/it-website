@@ -111,6 +111,7 @@
     + '<a href="' + r + 'terms-gr12.html">&#128197; Grade 12 — Year Planner</a>'
     + '<div class="dropdown-section">Reference</div>'
     + '<a href="' + r + 'glossary.html">&#128214; IT Glossary (A&ndash;Z)</a>'
+    + '<a href="' + r + 'booklets.html">&#128424;&#65039; Printable Study Booklets</a>'
     + '<div class="dropdown-section">Exam Resources</div>'
     + '<a href="' + r + 'exam-practice/index.html">&#128221; Exam Practice (Q &amp; memos)</a>'
     + '<a href="' + r + 'past-papers.html">&#128193; Past Papers (Google Drive)</a>'
