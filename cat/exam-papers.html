@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Download full CAPS-aligned CAT practice examination papers (Paper 1 Practical and Paper 2 Theory) with marking guidelines and practical data files, for Grades 10, 11 and 12.">
+<title>Practice Exam Papers – CAT</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2334d399'/%3E%3Ctext x='16' y='21' font-family='Arial,Helvetica,sans-serif' font-size='11' font-weight='700' fill='%23fff' text-anchor='middle'%3ECAT%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .papers-intro { max-width: 70ch; }
+  .grade-papers { display: grid; gap: 1.2rem; margin: 1.4rem 0; }
+  .paper-card {
+    border: 1px solid var(--border); border-left: 5px solid var(--gcol);
+    border-radius: 10px; background: var(--surface); padding: 1.1rem 1.2rem;
+  }
+  .paper-card h2 { margin: 0 0 .2rem; font-size: 1.25rem; }
+  .paper-card h2 .badge {
+    font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em;
+    color: #fff; background: var(--gcol); padding: .15em .55em; border-radius: 4px;
+    vertical-align: middle; margin-left: .5rem;
+  }
+  .paper-meta { color: var(--muted); font-size: .85rem; margin-bottom: .9rem; }
+  .paper-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 620px){ .paper-split { grid-template-columns: 1fr; } }
+  .paper-block { border: 1px solid var(--border); border-radius: 8px; padding: .8rem .9rem; background: var(--surface2); }
+  .paper-block h3 { margin: 0 0 .15rem; font-size: 1rem; }
+  .paper-block .sub { color: var(--muted); font-size: .8rem; margin-bottom: .6rem; }
+  .dl-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .4rem; }
+  .dl {
+    display: flex; align-items: center; gap: .5rem; padding: .45rem .6rem;
+    border: 1px solid var(--border); border-radius: 6px; background: var(--bg);
+    color: var(--text); font-size: .9rem; transition: border-color .15s, transform .05s;
+  }
+  .dl:hover { border-color: var(--gcol); }
+  .dl .ic { font-size: 1.05rem; }
+  .dl .label { flex: 1; }
+  .dl .type { color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; }
+  .dl.memo { border-style: dashed; }
+  .coming { opacity: .55; }
+  .coming .paper-split { filter: grayscale(.4); }
+  .soon-tag { font-size: .72rem; font-weight: 700; text-transform: uppercase; color: var(--muted); border: 1px dashed var(--muted); padding: .1em .5em; border-radius: 4px; margin-left:.5rem; }
+  .g10 { --gcol: var(--gr10); } .g11 { --gcol: var(--gr11); } .g12 { --gcol: var(--gr12); }
+</style>
+</head>
+<body>
+<div id="topnav"></div>
+<main class="content" style="max-width:1000px;margin:0 auto">
+  <div class="breadcrumb"><a href="index.html"><span class="i18n" data-af="Tuis">Home</span></a><span class="breadcrumb-sep">›</span><span><span class="i18n" data-af="Studiehulpmiddels">Study Tools</span></span><span class="breadcrumb-sep">›</span><span><span class="i18n" data-af="Oefenvraestelle">Practice Exam Papers</span></span></div>
+
+  <h1><span class="i18n" data-af="Oefeneksamenvraestelle">Practice Exam Papers</span></h1>
+  <p class="page-intro papers-intro"><span class="i18n" data-af="Laai volledige, KABV-belynde oefenvraestelle af — Vraestel 1 (Prakties) en Vraestel 2 (Teorie) — elk met 'n nasienriglyn (memorandum). Praktiese vraestelle kom met al die databasislêers wat jy nodig het.">Download full, CAPS-aligned practice examination papers — Paper 1 (Practical) and Paper 2 (Theory) — each with a marking guideline (memo). Practical papers come with all the data files you need.</span></p>
+
+  <div class="callout warning">
+    <div class="callout-title"><span class="i18n" data-af="Lees dit eers">Please read first</span></div>
+    <p><span class="i18n" data-af="Hierdie is OEFENvraestelle wat deur die skool opgestel is om vir die eksamen te oefen. Dit is nié amptelike DBO/NSS-vraestelle nie. Hulle volg die KABV-struktuur en puntetoekenning.">These are PRACTICE papers written by the school to prepare for the exam. They are NOT official DBE/NSC papers. They follow the CAPS structure and mark allocations.</span></p>
+    <ul>
+      <li><span class="i18n" data-af="Doen Vraestel 1 op 'n rekenaar met Microsoft Office (Word, Excel, Access).">Do Paper 1 on a computer using Microsoft Office (Word, Excel, Access).</span></li>
+      <li><span class="i18n" data-af="Beantwoord die HTML-vraag in 'n teksredigeerder soos Notepad++ — nie in 'n woordverwerker nie.">Answer the HTML question in a text editor such as Notepad++ — not in a word processor.</span></li>
+      <li><span class="i18n" data-af="Pak die databasislêer-zip uit voordat jy begin. Stoor gereeld.">Extract the data-files ZIP before you start. Save regularly.</span></li>
+      <li><span class="i18n" data-af="Vraestelle en memo's is in Word-formaat (.docx) sodat onderwysers dit kan aanpas en druk.">Papers and memos are in Word format (.docx) so teachers can adapt and print them.</span></li>
+    </ul>
+  </div>
+
+  <div class="grade-papers">
+
+    <!-- GRADE 12 -->
+    <section class="paper-card g12">
+      <h2><span class="i18n" data-af="Graad 12">Grade 12</span> <span class="badge"><span class="i18n" data-af="Finale (NSS-styl)">Finals (NSC-style)</span></span></h2>
+      <div class="paper-meta"><span class="i18n" data-af="Vraestel 1: 150 punte · 3 uur  |  Vraestel 2: 150 punte · 3 uur">Paper 1: 150 marks · 3 hours  |  Paper 2: 150 marks · 3 hours</span></div>
+      <div class="paper-split">
+        <div class="paper-block">
+          <h3><span class="i18n" data-af="Vraestel 1 — Prakties">Paper 1 — Practical</span></h3>
+          <div class="sub"><span class="i18n" data-af="Word · Excel · Access · HTML · Algemeen">Word · Excel · Access · HTML · General</span></div>
+          <ul class="dl-list">
+            <li><a class="dl" href="papers/grade12/CAT_Gr12_P1_Practical_PRACTICE.docx" download><span class="ic">📄</span><span class="label i18n" data-af="Vraestel 1 — Vraestel">Paper 1 — Question Paper</span><span class="type">docx</span></a></li>
+            <li><a class="dl" href="papers/grade12/CAT_Gr12_P1_DataFiles.zip" download><span class="ic">🗂️</span><span class="label i18n" data-af="Databasislêers (zip)">Data Files (zip)</span><span class="type">zip</span></a></li>
+            <li><a class="dl memo" href="papers/grade12/CAT_Gr12_P1_Practical_PRACTICE_MEMO.docx" download><span class="ic">✅</span><span class="label i18n" data-af="Nasienriglyn (Memo)">Marking Guideline (Memo)</span><span class="type">docx</span></a></li>
+          </ul>
+        </div>
+        <div class="paper-block">
+          <h3><span class="i18n" data-af="Vraestel 2 — Teorie">Paper 2 — Theory</span></h3>
+          <div class="sub"><span class="i18n" data-af="Afdeling A · B · C">Section A · B · C</span></div>
+          <ul class="dl-list">
+            <li><a class="dl" href="papers/grade12/CAT_Gr12_P2_Theory_PRACTICE.docx" download><span class="ic">📄</span><span class="label i18n" data-af="Vraestel 2 — Vraestel">Paper 2 — Question Paper</span><span class="type">docx</span></a></li>
+            <li><a class="dl memo" href="papers/grade12/CAT_Gr12_P2_Theory_PRACTICE_MEMO.docx" download><span class="ic">✅</span><span class="label i18n" data-af="Nasienriglyn (Memo)">Marking Guideline (Memo)</span><span class="type">docx</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRADE 11 -->
+    <section class="paper-card g11">
+      <h2><span class="i18n" data-af="Graad 11">Grade 11</span> <span class="badge"><span class="i18n" data-af="Finale">Finals</span></span></h2>
+      <div class="paper-meta"><span class="i18n" data-af="Vraestel 1: 150 punte · 3 uur  |  Vraestel 2: 150 punte · 3 uur">Paper 1: 150 marks · 3 hours  |  Paper 2: 150 marks · 3 hours</span></div>
+      <div class="paper-split">
+        <div class="paper-block">
+          <h3><span class="i18n" data-af="Vraestel 1 — Prakties">Paper 1 — Practical</span></h3>
+          <div class="sub"><span class="i18n" data-af="Word · Excel · Access · HTML · Algemeen">Word · Excel · Access · HTML · General</span></div>
+          <ul class="dl-list">
+            <li><a class="dl" href="papers/grade11/CAT_Gr11_P1_Practical_PRACTICE.docx" download><span class="ic">📄</span><span class="label i18n" data-af="Vraestel 1 — Vraestel">Paper 1 — Question Paper</span><span class="type">docx</span></a></li>
+            <li><a class="dl" href="papers/grade11/CAT_Gr11_P1_DataFiles.zip" download><span class="ic">🗂️</span><span class="label i18n" data-af="Databasislêers (zip)">Data Files (zip)</span><span class="type">zip</span></a></li>
+            <li><a class="dl memo" href="papers/grade11/CAT_Gr11_P1_Practical_PRACTICE_MEMO.docx" download><span class="ic">✅</span><span class="label i18n" data-af="Nasienriglyn (Memo)">Marking Guideline (Memo)</span><span class="type">docx</span></a></li>
+          </ul>
+        </div>
+        <div class="paper-block">
+          <h3><span class="i18n" data-af="Vraestel 2 — Teorie">Paper 2 — Theory</span></h3>
+          <div class="sub"><span class="i18n" data-af="Afdeling A · B · C">Section A · B · C</span></div>
+          <ul class="dl-list">
+            <li><a class="dl" href="papers/grade11/CAT_Gr11_P2_Theory_PRACTICE.docx" download><span class="ic">📄</span><span class="label i18n" data-af="Vraestel 2 — Vraestel">Paper 2 — Question Paper</span><span class="type">docx</span></a></li>
+            <li><a class="dl memo" href="papers/grade11/CAT_Gr11_P2_Theory_PRACTICE_MEMO.docx" download><span class="ic">✅</span><span class="label i18n" data-af="Nasienriglyn (Memo)">Marking Guideline (Memo)</span><span class="type">docx</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRADE 10 -->
+    <section class="paper-card g10">
+      <h2><span class="i18n" data-af="Graad 10">Grade 10</span> <span class="badge"><span class="i18n" data-af="Finale">Finals</span></span></h2>
+      <div class="paper-meta"><span class="i18n" data-af="Vraestel 1: 120 punte · 2½ uur  |  Vraestel 2: 120 punte · 2½ uur">Paper 1: 120 marks · 2½ hours  |  Paper 2: 120 marks · 2½ hours</span></div>
+      <div class="paper-split">
+        <div class="paper-block">
+          <h3><span class="i18n" data-af="Vraestel 1 — Prakties">Paper 1 — Practical</span></h3>
+          <div class="sub"><span class="i18n" data-af="Word · Excel · HTML · Algemeen">Word · Excel · HTML · General</span></div>
+          <ul class="dl-list">
+            <li><a class="dl" href="papers/grade10/CAT_Gr10_P1_Practical_PRACTICE.docx" download><span class="ic">📄</span><span class="label i18n" data-af="Vraestel 1 — Vraestel">Paper 1 — Question Paper</span><span class="type">docx</span></a></li>
+            <li><a class="dl" href="papers/grade10/CAT_Gr10_P1_DataFiles.zip" download><span class="ic">🗂️</span><span class="label i18n" data-af="Databasislêers (zip)">Data Files (zip)</span><span class="type">zip</span></a></li>
+            <li><a class="dl memo" href="papers/grade10/CAT_Gr10_P1_Practical_PRACTICE_MEMO.docx" download><span class="ic">✅</span><span class="label i18n" data-af="Nasienriglyn (Memo)">Marking Guideline (Memo)</span><span class="type">docx</span></a></li>
+          </ul>
+        </div>
+        <div class="paper-block">
+          <h3><span class="i18n" data-af="Vraestel 2 — Teorie">Paper 2 — Theory</span></h3>
+          <div class="sub"><span class="i18n" data-af="Afdeling A · B · C">Section A · B · C</span></div>
+          <ul class="dl-list">
+            <li><a class="dl" href="papers/grade10/CAT_Gr10_P2_Theory_PRACTICE.docx" download><span class="ic">📄</span><span class="label i18n" data-af="Vraestel 2 — Vraestel">Paper 2 — Question Paper</span><span class="type">docx</span></a></li>
+            <li><a class="dl memo" href="papers/grade10/CAT_Gr10_P2_Theory_PRACTICE_MEMO.docx" download><span class="ic">✅</span><span class="label i18n" data-af="Nasienriglyn (Memo)">Marking Guideline (Memo)</span><span class="type">docx</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-title"><span class="i18n" data-af="Wenk">Tip</span></div>
+    <p><span class="i18n" data-af="Doen die vraestel onder eksamentoestande: stel 'n tydhouer, moenie na die memo kyk nie, en nasien eers daarna. Kyk ook na die Eksamenoefening-afdeling vir meer vrae per onderwerp.">Do the paper under exam conditions: set a timer, don't look at the memo, and mark only afterwards. Also see the Exam Practice section for more questions by topic.</span></p>
+  </div>
+</main>
+<script src="./js/nav.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
