@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bible Story Book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Layout: a timeline ribbon of the nine eras on top, one column of story cards by era; a story opens as its own reading page. */
+  --bg: #ECEFEC;
+  --surface: #FFFFFF;
+  --ink: #1E2925;
+  --muted: #5A6862;
+  --line: #D5DCD8;
+  --accent: #2C5A86;
+  --gold: #A9771F;
+  --display: "Gloock", "Georgia", serif;
+  --body: "Literata", "Georgia", serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111715; --surface: #1A221F; --ink: #E5EBE8; --muted: #9AA8A2;
+    --line: #2C3733; --accent: #86B4E2; --gold: #D9A855; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111715; --surface: #1A221F; --ink: #E5EBE8; --muted: #9AA8A2;
+  --line: #2C3733; --accent: #86B4E2; --gold: #D9A855; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.55; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 24px 16px 80px; }
+[hidden] { display: none !important; }
+header h1 { font-family: var(--display); font-weight: 400; font-size: clamp(34px, 9vw, 52px); line-height: 1; margin: 0 0 8px; text-wrap: balance; }
+header p { margin: 0; color: var(--muted); font-size: 15px; }
+.count { font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 600; }
+
+.ribbon { display: flex; gap: 3px; margin: 20px 0 6px; height: 34px; }
+.seg { flex-grow: var(--n); flex-basis: 0; min-width: 14px; position: relative; border: 0; padding: 0; cursor: pointer;
+  background: color-mix(in srgb, var(--hue) 22%, var(--surface)); border-radius: 4px; overflow: hidden; }
+.seg .fill { position: absolute; inset: auto 0 0 0; height: var(--pct); background: var(--hue); transition: height .3s; }
+.seg.on { outline: 2px solid var(--ink); outline-offset: 2px; }
+.seg:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ribbon-label { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--muted); }
+
+.controls { display: grid; grid-template-columns: 1fr auto; gap: 8px; margin: 18px 0 10px; }
+input[type="search"], select { font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+input[type="search"] { width: 100%; }
+input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+button { font: inherit; cursor: pointer; }
+.btn { font-size: 15px; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--accent); background: var(--accent); color: var(--surface); white-space: nowrap; }
+.btn.quiet { background: transparent; color: var(--accent); }
+.btn:focus-visible, .chip:focus-visible, .readbtn:focus-visible, .title-btn:focus-visible, a:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; font-size: 14px; color: var(--muted); }
+.row select { font-size: 14px; padding: 6px 8px; }
+.toggle { display: inline-flex; gap: 6px; align-items: center; }
+.filter { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 99px; background: var(--ink); color: var(--bg); border: 0; font-size: 14px; }
+
+.era { margin: 34px 0 12px; padding-left: 12px; border-left: 4px solid var(--hue); }
+.era h2 { font-family: var(--display); font-weight: 400; font-size: 26px; margin: 0; line-height: 1.15; }
+.era small { color: var(--muted); font-size: 14px; }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin: 0 0 12px; display: grid; gap: 8px; scroll-margin-top: 16px; }
+.card.flash { box-shadow: 0 0 0 3px var(--gold); }
+.card.done { opacity: .72; }
+.title-btn { font-family: var(--display); font-weight: 400; font-size: 22px; line-height: 1.2; margin: 0; padding: 0; border: 0; background: none; color: var(--ink); text-align: left; text-wrap: balance; }
+.title-btn:hover { color: var(--accent); }
+.refs { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 15px; font-weight: 600; }
+.refs a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.card p { margin: 0; max-width: 65ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 13px; padding: 3px 10px; border-radius: 99px; border: 1px solid var(--line); background: transparent; color: var(--ink); }
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.readbtn { font-size: 14px; padding: 6px 12px; border-radius: 99px; border: 1px solid var(--gold); background: transparent; color: var(--ink); }
+.readbtn.is-done { background: var(--gold); color: var(--surface); }
+.open { font-size: 14px; padding: 6px 12px; }
+.empty { color: var(--muted); padding: 24px 0; }
+
+/* Reading page */
+.reader .top { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 20px; }
+.reader .kicker { font-size: 14px; color: var(--muted); border-left: 4px solid var(--hue); padding-left: 10px; margin: 0 0 10px; }
+.reader h1 { font-family: var(--display); font-weight: 400; font-size: clamp(30px, 8vw, 44px); line-height: 1.08; margin: 0 0 12px; text-wrap: balance; }
+.reader .refs { font-size: 16px; margin-bottom: 14px; }
+.reader .story { margin: 22px 0; display: grid; gap: 16px; }
+.reader .story p { margin: 0; max-width: 65ch; font-size: 18px; line-height: 1.65; }
+.note { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 8px; }
+.note p { margin: 0; font-size: 16px; }
+.note .ask { font-style: italic; color: var(--muted); }
+.reader .actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 26px; }
+.nav { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.nav button { text-align: left; padding: 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-size: 15px; }
+.nav button small { display: block; color: var(--muted); font-size: 12px; }
+.nav button:last-child { text-align: right; }
+.nav button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div id="home">
+    <header>
+      <h1>Bible Story Book</h1>
+      <p><span class="count" id="count">0 of 0</span> stories read, Genesis to Acts. Tap a story to read it, then tap the reference to open the passage in your Bible app.</p>
+    </header>
+
+    <div class="ribbon" id="ribbon" role="group" aria-label="Filter by era"></div>
+    <div class="ribbon-label"><span>Creation</span><span>Tap an era to filter</span><span>The early church</span></div>
+
+    <div class="controls">
+      <input type="search" id="q" placeholder="Search a story, person or book" aria-label="Search stories">
+      <button class="btn" id="surprise" type="button">Surprise me</button>
+    </div>
+    <div class="row">
+      <label class="toggle" for="hide"><input type="checkbox" id="hide"> Hide stories I've read</label>
+      <label class="toggle" for="ver">Bible links open in
+        <select id="ver">
+          <option value="111.NIV">NIV</option>
+          <option value="116.NLT">NLT</option>
+          <option value="59.ESV">ESV</option>
+          <option value="114.NKJV">NKJV</option>
+          <option value="6.AFR83">Afrikaans 1983</option>
+          <option value="5.AFR53">Afrikaans 1933/53</option>
+        </select>
+      </label>
+      <span id="active"></span>
+    </div>
+
+    <main id="list"></main>
+  </div>
+
+  <article id="reader" class="reader" hidden></article>
+</div>
+
+<script src="data.js"></script>
+<script>
+const ERAS = {
+  b: ["Beginnings", "Genesis 1-11", "#5B8C5A"],
+  p: ["The patriarchs", "Genesis 12-50, Job", "#8C7A3E"],
+  e: ["Exodus and the wilderness", "Exodus to Deuteronomy", "#B0663A"],
+  j: ["Into the land", "Joshua, Judges, Ruth", "#9C4F5E"],
+  k: ["The first kings", "1 Samuel to 1 Kings 11", "#7A5A9C"],
+  d: ["A divided kingdom", "1 Kings 12 to 2 Kings, the prophets", "#4F6FA8"],
+  x: ["Exile and return", "Daniel, Esther, Ezekiel, Ezra, Nehemiah", "#3E8A92"],
+  g: ["Jesus", "Matthew, Mark, Luke, John", "#C0892B"],
+  c: ["The early church", "Acts", "#5E7F3F"]
+};
+const BOOKS = { "Genesis":"GEN","Exodus":"EXO","Numbers":"NUM","Deuteronomy":"DEU","Joshua":"JOS","Judges":"JDG","Ruth":"RUT",
+  "1 Samuel":"1SA","2 Samuel":"2SA","1 Kings":"1KI","2 Kings":"2KI","2 Chronicles":"2CH","Ezra":"EZR","Nehemiah":"NEH","Esther":"EST",
+  "Job":"JOB","Psalm":"PSA","Isaiah":"ISA","Jeremiah":"JER","Ezekiel":"EZK","Daniel":"DAN","Hosea":"HOS","Jonah":"JON","Malachi":"MAL",
+  "Matthew":"MAT","Mark":"MRK","Luke":"LUK","John":"JHN","Acts":"ACT","Hebrews":"HEB" };
+const S = STORIES;
+const byId = Object.fromEntries(S.map((s, i) => [s.id, i]));
+
+let read = new Set(), hideRead = false, era = null, person = null, ver = "111.NIV", listScroll = 0;
+try {
+  read = new Set(JSON.parse(localStorage.getItem("bsb-read") || "[]"));
+  hideRead = localStorage.getItem("bsb-hide") === "1";
+  ver = localStorage.getItem("bsb-ver") || ver;
+} catch (e) {}
+const save = () => { try {
+  localStorage.setItem("bsb-read", JSON.stringify([...read]));
+  localStorage.setItem("bsb-hide", hideRead ? "1" : "0");
+  localStorage.setItem("bsb-ver", ver);
+} catch (e) {} };
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+$("hide").checked = hideRead;
+if ([...$("ver").options].some(o => o.value === ver)) $("ver").value = ver; else ver = $("ver").value;
+
+// "Genesis 16; 21:8-21" becomes one YouVersion link per part.
+function refLinks(ref) {
+  const [vid, abbr] = ver.split(".");
+  let book = null;
+  return ref.split(";").map(part => {
+    part = part.trim();
+    const m = part.match(/^(?:((?:[123] )?[A-Za-z]+) )?(\d+)(?::(\d+)(?:-(\d+)(:\d+)?)?)?/);
+    if (!m) return esc(part);
+    if (m[1]) book = m[1];
+    const code = BOOKS[book];
+    if (!code) return esc(part);
+    let path = code + "." + m[2];
+    if (m[3] && !m[5]) path += "." + m[3] + (m[4] ? "-" + m[4] : "");
+    const label = m[1] ? part : book + " " + part;
+    return `<a href="https://www.bible.com/bible/${vid}/${path}.${abbr}" target="_blank" rel="noopener">${esc(label)}</a>`;
+  }).join("");
+}
+
+function ribbon() {
+  $("ribbon").innerHTML = Object.entries(ERAS).map(([k, [name, , hue]]) => {
+    const all = S.filter(s => s.e === k);
+    const done = all.filter(s => read.has(s.t)).length;
+    return `<button class="seg${era === k ? " on" : ""}" style="--n:${all.length};--hue:${hue};--pct:${Math.round(done / all.length * 100)}%" data-era="${k}" type="button" aria-pressed="${era === k}" aria-label="${name}: ${done} of ${all.length} read" title="${name}: ${done} of ${all.length} read"><span class="fill"></span></button>`;
+  }).join("");
+  $("count").textContent = `${read.size} of ${S.length}`;
+}
+const readBtn = (i) => { const d = read.has(S[i].t); return `<button class="readbtn${d ? " is-done" : ""}" type="button" data-read="${i}" aria-pressed="${d}">${d ? "Read ✓" : "Mark as read"}</button>`; };
+const chips = (s) => `<div class="chips">${s.p.split("; ").map(p => `<button class="chip" type="button" data-person="${esc(p)}">${esc(p)}</button>`).join("")}</div>`;
+
+function render() {
+  const q = $("q").value.trim().toLowerCase();
+  let html = "";
+  for (const [k, [name, books, hue]] of Object.entries(ERAS)) {
+    if (era && era !== k) continue;
+    const items = S.map((s, i) => [s, i]).filter(([s]) => s.e === k
+      && (!hideRead || !read.has(s.t))
+      && (!person || s.p.split("; ").includes(person))
+      && (!q || (s.t + " " + s.r + " " + s.p + " " + s.s).toLowerCase().includes(q)));
+    if (!items.length) continue;
+    html += `<section class="era" style="--hue:${hue}"><h2>${name}</h2><small>${books} · ${items.length} ${items.length === 1 ? "story" : "stories"}</small></section>`;
+    for (const [s, i] of items) {
+      html += `<article class="card${read.has(s.t) ? " done" : ""}" id="c-${s.id}">
+        <div class="refs">${refLinks(s.r)}</div>
+        <button class="title-btn" type="button" data-open="${i}">${esc(s.t)}</button>
+        <p>${esc(s.s)}</p>
+        ${chips(s)}
+        <div class="foot">
+          <button class="btn open" type="button" data-open="${i}">Read the story</button>
+          ${readBtn(i)}
+        </div>
+      </article>`;
+    }
+  }
+  $("list").innerHTML = html || `<p class="empty">No stories match. Clear the search or filters to see them all.</p>`;
+  const bits = [];
+  if (era) bits.push(`<button class="filter" type="button" data-clear="era">${ERAS[era][0]} ×</button>`);
+  if (person) bits.push(`<button class="filter" type="button" data-clear="person">${esc(person)} ×</button>`);
+  $("active").innerHTML = bits.join(" ");
+  ribbon();
+}
+
+function showStory(i) {
+  const s = S[i], [name, , hue] = ERAS[s.e];
+  const prev = S[i - 1], next = S[i + 1];
+  $("reader").innerHTML = `
+    <div class="top"><button class="btn quiet" type="button" data-home="1">← All stories</button><span class="count">${i + 1} of ${S.length}</span></div>
+    <p class="kicker" style="--hue:${hue}">${name}</p>
+    <h1>${esc(s.t)}</h1>
+    <div class="refs">${refLinks(s.r)}</div>
+    ${chips(s)}
+    <div class="story">${s.l.map(p => `<p>${esc(p)}</p>`).join("")}</div>
+    <div class="note">
+      <p><b>Why it matters:</b> ${esc(s.w)}</p>
+      <p class="ask">${esc(s.q)}</p>
+      <p>Now read it in Scripture: <span class="refs" style="display:inline-flex">${refLinks(s.r)}</span></p>
+    </div>
+    <div class="actions">${readBtn(i)}</div>
+    <div class="nav">
+      ${prev ? `<button type="button" data-open="${i - 1}"><small>← Previous</small>${esc(prev.t)}</button>` : "<span></span>"}
+      ${next ? `<button type="button" data-open="${i + 1}"><small>Next →</small>${esc(next.t)}</button>` : "<span></span>"}
+    </div>`;
+  $("home").hidden = true; $("reader").hidden = false;
+  window.scrollTo(0, 0);
+}
+function showHome() {
+  $("reader").hidden = true; $("home").hidden = false;
+  render();
+  window.scrollTo(0, listScroll);
+}
+function route() {
+  const id = location.hash.slice(1);
+  if (id in byId) showStory(byId[id]); else showHome();
+}
+function go(hash) {
+  if (!$("home").hidden) listScroll = window.scrollY;
+  if (location.hash === hash || (!hash && !location.hash)) route(); else location.hash = hash;
+}
+
+document.addEventListener("click", (e) => {
+  const t = e.target.closest("button");
+  if (!t) return;
+  if (t.dataset.open) go("#" + S[+t.dataset.open].id);
+  else if (t.dataset.home) go("");
+  else if (t.dataset.era) { era = era === t.dataset.era ? null : t.dataset.era; render(); }
+  else if (t.dataset.person) {
+    person = t.dataset.person; era = null; $("q").value = ""; listScroll = 0;
+    if ($("home").hidden) { go(""); } else render();
+    listScroll = Math.max(0, $("list").offsetTop - 12); window.scrollTo(0, listScroll);
+  }
+  else if (t.dataset.clear) { if (t.dataset.clear === "era") era = null; else person = null; render(); }
+  else if (t.dataset.read) {
+    const title = S[+t.dataset.read].t;
+    read.has(title) ? read.delete(title) : read.add(title);
+    save();
+    if (!$("home").hidden && hideRead && read.has(title)) { render(); return; }
+    const done = read.has(title);
+    t.classList.toggle("is-done", done);
+    t.textContent = done ? "Read ✓" : "Mark as read";
+    t.setAttribute("aria-pressed", done);
+    const card = t.closest(".card"); if (card) card.classList.toggle("done", done);
+    ribbon();
+  }
+  else if (t.id === "surprise") {
+    const all = S.map((s, i) => i), pool = all.filter(i => !read.has(S[i].t));
+    const from = pool.length ? pool : all;
+    go("#" + S[from[Math.floor(Math.random() * from.length)]].id);
+  }
+});
+$("q").addEventListener("input", render);
+$("hide").addEventListener("change", (e) => { hideRead = e.target.checked; save(); render(); });
+$("ver").addEventListener("change", (e) => { ver = e.target.value; save(); render(); });
+window.addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>

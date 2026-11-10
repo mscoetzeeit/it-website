@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bible Story Book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Layout: a timeline ribbon of the nine eras on top, then one column of story cards grouped by era. */
+  --bg: #ECEFEC;
+  --surface: #FFFFFF;
+  --ink: #1E2925;
+  --muted: #5A6862;
+  --line: #D5DCD8;
+  --accent: #2C5A86;
+  --gold: #A9771F;
+  --display: "Gloock", "Georgia", serif;
+  --body: "Literata", "Georgia", serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111715; --surface: #1A221F; --ink: #E5EBE8; --muted: #9AA8A2;
+    --line: #2C3733; --accent: #86B4E2; --gold: #D9A855; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111715; --surface: #1A221F; --ink: #E5EBE8; --muted: #9AA8A2;
+  --line: #2C3733; --accent: #86B4E2; --gold: #D9A855; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.55; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 24px 16px 80px; }
+header h1 { font-family: var(--display); font-weight: 400; font-size: clamp(34px, 9vw, 52px); line-height: 1; margin: 0 0 8px; text-wrap: balance; }
+header p { margin: 0; color: var(--muted); font-size: 15px; }
+.count { font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 600; }
+
+/* Era ribbon */
+.ribbon { display: flex; gap: 3px; margin: 20px 0 6px; height: 34px; }
+.seg { flex-grow: var(--n); flex-basis: 0; min-width: 14px; position: relative; border: 0; padding: 0; cursor: pointer;
+  background: color-mix(in srgb, var(--hue) 22%, var(--surface)); border-radius: 4px; overflow: hidden; }
+.seg .fill { position: absolute; inset: auto 0 0 0; height: var(--pct); background: var(--hue); transition: height .3s; }
+.seg.on { outline: 2px solid var(--ink); outline-offset: 2px; }
+.seg:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ribbon-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); }
+
+/* Controls */
+.controls { display: grid; grid-template-columns: 1fr auto; gap: 8px; margin: 18px 0 10px; }
+input[type="search"] { width: 100%; font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+input[type="search"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+button { font: inherit; cursor: pointer; }
+.btn { font-size: 15px; padding: 10px 14px; border-radius: 8px; border: 1px solid var(--accent); background: var(--accent); color: var(--surface); white-space: nowrap; }
+.btn:focus-visible, .chip:focus-visible, .readbtn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 14px; color: var(--muted); }
+.toggle { display: inline-flex; gap: 6px; align-items: center; }
+.filter { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 99px; background: var(--ink); color: var(--bg); border: 0; font-size: 14px; }
+
+/* Era headings */
+.era { margin: 34px 0 12px; padding-left: 12px; border-left: 4px solid var(--hue); }
+.era h2 { font-family: var(--display); font-weight: 400; font-size: 26px; margin: 0; line-height: 1.15; }
+.era small { color: var(--muted); font-size: 14px; }
+
+/* Cards */
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; margin: 0 0 12px; display: grid; gap: 8px; scroll-margin-top: 16px; }
+.card.flash { box-shadow: 0 0 0 3px var(--gold); }
+.card.done { opacity: .72; }
+.card h3 { font-family: var(--display); font-weight: 400; font-size: 22px; line-height: 1.2; margin: 0; text-wrap: balance; }
+.ref { font-size: 15px; font-weight: 600; color: var(--accent); }
+.card p { margin: 0; max-width: 65ch; }
+.why { font-size: 15px; }
+.why b, .ask b { font-weight: 600; }
+.ask { font-size: 15px; font-style: italic; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 13px; padding: 3px 10px; border-radius: 99px; border: 1px solid var(--line); background: transparent; color: var(--ink); }
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.readbtn { font-size: 14px; padding: 6px 12px; border-radius: 99px; border: 1px solid var(--gold); background: transparent; color: var(--ink); }
+.done .readbtn { background: var(--gold); color: var(--surface); }
+.empty { color: var(--muted); padding: 24px 0; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Bible Story Book</h1>
+    <p><span class="count" id="count">0 of 0</span> stories read, Genesis to Acts. Read the summary, then open your Bible at the reference.</p>
+  </header>
+
+  <div class="ribbon" id="ribbon" role="group" aria-label="Filter by era"></div>
+  <div class="ribbon-label"><span>Creation</span><span>Tap an era to filter</span><span>The early church</span></div>
+
+  <div class="controls">
+    <input type="search" id="q" placeholder="Search a story, person or book" aria-label="Search stories">
+    <button class="btn" id="surprise" type="button">Surprise me</button>
+  </div>
+  <div class="row">
+    <label class="toggle" for="hide"><input type="checkbox" id="hide"> Hide stories I've read</label>
+    <span id="active"></span>
+  </div>
+
+  <main id="list"></main>
+</div>
+
+<script>
+const ERAS = {
+  b: ["Beginnings", "Genesis 1-11", "#5B8C5A"],
+  p: ["The patriarchs", "Genesis 12-50, Job", "#8C7A3E"],
+  e: ["Exodus and the wilderness", "Exodus to Deuteronomy", "#B0663A"],
+  j: ["Into the land", "Joshua, Judges, Ruth", "#9C4F5E"],
+  k: ["The first kings", "1 Samuel to 1 Kings 11", "#7A5A9C"],
+  d: ["A divided kingdom", "1 Kings 12 to 2 Kings, the prophets", "#4F6FA8"],
+  x: ["Exile and return", "Daniel, Esther, Ezekiel, Nehemiah", "#3E8A92"],
+  g: ["Jesus", "Matthew, Mark, Luke, John", "#C0892B"],
+  c: ["The early church", "Acts", "#5E7F3F"]
+};
+
+// [era, title, reference, people, story, why it matters, question]
+const S = [
+["b","Creation","Genesis 1-2","Adam; Eve","In six days God speaks light, sky, land, seas, plants, stars and animals into being, and calls it all good. On the sixth day He makes people in His own image, man and woman. On the seventh day He rests.","Everything, including you, starts with a good God who made it on purpose.","Where do I see God's goodness in what He made today?"],
+["b","The fall","Genesis 3","Adam; Eve; The serpent","The serpent questions what God said, and Eve and Adam eat the fruit God told them not to eat. Their eyes are opened, they feel shame and hide. God judges the serpent, but promises that a son of the woman will crush its head.","Sin starts with doubting God's word, and the first promise of a Saviour comes straight after it.","Where am I hiding from God instead of coming to Him?"],
+["b","Cain and Abel","Genesis 4:1-16","Cain; Abel","Both brothers bring offerings, and God accepts Abel's but not Cain's. God warns Cain that sin is crouching at his door, but Cain kills his brother. Even so, God puts a mark on Cain to protect him.","Unchecked anger grows into something much worse, yet God's mercy reaches even Cain.","What is crouching at my door that I need to master?"],
+["b","Noah and the flood","Genesis 6-9","Noah","The earth is full of violence, but Noah walks with God. God tells him to build an ark for his family and the animals, then floods the earth. Afterwards God sets a rainbow in the sky as His promise never to flood the whole earth again.","God judges evil, saves those who trust Him, and keeps His promises.","What promise of God do I need to hold onto this week?"],
+["b","The Tower of Babel","Genesis 11:1-9","The people of Babel","Everyone speaks one language, and people decide to build a city and a tower reaching to the heavens to make a name for themselves. God confuses their language and scatters them over the earth.","Building life around our own name ends in confusion. Pentecost later reverses Babel.","Where am I trying to make a name for myself?"],
+
+["p","The call of Abram","Genesis 12:1-9","Abram; Sarai; Lot","God tells Abram to leave his country and family for a land He will show him. He promises to make Abram a great nation and to bless all peoples through him. Abram goes, at 75 years old.","The whole story of salvation runs through this promise, and it starts with simple obedience.","What is God asking me to step out on without seeing the whole map?"],
+["p","Lot chooses the plain","Genesis 13-14","Abram; Lot; Melchizedek","When their herds grow too big, Abram lets his nephew Lot choose first. Lot picks the well-watered plain near Sodom. Later Abram rescues Lot from raiding kings, and the priest-king Melchizedek blesses him.","Generosity trusts God to provide; choosing by what looks best can lead you toward trouble.","Am I choosing by what looks good or by what honours God?"],
+["p","Hagar and the God who sees","Genesis 16; 21:8-21","Hagar; Sarai; Abram; Ishmael","Sarai gives her servant Hagar to Abram to have a child, and then mistreats her. Hagar runs away, and the angel of the Lord finds her in the desert. She names Him 'the God who sees me'. Years later, sent away with Ishmael, God hears the boy and shows her a well.","God sees the overlooked person in the desert.","Where do I need to know that God sees me?"],
+["p","Sodom and Gomorrah","Genesis 18:16-19:29","Abraham; Lot; Lot's wife","Abraham pleads with God to spare Sodom, and God agrees to spare it for just ten righteous people. Not even ten are found. Angels rush Lot's family out, but Lot's wife looks back and becomes a pillar of salt.","God listens to intercession, and He calls us not to look back at what He is rescuing us from.","Who could I stand in the gap for in prayer?"],
+["p","Abraham offers Isaac","Genesis 22:1-19","Abraham; Isaac","God tests Abraham by asking him to sacrifice Isaac, the son of the promise. Abraham obeys, saying 'God will provide the lamb'. At the last moment God stops him and provides a ram caught in a thicket.","It points straight to the Father giving His own Son.","What am I holding onto too tightly to offer to God?"],
+["p","A bride for Isaac","Genesis 24","Abraham's servant; Rebekah; Isaac","Abraham sends his servant back to his homeland to find a wife for Isaac. At the well the servant asks God for a sign: a woman who offers to water his camels too. Rebekah does exactly that, and agrees to go.","God guides people who pray specifically and act faithfully.","Where do I need to ask God for clear guidance?"],
+["p","Jacob steals the blessing","Genesis 27","Isaac; Rebekah; Jacob; Esau","With his mother's help, Jacob dresses in goat skins and pretends to be his hairy brother Esau. Their blind father Isaac gives Jacob the blessing meant for the firstborn. Esau is furious, and Jacob has to flee.","Grabbing God's promises by deceit costs a family dearly.","Where am I trying to get ahead by my own scheming?"],
+["p","Jacob's ladder","Genesis 28:10-22","Jacob","Running from Esau, Jacob sleeps with a stone for a pillow. He dreams of a stairway to heaven with angels going up and down, and God renews Abraham's promise to him. He wakes saying 'Surely the Lord is in this place, and I was not aware of it'.","God meets us on the run and in our failures.","Where has God been with me without my noticing?"],
+["p","Jacob, Leah and Rachel","Genesis 29:1-30","Jacob; Laban; Leah; Rachel","Jacob works seven years for Rachel, and they feel like a few days because he loves her. On the wedding night his uncle Laban swaps in her older sister Leah. Jacob works seven more years for Rachel.","The deceiver gets deceived, and God works even through a messy family.","Where am I reaping what I've sown, and what is God teaching me in it?"],
+["p","Jacob wrestles with God","Genesis 32:22-32","Jacob","The night before meeting Esau, Jacob wrestles with a man until daybreak and refuses to let go without a blessing. The man touches his hip, and Jacob limps afterwards. He is renamed Israel.","God sometimes blesses us by breaking our self-reliance.","What am I wrestling with God about right now?"],
+["p","Joseph sold by his brothers","Genesis 37","Joseph; Jacob; Reuben; Judah","Jacob's favourite son Joseph has dreams of his family bowing to him and wears a special robe. His jealous brothers throw him into a pit and sell him to traders going to Egypt. They tell their father he was killed by an animal.","Jealousy tears families apart, but God's plan isn't stopped by a pit.","Is there jealousy in me I need to hand over?"],
+["p","Joseph forgives his brothers","Genesis 42-45","Joseph; Judah; Benjamin; Jacob","Years later Joseph is ruler over Egypt, and his brothers come to buy grain in a famine. He tests them, and Judah offers himself in place of young Benjamin. Joseph weeps, reveals who he is, and says 'God sent me ahead of you to save lives'.","What others mean for harm, God can use for good.","Who do I need to forgive, trusting God with the story?"],
+["p","Job","Job 1-2; 38-42","Job; Satan; Job's friends","Job is blameless, and God allows Satan to take away his wealth, children and health. His friends insist he must have sinned. Job pours out his pain and questions. God answers from the storm with questions of His own, and Job bows in worship. God restores him.","Faith can be honest about pain, and God is bigger than our questions.","What honest question do I need to bring to God?"],
+
+["e","Baby Moses in a basket","Exodus 2:1-10","Moses; Miriam; Pharaoh's daughter","Pharaoh orders every Hebrew baby boy thrown into the Nile. Moses' mother hides him, then puts him in a waterproof basket among the reeds. Pharaoh's daughter finds him, and his sister Miriam arranges for his own mother to nurse him.","God protects His purposes through brave, ordinary women.","Where could a small act of courage from me matter?"],
+["e","The burning bush","Exodus 3:1-4:17","Moses; Aaron","Moses, now a shepherd in Midian, sees a bush on fire that doesn't burn up. God calls him to free Israel from Egypt and gives His name, 'I AM WHO I AM'. Moses makes excuse after excuse, and God gives him Aaron to speak for him.","God's 'I AM' is the answer to every 'who am I?'.","What excuse am I giving God?"],
+["e","The plagues and the Passover","Exodus 7-12","Moses; Aaron; Pharaoh","Pharaoh refuses to let Israel go, and God sends ten plagues on Egypt. In the last, the firstborn die, but the angel passes over every house with lamb's blood on the doorframe. Pharaoh finally lets the people go.","The Passover lamb is a picture of Jesus, whose blood covers us.","What does it mean to me that I am covered by the blood of the Lamb?"],
+["e","Crossing the Red Sea","Exodus 14","Moses; Pharaoh","Pharaoh changes his mind and chases Israel to the sea. Moses says 'The Lord will fight for you; you need only to be still'. God parts the water, Israel crosses on dry ground, and the sea returns over the Egyptian army.","God makes a way where there is none.","What 'sea' am I facing that only God can open?"],
+["e","Manna and quail","Exodus 16","Moses; Aaron","In the desert the people grumble about food. God sends quail in the evening and manna every morning, enough for each day. Anything kept overnight rots, except a double portion on the day before the Sabbath.","God provides daily bread, one day at a time.","Am I trusting God for today, or hoarding for tomorrow?"],
+["e","Hands held up","Exodus 17:8-16","Moses; Joshua; Aaron; Hur","The Amalekites attack, and Joshua leads Israel into battle. While Moses holds up his hands on the hill, Israel wins; when his arms tire, they lose. Aaron and Hur sit him on a stone and hold up his hands until sunset.","Even leaders need others to hold up their arms.","Whose arms could I hold up this week?"],
+["e","The Ten Commandments","Exodus 19-20","Moses","At Mount Sinai, with thunder, smoke and a trumpet blast, God gives Israel the Ten Commandments. They begin with 'I am the Lord your God, who brought you out of Egypt'.","God rescues first, then shows His people how to live as His.","Which commandment is God putting His finger on in my life?"],
+["e","The golden calf","Exodus 32","Moses; Aaron","While Moses is on the mountain, the people pressure Aaron into making a golden calf and worship it. God is angry, and Moses pleads for the people. He comes down, smashes the stone tablets and grinds the calf to powder.","We quickly make idols when God seems slow.","What am I tempted to put in God's place when I'm waiting?"],
+["e","The bronze snake","Numbers 21:4-9","Moses","The people complain against God again, and venomous snakes bite them. God tells Moses to make a bronze snake and put it on a pole. Anyone bitten who looks at it lives.","Jesus uses this story about Himself being lifted up on the cross (John 3:14).","What do I need to look to Jesus for today?"],
+["e","Balaam's donkey","Numbers 22","Balaam; Balak","King Balak of Moab hires the prophet Balaam to curse Israel. On the way, Balaam's donkey sees the angel of the Lord blocking the road and refuses to go on. When Balaam beats her, the donkey speaks. In the end Balaam can only bless Israel.","No one can curse what God has blessed.","Where do I need to trust God's blessing over me?"],
+
+["j","Rahab and the spies","Joshua 2","Rahab; Joshua","Joshua sends two spies to Jericho, and Rahab hides them on her roof under stalks of flax. She says she believes the Lord is God in heaven and on earth. She hangs a scarlet cord in her window so her family will be spared.","God saves an unlikely outsider who believes; Rahab ends up in Jesus' family line.","Do I write anyone off as too far from God?"],
+["j","The walls of Jericho","Joshua 6","Joshua","God tells Israel to march around Jericho once a day for six days, and seven times on the seventh. Then the priests blow trumpets, the people shout, and the walls fall down flat.","God's battle plans often look strange, but obedience wins.","What strange instruction is God asking me to keep obeying?"],
+["j","Achan's hidden sin","Joshua 7","Achan; Joshua","After Jericho, Israel is unexpectedly defeated at the small town of Ai. God reveals that Achan secretly took silver, gold and a robe from Jericho and buried them in his tent. The sin is exposed and dealt with.","Hidden sin affects the whole community.","What am I hiding that I need to bring into the light?"],
+["j","The sun stands still","Joshua 10:1-15","Joshua","Five Amorite kings attack the town of Gibeon, Israel's ally, and Joshua marches all night to defend it. God sends huge hailstones, and at Joshua's prayer the sun stands still until the battle is won.","God answers bold prayer.","What bold prayer have I stopped praying?"],
+["j","Deborah and Jael","Judges 4-5","Deborah; Barak; Sisera; Jael","Deborah, a prophet and judge, tells Barak to fight the army of Sisera. Barak will only go if she goes too. God routs the army, and Sisera flees to the tent of Jael, who kills him with a tent peg. Deborah and Barak sing a victory song.","God raises up unexpected leaders, including women.","Where is God asking me to lead or step up?"],
+["j","Gideon's 300","Judges 6-7","Gideon","Gideon is hiding as he threshes wheat in a winepress when the angel calls him a mighty warrior. He tests God with a fleece. God cuts his army from 32,000 to 300, who rout the Midianites with trumpets, jars and torches.","God uses the weak so that the glory is clearly His.","Where do I feel too small for what God is calling me to?"],
+["j","Samson","Judges 13-16","Samson; Delilah","Samson is set apart to God from birth and given great strength. He keeps giving in to his own desires and finally tells Delilah his strength is in his uncut hair. The Philistines capture and blind him. In his last prayer God strengthens him to bring down their temple.","Gifts without character end in tragedy, yet God still hears a broken man's prayer.","Which weakness keeps pulling me back?"],
+["j","Ruth and Naomi","Ruth 1-4","Ruth; Naomi; Boaz","Widowed Naomi returns to Bethlehem, and her Moabite daughter-in-law Ruth refuses to leave her: 'Where you go I will go'. Ruth gleans grain in Boaz's field, and he becomes their kinsman-redeemer. Ruth becomes King David's great-grandmother.","Loyal love and a redeemer turn bitterness into blessing.","Who could I show loyal, faithful love to this week?"],
+
+["k","Hannah's prayer","1 Samuel 1:1-2:11","Hannah; Eli; Peninnah; Samuel","Hannah cannot have children and is taunted by her husband's other wife. At the tabernacle she prays so deeply that the priest Eli thinks she is drunk. God gives her a son, Samuel, and she gives him back to serve the Lord.","God hears the prayer of a weeping heart.","What do I need to pour out to God honestly?"],
+["k","God calls Samuel","1 Samuel 3","Samuel; Eli","Young Samuel hears his name called at night and runs to Eli three times. Eli realises it is the Lord and tells him to say 'Speak, Lord, for your servant is listening'.","God speaks to people who are ready to listen.","Am I making space to listen to God?"],
+["k","Israel asks for a king","1 Samuel 8-10","Samuel; Saul","Israel demands a king to be like the other nations, and Samuel warns them what a king will take. God gives them Saul, a tall young man out looking for his father's lost donkeys, and Samuel anoints him.","Wanting to be like everyone else can mean rejecting God's way.","Where do I want to be like everyone else instead of God's?"],
+["k","Saul's disobedience","1 Samuel 15","Saul; Samuel; Agag","God tells Saul to destroy the Amalekites completely, but he spares King Agag and the best animals, claiming they are for sacrifice. Samuel tells him 'To obey is better than sacrifice', and God rejects Saul as king.","Partial obedience is disobedience.","Where am I half-obeying God?"],
+["k","David anointed","1 Samuel 16:1-13","Samuel; Jesse; David","God sends Samuel to Jesse's sons to anoint the next king. One impressive son after another is rejected, because God looks at the heart. The youngest, David, is called in from the sheep and anointed.","God sees potential where people see only the youngest.","Do I judge myself or others by outward appearance?"],
+["k","David and Goliath","1 Samuel 17","David; Goliath; Saul","The giant Goliath mocks Israel's army for forty days. Young David is offended for God's name and goes out with a sling and stones, saying the battle is the Lord's. One stone brings the giant down.","Courage comes from knowing who God is.","What giant am I facing, and whose battle is it?"],
+["k","David and Jonathan","1 Samuel 18-20","David; Jonathan; Saul","King Saul's son Jonathan loves David as himself and gives him his robe and sword. When Saul tries to kill David, Jonathan warns him with a signal of arrows shot in a field. They part in tears, promising loyalty.","True friendship is loyal even when it costs.","Who is a Jonathan in my life, and am I one to someone?"],
+["k","David spares Saul","1 Samuel 24","David; Saul","Saul hunts David with 3,000 men and goes into the very cave where David is hiding. David's men urge him to kill Saul, but he only cuts off a corner of his robe, refusing to harm the Lord's anointed.","David leaves vengeance to God.","Is there someone I want to get back at?"],
+["k","Abigail","1 Samuel 25","Abigail; Nabal; David","Rich Nabal insults David and his men, and David sets out to kill every man in his household. Nabal's wife Abigail rushes out with food and wisely talks David out of bloodshed. Later, after Nabal dies, David marries her.","A wise, humble word can stop a disaster.","Where could a calm, wise word bring peace?"],
+["k","Mephibosheth at the king's table","2 Samuel 9","David; Mephibosheth; Ziba","As king, David asks if anyone is left from Saul's family that he can show kindness to for Jonathan's sake. He finds Jonathan's son Mephibosheth, lame in both feet, gives him back Saul's land and has him eat at the king's table always.","A picture of grace: brought to the King's table with nothing to offer.","How does it feel that God seats me at His table?"],
+["k","David and Bathsheba","2 Samuel 11-12","David; Bathsheba; Uriah; Nathan","David sleeps with Bathsheba and arranges for her husband Uriah to die in battle. The prophet Nathan tells him a story of a rich man stealing a poor man's only lamb. When David is angry, Nathan says 'You are the man!' David repents (see Psalm 51).","Even a man after God's heart can fall, and real repentance is possible.","Is there something I need to stop excusing?"],
+["k","Absalom's rebellion","2 Samuel 15-18","Absalom; David; Joab","David's son Absalom wins the people's hearts and leads a revolt, and David flees Jerusalem. In the battle, Absalom's hair catches in a tree and Joab kills him. David weeps: 'O my son Absalom!'","Family wounds left unhealed can become rebellion; a father's heart still grieves.","Is there a relationship I need to work on before it breaks?"],
+["k","Solomon asks for wisdom","1 Kings 3","Solomon","God tells young King Solomon to ask for anything. Solomon asks for a discerning heart to govern well. God is pleased and gives wealth and honour too. Soon two women claim the same baby, and Solomon's wisdom reveals the real mother.","Asking for wisdom pleases God.","What situation do I need God's wisdom for?"],
+["k","The Queen of Sheba","1 Kings 10:1-13","Solomon; The Queen of Sheba","The Queen of Sheba travels to test Solomon with hard questions. He answers them all, and when she sees his wisdom and his kingdom she is overwhelmed and praises his God.","God's wisdom in His people can point outsiders to Him.","Does my life make anyone curious about God?"],
+
+["d","The kingdom splits","1 Kings 12","Rehoboam; Jeroboam","Solomon's son Rehoboam ignores the old advisers and listens to his young friends, promising even heavier burdens. Ten tribes break away under Jeroboam, who sets up golden calves so they won't go to Jerusalem to worship.","Pride and bad counsel can split God's people.","Whose advice am I listening to?"],
+["d","Elijah, the ravens and the widow","1 Kings 17","Elijah; The widow of Zarephath","Elijah announces a drought, and God feeds him by ravens at a brook. Then God sends him to a poor widow who has only enough flour and oil for one last meal. She feeds Elijah first, and her jar and jug never run out. Later Elijah raises her son.","God provides in unexpected ways, often through generosity.","Where is God asking me to give from the little I have?"],
+["d","Elijah on Mount Carmel","1 Kings 18","Elijah; Ahab; The prophets of Baal","Elijah challenges 450 prophets of Baal: the god who answers by fire is God. Baal's prophets shout all day with no answer. Elijah soaks his altar with water, prays a simple prayer, and fire falls from heaven.","The Lord is God, and He answers.","Where am I wavering between two opinions?"],
+["d","The gentle whisper","1 Kings 19","Elijah; Jezebel","After the victory, Queen Jezebel threatens Elijah, and he runs into the desert, wanting to die. An angel lets him sleep and gives him food. At Mount Horeb God isn't in the wind, earthquake or fire, but in a gentle whisper.","God cares for burned-out servants and speaks quietly.","Do I need rest, food and a quiet place to hear God?"],
+["d","Naboth's vineyard","1 Kings 21","Ahab; Jezebel; Naboth; Elijah","King Ahab sulks because Naboth won't sell him his family vineyard. Jezebel arranges false witnesses, and Naboth is stoned. Elijah confronts Ahab with God's judgement.","God sees injustice done by the powerful.","Do I stand up for those who are treated unfairly?"],
+["d","Elijah taken up to heaven","2 Kings 2:1-15","Elijah; Elisha","Elisha refuses to leave Elijah's side and asks for a double portion of his spirit. A chariot of fire appears, and Elijah goes up to heaven in a whirlwind. Elisha picks up his cloak, strikes the Jordan, and the water parts.","Hunger for more of God, and the work carries on to the next generation.","Who am I learning from, and who is learning from me?"],
+["d","The widow's oil","2 Kings 4:1-7","Elisha; A prophet's widow","A widow's creditor is coming to take her two sons as slaves. Elisha tells her to borrow as many empty jars as she can and pour her little oil into them. The oil keeps flowing until the last jar is full, and she sells it to pay her debt.","God's provision matches the room we make for it.","How many 'empty jars' am I bringing to God?"],
+["d","The Shunammite's son","2 Kings 4:8-37","Elisha; The Shunammite woman; Gehazi","A woman in Shunem builds a room for Elisha, and God gives her a son. Years later the boy dies in her lap. She goes straight to Elisha, who prays and stretches himself over the boy, and he comes back to life.","Bring your deepest grief straight to God.","What do I need to bring to God rather than carry alone?"],
+["d","Naaman healed","2 Kings 5","Naaman; Elisha; A servant girl; Gehazi","Naaman, an Aramean army commander, has leprosy. A captured Israelite servant girl tells his wife about Elisha. Elisha tells him to wash seven times in the Jordan, and Naaman storms off insulted, until his servants persuade him. His skin becomes like a child's.","Pride nearly costs Naaman his healing; God's ways are humble.","Is pride keeping me from doing a simple thing God asks?"],
+["d","The floating axe head","2 Kings 6:1-7","Elisha","The prophets are cutting trees by the Jordan when a borrowed iron axe head flies off into the water. Elisha throws a stick in, and the axe head floats to the surface.","God cares about small, everyday troubles too.","What small worry can I hand to God today?"],
+["d","Horses and chariots of fire","2 Kings 6:8-23","Elisha; His servant","The king of Aram surrounds the town of Dothan to capture Elisha. His servant panics, but Elisha prays for his eyes to be opened, and he sees the hills full of horses and chariots of fire. The enemy army is struck blind, led away, fed and sent home.","Those with us are more than those against us.","What would I see if God opened my eyes in my situation?"],
+["d","Jonah","Jonah 1-4","Jonah","God sends Jonah to preach to Nineveh, Israel's enemy, and he runs the other way by ship. In a storm he is thrown overboard and swallowed by a great fish. He prays, is spat onto land and preaches, and Nineveh repents. Jonah sulks because God was merciful.","God's mercy is wider than our prejudices.","Who do I secretly think doesn't deserve God's mercy?"],
+["d","Hezekiah spreads out the letter","2 Kings 19","Hezekiah; Isaiah; Sennacherib","The Assyrian king Sennacherib sends Hezekiah a letter mocking God and threatening Jerusalem. Hezekiah takes the letter to the temple and spreads it out before the Lord in prayer. God answers through Isaiah, and the Assyrian army is struck down overnight.","Take the threat to God and lay it out before Him.","What 'letter' do I need to spread out before God?"],
+["d","Josiah finds the Book of the Law","2 Kings 22-23","Josiah; Hilkiah","Josiah becomes king at eight years old. While the temple is being repaired, the priest Hilkiah finds the Book of the Law. When it is read to him, Josiah tears his robes, renews the covenant, removes the idols and celebrates the Passover.","Rediscovering God's Word changes a nation.","What changes when I take God's Word seriously?"],
+["d","Isaiah's vision","Isaiah 6","Isaiah","Isaiah sees the Lord on a high throne, with seraphim calling 'Holy, holy, holy'. He cries out that he is ruined, a man of unclean lips. A seraph touches his lips with a live coal. When God asks who will go, Isaiah says 'Here am I. Send me!'","Seeing God's holiness leads to cleansing, then to calling.","What would 'Here am I, send me' look like for me?"],
+["d","The potter's house","Jeremiah 18:1-12","Jeremiah","God sends Jeremiah to watch a potter at his wheel. When a pot is marred, the potter reshapes it into another pot. God says Israel is like clay in His hands.","God can reshape a spoiled life.","Where do I need to let God reshape me?"],
+
+["x","Daniel's diet","Daniel 1","Daniel; Hananiah; Mishael; Azariah","Taken to Babylon as young men, Daniel and his three friends refuse the king's food. They ask to be tested on vegetables and water for ten days, and end up healthier than everyone else. God gives them unusual wisdom.","Faithfulness in small things in a foreign culture.","Where do I need to quietly stand out?"],
+["x","The fiery furnace","Daniel 3","Shadrach; Meshach; Abednego; Nebuchadnezzar","King Nebuchadnezzar orders everyone to bow to a gold statue. Three friends refuse, saying God can save them, 'but even if he does not' they won't bow. They are thrown into the furnace, and the king sees a fourth man walking with them in the fire.","Faith that holds even if God doesn't rescue, and God is with us in the fire.","Do I trust God 'even if'?"],
+["x","The writing on the wall","Daniel 5","Belshazzar; Daniel","King Belshazzar throws a feast and drinks from the goblets taken from God's temple. A hand appears and writes on the wall. Daniel reads it: God has weighed the king and found him wanting. That night Belshazzar is killed.","Mocking God has consequences.","What do I treat lightly that is holy to God?"],
+["x","Daniel in the lions' den","Daniel 6","Daniel; Darius","Jealous officials trick King Darius into a law that no one may pray to anyone but the king. Daniel keeps praying three times a day with his windows open toward Jerusalem. He is thrown to the lions, and God shuts their mouths.","A steady prayer habit holds under pressure.","Is my prayer life a habit that would hold under pressure?"],
+["x","Ezekiel and the dry bones","Ezekiel 37:1-14","Ezekiel","God shows Ezekiel a valley full of dry bones and tells him to prophesy to them. The bones rattle together, flesh covers them, and when he prophesies to the breath, they stand up as a vast army.","God brings life where everything seems dead.","What feels dead that I need to invite God's breath into?"],
+["x","Esther","Esther 4-7","Esther; Mordecai; Haman; Xerxes","Haman plots to wipe out the Jews in Persia. Mordecai urges Queen Esther to go to the king: 'Who knows if you have come to your royal position for such a time as this?' After three days of fasting she risks her life, and Haman's plot is exposed.","God places people where they are for a purpose.","Why might God have placed me exactly where I am?"],
+["x","Nehemiah rebuilds the wall","Nehemiah 1-6","Nehemiah; Artaxerxes; Sanballat","Nehemiah, cupbearer to the Persian king, weeps and prays when he hears Jerusalem's walls are in ruins. The king sends him to rebuild. Despite mocking and threats, the people work with a tool in one hand and a weapon in the other, finishing in 52 days.","Prayer and hard work go together.","What broken thing is God stirring me to help rebuild?"],
+
+["g","The birth of Jesus","Luke 2:1-20","Mary; Joseph; The shepherds","A census takes Mary and Joseph to Bethlehem, where Jesus is born and laid in a manger. Angels announce the good news to shepherds in the fields, who hurry to find Him and then tell everyone.","God came as a baby, and the news went first to ordinary workers.","Who could I tell about Jesus this week?"],
+["g","The boy Jesus in the temple","Luke 2:41-52","Jesus; Mary; Joseph","At twelve, Jesus stays behind in Jerusalem after the Passover. After three days of searching, His parents find Him in the temple, listening and asking questions. He says 'Didn't you know I had to be in my Father's house?'","Even as a boy, Jesus knew who His Father was.","Do I delight in being where my Father is?"],
+["g","Water into wine","John 2:1-11","Jesus; Mary; The servants","At a wedding in Cana the wine runs out. Mary tells the servants 'Do whatever he tells you'. Jesus has them fill six stone jars with water, and it becomes the best wine of the feast.","Jesus' first sign brings joy, and the servants' obedience comes first.","What is Jesus telling me to simply do?"],
+["g","Nicodemus at night","John 3:1-21","Jesus; Nicodemus","Nicodemus, a Pharisee and teacher, comes to Jesus at night. Jesus tells him he must be born again by the Spirit. Here Jesus says 'For God so loved the world that he gave his one and only Son'.","New life is a gift of the Spirit, not a religious achievement.","What does being 'born again' mean in my life now?"],
+["g","The woman at the well","John 4:1-42","Jesus; The Samaritan woman","At noon Jesus asks a Samaritan woman for water and offers her living water. He knows about her five husbands, yet doesn't reject her. She runs back to tell her town, and many believe.","Jesus crosses every barrier and knows us completely.","What would I tell others about what Jesus knows about me?"],
+["g","Through the roof","Mark 2:1-12","Jesus; A paralysed man; His four friends","The house in Capernaum is so packed that four friends dig through the roof to lower their paralysed friend to Jesus. Jesus first forgives his sins, then tells him to pick up his mat and walk.","Friends who carry each other to Jesus.","Who do I need to carry to Jesus in prayer?"],
+["g","Calming the storm","Mark 4:35-41","Jesus; The disciples","A furious storm hits the boat while Jesus sleeps on a cushion. The terrified disciples wake Him. He says to the wind and waves 'Quiet! Be still!' and it is completely calm.","The storm obeys Jesus, and He is in the boat with us.","What storm do I need to hear Him speak 'be still' over?"],
+["g","Feeding the five thousand","John 6:1-14","Jesus; Philip; Andrew; A boy","A huge crowd has nothing to eat. Andrew finds a boy with five small barley loaves and two fish. Jesus gives thanks and feeds everyone, with twelve baskets left over.","Jesus multiplies what we give Him.","What 'small lunch' could I put in Jesus' hands?"],
+["g","Walking on water","Matthew 14:22-33","Jesus; Peter","In the night Jesus walks to the disciples across the lake. Peter asks to come to Him and walks on the water, until he looks at the wind and starts to sink. Jesus immediately reaches out and catches him.","Keep your eyes on Jesus, and He catches you when you sink.","What am I looking at instead of Jesus?"],
+["g","Jairus and the woman who touched His cloak","Mark 5:21-43","Jesus; Jairus; The bleeding woman","On the way to Jairus's dying daughter, a woman bleeding for twelve years touches Jesus' cloak and is healed. Jesus stops to call her 'daughter'. Then news comes that the girl has died, but Jesus says 'Don't be afraid; just believe', and raises her.","No one is an interruption to Jesus.","Do I believe Jesus has time for me?"],
+["g","The prodigal son","Luke 15:11-32","The father; The younger son; The older brother","A younger son demands his inheritance and wastes it, ending up feeding pigs. He comes home to beg to be a servant, but his father runs to him, hugs him and throws a feast. The older brother refuses to celebrate.","The Father runs to meet returning children, whichever brother we are.","Am I more like the younger or the older brother right now?"],
+["g","Mary and Martha","Luke 10:38-42","Jesus; Mary; Martha","Martha is busy with all the preparations while her sister Mary sits at Jesus' feet listening. Martha complains, and Jesus gently says Mary has chosen what is better.","Being with Jesus matters more than being busy for Him.","Where am I being Martha when I could be Mary?"],
+["g","Zacchaeus","Luke 19:1-10","Jesus; Zacchaeus","Zacchaeus, a rich chief tax collector in Jericho, is too short to see Jesus, so he climbs a sycamore-fig tree. Jesus calls him by name and invites Himself to his house. Zacchaeus gives half his goods to the poor and repays anyone he cheated four times over.","The Son of Man came to seek and save the lost.","What changes when Jesus calls me by name?"],
+["g","Lazarus raised","John 11","Jesus; Martha; Mary; Lazarus","Jesus' friend Lazarus dies, and Jesus arrives four days later. He tells Martha 'I am the resurrection and the life'. Seeing Mary weep, Jesus weeps too. Then He calls 'Lazarus, come out!' and Lazarus walks out of the tomb.","Jesus grieves with us and has power over death.","Where do I need Jesus to weep with me and also bring life?"],
+["g","Blind Bartimaeus","Mark 10:46-52","Jesus; Bartimaeus","Blind Bartimaeus shouts 'Son of David, have mercy on me!' outside Jericho, and people tell him to be quiet. He shouts louder. Jesus calls him and asks 'What do you want me to do for you?' He receives his sight and follows Jesus.","Persistent faith, and a Jesus who asks what we want.","If Jesus asked me today what I want, what would I say?"],
+["g","The Last Supper","Luke 22:7-23","Jesus; The twelve disciples","At the Passover meal Jesus takes bread, saying 'This is my body given for you', and the cup, 'the new covenant in my blood'. He tells them to do this in remembrance of Him.","Communion remembers what His death bought for us.","How do I prepare my heart for Communion?"],
+["g","Gethsemane and the arrest","Luke 22:39-53","Jesus; Judas; Peter","Jesus prays in anguish, 'not my will, but yours'. Judas arrives with a crowd and betrays Him with a kiss. One disciple cuts off a servant's ear, and Jesus heals it.","Jesus chose the Father's will, and showed mercy even in His arrest.","Where do I need to pray 'not my will'?"],
+["g","Peter's denial","Luke 22:54-62","Peter; Jesus","Peter follows at a distance into the high priest's courtyard. Three times people say he was with Jesus, and three times he denies it. The rooster crows, Jesus turns and looks at Peter, and Peter goes out and weeps bitterly.","Even the boldest fail, and Jesus' look is not the end of the story.","Where have I been following Jesus at a distance?"],
+["g","The crucifixion","Luke 23:26-49","Jesus; Simon of Cyrene; The two criminals; The centurion","Simon of Cyrene carries the cross. On it Jesus prays 'Father, forgive them', promises a dying criminal 'Today you will be with me in paradise', and commits His spirit to the Father. The temple curtain tears, and a centurion praises God.","The heart of the whole Bible: Jesus dies in our place.","What do I want to say to Jesus about the cross today?"],
+["g","The empty tomb","John 20:1-18","Mary Magdalene; Peter; John; Jesus","Mary Magdalene finds the tomb empty and weeps outside. She thinks the man standing there is the gardener, until He says her name, 'Mary'. She runs to tell the disciples 'I have seen the Lord!'","He is risen, and He knows us by name.","How does the resurrection change my week?"],
+["g","The road to Emmaus","Luke 24:13-35","Jesus; Cleopas","Two discouraged disciples walk to Emmaus, and the risen Jesus joins them, unrecognised. He explains everything the Scriptures say about Him. When He breaks bread they recognise Him, and say 'Were not our hearts burning within us?'","Jesus opens the Scriptures, and they all point to Him.","Has my heart burned while reading God's Word lately?"],
+["g","Breakfast on the beach","John 21","Jesus; Peter; John","After a night of catching nothing, the disciples obey a man on the shore and cast the net on the right side, catching 153 fish. Jesus has breakfast ready on a fire. Three times He asks Peter 'Do you love me?' and three times recommissions him.","Jesus restores us after failure and gives us work to do.","Where do I need Jesus to restore me?"],
+
+["c","Jesus goes up to heaven","Acts 1:1-11","Jesus; The apostles","Jesus promises the apostles power when the Holy Spirit comes, to be His witnesses to the ends of the earth. Then He is taken up into a cloud. Two men in white say He will come back the same way.","Jesus is reigning and coming back, and His Spirit empowers us now.","Where are my 'ends of the earth'?"],
+["c","Pentecost","Acts 2","Peter; The apostles","The believers are together when a sound like wind fills the house and tongues of fire rest on them. They speak in other languages, and Peter preaches to the crowd. About 3,000 people are baptised.","The church is born by the power of the Spirit.","Am I asking to be filled with the Spirit?"],
+["c","Silver or gold I do not have","Acts 3","Peter; John; A lame man","At the temple gate called Beautiful, a man lame from birth begs Peter and John for money. Peter says 'Silver or gold I do not have, but what I do have I give you. In the name of Jesus, walk.' He jumps up, walking and praising God.","We give what we have: Jesus.","What do I have in Jesus that I could give someone?"],
+["c","Ananias and Sapphira","Acts 5:1-11","Ananias; Sapphira; Peter","Ananias and Sapphira sell land and pretend to give all the money to the church while secretly keeping some. Peter says they have lied to the Holy Spirit, and both fall down dead. Great fear seizes the church.","God takes honesty in His church seriously.","Where am I pretending to be more devoted than I am?"],
+["c","Stephen","Acts 6:8-7:60","Stephen; Saul","Stephen, full of grace and power, is falsely accused before the council. After his speech he sees Jesus standing at God's right hand. As they stone him he prays 'Lord, do not hold this sin against them'. A young man named Saul looks after their coats.","Forgiving to the end, like Jesus.","Who do I need to pray 'do not hold it against them' for?"],
+["c","Philip and the Ethiopian","Acts 8:26-40","Philip; The Ethiopian official","An angel sends Philip to a desert road, where an Ethiopian official is reading Isaiah in his chariot. Philip explains it is about Jesus. When they reach water, the man asks to be baptised.","God sets up appointments for those who listen.","Am I open to God's interruptions?"],
+["c","Saul on the Damascus road","Acts 9:1-19","Saul; Jesus; Ananias","Saul is on his way to arrest Christians when a light flashes and Jesus asks 'Saul, Saul, why do you persecute me?' Blind for three days, he is visited by a nervous believer named Ananias. Something like scales fall from his eyes, and he is baptised.","No one is beyond Jesus' reach, not even the church's worst enemy.","Who have I given up praying for?"],
+["c","Peter and Cornelius","Acts 10","Peter; Cornelius","A Roman centurion, Cornelius, is told by an angel to send for Peter. Meanwhile Peter sees a vision of a sheet full of unclean animals and hears 'Do not call anything impure that God has made clean'. While Peter preaches in Cornelius's house, the Holy Spirit falls on the Gentiles.","The gospel is for every nation.","Is there anyone I keep at a distance that God welcomes?"],
+["c","Peter's escape from prison","Acts 12:1-17","Peter; Rhoda; Herod","Herod arrests Peter, chained between two soldiers, while the church prays earnestly. An angel wakes Peter, the chains fall off and the iron gate opens by itself. He knocks at the prayer meeting, and the servant girl Rhoda is so excited she leaves him standing outside.","God answers prayer, sometimes faster than we believe.","Am I expecting God to answer my prayers?"],
+["c","Paul and Silas in prison","Acts 16:16-40","Paul; Silas; The jailer","In Philippi, Paul and Silas are beaten and put in stocks. At midnight they are praying and singing hymns when an earthquake opens every door. The jailer asks 'What must I do to be saved?' and his whole household is baptised that night.","Worship in the dark can open doors.","Can I worship before my situation changes?"],
+["c","Paul in Athens","Acts 17:16-34","Paul","Paul is distressed by the idols in Athens. At the Areopagus he points to an altar 'to an unknown god' and tells them about the God who made the world and raised Jesus from the dead. Some mock, but some believe.","Start where people are, and point them to Jesus.","What 'unknown god' do people around me worship?"],
+["c","Eutychus falls asleep","Acts 20:7-12","Paul; Eutychus","Paul preaches in Troas until midnight. A young man named Eutychus, sitting in a window, falls asleep and falls three storeys to his death. Paul throws his arms around him, and he is alive.","God's grace even covers falling asleep in church!","How can I stay alert to what God is saying?"],
+["c","Shipwrecked on Malta","Acts 27-28:10","Paul","On the way to Rome as a prisoner, Paul's ship is caught in a storm for two weeks. An angel promises everyone will survive, and all 276 people reach land. On Malta a viper bites Paul and he is unharmed. He heals the island chief's father and many others.","God keeps His word through every storm.","What promise of God carries me through my storm?"]
+];
+
+let read = new Set();
+let hideRead = false, era = null, person = null;
+try { read = new Set(JSON.parse(localStorage.getItem("bsb-read") || "[]")); hideRead = localStorage.getItem("bsb-hide") === "1"; } catch (e) {}
+const save = () => { try { localStorage.setItem("bsb-read", JSON.stringify([...read])); localStorage.setItem("bsb-hide", hideRead ? "1" : "0"); } catch (e) {} };
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const idOf = (i) => "s" + i;
+$("hide").checked = hideRead;
+
+function ribbon() {
+  $("ribbon").innerHTML = Object.entries(ERAS).map(([k, [name, , hue]]) => {
+    const all = S.filter(s => s[0] === k);
+    const done = all.filter(s => read.has(s[1])).length;
+    return `<button class="seg${era === k ? " on" : ""}" style="--n:${all.length};--hue:${hue};--pct:${Math.round(done / all.length * 100)}%" data-era="${k}" type="button" aria-pressed="${era === k}" aria-label="${name}: ${done} of ${all.length} read" title="${name}: ${done} of ${all.length} read"><span class="fill"></span></button>`;
+  }).join("");
+  $("count").textContent = `${read.size} of ${S.length}`;
+}
+
+function render() {
+  const q = $("q").value.trim().toLowerCase();
+  let html = "", shown = 0;
+  for (const [k, [name, books, hue]] of Object.entries(ERAS)) {
+    if (era && era !== k) continue;
+    const items = S.map((s, i) => [s, i]).filter(([s]) => s[0] === k
+      && (!hideRead || !read.has(s[1]))
+      && (!person || s[3].split("; ").includes(person))
+      && (!q || s.slice(1).join(" ").toLowerCase().includes(q)));
+    if (!items.length) continue;
+    html += `<section class="era" style="--hue:${hue}"><h2>${name}</h2><small>${books}</small></section>`;
+    for (const [s, i] of items) {
+      shown++;
+      const done = read.has(s[1]);
+      html += `<article class="card${done ? " done" : ""}" id="${idOf(i)}">
+        <div class="ref">${esc(s[2])}</div>
+        <h3>${esc(s[1])}</h3>
+        <p>${esc(s[4])}</p>
+        <p class="why"><b>Why it matters:</b> ${esc(s[5])}</p>
+        <p class="ask">${esc(s[6])}</p>
+        <div class="foot">
+          <div class="chips">${s[3].split("; ").map(p => `<button class="chip" type="button" data-person="${esc(p)}">${esc(p)}</button>`).join("")}</div>
+          <button class="readbtn" type="button" data-read="${i}" aria-pressed="${done}">${done ? "Read ✓" : "Mark as read"}</button>
+        </div>
+      </article>`;
+    }
+  }
+  $("list").innerHTML = html || `<p class="empty">No stories match. Clear the search or filters to see them all.</p>`;
+  const bits = [];
+  if (era) bits.push(`<button class="filter" type="button" data-clear="era">${ERAS[era][0]} ×</button>`);
+  if (person) bits.push(`<button class="filter" type="button" data-clear="person">${esc(person)} ×</button>`);
+  $("active").innerHTML = bits.join(" ");
+  ribbon();
+}
+
+document.addEventListener("click", (e) => {
+  const t = e.target.closest("button");
+  if (!t) return;
+  if (t.dataset.era) { era = era === t.dataset.era ? null : t.dataset.era; render(); }
+  else if (t.dataset.person) { person = t.dataset.person; render(); window.scrollTo({ top: $("list").offsetTop - 12, behavior: "smooth" }); }
+  else if (t.dataset.clear) { if (t.dataset.clear === "era") era = null; else person = null; render(); }
+  else if (t.dataset.read) {
+    const title = S[+t.dataset.read][1];
+    read.has(title) ? read.delete(title) : read.add(title);
+    save();
+    const card = t.closest(".card");
+    if (hideRead && read.has(title)) { render(); return; }
+    card.classList.toggle("done", read.has(title));
+    t.textContent = read.has(title) ? "Read ✓" : "Mark as read";
+    t.setAttribute("aria-pressed", read.has(title));
+    ribbon();
+  }
+  else if (t.id === "surprise") {
+    const pool = S.map((s, i) => i).filter(i => !read.has(S[i][1]));
+    const pick = (pool.length ? pool : S.map((s, i) => i))[Math.floor(Math.random() * (pool.length || S.length))];
+    era = null; person = null; $("q").value = ""; render();
+    const el = $(idOf(pick));
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 2200);
+  }
+});
+$("q").addEventListener("input", render);
+$("hide").addEventListener("change", (e) => { hideRead = e.target.checked; save(); render(); });
+render();
+</script>
+</body>
+</html>
