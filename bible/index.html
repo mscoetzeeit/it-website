@@ -98,6 +98,11 @@ button { font: inherit; cursor: pointer; }
 .nav button small { display: block; color: var(--muted); font-size: 12px; }
 .nav button:last-child { text-align: right; }
 .nav button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.listen { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: 18px 0 0; font-size: 14px; color: var(--muted); }
+.listen .btn { min-width: 112px; }
+.listen select { font-size: 14px; padding: 6px 8px; }
+.reader .speaking { background: color-mix(in srgb, var(--gold) 16%, transparent); box-shadow: 0 0 0 6px color-mix(in srgb, var(--gold) 16%, transparent); border-radius: 4px; }
+.note .speaking { box-shadow: none; }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
 </style>
 </head>
@@ -235,19 +240,79 @@ function render() {
   ribbon();
 }
 
+// Read-aloud with the device's own text-to-speech voice.
+// Each sentence is its own utterance (Chrome cuts off long ones); pause = stop and remember the sentence.
+const TTS = "speechSynthesis" in window && "SpeechSynthesisUtterance" in window;
+let rate = "0.95", tts = null, ttsRun = 0;
+try { rate = localStorage.getItem("bsb-rate") || rate; } catch (e) {}
+function pickVoice() {
+  const vs = speechSynthesis.getVoices().filter(v => /^en(-|_|$)/i.test(v.lang));
+  const score = v => (/natural|neural|enhanced|premium|siri/i.test(v.name) ? 4 : 0) + (/google|samantha|daniel|karen|moira/i.test(v.name) ? 2 : 0)
+    + (/en[-_](ZA|GB)/i.test(v.lang) ? 1 : 0) + (v.localService ? 1 : 0);
+  return vs.sort((a, b) => score(b) - score(a))[0] || null;
+}
+function ttsChunks() {
+  const out = [];
+  $("reader").querySelectorAll("[data-say]").forEach((el, p) => {
+    const text = el.textContent.replace(/\s+/g, " ").trim();
+    (text.match(/[^.!?…]+[.!?…]+["”’)]*\s*|[^.!?…]+$/g) || [text]).forEach(t => { if (t.trim()) out.push({ p, t: t.trim() }); });
+  });
+  return out;
+}
+function ttsUi() {
+  const play = $("reader").querySelector('[data-tts="play"]'), stop = $("reader").querySelector('[data-tts="stop"]');
+  if (!play) return;
+  const on = tts && tts.playing;
+  play.textContent = on ? "❚❚ Pause" : (tts && tts.at > 0 ? "▶ Resume" : "▶ Listen");
+  play.setAttribute("aria-label", on ? "Pause reading" : "Listen to this story");
+  stop.hidden = !tts;
+  $("reader").querySelectorAll("[data-say]").forEach((el, p) => el.classList.toggle("speaking", !!tts && tts.chunks[tts.at] && tts.chunks[tts.at].p === p));
+}
+function ttsPlay() {
+  if (!tts) tts = { chunks: ttsChunks(), at: 0, playing: false };
+  const run = ++ttsRun, voice = pickVoice();
+  speechSynthesis.cancel();
+  tts.playing = true;
+  // Queue everything now so iOS treats it as started by the tap.
+  tts.chunks.slice(tts.at).forEach((c, k) => {
+    const u = new SpeechSynthesisUtterance(c.t), idx = tts.at + k;
+    if (voice) { u.voice = voice; u.lang = voice.lang; } else u.lang = "en-GB";
+    u.rate = +rate;
+    u.onstart = () => { if (run !== ttsRun || !tts) return; tts.at = idx; ttsUi(); scrollToSpeaking(); };
+    u.onend = () => { if (run === ttsRun && tts && idx === tts.chunks.length - 1) ttsStop(); };
+    speechSynthesis.speak(u);
+  });
+  ttsUi();
+}
+function ttsPause() { ttsRun++; speechSynthesis.cancel(); if (tts) tts.playing = false; ttsUi(); }
+function ttsStop() { ttsRun++; if (TTS) speechSynthesis.cancel(); tts = null; ttsUi(); }
+function scrollToSpeaking() {
+  const el = $("reader").querySelector(".speaking");
+  if (!el) return;
+  const r = el.getBoundingClientRect();
+  if (r.top < 0 || r.bottom > innerHeight) el.scrollIntoView({ block: "center", behavior: "smooth" });
+}
+window.addEventListener("pagehide", ttsStop);
+
 function showStory(i) {
+  ttsStop();
   const s = S[i], [name, , hue] = ERAS[s.e];
   const prev = S[i - 1], next = S[i + 1];
   $("reader").innerHTML = `
     <div class="top"><button class="btn quiet" type="button" data-home="1">← All stories</button><span class="count">${i + 1} of ${S.length}</span></div>
     <p class="kicker" style="--hue:${hue}">${name}</p>
-    <h1>${esc(s.t)}</h1>
+    <h1 data-say>${esc(s.t)}</h1>
     <div class="refs">${refLinks(s.r)}</div>
     ${chips(s)}
-    <div class="story">${s.l.map(p => `<p>${esc(p)}</p>`).join("")}</div>
+    ${TTS ? `<div class="listen">
+      <button class="btn" type="button" data-tts="play" aria-label="Listen to this story">▶ Listen</button>
+      <button class="btn quiet" type="button" data-tts="stop" hidden>■ Stop</button>
+      <label class="toggle">Speed <select id="rate">${[["0.8", "Slow"], ["0.95", "Normal"], ["1.15", "Fast"]].map(([v, n]) => `<option value="${v}"${v === rate ? " selected" : ""}>${n}</option>`).join("")}</select></label>
+    </div>` : ""}
+    <div class="story">${s.l.map(p => `<p data-say>${esc(p)}</p>`).join("")}</div>
     <div class="note">
-      <p><b>Why it matters:</b> ${esc(s.w)}</p>
-      <p class="ask">${esc(s.q)}</p>
+      <p data-say><b>Why it matters:</b> ${esc(s.w)}</p>
+      <p class="ask" data-say>${esc(s.q)}</p>
       <p>Now read it in Scripture: <span class="refs" style="display:inline-flex">${refLinks(s.r)}</span></p>
     </div>
     <div class="actions">${readBtn(i)}</div>
@@ -259,6 +324,7 @@ function showStory(i) {
   window.scrollTo(0, 0);
 }
 function showHome() {
+  ttsStop();
   $("reader").hidden = true; $("home").hidden = false;
   render();
   window.scrollTo(0, listScroll);
@@ -275,7 +341,9 @@ function go(hash) {
 document.addEventListener("click", (e) => {
   const t = e.target.closest("button");
   if (!t) return;
-  if (t.dataset.open) go("#" + S[+t.dataset.open].id);
+  if (t.dataset.tts === "play") (tts && tts.playing) ? ttsPause() : ttsPlay();
+  else if (t.dataset.tts === "stop") ttsStop();
+  else if (t.dataset.open) go("#" + S[+t.dataset.open].id);
   else if (t.dataset.home) go("");
   else if (t.dataset.era) { era = era === t.dataset.era ? null : t.dataset.era; render(); }
   else if (t.dataset.person) {
@@ -305,6 +373,12 @@ document.addEventListener("click", (e) => {
 $("q").addEventListener("input", render);
 $("hide").addEventListener("change", (e) => { hideRead = e.target.checked; save(); render(); });
 $("ver").addEventListener("change", (e) => { ver = e.target.value; save(); render(); });
+document.addEventListener("change", (e) => {
+  if (e.target.id !== "rate") return;
+  rate = e.target.value; try { localStorage.setItem("bsb-rate", rate); } catch (err) {}
+  if (tts && tts.playing) ttsPlay(); // restart the current sentence at the new speed
+});
+if (TTS) speechSynthesis.getVoices(); // starts loading voices early (Chrome loads them async)
 window.addEventListener("hashchange", route);
 route();
 </script>

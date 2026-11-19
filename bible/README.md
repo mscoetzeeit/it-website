@@ -9,7 +9,8 @@ A pocket website of 155 Bible stories, Genesis to Acts, in order. Each story has
 ## Details worth knowing
 - data.js defines `const STORIES = [{e, t, r, p, s, w, q, l:[paragraphs], id}]` where e = era key, t = title, r = reference, p = people ("A; B"), s = summary, w = why it matters, q = question.
 - Bible links: `https://www.bible.com/bible/{versionId}/{BOOK}.{chapter}.{verse}.{ABBR}`. A dropdown picks the version: NIV 111, NLT 116, ESV 59, NKJV 114, Afrikaans 1983 = 6, Afrikaans 1933/53 = 5. Compound references like "Acts 11:19-30; 13:1-3" are split into separate links. Tested at phone width on 2026-11-10: chapter links in all six versions and verse ranges open the right passage; a cross-chapter range (e.g. Exodus 3:1-4:17) opens the first chapter.
-- "Mark as read" is saved in localStorage (keys bsb-read, bsb-hide, bsb-ver), per browser only.
+- "Mark as read" is saved in localStorage (keys bsb-read, bsb-hide, bsb-ver, bsb-rate), per browser only.
+- Listen button: reads the story aloud with the device's built-in text-to-speech (Web Speech API), one sentence per utterance, highlighting the paragraph. Voice quality depends on the phone; no audio files.
 - Keep the retellings in my own words with short quotes only. Long verbatim NIV text got blocked by a content filter earlier; the YouVersion links carry the real text.
 - Fonts are Gloock and Literata from Google Fonts; light and dark themes follow the phone setting.
 - Live preview (private claude.ai artifact): https://claude.ai/artifact/FDyoNyoV8rDHatMMt87QYy
