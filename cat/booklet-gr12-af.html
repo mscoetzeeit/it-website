@@ -570,6 +570,8 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
 =<span class="fn">ROUND</span>(<span class="ref">A1</span>, 0)      <span class="hcmt">&lt;-- rounds to nearest (3.5 → 4; 3.4 → 3)</span></pre>
     </div>
 
+    <div class="callout tip"><div class="callout-title">Wenk: Benoemde reekse in opsoekfunksies</div><p>Jy kan 'n reeks 'n naam gee (merk die selle → tik 'n naam in die Naamkassie langs die formulebalk, bv. <code>Rates</code>) en dit dan in formules gebruik in plaas van selverwysings, bv. <code>=VLOOKUP(A2,Rates,2,FALSE)</code>. 'n Benoemde reeks is altyd absoluut, dus is dit veilig om die formule af te kopieer.</p></div>
+
     <div class="term-tag t1">Kwartaal 1</div>
     <h2>Datum- en Tydfunksies</h2>
     <div class="tbl-wrap"><table>
@@ -658,6 +660,20 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
       <div class="callout-title">LEES DIE INSTRUKSIE IN VOLGORDE</div>
       <p>Bou hierdie formules stuk vir stuk presies in die volgorde soos die vraag dit beskryf (&quot;eerste 3 letters van van, gekombineer met die laaste 3 karakters van toelatingsnommer&quot;) — skryf neer wat elke stuk moet produseer voordat jy hulle met <code>&amp;</code> saamvoeg, sodat jy kan sien watter helfte verkeerd is as die resultaat skeef lyk.</p>
     </div>
+
+    <div class="term-tag t3">Kwartaal 3</div>
+    <h2>Vonklyne (Sparklines)</h2>
+    <p>'n Vonklyn (sparkline) is 'n piepklein grafiek binne 'n enkele sel wat die neiging van 'n ry data wys — nuttig om byvoorbeeld maandelikse verkope langs die data self te wys.</p>
+    <div class="steps-box">
+      <div class="steps-title">Stap-vir-stap: Voeg 'n lyn-vonklyn in</div>
+      <ol class="steps">
+        <li>Klik die sel waar die vonklyn moet verskyn.</li>
+        <li>Klik <span class="ribbon-path"><span class="rp">Insert</span><span class="rp-arrow">→</span><span class="rp">Sparklines</span></span> en kies <strong>Line</strong>, <strong>Column</strong> of <strong>Win/Loss</strong>.</li>
+        <li>By &quot;Data Range&quot; merk die selle met die waardes (bv. <code>B2:M2</code>); &quot;Location Range&quot; is die sel waar die vonklyn gaan.</li>
+        <li>Klik <strong>OK</strong>. Gebruik die Sparkline-oortjie om merkers, hoog-/laagpunte en kleur by te voeg.</li>
+      </ol>
+    </div>
+    <div class="callout tip"><div class="callout-title">Vonklyn teenoor grafiek</div><p>'n Vonklyn pas in een sel en het geen asse, titel of legende nie; 'n gewone grafiek is 'n aparte voorwerp met asse, 'n titel en 'n legende.</p></div>
 
     <div class="term-tag t3">Kwartaal 3</div>
     <h2>Gevorderde Grafieke</h2>
@@ -750,6 +766,17 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
       <tr><td>OR</td><td>Plaas een kriterium in Criteria-ry, die ander in die <strong>Or-ry daaronder</strong></td></tr>
       <tr><td>NOT</td><td>Gebruik <code>Not "value"</code> of <code>&lt;&gt;"value"</code> in die kriteria</td></tr>
     </table></div>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Berekende Veld met IIF</h2>
+    <p>Die IIF-funksie (&quot;immediate if&quot;) in 'n navraag toets 'n voorwaarde en gee een van twee resultate terug — soortgelyk aan die IF-funksie in Excel. Dit is handig om 'n veld te skep wat van 'n voorwaarde afhang.</p>
+    <p>Tik dit in 'n leë kolom se Veld-ry in Navraagontwerp (Query Design), in die formaat <strong>VeldNaam: IIF(...)</strong>, byvoorbeeld: <code>Status: IIF([Ranking]=1,"Qualified","")</code></p>
+    <ul>
+      <li>Sintaksis: <code>IIF(condition, value_if_true, value_if_false)</code></li>
+      <li>Gebruik aanhalingstekens vir teks en laat die derde deel leeg (&quot;&quot;) as niks moet wys nie.</li>
+      <li>IIF kan genes word vir meer as twee uitkomste, bv. <code>IIF([Mark]&gt;=50,"Pass","Fail")</code></li>
+    </ul>
+    <div class="callout tip"><div class="callout-title">IIF teenoor 'n gewone berekende veld</div><p>Gebruik 'n gewone berekende veld (bv. Total: [Qty]*[Price]) vir reken; gebruik IIF wanneer die resultaat van 'n voorwaarde afhang (bv. &quot;Qualified&quot; of niks).</p></div>
 
     <div class="term-tag t1">Kwartaal 1</div>
     <h2>Gevorderde Verslae — Gegroepeerde Verslae</h2>

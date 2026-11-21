@@ -233,6 +233,8 @@
 =<span class="fn">ROUND</span>(<span class="ref">A1</span>, 0)      <span class="hcmt">&lt;-- rounds to nearest (3.5 → 4; 3.4 → 3)</span></pre>
     </div>
 
+    <div class="callout tip"><div class="callout-title"><span class="i18n" data-af="Wenk: Benoemde reekse in opsoekfunksies">Tip: Named ranges in lookups</span></div><p><span class="i18n" data-af="Jy kan 'n reeks 'n naam gee (merk die selle → tik 'n naam in die Naamkassie langs die formulebalk, bv.">You can give a range a name (select the cells → type a name in the Name Box next to the formula bar, e.g.</span> <code>Rates</code><span class="i18n" data-af=") en dit dan in formules gebruik in plaas van selverwysings, bv.">) and then use it in formulas instead of cell references, e.g.</span> <code>=VLOOKUP(A2,Rates,2,FALSE)</code>. <span class="i18n" data-af="'n Benoemde reeks is altyd absoluut, dus is dit veilig om die formule af te kopieer.">A named range is always absolute, so it is safe to copy the formula down.</span></p></div>
+
     <div class="term-tag t1"><span class="i18n" data-af="Kwartaal 1">Term 1</span></div>
     <h2><span class="i18n" data-af="Datum- en Tydfunksies">Date and Time Functions</span></h2>
     <div class="tbl-wrap"><table>
@@ -321,6 +323,20 @@
       <div class="callout-title"><span class="i18n" data-af="LEES DIE INSTRUKSIE IN VOLGORDE">READ THE INSTRUCTION IN ORDER</span></div>
       <p><span class="i18n" data-af="Bou hierdie formules stuk vir stuk presies in die volgorde soos die vraag dit beskryf (&quot;eerste 3 letters van van, gekombineer met die laaste 3 karakters van toelatingsnommer&quot;) — skryf neer wat elke stuk moet produseer voordat jy hulle met <code>&amp;</code> saamvoeg, sodat jy kan sien watter helfte verkeerd is as die resultaat skeef lyk.">Build these formulas piece by piece exactly in the order the question describes ("first 3 letters of surname, combined with the last 3 characters of admission number") — write down what each piece should produce before joining them with <code>&amp;</code>, so you can spot which half is wrong if the result looks off.</span></p>
     </div>
+
+    <div class="term-tag t3"><span class="i18n" data-af="Kwartaal 3">Term 3</span></div>
+    <h2><span class="i18n" data-af="Vonklyne (Sparklines)">Sparklines</span></h2>
+    <p><span class="i18n" data-af="'n Vonklyn (sparkline) is 'n piepklein grafiek binne 'n enkele sel wat die neiging van 'n ry data wys — nuttig om byvoorbeeld maandelikse verkope langs die data self te wys.">A sparkline is a tiny chart inside a single cell that shows the trend of a row of data — useful for showing, for example, monthly sales right next to the data itself.</span></p>
+    <div class="steps-box">
+      <div class="steps-title"><span class="i18n" data-af="Stap-vir-stap: Voeg 'n lyn-vonklyn in">Step-by-step: Insert a line sparkline</span></div>
+      <ol class="steps">
+        <li><span class="i18n" data-af="Klik die sel waar die vonklyn moet verskyn.">Click the cell where the sparkline must appear.</span></li>
+        <li><span class="i18n" data-af="Klik">Click</span> <span class="ribbon-path"><span class="rp">Insert</span><span class="rp-arrow">→</span><span class="rp">Sparklines</span></span> <span class="i18n" data-af="en kies">and choose</span> <strong>Line</strong>, <strong>Column</strong> <span class="i18n" data-af="of">or</span> <strong>Win/Loss</strong>.</li>
+        <li><span class="i18n" data-af="By &quot;Data Range&quot; merk die selle met die waardes (bv.">For "Data Range" select the cells with the values (e.g.</span> <code>B2:M2</code>); <span class="i18n" data-af="&quot;Location Range&quot; is die sel waar die vonklyn gaan.">"Location Range" is the cell where the sparkline goes.</span></li>
+        <li><span class="i18n" data-af="Klik">Click</span> <strong>OK</strong>. <span class="i18n" data-af="Gebruik die Sparkline-oortjie om merkers, hoog-/laagpunte en kleur by te voeg.">Use the Sparkline tab to add markers, high/low points and colour.</span></li>
+      </ol>
+    </div>
+    <div class="callout tip"><div class="callout-title"><span class="i18n" data-af="Vonklyn teenoor grafiek">Sparkline vs chart</span></div><p><span class="i18n" data-af="'n Vonklyn pas in een sel en het geen asse, titel of legende nie; 'n gewone grafiek is 'n aparte voorwerp met asse, 'n titel en 'n legende.">A sparkline fits in one cell and has no axes, title or legend; an ordinary chart is a separate object with axes, a title and a legend.</span></p></div>
 
     <div class="term-tag t3"><span class="i18n" data-af="Kwartaal 3">Term 3</span></div>
     <h2><span class="i18n" data-af="Gevorderde Grafieke">Advanced Charts</span></h2>

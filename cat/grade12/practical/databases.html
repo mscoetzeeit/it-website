@@ -86,6 +86,17 @@ Age: Year(Now()) - Year([DateOfBirth])</pre>
     </table></div>
 
     <div class="term-tag t1"><span class="i18n" data-af="Kwartaal 1">Term 1</span></div>
+    <h2><span class="i18n" data-af="Berekende Veld met IIF">Calculated Field with IIF</span></h2>
+    <p><span class="i18n" data-af="Die IIF-funksie (&quot;immediate if&quot;) in 'n navraag toets 'n voorwaarde en gee een van twee resultate terug — soortgelyk aan die IF-funksie in Excel. Dit is handig om 'n veld te skep wat van 'n voorwaarde afhang.">The IIF function (&quot;immediate if&quot;) in a query tests a condition and returns one of two results — similar to the IF function in Excel. It is useful for creating a field whose value depends on a condition.</span></p>
+    <p><span class="i18n" data-af="Tik dit in 'n leë kolom se Veld-ry in Navraagontwerp (Query Design), in die formaat">Type it in the Field row of an empty column in Query Design, in the format</span> <strong>VeldNaam: IIF(...)</strong>, <span class="i18n" data-af="byvoorbeeld:">for example:</span> <code>Status: IIF([Ranking]=1,"Qualified","")</code></p>
+    <ul>
+      <li><span class="i18n" data-af="Sintaksis:">Syntax:</span> <code>IIF(condition, value_if_true, value_if_false)</code></li>
+      <li><span class="i18n" data-af="Gebruik aanhalingstekens vir teks en laat die derde deel leeg (&quot;&quot;) as niks moet wys nie.">Use quotation marks for text, and leave the third part empty (&quot;&quot;) if nothing should show.</span></li>
+      <li><span class="i18n" data-af="IIF kan genes word vir meer as twee uitkomste, bv.">IIF can be nested for more than two outcomes, e.g.</span> <code>IIF([Mark]&gt;=50,"Pass","Fail")</code></li>
+    </ul>
+    <div class="callout tip"><div class="callout-title"><span class="i18n" data-af="IIF teenoor 'n gewone berekende veld">IIF vs a plain calculated field</span></div><p><span class="i18n" data-af="Gebruik 'n gewone berekende veld (bv. Total: [Qty]*[Price]) vir reken; gebruik IIF wanneer die resultaat van 'n voorwaarde afhang (bv. &quot;Qualified&quot; of niks).">Use a plain calculated field (e.g. Total: [Qty]*[Price]) for arithmetic; use IIF when the result depends on a condition (e.g. &quot;Qualified&quot; or nothing).</span></p></div>
+
+    <div class="term-tag t1"><span class="i18n" data-af="Kwartaal 1">Term 1</span></div>
     <h2><span class="i18n" data-af="Gevorderde Verslae — Gegroepeerde Verslae">Advanced Reports — Grouped Reports</span></h2>
     <div class="steps-box">
       <div class="steps-title"><span class="i18n" data-af="Stap-vir-stap: Skep 'n gegroepeerde verslag met subtotale">Step-by-step: Create a grouped report with subtotals</span></div>

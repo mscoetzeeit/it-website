@@ -366,6 +366,26 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
     </ul>
 
     <div class="term-tag t2">Kwartaal 2</div>
+    <h2>Datavalidering (Aftreklyste)</h2>
+    <p>Datavalidering beperk wat in 'n sel ingetik mag word. Dit verminder foute deur die gebruiker te dwing om 'n geldige waarde te kies of in te tik — byvoorbeeld 'n aftreklys met slegs &quot;Ja&quot; of &quot;Nee&quot;.</p>
+    <div class="steps-box">
+      <div class="steps-title">Stap-vir-stap: Maak 'n aftreklys</div>
+      <ol class="steps">
+        <li>Merk die sel(le) waar die lys moet verskyn.</li>
+        <li>Klik <span class="ribbon-path"><span class="rp">Data</span><span class="rp-arrow">→</span><span class="rp">Data Validation</span></span>.</li>
+        <li>By &quot;Allow&quot; kies <strong>List</strong>.</li>
+        <li>By &quot;Source&quot; tik die opsies met kommas tussenin (bv. <code>Yes,No,Maybe</code>) OF verwys na 'n reeks selle (bv. <code>=$A$2:$A$10</code>).</li>
+        <li>Klik <strong>OK</strong>. 'n Pyltjie verskyn in die sel; die gebruiker kies nou uit die lys.</li>
+      </ol>
+    </div>
+    <ul>
+      <li><strong>Toelaattipes (Allow)</strong>: Whole number, Decimal, List, Date, Time, Text length — elk met 'n reël soos &quot;between&quot; of &quot;greater than&quot;.</li>
+      <li><strong>Input Message</strong>: wys 'n wenk wanneer die sel gekies word</li>
+      <li><strong>Error Alert</strong>: blokkeer ongeldige inskrywings en wys 'n boodskap</li>
+      <li>Verwyder: Data → Data Validation → Clear All</li>
+    </ul>
+
+    <div class="term-tag t2">Kwartaal 2</div>
     <h2>Gevorderde Funksies</h2>
     <h3>ROUND, ROUNDUP, ROUNDDOWN</h3>
     <div class="tbl-wrap"><table>
@@ -627,6 +647,24 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
       <li>Sorteer: klik kolomopskrif → Home → Sort Ascending/Descending</li>
       <li>Filter: Home → Filter-knoppie of regskliek 'n waarde</li>
     </ul>
+
+    <div class="term-tag t1">Kwartaal 1</div>
+    <h2>Verwantskappe tussen Tabelle</h2>
+    <p>'n Databasis stoor verwante data in aparte tabelle en koppel hulle met 'n verwantskap. Die mees algemene tipe is 'n een-tot-baie-verwantskap — byvoorbeeld EEN klant kan BAIE bestellings hê.</p>
+    <ul>
+      <li><strong>Primêre sleutel</strong>: die unieke veld in die &quot;een&quot;-tabel (bv. KlantID)</li>
+      <li><strong>Vreemde sleutel (foreign key)</strong>: dieselfde veld wat in die &quot;baie&quot;-tabel herhaal word om die twee tabelle te koppel</li>
+    </ul>
+    <div class="steps-box">
+      <div class="steps-title">Stap-vir-stap: Skep 'n verwantskap</div>
+      <ol class="steps">
+        <li>Klik <span class="ribbon-path"><span class="rp">Database Tools</span><span class="rp-arrow">→</span><span class="rp">Relationships</span></span>.</li>
+        <li>Voeg albei tabelle by (Show Table / Add Tables).</li>
+        <li>Sleep die primêre sleutel van die een tabel na die ooreenstemmende veld in die ander tabel.</li>
+        <li>Merk <strong>Enforce Referential Integrity</strong> en klik <strong>Skep</strong>. 'n Lyn met 1 — ∞ wys nou die een-tot-baie-verwantskap.</li>
+      </ol>
+    </div>
+    <div class="callout tip"><div class="callout-title">Waarom verwantskappe?</div><p>Verwantskappe voorkom duplisering van data en laat jou toe om 'n navraag of verslag te bou wat velde uit albei tabelle saam wys (bv. die klant se naam plus al sy bestellings).</p></div>
 
     <div class="term-tag t1">Kwartaal 1</div>
     <h2>Skep Vorms</h2>

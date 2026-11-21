@@ -120,6 +120,24 @@
     </ul>
 
     <div class="term-tag t1"><span class="i18n" data-af="Kwartaal 1">Term 1</span></div>
+    <h2><span class="i18n" data-af="Verwantskappe tussen Tabelle">Relationships Between Tables</span></h2>
+    <p><span class="i18n" data-af="'n Databasis stoor verwante data in aparte tabelle en koppel hulle met 'n verwantskap. Die mees algemene tipe is 'n een-tot-baie-verwantskap — byvoorbeeld EEN klant kan BAIE bestellings hê.">A database stores related data in separate tables and links them with a relationship. The most common type is a one-to-many relationship — for example, ONE customer can have MANY orders.</span></p>
+    <ul>
+      <li><strong><span class="i18n" data-af="Primêre sleutel">Primary key</span></strong>: <span class="i18n" data-af="die unieke veld in die &quot;een&quot;-tabel (bv. KlantID)">the unique field in the &quot;one&quot; table (e.g. CustomerID)</span></li>
+      <li><strong><span class="i18n" data-af="Vreemde sleutel (foreign key)">Foreign key</span></strong>: <span class="i18n" data-af="dieselfde veld wat in die &quot;baie&quot;-tabel herhaal word om die twee tabelle te koppel">the same field repeated in the &quot;many&quot; table to link the two tables</span></li>
+    </ul>
+    <div class="steps-box">
+      <div class="steps-title"><span class="i18n" data-af="Stap-vir-stap: Skep 'n verwantskap">Step-by-step: Create a relationship</span></div>
+      <ol class="steps">
+        <li><span class="i18n" data-af="Klik">Click</span> <span class="ribbon-path"><span class="rp">Database Tools</span><span class="rp-arrow">→</span><span class="rp">Relationships</span></span>.</li>
+        <li><span class="i18n" data-af="Voeg albei tabelle by (Show Table / Add Tables).">Add both tables (Show Table / Add Tables).</span></li>
+        <li><span class="i18n" data-af="Sleep die primêre sleutel van die een tabel na die ooreenstemmende veld in die ander tabel.">Drag the primary key from one table onto the matching field in the other table.</span></li>
+        <li><span class="i18n" data-af="Merk">Tick</span> <strong>Enforce Referential Integrity</strong> <span class="i18n" data-af="en klik">and click</span> <strong><span class="i18n" data-af="Skep">Create</span></strong>. <span class="i18n" data-af="'n Lyn met 1 — ∞ wys nou die een-tot-baie-verwantskap.">A line showing 1 — ∞ now indicates the one-to-many relationship.</span></li>
+      </ol>
+    </div>
+    <div class="callout tip"><div class="callout-title"><span class="i18n" data-af="Waarom verwantskappe?">Why use relationships?</span></div><p><span class="i18n" data-af="Verwantskappe voorkom duplisering van data en laat jou toe om 'n navraag of verslag te bou wat velde uit albei tabelle saam wys (bv. die klant se naam plus al sy bestellings).">Relationships prevent duplicated data and let you build a query or report that shows fields from both tables together (e.g. a customer's name plus all their orders).</span></p></div>
+
+    <div class="term-tag t1"><span class="i18n" data-af="Kwartaal 1">Term 1</span></div>
     <h2><span class="i18n" data-af="Skep Vorms">Creating Forms</span></h2>
     <p><span class="i18n" data-af="Vorms bied 'n vriendelike data-invoerkoppelvlak.">Forms provide a friendly data entry interface.</span></p>
     <ul>

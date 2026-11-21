@@ -399,6 +399,26 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
     </ul>
 
     <div class="term-tag t2"><span class="i18n" data-af="Kwartaal 2">Term 2</span></div>
+    <h2><span class="i18n" data-af="Datavalidering (Aftreklyste)">Data Validation (Drop-down Lists)</span></h2>
+    <p><span class="i18n" data-af="Datavalidering beperk wat in 'n sel ingetik mag word. Dit verminder foute deur die gebruiker te dwing om 'n geldige waarde te kies of in te tik — byvoorbeeld 'n aftreklys met slegs &quot;Ja&quot; of &quot;Nee&quot;.">Data validation restricts what may be typed into a cell. It reduces errors by forcing the user to choose or enter a valid value — for example a drop-down list that offers only &quot;Yes&quot; or &quot;No&quot;.</span></p>
+    <div class="steps-box">
+      <div class="steps-title"><span class="i18n" data-af="Stap-vir-stap: Maak 'n aftreklys">Step-by-step: Make a drop-down list</span></div>
+      <ol class="steps">
+        <li><span class="i18n" data-af="Merk die sel(le) waar die lys moet verskyn.">Select the cell(s) where the list must appear.</span></li>
+        <li><span class="i18n" data-af="Klik">Click</span> <span class="ribbon-path"><span class="rp">Data</span><span class="rp-arrow">→</span><span class="rp">Data Validation</span></span>.</li>
+        <li><span class="i18n" data-af="By &quot;Allow&quot; kies">Under "Allow" choose</span> <strong>List</strong>.</li>
+        <li><span class="i18n" data-af="By &quot;Source&quot; tik die opsies met kommas tussenin (bv.">In "Source" type the options separated by commas (e.g.</span> <code>Yes,No,Maybe</code><span class="i18n" data-af=") OF verwys na 'n reeks selle (bv.">) OR refer to a range of cells (e.g.</span> <code>=$A$2:$A$10</code>).</li>
+        <li><span class="i18n" data-af="Klik">Click</span> <strong>OK</strong>. <span class="i18n" data-af="'n Pyltjie verskyn in die sel; die gebruiker kies nou uit die lys.">An arrow appears in the cell; the user now picks from the list.</span></li>
+      </ol>
+    </div>
+    <ul>
+      <li><strong><span class="i18n" data-af="Toelaattipes (Allow)">Allow types</span></strong>: <span class="i18n" data-af="Whole number, Decimal, List, Date, Time, Text length — elk met 'n reël soos &quot;between&quot; of &quot;greater than&quot;.">Whole number, Decimal, List, Date, Time, Text length — each with a rule such as &quot;between&quot; or &quot;greater than&quot;.</span></li>
+      <li><strong>Input Message</strong>: <span class="i18n" data-af="wys 'n wenk wanneer die sel gekies word">shows a hint when the cell is selected</span></li>
+      <li><strong>Error Alert</strong>: <span class="i18n" data-af="blokkeer ongeldige inskrywings en wys 'n boodskap">blocks invalid entries and shows a message</span></li>
+      <li><span class="i18n" data-af="Verwyder: Data → Data Validation → Clear All">Remove: Data → Data Validation → Clear All</span></li>
+    </ul>
+
+    <div class="term-tag t2"><span class="i18n" data-af="Kwartaal 2">Term 2</span></div>
     <h2><span class="i18n" data-af="Gevorderde Funksies">Advanced Functions</span></h2>
     <h3>ROUND, ROUNDUP, ROUNDDOWN</h3>
     <div class="tbl-wrap"><table>
@@ -660,6 +680,24 @@ svg,figure{ break-inside:avoid-page; page-break-inside:avoid; }
       <li><span class="i18n" data-af="Sorteer: klik kolomopskrif → Home → Sort Ascending/Descending">Sort: click column header → Home → Sort Ascending/Descending</span></li>
       <li><span class="i18n" data-af="Filter: Home → Filter-knoppie of regskliek 'n waarde">Filter: Home → Filter button or right-click a value</span></li>
     </ul>
+
+    <div class="term-tag t1"><span class="i18n" data-af="Kwartaal 1">Term 1</span></div>
+    <h2><span class="i18n" data-af="Verwantskappe tussen Tabelle">Relationships Between Tables</span></h2>
+    <p><span class="i18n" data-af="'n Databasis stoor verwante data in aparte tabelle en koppel hulle met 'n verwantskap. Die mees algemene tipe is 'n een-tot-baie-verwantskap — byvoorbeeld EEN klant kan BAIE bestellings hê.">A database stores related data in separate tables and links them with a relationship. The most common type is a one-to-many relationship — for example, ONE customer can have MANY orders.</span></p>
+    <ul>
+      <li><strong><span class="i18n" data-af="Primêre sleutel">Primary key</span></strong>: <span class="i18n" data-af="die unieke veld in die &quot;een&quot;-tabel (bv. KlantID)">the unique field in the &quot;one&quot; table (e.g. CustomerID)</span></li>
+      <li><strong><span class="i18n" data-af="Vreemde sleutel (foreign key)">Foreign key</span></strong>: <span class="i18n" data-af="dieselfde veld wat in die &quot;baie&quot;-tabel herhaal word om die twee tabelle te koppel">the same field repeated in the &quot;many&quot; table to link the two tables</span></li>
+    </ul>
+    <div class="steps-box">
+      <div class="steps-title"><span class="i18n" data-af="Stap-vir-stap: Skep 'n verwantskap">Step-by-step: Create a relationship</span></div>
+      <ol class="steps">
+        <li><span class="i18n" data-af="Klik">Click</span> <span class="ribbon-path"><span class="rp">Database Tools</span><span class="rp-arrow">→</span><span class="rp">Relationships</span></span>.</li>
+        <li><span class="i18n" data-af="Voeg albei tabelle by (Show Table / Add Tables).">Add both tables (Show Table / Add Tables).</span></li>
+        <li><span class="i18n" data-af="Sleep die primêre sleutel van die een tabel na die ooreenstemmende veld in die ander tabel.">Drag the primary key from one table onto the matching field in the other table.</span></li>
+        <li><span class="i18n" data-af="Merk">Tick</span> <strong>Enforce Referential Integrity</strong> <span class="i18n" data-af="en klik">and click</span> <strong><span class="i18n" data-af="Skep">Create</span></strong>. <span class="i18n" data-af="'n Lyn met 1 — ∞ wys nou die een-tot-baie-verwantskap.">A line showing 1 — ∞ now indicates the one-to-many relationship.</span></li>
+      </ol>
+    </div>
+    <div class="callout tip"><div class="callout-title"><span class="i18n" data-af="Waarom verwantskappe?">Why use relationships?</span></div><p><span class="i18n" data-af="Verwantskappe voorkom duplisering van data en laat jou toe om 'n navraag of verslag te bou wat velde uit albei tabelle saam wys (bv. die klant se naam plus al sy bestellings).">Relationships prevent duplicated data and let you build a query or report that shows fields from both tables together (e.g. a customer's name plus all their orders).</span></p></div>
 
     <div class="term-tag t1"><span class="i18n" data-af="Kwartaal 1">Term 1</span></div>
     <h2><span class="i18n" data-af="Skep Vorms">Creating Forms</span></h2>
